@@ -47,7 +47,7 @@ namespace EasyRemainder
 					foreach (Task task in tasksToShow) {
 						System.Windows.Forms.MessageBox.Show(
 							string.Format("Pavadinimas: {0}, Laikas:{1}", 
-							              task.RemainderText, DBTypesConverter.ToFullDateString(task.DateRemainder)));
+							              task.Text, DBTypesConverter.ToFullDateString(task.DateRemainder)));
 					}
 					foreach (Task task in tasksToShow) {
 						connection.Delete(task.Id);
@@ -76,7 +76,7 @@ namespace EasyRemainder
 						{
 							List<Task> tasksToShow = connection2.LoadData();
 							foreach (Task task in tasksToShow) {
-								System.Windows.Forms.MessageBox.Show(task.RemainderText);
+								System.Windows.Forms.MessageBox.Show(task.Text);
 							}
 							foreach (Task task in tasksToShow) {
 								connection2.Delete(task.Id);
