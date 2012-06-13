@@ -57,7 +57,7 @@ namespace EasyRemainder
 			};
 			timer.Start();
 			
-			Main_From_Preparer preparer = new Main_From_Preparer();
+			MainFromPreparer preparer = new MainFromPreparer();
 			preparer.PrepareForm();
 			preparer.DataEntered += delegate(string dataEntered) { 
 				timer.Stop();
@@ -96,7 +96,7 @@ namespace EasyRemainder
 			loger.LogWrite(string.Format("Program started \n Program version: {0}",
 			                             StaticData.VersionCache.Version), LogerType.Info);
 			
-			Main_From_Preparer preparer = new Main_From_Preparer();
+			MainFromPreparer preparer = new MainFromPreparer();
 			preparer.PrepareForm();
 		}
 		

@@ -8,9 +8,9 @@ namespace Autogidas_checker.Forms.Main
 	/// <summary>
 	/// Description of Main_Form.
 	/// </summary>
-	public partial class Main_Form : Form
+	public partial class MainForm : Form
 	{
-		public Main_Form()
+		public MainForm()
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.

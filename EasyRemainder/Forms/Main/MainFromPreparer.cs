@@ -19,15 +19,15 @@ namespace EasyRemainder.Forms.Main
 	/// <summary>
 	/// Description of Main_From_Preparer.
 	/// </summary>
-	public class Main_From_Preparer : IFormPreparer
+	public class MainFromPreparer : IFormPreparer
 	{
-		private Main_Form m_form = null;
+		private MainForm m_form = null;
 		public event TaskData DataEntered;
 		public delegate void TaskData(string dataEntered);
 		
-		public Main_From_Preparer()
+		public MainFromPreparer()
 		{
-			m_form = new Main_Form();
+			m_form = new MainForm();
 		}
 
 		public void PrepareForm()
