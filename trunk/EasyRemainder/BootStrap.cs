@@ -14,10 +14,6 @@ using Minder.Sql;
 
 namespace EasyRemainder
 {
-	public class MainController
-	{
-		
-	}
 	/// <summary>
 	/// Class with program entry point.
 	/// </summary>
@@ -32,6 +28,10 @@ namespace EasyRemainder
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Starter();
+//			using (DBConnection connection = new DBConnection())
+//				{
+//				connection.CreateTable();
+//			}
 //			StartEngine();
 			Application.Run();
 		}

@@ -30,7 +30,7 @@ namespace Minder.Sql
 		}
 		private void Connect()
 		{
-			m_sql_con = new SQLiteConnection("Data Source=MinderDb.db;Version=3;New=False;Compress=True;");
+			m_sql_con = new SQLiteConnection(@"Data Source=..\..\DB\MinderDb.db;Version=3;New=False;Compress=True;");
 			m_sql_con.Open();
 		}
 		
@@ -113,6 +113,13 @@ namespace Minder.Sql
 		{
 			SQLiteCommand sql_cmd = m_sql_con.CreateCommand();
 			sql_cmd.CommandText = "DELETE FROM TASK WHERE ID = " + id;
+			sql_cmd.ExecuteNonQuery();
+		}
+		
+		public void CreateTable()
+		{
+			SQLiteCommand sql_cmd = m_sql_con.CreateCommand();
+			sql_cmd.CommandText = "CREATE TABLE TASK (ID UNIQUE PRIMARY KEY, NAME TEXT, DATE_REMAINDER TEXT, SOURCE_ID TEXT) ";
 			sql_cmd.ExecuteNonQuery();
 		}
 	}
