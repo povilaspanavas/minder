@@ -29,7 +29,7 @@ namespace EasyRemainder.Engine
 				return false;
 			
 			Task task = new Task();
-			task.OriginalDateTime = dateParser.OriginalDateTime;
+//			task.OriginalDateTime = dateParser.OriginalDateTime;
 			task.DateRemainder = date;
 			task.RemainderText = dateParser.LeftText;
 			
