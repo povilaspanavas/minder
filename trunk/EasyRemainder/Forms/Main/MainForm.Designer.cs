@@ -1,7 +1,7 @@
 ﻿
 namespace Autogidas_checker.Forms.Main
 {
-	partial class Main_Form
+	partial class MainForm
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -30,7 +30,7 @@ namespace Autogidas_checker.Forms.Main
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.m_trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
 			this.m_textBox = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();

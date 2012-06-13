@@ -59,11 +59,11 @@
     <Compile Include="BootStrap.cs" />
     <Compile Include="Engine\DateTimeParser.cs" />
     <Compile Include="Engine\TasksController.cs" />
-    <Compile Include="Forms\Main\Main_Form.cs" />
-    <Compile Include="Forms\Main\Main_Form.Designer.cs">
-      <DependentUpon>Main_Form.cs</DependentUpon>
+    <Compile Include="Forms\Main\MainForm.cs" />
+    <Compile Include="Forms\Main\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Main\Main_From_Preparer.cs" />
+    <Compile Include="Forms\Main\MainFromPreparer.cs" />
     <Compile Include="Objects\Human.cs" />
     <Compile Include="Objects\Task.cs" />
     <Compile Include="Sql\DBConnection.cs" />
@@ -87,8 +87,8 @@
     <Folder Include="Static" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\Main\Main_Form.resx">
-      <DependentUpon>Main_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Main\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
