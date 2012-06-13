@@ -43,7 +43,6 @@ namespace EasyRemainder.Forms.Settings
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(282, 255);
-			this.Icon = global::EasyRemainder.Forms.Main.MainForm.m_trayIcon_Icon;
 			this.Name = "SettingsForm";
 			this.Text = "SettingsForm";
 			this.ResumeLayout(false);
