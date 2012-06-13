@@ -1,0 +1,45 @@
+<core>
+	
+		<Factory>
+		<WorkingDirectory></WorkingDirectory>
+	</Factory>
+	
+	<LogConfig>
+		<DirName>Log</DirName>
+		<FileName>Log</FileName>
+		<Extension>log</Extension>
+		<LineCount>100</LineCount>
+	</LogConfig>
+	
+	<DBConfig>
+		<Host>88.223.51.135</Host>
+		<User>autogidas_lic</User>
+		<Pass>masterkey</Pass>
+		<DBName>autogidas_license</DBName>
+	</DBConfig>
+	
+	<FBDBConfig>
+		<Host>localhost</Host>
+		<User>sysdba</User>
+		<Pass>masterkey</Pass>
+		<DBName>EASY_REMAINDER</DBName>
+		<Unicode>UTF8</Unicode>
+	</FBDBConfig>
+	
+	<OracleDb>
+		<OracleConnString>Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=herkus.vgtu.lt)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=mydb)));User Id=ibagdonas;Password=ib4207;</OracleConnString>
+	</OracleDb>
+	
+	<UpdateVersion>
+		<FileName>EasyRemainder.exe</FileName>
+	</UpdateVersion>
+	
+	<UpdateProject>
+		<FtpUser>sharpas</FtpUser>
+		<FtpPass>verbatim</FtpPass>
+		<FtpVersionFileHost>ftp://92.61.46.24/httpdocs/SchoolTest/ftp_version.cvr</FtpVersionFileHost>
+		<FtpInstallHost>ftp://92.61.46.24/httpdocs/SchoolTest/update/SchoolTestUpdate.exe</FtpInstallHost>
+		<InstallFileName>SchoolTestUpdate.exe</InstallFileName>
+	</UpdateProject>
+
+</core>

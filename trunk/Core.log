@@ -1,0 +1,644 @@
+Microsoft (R) Build Engine Version 4.0.30319.1
+[Microsoft .NET Framework, Version 4.0.30319.233]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+Build started 2012.06.02 23:58:23.
+Project "d:\Projektai\Core\Core\Core.csproj" on node 1 (Rebuild target(s)).
+CoreClean:
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\CoreConfig.xml".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\TestCoreConfig.xml".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Core.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Core.pdb".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\NUnit.Framework.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\DB\DB Versions\1.dbv".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\DB\DB Versions\2.dbv".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\FirebirdSql.Data.FirebirdClient.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\FirebirdSql.Data.FirebirdClient.pdb".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\MySql.Data.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Tests\TestIniParser\testini.ini".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Oracle.DataAccess.dll".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\Newtonsoft.Json.dll".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\ResolveAssemblyReference.cache".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.dll".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.pdb".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.Forms.WaitingForm.resources".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\GenerateResource.read.1.tlog".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\GenerateResource.write.1.tlog".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.Tools.Icons.Icons.resources".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources".
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+CoreResGen:
+  resgen.exe /useSourcePath /r:"C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.dll" /r:C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll /r:d:\Projektai\Core\Core\libs\MySql.Data.dll /r:d:\Projektai\Core\Core\libs\Newtonsoft.Json.dll /r:"C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" /r:d:\Projektai\Core\Core\libs\Oracle.DataAccess.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll /compile Forms\LoginForm\LoginForm.resx,obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources Forms\WaitingForm.resx,obj\x86\Debug\Core.Forms.WaitingForm.resources Tools\Icons\Icons.resx,obj\x86\Debug\Core.Tools.Icons.Icons.resources
+  Processing resource file "Forms\LoginForm\LoginForm.resx" into "obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources".
+  Processing resource file "Forms\WaitingForm.resx" into "obj\x86\Debug\Core.Forms.WaitingForm.resources".
+  Processing resource file "Tools\Icons\Icons.resx" into "obj\x86\Debug\Core.Tools.Icons.Icons.resources".
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /checked+ /nowarn:1701,1702 /nostdlib+ /platform:x86 /define:DEBUG;TRACE /reference:"C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.dll" /reference:C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll /reference:d:\Projektai\Core\Core\libs\MySql.Data.dll /reference:d:\Projektai\Core\Core\libs\Newtonsoft.Json.dll /reference:"C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" /reference:d:\Projektai\Core\Core\libs\Oracle.DataAccess.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll /debug+ /debug:Full /optimize- /out:obj\x86\Debug\Core.dll /resource:obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources /resource:obj\x86\Debug\Core.Forms.WaitingForm.resources /resource:obj\x86\Debug\Core.Tools.Icons.Icons.resources /target:library Attributes\CacheObject.cs Attributes\DBColumnReference.cs Attributes\ObjectReference.cs Attributes\PrimaryKey.cs Attributes\UIControl.cs Config\ConfigObj.cs Config\ConfigLoader.cs DB\DBHelper.cs DB\FbConnectionScope.cs DB\FbDbHelper.cs DB\GenericDbHelper.cs DB\ListConverter.cs DB\OracleDb\OracleDbHelper.cs Forms\AbstractFormPreparer.cs Forms\ErrorBox.cs Forms\ErrorDbConnectBox.cs Forms\ErrorFtpConnectBox.cs Forms\IForm.cs Forms\IForm.Designer.cs Forms\LoginForm\LoginForm.cs Forms\LoginForm\LoginForm.Designer.cs Forms\LoginForm\LoginForm_Preparer.cs Forms\WaitingForm.cs Forms\WaitingForm.Designer.cs Forms\WarningBox.cs Helper\DateHelper.cs Helper\MD5Generator.cs Helper\StringHelper.cs Objects\BaseCoreObject.cs Objects\ICoreObject.cs Objects\LicenseKey.cs Objects\LicenseUser.cs Objects\TestingObject2.cs Objects\TestingObject3.cs Objects\TestingObject4.cs StaticData.cs Tests\TestDbHelper\TestDbHelper_ObjectAtributes.cs Tests\TestFbDbHelper\TestFbDbHelperInit.cs Tests\TestFbDbHelper\TestGetObjectFromFbDb.cs Tests\Helper\TestStringHelper.cs Tests\TestImportExport\TestExportObject.cs Tests\TestImportExport\TestImportObject.cs Tests\TestIniParser\TestIniParser.cs Tests\TestLicenseHelper\TestGenuineChecker.cs Tests\TestLicenseHelper\TestGetMacs.cs Tests\TestLicenseHelper\TestLicenseGet.cs Tests\TestOracleDbHelper\TestOracleDbHelperConn.cs Tests\TestRecreateDb.cs Tools\GlobalHotKeys\HotKeys.cs Tools\Icons\Icons.cs Tools\ImportExport\ExportObject.cs Tools\ImportExport\ImportObject.cs "Tools\Ini file parser\IniParser.cs" Tools\InterfaceCollector\ControllSettings.cs Tools\InterfaceCollector\InterfaceCollector.cs Tools\LicenseControler\DataBaseSettings.cs Tools\LicenseControler\LicenseHelper.cs Tools\Log\Loger.cs Objects\TestingObject.cs Properties\AssemblyInfo.cs Tests\TestDeleteObjectFromDb.cs Tests\TestGetObjectFromDb.cs Tests\TestListConverter.cs Tests\TestNewConfigLoader.cs Tests\TestObjectSaveToDb.cs Tests\TestSetUp\TestSetupFixture.cs Tests\TestUpdateDbVersion.cs Tests\TestUpdateObjectFromDb.cs Tests\TestUpdateProject.cs Tests\TestUpdateVersion.cs Tests\Test_LoadLogConfig.cs Tools\Log\LogerType.cs Tools\ObjectCache\ObjectCache.cs Tools\PluginsCollector\IPlugin.cs Tools\PluginsCollector\PluginsCollector.cs Tools\PluginsCollector\DemoPlugins\DemoPluginInterface.cs Tools\Update\UpdateProject.cs Tools\Version\UpdateVersion.cs Web\WebServiceController.cs Web\WebServiceVariable.cs "C:\Users\Ignas\AppData\Local\Temp\.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.cs"
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.dll" to "bin\Debug\FirebirdSql.Data.FirebirdClient.dll".
+  Copying file from "d:\Projektai\Core\Core\libs\MySql.Data.dll" to "bin\Debug\MySql.Data.dll".
+  Copying file from "d:\Projektai\Core\Core\libs\Newtonsoft.Json.dll" to "bin\Debug\Newtonsoft.Json.dll".
+  Copying file from "C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" to "bin\Debug\NUnit.Framework.dll".
+  Copying file from "d:\Projektai\Core\Core\libs\Oracle.DataAccess.dll" to "bin\Debug\Oracle.DataAccess.dll".
+  Copying file from "C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.pdb" to "bin\Debug\FirebirdSql.Data.FirebirdClient.pdb".
+  Copying file from "C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.xml" to "bin\Debug\NUnit.Framework.xml".
+_CopyOutOfDateSourceItemsToOutputDirectoryAlways:
+  Copying file from "d:\Projektai\Core\Core\Tests\TestIniParser\testini.ini" to "bin\Debug\Tests\TestIniParser\testini.ini".
+  Copying file from "d:\Projektai\Core\Core\CoreConfig.xml" to "bin\Debug\CoreConfig.xml".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\1.dbv" to "bin\Debug\DB\DB Versions\1.dbv".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\2.dbv" to "bin\Debug\DB\DB Versions\2.dbv".
+  Copying file from "d:\Projektai\Core\Core\TestCoreConfig.xml" to "bin\Debug\TestCoreConfig.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\x86\Debug\Core.dll" to "bin\Debug\Core.dll".
+  Core -> d:\Projektai\Core\Core\bin\Debug\Core.dll
+  Copying file from "obj\x86\Debug\Core.pdb" to "bin\Debug\Core.pdb".
+Done Building Project "d:\Projektai\Core\Core\Core.csproj" (Rebuild target(s)).
+
+Build succeeded.
+
+"d:\Projektai\Core\Core\Core.csproj" (Rebuild target) (1) ->
+(GetReferenceAssemblyPaths target) -> 
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+
+    2 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.85
+Microsoft (R) Build Engine Version 4.0.30319.1
+[Microsoft .NET Framework, Version 4.0.30319.233]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+Build started 2012.06.02 23:58:25.
+Project "d:\Projektai\Core\DBUpdater\DBUpdater.csproj" on node 1 (Rebuild target(s)).
+CoreClean:
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\Tests\TestIniParser\testini.ini".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\CoreConfig.xml".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\DB\DB Versions\1.dbv".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\DB\DB Versions\2.dbv".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\TestCoreConfig.xml".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\DBUpdater.exe".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\DBUpdater.pdb".
+  Deleting file "D:\Projektai\Core\DBUpdater\obj\x86\Debug\ResolveAssemblyReference.cache".
+  Deleting file "D:\Projektai\Core\DBUpdater\obj\x86\Debug\DBUpdater.exe".
+  Deleting file "D:\Projektai\Core\DBUpdater\obj\x86\Debug\DBUpdater.pdb".
+Project "d:\Projektai\Core\DBUpdater\DBUpdater.csproj" (1) is building "d:\Projektai\Core\Core\Core.csproj" (2) on node 1 (Clean target(s)).
+CoreClean:
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Core.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Core.pdb".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\NUnit.Framework.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\FirebirdSql.Data.FirebirdClient.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\FirebirdSql.Data.FirebirdClient.pdb".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\MySql.Data.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Oracle.DataAccess.dll".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\Newtonsoft.Json.dll".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\NUnit.Framework.xml".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\ResolveAssemblyReference.cache".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.dll".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.pdb".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.Forms.WaitingForm.resources".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\GenerateResource.read.1.tlog".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\GenerateResource.write.1.tlog".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.Tools.Icons.Icons.resources".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources".
+Done Building Project "d:\Projektai\Core\Core\Core.csproj" (Clean target(s)).
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\DBUpdater\DBUpdater.csproj]
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\DBUpdater\DBUpdater.csproj]
+Project "d:\Projektai\Core\DBUpdater\DBUpdater.csproj" (1) is building "d:\Projektai\Core\Core\Core.csproj" (2:2) on node 1 (default targets).
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+CoreResGen:
+  resgen.exe /useSourcePath /r:"C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.dll" /r:C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll /r:d:\Projektai\Core\Core\libs\MySql.Data.dll /r:d:\Projektai\Core\Core\libs\Newtonsoft.Json.dll /r:"C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" /r:d:\Projektai\Core\Core\libs\Oracle.DataAccess.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll /compile Forms\LoginForm\LoginForm.resx,obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources Forms\WaitingForm.resx,obj\x86\Debug\Core.Forms.WaitingForm.resources Tools\Icons\Icons.resx,obj\x86\Debug\Core.Tools.Icons.Icons.resources
+  Processing resource file "Forms\LoginForm\LoginForm.resx" into "obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources".
+  Processing resource file "Forms\WaitingForm.resx" into "obj\x86\Debug\Core.Forms.WaitingForm.resources".
+  Processing resource file "Tools\Icons\Icons.resx" into "obj\x86\Debug\Core.Tools.Icons.Icons.resources".
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /checked+ /nowarn:1701,1702 /nostdlib+ /platform:x86 /define:DEBUG;TRACE /reference:"C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.dll" /reference:C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll /reference:d:\Projektai\Core\Core\libs\MySql.Data.dll /reference:d:\Projektai\Core\Core\libs\Newtonsoft.Json.dll /reference:"C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" /reference:d:\Projektai\Core\Core\libs\Oracle.DataAccess.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll /debug+ /debug:Full /optimize- /out:obj\x86\Debug\Core.dll /resource:obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources /resource:obj\x86\Debug\Core.Forms.WaitingForm.resources /resource:obj\x86\Debug\Core.Tools.Icons.Icons.resources /target:library Attributes\CacheObject.cs Attributes\DBColumnReference.cs Attributes\ObjectReference.cs Attributes\PrimaryKey.cs Attributes\UIControl.cs Config\ConfigObj.cs Config\ConfigLoader.cs DB\DBHelper.cs DB\FbConnectionScope.cs DB\FbDbHelper.cs DB\GenericDbHelper.cs DB\ListConverter.cs DB\OracleDb\OracleDbHelper.cs Forms\AbstractFormPreparer.cs Forms\ErrorBox.cs Forms\ErrorDbConnectBox.cs Forms\ErrorFtpConnectBox.cs Forms\IForm.cs Forms\IForm.Designer.cs Forms\LoginForm\LoginForm.cs Forms\LoginForm\LoginForm.Designer.cs Forms\LoginForm\LoginForm_Preparer.cs Forms\WaitingForm.cs Forms\WaitingForm.Designer.cs Forms\WarningBox.cs Helper\DateHelper.cs Helper\MD5Generator.cs Helper\StringHelper.cs Objects\BaseCoreObject.cs Objects\ICoreObject.cs Objects\LicenseKey.cs Objects\LicenseUser.cs Objects\TestingObject2.cs Objects\TestingObject3.cs Objects\TestingObject4.cs StaticData.cs Tests\TestDbHelper\TestDbHelper_ObjectAtributes.cs Tests\TestFbDbHelper\TestFbDbHelperInit.cs Tests\TestFbDbHelper\TestGetObjectFromFbDb.cs Tests\Helper\TestStringHelper.cs Tests\TestImportExport\TestExportObject.cs Tests\TestImportExport\TestImportObject.cs Tests\TestIniParser\TestIniParser.cs Tests\TestLicenseHelper\TestGenuineChecker.cs Tests\TestLicenseHelper\TestGetMacs.cs Tests\TestLicenseHelper\TestLicenseGet.cs Tests\TestOracleDbHelper\TestOracleDbHelperConn.cs Tests\TestRecreateDb.cs Tools\GlobalHotKeys\HotKeys.cs Tools\Icons\Icons.cs Tools\ImportExport\ExportObject.cs Tools\ImportExport\ImportObject.cs "Tools\Ini file parser\IniParser.cs" Tools\InterfaceCollector\ControllSettings.cs Tools\InterfaceCollector\InterfaceCollector.cs Tools\LicenseControler\DataBaseSettings.cs Tools\LicenseControler\LicenseHelper.cs Tools\Log\Loger.cs Objects\TestingObject.cs Properties\AssemblyInfo.cs Tests\TestDeleteObjectFromDb.cs Tests\TestGetObjectFromDb.cs Tests\TestListConverter.cs Tests\TestNewConfigLoader.cs Tests\TestObjectSaveToDb.cs Tests\TestSetUp\TestSetupFixture.cs Tests\TestUpdateDbVersion.cs Tests\TestUpdateObjectFromDb.cs Tests\TestUpdateProject.cs Tests\TestUpdateVersion.cs Tests\Test_LoadLogConfig.cs Tools\Log\LogerType.cs Tools\ObjectCache\ObjectCache.cs Tools\PluginsCollector\IPlugin.cs Tools\PluginsCollector\PluginsCollector.cs Tools\PluginsCollector\DemoPlugins\DemoPluginInterface.cs Tools\Update\UpdateProject.cs Tools\Version\UpdateVersion.cs Web\WebServiceController.cs Web\WebServiceVariable.cs "C:\Users\Ignas\AppData\Local\Temp\.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.cs"
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.dll" to "bin\Debug\FirebirdSql.Data.FirebirdClient.dll".
+  Copying file from "d:\Projektai\Core\Core\libs\MySql.Data.dll" to "bin\Debug\MySql.Data.dll".
+  Copying file from "d:\Projektai\Core\Core\libs\Newtonsoft.Json.dll" to "bin\Debug\Newtonsoft.Json.dll".
+  Copying file from "C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" to "bin\Debug\NUnit.Framework.dll".
+  Copying file from "d:\Projektai\Core\Core\libs\Oracle.DataAccess.dll" to "bin\Debug\Oracle.DataAccess.dll".
+  Copying file from "C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.pdb" to "bin\Debug\FirebirdSql.Data.FirebirdClient.pdb".
+  Copying file from "C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.xml" to "bin\Debug\NUnit.Framework.xml".
+_CopyOutOfDateSourceItemsToOutputDirectoryAlways:
+  Copying file from "d:\Projektai\Core\Core\Tests\TestIniParser\testini.ini" to "bin\Debug\Tests\TestIniParser\testini.ini".
+  Copying file from "d:\Projektai\Core\Core\CoreConfig.xml" to "bin\Debug\CoreConfig.xml".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\1.dbv" to "bin\Debug\DB\DB Versions\1.dbv".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\2.dbv" to "bin\Debug\DB\DB Versions\2.dbv".
+  Copying file from "d:\Projektai\Core\Core\TestCoreConfig.xml" to "bin\Debug\TestCoreConfig.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\x86\Debug\Core.dll" to "bin\Debug\Core.dll".
+  Core -> d:\Projektai\Core\Core\bin\Debug\Core.dll
+  Copying file from "obj\x86\Debug\Core.pdb" to "bin\Debug\Core.pdb".
+Done Building Project "d:\Projektai\Core\Core\Core.csproj" (default targets).
+ResolveAssemblyReferences:
+  Consider app.config remapping of assembly "System.EnterpriseServices, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_32\System.EnterpriseServices\2.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_32\System.EnterpriseServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "mscorlib, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_32\mscorlib\2.0.0.0__b77a5c561934e089\mscorlib.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System\2.0.0.0__b77a5c561934e089\System.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.DirectoryServices, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.DirectoryServices\2.0.0.0__b03f5f7f11d50a3a\System.DirectoryServices.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.DirectoryServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.DirectoryServices.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "Microsoft.VisualC, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "8.0.0.0" [C:\Windows\assembly\GAC_MSIL\Microsoft.VisualC\8.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualC.dll] to Version "10.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.VisualC\v4.0_10.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualC.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Runtime.Remoting, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Runtime.Remoting\2.0.0.0__b77a5c561934e089\System.Runtime.Remoting.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Remoting\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Remoting.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Security, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Security\2.0.0.0__b03f5f7f11d50a3a\System.Security.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Security\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Security.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Web, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_32\System.Web\2.0.0.0__b03f5f7f11d50a3a\System.Web.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_32\System.Web\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Design, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Design\2.0.0.0__b03f5f7f11d50a3a\System.Design.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Design\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Design.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Configuration, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Configuration\2.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Windows.Forms\2.0.0.0__b77a5c561934e089\System.Windows.Forms.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Data.SqlXml, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Data.SqlXml\2.0.0.0__b77a5c561934e089\System.Data.SqlXml.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.SqlXml\v4.0_4.0.0.0__b77a5c561934e089\System.Data.SqlXml.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.ServiceProcess, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.ServiceProcess\2.0.0.0__b03f5f7f11d50a3a\System.ServiceProcess.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceProcess\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.ServiceProcess.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Deployment, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Deployment\2.0.0.0__b03f5f7f11d50a3a\System.Deployment.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Deployment\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Deployment.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Drawing.Design, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Drawing.Design\2.0.0.0__b03f5f7f11d50a3a\System.Drawing.Design.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing.Design\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.Design.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Data.OracleClient, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_32\System.Data.OracleClient\2.0.0.0__b77a5c561934e089\System.Data.OracleClient.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data.OracleClient\v4.0_4.0.0.0__b77a5c561934e089\System.Data.OracleClient.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Xml, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Xml\2.0.0.0__b77a5c561934e089\System.Xml.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Data, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_32\System.Data\2.0.0.0__b77a5c561934e089\System.Data.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "Accessibility, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\Accessibility\2.0.0.0__b03f5f7f11d50a3a\Accessibility.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Accessibility\v4.0_4.0.0.0__b03f5f7f11d50a3a\Accessibility.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Web.Services, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Services\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Drawing, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Drawing\2.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Runtime.Serialization.Formatters.Soap, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Runtime.Serialization.Formatters.Soap\2.0.0.0__b03f5f7f11d50a3a\System.Runtime.Serialization.Formatters.Soap.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization.Formatters.Soap\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.Serialization.Formatters.Soap.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Web.RegularExpressions, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Web.RegularExpressions\2.0.0.0__b03f5f7f11d50a3a\System.Web.RegularExpressions.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.RegularExpressions\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.RegularExpressions.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Transactions, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_32\System.Transactions\2.0.0.0__b77a5c561934e089\System.Transactions.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_32\System.Transactions\v4.0_4.0.0.0__b77a5c561934e089\System.Transactions.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.DirectoryServices.Protocols, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.DirectoryServices.Protocols\2.0.0.0__b03f5f7f11d50a3a\System.DirectoryServices.Protocols.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.DirectoryServices.Protocols\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.DirectoryServices.Protocols.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Configuration.Install, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Configuration.Install\2.0.0.0__b03f5f7f11d50a3a\System.Configuration.Install.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration.Install\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.Install.dll] to solve conflict and get rid of warning.
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(1360,9): warning MSB3247: Found conflicts between different versions of the same dependent assembly. [d:\Projektai\Core\DBUpdater\DBUpdater.csproj]
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /unsafe- /checked+ /nowarn:1701,1702 /nostdlib+ /platform:x86 /warn:4 /baseaddress:4194304 /define:DEBUG;TRACE /reference:d:\Projektai\Core\Core\bin\Debug\Core.dll /reference:C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll /debug+ /debug:Full /filealign:4096 /optimize- /out:obj\x86\Debug\DBUpdater.exe /target:exe /warnaserror- DbVersion.cs Program.cs Properties\AssemblyInfo.cs "C:\Users\Ignas\AppData\Local\Temp\.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.cs"
+_CopyOutOfDateSourceItemsToOutputDirectoryAlways:
+  Copying file from "d:\Projektai\Core\Core\Tests\TestIniParser\testini.ini" to "..\Core\bin\Debug\Tests\TestIniParser\testini.ini".
+  Copying file from "d:\Projektai\Core\Core\CoreConfig.xml" to "..\Core\bin\Debug\CoreConfig.xml".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\1.dbv" to "..\Core\bin\Debug\DB\DB Versions\1.dbv".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\2.dbv" to "..\Core\bin\Debug\DB\DB Versions\2.dbv".
+  Copying file from "d:\Projektai\Core\Core\TestCoreConfig.xml" to "..\Core\bin\Debug\TestCoreConfig.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\x86\Debug\DBUpdater.exe" to "..\Core\bin\Debug\DBUpdater.exe".
+  DBUpdater -> d:\Projektai\Core\Core\bin\Debug\DBUpdater.exe
+  Copying file from "obj\x86\Debug\DBUpdater.pdb" to "..\Core\bin\Debug\DBUpdater.pdb".
+Done Building Project "d:\Projektai\Core\DBUpdater\DBUpdater.csproj" (Rebuild target(s)).
+
+Build succeeded.
+
+"d:\Projektai\Core\DBUpdater\DBUpdater.csproj" (Rebuild target) (1) ->
+(GetReferenceAssemblyPaths target) -> 
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\DBUpdater\DBUpdater.csproj]
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\DBUpdater\DBUpdater.csproj]
+
+
+"d:\Projektai\Core\DBUpdater\DBUpdater.csproj" (Rebuild target) (1) ->
+"d:\Projektai\Core\Core\Core.csproj" (default target) (2:2) ->
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+
+
+"d:\Projektai\Core\DBUpdater\DBUpdater.csproj" (Rebuild target) (1) ->
+(ResolveAssemblyReferences target) -> 
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(1360,9): warning MSB3247: Found conflicts between different versions of the same dependent assembly. [d:\Projektai\Core\DBUpdater\DBUpdater.csproj]
+
+    5 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.64
+Microsoft (R) Build Engine Version 4.0.30319.1
+[Microsoft .NET Framework, Version 4.0.30319.233]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+Build started 2012.06.02 23:58:28.
+Project "d:\Projektai\Core\Tests\Tests.csproj" on node 1 (Rebuild target(s)).
+CoreClean:
+  Deleting file "D:\Projektai\Core\Tests\bin\Debug\Tests\TestIniParser\testini.ini".
+  Deleting file "D:\Projektai\Core\Tests\bin\Debug\CoreConfig.xml".
+  Deleting file "D:\Projektai\Core\Tests\bin\Debug\DB\DB Versions\1.dbv".
+  Deleting file "D:\Projektai\Core\Tests\bin\Debug\DB\DB Versions\2.dbv".
+  Deleting file "D:\Projektai\Core\Tests\bin\Debug\TestCoreConfig.xml".
+  Deleting file "D:\Projektai\Core\Tests\bin\Debug\Tests.dll".
+  Deleting file "D:\Projektai\Core\Tests\bin\Debug\Tests.pdb".
+  Deleting file "D:\Projektai\Core\Tests\bin\Debug\Core.dll".
+  Deleting file "D:\Projektai\Core\Tests\bin\Debug\FirebirdSql.Data.FirebirdClient.dll".
+  Deleting file "D:\Projektai\Core\Tests\bin\Debug\Oracle.DataAccess.dll".
+  Deleting file "D:\Projektai\Core\Tests\bin\Debug\nunit.framework.dll".
+  Deleting file "D:\Projektai\Core\Tests\bin\Debug\Core.pdb".
+  Deleting file "D:\Projektai\Core\Tests\bin\Debug\FirebirdSql.Data.FirebirdClient.pdb".
+  Deleting file "D:\Projektai\Core\Tests\bin\Debug\DemoPlugin.dll".
+  Deleting file "D:\Projektai\Core\Tests\bin\Debug\DemoPlugin.pdb".
+  Deleting file "d:\Projektai\Core\Tests\bin\Debug\NUnit.Framework.xml".
+  Deleting file "D:\Projektai\Core\Tests\obj\x86\Debug\ResolveAssemblyReference.cache".
+  Deleting file "D:\Projektai\Core\Tests\obj\x86\Debug\Tests.dll".
+  Deleting file "D:\Projektai\Core\Tests\obj\x86\Debug\Tests.pdb".
+Project "d:\Projektai\Core\Tests\Tests.csproj" (1) is building "d:\Projektai\Core\Core\Core.csproj" (2) on node 1 (Clean target(s)).
+CoreClean:
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\CoreConfig.xml".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\TestCoreConfig.xml".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Core.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Core.pdb".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\NUnit.Framework.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\DB\DB Versions\1.dbv".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\DB\DB Versions\2.dbv".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\FirebirdSql.Data.FirebirdClient.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\FirebirdSql.Data.FirebirdClient.pdb".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\MySql.Data.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Tests\TestIniParser\testini.ini".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Oracle.DataAccess.dll".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\Newtonsoft.Json.dll".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\NUnit.Framework.xml".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\ResolveAssemblyReference.cache".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.dll".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.pdb".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.Forms.WaitingForm.resources".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\GenerateResource.read.1.tlog".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\GenerateResource.write.1.tlog".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.Tools.Icons.Icons.resources".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources".
+Done Building Project "d:\Projektai\Core\Core\Core.csproj" (Clean target(s)).
+Project "d:\Projektai\Core\Tests\Tests.csproj" (1) is building "d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj" (3) on node 1 (Clean target(s)).
+CoreClean:
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\Tests\TestIniParser\testini.ini".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\CoreConfig.xml".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\DB\DB Versions\1.dbv".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\DB\DB Versions\2.dbv".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\TestCoreConfig.xml".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\DemoPlugin.dll".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\DemoPlugin.pdb".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\Core.dll".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\FirebirdSql.Data.FirebirdClient.dll".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\Oracle.DataAccess.dll".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\nunit.framework.dll".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\Core.pdb".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\FirebirdSql.Data.FirebirdClient.pdb".
+  Deleting file "d:\Projektai\Core\DemoPlugin\bin\Debug\nunit.framework.xml".
+  Deleting file "D:\Projektai\Core\DemoPlugin\obj\x86\Debug\ResolveAssemblyReference.cache".
+  Deleting file "D:\Projektai\Core\DemoPlugin\obj\x86\Debug\DemoPlugin.dll".
+  Deleting file "D:\Projektai\Core\DemoPlugin\obj\x86\Debug\DemoPlugin.pdb".
+Done Building Project "d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj" (Clean target(s)).
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Tests\Tests.csproj]
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Tests\Tests.csproj]
+Project "d:\Projektai\Core\Tests\Tests.csproj" (1) is building "d:\Projektai\Core\Core\Core.csproj" (2:3) on node 1 (default targets).
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+CoreResGen:
+  resgen.exe /useSourcePath /r:"C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.dll" /r:C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll /r:d:\Projektai\Core\Core\libs\MySql.Data.dll /r:d:\Projektai\Core\Core\libs\Newtonsoft.Json.dll /r:"C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" /r:d:\Projektai\Core\Core\libs\Oracle.DataAccess.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll /compile Forms\LoginForm\LoginForm.resx,obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources Forms\WaitingForm.resx,obj\x86\Debug\Core.Forms.WaitingForm.resources Tools\Icons\Icons.resx,obj\x86\Debug\Core.Tools.Icons.Icons.resources
+  Processing resource file "Forms\LoginForm\LoginForm.resx" into "obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources".
+  Processing resource file "Forms\WaitingForm.resx" into "obj\x86\Debug\Core.Forms.WaitingForm.resources".
+  Processing resource file "Tools\Icons\Icons.resx" into "obj\x86\Debug\Core.Tools.Icons.Icons.resources".
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /checked+ /nowarn:1701,1702 /nostdlib+ /platform:x86 /define:DEBUG;TRACE /reference:"C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.dll" /reference:C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll /reference:d:\Projektai\Core\Core\libs\MySql.Data.dll /reference:d:\Projektai\Core\Core\libs\Newtonsoft.Json.dll /reference:"C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" /reference:d:\Projektai\Core\Core\libs\Oracle.DataAccess.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll /debug+ /debug:Full /optimize- /out:obj\x86\Debug\Core.dll /resource:obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources /resource:obj\x86\Debug\Core.Forms.WaitingForm.resources /resource:obj\x86\Debug\Core.Tools.Icons.Icons.resources /target:library Attributes\CacheObject.cs Attributes\DBColumnReference.cs Attributes\ObjectReference.cs Attributes\PrimaryKey.cs Attributes\UIControl.cs Config\ConfigObj.cs Config\ConfigLoader.cs DB\DBHelper.cs DB\FbConnectionScope.cs DB\FbDbHelper.cs DB\GenericDbHelper.cs DB\ListConverter.cs DB\OracleDb\OracleDbHelper.cs Forms\AbstractFormPreparer.cs Forms\ErrorBox.cs Forms\ErrorDbConnectBox.cs Forms\ErrorFtpConnectBox.cs Forms\IForm.cs Forms\IForm.Designer.cs Forms\LoginForm\LoginForm.cs Forms\LoginForm\LoginForm.Designer.cs Forms\LoginForm\LoginForm_Preparer.cs Forms\WaitingForm.cs Forms\WaitingForm.Designer.cs Forms\WarningBox.cs Helper\DateHelper.cs Helper\MD5Generator.cs Helper\StringHelper.cs Objects\BaseCoreObject.cs Objects\ICoreObject.cs Objects\LicenseKey.cs Objects\LicenseUser.cs Objects\TestingObject2.cs Objects\TestingObject3.cs Objects\TestingObject4.cs StaticData.cs Tests\TestDbHelper\TestDbHelper_ObjectAtributes.cs Tests\TestFbDbHelper\TestFbDbHelperInit.cs Tests\TestFbDbHelper\TestGetObjectFromFbDb.cs Tests\Helper\TestStringHelper.cs Tests\TestImportExport\TestExportObject.cs Tests\TestImportExport\TestImportObject.cs Tests\TestIniParser\TestIniParser.cs Tests\TestLicenseHelper\TestGenuineChecker.cs Tests\TestLicenseHelper\TestGetMacs.cs Tests\TestLicenseHelper\TestLicenseGet.cs Tests\TestOracleDbHelper\TestOracleDbHelperConn.cs Tests\TestRecreateDb.cs Tools\GlobalHotKeys\HotKeys.cs Tools\Icons\Icons.cs Tools\ImportExport\ExportObject.cs Tools\ImportExport\ImportObject.cs "Tools\Ini file parser\IniParser.cs" Tools\InterfaceCollector\ControllSettings.cs Tools\InterfaceCollector\InterfaceCollector.cs Tools\LicenseControler\DataBaseSettings.cs Tools\LicenseControler\LicenseHelper.cs Tools\Log\Loger.cs Objects\TestingObject.cs Properties\AssemblyInfo.cs Tests\TestDeleteObjectFromDb.cs Tests\TestGetObjectFromDb.cs Tests\TestListConverter.cs Tests\TestNewConfigLoader.cs Tests\TestObjectSaveToDb.cs Tests\TestSetUp\TestSetupFixture.cs Tests\TestUpdateDbVersion.cs Tests\TestUpdateObjectFromDb.cs Tests\TestUpdateProject.cs Tests\TestUpdateVersion.cs Tests\Test_LoadLogConfig.cs Tools\Log\LogerType.cs Tools\ObjectCache\ObjectCache.cs Tools\PluginsCollector\IPlugin.cs Tools\PluginsCollector\PluginsCollector.cs Tools\PluginsCollector\DemoPlugins\DemoPluginInterface.cs Tools\Update\UpdateProject.cs Tools\Version\UpdateVersion.cs Web\WebServiceController.cs Web\WebServiceVariable.cs "C:\Users\Ignas\AppData\Local\Temp\.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.cs"
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.dll" to "bin\Debug\FirebirdSql.Data.FirebirdClient.dll".
+  Copying file from "d:\Projektai\Core\Core\libs\MySql.Data.dll" to "bin\Debug\MySql.Data.dll".
+  Copying file from "d:\Projektai\Core\Core\libs\Newtonsoft.Json.dll" to "bin\Debug\Newtonsoft.Json.dll".
+  Copying file from "C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" to "bin\Debug\NUnit.Framework.dll".
+  Copying file from "d:\Projektai\Core\Core\libs\Oracle.DataAccess.dll" to "bin\Debug\Oracle.DataAccess.dll".
+  Copying file from "C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.pdb" to "bin\Debug\FirebirdSql.Data.FirebirdClient.pdb".
+  Copying file from "C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.xml" to "bin\Debug\NUnit.Framework.xml".
+_CopyOutOfDateSourceItemsToOutputDirectoryAlways:
+  Copying file from "d:\Projektai\Core\Core\Tests\TestIniParser\testini.ini" to "bin\Debug\Tests\TestIniParser\testini.ini".
+  Copying file from "d:\Projektai\Core\Core\CoreConfig.xml" to "bin\Debug\CoreConfig.xml".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\1.dbv" to "bin\Debug\DB\DB Versions\1.dbv".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\2.dbv" to "bin\Debug\DB\DB Versions\2.dbv".
+  Copying file from "d:\Projektai\Core\Core\TestCoreConfig.xml" to "bin\Debug\TestCoreConfig.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\x86\Debug\Core.dll" to "bin\Debug\Core.dll".
+  Core -> d:\Projektai\Core\Core\bin\Debug\Core.dll
+  Copying file from "obj\x86\Debug\Core.pdb" to "bin\Debug\Core.pdb".
+Done Building Project "d:\Projektai\Core\Core\Core.csproj" (default targets).
+Project "d:\Projektai\Core\Tests\Tests.csproj" (1) is building "d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj" (3:2) on node 1 (default targets).
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj]
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj]
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /checked+ /nowarn:1701,1702 /nostdlib+ /platform:x86 /define:DEBUG;TRACE /reference:d:\Projektai\Core\Core\bin\Debug\Core.dll /reference:C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll /debug+ /debug:Full /optimize- /out:obj\x86\Debug\DemoPlugin.dll /target:library Plugin.cs Properties\AssemblyInfo.cs "C:\Users\Ignas\AppData\Local\Temp\.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.cs"
+_CopyFilesMarkedCopyLocal:
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\Core.dll" to "bin\Debug\Core.dll".
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\FirebirdSql.Data.FirebirdClient.dll" to "bin\Debug\FirebirdSql.Data.FirebirdClient.dll".
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\Oracle.DataAccess.dll" to "bin\Debug\Oracle.DataAccess.dll".
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\nunit.framework.dll" to "bin\Debug\nunit.framework.dll".
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\Core.pdb" to "bin\Debug\Core.pdb".
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\FirebirdSql.Data.FirebirdClient.pdb" to "bin\Debug\FirebirdSql.Data.FirebirdClient.pdb".
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\nunit.framework.xml" to "bin\Debug\nunit.framework.xml".
+_CopyOutOfDateSourceItemsToOutputDirectoryAlways:
+  Copying file from "d:\Projektai\Core\Core\Tests\TestIniParser\testini.ini" to "bin\Debug\Tests\TestIniParser\testini.ini".
+  Copying file from "d:\Projektai\Core\Core\CoreConfig.xml" to "bin\Debug\CoreConfig.xml".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\1.dbv" to "bin\Debug\DB\DB Versions\1.dbv".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\2.dbv" to "bin\Debug\DB\DB Versions\2.dbv".
+  Copying file from "d:\Projektai\Core\Core\TestCoreConfig.xml" to "bin\Debug\TestCoreConfig.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\x86\Debug\DemoPlugin.dll" to "bin\Debug\DemoPlugin.dll".
+  DemoPlugin -> d:\Projektai\Core\DemoPlugin\bin\Debug\DemoPlugin.dll
+  Copying file from "obj\x86\Debug\DemoPlugin.pdb" to "bin\Debug\DemoPlugin.pdb".
+Done Building Project "d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj" (default targets).
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /checked+ /nowarn:1701,1702 /nostdlib+ /platform:x86 /define:DEBUG;TRACE /reference:d:\Projektai\Core\Core\bin\Debug\Core.dll /reference:d:\Projektai\Core\DemoPlugin\bin\Debug\DemoPlugin.dll /reference:C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll /reference:"C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll /debug+ /debug:Full /optimize- /out:obj\x86\Debug\Tests.dll /target:library Properties\AssemblyInfo.cs TestGenericDbHelper\TestGenericDbHelper.cs TestHelper\TestDateHelper.cs TestPluginsCollector.cs "C:\Users\Ignas\AppData\Local\Temp\.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.cs"
+_CopyFilesMarkedCopyLocal:
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\Core.dll" to "bin\Debug\Core.dll".
+  Copying file from "d:\Projektai\Core\DemoPlugin\bin\Debug\DemoPlugin.dll" to "bin\Debug\DemoPlugin.dll".
+  Copying file from "C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" to "bin\Debug\NUnit.Framework.dll".
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\FirebirdSql.Data.FirebirdClient.dll" to "bin\Debug\FirebirdSql.Data.FirebirdClient.dll".
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\Oracle.DataAccess.dll" to "bin\Debug\Oracle.DataAccess.dll".
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\Core.pdb" to "bin\Debug\Core.pdb".
+  Copying file from "d:\Projektai\Core\DemoPlugin\bin\Debug\DemoPlugin.pdb" to "bin\Debug\DemoPlugin.pdb".
+  Copying file from "C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.xml" to "bin\Debug\NUnit.Framework.xml".
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\FirebirdSql.Data.FirebirdClient.pdb" to "bin\Debug\FirebirdSql.Data.FirebirdClient.pdb".
+_CopyOutOfDateSourceItemsToOutputDirectoryAlways:
+  Copying file from "d:\Projektai\Core\Core\Tests\TestIniParser\testini.ini" to "bin\Debug\Tests\TestIniParser\testini.ini".
+  Copying file from "d:\Projektai\Core\Core\CoreConfig.xml" to "bin\Debug\CoreConfig.xml".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\1.dbv" to "bin\Debug\DB\DB Versions\1.dbv".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\2.dbv" to "bin\Debug\DB\DB Versions\2.dbv".
+  Copying file from "d:\Projektai\Core\Core\TestCoreConfig.xml" to "bin\Debug\TestCoreConfig.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\x86\Debug\Tests.dll" to "bin\Debug\Tests.dll".
+  Tests -> d:\Projektai\Core\Tests\bin\Debug\Tests.dll
+  Copying file from "obj\x86\Debug\Tests.pdb" to "bin\Debug\Tests.pdb".
+Done Building Project "d:\Projektai\Core\Tests\Tests.csproj" (Rebuild target(s)).
+
+Build succeeded.
+
+"d:\Projektai\Core\Tests\Tests.csproj" (Rebuild target) (1) ->
+(GetReferenceAssemblyPaths target) -> 
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Tests\Tests.csproj]
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Tests\Tests.csproj]
+
+
+"d:\Projektai\Core\Tests\Tests.csproj" (Rebuild target) (1) ->
+"d:\Projektai\Core\Core\Core.csproj" (default target) (2:3) ->
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+
+
+"d:\Projektai\Core\Tests\Tests.csproj" (Rebuild target) (1) ->
+"d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj" (default target) (3:2) ->
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj]
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj]
+
+    6 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:03.62
+Microsoft (R) Build Engine Version 4.0.30319.1
+[Microsoft .NET Framework, Version 4.0.30319.233]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+Build started 2012.06.02 23:58:33.
+Project "d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj" on node 1 (Rebuild target(s)).
+CoreClean:
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\Tests\TestIniParser\testini.ini".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\CoreConfig.xml".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\DB\DB Versions\1.dbv".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\DB\DB Versions\2.dbv".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\TestCoreConfig.xml".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\DemoPlugin.dll".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\DemoPlugin.pdb".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\Core.dll".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\FirebirdSql.Data.FirebirdClient.dll".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\Oracle.DataAccess.dll".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\nunit.framework.dll".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\Core.pdb".
+  Deleting file "D:\Projektai\Core\DemoPlugin\bin\Debug\FirebirdSql.Data.FirebirdClient.pdb".
+  Deleting file "d:\Projektai\Core\DemoPlugin\bin\Debug\nunit.framework.xml".
+  Deleting file "D:\Projektai\Core\DemoPlugin\obj\x86\Debug\ResolveAssemblyReference.cache".
+  Deleting file "D:\Projektai\Core\DemoPlugin\obj\x86\Debug\DemoPlugin.dll".
+  Deleting file "D:\Projektai\Core\DemoPlugin\obj\x86\Debug\DemoPlugin.pdb".
+Project "d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj" (1) is building "d:\Projektai\Core\Core\Core.csproj" (2) on node 1 (Clean target(s)).
+CoreClean:
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\CoreConfig.xml".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\TestCoreConfig.xml".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Core.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Core.pdb".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\NUnit.Framework.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\DB\DB Versions\1.dbv".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\DB\DB Versions\2.dbv".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\FirebirdSql.Data.FirebirdClient.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\FirebirdSql.Data.FirebirdClient.pdb".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\MySql.Data.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Tests\TestIniParser\testini.ini".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Oracle.DataAccess.dll".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\Newtonsoft.Json.dll".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\NUnit.Framework.xml".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\ResolveAssemblyReference.cache".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.dll".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.pdb".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.Forms.WaitingForm.resources".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\GenerateResource.read.1.tlog".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\GenerateResource.write.1.tlog".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.Tools.Icons.Icons.resources".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources".
+Done Building Project "d:\Projektai\Core\Core\Core.csproj" (Clean target(s)).
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj]
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj]
+Project "d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj" (1) is building "d:\Projektai\Core\Core\Core.csproj" (2:2) on node 1 (default targets).
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+CoreResGen:
+  resgen.exe /useSourcePath /r:"C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.dll" /r:C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll /r:d:\Projektai\Core\Core\libs\MySql.Data.dll /r:d:\Projektai\Core\Core\libs\Newtonsoft.Json.dll /r:"C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" /r:d:\Projektai\Core\Core\libs\Oracle.DataAccess.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll /compile Forms\LoginForm\LoginForm.resx,obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources Forms\WaitingForm.resx,obj\x86\Debug\Core.Forms.WaitingForm.resources Tools\Icons\Icons.resx,obj\x86\Debug\Core.Tools.Icons.Icons.resources
+  Processing resource file "Forms\LoginForm\LoginForm.resx" into "obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources".
+  Processing resource file "Forms\WaitingForm.resx" into "obj\x86\Debug\Core.Forms.WaitingForm.resources".
+  Processing resource file "Tools\Icons\Icons.resx" into "obj\x86\Debug\Core.Tools.Icons.Icons.resources".
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /checked+ /nowarn:1701,1702 /nostdlib+ /platform:x86 /define:DEBUG;TRACE /reference:"C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.dll" /reference:C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll /reference:d:\Projektai\Core\Core\libs\MySql.Data.dll /reference:d:\Projektai\Core\Core\libs\Newtonsoft.Json.dll /reference:"C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" /reference:d:\Projektai\Core\Core\libs\Oracle.DataAccess.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll /debug+ /debug:Full /optimize- /out:obj\x86\Debug\Core.dll /resource:obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources /resource:obj\x86\Debug\Core.Forms.WaitingForm.resources /resource:obj\x86\Debug\Core.Tools.Icons.Icons.resources /target:library Attributes\CacheObject.cs Attributes\DBColumnReference.cs Attributes\ObjectReference.cs Attributes\PrimaryKey.cs Attributes\UIControl.cs Config\ConfigObj.cs Config\ConfigLoader.cs DB\DBHelper.cs DB\FbConnectionScope.cs DB\FbDbHelper.cs DB\GenericDbHelper.cs DB\ListConverter.cs DB\OracleDb\OracleDbHelper.cs Forms\AbstractFormPreparer.cs Forms\ErrorBox.cs Forms\ErrorDbConnectBox.cs Forms\ErrorFtpConnectBox.cs Forms\IForm.cs Forms\IForm.Designer.cs Forms\LoginForm\LoginForm.cs Forms\LoginForm\LoginForm.Designer.cs Forms\LoginForm\LoginForm_Preparer.cs Forms\WaitingForm.cs Forms\WaitingForm.Designer.cs Forms\WarningBox.cs Helper\DateHelper.cs Helper\MD5Generator.cs Helper\StringHelper.cs Objects\BaseCoreObject.cs Objects\ICoreObject.cs Objects\LicenseKey.cs Objects\LicenseUser.cs Objects\TestingObject2.cs Objects\TestingObject3.cs Objects\TestingObject4.cs StaticData.cs Tests\TestDbHelper\TestDbHelper_ObjectAtributes.cs Tests\TestFbDbHelper\TestFbDbHelperInit.cs Tests\TestFbDbHelper\TestGetObjectFromFbDb.cs Tests\Helper\TestStringHelper.cs Tests\TestImportExport\TestExportObject.cs Tests\TestImportExport\TestImportObject.cs Tests\TestIniParser\TestIniParser.cs Tests\TestLicenseHelper\TestGenuineChecker.cs Tests\TestLicenseHelper\TestGetMacs.cs Tests\TestLicenseHelper\TestLicenseGet.cs Tests\TestOracleDbHelper\TestOracleDbHelperConn.cs Tests\TestRecreateDb.cs Tools\GlobalHotKeys\HotKeys.cs Tools\Icons\Icons.cs Tools\ImportExport\ExportObject.cs Tools\ImportExport\ImportObject.cs "Tools\Ini file parser\IniParser.cs" Tools\InterfaceCollector\ControllSettings.cs Tools\InterfaceCollector\InterfaceCollector.cs Tools\LicenseControler\DataBaseSettings.cs Tools\LicenseControler\LicenseHelper.cs Tools\Log\Loger.cs Objects\TestingObject.cs Properties\AssemblyInfo.cs Tests\TestDeleteObjectFromDb.cs Tests\TestGetObjectFromDb.cs Tests\TestListConverter.cs Tests\TestNewConfigLoader.cs Tests\TestObjectSaveToDb.cs Tests\TestSetUp\TestSetupFixture.cs Tests\TestUpdateDbVersion.cs Tests\TestUpdateObjectFromDb.cs Tests\TestUpdateProject.cs Tests\TestUpdateVersion.cs Tests\Test_LoadLogConfig.cs Tools\Log\LogerType.cs Tools\ObjectCache\ObjectCache.cs Tools\PluginsCollector\IPlugin.cs Tools\PluginsCollector\PluginsCollector.cs Tools\PluginsCollector\DemoPlugins\DemoPluginInterface.cs Tools\Update\UpdateProject.cs Tools\Version\UpdateVersion.cs Web\WebServiceController.cs Web\WebServiceVariable.cs "C:\Users\Ignas\AppData\Local\Temp\.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.cs"
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.dll" to "bin\Debug\FirebirdSql.Data.FirebirdClient.dll".
+  Copying file from "d:\Projektai\Core\Core\libs\MySql.Data.dll" to "bin\Debug\MySql.Data.dll".
+  Copying file from "d:\Projektai\Core\Core\libs\Newtonsoft.Json.dll" to "bin\Debug\Newtonsoft.Json.dll".
+  Copying file from "C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" to "bin\Debug\NUnit.Framework.dll".
+  Copying file from "d:\Projektai\Core\Core\libs\Oracle.DataAccess.dll" to "bin\Debug\Oracle.DataAccess.dll".
+  Copying file from "C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.pdb" to "bin\Debug\FirebirdSql.Data.FirebirdClient.pdb".
+  Copying file from "C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.xml" to "bin\Debug\NUnit.Framework.xml".
+_CopyOutOfDateSourceItemsToOutputDirectoryAlways:
+  Copying file from "d:\Projektai\Core\Core\Tests\TestIniParser\testini.ini" to "bin\Debug\Tests\TestIniParser\testini.ini".
+  Copying file from "d:\Projektai\Core\Core\CoreConfig.xml" to "bin\Debug\CoreConfig.xml".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\1.dbv" to "bin\Debug\DB\DB Versions\1.dbv".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\2.dbv" to "bin\Debug\DB\DB Versions\2.dbv".
+  Copying file from "d:\Projektai\Core\Core\TestCoreConfig.xml" to "bin\Debug\TestCoreConfig.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\x86\Debug\Core.dll" to "bin\Debug\Core.dll".
+  Core -> d:\Projektai\Core\Core\bin\Debug\Core.dll
+  Copying file from "obj\x86\Debug\Core.pdb" to "bin\Debug\Core.pdb".
+Done Building Project "d:\Projektai\Core\Core\Core.csproj" (default targets).
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /checked+ /nowarn:1701,1702 /nostdlib+ /platform:x86 /define:DEBUG;TRACE /reference:d:\Projektai\Core\Core\bin\Debug\Core.dll /reference:C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll /debug+ /debug:Full /optimize- /out:obj\x86\Debug\DemoPlugin.dll /target:library Plugin.cs Properties\AssemblyInfo.cs "C:\Users\Ignas\AppData\Local\Temp\.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.cs"
+_CopyFilesMarkedCopyLocal:
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\Core.dll" to "bin\Debug\Core.dll".
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\FirebirdSql.Data.FirebirdClient.dll" to "bin\Debug\FirebirdSql.Data.FirebirdClient.dll".
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\Oracle.DataAccess.dll" to "bin\Debug\Oracle.DataAccess.dll".
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\nunit.framework.dll" to "bin\Debug\nunit.framework.dll".
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\Core.pdb" to "bin\Debug\Core.pdb".
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\FirebirdSql.Data.FirebirdClient.pdb" to "bin\Debug\FirebirdSql.Data.FirebirdClient.pdb".
+  Copying file from "d:\Projektai\Core\Core\bin\Debug\nunit.framework.xml" to "bin\Debug\nunit.framework.xml".
+_CopyOutOfDateSourceItemsToOutputDirectoryAlways:
+  Copying file from "d:\Projektai\Core\Core\Tests\TestIniParser\testini.ini" to "bin\Debug\Tests\TestIniParser\testini.ini".
+  Copying file from "d:\Projektai\Core\Core\CoreConfig.xml" to "bin\Debug\CoreConfig.xml".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\1.dbv" to "bin\Debug\DB\DB Versions\1.dbv".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\2.dbv" to "bin\Debug\DB\DB Versions\2.dbv".
+  Copying file from "d:\Projektai\Core\Core\TestCoreConfig.xml" to "bin\Debug\TestCoreConfig.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\x86\Debug\DemoPlugin.dll" to "bin\Debug\DemoPlugin.dll".
+  DemoPlugin -> d:\Projektai\Core\DemoPlugin\bin\Debug\DemoPlugin.dll
+  Copying file from "obj\x86\Debug\DemoPlugin.pdb" to "bin\Debug\DemoPlugin.pdb".
+Done Building Project "d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj" (Rebuild target(s)).
+
+Build succeeded.
+
+"d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj" (Rebuild target) (1) ->
+(GetReferenceAssemblyPaths target) -> 
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj]
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj]
+
+
+"d:\Projektai\Core\DemoPlugin\DemoPlugin.csproj" (Rebuild target) (1) ->
+"d:\Projektai\Core\Core\Core.csproj" (default target) (2:2) ->
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+
+    4 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.76
+Microsoft (R) Build Engine Version 4.0.30319.1
+[Microsoft .NET Framework, Version 4.0.30319.233]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+Build started 2012.06.02 23:58:37.
+Project "d:\Projektai\Core\InterfaceCollector\DemoInterfaceCollector.csproj" on node 1 (Rebuild target(s)).
+CoreClean:
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\Tests\TestIniParser\testini.ini".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\CoreConfig.xml".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\DB\DB Versions\1.dbv".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\DB\DB Versions\2.dbv".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\TestCoreConfig.xml".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\DemoInterfaceCollector.exe".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\DemoInterfaceCollector.pdb".
+  Deleting file "D:\Projektai\Core\InterfaceCollector\obj\x86\Debug\ResolveAssemblyReference.cache".
+  Deleting file "D:\Projektai\Core\InterfaceCollector\obj\x86\Debug\DemoInterfaceCollector.exe".
+  Deleting file "D:\Projektai\Core\InterfaceCollector\obj\x86\Debug\DemoInterfaceCollector.pdb".
+Project "d:\Projektai\Core\InterfaceCollector\DemoInterfaceCollector.csproj" (1) is building "d:\Projektai\Core\Core\Core.csproj" (2) on node 1 (Clean target(s)).
+CoreClean:
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Core.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Core.pdb".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\NUnit.Framework.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\FirebirdSql.Data.FirebirdClient.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\FirebirdSql.Data.FirebirdClient.pdb".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\MySql.Data.dll".
+  Deleting file "D:\Projektai\Core\Core\bin\Debug\Oracle.DataAccess.dll".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\Newtonsoft.Json.dll".
+  Deleting file "d:\Projektai\Core\Core\bin\Debug\NUnit.Framework.xml".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\ResolveAssemblyReference.cache".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.dll".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.pdb".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.Forms.WaitingForm.resources".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\GenerateResource.read.1.tlog".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\GenerateResource.write.1.tlog".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.Tools.Icons.Icons.resources".
+  Deleting file "D:\Projektai\Core\Core\obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources".
+Done Building Project "d:\Projektai\Core\Core\Core.csproj" (Clean target(s)).
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\InterfaceCollector\DemoInterfaceCollector.csproj]
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\InterfaceCollector\DemoInterfaceCollector.csproj]
+Project "d:\Projektai\Core\InterfaceCollector\DemoInterfaceCollector.csproj" (1) is building "d:\Projektai\Core\Core\Core.csproj" (2:2) on node 1 (default targets).
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+CoreResGen:
+  resgen.exe /useSourcePath /r:"C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.dll" /r:C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll /r:d:\Projektai\Core\Core\libs\MySql.Data.dll /r:d:\Projektai\Core\Core\libs\Newtonsoft.Json.dll /r:"C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" /r:d:\Projektai\Core\Core\libs\Oracle.DataAccess.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll /r:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll /compile Forms\LoginForm\LoginForm.resx,obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources Forms\WaitingForm.resx,obj\x86\Debug\Core.Forms.WaitingForm.resources Tools\Icons\Icons.resx,obj\x86\Debug\Core.Tools.Icons.Icons.resources
+  Processing resource file "Forms\LoginForm\LoginForm.resx" into "obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources".
+  Processing resource file "Forms\WaitingForm.resx" into "obj\x86\Debug\Core.Forms.WaitingForm.resources".
+  Processing resource file "Tools\Icons\Icons.resx" into "obj\x86\Debug\Core.Tools.Icons.Icons.resources".
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /checked+ /nowarn:1701,1702 /nostdlib+ /platform:x86 /define:DEBUG;TRACE /reference:"C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.dll" /reference:C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll /reference:d:\Projektai\Core\Core\libs\MySql.Data.dll /reference:d:\Projektai\Core\Core\libs\Newtonsoft.Json.dll /reference:"C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" /reference:d:\Projektai\Core\Core\libs\Oracle.DataAccess.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll /debug+ /debug:Full /optimize- /out:obj\x86\Debug\Core.dll /resource:obj\x86\Debug\Core.Forms.LoginForm.LoginForm.resources /resource:obj\x86\Debug\Core.Forms.WaitingForm.resources /resource:obj\x86\Debug\Core.Tools.Icons.Icons.resources /target:library Attributes\CacheObject.cs Attributes\DBColumnReference.cs Attributes\ObjectReference.cs Attributes\PrimaryKey.cs Attributes\UIControl.cs Config\ConfigObj.cs Config\ConfigLoader.cs DB\DBHelper.cs DB\FbConnectionScope.cs DB\FbDbHelper.cs DB\GenericDbHelper.cs DB\ListConverter.cs DB\OracleDb\OracleDbHelper.cs Forms\AbstractFormPreparer.cs Forms\ErrorBox.cs Forms\ErrorDbConnectBox.cs Forms\ErrorFtpConnectBox.cs Forms\IForm.cs Forms\IForm.Designer.cs Forms\LoginForm\LoginForm.cs Forms\LoginForm\LoginForm.Designer.cs Forms\LoginForm\LoginForm_Preparer.cs Forms\WaitingForm.cs Forms\WaitingForm.Designer.cs Forms\WarningBox.cs Helper\DateHelper.cs Helper\MD5Generator.cs Helper\StringHelper.cs Objects\BaseCoreObject.cs Objects\ICoreObject.cs Objects\LicenseKey.cs Objects\LicenseUser.cs Objects\TestingObject2.cs Objects\TestingObject3.cs Objects\TestingObject4.cs StaticData.cs Tests\TestDbHelper\TestDbHelper_ObjectAtributes.cs Tests\TestFbDbHelper\TestFbDbHelperInit.cs Tests\TestFbDbHelper\TestGetObjectFromFbDb.cs Tests\Helper\TestStringHelper.cs Tests\TestImportExport\TestExportObject.cs Tests\TestImportExport\TestImportObject.cs Tests\TestIniParser\TestIniParser.cs Tests\TestLicenseHelper\TestGenuineChecker.cs Tests\TestLicenseHelper\TestGetMacs.cs Tests\TestLicenseHelper\TestLicenseGet.cs Tests\TestOracleDbHelper\TestOracleDbHelperConn.cs Tests\TestRecreateDb.cs Tools\GlobalHotKeys\HotKeys.cs Tools\Icons\Icons.cs Tools\ImportExport\ExportObject.cs Tools\ImportExport\ImportObject.cs "Tools\Ini file parser\IniParser.cs" Tools\InterfaceCollector\ControllSettings.cs Tools\InterfaceCollector\InterfaceCollector.cs Tools\LicenseControler\DataBaseSettings.cs Tools\LicenseControler\LicenseHelper.cs Tools\Log\Loger.cs Objects\TestingObject.cs Properties\AssemblyInfo.cs Tests\TestDeleteObjectFromDb.cs Tests\TestGetObjectFromDb.cs Tests\TestListConverter.cs Tests\TestNewConfigLoader.cs Tests\TestObjectSaveToDb.cs Tests\TestSetUp\TestSetupFixture.cs Tests\TestUpdateDbVersion.cs Tests\TestUpdateObjectFromDb.cs Tests\TestUpdateProject.cs Tests\TestUpdateVersion.cs Tests\Test_LoadLogConfig.cs Tools\Log\LogerType.cs Tools\ObjectCache\ObjectCache.cs Tools\PluginsCollector\IPlugin.cs Tools\PluginsCollector\PluginsCollector.cs Tools\PluginsCollector\DemoPlugins\DemoPluginInterface.cs Tools\Update\UpdateProject.cs Tools\Version\UpdateVersion.cs Web\WebServiceController.cs Web\WebServiceVariable.cs "C:\Users\Ignas\AppData\Local\Temp\.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.cs"
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.dll" to "bin\Debug\FirebirdSql.Data.FirebirdClient.dll".
+  Copying file from "d:\Projektai\Core\Core\libs\MySql.Data.dll" to "bin\Debug\MySql.Data.dll".
+  Copying file from "d:\Projektai\Core\Core\libs\Newtonsoft.Json.dll" to "bin\Debug\Newtonsoft.Json.dll".
+  Copying file from "C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.dll" to "bin\Debug\NUnit.Framework.dll".
+  Copying file from "d:\Projektai\Core\Core\libs\Oracle.DataAccess.dll" to "bin\Debug\Oracle.DataAccess.dll".
+  Copying file from "C:\Program Files\FirebirdClient\FirebirdSql.Data.FirebirdClient.pdb" to "bin\Debug\FirebirdSql.Data.FirebirdClient.pdb".
+  Copying file from "C:\Program Files\NUnit 2.5.10\bin\net-2.0\framework\NUnit.Framework.xml" to "bin\Debug\NUnit.Framework.xml".
+_CopyOutOfDateSourceItemsToOutputDirectoryAlways:
+  Copying file from "d:\Projektai\Core\Core\Tests\TestIniParser\testini.ini" to "bin\Debug\Tests\TestIniParser\testini.ini".
+  Copying file from "d:\Projektai\Core\Core\CoreConfig.xml" to "bin\Debug\CoreConfig.xml".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\1.dbv" to "bin\Debug\DB\DB Versions\1.dbv".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\2.dbv" to "bin\Debug\DB\DB Versions\2.dbv".
+  Copying file from "d:\Projektai\Core\Core\TestCoreConfig.xml" to "bin\Debug\TestCoreConfig.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\x86\Debug\Core.dll" to "bin\Debug\Core.dll".
+  Core -> d:\Projektai\Core\Core\bin\Debug\Core.dll
+  Copying file from "obj\x86\Debug\Core.pdb" to "bin\Debug\Core.pdb".
+Done Building Project "d:\Projektai\Core\Core\Core.csproj" (default targets).
+ResolveAssemblyReferences:
+  Consider app.config remapping of assembly "System.EnterpriseServices, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_32\System.EnterpriseServices\2.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_32\System.EnterpriseServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "mscorlib, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_32\mscorlib\2.0.0.0__b77a5c561934e089\mscorlib.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System\2.0.0.0__b77a5c561934e089\System.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.DirectoryServices, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.DirectoryServices\2.0.0.0__b03f5f7f11d50a3a\System.DirectoryServices.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.DirectoryServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.DirectoryServices.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "Microsoft.VisualC, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "8.0.0.0" [C:\Windows\assembly\GAC_MSIL\Microsoft.VisualC\8.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualC.dll] to Version "10.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.VisualC\v4.0_10.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualC.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Runtime.Remoting, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Runtime.Remoting\2.0.0.0__b77a5c561934e089\System.Runtime.Remoting.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Remoting\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Remoting.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Security, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Security\2.0.0.0__b03f5f7f11d50a3a\System.Security.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Security\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Security.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Web, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_32\System.Web\2.0.0.0__b03f5f7f11d50a3a\System.Web.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_32\System.Web\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Design, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Design\2.0.0.0__b03f5f7f11d50a3a\System.Design.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Design\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Design.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Configuration, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Configuration\2.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Windows.Forms\2.0.0.0__b77a5c561934e089\System.Windows.Forms.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Data.SqlXml, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Data.SqlXml\2.0.0.0__b77a5c561934e089\System.Data.SqlXml.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.SqlXml\v4.0_4.0.0.0__b77a5c561934e089\System.Data.SqlXml.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.ServiceProcess, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.ServiceProcess\2.0.0.0__b03f5f7f11d50a3a\System.ServiceProcess.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceProcess\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.ServiceProcess.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Deployment, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Deployment\2.0.0.0__b03f5f7f11d50a3a\System.Deployment.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Deployment\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Deployment.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Drawing.Design, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Drawing.Design\2.0.0.0__b03f5f7f11d50a3a\System.Drawing.Design.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing.Design\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.Design.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Data.OracleClient, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_32\System.Data.OracleClient\2.0.0.0__b77a5c561934e089\System.Data.OracleClient.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data.OracleClient\v4.0_4.0.0.0__b77a5c561934e089\System.Data.OracleClient.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Xml, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Xml\2.0.0.0__b77a5c561934e089\System.Xml.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Data, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_32\System.Data\2.0.0.0__b77a5c561934e089\System.Data.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "Accessibility, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\Accessibility\2.0.0.0__b03f5f7f11d50a3a\Accessibility.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Accessibility\v4.0_4.0.0.0__b03f5f7f11d50a3a\Accessibility.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Web.Services, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Services\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Drawing, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Drawing\2.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Runtime.Serialization.Formatters.Soap, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Runtime.Serialization.Formatters.Soap\2.0.0.0__b03f5f7f11d50a3a\System.Runtime.Serialization.Formatters.Soap.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization.Formatters.Soap\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.Serialization.Formatters.Soap.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Web.RegularExpressions, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Web.RegularExpressions\2.0.0.0__b03f5f7f11d50a3a\System.Web.RegularExpressions.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.RegularExpressions\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.RegularExpressions.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Transactions, Culture=neutral, PublicKeyToken=b77a5c561934e089" from Version "2.0.0.0" [C:\Windows\assembly\GAC_32\System.Transactions\2.0.0.0__b77a5c561934e089\System.Transactions.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_32\System.Transactions\v4.0_4.0.0.0__b77a5c561934e089\System.Transactions.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.DirectoryServices.Protocols, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.DirectoryServices.Protocols\2.0.0.0__b03f5f7f11d50a3a\System.DirectoryServices.Protocols.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.DirectoryServices.Protocols\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.DirectoryServices.Protocols.dll] to solve conflict and get rid of warning.
+  Consider app.config remapping of assembly "System.Configuration.Install, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "2.0.0.0" [C:\Windows\assembly\GAC_MSIL\System.Configuration.Install\2.0.0.0__b03f5f7f11d50a3a\System.Configuration.Install.dll] to Version "4.0.0.0" [C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration.Install\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.Install.dll] to solve conflict and get rid of warning.
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(1360,9): warning MSB3247: Found conflicts between different versions of the same dependent assembly. [d:\Projektai\Core\InterfaceCollector\DemoInterfaceCollector.csproj]
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /unsafe- /checked+ /nowarn:1701,1702 /nostdlib+ /platform:x86 /warn:4 /baseaddress:4194304 /define:DEBUG;TRACE /reference:d:\Projektai\Core\Core\bin\Debug\Core.dll /reference:C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll /reference:C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll /debug+ /debug:Full /filealign:4096 /optimize- /out:obj\x86\Debug\DemoInterfaceCollector.exe /target:winexe /warnaserror- DemoForm.cs DemoForm.Designer.cs DemoForm_Preparer.cs Program.cs Properties\AssemblyInfo.cs "C:\Users\Ignas\AppData\Local\Temp\.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.cs"
+_CopyOutOfDateSourceItemsToOutputDirectoryAlways:
+  Copying file from "d:\Projektai\Core\Core\Tests\TestIniParser\testini.ini" to "..\Core\bin\Debug\Tests\TestIniParser\testini.ini".
+  Copying file from "d:\Projektai\Core\Core\CoreConfig.xml" to "..\Core\bin\Debug\CoreConfig.xml".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\1.dbv" to "..\Core\bin\Debug\DB\DB Versions\1.dbv".
+  Copying file from "d:\Projektai\Core\Core\DB\DB Versions\2.dbv" to "..\Core\bin\Debug\DB\DB Versions\2.dbv".
+  Copying file from "d:\Projektai\Core\Core\TestCoreConfig.xml" to "..\Core\bin\Debug\TestCoreConfig.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\x86\Debug\DemoInterfaceCollector.exe" to "..\Core\bin\Debug\DemoInterfaceCollector.exe".
+  DemoInterfaceCollector -> d:\Projektai\Core\Core\bin\Debug\DemoInterfaceCollector.exe
+  Copying file from "obj\x86\Debug\DemoInterfaceCollector.pdb" to "..\Core\bin\Debug\DemoInterfaceCollector.pdb".
+Done Building Project "d:\Projektai\Core\InterfaceCollector\DemoInterfaceCollector.csproj" (Rebuild target(s)).
+
+Build succeeded.
+
+"d:\Projektai\Core\InterfaceCollector\DemoInterfaceCollector.csproj" (Rebuild target) (1) ->
+(GetReferenceAssemblyPaths target) -> 
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\InterfaceCollector\DemoInterfaceCollector.csproj]
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\InterfaceCollector\DemoInterfaceCollector.csproj]
+
+
+"d:\Projektai\Core\InterfaceCollector\DemoInterfaceCollector.csproj" (Rebuild target) (1) ->
+"d:\Projektai\Core\Core\Core.csproj" (default target) (2:2) ->
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0,Profile=Client" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(847,9): warning MSB3644: The reference assemblies for framework ".NETFramework,Version=v4.0" were not found. To resolve this, install the SDK or Targeting Pack for this framework version or retarget your application to a version of the framework for which you have the SDK or Targeting Pack installed. Note that assemblies will be resolved from the Global Assembly Cache (GAC) and will be used in place of reference assemblies. Therefore your assembly may not be correctly targeted for the framework you intend. [d:\Projektai\Core\Core\Core.csproj]
+
+
+"d:\Projektai\Core\InterfaceCollector\DemoInterfaceCollector.csproj" (Rebuild target) (1) ->
+(ResolveAssemblyReferences target) -> 
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets(1360,9): warning MSB3247: Found conflicts between different versions of the same dependent assembly. [d:\Projektai\Core\InterfaceCollector\DemoInterfaceCollector.csproj]
+
+    5 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.65
