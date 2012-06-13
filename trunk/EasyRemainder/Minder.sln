@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-# SharpDevelop 4.2.0.8573-beta
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyRemainder", "EasyRemainder.csproj", "{125E2525-BFA7-40E8-8FD8-04E49206A67A}"
+# SharpDevelop 4.2.1.8805
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minder", "Minder.csproj", "{125E2525-BFA7-40E8-8FD8-04E49206A67A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
