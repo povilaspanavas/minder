@@ -8,6 +8,6 @@ namespace EasyRemainder.Static
 	/// </summary>
 	public static class StaticData
 	{
-		public const string HOST = "http://localhost/WebService/default.asmx";
+		
 	}
 }
