@@ -15,24 +15,24 @@ namespace EasyRemainder.Objects
 	/// </summary>
 	public class Task
 	{
-		int id;
-		string name;
+		int m_id;
+		string m_remainderName;
 		DateTime m_dateRemainder;
-		string sourceId;
+		string m_sourceId;
 		
 		public string SourceId {
-			get { return sourceId; }
-			set { sourceId = value; }
+			get { return m_sourceId; }
+			set { m_sourceId = value; }
 		}
 		
 		public int Id {
-			get { return id; }
-			set { id = value; }
+			get { return m_id; }
+			set { m_id = value; }
 		}
 		
-		public string Name {
-			get { return name; }
-			set { name = value; }
+		public string RemainderText {
+			get { return m_remainderName; }
+			set { m_remainderName = value; }
 		}
 		
 		
@@ -41,18 +41,20 @@ namespace EasyRemainder.Objects
 			set { m_dateRemainder = value; }
 		}
 		
-		string originalDateTime;
+		string m_originalDateTime;
 		
 		public string OriginalDateTime {
-			get { return originalDateTime; }
-			set { originalDateTime = value; }
+			get { return m_originalDateTime; }
+			set { m_originalDateTime = value; }
 		}
+		
 		public Task(int id, string taskText, DateTime remainderDate) : this()
 		{
-			this.id = id;
-			this.name = taskText;
+			this.m_id = id;
+			this.m_remainderName = taskText;
 			this.m_dateRemainder = remainderDate;
 		}
+		
 		public Task()
 		{
 			

@@ -31,7 +31,7 @@ namespace EasyRemainder.Engine
 			Task task = new Task();
 			task.OriginalDateTime = dateParser.OriginalDateTime;
 			task.DateRemainder = date;
-			task.Name = dateParser.LeftText;
+			task.RemainderText = dateParser.LeftText;
 			
 			
 			
