@@ -60,7 +60,7 @@ namespace Autogidas_checker.Forms.Main
 			this.label1.TabIndex = 2;
 			this.label1.Text = "New task";
 			// 
-			// Main_Form
+			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -70,7 +70,8 @@ namespace Autogidas_checker.Forms.Main
 			this.Controls.Add(this.m_textBox);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Margin = new System.Windows.Forms.Padding(4);
-			this.Name = "Main_Form";
+			this.Name = "MainForm";
+			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Main_Form";
 			this.TopMost = true;
