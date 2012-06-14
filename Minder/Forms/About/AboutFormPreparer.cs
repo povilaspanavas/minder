@@ -1,27 +1,27 @@
 ﻿/*
  * Created by SharpDevelop.
  * User: IGNAS
- * Date: 2012.06.13
- * Time: 23:38
+ * Date: 2012.06.14
+ * Time: 22:00
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
 using Core.Forms;
 
-namespace EasyRemainder.Forms.Settings
+namespace EasyRemainder.Forms.About
 {
 	/// <summary>
-	/// Description of SettingsFromPreparer.
+	/// Description of AboutFormPreparer.
 	/// </summary>
-	public class SettingsFromPreparer : IFormPreparer
+	public class AboutFormPreparer : IFormPreparer
 	{
-		SettingsForm m_form = null;
+		AboutForm m_form = null;
 		
-		public SettingsFromPreparer()
+		public AboutFormPreparer()
 		{
-			m_form = new SettingsForm();
-			m_form.Text = "Nustatymai";
+			m_form = new AboutForm();
+			m_form.Text = "About";
 		}
 		
 		public System.Windows.Forms.Form Form {
@@ -32,12 +32,12 @@ namespace EasyRemainder.Forms.Settings
 		
 		public void PrepareForm()
 		{
-			
+			SetEvents();
+			m_form.Show();
 		}
 		
 		public void SetEvents()
 		{
-			
 		}
 	}
 }
