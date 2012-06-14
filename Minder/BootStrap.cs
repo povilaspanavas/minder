@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Autogidas_checker.Forms.Main;
 using Core;
 using Core.Forms;
 using Core.Forms.LoginForm;
