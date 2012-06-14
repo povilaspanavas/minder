@@ -8,6 +8,7 @@
  */
 using System;
 using Core.Forms;
+using EasyRemainder.Static;
 
 namespace EasyRemainder.Forms.Settings
 {
@@ -32,6 +33,7 @@ namespace EasyRemainder.Forms.Settings
 		
 		public void PrepareForm()
 		{
+			AddDataToControlls();
 			SetEvents();
 			m_form.Show();
 		}
@@ -39,6 +41,15 @@ namespace EasyRemainder.Forms.Settings
 		public void SetEvents()
 		{
 			
+		}
+		
+		private void AddDataToControlls()
+		{
+			foreach(string key in StaticData.KeysDic.Keys)
+			{
+				m_form.m_keysComboBox.Items.Add(key);
+			}
+			m_form.m_keysComboBox.SelectedIndex = 0;
 		}
 	}
 }
