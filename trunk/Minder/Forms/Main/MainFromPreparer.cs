@@ -7,12 +7,12 @@ using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 
-using Autogidas_checker.Forms.Main;
 using Core;
 using Core.Forms;
 using Core.Tools.GlobalHotKeys;
 using Core.Tools.ImportExport;
 using Core.Tools.Log;
+using Minder.Forms.Main;
 
 namespace EasyRemainder.Forms.Main
 {
