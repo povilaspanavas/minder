@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
 # SharpDevelop 4.2.0.8573-beta
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minder", "EasyRemainder\Minder.csproj", "{125E2525-BFA7-40E8-8FD8-04E49206A67A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minder", "Minder\Minder.csproj", "{125E2525-BFA7-40E8-8FD8-04E49206A67A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
