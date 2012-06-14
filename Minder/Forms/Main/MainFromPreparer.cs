@@ -39,7 +39,10 @@ namespace EasyRemainder.Forms.Main
 
 		public void SetEvents()
 		{
-			
+			m_form.m_trayIcon.DoubleClick += delegate 
+			{
+				//New task;				
+			};
 		}
 		
 		private void BackroundWorks()
@@ -78,6 +81,7 @@ namespace EasyRemainder.Forms.Main
 			ContextMenu menu = new ContextMenu();
 			
 			MenuItem menuItemNewTask = new MenuItem("New task"); //TODO
+			MenuItem menuItemTasks = new MenuItem("Tasks"); //TODO
 			MenuItem menuItemSettings = new MenuItem("Settings", OpenSettingsForm);
 			MenuItem menuItemAbout = new MenuItem("About", OpenAboutForm);
 			MenuItem menuSeparator = new MenuItem("-");
@@ -86,6 +90,7 @@ namespace EasyRemainder.Forms.Main
 			
 			menu.MenuItems.Add(menuItemNewTask);
 			menu.MenuItems.Add(menuSeparator);
+			menu.MenuItems.Add(menuItemTasks);
 			menu.MenuItems.Add(menuItemSettings);
 			menu.MenuItems.Add(menuItemAbout);
 			menu.MenuItems.Add(menuSeparator2);
