@@ -38,14 +38,18 @@ namespace EasyRemainder
 		
 		private static void Starter()
 		{
-			ConfigLoader.LoadConfiguration(false);
-			new UpdateVersion();
-			Loger loger = new Loger();
-			loger.LogWrite(string.Format("Program started \n Program version: {0}",
-			                             StaticData.VersionCache.Version), LogerType.Info);
+			try
+			{
+				ConfigLoader.LoadConfiguration(false);
+				new UpdateVersion();
+				MainFromPreparer preparer = new MainFromPreparer();
+				preparer.PrepareForm();
+			}
+			catch (Exception e)
+			{
+				new ErrorBox(e.ToString()); //This show error box and write to log.
+			}
 			
-			MainFromPreparer preparer = new MainFromPreparer();
-			preparer.PrepareForm();
 		}
 		
 	}
