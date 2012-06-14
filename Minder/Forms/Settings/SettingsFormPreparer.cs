@@ -21,7 +21,7 @@ namespace EasyRemainder.Forms.Settings
 		public SettingsFormPreparer()
 		{
 			m_form = new SettingsForm();
-			m_form.Text = "Nustatymai";
+			m_form.Text = "Settings";
 		}
 		
 		public System.Windows.Forms.Form Form {
