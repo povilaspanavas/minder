@@ -27,7 +27,6 @@ namespace EasyRemainder
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Starter();
-//			StartEngine();
 			Application.Run();
 		}
 		
