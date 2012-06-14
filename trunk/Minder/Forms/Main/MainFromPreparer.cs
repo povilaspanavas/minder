@@ -6,12 +6,13 @@ using System.Drawing;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
-
 using Core;
 using Core.Forms;
 using Core.Tools.GlobalHotKeys;
 using Core.Tools.ImportExport;
 using Core.Tools.Log;
+using EasyRemainder.Forms.About;
+using EasyRemainder.Forms.Settings;
 using Minder.Forms.Main;
 
 namespace EasyRemainder.Forms.Main
@@ -44,6 +45,7 @@ namespace EasyRemainder.Forms.Main
 		private void BackroundWorks()
 		{
 			RegisterHotKeys();
+			SetContextMenu();
 		}
 		
 		private void RegisterHotKeys()
@@ -70,6 +72,45 @@ namespace EasyRemainder.Forms.Main
 				DataEntered(this.m_form.TextBox.Text);
 			m_form.Visible = false;
 		}
+		
+		private void SetContextMenu()
+		{
+			ContextMenu menu = new ContextMenu();
+			
+			MenuItem menuItemNewTask = new MenuItem("New task"); //TODO
+			MenuItem menuItemSettings = new MenuItem("Settings", OpenSettingsForm);
+			MenuItem menuItemAbout = new MenuItem("About", OpenAboutForm);
+			MenuItem menuSeparator = new MenuItem("-");
+			MenuItem menuSeparator2 = new MenuItem("-");
+			MenuItem menuExit = new MenuItem("Exit", ExitApplication);
+			
+			menu.MenuItems.Add(menuItemNewTask);
+			menu.MenuItems.Add(menuSeparator);
+			menu.MenuItems.Add(menuItemSettings);
+			menu.MenuItems.Add(menuItemAbout);
+			menu.MenuItems.Add(menuSeparator2);
+			menu.MenuItems.Add(menuExit);
+			m_form.m_trayIcon.ContextMenu = menu;
+		}
+		
+		#region ContextMenuEvents
+		private void OpenSettingsForm(object sender, EventArgs e)
+		{
+			SettingsFormPreparer preparer = new SettingsFormPreparer();
+			preparer.PrepareForm();
+		}
+		
+		private void OpenAboutForm(object sender, EventArgs e)
+		{
+			AboutFormPreparer preparer = new AboutFormPreparer();
+			preparer.PrepareForm();
+		}
+		
+		private void ExitApplication(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
+		#endregion
 		
 		public Form Form {
 			get { return m_form;}
