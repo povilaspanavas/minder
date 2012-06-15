@@ -122,5 +122,12 @@ namespace Minder.Sql
 			sql_cmd.CommandText = "CREATE TABLE TASK (ID UNIQUE PRIMARY KEY, NAME TEXT, DATE_REMAINDER TEXT, SOURCE_ID TEXT) ";
 			sql_cmd.ExecuteNonQuery();
 		}
+		
+		public SQLiteDataReader ExecuteQuery(string query)
+		{
+			SQLiteCommand sql_cmd = m_sql_con.CreateCommand();
+			sql_cmd.CommandText = query;
+			return sql_cmd.ExecuteReader();
+		}
 	}
 }
