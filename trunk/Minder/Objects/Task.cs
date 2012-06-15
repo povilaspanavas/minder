@@ -9,7 +9,7 @@
 using System;
 using Minder.Sql;
 
-namespace EasyRemainder.Objects
+namespace Minder.Objects
 {
 	/// <summary>
 	/// Description of Task.
@@ -84,6 +84,16 @@ namespace EasyRemainder.Objects
 			{
 				con.ExecuteNonQuery("DELETE FROM TASK WHERE ID = " + m_id);
 			}
+		}
+		
+		public Task ParseString(string dataEntered)
+		{
+			this.Text = dataEntered.Substring(0, dataEntered.IndexOf("|"));
+			string time = dataEntered.Substring(dataEntered.IndexOf("|") + 1);
+			int minutes = int.Parse(time);
+			this.DateRemainder = DateTime.Now.AddMinutes(minutes);
+			this.SourceId = dataEntered;
+			return this;
 		}
 	}
 }

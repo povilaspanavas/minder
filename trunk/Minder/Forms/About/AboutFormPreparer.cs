@@ -9,7 +9,7 @@
 using System;
 using Core.Forms;
 
-namespace EasyRemainder.Forms.About
+namespace Minder.Forms.About
 {
 	/// <summary>
 	/// Description of AboutFormPreparer.

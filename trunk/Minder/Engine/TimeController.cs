@@ -9,11 +9,11 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using EasyRemainder.Forms.Main;
-using EasyRemainder.Objects;
+using Minder.Forms.Main;
+using Minder.Objects;
 using Minder.Sql;
 
-namespace EasyRemainder.Engine
+namespace Minder.Engine
 {
 
 	/// <summary>
@@ -43,17 +43,10 @@ namespace EasyRemainder.Engine
 		
 		void SaveNewTask(string dataEntered)
 		{
-			Task task = ParseString(dataEntered);
+			Task task = new Task().ParseString(dataEntered);
 			task.Save();
 		}
 		
-		Task ParseString(string dataEntered)
-		{
-			string name = dataEntered.Substring(0, dataEntered.IndexOf("|"));
-			string time = dataEntered.Substring(dataEntered.IndexOf("|") + 1);
-			int minutes = int.Parse(time);
-			DateTime showTime = DateTime.Now.AddMinutes(minutes);
-			return null;
-		}
+		
 	}
 }

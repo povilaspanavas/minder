@@ -11,11 +11,11 @@ using Core.Forms;
 using Core.Tools.GlobalHotKeys;
 using Core.Tools.ImportExport;
 using Core.Tools.Log;
-using EasyRemainder.Forms.About;
-using EasyRemainder.Forms.Settings;
+using Minder.Forms.About;
+using Minder.Forms.Settings;
 using Minder.Forms.Main;
 
-namespace EasyRemainder.Forms.Main
+namespace Minder.Forms.Main
 {
 	/// <summary>
 	/// Description of Main_From_Preparer.

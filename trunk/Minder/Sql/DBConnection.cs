@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Windows.Forms;
-using EasyRemainder.Objects;
+using Minder.Objects;
 
 namespace Minder.Sql
 {

@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Core;
 using Core.Forms;
-using EasyRemainder.Forms.Main;
-using EasyRemainder.Objects;
+using Minder.Forms.Main;
+using Minder.Objects;
 using Minder.Sql;
 
-namespace EasyRemainder
+namespace Minder
 {
 	/// <summary>
 	/// Class with program entry point.

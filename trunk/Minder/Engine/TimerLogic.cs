@@ -9,11 +9,11 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using EasyRemainder.Forms.Main;
-using EasyRemainder.Objects;
+using Minder.Forms.Main;
+using Minder.Objects;
 using Minder.Sql;
 
-namespace EasyRemainder.Engine
+namespace Minder.Engine
 {
 	public class TimerLogic
 	{
