@@ -11,6 +11,7 @@ namespace Minder.Static
 	public static class StaticData
 	{
 		private static Dictionary<string, Keys> m_keysDic = new Dictionary<string, Keys>();
+		public const string SETTINGS_FILE_PATH = "settings.ini";
 		
 		public static Dictionary<string, Keys> KeysDic 
 		{
