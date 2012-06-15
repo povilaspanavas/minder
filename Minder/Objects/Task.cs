@@ -49,11 +49,14 @@ namespace EasyRemainder.Objects
 			this.m_dateRemainder = remainderDate;
 		}
 		
+		public Task(string taskText, DateTime remainderDate) : this(0, taskText, remainderDate)
+		{
+			
+		}
 		public Task()
 		{
 			
 		}
-		
 		public void Save()
 		{
 			using (DBConnection con = new DBConnection())
