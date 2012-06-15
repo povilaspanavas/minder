@@ -59,7 +59,7 @@
   <ItemGroup>
     <Compile Include="BootStrap.cs" />
     <Compile Include="Engine\DateTimeParser.cs" />
-    <Compile Include="Engine\TasksController.cs" />
+    <Compile Include="Engine\TaskController.cs" />
     <Compile Include="Engine\TimeController.cs" />
     <Compile Include="Engine\TimerLogic.cs" />
     <Compile Include="Forms\About\AboutForm.cs" />

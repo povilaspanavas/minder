@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace EasyRemainder.Static
+namespace Minder.Static
 {
 	/// <summary>
 	/// Description of StaticData.

@@ -6,7 +6,7 @@
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
-namespace EasyRemainder.Forms.About
+namespace Minder.Forms.About
 {
 	partial class AboutForm
 	{

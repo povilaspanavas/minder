@@ -9,7 +9,7 @@
 using System;
 using System.Data;
 using System.Data.SQLite;
-using EasyRemainder.Objects;
+using Minder.Objects;
 using Minder.Sql;
 using NUnit.Framework;
 

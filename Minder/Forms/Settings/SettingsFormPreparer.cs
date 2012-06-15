@@ -8,9 +8,9 @@
  */
 using System;
 using Core.Forms;
-using EasyRemainder.Static;
+using Minder.Static;
 
-namespace EasyRemainder.Forms.Settings
+namespace Minder.Forms.Settings
 {
 	/// <summary>
 	/// Description of SettingsFromPreparer.

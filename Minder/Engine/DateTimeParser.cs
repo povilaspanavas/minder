@@ -8,7 +8,7 @@
  */
 using System;
 
-namespace EasyRemainder.Engine
+namespace Minder.Engine
 {
 	/// <summary>
 	/// Description of DateTimeParser.
