@@ -78,5 +78,46 @@ namespace Minder.Static
 			m_keysDic.Add("9", Keys.NumPad9);
 			
 		}
+		
+		public static class Settings
+		{
+			public static class NewTaskHotkey
+			{
+				static bool m_ctrl;
+				
+				public static bool Ctrl {
+					get { return m_ctrl; }
+					set { m_ctrl = value; }
+				}
+				
+				static bool m_alt;
+				
+				public static bool Alt {
+					get { return m_alt; }
+					set { m_alt = value; }
+				}
+				
+				static bool m_shift;
+				
+				public static bool Shift {
+					get { return m_shift; }
+					set { m_shift = value; }
+				}
+				
+				static bool m_win;
+				
+				public static bool Win {
+					get { return m_win; }
+					set { m_win = value; }
+				}
+				
+				static string m_key;
+				
+				public static string Key {
+					get { return m_key; }
+					set { m_key = value; }
+				}
+			}
+		}
 	}
 }

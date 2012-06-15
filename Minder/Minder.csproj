@@ -77,6 +77,7 @@
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Settings\SettingsFormPreparer.cs" />
+    <Compile Include="Forms\Settings\SettingsLoader.cs" />
     <Compile Include="Objects\Task.cs" />
     <Compile Include="Sql\DBConnection.cs" />
     <Compile Include="Sql\DBTypesConverter.cs" />

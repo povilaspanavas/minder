@@ -7,7 +7,10 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.IO;
+using System.Windows.Forms;
 using Core.Forms;
+using EasyRemainder.Forms.Settings;
 using Minder.Static;
 
 namespace Minder.Forms.Settings
@@ -40,6 +43,7 @@ namespace Minder.Forms.Settings
 		
 		public void SetEvents()
 		{
+			m_form.Closing += FormClosing;
 			
 		}
 		
@@ -49,7 +53,22 @@ namespace Minder.Forms.Settings
 			{
 				m_form.m_keysComboBox.Items.Add(key);
 			}
-			m_form.m_keysComboBox.SelectedIndex = 0;
+			
+			new SettingsLoader().LoadSettings();
 		}
+		
+		private void FormClosing(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			//Check or exist changes
+			
+			if(MessageBox.Show("Do you want to save changes?", "Settings",
+			                   MessageBoxButtons.YesNo) ==  DialogResult.No)
+			{
+//				e.Cancel = true;
+			}
+			
+			
+		}
+		
 	}
 }

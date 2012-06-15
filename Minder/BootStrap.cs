@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Core;
 using Core.Forms;
+using EasyRemainder.Forms.Settings;
 using Minder.Forms.Main;
 using Minder.Objects;
 using Minder.Sql;
@@ -37,6 +38,8 @@ namespace Minder
 			try
 			{
 				ConfigLoader.LoadConfiguration(false);
+				SettingsLoader loader = new SettingsLoader();
+				loader.LoadSettings();
 				new UpdateVersion();
 				MainFromPreparer preparer = new MainFromPreparer();
 				preparer.PrepareForm();
