@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using Minder.Sql;
 
 namespace EasyRemainder.Objects
 {
@@ -41,13 +42,6 @@ namespace EasyRemainder.Objects
 			set { m_dateRemainder = value; }
 		}
 		
-//		string m_originalDateTime;
-//		
-//		public string OriginalDateTime {
-//			get { return m_originalDateTime; }
-//			set { m_originalDateTime = value; }
-//		}
-		
 		public Task(int id, string taskText, DateTime remainderDate) : this()
 		{
 			this.m_id = id;
@@ -58,6 +52,17 @@ namespace EasyRemainder.Objects
 		public Task()
 		{
 			
+		}
+		
+		public void Save()
+		{
+			using (DBConnection con = new DBConnection())
+			{
+				con.ExecuteNonQuery(string.Format("INSERT INTO TASK (NAME, DATE_REMAINDER, SOURCE_ID) " +
+				                    "VALUES({0}, {1}, {2}, {3})",
+				                           this.Text, DBTypesConverter.ToFullDateStringWithQuotes(this.DateRemainder),
+				                           this.SourceId));
+			}
 		}
 	}
 }
