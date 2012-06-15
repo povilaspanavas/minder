@@ -30,8 +30,14 @@ namespace Minder.Tests.DB
 			} catch {}
 		}
 		
+		[SetUp]
+		public void InitEveryTime()
+		{
+			Task.DeleteAll();
+		}
+		
 		[Test]
-		public void TestSaveLoad()
+		public void TestSave()
 		{
 			DateTime now = DateTime.Now;
 			Task task = new Task("Darbas", now, "sourceId|15");
@@ -44,6 +50,30 @@ namespace Minder.Tests.DB
 				Assert.AreEqual(DBTypesConverter.ToFullDateString(task.DateRemainder), reader.GetString(1));
 				Assert.AreEqual(task.SourceId, reader.GetString(2));
 			}
+		}
+		
+		[Test]
+		public void TestDelete()
+		{
+			Task task = new Task("Darbas", DateTime.Now, "sourceId|15");
+			task.Save();
+			task.Delete();
+			
+			using (DBConnection con = new DBConnection())
+			{
+				SQLiteDataReader reader = con.ExecuteQuery("SELECT NAME, DATE_REMAINDER, SOURCE_ID FROM TASK");
+				Assert.IsTrue(reader.Read());
+			}
+		}
+		
+		[Test]
+		public void TestDeleteAll()
+		{
+			Task task1 = new Task("Darbas", DateTime.Now, "sourceId|15");
+			task1.Save();
+			Task task2 = new Task("Darbas2", DateTime.Now, "sourceId|15");
+			task2.Save();
+			Task.DeleteAll();
 		}
 	}
 }

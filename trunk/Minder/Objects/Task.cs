@@ -67,5 +67,23 @@ namespace EasyRemainder.Objects
 				                                  this.SourceId));
 			}
 		}
+		
+		public static void DeleteAll()
+		{
+			using (DBConnection con = new DBConnection())
+			{
+				con.ExecuteNonQuery("DELETE FROM TASK");
+			}
+		}
+		
+		public void Delete()
+		{
+			if (m_id == 0)
+				return;
+			using (DBConnection con = new DBConnection())
+			{
+				con.ExecuteNonQuery("DELETE FROM TASK WHERE ID = " + m_id);
+			}
+		}
 	}
 }
