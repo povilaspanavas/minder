@@ -49,9 +49,9 @@ namespace EasyRemainder.Objects
 			this.m_dateRemainder = remainderDate;
 		}
 		
-		public Task(string taskText, DateTime remainderDate) : this(0, taskText, remainderDate)
+		public Task(string taskText, DateTime remainderDate, string sourceId) : this(0, taskText, remainderDate)
 		{
-			
+			this.m_sourceId = sourceId;
 		}
 		public Task()
 		{
@@ -62,9 +62,9 @@ namespace EasyRemainder.Objects
 			using (DBConnection con = new DBConnection())
 			{
 				con.ExecuteNonQuery(string.Format("INSERT INTO TASK (NAME, DATE_REMAINDER, SOURCE_ID) " +
-				                    "VALUES({0}, {1}, {2}, {3})",
-				                           this.Text, DBTypesConverter.ToFullDateStringWithQuotes(this.DateRemainder),
-				                           this.SourceId));
+				                                  "VALUES('{0}', {1}, '{2}')",
+				                                  this.Text, DBTypesConverter.ToFullDateStringWithQuotes(this.DateRemainder),
+				                                  this.SourceId));
 			}
 		}
 	}
