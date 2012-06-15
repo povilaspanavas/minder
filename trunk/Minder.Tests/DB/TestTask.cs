@@ -18,18 +18,31 @@ namespace Minder.Tests.DB
 	[TestFixture]
 	public class TestTask
 	{
+		[TestFixtureSetUp]
+		public void InitOnce()
+		{
+			try
+			{
+				using (DBConnection con = new DBConnection())
+				{
+					con.CreateTable();
+				}
+			} catch {}
+		}
+		
 		[Test]
 		public void TestSaveLoad()
 		{
 			DateTime now = DateTime.Now;
-			Task task = new Task("Darbas", now);
+			Task task = new Task("Darbas", now, "sourceId|15");
 			task.Save();
 			using (DBConnection con = new DBConnection())
 			{
-				SQLiteDataReader reader = con.ExecuteQuery("SELECT NAME, DATE_REMAINDER FROM TASK");
+				SQLiteDataReader reader = con.ExecuteQuery("SELECT NAME, DATE_REMAINDER, SOURCE_ID FROM TASK");
 				Assert.IsTrue(reader.Read());
 				Assert.AreEqual(task.Text, reader.GetString(0));
 				Assert.AreEqual(DBTypesConverter.ToFullDateString(task.DateRemainder), reader.GetString(1));
+				Assert.AreEqual(task.SourceId, reader.GetString(2));
 			}
 		}
 	}
