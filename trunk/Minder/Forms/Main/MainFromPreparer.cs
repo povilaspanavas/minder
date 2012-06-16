@@ -115,26 +115,27 @@ namespace Minder.Forms.Main
 		private void KeyPressedEnter(object sender, KeyEventArgs e)
 		{
 			// Escape paslepia formą (kažko nepavyko tiesiai ant formos užmest
-			if (e.KeyCode.Equals(Keys.Escape))
-			{
-				m_form.Visible = false;
-				m_form.TextBox.Text = string.Empty;
-			}
+//			if (e.KeyCode.Equals(Keys.Escape))
+//			{
+//				m_form.Visible = false;
+//				m_form.TextBox.Text = string.Empty;
+//				return;
+//			}
 			
 			if(e.Control == true || e.Shift == true
 			   || e.Alt == true || e.KeyCode != Keys.Enter)
 				return;
 			if (DataEntered != null)
 				DataEntered(this.m_form.TextBox.Text);
-			this.m_form.TextBox.Text = string.Empty;
-			m_form.Visible = false;
+			this.m_form.TextBox.Clear();
+			this.m_form.Visible = false;
 		}
 		
 		private void SetContextMenu()
 		{
 			ContextMenu menu = new ContextMenu();
 			
-			MenuItem menuItemNewTask = new MenuItem("New task"); //TODO
+			MenuItem menuItemNewTask = new MenuItem("New task", delegate { m_form.Visible = true;}); //TODO
 			MenuItem menuItemTasks = new MenuItem("Tasks"); //TODO
 			MenuItem menuItemSettings = new MenuItem("Settings", OpenSettingsForm);
 			MenuItem menuItemAbout = new MenuItem("About", OpenAboutForm);
