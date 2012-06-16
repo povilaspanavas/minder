@@ -31,9 +31,14 @@ namespace Minder.Tests.Tools
 			Assert.AreEqual("21m", Regex.Match("Nupirkti pieno 15m blabla 21m", @"\d*m$").Value);
 			
 			// Viena paieška visiems variantams
-			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15m", @"\d*(m|min|min.)$"));
-			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15min", @"\d*(m|min|min.)$"));
-			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15min.", @"\d*(m|min|min.)$"));
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15m", @"\d*(m|m.|min|min.)$"));
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15min", @"\d*(m|m.|min|min.)$"));
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15min.", @"\d*(m|m.|min|min.)$"));
+			
+			// Su kablialiu
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15min.", @"\b\d*(m|m.|min|min.)$"));
+			Assert.AreEqual("15,5min.", Regex.Match("Nupirkti pieno 15,5min.", @"\b\d*[,]\d*(m|m.|min|min.)$").Value);
+			Assert.AreEqual("15min.", Regex.Match("Nupirkti pieno 155min.", @"\b\d*[,?]\d*(m|m.|min|min.)$").Value);
 			
 		}
 	}
