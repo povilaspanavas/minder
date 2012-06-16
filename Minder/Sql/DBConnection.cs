@@ -11,7 +11,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Windows.Forms;
+
 using Minder.Objects;
+using Minder.Tools;
 
 namespace Minder.Sql
 {
@@ -30,7 +32,11 @@ namespace Minder.Sql
 		}
 		private void Connect()
 		{
-			m_sql_con = new SQLiteConnection(@"Data Source=..\..\DB\MinderDb.db;Version=3;New=False;Compress=True;");
+			string dbPath = new PathCutHelper()
+					.CutExecutableFileFromPath(System.Reflection.Assembly
+					                           .GetExecutingAssembly().Location);
+			dbPath += @"\..\..\DB\MinderDb.db";
+			m_sql_con = new SQLiteConnection(string.Format(@"Data Source={0};Version=3;New=False;Compress=True;", dbPath));
 			m_sql_con.Open();
 		}
 		
