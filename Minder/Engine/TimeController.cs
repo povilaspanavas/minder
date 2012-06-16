@@ -22,7 +22,7 @@ namespace Minder.Engine
 	public class TimeController
 	{
 		private MainFromPreparer m_formPreparer = null;
-		private TimerLogic m_timerLogic = new TimerLogic();
+		private TimerLogic m_timerLogic = null;
 		
 		public TimeController(MainFromPreparer m_formPreparer)
 		{

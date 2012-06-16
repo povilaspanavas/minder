@@ -75,7 +75,7 @@ namespace Minder.Forms.Main
 				hotKey = hotKey | ModifierKeys.Control;
 			if (win)
 				hotKey = hotKey | ModifierKeys.Win;
-				
+			
 			hotKeys.RegisterHotKey(hotKey, key);
 			m_form.m_textBox.KeyDown += KeyPressedEnter;
 			
@@ -114,7 +114,14 @@ namespace Minder.Forms.Main
 		
 		private void KeyPressedEnter(object sender, KeyEventArgs e)
 		{
-			if(e.Control == true || e.Shift == true 
+			// Escape paslepia formą (kažko nepavyko tiesiai ant formos užmest
+			if (e.KeyCode.Equals(Keys.Escape))
+			{
+				m_form.Visible = false;
+				m_form.TextBox.Text = string.Empty;
+			}
+			
+			if(e.Control == true || e.Shift == true
 			   || e.Alt == true || e.KeyCode != Keys.Enter)
 				return;
 			if (DataEntered != null)
