@@ -32,7 +32,7 @@ namespace Minder.Engine
 		{
 			m_formPreparer.DataEntered += delegate(string dataEntered) {
 				SaveNewTask(dataEntered);
-				RefreshTimer();
+//				RefreshTimer();
 			};
 		}
 		
