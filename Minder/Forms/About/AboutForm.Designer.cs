@@ -43,30 +43,31 @@ namespace Minder.Forms.About
 			// 
 			// label1
 			// 
-			this.label1.Location = new System.Drawing.Point(16, 10);
-			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label1.Location = new System.Drawing.Point(12, 8);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(347, 77);
+			this.label1.Size = new System.Drawing.Size(260, 63);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "The idea: Ignas Bagdonas\r\nDevelopers Ignas Bagdonas, Povilas Panavas\r\n\r\nProject s" +
-			"tart time: 2012.06.04";
+			this.label1.Text = "The idea: Ignas Bagdonas\r\nDevelopers: Ignas Bagdonas, Povilas Panavas\r\n\r\nProject " +
+			"start time: 2012.06.04";
 			// 
 			// m_versionLabel
 			// 
-			this.m_versionLabel.Location = new System.Drawing.Point(16, 77);
+			this.m_versionLabel.Location = new System.Drawing.Point(12, 63);
+			this.m_versionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.m_versionLabel.Name = "m_versionLabel";
-			this.m_versionLabel.Size = new System.Drawing.Size(347, 23);
+			this.m_versionLabel.Size = new System.Drawing.Size(260, 19);
 			this.m_versionLabel.TabIndex = 1;
 			this.m_versionLabel.Text = "Version: ";
 			// 
 			// AboutForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(402, 250);
+			this.ClientSize = new System.Drawing.Size(302, 203);
 			this.Controls.Add(this.m_versionLabel);
 			this.Controls.Add(this.label1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "AboutForm";
