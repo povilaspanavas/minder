@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Core;
 using Core.Forms;
 using EasyRemainder.Forms.Settings;
+using Minder.Engine;
 using Minder.Forms.Main;
 using Minder.Objects;
 using Minder.Sql;
@@ -41,8 +42,11 @@ namespace Minder
 				SettingsLoader loader = new SettingsLoader();
 				loader.LoadSettings();
 				new UpdateVersion();
+				
 				MainFromPreparer preparer = new MainFromPreparer();
 				preparer.PrepareForm();
+				
+				TimeController timeController = new TimeController(preparer);
 			}
 			catch (Exception e)
 			{

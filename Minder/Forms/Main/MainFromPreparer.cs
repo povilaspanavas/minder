@@ -64,30 +64,42 @@ namespace Minder.Forms.Main
 			Keys key = Keys.Decimal;
 			Minder.Static.StaticData.KeysDic.TryGetValue(keyString, out key);
 			
-			if(alt == true && shift == false && ctrl == false && win == false)
-				hotKeys.RegisterHotKey(ModifierKeys.Alt, key);
-			if(alt == false && shift == true && ctrl == false && win == false)
-				hotKeys.RegisterHotKey(ModifierKeys.Shift, key);
-			if(alt == false && shift == false && ctrl == true && win == false)
-				hotKeys.RegisterHotKey(ModifierKeys.Control, key);
-			if(alt == false && shift == false && ctrl == false && win == true)
-				hotKeys.RegisterHotKey(ModifierKeys.Win, key);
+			ModifierKeys hotKey = new ModifierKeys();
+			if (alt)
+				hotKey = hotKey | ModifierKeys.Alt;
+			if (shift)
+				hotKey = hotKey | ModifierKeys.Shift;
+			if (ctrl)
+				hotKey = hotKey | ModifierKeys.Control;
+			if (win)
+				hotKey = hotKey | ModifierKeys.Win;
+				
+			hotKeys.RegisterHotKey(hotKey, key);
 			
-			if(alt == true && shift == true && ctrl == false && win == false)
-				hotKeys.RegisterHotKey(ModifierKeys.Alt | ModifierKeys.Shift, key);
-			if(alt == true && shift == false && ctrl == true && win == false)
-				hotKeys.RegisterHotKey(ModifierKeys.Alt | ModifierKeys.Control, key);
-			if(alt == true && shift == false && ctrl == false && win == true)
-				hotKeys.RegisterHotKey(ModifierKeys.Alt	| ModifierKeys.Win, key);
-			
-			if(alt == false && shift == true && ctrl == true && win == false)
-				hotKeys.RegisterHotKey(ModifierKeys.Shift | ModifierKeys.Control, key);
-			if(alt == false && shift == true && ctrl == false && win == true)
-				hotKeys.RegisterHotKey(ModifierKeys.Shift | ModifierKeys.Win, key);
-			if(alt == false && shift == false && ctrl == true && win == true)
-				hotKeys.RegisterHotKey(ModifierKeys.Control | ModifierKeys.Win, key);
-			
-			m_form.m_textBox.KeyDown += KeyPressedEnter;
+//			if(alt == true && shift == false && ctrl == false && win == false)
+//				hotKeys.RegisterHotKey(ModifierKeys.Alt, key);
+//			if(alt == false && shift == true && ctrl == false && win == false)
+//				hotKeys.RegisterHotKey(ModifierKeys.Shift, key);
+//			if(alt == false && shift == false && ctrl == true && win == false)
+//				hotKeys.RegisterHotKey(ModifierKeys.Control, key);
+//			if(alt == false && shift == false && ctrl == false && win == true)
+//				hotKeys.RegisterHotKey(ModifierKeys.Win, key);
+//
+//			if(alt == true && shift == true && ctrl == false && win == false)
+//				hotKeys.RegisterHotKey(ModifierKeys.Alt | ModifierKeys.Shift, key);
+//			if(alt == true && shift == false && ctrl == true && win == false)
+//				hotKeys.RegisterHotKey(ModifierKeys.Alt | ModifierKeys.Control, key);
+//			if(alt == true && shift == false && ctrl == false && win == true)
+//				hotKeys.RegisterHotKey(ModifierKeys.Alt	| ModifierKeys.Win, key);
+//
+//			if(alt == false && shift == true && ctrl == true && win == false)
+//				hotKeys.RegisterHotKey(ModifierKeys.Shift | ModifierKeys.Control, key);
+//			if(alt == false && shift == true && ctrl == false && win == true)
+//				hotKeys.RegisterHotKey(ModifierKeys.Shift | ModifierKeys.Win, key);
+//			if(alt == false && shift == false && ctrl == true && win == true)
+//				hotKeys.RegisterHotKey(ModifierKeys.Control | ModifierKeys.Win, key);
+//
+//			m_form.m_textBox.KeyDown += KeyPressedEnter;
 		}
 		
 		private void KeyPressed(object sender, KeyPressedEventArgs e)
