@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using Core;
 using Core.Forms;
 
 namespace Minder.Forms.About
@@ -33,7 +34,8 @@ namespace Minder.Forms.About
 		public void PrepareForm()
 		{
 			SetEvents();
-			m_form.Show();
+			m_form.m_versionLabel.Text = string.Format("Version: {0}", StaticData.VersionCache.Version);
+			m_form.ShowDialog();
 		}
 		
 		public void SetEvents()
