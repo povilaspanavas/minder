@@ -37,17 +37,29 @@ namespace Minder.Forms.About
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutForm));
+			this.label1 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
+			// 
+			// label1
+			// 
+			this.label1.Location = new System.Drawing.Point(12, 9);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(260, 147);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "The idea: Ignas Bagdonas\nDevelopers Ignas Bagdonas, Povilas Panavas";
 			// 
 			// AboutForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(282, 255);
+			this.ClientSize = new System.Drawing.Size(284, 190);
+			this.Controls.Add(this.label1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
 			this.Name = "AboutForm";
 			this.Text = "AboutForm";
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Label label1;
 	}
 }

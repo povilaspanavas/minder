@@ -38,6 +38,12 @@ namespace Minder.Tests.DB
 		}
 		
 		[Test]
+		public void TestCreateTable()
+		{
+			
+		}
+		
+		[Test]
 		public void TestSave()
 		{
 			DateTime now = DateTime.Now;

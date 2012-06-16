@@ -1,2 +1,2 @@
-copy "EasyRemainder\DB\EmptyMinderDb.db" "EasyRemainder\DB\MinderDb.db" /Y
+copy "Minder\DB\EmptyMinderDb.db" "Minder\DB\MinderDb.db" /Y
 pause
