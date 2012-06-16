@@ -29,11 +29,6 @@ namespace Minder
 			Application.Run();
 		}
 		
-		private static void StartEngine()
-		{
-			
-		}
-		
 		private static void Starter()
 		{
 			try
@@ -51,7 +46,7 @@ namespace Minder
 			}
 			catch (Exception e)
 			{
-				new ErrorBox(e.ToString()); //This show error box and write to log.
+				new ErrorBox(e.ToString()); // This shows error box and writes to log.
 			}
 			
 		}
