@@ -116,12 +116,12 @@ namespace Minder.Forms.Main
 		private void KeyPressed(object sender, KeyEventArgs e)
 		{
 			// Escape paslepia formą (kažko nepavyko tiesiai ant formos užmest
-//			if (e.KeyCode.Equals(Keys.Escape))
-//			{
-//				m_form.Visible = false;
-//				m_form.TextBox.Text = string.Empty;
-//				return;
-//			}
+			if (e.KeyCode.Equals(Keys.Escape))
+			{
+				m_form.Visible = false;
+				m_form.TextBox.Text = string.Empty;
+				return;
+			}
 			
 			if(e.Control == true || e.Shift == true
 			   || e.Alt == true || e.KeyCode != Keys.Enter)
