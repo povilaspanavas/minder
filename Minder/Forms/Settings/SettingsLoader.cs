@@ -48,5 +48,24 @@ namespace EasyRemainder.Forms.Settings
 			StaticData.Settings.NewTaskHotkey.Key = parser.GetSetting("NewTaskHotkey", "key");
 		}
 		
+		public void SaveSettingsToFile()
+		{
+			IniParser parser = new IniParser(StaticData.SETTINGS_FILE_PATH);
+			parser.DeleteSetting("NewTaskHotkey", "alt");
+			parser.DeleteSetting("NewTaskHotkey", "ctrl");
+			parser.DeleteSetting("NewTaskHotkey", "shift");
+			parser.DeleteSetting("NewTaskHotkey", "win");
+			parser.DeleteSetting("NewTaskHotkey", "key");
+			
+			parser.AddSetting("NewTaskHotkey", "alt", StaticData.Settings.NewTaskHotkey.Alt.ToString());
+			parser.AddSetting("NewTaskHotkey", "ctrl", StaticData.Settings.NewTaskHotkey.Ctrl.ToString());
+			parser.AddSetting("NewTaskHotkey", "shift", StaticData.Settings.NewTaskHotkey.Shift.ToString());
+			parser.AddSetting("NewTaskHotkey", "win", StaticData.Settings.NewTaskHotkey.Win.ToString());
+			parser.AddSetting("NewTaskHotkey", "key", StaticData.Settings.NewTaskHotkey.Key);
+			
+			parser.SaveSettings();
+			
+		}
+		
 	}
 }
