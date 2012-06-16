@@ -38,7 +38,8 @@ namespace Minder.Tests.Tools
 			// Su kablialiu
 			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15min.", @"\b\d*(m|m.|min|min.)$"));
 			Assert.AreEqual("15,5min.", Regex.Match("Nupirkti pieno 15,5min.", @"\b\d*[,]\d*(m|m.|min|min.)$").Value);
-			Assert.AreEqual("15min.", Regex.Match("Nupirkti pieno 155min.", @"\b\d*[,?]\d*(m|m.|min|min.)$").Value);
+			Assert.AreEqual("15min.", Regex.Match("Nupirkti pieno 15min.", @"\b\d*[,]{0,1}\d*(m|m.|min|min.)$").Value);
+			Assert.AreEqual("15,5min.", Regex.Match("Nupirkti pieno 15,5min.", @"\b\d*[,]{0,1}\d*(m|m.|min|min.)$").Value);
 			
 		}
 	}
