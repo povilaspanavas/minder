@@ -11,15 +11,10 @@ using System.Text.RegularExpressions;
 
 namespace Minder.Engine
 {
-	public class TextParserException : Exception
-	{
-//		public TextParserException(string message)
-//		{
-//			this. = message;
-//		}
-	}
 	/// <summary>
-	/// Description of TextParser.
+	/// TODO palaikyti
+	/// Palaikyti 11:50 formatą
+	/// 2011 05 10 11:10 ir pan.formatus
 	/// </summary>
 	public class TextParser
 	{
