@@ -16,10 +16,16 @@ namespace Minder.Objects
 	/// </summary>
 	public class Task
 	{
-		int m_id;
-		string m_text;
-		DateTime m_dateRemainder;
-		string m_sourceId;
+		int m_id = 0;
+		string m_text = string.Empty;
+		DateTime m_dateRemainder = DateTime.MinValue;
+		string m_sourceId = string.Empty;
+		bool m_showed = false;
+		
+		public bool Showed {
+			get { return m_showed; }
+			set { m_showed = value; }
+		}
 		
 		public string SourceId {
 			get { return m_sourceId; }

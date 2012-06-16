@@ -22,23 +22,21 @@ namespace Minder.Engine
 	public class TimeController
 	{
 		private MainFromPreparer m_formPreparer = null;
+		private TimerLogic m_timerLogic = new TimerLogic();
 		
 		public TimeController(MainFromPreparer m_formPreparer)
 		{
 			this.m_formPreparer = m_formPreparer;
+			this.m_timerLogic = new TimerLogic();
 		}
 		
 		public void Start()
 		{
 			m_formPreparer.DataEntered += delegate(string dataEntered) {
 				SaveNewTask(dataEntered);
-//				RefreshTimer();
+				m_timerLogic.RefreshInterval();
 			};
-		}
-		
-		void RefreshTimer()
-		{
-			throw new NotImplementedException();
+//			m_timerLogic.
 		}
 		
 		void SaveNewTask(string dataEntered)

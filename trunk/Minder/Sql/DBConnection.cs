@@ -49,13 +49,13 @@ namespace Minder.Sql
 			sql_cmd.ExecuteNonQuery();
 		}
 		
-		public List<Task> LoadData()
+		public List<Task> LoadTasksForShowing()
 		{
 			SQLiteCommand sql_cmd = m_sql_con.CreateCommand();
 			DateTime now = DateTime.Now;
-			sql_cmd.CommandText = string.Format("select id, name, executetime from task where executetime > {0} and executetime < {1}",
-			                                    DBTypesConverter.ToFullDateStringWithQuotes(now.AddSeconds(-10)),
-			                                    DBTypesConverter.ToFullDateStringWithQuotes(now.AddSeconds(10))			                                   );
+			sql_cmd.CommandText = string.Format("SELECT ID, NAME, DATE_REMAINDER, SOURCE_ID, SHOWED from task where DATE_REMAINDER < {0}" +
+			                                    "and (SHOWED = 0 || SHOWED is null)",
+			                                    DBTypesConverter.ToFullDateStringWithQuotes(now));
 			
 			IDataReader reader = sql_cmd.ExecuteReader();
 			List<Task> tasks = new List<Task>();
@@ -65,6 +65,10 @@ namespace Minder.Sql
 				int id = reader.GetInt32(0);
 				string name = reader.GetString(1);
 				DateTime date = DateTime.Parse(reader.GetString(2));
+				string sourceId = reader.GetString(3);
+//				int showedInt = DateTime.Parse(reader.GetInt32(4));
+//				bool showed = 0;
+				
 				tasks.Add(new Task(id, name, date));
 			}
 			return tasks;
@@ -119,7 +123,8 @@ namespace Minder.Sql
 		public void CreateTable()
 		{
 			SQLiteCommand sql_cmd = m_sql_con.CreateCommand();
-			sql_cmd.CommandText = "CREATE TABLE TASK (ID INTEGER PRIMARY KEY, NAME TEXT, DATE_REMAINDER TEXT, SOURCE_ID TEXT) ";
+			sql_cmd.CommandText = "CREATE TABLE TASK (ID INTEGER PRIMARY KEY, NAME TEXT, DATE_REMAINDER TEXT, " +
+				"SOURCE_ID TEXT, SHOWED INTEGER) ";
 			sql_cmd.ExecuteNonQuery();
 		}
 		
