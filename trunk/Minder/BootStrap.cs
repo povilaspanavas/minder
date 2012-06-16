@@ -47,6 +47,7 @@ namespace Minder
 				preparer.PrepareForm();
 				
 				TimeController timeController = new TimeController(preparer);
+				timeController.Start();
 			}
 			catch (Exception e)
 			{
