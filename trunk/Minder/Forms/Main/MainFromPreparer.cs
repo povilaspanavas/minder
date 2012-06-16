@@ -23,6 +23,7 @@ namespace Minder.Forms.Main
 	public class MainFromPreparer : IFormPreparer
 	{
 		private MainForm m_form = null;
+		HotKeys m_hotKeys = null;
 		public event TaskData DataEntered;
 		public delegate void TaskData(string dataEntered);
 		
@@ -53,8 +54,8 @@ namespace Minder.Forms.Main
 		
 		private void RegisterHotKeys()
 		{
-			HotKeys hotKeys = new HotKeys();
-			hotKeys.KeyPressed += new EventHandler<KeyPressedEventArgs>(KeyPressed);
+			m_hotKeys = new HotKeys();
+			m_hotKeys.KeyPressed += new EventHandler<KeyPressedEventArgs>(ShowHide);
 			
 			bool alt = Minder.Static.StaticData.Settings.NewTaskHotkey.Alt;
 			bool shift = Minder.Static.StaticData.Settings.NewTaskHotkey.Shift;
@@ -76,8 +77,8 @@ namespace Minder.Forms.Main
 			if (win)
 				hotKey = hotKey | ModifierKeys.Win;
 			
-			hotKeys.RegisterHotKey(hotKey, key);
-			m_form.m_textBox.KeyDown += KeyPressedEnter;
+			m_hotKeys.RegisterHotKey(hotKey, key);
+			m_form.m_textBox.KeyDown += KeyPressed;
 			
 //			if(alt == true && shift == false && ctrl == false && win == false)
 //				hotKeys.RegisterHotKey(ModifierKeys.Alt, key);
@@ -104,7 +105,7 @@ namespace Minder.Forms.Main
 //
 		}
 		
-		private void KeyPressed(object sender, KeyPressedEventArgs e)
+		private void ShowHide(object sender, KeyPressedEventArgs e)
 		{
 			if(m_form.Visible == true)
 				m_form.Visible = false;
@@ -112,7 +113,7 @@ namespace Minder.Forms.Main
 				m_form.Visible = true;
 		}
 		
-		private void KeyPressedEnter(object sender, KeyEventArgs e)
+		private void KeyPressed(object sender, KeyEventArgs e)
 		{
 			// Escape paslepia formą (kažko nepavyko tiesiai ant formos užmest
 //			if (e.KeyCode.Equals(Keys.Escape))
