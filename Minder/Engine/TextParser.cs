@@ -24,7 +24,7 @@ namespace Minder.Engine
 	public class TextParser
 	{
 		public const string  MINUTES_STRING = @"\b\d*[,]{0,1}\d*(min.|min|m.|m)";
-		public const string  HOURS_STRING = @"\b\d*[,]{0,1}\d*(h|h.|v|v.|val|val.)";
+		public const string  HOURS_STRING = @"\b\d*[,]{0,1}\d*(val.|val|v.|v|h.|h)";
 		
 		public TextParser()
 		{
