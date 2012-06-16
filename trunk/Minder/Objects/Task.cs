@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Text.RegularExpressions;
 using Minder.Sql;
 
 namespace Minder.Objects
@@ -94,12 +95,20 @@ namespace Minder.Objects
 		
 		public Task ParseString(string dataEntered)
 		{
-			this.Text = dataEntered.Substring(0, dataEntered.IndexOf("|"));
-			string time = dataEntered.Substring(dataEntered.IndexOf("|") + 1);
-			int minutes = int.Parse(time);
-			this.DateRemainder = DateTime.Now.AddMinutes(minutes);
-			this.SourceId = dataEntered;
-			return this;
+			if (string.IsNullOrEmpty(dataEntered))
+				return null;
+			if (dataEntered.Contains("|"))
+			{
+				this.Text = dataEntered.Substring(0, dataEntered.IndexOf("|"));
+				string time = dataEntered.Substring(dataEntered.IndexOf("|") + 1);
+				int minutes = int.Parse(time);
+				this.DateRemainder = DateTime.Now.AddMinutes(minutes);
+				this.SourceId = dataEntered;
+				return this;
+			}
+//			Regex regex = new Regex();
+//			regex.Matches();
+			return null;
 		}
 		
 		public void Update()
