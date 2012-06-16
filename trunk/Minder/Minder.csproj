@@ -83,6 +83,7 @@
     <Compile Include="Sql\DBConnection.cs" />
     <Compile Include="Sql\DBTypesConverter.cs" />
     <Compile Include="Static\StaticData.cs" />
+    <Compile Include="Tools\PathCutHelper.cs" />
     <Compile Include="Tools\StartWithWinController.cs" />
   </ItemGroup>
   <ItemGroup>
