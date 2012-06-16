@@ -30,34 +30,35 @@ namespace Minder.Engine
 		{
 		}
 		
-		public void Parse(string text, out decimal hours, out decimal minutes, out string leftText)
+		public static bool Parse(string text, out decimal hours, out decimal minutes, out string leftText)
 		{
 			hours = 0.00m; minutes = 0.00m;
 			Match minutesMatch = Regex.Match(text, MINUTES_STRING);
 			Match hoursMatch = Regex.Match(text, HOURS_STRING);
 			string minutesString = minutesMatch.Value;
 			string hoursString = hoursMatch.Value;
-			if (minutesMatch.Success == false && hoursMatch.Success == false)
-				throw new TextParserException();
+			leftText = text;
 			
+			if (minutesMatch.Success == false && hoursMatch.Success == false)
+				return false;				
 			decimal.TryParse(RemoveMinutesSymbol(minutesString), out minutes);
 			decimal.TryParse(RemoveHoursSymbol(hoursString), out hours);
 			
-			leftText = text;
 			if (minutesMatch.Success)
 				leftText = leftText.Replace(minutesString, string.Empty);
 			if (hoursMatch.Success)
 				leftText = leftText.Replace(hoursString, string.Empty);
 			leftText = leftText.Trim();
+			return true;
 		}
 		
-		public string RemoveMinutesSymbol(string minutesString)
+		public static string RemoveMinutesSymbol(string minutesString)
 		{
 			return minutesString.Replace("min.", string.Empty).Replace("min", string.Empty).Replace("m.", string.Empty)
 				.Replace("m", string.Empty);
 		}
 		
-		public string RemoveHoursSymbol(string minutesString)
+		public static string RemoveHoursSymbol(string minutesString)
 		{
 			return minutesString.Replace("val.", string.Empty).Replace("val", string.Empty).Replace("v.", string.Empty)
 				.Replace("v", string.Empty).Replace("h.", string.Empty).Replace("h", string.Empty);
