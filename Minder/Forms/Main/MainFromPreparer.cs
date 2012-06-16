@@ -64,6 +64,8 @@ namespace Minder.Forms.Main
 			Keys key = Keys.Decimal;
 			Minder.Static.StaticData.KeysDic.TryGetValue(keyString, out key);
 			
+			// Nesu 100% tikras, kad gerai veikia - bet standartinis atvejis veikia
+			// o kodas daug aiškesnis ir lengviau taisomas
 			ModifierKeys hotKey = new ModifierKeys();
 			if (alt)
 				hotKey = hotKey | ModifierKeys.Alt;
@@ -75,6 +77,7 @@ namespace Minder.Forms.Main
 				hotKey = hotKey | ModifierKeys.Win;
 				
 			hotKeys.RegisterHotKey(hotKey, key);
+			m_form.m_textBox.KeyDown += KeyPressedEnter;
 			
 //			if(alt == true && shift == false && ctrl == false && win == false)
 //				hotKeys.RegisterHotKey(ModifierKeys.Alt, key);
@@ -99,7 +102,6 @@ namespace Minder.Forms.Main
 //			if(alt == false && shift == false && ctrl == true && win == true)
 //				hotKeys.RegisterHotKey(ModifierKeys.Control | ModifierKeys.Win, key);
 //
-//			m_form.m_textBox.KeyDown += KeyPressedEnter;
 		}
 		
 		private void KeyPressed(object sender, KeyPressedEventArgs e)
@@ -112,7 +114,8 @@ namespace Minder.Forms.Main
 		
 		private void KeyPressedEnter(object sender, KeyEventArgs e)
 		{
-			if(e.Control == false || e.KeyCode != Keys.Enter)
+			if(e.Control == true || e.Shift == true 
+			   || e.Alt == true || e.KeyCode != Keys.Enter)
 				return;
 			if (DataEntered != null)
 				DataEntered(this.m_form.TextBox.Text);

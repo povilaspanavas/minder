@@ -1,3 +1,5 @@
 Padaryti, kad sesijos kaskart nereiktø atsidaryti, t.y., susirastø jau egzistuojanèià kaip DLC
 
 Veiktø paprastu reþimu, kad kas 5-10 sec.patikrina ar yra kà rodyti
+
+ESC slepia formà
