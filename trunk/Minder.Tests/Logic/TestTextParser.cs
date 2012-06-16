@@ -19,28 +19,27 @@ namespace Minder.Tests.Logic
 		public void TestMethod_Only_Minutes()
 		{
 			decimal hours; decimal minutes; string leftText;
-			TextParser parser = new TextParser();
-			parser.Parse("Susitikimas 15min", out hours, out minutes, out leftText);
+			TextParser.Parse("Susitikimas 15min", out hours, out minutes, out leftText);
 			Assert.AreEqual(0.0m, hours);
 			Assert.AreEqual(15m, minutes);
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			parser.Parse("Susitikimas 15,5min", out hours, out minutes, out leftText);
+			TextParser.Parse("Susitikimas 15,5min", out hours, out minutes, out leftText);
 			Assert.AreEqual(0.0m, hours);
 			Assert.AreEqual(15.5m, minutes);
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			parser.Parse("Susitikimas 10m", out hours, out minutes, out leftText);
+			TextParser.Parse("Susitikimas 10m", out hours, out minutes, out leftText);
 			Assert.AreEqual(0.0m, hours);
 			Assert.AreEqual(10m, minutes);
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			parser.Parse("Susitikimas 10m.", out hours, out minutes, out leftText);
+			TextParser.Parse("Susitikimas 10m.", out hours, out minutes, out leftText);
 			Assert.AreEqual(0.0m, hours);
 			Assert.AreEqual(10m, minutes);
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			parser.Parse("Susitikimas 20min.", out hours, out minutes, out leftText);
+			TextParser.Parse("Susitikimas 20min.", out hours, out minutes, out leftText);
 			Assert.AreEqual(0.0m, hours);
 			Assert.AreEqual(20m, minutes);
 			Assert.AreEqual("Susitikimas", leftText);
@@ -50,33 +49,32 @@ namespace Minder.Tests.Logic
 		public void TestMethod_Only_Hours()
 		{
 			decimal hours; decimal minutes; string leftText;
-			TextParser parser = new TextParser();
-			parser.Parse("Susitikimas 15val.", out hours, out minutes, out leftText);
+			TextParser.Parse("Susitikimas 15val.", out hours, out minutes, out leftText);
 			Assert.AreEqual(15.0m, hours);
 			Assert.AreEqual(0.0m, minutes);
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			parser.Parse("Susitikimas 15,5val", out hours, out minutes, out leftText);
+			TextParser.Parse("Susitikimas 15,5val", out hours, out minutes, out leftText);
 			Assert.AreEqual(15.5m, hours);
 			Assert.AreEqual(0.0m, minutes);
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			parser.Parse("Susitikimas 20v.", out hours, out minutes, out leftText);
+			TextParser.Parse("Susitikimas 20v.", out hours, out minutes, out leftText);
 			Assert.AreEqual(20.0m, hours);
 			Assert.AreEqual(0.0m, minutes);
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			parser.Parse("Susitikimas 20v", out hours, out minutes, out leftText);
+			TextParser.Parse("Susitikimas 20v", out hours, out minutes, out leftText);
 			Assert.AreEqual(20.0m, hours);
 			Assert.AreEqual(0.0m, minutes);
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			parser.Parse("Susitikimas 10h.", out hours, out minutes, out leftText);
+			TextParser.Parse("Susitikimas 10h.", out hours, out minutes, out leftText);
 			Assert.AreEqual(10.0m, hours);
 			Assert.AreEqual(0.0m, minutes);
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			parser.Parse("Susitikimas 10h", out hours, out minutes, out leftText);
+			TextParser.Parse("Susitikimas 10h", out hours, out minutes, out leftText);
 			Assert.AreEqual(10.0m, hours);
 			Assert.AreEqual(0.0m, minutes);
 			Assert.AreEqual("Susitikimas", leftText);

@@ -8,6 +8,7 @@
  */
 using System;
 using System.Text.RegularExpressions;
+using Minder.Engine;
 using Minder.Sql;
 
 namespace Minder.Objects
@@ -97,22 +98,23 @@ namespace Minder.Objects
 		{
 			if (string.IsNullOrEmpty(dataEntered))
 				return null;
+			decimal hours; decimal minutes; string taskText;
+			this.SourceId = dataEntered;
+			
 			if (dataEntered.Contains("|"))
 			{
 				this.Text = dataEntered.Substring(0, dataEntered.IndexOf("|"));
 				string time = dataEntered.Substring(dataEntered.IndexOf("|") + 1);
-				int minutes = int.Parse(time);
-				this.DateRemainder = DateTime.Now.AddMinutes(minutes);
-				this.SourceId = dataEntered;
+				minutes = decimal.Parse(time);
+				this.DateRemainder = DateTime.Now.AddMinutes((double)minutes);
 				return this;
 			}
-//			MatchCollection matchesMinutes = regex.Matches(dataEntered, @"\d*m$";
-//			MatchCollection matchesMinutes = regex.Matches(dataEntered, @"\d*m$";
-//			MatchCollection matchesMinutes = regex.Matches(dataEntered, @"\d*m$";
 			
-//			Regex regex = new Regex();
-//			MatchCollection matches = regex.Matches(dataEntered, @"[0-9m]";
-			return null;
+			if (TextParser.Parse(dataEntered, out hours, out minutes, out taskText) == false)
+				return null;
+			this.Text = taskText;
+			this.DateRemainder = DateTime.Now.AddHours((double)hours).AddMinutes((double)minutes);
+			return this;
 		}
 		
 		public void Update()
