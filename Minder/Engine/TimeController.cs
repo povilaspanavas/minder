@@ -42,7 +42,8 @@ namespace Minder.Engine
 		void SaveNewTask(string dataEntered)
 		{
 			Task task = new Task().ParseString(dataEntered);
-			task.Save();
+			if (task != null)
+				task.Save();
 		}
 		
 		
