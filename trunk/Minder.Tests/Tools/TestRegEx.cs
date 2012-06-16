@@ -30,6 +30,11 @@ namespace Minder.Tests.Tools
 			// Parenkamas iš galo jei yra du
 			Assert.AreEqual("21m", Regex.Match("Nupirkti pieno 15m blabla 21m", @"\d*m$").Value);
 			
+			// Viena paieška visiems variantams
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15m", @"\d*(m|min|min.)$"));
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15min", @"\d*(m|min|min.)$"));
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15min.", @"\d*(m|min|min.)$"));
+			
 		}
 	}
 }
