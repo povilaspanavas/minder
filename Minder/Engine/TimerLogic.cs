@@ -28,18 +28,24 @@ namespace Minder.Engine
 			m_timer.Tick += delegate {
 				using (DBConnection connection = new DBConnection())
 				{
-					List<Task> tasksToShow = connection.LoadData();
+					List<Task> tasksToShow = connection.LoadTasksForShowing();
 					foreach (Task task in tasksToShow) {
 						System.Windows.Forms.MessageBox.Show(
 							string.Format("Pavadinimas: {0}, Laikas:{1}",
 							              task.Text, DBTypesConverter.ToFullDateString(task.DateRemainder)));
 					}
+					// TODO UPDATE isntead of deleting
 					foreach (Task task in tasksToShow) {
 						connection.Delete(task.Id);
 					}
 					connection.SelectFirstTask();
 				}
 			};
+		}
+		
+		public void RefreshInterval()
+		{
+			
 		}
 		
 	}
