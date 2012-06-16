@@ -9,6 +9,7 @@ using Minder.Engine;
 using Minder.Forms.Main;
 using Minder.Objects;
 using Minder.Sql;
+using Minder.Tools;
 
 namespace Minder
 {
@@ -33,9 +34,14 @@ namespace Minder
 		{
 			try
 			{
-				ConfigLoader.LoadConfiguration(false);
+				string startupPath = new PathCutHelper()
+					.CutExecutableFileFromPath(System.Reflection.Assembly
+					                           .GetExecutingAssembly().Location);
+				
+				ConfigLoader.LoadConfiguration(false, startupPath);
 				SettingsLoader loader = new SettingsLoader();
 				loader.LoadSettings();
+				new StartWithWinController().StartWithWindows();
 				new UpdateVersion();
 				
 				MainFromPreparer preparer = new MainFromPreparer();
@@ -47,6 +53,7 @@ namespace Minder
 			catch (Exception e)
 			{
 				new ErrorBox(e.ToString()); // This shows error box and writes to log.
+				Application.Exit();
 			}
 			
 		}

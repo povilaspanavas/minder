@@ -8,8 +8,10 @@
  */
 using System;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 
+using Core.Tools.Shortcut;
 using vbAccelerator.Components.Shell;
 
 namespace Minder.Tools
@@ -19,23 +21,28 @@ namespace Minder.Tools
 	/// </summary>
 	public class StartWithWinController
 	{
-		private string m_shortcutPath = string.Empty;
 		
-		public void StartWithWindows(bool value)
+		public void StartWithWindows()
 		{
+			OnAutoStart();
+		}
+		
+		private void OnAutoStart()
+		{
+			string keyName = "Minder";
+			string assemblyLocation = Assembly.GetExecutingAssembly().Location;  // Or the EXE path.
+
+			if (StarterWithWin.IsAutoStartEnabled(keyName, assemblyLocation))
+				return;
 			
+			// Set Auto-start.
+			StarterWithWin.SetAutoStart(keyName, assemblyLocation);
+
+			// Unset Auto-start.
+//			if (Util.IsAutoStartEnabled(keyName, assemblyLocation))
+//				Util.UnSetAutoStart(keyName);
 		}
 		
-		private void CreateShortcut()
-		{
-			using (ShellLink shortcut = new ShellLink())
-			{
-				shortcut.Target = Application.ExecutablePath;
-				shortcut.WorkingDirectory = Path.GetDirectoryName(Application.ExecutablePath);
-				shortcut.Description = "My Shorcut Name Here";
-				shortcut.DisplayMode = ShellLink.LinkDisplayMode.edmNormal;
-				shortcut.Save(m_shortcutPath);
-			}
-		}
+		
 	}
 }
