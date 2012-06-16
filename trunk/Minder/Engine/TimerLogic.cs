@@ -26,6 +26,7 @@ namespace Minder.Engine
 			m_timer.Interval = m_tick;
 			
 			m_timer.Tick += delegate {
+				m_timer.Stop();
 				using (DBConnection connection = new DBConnection())
 				{
 					List<Task> tasksToShow = connection.LoadTasksForShowing();
@@ -40,6 +41,7 @@ namespace Minder.Engine
 					}
 //					connection.SelectFirstTask();
 				}
+				m_timer.Start();
 			};
 			m_timer.Start();
 		}
