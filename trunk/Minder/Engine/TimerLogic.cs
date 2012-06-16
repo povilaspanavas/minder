@@ -38,9 +38,10 @@ namespace Minder.Engine
 					foreach (Task task in tasksToShow) {
 						connection.Delete(task.Id);
 					}
-					connection.SelectFirstTask();
+//					connection.SelectFirstTask();
 				}
 			};
+			m_timer.Start();
 		}
 		
 		public void RefreshInterval()

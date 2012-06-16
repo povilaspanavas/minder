@@ -78,8 +78,8 @@ namespace Minder.Sql
 		public Task SelectFirstTask()
 		{
 			SQLiteCommand sql_cmd = m_sql_con.CreateCommand();
-			sql_cmd.CommandText = string.Format("select id, name, executetime from task where executetime > {0} " +
-			                                    " order by executetime, id", 
+			sql_cmd.CommandText = string.Format("select id, name, date_remainder from task where (showed is null | showed = 0) " +
+			                                    " order by date_remainder, id", 
 			                                    DBTypesConverter.ToFullDateStringWithQuotes(DateTime.Now.AddSeconds(-15)));
 			
 			IDataReader reader = sql_cmd.ExecuteReader();

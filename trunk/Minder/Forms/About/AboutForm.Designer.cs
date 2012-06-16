@@ -46,7 +46,8 @@ namespace Minder.Forms.About
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(260, 147);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "The idea: Ignas Bagdonas\nDevelopers Ignas Bagdonas, Povilas Panavas";
+			this.label1.Text = "The idea: Ignas Bagdonas\nDevelopers Ignas Bagdonas, Povilas Panavas\n\n" +
+				"Project start time: ~2012.06.04";
 			// 
 			// AboutForm
 			// 

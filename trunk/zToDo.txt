@@ -3,3 +3,5 @@ Padaryti, kad sesijos kaskart nereiktø atsidaryti, t.y., susirastø jau egzistuoj
 Veiktø paprastu reþimu, kad kas 5-10 sec.patikrina ar yra kà rodyti
 
 ESC slepia formà
+
+Atskiras threadas parodymui message arba pirma pauodatinti, kad taskas jau parodytas
