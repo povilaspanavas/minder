@@ -101,5 +101,18 @@ namespace Minder.Objects
 			this.SourceId = dataEntered;
 			return this;
 		}
+		
+		public void Update()
+		{
+			if (m_id == 0)
+				return;
+			using (DBConnection con = new DBConnection())
+			{
+				con.ExecuteNonQuery(string.Format("UPDATE TASK SET NAME = '{0}', DATE_REMAINDER = {1}, SOURCE_ID = '{2}', " +
+				                                  "SHOWED = {3} WHERE ID = {4}",
+				                                  this.Text, DBTypesConverter.ToFullDateStringWithQuotes(this.DateRemainder),
+				                                  this.SourceId, (this.Showed ? 1 : 0), m_id));
+			}
+		}
 	}
 }
