@@ -40,7 +40,11 @@ namespace Minder.Forms.Settings
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.button1 = new System.Windows.Forms.Button();
+			this.label2 = new System.Windows.Forms.Label();
+			this.m_taskLimitNumeric = new System.Windows.Forms.NumericUpDown();
+			this.m_updateCheckBox = new System.Windows.Forms.CheckBox();
+			this.m_startWithWinCheckBox = new System.Windows.Forms.CheckBox();
+			this.m_defaultsButton = new System.Windows.Forms.Button();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -49,16 +53,12 @@ namespace Minder.Forms.Settings
 			this.m_shiftCheckBox = new System.Windows.Forms.CheckBox();
 			this.m_ctrlCheckBox = new System.Windows.Forms.CheckBox();
 			this.m_winCheckBox = new System.Windows.Forms.CheckBox();
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
-			this.checkBox2 = new System.Windows.Forms.CheckBox();
-			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-			this.label2 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.m_taskLimitNumeric)).BeginInit();
 			this.tabPage2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -88,10 +88,10 @@ namespace Minder.Forms.Settings
 			// tabPage1
 			// 
 			this.tabPage1.Controls.Add(this.label2);
-			this.tabPage1.Controls.Add(this.numericUpDown1);
-			this.tabPage1.Controls.Add(this.checkBox2);
-			this.tabPage1.Controls.Add(this.checkBox1);
-			this.tabPage1.Controls.Add(this.button1);
+			this.tabPage1.Controls.Add(this.m_taskLimitNumeric);
+			this.tabPage1.Controls.Add(this.m_updateCheckBox);
+			this.tabPage1.Controls.Add(this.m_startWithWinCheckBox);
+			this.tabPage1.Controls.Add(this.m_defaultsButton);
 			this.tabPage1.Location = new System.Drawing.Point(4, 25);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -100,14 +100,52 @@ namespace Minder.Forms.Settings
 			this.tabPage1.Text = "General";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
-			// button1
+			// label2
 			// 
-			this.button1.Location = new System.Drawing.Point(230, 475);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(148, 40);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "Restore defaults";
-			this.button1.UseVisualStyleBackColor = true;
+			this.label2.Location = new System.Drawing.Point(109, 81);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(100, 23);
+			this.label2.TabIndex = 4;
+			this.label2.Text = "Tasks limit";
+			// 
+			// m_taskLimitNumeric
+			// 
+			this.m_taskLimitNumeric.Location = new System.Drawing.Point(27, 79);
+			this.m_taskLimitNumeric.Maximum = new decimal(new int[] {
+									10000,
+									0,
+									0,
+									0});
+			this.m_taskLimitNumeric.Name = "m_taskLimitNumeric";
+			this.m_taskLimitNumeric.Size = new System.Drawing.Size(76, 22);
+			this.m_taskLimitNumeric.TabIndex = 3;
+			// 
+			// m_updateCheckBox
+			// 
+			this.m_updateCheckBox.Location = new System.Drawing.Point(27, 49);
+			this.m_updateCheckBox.Name = "m_updateCheckBox";
+			this.m_updateCheckBox.Size = new System.Drawing.Size(217, 24);
+			this.m_updateCheckBox.TabIndex = 2;
+			this.m_updateCheckBox.Text = "Check automatic updates";
+			this.m_updateCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// m_startWithWinCheckBox
+			// 
+			this.m_startWithWinCheckBox.Location = new System.Drawing.Point(27, 19);
+			this.m_startWithWinCheckBox.Name = "m_startWithWinCheckBox";
+			this.m_startWithWinCheckBox.Size = new System.Drawing.Size(217, 24);
+			this.m_startWithWinCheckBox.TabIndex = 1;
+			this.m_startWithWinCheckBox.Text = "Start Minder with Windows";
+			this.m_startWithWinCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// m_defaultsButton
+			// 
+			this.m_defaultsButton.Location = new System.Drawing.Point(230, 475);
+			this.m_defaultsButton.Name = "m_defaultsButton";
+			this.m_defaultsButton.Size = new System.Drawing.Size(148, 40);
+			this.m_defaultsButton.TabIndex = 0;
+			this.m_defaultsButton.Text = "Restore defaults";
+			this.m_defaultsButton.UseVisualStyleBackColor = true;
 			// 
 			// tabPage2
 			// 
@@ -188,44 +226,6 @@ namespace Minder.Forms.Settings
 			this.m_winCheckBox.Text = "Win";
 			this.m_winCheckBox.UseVisualStyleBackColor = true;
 			// 
-			// checkBox1
-			// 
-			this.checkBox1.Location = new System.Drawing.Point(27, 19);
-			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(217, 24);
-			this.checkBox1.TabIndex = 1;
-			this.checkBox1.Text = "Start Minder with Windows";
-			this.checkBox1.UseVisualStyleBackColor = true;
-			// 
-			// checkBox2
-			// 
-			this.checkBox2.Location = new System.Drawing.Point(27, 49);
-			this.checkBox2.Name = "checkBox2";
-			this.checkBox2.Size = new System.Drawing.Size(217, 24);
-			this.checkBox2.TabIndex = 2;
-			this.checkBox2.Text = "Check automatic updates";
-			this.checkBox2.UseVisualStyleBackColor = true;
-			// 
-			// numericUpDown1
-			// 
-			this.numericUpDown1.Location = new System.Drawing.Point(27, 79);
-			this.numericUpDown1.Maximum = new decimal(new int[] {
-									10000,
-									0,
-									0,
-									0});
-			this.numericUpDown1.Name = "numericUpDown1";
-			this.numericUpDown1.Size = new System.Drawing.Size(76, 22);
-			this.numericUpDown1.TabIndex = 3;
-			// 
-			// label2
-			// 
-			this.label2.Location = new System.Drawing.Point(109, 81);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(100, 23);
-			this.label2.TabIndex = 4;
-			this.label2.Text = "Tasks limit";
-			// 
 			// SettingsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -239,16 +239,16 @@ namespace Minder.Forms.Settings
 			this.panel1.ResumeLayout(false);
 			this.tabControl1.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.m_taskLimitNumeric)).EndInit();
 			this.tabPage2.ResumeLayout(false);
 			this.groupBox1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			this.ResumeLayout(false);
 		}
-		private System.Windows.Forms.CheckBox checkBox1;
-		private System.Windows.Forms.CheckBox checkBox2;
-		private System.Windows.Forms.NumericUpDown numericUpDown1;
+		public System.Windows.Forms.CheckBox m_startWithWinCheckBox;
+		public System.Windows.Forms.CheckBox m_updateCheckBox;
+		public System.Windows.Forms.NumericUpDown m_taskLimitNumeric;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Button button1;
+		public System.Windows.Forms.Button m_defaultsButton;
 		public System.Windows.Forms.ComboBox m_keysComboBox;
 		private System.Windows.Forms.Label label1;
 		public System.Windows.Forms.CheckBox m_winCheckBox;

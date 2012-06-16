@@ -49,6 +49,7 @@ namespace Minder.Forms.Settings
 			m_form.m_shiftCheckBox.CheckedChanged += delegate {m_existChanges = true;};
 			m_form.m_winCheckBox.CheckedChanged += delegate {m_existChanges = true;};
 			m_form.m_keysComboBox.SelectedIndexChanged += delegate {m_existChanges = true;};
+			m_form.m_startWithWinCheckBox.CheckedChanged += delegate { m_existChanges = true; };
 			
 			m_form.Closing += FormClosing;
 		}
@@ -71,6 +72,8 @@ namespace Minder.Forms.Settings
 				   .Equals(m_form.m_keysComboBox.Items[i].ToString()))
 					m_form.m_keysComboBox.SelectedIndex = i;
 			}
+			
+			m_form.m_startWithWinCheckBox.Checked = StaticData.Settings.StartWithWindows;
 		}
 		
 		private void FormClosing(object sender, System.ComponentModel.CancelEventArgs e)

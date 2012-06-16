@@ -81,6 +81,13 @@ namespace Minder.Static
 		
 		public static class Settings
 		{
+			static bool m_startWithWindows;
+			
+			public static bool StartWithWindows {
+				get { return m_startWithWindows; }
+				set { m_startWithWindows = value; }
+			}
+			
 			public static class NewTaskHotkey
 			{
 				static bool m_ctrl;
