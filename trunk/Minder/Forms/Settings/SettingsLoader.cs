@@ -32,6 +32,7 @@ namespace EasyRemainder.Forms.Settings
 			iniParser.AddSetting("NewTaskHotkey", "Win", "false");
 			iniParser.AddSetting("NewTaskHotkey", "Shift", "false");
 			iniParser.AddSetting("NewTaskHotkey", "Key", "N");
+			iniParser.AddSetting("General", "startwithwindows", "true");
 			iniParser.SaveSettings();
 		}
 		
@@ -46,6 +47,8 @@ namespace EasyRemainder.Forms.Settings
 			StaticData.Settings.NewTaskHotkey.Shift = Convert.ToBoolean(parser.GetSetting("NewTaskHotkey", "shift"));
 			StaticData.Settings.NewTaskHotkey.Win = Convert.ToBoolean(parser.GetSetting("NewTaskHotkey", "win"));
 			StaticData.Settings.NewTaskHotkey.Key = parser.GetSetting("NewTaskHotkey", "key");
+			//General
+			StaticData.Settings.StartWithWindows = Convert.ToBoolean(parser.GetSetting("General", "startwithwindows"));
 		}
 		
 		public void SaveSettingsToFile()
@@ -64,7 +67,6 @@ namespace EasyRemainder.Forms.Settings
 			parser.AddSetting("NewTaskHotkey", "key", StaticData.Settings.NewTaskHotkey.Key);
 			
 			parser.SaveSettings();
-			
 		}
 		
 	}

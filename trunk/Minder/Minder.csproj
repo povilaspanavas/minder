@@ -83,6 +83,7 @@
     <Compile Include="Sql\DBConnection.cs" />
     <Compile Include="Sql\DBTypesConverter.cs" />
     <Compile Include="Static\StaticData.cs" />
+    <Compile Include="Tools\StartWithWinController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CoreConfig.xml">
@@ -98,6 +99,7 @@
     <Folder Include="Engine" />
     <Folder Include="Forms\About" />
     <Folder Include="Forms\Settings" />
+    <Folder Include="Tools" />
     <Folder Include="Objects" />
     <Folder Include="Sql" />
     <Folder Include="Static" />

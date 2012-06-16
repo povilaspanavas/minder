@@ -2,7 +2,7 @@
 	
 	<Factory>
 		<WorkingDirectory></WorkingDirectory>
-	</Factory>>
+	</Factory>
 	
 	<LogConfig>
 		<DirName>Log</DirName>
