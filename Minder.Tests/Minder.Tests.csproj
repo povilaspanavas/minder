@@ -52,10 +52,12 @@
     <Compile Include="DB\TestTask.cs" />
     <Compile Include="Logic\TestTaskController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\TestRegEx.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DB" />
     <Folder Include="Logic" />
+    <Folder Include="Tools" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Minder\Minder.csproj">

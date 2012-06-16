@@ -107,7 +107,7 @@ namespace Minder.Objects
 				return this;
 			}
 //			Regex regex = new Regex();
-//			regex.Matches();
+//			MatchCollection matches = regex.Matches(dataEntered, @"[0-9m]";
 			return null;
 		}
 		
