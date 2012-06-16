@@ -40,6 +40,7 @@ namespace Minder.Engine
 				}
 				m_timer.Start();
 			};
+			
 			m_timer.Start();
 		}
 		
