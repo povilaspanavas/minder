@@ -41,7 +41,7 @@ namespace Minder.Forms.Main
 		{
 			m_form.m_trayIcon.DoubleClick += delegate
 			{
-				//New task;
+				m_form.Visible = true;
 			};
 		}
 		
@@ -119,6 +119,7 @@ namespace Minder.Forms.Main
 				return;
 			if (DataEntered != null)
 				DataEntered(this.m_form.TextBox.Text);
+			this.m_form.TextBox.Text = string.Empty;
 			m_form.Visible = false;
 		}
 		
