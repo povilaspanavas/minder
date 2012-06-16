@@ -53,7 +53,7 @@ namespace Minder.Sql
 		{
 			SQLiteCommand sql_cmd = m_sql_con.CreateCommand();
 			DateTime now = DateTime.Now;
-			sql_cmd.CommandText = string.Format("SELECT ID, NAME, DATE_REMAINDER, SOURCE_ID, SHOWED from task where DATE_REMAINDER < {0}" +
+			sql_cmd.CommandText = string.Format("SELECT ID, NAME, DATE_REMAINDER, SOURCE_ID, SHOWED from task where DATE_REMAINDER <= {0}" +
 			                                    "and (SHOWED = 0 || SHOWED is null)",
 			                                    DBTypesConverter.ToFullDateStringWithQuotes(now));
 			
@@ -75,7 +75,7 @@ namespace Minder.Sql
 //			Grid.DataSource = dT;
 		}
 		
-		public Task SelectFirstTask()
+		public Task NextTaskToShow()
 		{
 			SQLiteCommand sql_cmd = m_sql_con.CreateCommand();
 			sql_cmd.CommandText = string.Format("select id, name, date_remainder from task where (showed is null | showed = 0) " +
@@ -93,24 +93,26 @@ namespace Minder.Sql
 			return null;
 		}
 		
-		public DateTime SelectNextDate()
+		public DateTime? NextDateToShow()
 		{
-			Task task = SelectFirstTask();
+			Task task = NextTaskToShow();
 			if (task == null)
-				return DateTime.Now.AddMinutes(5);
+				return null;
 			else
 				return task.DateRemainder;
 		}
 		
 		public int SelectNextInterval()
 		{
-			DateTime nextDate = SelectNextDate();
-			if (nextDate > DateTime.Now.AddMinutes(6) || nextDate < DateTime.Now.AddMinutes(5))
-				return 60000;
-			int milisecond = (int)nextDate.Subtract(DateTime.Now).TotalMilliseconds;
-			if (milisecond < 0)
-				milisecond *= -1;
-			return milisecond;
+			DateTime? nextDate = NextDateToShow();
+			if (nextDate == null)
+				return -1;
+			if (nextDate.Value < DateTime.Now)
+				return 1; // sutiksėk tuoj pat
+			TimeSpan timeSpan = nextDate.Value.Subtract(DateTime.Now);
+			if (timeSpan.TotalDays >= 1)
+				return -1;
+			return (int)timeSpan.TotalMilliseconds;
 		}
 		
 		public void Delete(int id)
