@@ -36,7 +36,7 @@ namespace Minder.Tools
 				return;
 			
 			// Set Auto-start.
-			StarterWithWin.SetAutoStart(keyName, assemblyLocation);
+//			StarterWithWin.SetAutoStart(keyName, assemblyLocation);
 
 			// Unset Auto-start.
 //			if (Util.IsAutoStartEnabled(keyName, assemblyLocation))
