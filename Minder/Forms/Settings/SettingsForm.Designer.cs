@@ -40,6 +40,7 @@ namespace Minder.Forms.Settings
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.button1 = new System.Windows.Forms.Button();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@ namespace Minder.Forms.Settings
 			this.m_shiftCheckBox = new System.Windows.Forms.CheckBox();
 			this.m_ctrlCheckBox = new System.Windows.Forms.CheckBox();
 			this.m_winCheckBox = new System.Windows.Forms.CheckBox();
-			this.button1 = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -90,6 +90,15 @@ namespace Minder.Forms.Settings
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "General";
 			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(6, 6);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(148, 40);
+			this.button1.TabIndex = 0;
+			this.button1.Text = "Restore defaults";
+			this.button1.UseVisualStyleBackColor = true;
 			// 
 			// tabPage2
 			// 
@@ -138,7 +147,7 @@ namespace Minder.Forms.Settings
 			// 
 			this.m_altCheckBox.Location = new System.Drawing.Point(91, 58);
 			this.m_altCheckBox.Name = "m_altCheckBox";
-			this.m_altCheckBox.Size = new System.Drawing.Size(50, 24);
+			this.m_altCheckBox.Size = new System.Drawing.Size(71, 24);
 			this.m_altCheckBox.TabIndex = 2;
 			this.m_altCheckBox.Text = "Alt";
 			this.m_altCheckBox.UseVisualStyleBackColor = true;
@@ -165,19 +174,10 @@ namespace Minder.Forms.Settings
 			// 
 			this.m_winCheckBox.Location = new System.Drawing.Point(91, 29);
 			this.m_winCheckBox.Name = "m_winCheckBox";
-			this.m_winCheckBox.Size = new System.Drawing.Size(54, 24);
+			this.m_winCheckBox.Size = new System.Drawing.Size(71, 24);
 			this.m_winCheckBox.TabIndex = 1;
 			this.m_winCheckBox.Text = "Win";
 			this.m_winCheckBox.UseVisualStyleBackColor = true;
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(6, 6);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(148, 40);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "Restore defaults";
-			this.button1.UseVisualStyleBackColor = true;
 			// 
 			// SettingsForm
 			// 
