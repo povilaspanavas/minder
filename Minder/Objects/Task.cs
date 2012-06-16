@@ -106,6 +106,10 @@ namespace Minder.Objects
 				this.SourceId = dataEntered;
 				return this;
 			}
+//			MatchCollection matchesMinutes = regex.Matches(dataEntered, @"\d*m$";
+//			MatchCollection matchesMinutes = regex.Matches(dataEntered, @"\d*m$";
+//			MatchCollection matchesMinutes = regex.Matches(dataEntered, @"\d*m$";
+			
 //			Regex regex = new Regex();
 //			MatchCollection matches = regex.Matches(dataEntered, @"[0-9m]";
 			return null;

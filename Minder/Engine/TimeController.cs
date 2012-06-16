@@ -39,7 +39,7 @@ namespace Minder.Engine
 //			m_timerLogic.
 		}
 		
-		void SaveNewTask(string dataEntered)
+		public void SaveNewTask(string dataEntered)
 		{
 			Task task = new Task().ParseString(dataEntered);
 			if (task != null)
