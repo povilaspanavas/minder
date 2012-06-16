@@ -34,12 +34,9 @@ namespace Minder.Engine
 						System.Windows.Forms.MessageBox.Show(
 							string.Format("Pavadinimas: {0}, Laikas:{1}",
 							              task.Text, DBTypesConverter.ToFullDateString(task.DateRemainder)));
+						task.Showed = true;
+						task.Update();
 					}
-					// TODO UPDATE isntead of deleting
-					foreach (Task task in tasksToShow) {
-						connection.Delete(task.Id);
-					}
-//					connection.SelectFirstTask();
 				}
 				m_timer.Start();
 			};

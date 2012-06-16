@@ -59,6 +59,31 @@ namespace Minder.Tests.DB
 			}
 		}
 		
+		[Ignore("ID automatiškai neužsisetina į objektą, tai neina paprstai update pdaryti")]
+		[Test]
+		public void TestUpdate()
+		{
+			DateTime now = DateTime.Now;
+			Task task = new Task("Darbas", now, "sourceId|15");
+			task.Save();
+			
+			task.DateRemainder = now.AddYears(1);
+			task.Text = "Krabas";
+			task.Showed = true;
+			task.SourceId = "skriptas";
+			task.Update();
+			
+			using (DBConnection con = new DBConnection())
+			{
+				SQLiteDataReader reader = con.ExecuteQuery("SELECT NAME, DATE_REMAINDER, SOURCE_ID, SHOWED FROM TASK");
+				Assert.IsTrue(reader.Read());
+				Assert.AreEqual(task.Text, reader.GetString(0));
+				Assert.AreEqual(DBTypesConverter.ToFullDateString(task.DateRemainder), reader.GetString(1));
+				Assert.AreEqual(task.SourceId, reader.GetString(2));
+				Assert.AreEqual(1, reader.GetInt32(3));
+			}
+		}
+		
 		[Test]
 		public void TestDelete()
 		{
