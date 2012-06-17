@@ -20,6 +20,7 @@ namespace Minder.Engine
 	{
 		public const string  MINUTES_STRING = @"\b\d*[,]{0,1}\d*(min.|min|m.|m)";
 		public const string  HOURS_STRING = @"\b\d*[,]{0,1}\d*(val.|val|v.|v|h.|h)";
+		public const string  TIME_STRING = @"\b\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}$";
 		
 		public TextParser()
 		{
@@ -27,20 +28,36 @@ namespace Minder.Engine
 		
 		public static bool Parse(string text, out DateTime date, out string leftText)
 		{
-			decimal hours = 0.00m; decimal minutes = 0.00m; date = DateTime.MinValue;
+			leftText = text;
+			date = DateTime.MinValue; 
+			if (TryParseMinutesOrHours(text, ref date, ref leftText))
+				return true;
+			if (TryParseTime(text, ref date, ref leftText))
+				return true;
+			return false;
+		}
+		
+		static bool TryParseTime(string text, ref DateTime date, ref string leftText)
+		{
+			return false;
+		}
+
+
+
+
+		static bool TryParseMinutesOrHours(string text, ref DateTime date, ref string leftText)
+		{
+			decimal hours = 0.00m;
+			decimal minutes = 0.00m;
 			Match minutesMatch = Regex.Match(text, MINUTES_STRING);
 			Match hoursMatch = Regex.Match(text, HOURS_STRING);
 			string minutesString = minutesMatch.Value;
 			string hoursString = hoursMatch.Value;
-			leftText = text;
-			
 			if (minutesMatch.Success == false && hoursMatch.Success == false)
-				return false;		
-				
+				return false;
 			decimal.TryParse(RemoveMinutesSymbol(minutesString), out minutes);
 			decimal.TryParse(RemoveHoursSymbol(hoursString), out hours);
-			date = DateTime.Now.AddHours((double)hours).AddMinutes((double)minutes);			
-			
+			date = DateTime.Now.AddHours((double)hours).AddMinutes((double)minutes);
 			if (minutesMatch.Success)
 				leftText = leftText.Replace(minutesString, string.Empty);
 			if (hoursMatch.Success)
