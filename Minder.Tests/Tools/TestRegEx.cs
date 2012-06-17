@@ -63,7 +63,14 @@ namespace Minder.Tests.Tools
 			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 06\\11 15:30", TextParser.DATE_TIME_STRING));
 			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 06-11 15:30", TextParser.DATE_TIME_STRING));
 			
-			Assert.AreEqual("06.11 15:30", Regex.Match("Nupirkti pieno 06.11 15:30",  TextParser.DATE_TIME_STRING).Value);
+			Assert.AreEqual("06.11 15:30", Regex.Match("Nupirkti pieno 06.11 15:30", TextParser.DATE_TIME_STRING).Value);
+			
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 2012.06.11 15:30:10", TextParser.DATE_TIME_STRING));
+			Assert.AreEqual("2012.06.11 15:30:10", Regex.Match("Nupirkti pieno 2012.06.11 15:30:10",  TextParser.DATE_TIME_STRING).Value);
+			
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 2012-06-11 15:30:10", TextParser.DATE_TIME_STRING));
+			Assert.AreEqual("2012-06-11 15:30:10", Regex.Match("Nupirkti pieno 2012-06-11 15:30:10",  TextParser.DATE_TIME_STRING).Value);
+		
 		}
 	}
 }
