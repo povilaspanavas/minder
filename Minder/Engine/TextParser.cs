@@ -37,15 +37,21 @@ namespace Minder.Engine
 			return false;
 		}
 		
-		static bool TryParseTime(string text, ref DateTime date, ref string leftText)
+		public static bool TryParseTime(string text, ref DateTime date, ref string leftText)
 		{
-			return false;
+			Match timeMatch = Regex.Match(text, TIME_STRING);
+			if (timeMatch.Success == false)
+				return false;
+			if (DateTime.TryParse(timeMatch.Value, out date) == false)
+				return false;
+			leftText = leftText.Replace(timeMatch.Value, string.Empty).Trim();
+			return true;
 		}
 
 
 
 
-		static bool TryParseMinutesOrHours(string text, ref DateTime date, ref string leftText)
+		public static bool TryParseMinutesOrHours(string text, ref DateTime date, ref string leftText)
 		{
 			decimal hours = 0.00m;
 			decimal minutes = 0.00m;
