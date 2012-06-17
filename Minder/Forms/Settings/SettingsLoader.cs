@@ -59,12 +59,14 @@ namespace EasyRemainder.Forms.Settings
 			parser.DeleteSetting("NewTaskHotkey", "shift");
 			parser.DeleteSetting("NewTaskHotkey", "win");
 			parser.DeleteSetting("NewTaskHotkey", "key");
+			parser.DeleteSetting("general", "startwithwindows");
 			
 			parser.AddSetting("NewTaskHotkey", "alt", StaticData.Settings.NewTaskHotkey.Alt.ToString());
 			parser.AddSetting("NewTaskHotkey", "ctrl", StaticData.Settings.NewTaskHotkey.Ctrl.ToString());
 			parser.AddSetting("NewTaskHotkey", "shift", StaticData.Settings.NewTaskHotkey.Shift.ToString());
 			parser.AddSetting("NewTaskHotkey", "win", StaticData.Settings.NewTaskHotkey.Win.ToString());
 			parser.AddSetting("NewTaskHotkey", "key", StaticData.Settings.NewTaskHotkey.Key);
+			parser.AddSetting("General", "startwithwindows", StaticData.Settings.StartWithWindows.ToString());
 			
 			parser.SaveSettings();
 		}

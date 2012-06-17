@@ -10,8 +10,8 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
-
 using Core.Tools.Shortcut;
+using Minder.Static;
 using vbAccelerator.Components.Shell;
 
 namespace Minder.Tools
@@ -32,15 +32,17 @@ namespace Minder.Tools
 			string keyName = "Minder";
 			string assemblyLocation = Assembly.GetExecutingAssembly().Location;  // Or the EXE path.
 
-			if (StarterWithWin.IsAutoStartEnabled(keyName, assemblyLocation))
-				return;
-			
-			// Set Auto-start.
-//			StarterWithWin.SetAutoStart(keyName, assemblyLocation);
-
-			// Unset Auto-start.
-//			if (Util.IsAutoStartEnabled(keyName, assemblyLocation))
-//				Util.UnSetAutoStart(keyName);
+			if(StaticData.Settings.StartWithWindows)
+			{
+				if (StarterWithWin.IsAutoStartEnabled(keyName, assemblyLocation))
+					return;
+				StarterWithWin.SetAutoStart(keyName, assemblyLocation);
+			}
+			else
+			{
+				if (StarterWithWin.IsAutoStartEnabled(keyName, assemblyLocation))
+					StarterWithWin.UnSetAutoStart(keyName);
+			}
 		}
 		
 		
