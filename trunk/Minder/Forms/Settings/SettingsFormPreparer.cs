@@ -89,6 +89,7 @@ namespace Minder.Forms.Settings
 					StaticData.Settings.NewTaskHotkey.Shift = m_form.m_shiftCheckBox.Checked;
 					StaticData.Settings.NewTaskHotkey.Win = m_form.m_winCheckBox.Checked;
 					StaticData.Settings.NewTaskHotkey.Key = m_form.m_keysComboBox.SelectedItem.ToString();
+					StaticData.Settings.StartWithWindows = m_form.m_startWithWinCheckBox.Checked;
 					
 					new SettingsLoader().SaveSettingsToFile();
 					new WarningBox("You need restart application to take efect");
