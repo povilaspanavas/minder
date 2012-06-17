@@ -80,6 +80,11 @@
     </Compile>
     <Compile Include="Forms\Settings\SettingsFormPreparer.cs" />
     <Compile Include="Forms\Settings\SettingsLoader.cs" />
+    <Compile Include="Forms\TaskShow\TaskShowForm.cs" />
+    <Compile Include="Forms\TaskShow\TaskShowForm.Designer.cs">
+      <DependentUpon>TaskShowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TaskShow\TaskShowFormPreparer.cs" />
     <Compile Include="Objects\Task.cs" />
     <Compile Include="Sql\DBConnection.cs" />
     <Compile Include="Sql\DBTypesConverter.cs" />
@@ -100,6 +105,7 @@
     <Folder Include="Forms\Main" />
     <Folder Include="Engine" />
     <Folder Include="Forms\About" />
+    <Folder Include="Forms\TaskShow" />
     <Folder Include="Forms\Settings" />
     <Folder Include="Tools" />
     <Folder Include="Objects" />
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TaskShow\TaskShowForm.resx">
+      <DependentUpon>TaskShowForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
