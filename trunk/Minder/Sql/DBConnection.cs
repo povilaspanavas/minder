@@ -30,6 +30,7 @@ namespace Minder.Sql
 		{
 			Connect();
 		}
+		
 		private void Connect()
 		{
 			string dbPath = new PathCutHelper()
