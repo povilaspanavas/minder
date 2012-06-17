@@ -8,6 +8,7 @@
  */
 using System;
 using System.Text.RegularExpressions;
+using Minder.Engine;
 using NUnit.Framework;
 
 namespace Minder.Tests.Tools
@@ -39,6 +40,20 @@ namespace Minder.Tests.Tools
 			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15min.", @"\b\d*(m|m.|min|min.)$"));
 			Assert.AreEqual("15,5min.", Regex.Match("Nupirkti pieno 15,5min.", @"\b\d*[,]\d*(m|m.|min|min.)$").Value);
 			Assert.AreEqual("15min.", Regex.Match("Nupirkti pieno 15min.", @"\b\d*[,]{0,1}\d*(m|m.|min|min.)$").Value);
+		}
+		
+		[Test]
+		public void TestTime()
+		{
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15:10:01", TextParser.TIME_STRING));
+			Assert.AreEqual("15:10:01", Regex.Match("Nupirkti pieno 15:10:01", TextParser.TIME_STRING).Value);
+			
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15:10", TextParser.TIME_STRING));
+			Assert.AreEqual("15:10", Regex.Match("Nupirkti pieno 15:10", TextParser.TIME_STRING).Value);
+			
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 5:1", TextParser.TIME_STRING));
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 5:1:3", TextParser.TIME_STRING));
+			
 		}
 	}
 }

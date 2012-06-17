@@ -101,7 +101,13 @@ namespace Minder.Tests.Logic
 		[Test]
 		public void TestMethod_Time()
 		{
-			
+			DateTime now = DateTime.Now; 
+			DateTime dateRemind = new DateTime(now.Year, now.Month, now.Day, 15, 20, 0);
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas 15:20", out date, out leftText));
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			Assert.AreEqual("Susitikimas", leftText);
 		}
 	}
 }
