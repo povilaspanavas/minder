@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Minder.Forms.Main;
+using Minder.Forms.TaskShow;
 using Minder.Objects;
 using Minder.Sql;
 
@@ -32,11 +33,12 @@ namespace Minder.Engine
 				{
 					List<Task> tasksToShow = connection.LoadTasksForShowing();
 					foreach (Task task in tasksToShow) {
-						System.Windows.Forms.MessageBox.Show(
-							string.Format("Pavadinimas: {0}, Laikas:{1}",
-							              task.Text, DBTypesConverter.ToFullDateString(task.DateRemainder)));
-						task.Showed = true;
-						task.Update();
+//						System.Windows.Forms.MessageBox.Show(
+//							string.Format("Task: {0}, Time:{1}",
+//							              task.Text, DBTypesConverter.ToFullDateString(task.DateRemainder)));
+						new TaskShowFormPreparer(task).PrepareForm(); //Įkėliau viską į preparerį.
+//						task.Showed = true;
+//						task.Update();
 					}
 					int interval = connection.SelectNextInterval();
 					if (interval < 0)
