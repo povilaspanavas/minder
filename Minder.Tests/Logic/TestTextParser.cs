@@ -109,5 +109,11 @@ namespace Minder.Tests.Logic
 			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 		}
+		
+		[Test]
+		public void TestMethod_Date_Time()
+		{
+			
+		}
 	}
 }
