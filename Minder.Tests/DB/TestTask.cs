@@ -22,13 +22,14 @@ namespace Minder.Tests.DB
 		[TestFixtureSetUp]
 		public void InitOnce()
 		{
+			DBConnection.TestMode = true;
 			try
 			{
 				using (DBConnection con = new DBConnection())
 				{
 					con.CreateTable();
 				}
-			} catch {}
+			} catch (Exception ex) { ex.ToString(); }
 		}
 		
 		[SetUp]
