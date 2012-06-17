@@ -18,81 +18,90 @@ namespace Minder.Tests.Logic
 		[Test]
 		public void TestMethod_Only_Minutes()
 		{
-			decimal hours; decimal minutes; string leftText;
-			TextParser.Parse("Susitikimas 15min", out hours, out minutes, out leftText);
-			Assert.AreEqual(0.0m, hours);
-			Assert.AreEqual(15m, minutes);
+			DateTime now = DateTime.Now;
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas 15min", out date, out leftText));
+			Assert.AreEqual(now.AddHours(0).AddMinutes(15).ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(now.AddHours(0).AddMinutes(15).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			TextParser.Parse("Susitikimas 15,5min", out hours, out minutes, out leftText);
-			Assert.AreEqual(0.0m, hours);
-			Assert.AreEqual(15.5m, minutes);
+			TextParser.Parse("Susitikimas 15,5min", out date, out leftText);
+			Assert.AreEqual(now.AddHours(0).AddMinutes(15.5).ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(now.AddHours(0).AddMinutes(15.5).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			TextParser.Parse("Susitikimas 10m", out hours, out minutes, out leftText);
-			Assert.AreEqual(0.0m, hours);
-			Assert.AreEqual(10m, minutes);
+			TextParser.Parse("Susitikimas 10m", out date, out leftText);
+			Assert.AreEqual(now.AddHours(0).AddMinutes(10).ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(now.AddHours(0).AddMinutes(10).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			TextParser.Parse("Susitikimas 10m.", out hours, out minutes, out leftText);
-			Assert.AreEqual(0.0m, hours);
-			Assert.AreEqual(10m, minutes);
+			TextParser.Parse("Susitikimas 10m.", out date, out leftText);
+			Assert.AreEqual(now.AddHours(0).AddMinutes(10).ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(now.AddHours(0).AddMinutes(10).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			TextParser.Parse("Susitikimas 20min.", out hours, out minutes, out leftText);
-			Assert.AreEqual(0.0m, hours);
-			Assert.AreEqual(20m, minutes);
+			TextParser.Parse("Susitikimas 20min.", out date, out leftText);
+			Assert.AreEqual(now.AddHours(0).AddMinutes(20).ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(now.AddHours(0).AddMinutes(20).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 		}
 		
 		[Test]
 		public void TestMethod_Only_Hours()
 		{
-			decimal hours; decimal minutes; string leftText;
-			TextParser.Parse("Susitikimas 15val.", out hours, out minutes, out leftText);
-			Assert.AreEqual(15.0m, hours);
-			Assert.AreEqual(0.0m, minutes);
+			DateTime now = DateTime.Now;
+			DateTime date; string leftText;
+			TextParser.Parse("Susitikimas 15val.", out date, out leftText);
+			Assert.AreEqual(now.AddHours(15).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(now.AddHours(15).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			TextParser.Parse("Susitikimas 15,5val", out hours, out minutes, out leftText);
-			Assert.AreEqual(15.5m, hours);
-			Assert.AreEqual(0.0m, minutes);
+			TextParser.Parse("Susitikimas 15,5val", out date, out leftText);
+			Assert.AreEqual(now.AddHours(15.5).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(now.AddHours(15.5).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			TextParser.Parse("Susitikimas 20v.", out hours, out minutes, out leftText);
-			Assert.AreEqual(20.0m, hours);
-			Assert.AreEqual(0.0m, minutes);
+			TextParser.Parse("Susitikimas 20v.", out date, out leftText);
+			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			TextParser.Parse("Susitikimas 20v", out hours, out minutes, out leftText);
-			Assert.AreEqual(20.0m, hours);
-			Assert.AreEqual(0.0m, minutes);
+			TextParser.Parse("Susitikimas 20v", out date, out leftText);
+			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			TextParser.Parse("Susitikimas 10h.", out hours, out minutes, out leftText);
-			Assert.AreEqual(10.0m, hours);
-			Assert.AreEqual(0.0m, minutes);
+			TextParser.Parse("Susitikimas 10h.", out date, out leftText);
+			Assert.AreEqual(now.AddHours(10).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(now.AddHours(10).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			TextParser.Parse("Susitikimas 10h", out hours, out minutes, out leftText);
-			Assert.AreEqual(10.0m, hours);
-			Assert.AreEqual(0.0m, minutes);
+			TextParser.Parse("Susitikimas 10h", out date, out leftText);
+			Assert.AreEqual(now.AddHours(10).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(now.AddHours(10).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 		}
 		
 		[Test]
 		public void TestMethod_Hours_Minutes()
 		{
-			decimal hours; decimal minutes; string leftText;
-			TextParser.Parse("Susitikimas 15val.20min", out hours, out minutes, out leftText);
-			Assert.AreEqual(15.0m, hours);
-			Assert.AreEqual(20.0m, minutes);
+			DateTime now = DateTime.Now;
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas 15val.20min", out date, out leftText));
+			Assert.AreEqual(now.AddHours(15).AddMinutes(20).ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(now.AddHours(15).AddMinutes(20).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			TextParser.Parse("Susitikimas 15v 20m", out hours, out minutes, out leftText);
-			Assert.AreEqual(15.0m, hours);
-			Assert.AreEqual(20.0m, minutes);
+			Assert.IsTrue(TextParser.Parse("Susitikimas 15v 20m", out date, out leftText));
+			Assert.AreEqual(now.AddHours(15).AddMinutes(20).ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(now.AddHours(15).AddMinutes(20).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
+		}
+		
+		[Test]
+		public void TestMethod_Time()
+		{
+			
 		}
 	}
 }

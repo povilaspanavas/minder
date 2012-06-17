@@ -25,9 +25,9 @@ namespace Minder.Engine
 		{
 		}
 		
-		public static bool Parse(string text, out decimal hours, out decimal minutes, out string leftText)
+		public static bool Parse(string text, out DateTime date, out string leftText)
 		{
-			hours = 0.00m; minutes = 0.00m;
+			decimal hours = 0.00m; decimal minutes = 0.00m; date = DateTime.MinValue;
 			Match minutesMatch = Regex.Match(text, MINUTES_STRING);
 			Match hoursMatch = Regex.Match(text, HOURS_STRING);
 			string minutesString = minutesMatch.Value;
@@ -35,9 +35,11 @@ namespace Minder.Engine
 			leftText = text;
 			
 			if (minutesMatch.Success == false && hoursMatch.Success == false)
-				return false;				
+				return false;		
+				
 			decimal.TryParse(RemoveMinutesSymbol(minutesString), out minutes);
 			decimal.TryParse(RemoveHoursSymbol(hoursString), out hours);
+			date = DateTime.Now.AddHours((double)hours).AddMinutes((double)minutes);			
 			
 			if (minutesMatch.Success)
 				leftText = leftText.Replace(minutesString, string.Empty);
