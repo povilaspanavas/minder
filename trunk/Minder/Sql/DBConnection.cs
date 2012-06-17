@@ -19,6 +19,8 @@ namespace Minder.Sql
 {
 	public class DBConnection : IDisposable
 	{
+		public static bool TestMode = false;
+		
 		private SQLiteConnection m_sql_con = null;
 
 
@@ -31,12 +33,15 @@ namespace Minder.Sql
 			Connect();
 		}
 		
+		
 		private void Connect()
 		{
 			string dbPath = new PathCutHelper()
 					.CutExecutableFileFromPath(System.Reflection.Assembly
 					                           .GetExecutingAssembly().Location);
 			dbPath += @"\..\..\DB\MinderDb.db";
+			if (TestMode)
+				dbPath = @"..\..\DB\MinderDb.db";
 			m_sql_con = new SQLiteConnection(string.Format(@"Data Source={0};Version=3;New=False;Compress=True;", dbPath));
 			m_sql_con.Open();
 		}
