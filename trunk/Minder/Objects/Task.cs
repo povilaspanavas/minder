@@ -98,7 +98,7 @@ namespace Minder.Objects
 		{
 			if (string.IsNullOrEmpty(dataEntered))
 				return null;
-			decimal hours; decimal minutes; string taskText;
+			decimal minutes;
 			this.SourceId = dataEntered;
 			
 			if (dataEntered.Contains("|"))
@@ -110,10 +110,8 @@ namespace Minder.Objects
 				return this;
 			}
 			
-			if (TextParser.Parse(dataEntered, out hours, out minutes, out taskText) == false)
+			if (TextParser.Parse(dataEntered, out m_dateRemainder, out m_text) == false)
 				return null;
-			this.Text = taskText;
-			this.DateRemainder = DateTime.Now.AddHours((double)hours).AddMinutes((double)minutes);
 			return this;
 		}
 		
