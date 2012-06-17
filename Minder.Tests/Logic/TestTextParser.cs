@@ -113,7 +113,27 @@ namespace Minder.Tests.Logic
 		[Test]
 		public void TestMethod_Date_Time()
 		{
+			DateTime now = DateTime.Now; 
+			DateTime dateRemind = new DateTime(2012, 06, 01, 15, 20, 0);
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas 2012.06.01 15:20", out date, out leftText));
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			Assert.AreEqual("Susitikimas", leftText);
 			
+			dateRemind = new DateTime(2012, 06, 01, 15, 20, 10);
+			Assert.IsTrue(TextParser.Parse("Susitikimas 2012-06-01 15:20:10", out date, out leftText));
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			Assert.AreEqual("Susitikimas", leftText);
+			
+			dateRemind = new DateTime(2012, 06, 02, 15, 20, 10);
+			Assert.IsTrue(TextParser.Parse("Susitikimas 06.02 15:20:10", out date, out leftText));
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			Assert.AreEqual("Susitikimas", leftText);
 		}
+		
+		
 	}
 }
