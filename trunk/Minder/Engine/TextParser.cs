@@ -22,6 +22,7 @@ namespace Minder.Engine
 		public const string  HOURS_STRING = @"\b\d*[,]{0,1}\d*(val.|val|v.|v|h.|h)";
 		public const string  TIME_STRING = @"\b\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}$";
 		public const string  DATE_TIME_STRING = @"\b\d{0,4}(\.|-|\\){0,1}\d{1,2}(\.|-|\\)\d{1,2}[ ]\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}$";
+		public const string  YEAR = @"\b\d{4,4}";
 		
 		
 		
@@ -35,9 +36,26 @@ namespace Minder.Engine
 			date = DateTime.MinValue; 
 			if (TryParseMinutesOrHours(text, ref date, ref leftText))
 				return true;
+			if (TryParseDateTime(text, ref date, ref leftText))
+				return true;
 			if (TryParseTime(text, ref date, ref leftText))
 				return true;
 			return false;
+		}
+		
+		public static bool TryParseDateTime(string text, ref DateTime date, ref string leftText)
+		{
+			Match timeMatch = Regex.Match(text, DATE_TIME_STRING);
+			if (timeMatch.Success == false)
+				return false;
+			string dateString = timeMatch.Value;
+			// Jei pradžioj nėra nurodyta metų
+			if (Regex.IsMatch(timeMatch.Value, YEAR) == false)
+				dateString = DateTime.Now.Year + "." + dateString;
+			if (DateTime.TryParse(dateString, out date) == false)
+				return false;
+			leftText = leftText.Replace(timeMatch.Value, string.Empty).Trim();
+			return true;
 		}
 		
 		public static bool TryParseTime(string text, ref DateTime date, ref string leftText)
@@ -50,9 +68,6 @@ namespace Minder.Engine
 			leftText = leftText.Replace(timeMatch.Value, string.Empty).Trim();
 			return true;
 		}
-
-
-
 
 		public static bool TryParseMinutesOrHours(string text, ref DateTime date, ref string leftText)
 		{
