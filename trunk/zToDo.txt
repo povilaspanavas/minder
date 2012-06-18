@@ -9,7 +9,7 @@ Neveikia Remind me later, kaþkodël neupdatina duomenø.
 Taip pat nebegaliojantys taskai (data praëjus) parodomi, tik tada, kai ávedi naujà taskà.
 
 Reikia maþø mygtukø pagrindinëj formoj. ? ir X (Helpas ir iðjungti formà). arba paspaudus deðiná
-Settings formoj, nelygiai panelë ádëta, tarpai nevienodi.
+
 Sutvarkyt core: lietuviðkus praneðimus pakeist, ir dll sudët sql lite. Atnaujinimà padaryt automatiðkai.
 Á About ádët linkà google code projektà - support.
 Padaryti installus, ádëti á projektà toolsà ir padaryt scriptà, bei bat'à, kuris pakopins ið debug ir iðtrins .pdb ir kitus nereikalingus failus.
