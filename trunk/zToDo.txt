@@ -5,6 +5,9 @@ Pirmà taskà raðant, nesiraðo, turbût focusas ne ant tekstboxo bûna
 
 Igno:
 
+Neveikia Remind me later, kaþkodël neupdatina duomenø. 
+Taip pat nebegaliojantys taskai (data praëjus) parodomi, tik tada, kai ávedi naujà taskà.
+
 Reikia maþø mygtukø pagrindinëj formoj. ? ir X (Helpas ir iðjungti formà).
 Taskai be datos - ne ðiukðlës. Tarp visø taskø jie gali bûti rodomi gride atskiroj grupëj.
 Pvz: kokios nors ádëjos ir panaðiai, kuriø nesinori pamirðti, bet jos kaip ir neturi datos.
