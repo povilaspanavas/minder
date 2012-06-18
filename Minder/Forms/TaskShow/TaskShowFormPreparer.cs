@@ -50,14 +50,14 @@ namespace Minder.Forms.TaskShow
 		
 		public void SetEvents()
 		{
-			m_form.m_okButton.Click += delegate 
+			m_form.OkButton.Click += delegate 
 			{ 
 				m_task.Showed = true;
 				m_task.Update();
 				m_form.Close();
 			};
 			
-			m_form.m_remainderMeLaterButton.Click += delegate 
+			m_form.RemainderMeLaterButton.Click += delegate 
 			{
 //				m_task.Showed = false;
 				m_task.DateRemainder.AddMinutes(5); //Temp
@@ -70,7 +70,7 @@ namespace Minder.Forms.TaskShow
 		{
 			if(m_task == null)
 				return;
-			m_form.m_textBox.Text = 
+			m_form.TextBox.Text = 
 				string.Format("Task: {0}{1}{2}Time: {3}", m_task.Text, Environment.NewLine, Environment.NewLine,  
 				              DBTypesConverter.ToFullDateString(m_task.DateRemainder));
 		}

@@ -37,45 +37,45 @@ namespace Minder.Forms.TaskShow
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskShowForm));
-			this.m_remainderMeLaterButton = new System.Windows.Forms.Button();
-			this.m_okButton = new System.Windows.Forms.Button();
-			this.m_textBox = new System.Windows.Forms.Label();
+			this.RemainderMeLaterButton = new System.Windows.Forms.Button();
+			this.OkButton = new System.Windows.Forms.Button();
+			this.TextBox = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// m_remainderMeLaterButton
 			// 
-			this.m_remainderMeLaterButton.Location = new System.Drawing.Point(126, 73);
-			this.m_remainderMeLaterButton.Name = "m_remainderMeLaterButton";
-			this.m_remainderMeLaterButton.Size = new System.Drawing.Size(107, 32);
-			this.m_remainderMeLaterButton.TabIndex = 0;
-			this.m_remainderMeLaterButton.Text = "Remind me later";
-			this.m_remainderMeLaterButton.UseVisualStyleBackColor = true;
+			this.RemainderMeLaterButton.Location = new System.Drawing.Point(126, 73);
+			this.RemainderMeLaterButton.Name = "m_remainderMeLaterButton";
+			this.RemainderMeLaterButton.Size = new System.Drawing.Size(107, 32);
+			this.RemainderMeLaterButton.TabIndex = 0;
+			this.RemainderMeLaterButton.Text = "Remind me later";
+			this.RemainderMeLaterButton.UseVisualStyleBackColor = true;
 			// 
 			// m_okButton
 			// 
-			this.m_okButton.Location = new System.Drawing.Point(12, 73);
-			this.m_okButton.Name = "m_okButton";
-			this.m_okButton.Size = new System.Drawing.Size(107, 32);
-			this.m_okButton.TabIndex = 2;
-			this.m_okButton.Text = "Ok";
-			this.m_okButton.UseVisualStyleBackColor = true;
+			this.OkButton.Location = new System.Drawing.Point(12, 73);
+			this.OkButton.Name = "m_okButton";
+			this.OkButton.Size = new System.Drawing.Size(107, 32);
+			this.OkButton.TabIndex = 2;
+			this.OkButton.Text = "Ok";
+			this.OkButton.UseVisualStyleBackColor = true;
 			// 
 			// m_textBox
 			// 
-			this.m_textBox.Location = new System.Drawing.Point(12, 9);
-			this.m_textBox.Name = "m_textBox";
-			this.m_textBox.Size = new System.Drawing.Size(221, 72);
-			this.m_textBox.TabIndex = 3;
-			this.m_textBox.Text = "Task: task description\r\n\r\nTime: task time";
+			this.TextBox.Location = new System.Drawing.Point(12, 9);
+			this.TextBox.Name = "m_textBox";
+			this.TextBox.Size = new System.Drawing.Size(221, 72);
+			this.TextBox.TabIndex = 3;
+			this.TextBox.Text = "Task: task description\r\n\r\nTime: task time";
 			// 
 			// TaskShowForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(245, 111);
-			this.Controls.Add(this.m_remainderMeLaterButton);
-			this.Controls.Add(this.m_okButton);
-			this.Controls.Add(this.m_textBox);
+			this.Controls.Add(this.RemainderMeLaterButton);
+			this.Controls.Add(this.OkButton);
+			this.Controls.Add(this.TextBox);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
@@ -85,8 +85,8 @@ namespace Minder.Forms.TaskShow
 			this.TopMost = true;
 			this.ResumeLayout(false);
 		}
-		public System.Windows.Forms.Button m_okButton;
-		public System.Windows.Forms.Label m_textBox;
-		public System.Windows.Forms.Button m_remainderMeLaterButton;
+		public System.Windows.Forms.Button OkButton;
+		public System.Windows.Forms.Label TextBox;
+		public System.Windows.Forms.Button RemainderMeLaterButton;
 	}
 }
