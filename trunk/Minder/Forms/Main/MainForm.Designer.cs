@@ -49,23 +49,23 @@ namespace Minder.Forms.Main
 			this.label1.Location = new System.Drawing.Point(102, 5);
 			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(56, 14);
+			this.label1.Size = new System.Drawing.Size(56, 13);
 			this.label1.TabIndex = 2;
 			this.label1.Text = "New task";
 			// 
-			// mTextBox1
+			// m_TextBox
 			// 
-			this.m_TextBox.Location = new System.Drawing.Point(3, 22);
+			this.m_TextBox.Location = new System.Drawing.Point(3, 20);
 			this.m_TextBox.Multiline = true;
-			this.m_TextBox.Name = "mTextBox1";
-			this.m_TextBox.Size = new System.Drawing.Size(255, 51);
+			this.m_TextBox.Name = "m_TextBox";
+			this.m_TextBox.Size = new System.Drawing.Size(255, 45);
 			this.m_TextBox.TabIndex = 3;
 			// 
 			// MainForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(261, 74);
+			this.ClientSize = new System.Drawing.Size(261, 69);
 			this.ControlBox = false;
 			this.Controls.Add(this.m_TextBox);
 			this.Controls.Add(this.label1);
