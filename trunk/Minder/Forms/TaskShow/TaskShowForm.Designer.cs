@@ -44,38 +44,38 @@ namespace Minder.Forms.TaskShow
 			// 
 			// m_remainderMeLaterButton
 			// 
-			this.m_remainderMeLaterButton.Location = new System.Drawing.Point(178, 89);
+			this.m_remainderMeLaterButton.Location = new System.Drawing.Point(126, 73);
 			this.m_remainderMeLaterButton.Name = "m_remainderMeLaterButton";
-			this.m_remainderMeLaterButton.Size = new System.Drawing.Size(107, 30);
+			this.m_remainderMeLaterButton.Size = new System.Drawing.Size(107, 32);
 			this.m_remainderMeLaterButton.TabIndex = 0;
 			this.m_remainderMeLaterButton.Text = "Remind me later";
 			this.m_remainderMeLaterButton.UseVisualStyleBackColor = true;
 			// 
 			// m_okButton
 			// 
-			this.m_okButton.Location = new System.Drawing.Point(52, 89);
+			this.m_okButton.Location = new System.Drawing.Point(12, 73);
 			this.m_okButton.Name = "m_okButton";
-			this.m_okButton.Size = new System.Drawing.Size(107, 30);
+			this.m_okButton.Size = new System.Drawing.Size(107, 32);
 			this.m_okButton.TabIndex = 2;
 			this.m_okButton.Text = "Ok";
 			this.m_okButton.UseVisualStyleBackColor = true;
 			// 
 			// m_textBox
 			// 
-			this.m_textBox.Location = new System.Drawing.Point(12, 20);
+			this.m_textBox.Location = new System.Drawing.Point(12, 9);
 			this.m_textBox.Name = "m_textBox";
-			this.m_textBox.Size = new System.Drawing.Size(315, 66);
+			this.m_textBox.Size = new System.Drawing.Size(221, 72);
 			this.m_textBox.TabIndex = 3;
 			this.m_textBox.Text = "Task: task description\r\n\r\nTime: task time";
 			// 
 			// TaskShowForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(339, 140);
-			this.Controls.Add(this.m_textBox);
-			this.Controls.Add(this.m_okButton);
+			this.ClientSize = new System.Drawing.Size(245, 111);
 			this.Controls.Add(this.m_remainderMeLaterButton);
+			this.Controls.Add(this.m_okButton);
+			this.Controls.Add(this.m_textBox);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
