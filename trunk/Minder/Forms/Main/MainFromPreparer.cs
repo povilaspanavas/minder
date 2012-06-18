@@ -86,7 +86,10 @@ namespace Minder.Forms.Main
 			if(m_form.Visible == true)
 				m_form.Visible = false;
 			else
+			{
 				m_form.Visible = true;
+				m_form.TextBox.SelectAll();
+			}
 		}
 		
 		private void KeyPressed(object sender, KeyEventArgs e)
@@ -95,17 +98,19 @@ namespace Minder.Forms.Main
 			if (e.KeyCode.Equals(Keys.Escape))
 			{
 				m_form.Visible = false;
-				m_form.TextBox.Text = string.Empty;
+				m_form.TextBox.SelectAll();
 				return;
 			}
 			
 			if(e.Control == true || e.Shift == true
 			   || e.Alt == true || e.KeyCode != Keys.Enter)
+			{
+				e.Handled = false;
 				return;
+			}
 			if (DataEntered != null)
 				DataEntered(this.m_form.TextBox.Text);
 			this.m_form.TextBox.Text = string.Empty;
-			this.m_form.TextBox.Select(0,0);
 			this.m_form.Visible = false;
 		}
 		
