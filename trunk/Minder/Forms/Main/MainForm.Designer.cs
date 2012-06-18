@@ -1,4 +1,5 @@
-﻿
+﻿using Minder.Controls;
+
 namespace Minder.Forms.Main
 {
 	partial class MainForm
@@ -32,8 +33,8 @@ namespace Minder.Forms.Main
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.m_trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
-			this.m_textBox = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.m_TextBox = new Minder.Controls.MTextBox();
 			this.SuspendLayout();
 			// 
 			// m_trayIcon
@@ -43,33 +44,31 @@ namespace Minder.Forms.Main
 			this.m_trayIcon.Text = "Minder";
 			this.m_trayIcon.Visible = true;
 			// 
-			// m_textBox
-			// 
-			this.m_textBox.BackColor = System.Drawing.Color.White;
-			this.m_textBox.Location = new System.Drawing.Point(3, 20);
-			this.m_textBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-			this.m_textBox.Multiline = true;
-			this.m_textBox.Name = "m_textBox";
-			this.m_textBox.Size = new System.Drawing.Size(257, 56);
-			this.m_textBox.TabIndex = 1;
-			// 
 			// label1
 			// 
 			this.label1.Location = new System.Drawing.Point(102, 5);
 			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(56, 13);
+			this.label1.Size = new System.Drawing.Size(56, 14);
 			this.label1.TabIndex = 2;
 			this.label1.Text = "New task";
 			// 
+			// mTextBox1
+			// 
+			this.m_TextBox.Location = new System.Drawing.Point(3, 22);
+			this.m_TextBox.Multiline = true;
+			this.m_TextBox.Name = "mTextBox1";
+			this.m_TextBox.Size = new System.Drawing.Size(255, 51);
+			this.m_TextBox.TabIndex = 3;
+			// 
 			// MainForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(263, 83);
+			this.ClientSize = new System.Drawing.Size(261, 74);
 			this.ControlBox = false;
+			this.Controls.Add(this.m_TextBox);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.m_textBox);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "MainForm";
@@ -80,11 +79,11 @@ namespace Minder.Forms.Main
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private Minder.Controls.MTextBox m_TextBox;
 		private System.Windows.Forms.Label label1;
-		public System.Windows.Forms.TextBox m_textBox;
 		
 		public System.Windows.Forms.TextBox TextBox {
-			get { return m_textBox; }
+			get { return m_TextBox; }
 		}
 		public System.Windows.Forms.NotifyIcon m_trayIcon;
 	}
