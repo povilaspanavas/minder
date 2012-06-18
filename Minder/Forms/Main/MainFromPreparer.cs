@@ -78,7 +78,7 @@ namespace Minder.Forms.Main
 				hotKey = hotKey | ModifierKeys.Win;
 			
 			m_hotKeys.RegisterHotKey(hotKey, key);
-			m_form.m_textBox.KeyDown += KeyPressed;
+			m_form.TextBox.KeyDown += KeyPressed;
 		}
 		
 		private void ShowHide(object sender, KeyPressedEventArgs e)
@@ -104,7 +104,8 @@ namespace Minder.Forms.Main
 				return;
 			if (DataEntered != null)
 				DataEntered(this.m_form.TextBox.Text);
-			this.m_form.TextBox.Clear();
+			this.m_form.TextBox.Text = string.Empty;
+			this.m_form.TextBox.Select(0,0);
 			this.m_form.Visible = false;
 		}
 		
