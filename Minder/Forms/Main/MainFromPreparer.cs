@@ -44,6 +44,9 @@ namespace Minder.Forms.Main
 			{
 				m_form.Visible = true;
 			};
+			
+			m_form.TextBox.LostFocus += delegate { m_form.Visible = false; };
+			
 		}
 		
 		private void BackroundWorks()
