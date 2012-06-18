@@ -9,12 +9,9 @@ Neveikia Remind me later, kaþkodël neupdatina duomenø.
 Taip pat nebegaliojantys taskai (data praëjus) parodomi, tik tada, kai ávedi naujà taskà.
 
 Reikia maþø mygtukø pagrindinëj formoj. ? ir X (Helpas ir iðjungti formà). arba paspaudus deðiná
-Taskai be datos - ne ðiukðlës. Tarp visø taskø jie gali bûti rodomi gride atskiroj grupëj.
-Pvz: kokios nors ádëjos ir panaðiai, kuriø nesinori pamirðti, bet jos kaip ir neturi datos.
-
 Settings formoj, nelygiai panelë ádëta, tarpai nevienodi.
-
 Sutvarkyt core: lietuviðkus praneðimus pakeist, ir dll sudët sql lite. Atnaujinimà padaryt automatiðkai.
+Á About ádët linkà google code projektà - support.
 
 
 
