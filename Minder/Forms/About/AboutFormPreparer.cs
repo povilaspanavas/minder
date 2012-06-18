@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Windows.Forms;
 using Core;
 using Core.Forms;
 
@@ -40,6 +41,10 @@ namespace Minder.Forms.About
 		
 		public void SetEvents()
 		{
+			m_form.m_linkLabelSupport.Click += delegate 
+			{
+				System.Diagnostics.Process.Start("http://code.google.com/p/minder/");
+			};
 		}
 	}
 }
