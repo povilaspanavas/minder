@@ -1,0 +1,5 @@
+Reikia susidiegti icinst.exe ið Minder\Minder\Files\ :)
+
+Paleidþiame Build.bat - Subuildina Minder.csproj
+Tada paleidþiame "Minder install script".
+Pakeièiame rankomis Wizard Texts versijà pagal version.cvr ir spaudþiame Build :]
