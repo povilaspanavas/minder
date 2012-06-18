@@ -61,6 +61,7 @@ namespace Minder.Objects
 		{
 			this.m_sourceId = sourceId;
 		}
+		
 		public Task()
 		{
 			

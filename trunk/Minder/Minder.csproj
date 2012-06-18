@@ -96,6 +96,9 @@
     <None Include="CoreConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="minderico.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="version.cvr">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
