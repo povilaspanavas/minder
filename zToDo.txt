@@ -2,6 +2,13 @@ Padaryti, kad sesijos kaskart nereiktø atsidaryti, t.y., susirastø jau egzistuoj
 
 Pirmà taskà raðant, nesiraðo, turbût focusas ne ant tekstboxo bûna
 
+Turëtø pasislëpti jei focusas dingsta nuo formos
+Padaryti, kad apaièoje rodo ðikar tiðparsintà priminimo laikà
+
+
+Dar padaryti, kad nebûtø lyðno enter vedant taskus
+Pirmà taskà raðant, nesiraðo, turbût focusas ne ant tekstboxo bûna
+
 
 Igno:
 
@@ -14,5 +21,4 @@ Atnaujinimà padaryt automatiðkai - reikia ftp
 
 Padaryti installus, ádëti á projektà toolsà ir padaryt scriptà, bei bat'à, kuris pakopins ið debug ir iðtrins .pdb ir kitus nereikalingus failus.
 Ádëti icon á about formà.
-
 
