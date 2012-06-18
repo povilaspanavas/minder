@@ -10,8 +10,8 @@ Taip pat nebegaliojantys taskai (data praëjus) parodomi, tik tada, kai ávedi nau
 
 Reikia maþø mygtukø pagrindinëj formoj. ? ir X (Helpas ir iðjungti formà). arba paspaudus deðiná
 
-Sutvarkyt core: lietuviðkus praneðimus pakeist, ir dll sudët sql lite. Atnaujinimà padaryt automatiðkai.
-Á About ádët linkà google code projektà - support.
+Atnaujinimà padaryt automatiðkai - reikia ftp
+
 Padaryti installus, ádëti á projektà toolsà ir padaryt scriptà, bei bat'à, kuris pakopins ið debug ir iðtrins .pdb ir kitus nereikalingus failus.
 Ádëti icon á about formà.
 
