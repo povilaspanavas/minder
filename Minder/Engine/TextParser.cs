@@ -33,7 +33,7 @@ namespace Minder.Engine
 		public static bool Parse(string text, out DateTime date, out string leftText)
 		{
 			leftText = text;
-			date = DateTime.MinValue; 
+			date = DateTime.MinValue;
 			if (TryParseMinutesOrHours(text, ref date, ref leftText))
 				return true;
 			if (TryParseDateTime(text, ref date, ref leftText))
@@ -73,18 +73,27 @@ namespace Minder.Engine
 		{
 			decimal hours = 0.00m;
 			decimal minutes = 0.00m;
-			Match minutesMatch = Regex.Match(text, MINUTES_STRING);
-			Match hoursMatch = Regex.Match(text, HOURS_STRING);
-			string minutesString = minutesMatch.Value;
-			string hoursString = hoursMatch.Value;
-			if (minutesMatch.Success == false && hoursMatch.Success == false)
+			MatchCollection minutesCollection = Regex.Matches(text, MINUTES_STRING);
+			MatchCollection hoursCollection = Regex.Matches(text, HOURS_STRING);
+			if (minutesCollection.Count == 0 && hoursCollection.Count == 0)
 				return false;
+			
+			Match minutesMatch = null;
+			Match hoursMatch = null;
+			if (minutesCollection.Count > 0)
+				minutesMatch = minutesCollection[minutesCollection.Count - 1];
+			if (hoursCollection.Count > 0)
+				hoursMatch = hoursCollection[hoursCollection.Count - 1];
+			
+			string minutesString = minutesMatch != null ? minutesMatch.Value : string.Empty;
+			string hoursString = hoursMatch != null ? hoursMatch.Value : string.Empty;
+			
 			decimal.TryParse(RemoveMinutesSymbol(minutesString), out minutes);
 			decimal.TryParse(RemoveHoursSymbol(hoursString), out hours);
 			date = DateTime.Now.AddHours((double)hours).AddMinutes((double)minutes);
-			if (minutesMatch.Success)
+			if (minutesMatch != null)
 				leftText = leftText.Replace(minutesString, string.Empty);
-			if (hoursMatch.Success)
+			if (hoursMatch != null)
 				leftText = leftText.Replace(hoursString, string.Empty);
 			leftText = leftText.Trim();
 			return true;

@@ -101,7 +101,7 @@ namespace Minder.Tests.Logic
 		[Test]
 		public void TestMethod_Time()
 		{
-			DateTime now = DateTime.Now; 
+			DateTime now = DateTime.Now;
 			DateTime dateRemind = new DateTime(now.Year, now.Month, now.Day, 15, 20, 0);
 			DateTime date; string leftText;
 			Assert.IsTrue(TextParser.Parse("Susitikimas 15:20", out date, out leftText));
@@ -113,7 +113,7 @@ namespace Minder.Tests.Logic
 		[Test]
 		public void TestMethod_Date_Time()
 		{
-			DateTime now = DateTime.Now; 
+			DateTime now = DateTime.Now;
 			DateTime dateRemind = new DateTime(2012, 06, 01, 15, 20, 0);
 			DateTime date; string leftText;
 			Assert.IsTrue(TextParser.Parse("Susitikimas 2012.06.01 15:20", out date, out leftText));
@@ -135,5 +135,24 @@ namespace Minder.Tests.Logic
 		}
 		
 		
+		[Test]
+		public void Test_Minutes_Twice()
+		{
+			DateTime dateRemind = DateTime.Now.AddMinutes(20);
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas po 40min 20m", out date, out leftText));
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+		}
+		
+		[Test]
+		public void Test_Hours_Twice()
+		{
+			DateTime dateRemind = DateTime.Now.AddHours(4);
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas po 5h 4val.", out date, out leftText));
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+		}
 	}
 }
