@@ -44,12 +44,12 @@ namespace Minder.Forms.Settings
 		
 		public void SetEvents()
 		{
-			m_form.m_altCheckBox.CheckedChanged += delegate {m_existChanges = true;};
-			m_form.m_ctrlCheckBox.CheckedChanged += delegate {m_existChanges = true;};
-			m_form.m_shiftCheckBox.CheckedChanged += delegate {m_existChanges = true;};
-			m_form.m_winCheckBox.CheckedChanged += delegate {m_existChanges = true;};
-			m_form.m_keysComboBox.SelectedIndexChanged += delegate {m_existChanges = true;};
-			m_form.m_startWithWinCheckBox.CheckedChanged += delegate { m_existChanges = true; };
+			m_form.MAltCheckBox.CheckedChanged += delegate {m_existChanges = true;};
+			m_form.MCtrlCheckBox.CheckedChanged += delegate {m_existChanges = true;};
+			m_form.MShiftCheckBox.CheckedChanged += delegate {m_existChanges = true;};
+			m_form.MWinCheckBox.CheckedChanged += delegate {m_existChanges = true;};
+			m_form.MKeysComboBox.SelectedIndexChanged += delegate {m_existChanges = true;};
+			m_form.MStartWithWinCheckBox.CheckedChanged += delegate { m_existChanges = true; };
 			
 			m_form.Closing += FormClosing;
 		}
@@ -58,22 +58,22 @@ namespace Minder.Forms.Settings
 		{
 			foreach(string key in StaticData.KeysDic.Keys)
 			{
-				m_form.m_keysComboBox.Items.Add(key);
+				m_form.MKeysComboBox.Items.Add(key);
 			}
 			
-			m_form.m_altCheckBox.Checked = StaticData.Settings.NewTaskHotkey.Alt;
-			m_form.m_ctrlCheckBox.Checked = StaticData.Settings.NewTaskHotkey.Ctrl;
-			m_form.m_shiftCheckBox.Checked = StaticData.Settings.NewTaskHotkey.Shift;
-			m_form.m_winCheckBox.Checked = StaticData.Settings.NewTaskHotkey.Win;
+			m_form.MAltCheckBox.Checked = StaticData.Settings.NewTaskHotkey.Alt;
+			m_form.MCtrlCheckBox.Checked = StaticData.Settings.NewTaskHotkey.Ctrl;
+			m_form.MShiftCheckBox.Checked = StaticData.Settings.NewTaskHotkey.Shift;
+			m_form.MWinCheckBox.Checked = StaticData.Settings.NewTaskHotkey.Win;
 			
-			for(int i=0; i<m_form.m_keysComboBox.Items.Count; i++)
+			for(int i=0; i<m_form.MKeysComboBox.Items.Count; i++)
 			{
 				if(StaticData.Settings.NewTaskHotkey.Key
-				   .Equals(m_form.m_keysComboBox.Items[i].ToString()))
-					m_form.m_keysComboBox.SelectedIndex = i;
+				   .Equals(m_form.MKeysComboBox.Items[i].ToString()))
+					m_form.MKeysComboBox.SelectedIndex = i;
 			}
 			
-			m_form.m_startWithWinCheckBox.Checked = StaticData.Settings.StartWithWindows;
+			m_form.MStartWithWinCheckBox.Checked = StaticData.Settings.StartWithWindows;
 		}
 		
 		private void FormClosing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -84,12 +84,12 @@ namespace Minder.Forms.Settings
 				if(MessageBox.Show("Do you want to save changes?", "Settings",
 				                   MessageBoxButtons.YesNo) ==  DialogResult.Yes)
 				{
-					StaticData.Settings.NewTaskHotkey.Alt = m_form.m_altCheckBox.Checked;
-					StaticData.Settings.NewTaskHotkey.Ctrl = m_form.m_ctrlCheckBox.Checked;
-					StaticData.Settings.NewTaskHotkey.Shift = m_form.m_shiftCheckBox.Checked;
-					StaticData.Settings.NewTaskHotkey.Win = m_form.m_winCheckBox.Checked;
-					StaticData.Settings.NewTaskHotkey.Key = m_form.m_keysComboBox.SelectedItem.ToString();
-					StaticData.Settings.StartWithWindows = m_form.m_startWithWinCheckBox.Checked;
+					StaticData.Settings.NewTaskHotkey.Alt = m_form.MAltCheckBox.Checked;
+					StaticData.Settings.NewTaskHotkey.Ctrl = m_form.MCtrlCheckBox.Checked;
+					StaticData.Settings.NewTaskHotkey.Shift = m_form.MShiftCheckBox.Checked;
+					StaticData.Settings.NewTaskHotkey.Win = m_form.MWinCheckBox.Checked;
+					StaticData.Settings.NewTaskHotkey.Key = m_form.MKeysComboBox.SelectedItem.ToString();
+					StaticData.Settings.StartWithWindows = m_form.MStartWithWinCheckBox.Checked;
 					
 					new SettingsLoader().SaveSettingsToFile();
 					new WarningBox("You need restart application to take efect");
