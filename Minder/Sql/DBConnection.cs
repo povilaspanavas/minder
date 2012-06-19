@@ -73,18 +73,13 @@ namespace Minder.Sql
 			List<Task> tasks = new List<Task>();
 			while(reader.Read())
 			{
-//				object obj = reader.GetString(2);
 				int id = reader.GetInt32(0);
 				string name = reader.GetString(1);
 				DateTime date = DateTime.Parse(reader.GetString(2));
 				string sourceId = reader.GetString(3);
-//				int showedInt = DateTime.Parse(reader.GetInt32(4));
-//				bool showed = 0;
-				
 				tasks.Add(new Task(id, name, date, sourceId));
 			}
 			return tasks;
-//			Grid.DataSource = dT;
 		}
 		
 		public Task NextTaskToShow()
