@@ -1,5 +1,6 @@
 @echo off
 path = "..\Minder\Minder.csproj"
+DEL Build.log
 
 "C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild" %path% /t:Rebuild >> Build.log && type Build.log
 
