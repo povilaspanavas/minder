@@ -20,14 +20,14 @@ namespace Minder.Forms.Main
 	/// <summary>
 	/// Description of Main_From_Preparer.
 	/// </summary>
-	public class MainFromPreparer : IFormPreparer
+	public class MainFormPreparer : IFormPreparer
 	{
 		private MainForm m_form = null;
 		HotKeys m_hotKeys = null;
 		public event TaskData DataEntered;
 		public delegate void TaskData(string dataEntered);
 		
-		public MainFromPreparer()
+		public MainFormPreparer()
 		{
 			m_form = new MainForm();
 		}
@@ -46,7 +46,6 @@ namespace Minder.Forms.Main
 			};
 			
 			m_form.TextBox.LostFocus += delegate { m_form.Visible = false; };
-			
 		}
 		
 		private void BackroundWorks()
