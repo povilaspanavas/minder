@@ -35,6 +35,8 @@ namespace Minder.Engine
 		{
 			leftText = text;
 			date = DateTime.MinValue;
+			if (TryParseBySeperator("|", text, ref date, ref leftText))
+				return true;
 			if (TryParseMinutesOrHours(text, ref date, ref leftText))
 				return true;
 			if (TryParseDateTime(text, ref date, ref leftText))
@@ -42,6 +44,19 @@ namespace Minder.Engine
 			if (TryParseTime(text, ref date, ref leftText))
 				return true;
 			return false;
+		}
+		
+		public static bool TryParseBySeperator(string seperator, string text, ref DateTime date, ref string leftText)
+		{
+			if (text.Contains(seperator) == false)
+				return false;
+			decimal minutes;
+			leftText = text.Substring(0, text.IndexOf(seperator));
+			string time = text.Substring(text.IndexOf(seperator) + 1);
+			if (decimal.TryParse(time, out minutes) == false)
+				return false;
+			date = DateTime.Now.AddMinutes((double)minutes);
+			return true;
 		}
 		
 		public static bool TryParseDateTime(string text, ref DateTime date, ref string leftText)
