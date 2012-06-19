@@ -129,7 +129,7 @@ namespace Minder.Forms.Main
 				string leftText; DateTime date;
 				string remainderDateString;
 				if (TextParser.Parse(m_form.MTextBox.Text, out date, out leftText))
-					remainderDateString = DBTypesConverter.ToFullDateString(date);
+					remainderDateString = string.Format("{0:yyyy.MM.dd HH:mm}", date);
 				else
 					remainderDateString = "Unavailable";
 				m_form.MLabelRemaindDate.Text = remainderDateString;
