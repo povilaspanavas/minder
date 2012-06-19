@@ -11,9 +11,11 @@ using Core.Forms;
 using Core.Tools.GlobalHotKeys;
 using Core.Tools.ImportExport;
 using Core.Tools.Log;
+using Minder.Engine;
 using Minder.Forms.About;
 using Minder.Forms.Settings;
 using Minder.Forms.Main;
+using Minder.Sql;
 
 namespace Minder.Forms.Main
 {
@@ -45,7 +47,7 @@ namespace Minder.Forms.Main
 				m_form.Visible = true;
 			};
 			
-			m_form.TextBox.LostFocus += delegate { m_form.Visible = false; };
+			m_form.MTextBox.LostFocus += delegate { m_form.Visible = false; };
 		}
 		
 		private void BackroundWorks()
@@ -80,7 +82,9 @@ namespace Minder.Forms.Main
 				hotKey = hotKey | ModifierKeys.Win;
 			
 			m_hotKeys.RegisterHotKey(hotKey, key);
-			m_form.TextBox.KeyDown += KeyPressed;
+			m_form.MTextBox.KeyDown += KeyPressed;
+			m_form.MTextBox.KeyUp += ParseRealTimeAndDisplay;
+				
 		}
 		
 		private void ShowHide(object sender, KeyPressedEventArgs e)
@@ -90,7 +94,7 @@ namespace Minder.Forms.Main
 			else
 			{
 				m_form.Visible = true;
-				m_form.TextBox.SelectAll();
+				m_form.MTextBox.SelectAll();
 			}
 		}
 		
@@ -100,7 +104,7 @@ namespace Minder.Forms.Main
 			if (e.KeyCode.Equals(Keys.Escape))
 			{
 				m_form.Visible = false;
-				m_form.TextBox.SelectAll();
+				m_form.MTextBox.SelectAll();
 				return;
 			}
 			
@@ -111,11 +115,26 @@ namespace Minder.Forms.Main
 				return;
 			}
 			if (DataEntered != null)
-				DataEntered(this.m_form.TextBox.Text);
-			this.m_form.TextBox.Text = string.Empty;
+				DataEntered(this.m_form.MTextBox.Text);
+			this.m_form.MTextBox.Text = string.Empty;
 			this.m_form.Visible = false;
 		}
 		
+		public void ParseRealTimeAndDisplay(object sender, KeyEventArgs e) {
+			// Tikėtina, kad įvesta paprasta raidė
+			if(e.Control == false && e.Shift == false
+			   || e.Alt == false)
+			{
+				string leftText; DateTime date;
+				string remainderDateString;
+				if (TextParser.Parse(m_form.MTextBox.Text, out date, out leftText))
+					remainderDateString = DBTypesConverter.ToFullDateString(date);
+				else
+					remainderDateString = "Unavailable";
+				m_form.MLabelRemaindDate.Text = remainderDateString;
+				return;
+			}
+		}
 		private void SetContextMenu()
 		{
 			ContextMenu menu = new ContextMenu();
