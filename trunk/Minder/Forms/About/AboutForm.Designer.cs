@@ -41,11 +41,13 @@ namespace Minder.Forms.About
 			this.m_versionLabel = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.m_linkLabelSupport = new System.Windows.Forms.LinkLabel();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
 			// 
-			this.label1.Location = new System.Drawing.Point(12, 9);
+			this.label1.Location = new System.Drawing.Point(66, 9);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(260, 63);
 			this.label1.TabIndex = 0;
@@ -54,7 +56,7 @@ namespace Minder.Forms.About
 			// 
 			// m_versionLabel
 			// 
-			this.m_versionLabel.Location = new System.Drawing.Point(12, 103);
+			this.m_versionLabel.Location = new System.Drawing.Point(13, 90);
 			this.m_versionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.m_versionLabel.Name = "m_versionLabel";
 			this.m_versionLabel.Size = new System.Drawing.Size(260, 19);
@@ -63,7 +65,7 @@ namespace Minder.Forms.About
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(12, 122);
+			this.label2.Location = new System.Drawing.Point(13, 109);
 			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(48, 19);
@@ -72,19 +74,30 @@ namespace Minder.Forms.About
 			// 
 			// m_linkLabelSupport
 			// 
-			this.m_linkLabelSupport.Location = new System.Drawing.Point(65, 122);
+			this.m_linkLabelSupport.Location = new System.Drawing.Point(56, 109);
 			this.m_linkLabelSupport.Name = "m_linkLabelSupport";
-			this.m_linkLabelSupport.Size = new System.Drawing.Size(225, 23);
+			this.m_linkLabelSupport.Size = new System.Drawing.Size(183, 23);
 			this.m_linkLabelSupport.TabIndex = 3;
 			this.m_linkLabelSupport.TabStop = true;
 			this.m_linkLabelSupport.Text = "http://code.google.com/p/minder/";
 			this.m_linkLabelSupport.UseWaitCursor = true;
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(13, 12);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(48, 50);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox1.TabIndex = 4;
+			this.pictureBox1.TabStop = false;
 			// 
 			// AboutForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(302, 203);
+			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.m_linkLabelSupport);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.m_versionLabel);
@@ -96,8 +109,10 @@ namespace Minder.Forms.About
 			this.Name = "AboutForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "AboutForm";
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.PictureBox pictureBox1;
 		public System.Windows.Forms.LinkLabel m_linkLabelSupport;
 		public System.Windows.Forms.Label label2;
 		public System.Windows.Forms.Label m_versionLabel;
