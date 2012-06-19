@@ -1,3 +1,8 @@
 #summary How to use Minder
 
 === Supported time and date formats ===
+ * "Remind me 2011.12.01 10:15"
+ * "Remind me 12.06 19:20"
+ * "Remind me 08:08|8:08|8:8" means remind be about this at 08:08.
+ * "Remind me|15", "Remind me 15min|min.|m.|m" means remind me about task after 15 minutes.
+ * "Remind me 15val.|val.|v.|v|h.|h" means remind me about task after 15 hours. 
