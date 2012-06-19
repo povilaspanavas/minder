@@ -21,10 +21,10 @@ namespace Minder.Engine
 	/// </summary>
 	public class TimeController
 	{
-		private MainFromPreparer m_formPreparer = null;
+		private MainFormPreparer m_formPreparer = null;
 		private TimerLogic m_timerLogic = null;
 		
-		public TimeController(MainFromPreparer m_formPreparer)
+		public TimeController(MainFormPreparer m_formPreparer)
 		{
 			this.m_formPreparer = m_formPreparer;
 			this.m_timerLogic = new TimerLogic();

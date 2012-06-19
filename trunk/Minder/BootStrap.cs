@@ -50,7 +50,7 @@ namespace Minder
 				new StartWithWinController().StartWithWindows();
 				new UpdateVersion();
 				
-				MainFromPreparer preparer = new MainFromPreparer();
+				MainFormPreparer preparer = new MainFormPreparer();
 				preparer.PrepareForm();
 				
 				TimeController timeController = new TimeController(preparer);
