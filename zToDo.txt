@@ -19,6 +19,7 @@ Reikia maþø mygtukø pagrindinëj formoj. ? ir X (Helpas ir iðjungti formà). arba 
 
 Atnaujinimà padaryt automatiðkai - reikia ftp
 
-Padaryti installus, ádëti á projektà toolsà ir padaryt scriptà, bei bat'à, kuris pakopins ið debug ir iðtrins .pdb ir kitus nereikalingus failus.
+Padaryti installus, ádëti á projektà toolsà ir padaryt scriptà, bei bat'à, kuris pakopins ið debug ir iðtrins .pdb ir kitus nereikalingus failus. Paðalinti empyDb ið installo. arba padaryti, kad restore darant galima bûtø ir db perkopinti.
 Ádëti icon á about formà.
+Padaryti, kad registras paðalintø áraðà, jei pathas ne toks, koks dabar. 
 
