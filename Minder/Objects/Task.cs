@@ -50,16 +50,26 @@ namespace Minder.Objects
 			set { m_dateRemainder = value; }
 		}
 		
-		public Task(int id, string taskText, DateTime remainderDate) : this()
+		public Task(int id, string taskText, DateTime remainderDate, string sourceId) : this()
 		{
 			this.m_id = id;
 			this.m_text = taskText;
 			this.m_dateRemainder = remainderDate;
+			this.m_sourceId = sourceId;
 		}
 		
-		public Task(string taskText, DateTime remainderDate, string sourceId) : this(0, taskText, remainderDate)
+		public Task(string taskText, DateTime remainderDate, string sourceId) : this(0, taskText, remainderDate, sourceId)
 		{
-			this.m_sourceId = sourceId;
+		}
+		
+		/// <summary>
+		/// Really no sourceID? use for tests only
+		/// </summary>
+		/// <param name="taskText"></param>
+		/// <param name="remainderDate"></param>
+		public Task(string taskText, DateTime remainderDate) : this(0, taskText, remainderDate, string.Empty)
+		{
+			
 		}
 		
 		public Task()
@@ -70,10 +80,10 @@ namespace Minder.Objects
 		{
 			using (DBConnection con = new DBConnection())
 			{
-				con.ExecuteNonQuery(string.Format("INSERT INTO TASK (NAME, DATE_REMAINDER, SOURCE_ID) " +
-				                                  "VALUES('{0}', {1}, '{2}')",
+				con.ExecuteNonQuery(string.Format("INSERT INTO TASK (NAME, DATE_REMAINDER, SOURCE_ID, SHOWED) " +
+				                                  "VALUES('{0}', {1}, '{2}', {3})",
 				                                  this.Text, DBTypesConverter.ToFullDateStringWithQuotes(this.DateRemainder),
-				                                  this.SourceId));
+				                                  this.SourceId, this.Showed ? 1 : 0));
 			}
 		}
 		

@@ -49,6 +49,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB\TestDBConnection.cs" />
     <Compile Include="DB\TestTask.cs" />
     <Compile Include="Logic\TestTaskController.cs" />
     <Compile Include="Logic\TestTextParser.cs" />
