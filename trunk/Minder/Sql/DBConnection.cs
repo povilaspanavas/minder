@@ -66,7 +66,7 @@ namespace Minder.Sql
 			SQLiteCommand sql_cmd = m_sql_con.CreateCommand();
 			DateTime now = DateTime.Now;
 			sql_cmd.CommandText = string.Format("SELECT ID, NAME, DATE_REMAINDER, SOURCE_ID, SHOWED from task where DATE_REMAINDER <= {0}" +
-			                                    "and (SHOWED = 0 || SHOWED is null)",
+			                                    "and (SHOWED = 0 or SHOWED is null)",
 			                                    DBTypesConverter.ToFullDateStringWithQuotes(now));
 			
 			IDataReader reader = sql_cmd.ExecuteReader();
@@ -81,7 +81,7 @@ namespace Minder.Sql
 //				int showedInt = DateTime.Parse(reader.GetInt32(4));
 //				bool showed = 0;
 				
-				tasks.Add(new Task(id, name, date));
+				tasks.Add(new Task(id, name, date, sourceId));
 			}
 			return tasks;
 //			Grid.DataSource = dT;
@@ -90,7 +90,7 @@ namespace Minder.Sql
 		public Task NextTaskToShow()
 		{
 			SQLiteCommand sql_cmd = m_sql_con.CreateCommand();
-			sql_cmd.CommandText = string.Format("select id, name, date_remainder from task where (showed is null | showed = 0) " +
+			sql_cmd.CommandText = string.Format("select id, name, date_remainder, source_id from task where (showed is null or showed = 0) " +
 			                                    " order by date_remainder, id", 
 			                                    DBTypesConverter.ToFullDateStringWithQuotes(DateTime.Now.AddSeconds(-15)));
 			
@@ -100,7 +100,8 @@ namespace Minder.Sql
 				int id = reader.GetInt32(0);
 				string name = reader.GetString(1);
 				DateTime date = DateTime.Parse(reader.GetString(2));
-				return new Task(id, name, date);
+				string sourceId = reader.GetString(3);
+				return new Task(id, name, date, sourceId);
 			}
 			return null;
 		}
