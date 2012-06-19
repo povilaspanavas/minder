@@ -1,5 +1,6 @@
 Reikia susidiegti icinst.exe ið Minder\Minder\Files\ :)
 
 Paleidþiame BuildAndCopyInstallFiles.bat - Subuildina Minder.csproj
+Kolkas rankomis tenka pakoreguoti version.cvr - áraðome svn revizijà.
 Tada paleidþiame "Minder install script".
 Pakeièiame rankomis Wizard Texts versijà pagal version.cvr ir spaudþiame Build :]
