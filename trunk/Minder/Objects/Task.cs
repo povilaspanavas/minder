@@ -109,18 +109,8 @@ namespace Minder.Objects
 		{
 			if (string.IsNullOrEmpty(dataEntered))
 				return null;
-			decimal minutes;
 			this.SourceId = dataEntered;
-			
-			if (dataEntered.Contains("|"))
-			{
-				this.Text = dataEntered.Substring(0, dataEntered.IndexOf("|"));
-				string time = dataEntered.Substring(dataEntered.IndexOf("|") + 1);
-				minutes = decimal.Parse(time);
-				this.DateRemainder = DateTime.Now.AddMinutes((double)minutes);
-				return this;
-			}
-			
+
 			if (TextParser.Parse(dataEntered, out m_dateRemainder, out m_text) == false)
 				return null;
 			return this;
