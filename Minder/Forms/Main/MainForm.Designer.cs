@@ -34,7 +34,8 @@ namespace Minder.Forms.Main
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.m_trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
 			this.label1 = new System.Windows.Forms.Label();
-			this.m_TextBox = new Minder.Controls.MTextBox();
+			this.m_textBox = new Minder.Controls.MTextBox();
+			this.labelRemaindDate = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// m_trayIcon
@@ -46,28 +47,36 @@ namespace Minder.Forms.Main
 			// 
 			// label1
 			// 
-			this.label1.Location = new System.Drawing.Point(102, 5);
+			this.label1.Location = new System.Drawing.Point(11, 5);
 			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(56, 13);
+			this.label1.Size = new System.Drawing.Size(56, 14);
 			this.label1.TabIndex = 2;
 			this.label1.Text = "New task";
 			// 
 			// m_TextBox
 			// 
-			this.m_TextBox.Location = new System.Drawing.Point(3, 20);
-			this.m_TextBox.Multiline = true;
-			this.m_TextBox.Name = "m_TextBox";
-			this.m_TextBox.Size = new System.Drawing.Size(255, 45);
-			this.m_TextBox.TabIndex = 3;
+			this.m_textBox.Location = new System.Drawing.Point(3, 22);
+			this.m_textBox.Multiline = true;
+			this.m_textBox.Name = "m_TextBox";
+			this.m_textBox.Size = new System.Drawing.Size(255, 51);
+			this.m_textBox.TabIndex = 3;
+			// 
+			// labelRemaindDate
+			// 
+			this.labelRemaindDate.Location = new System.Drawing.Point(72, 5);
+			this.labelRemaindDate.Name = "labelRemaindDate";
+			this.labelRemaindDate.Size = new System.Drawing.Size(177, 14);
+			this.labelRemaindDate.TabIndex = 4;
 			// 
 			// MainForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(261, 69);
+			this.ClientSize = new System.Drawing.Size(261, 74);
 			this.ControlBox = false;
-			this.Controls.Add(this.m_TextBox);
+			this.Controls.Add(this.labelRemaindDate);
+			this.Controls.Add(this.m_textBox);
 			this.Controls.Add(this.label1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -79,12 +88,19 @@ namespace Minder.Forms.Main
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
-		private Minder.Controls.MTextBox m_TextBox;
+		private System.Windows.Forms.Label labelRemaindDate;
+		
+		private Minder.Controls.MTextBox m_textBox;
 		private System.Windows.Forms.Label label1;
 		
-		public System.Windows.Forms.TextBox TextBox {
-			get { return m_TextBox; }
+		public System.Windows.Forms.TextBox MTextBox {
+			get { return m_textBox; }
 		}
+		
+		public System.Windows.Forms.Label MLabelRemaindDate {
+			get { return labelRemaindDate; }
+		}
+		
 		public System.Windows.Forms.NotifyIcon m_trayIcon;
 	}
 }
