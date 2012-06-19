@@ -47,6 +47,17 @@ namespace Minder.Tests.Logic
 		}
 		
 		[Test]
+		public void TestMethod_Only_Minutes_Debug()
+		{
+			DateTime now = DateTime.Now;
+			DateTime date; string leftText;
+			TextParser.Parse("Susitikimas 10m.", out date, out leftText);
+			Assert.AreEqual(now.AddHours(0).AddMinutes(10).ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(now.AddHours(0).AddMinutes(10).ToShortTimeString(), date.ToShortTimeString());
+			Assert.AreEqual("Susitikimas", leftText);
+		}
+		
+		[Test]
 		public void TestMethod_Only_Hours()
 		{
 			DateTime now = DateTime.Now;
@@ -153,6 +164,20 @@ namespace Minder.Tests.Logic
 			Assert.IsTrue(TextParser.Parse("Susitikimas po 5h 4val.", out date, out leftText));
 			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
 			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+		}
+		
+		[Test]
+		public void Test_BugFix_Minutes_15mi()
+		{
+			DateTime date; string leftText;
+			Assert.IsFalse(TextParser.Parse("Susitikimas po 15mi", out date, out leftText));
+		}
+		
+		[Test]
+		public void Test_BugFix_Minutes_15va()
+		{
+			DateTime date; string leftText;
+			Assert.IsFalse(TextParser.Parse("Susitikimas po 15va", out date, out leftText));
 		}
 	}
 }

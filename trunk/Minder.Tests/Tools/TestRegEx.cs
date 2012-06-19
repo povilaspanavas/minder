@@ -72,5 +72,25 @@ namespace Minder.Tests.Tools
 			Assert.AreEqual("2012-06-11 15:30:10", Regex.Match("Nupirkti pieno 2012-06-11 15:30:10",  TextParser.DATE_TIME_STRING).Value);
 		
 		}
+		
+		[Test]
+		public void TestNormalMinutesParsing()
+		{
+//			string pattern = @"\b\d*[,]{0,1}\d*((min.)\b)|(min\b)|(m.\b))";
+			string pattern = @"\b\d*[,]{0,1}\d*((min\.)|(min\b)|(m\.)|(m\b))";
+			string text = "Nupirkti pieno 15m.";
+			Assert.IsTrue(Regex.IsMatch(text, pattern));
+			Assert.AreEqual(1, Regex.Matches(text, pattern).Count);
+			Assert.AreEqual("15m.", Regex.Match(text, pattern).Value);
+			
+			text = "Nupirkti pieno 15min.";
+			Assert.IsTrue(Regex.IsMatch(text, pattern));
+			Assert.AreEqual("15min.", Regex.Match(text, pattern).Value);
+			
+			text = "Nupirkti pieno 15mi";
+			Match match = Regex.Match(text, pattern);
+			Assert.IsFalse(Regex.IsMatch(text, pattern));
+		}
+		
 	}
 }

@@ -18,8 +18,9 @@ namespace Minder.Engine
 	/// </summary>
 	public class TextParser
 	{
-		public const string  MINUTES_STRING = @"\b\d*[,]{0,1}\d*(min.|min|m.|m)";
-		public const string  HOURS_STRING = @"\b\d*[,]{0,1}\d*(val.|val|v.|v|h.|h)";
+//			string pattern = @"\b\d*[,]{0,1}\d*((min\.)|(min)|(m\.)|(m))";
+		public const string  MINUTES_STRING = @"\b\d*[,]{0,1}\d*((min\.)|(min\b)|(m\.)|(m\b))";
+		public const string  HOURS_STRING = @"\b\d*[,]{0,1}\d*((val\.)|(val\b)|(v\.)|(v\b)|(h\.)|(h\b))";
 		public const string  TIME_STRING = @"\b\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}$";
 		public const string  DATE_TIME_STRING = @"\b\d{0,4}(\.|-|\\){0,1}\d{1,2}(\.|-|\\)\d{1,2}[ ]\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}$";
 		public const string  YEAR = @"\b\d{4,4}";
