@@ -35,13 +35,13 @@ namespace Minder.Forms.About
 		public void PrepareForm()
 		{
 			SetEvents();
-			m_form.m_versionLabel.Text = string.Format("Version: Alpha {0}", StaticData.VersionCache.Version);
+			m_form.MVersionLabel.Text = string.Format("Version: Alpha {0}", StaticData.VersionCache.Version);
 			m_form.ShowDialog();
 		}
 		
 		public void SetEvents()
 		{
-			m_form.m_linkLabelSupport.Click += delegate 
+			m_form.MLinkLabelSupport.Click += delegate 
 			{
 				System.Diagnostics.Process.Start("http://code.google.com/p/minder/");
 			};

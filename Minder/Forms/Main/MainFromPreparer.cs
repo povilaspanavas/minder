@@ -15,6 +15,7 @@ using Minder.Engine;
 using Minder.Forms.About;
 using Minder.Forms.Settings;
 using Minder.Forms.Main;
+using Minder.Forms.Tasks;
 using Minder.Sql;
 
 namespace Minder.Forms.Main
@@ -140,7 +141,7 @@ namespace Minder.Forms.Main
 			ContextMenu menu = new ContextMenu();
 			
 			MenuItem menuItemNewTask = new MenuItem("New task", delegate { m_form.Visible = true;}); //TODO
-			MenuItem menuItemTasks = new MenuItem("Tasks"); //TODO
+			MenuItem menuItemTasks = new MenuItem("Tasks", OpenTasksForm);
 			MenuItem menuItemSettings = new MenuItem("Settings", OpenSettingsForm);
 			MenuItem menuItemAbout = new MenuItem("About", OpenAboutForm);
 			MenuItem menuSeparator = new MenuItem("-");
@@ -158,6 +159,12 @@ namespace Minder.Forms.Main
 		}
 		
 		#region ContextMenuEvents
+		private void OpenTasksForm(object sender, EventArgs e)
+		{
+			TasksFormPreparer preparer = new TasksFormPreparer();
+			preparer.PrepareForm();
+		}
+		
 		private void OpenSettingsForm(object sender, EventArgs e)
 		{
 			SettingsFormPreparer preparer = new SettingsFormPreparer();
