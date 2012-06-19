@@ -41,9 +41,9 @@ namespace Minder
 				
 				ConfigLoader.LoadConfiguration(false, startupPath);
 				
-				string dbPath = string.Format(@"{0}\..\..\DB\", startupPath);
-				if(File.Exists(dbPath+"MinderDb.db") == false)
-					File.Copy(dbPath+"EmptyMinderDb.db", dbPath+"MinderDb.db");
+//				string dbPath = string.Format(@"{0}\..\..\DB\", startupPath);
+//				if(File.Exists(dbPath+"MinderDb.db") == false)
+//					File.Copy(dbPath+"EmptyMinderDb.db", dbPath+"MinderDb.db");
 					
 				SettingsLoader loader = new SettingsLoader();
 				loader.LoadSettings();
