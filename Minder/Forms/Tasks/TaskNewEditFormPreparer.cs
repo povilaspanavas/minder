@@ -8,6 +8,7 @@
  */
 using System;
 using Core.Forms;
+using Minder.Objects;
 
 namespace Minder.Forms.Tasks
 {
@@ -18,6 +19,13 @@ namespace Minder.Forms.Tasks
 	{
 		private TaskNewEditForm m_form = null;
 		private bool m_edit = false;
+		
+		Task m_task;
+		
+		public Task Task {
+			get { return m_task; }
+			set { m_task = value; }
+		}
 		
 		public TaskNewEditFormPreparer(bool edit)
 		{
@@ -40,12 +48,47 @@ namespace Minder.Forms.Tasks
 			SetEvents();
 			if(m_edit == false)
 				m_form.MShowedCheckBox.Visible = false;
+			else
+				FillFields();
 			m_form.ShowDialog();
+		}
+		
+		private void FillFields()
+		{
+			if(m_task == null)
+				return;
+			m_form.MDatePicker.Value = m_task.DateRemainder;
+			m_form.MTextBox.Text = m_task.Text;
+			m_form.MShowedCheckBox.Checked = m_task.Showed;
 		}
 		
 		public void SetEvents()
 		{
+			m_form.MSaveButton.Click += delegate
+			{
+				Task task = new Task();
+				task.Text = m_form.MTextBox.Text;
+				task.DateRemainder = m_form.MDatePicker.Value;
+				
+				if(m_edit == false)
+				{
+					task.Showed = false;
+					task.SourceId = string.Format("{0}{1}{2}", DateTime.Now, task.DateRemainder, task.Text);
+					task.Save();
+				}
+				else
+				{
+					task.Showed = m_form.MShowedCheckBox.Checked;
+					task.SourceId = m_task.SourceId;
+					task.Id = m_task.Id;
+					task.Update();
+				}
+				
+				m_form.Close();
+			};
 			
+			m_form.MCancelButton.Click += delegate 
+			{ m_form.Close(); };
 		}
 	}
 }

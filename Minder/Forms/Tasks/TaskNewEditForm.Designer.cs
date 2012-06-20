@@ -104,7 +104,7 @@ namespace Minder.Forms.Tasks
 			this.MCancelButton.Name = "MCancelButton";
 			this.MCancelButton.Size = new System.Drawing.Size(87, 30);
 			this.MCancelButton.TabIndex = 6;
-			this.MCancelButton.Text = "Save";
+			this.MCancelButton.Text = "Cancel";
 			this.MCancelButton.UseVisualStyleBackColor = true;
 			// 
 			// TaskNewEditForm
