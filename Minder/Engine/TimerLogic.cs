@@ -40,15 +40,21 @@ namespace Minder.Engine
 //						task.Showed = true;
 //						task.Update();
 					}
-					int interval = connection.SelectNextInterval();
-					if (interval < 0)
-						interval = m_sleepTick;
-					m_timer.Interval = interval;	
+					
+					SetNewTimerInterval(connection);
 				}
 				m_timer.Start();
 			};
 			
 			m_timer.Start();
+		}
+
+		public void SetNewTimerInterval(DBConnection connection)
+		{
+			int interval = connection.SelectNextInterval();
+			if (interval < 0)
+				interval = m_sleepTick;
+			m_timer.Interval = interval;
 		}
 		
 		public void RefreshInterval()
@@ -56,9 +62,7 @@ namespace Minder.Engine
 			m_timer.Stop();
 			using (DBConnection connection = new DBConnection())
 			{
-				Task nextTaskToShow = connection.NextTaskToShow();
-				if (nextTaskToShow == null)
-					m_timer.Interval = m_tick;
+				SetNewTimerInterval(connection);
 			}
 			m_timer.Start();
 			
