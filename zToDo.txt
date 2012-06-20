@@ -18,4 +18,5 @@ Atnaujinimà padaryt automatiðkai - reikia ið http
 Padaryti, kad restore darant galima bûtø ir db perkopinti.
 Padaryti soundà, kai taskas parodomas.
 Reikia pridëti changelog'à á about formà.
+Padaryti angliðkas antraðtes message boxuose
 
