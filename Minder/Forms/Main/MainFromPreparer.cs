@@ -84,7 +84,7 @@ namespace Minder.Forms.Main
 			
 			m_hotKeys.RegisterHotKey(hotKey, key);
 			m_form.MTextBox.KeyDown += KeyPressed;
-			m_form.MTextBox.KeyUp += ParseRealTimeAndDisplay;
+			m_form.MTextBox.TextChanged += ParseRealTimeAndDisplay;
 				
 		}
 		
@@ -121,10 +121,10 @@ namespace Minder.Forms.Main
 			this.m_form.Visible = false;
 		}
 		
-		public void ParseRealTimeAndDisplay(object sender, KeyEventArgs e) {
-			// Tikėtina, kad įvesta paprasta raidė
-			if(e.Control == false && e.Shift == false
-			   || e.Alt == false)
+		public void ParseRealTimeAndDisplay(object sender, EventArgs e) {
+//			// Tikėtina, kad įvesta paprasta raidė
+//			if(e.Control == false && e.Shift == false
+//			   || e.Alt == false)
 			{
 				string leftText; DateTime date;
 				string remainderDateString;
