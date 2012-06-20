@@ -5,4 +5,5 @@
  * "Remind me 12.06 19:20"
  * "Remind me 08:08|8:08|8:8" means remind be about this at 08:08.
  * "Remind me|15", "Remind me 15min|min.|m.|m" means remind me about task after 15 minutes.
- * "Remind me 15val.|val.|v.|v|h.|h" means remind me about task after 15 hours. 
+ * "Remind me 15val.|val.|v.|v|h.|h" means remind me about task after 15 hours.
+ * In formats like h, min. you can use comma. For example "Remind me 1,5h" means remind me about this after 1 hour 30 minutes. 
