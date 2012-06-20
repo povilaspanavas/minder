@@ -7,9 +7,11 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Media;
 using Core.Forms;
 using Minder.Objects;
 using Minder.Sql;
+using Minder.Static;
 
 namespace Minder.Forms.TaskShow
 {
@@ -34,7 +36,7 @@ namespace Minder.Forms.TaskShow
 			m_task = task;
 		}
 		
-		public System.Windows.Forms.Form Form 
+		public System.Windows.Forms.Form Form
 		{
 			get {
 				return m_form;
@@ -45,19 +47,26 @@ namespace Minder.Forms.TaskShow
 		{
 			SetEvents();
 			SetTaskText();
+			PlaySound();
 			m_form.ShowDialog();
+		}
+		
+		private void PlaySound()
+		{
+			SoundPlayer simpleSound = new SoundPlayer(StaticData.SOUND_FILE_PATH);
+			simpleSound.Play();
 		}
 		
 		public void SetEvents()
 		{
-			m_form.OkButton.Click += delegate 
-			{ 
+			m_form.OkButton.Click += delegate
+			{
 				m_task.Showed = true;
 				m_task.Update();
 				m_form.Close();
 			};
 			
-			m_form.RemainderMeLaterButton.Click += delegate 
+			m_form.RemainderMeLaterButton.Click += delegate
 			{
 //				m_task.Showed = false;
 				m_task.DateRemainder = m_task.DateRemainder.AddMinutes(5); //Temp
@@ -70,8 +79,8 @@ namespace Minder.Forms.TaskShow
 		{
 			if(m_task == null)
 				return;
-			m_form.TextBox.Text = 
-				string.Format("Task: {0}{1}{2}Time: {3}", m_task.Text, Environment.NewLine, Environment.NewLine,  
+			m_form.TextBox.Text =
+				string.Format("Task: {0}{1}{2}Time: {3}", m_task.Text, Environment.NewLine, Environment.NewLine,
 				              DBTypesConverter.ToFullDateString(m_task.DateRemainder));
 		}
 	}

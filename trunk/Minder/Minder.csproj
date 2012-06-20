@@ -108,6 +108,9 @@
     <None Include="minderico.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Sounds\sound.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="version.cvr">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -121,6 +124,7 @@
     <Folder Include="Forms\TaskShow" />
     <Folder Include="Forms\Settings" />
     <Folder Include="Controls" />
+    <Folder Include="Sounds" />
     <Folder Include="Tools" />
     <Folder Include="Objects" />
     <Folder Include="Sql" />
