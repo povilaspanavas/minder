@@ -54,6 +54,8 @@ namespace Minder.Engine
 			int interval = connection.SelectNextInterval();
 			if (interval < 0)
 				interval = m_sleepTick;
+			if (interval == 0)
+				interval = 1;
 			m_timer.Interval = interval;
 		}
 		
