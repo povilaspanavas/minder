@@ -12,6 +12,7 @@ namespace Minder.Static
 	{
 		private static Dictionary<string, Keys> m_keysDic = new Dictionary<string, Keys>();
 		public const string SETTINGS_FILE_PATH = "settings.ini";
+		public const string SOUND_FILE_PATH = @"Sounds\sound.wav";
 		
 		public static Dictionary<string, Keys> KeysDic 
 		{
