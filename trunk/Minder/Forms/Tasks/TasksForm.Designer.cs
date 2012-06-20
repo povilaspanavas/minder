@@ -44,6 +44,8 @@ namespace Minder.Forms.Tasks
 			this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.SOURCE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.MTaskGrid)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -74,7 +76,9 @@ namespace Minder.Forms.Tasks
 			this.MTaskGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
 									this.Column1,
 									this.Column2,
-									this.Column3});
+									this.Column3,
+									this.ID,
+									this.SOURCE_ID});
 			this.MTaskGrid.Location = new System.Drawing.Point(12, 62);
 			this.MTaskGrid.Name = "MTaskGrid";
 			this.MTaskGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -116,6 +120,20 @@ namespace Minder.Forms.Tasks
 			this.Column3.Name = "Column3";
 			this.Column3.ReadOnly = true;
 			// 
+			// ID
+			// 
+			this.ID.HeaderText = "Column4";
+			this.ID.Name = "ID";
+			this.ID.ReadOnly = true;
+			this.ID.Visible = false;
+			// 
+			// SOURCE_ID
+			// 
+			this.SOURCE_ID.HeaderText = "Column4";
+			this.SOURCE_ID.Name = "SOURCE_ID";
+			this.SOURCE_ID.ReadOnly = true;
+			this.SOURCE_ID.Visible = false;
+			// 
 			// TasksForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -132,6 +150,8 @@ namespace Minder.Forms.Tasks
 			((System.ComponentModel.ISupportInitialize)(this.MTaskGrid)).EndInit();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.DataGridViewTextBoxColumn SOURCE_ID;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ID;
 		public System.Windows.Forms.Button MDeleteButton;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn Column3;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
