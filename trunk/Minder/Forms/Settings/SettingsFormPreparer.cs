@@ -50,6 +50,7 @@ namespace Minder.Forms.Settings
 			m_form.MWinCheckBox.CheckedChanged += delegate {m_existChanges = true;};
 			m_form.MKeysComboBox.SelectedIndexChanged += delegate {m_existChanges = true;};
 			m_form.MStartWithWinCheckBox.CheckedChanged += delegate { m_existChanges = true; };
+			m_form.MUpdateCheckBox.CheckedChanged += delegate { m_existChanges = true; };
 			
 			m_form.Closing += FormClosing;
 		}
@@ -74,6 +75,7 @@ namespace Minder.Forms.Settings
 			}
 			
 			m_form.MStartWithWinCheckBox.Checked = StaticData.Settings.StartWithWindows;
+			m_form.MUpdateCheckBox.Checked = StaticData.Settings.CheckUpdates;
 		}
 		
 		private void FormClosing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -90,6 +92,7 @@ namespace Minder.Forms.Settings
 					StaticData.Settings.NewTaskHotkey.Win = m_form.MWinCheckBox.Checked;
 					StaticData.Settings.NewTaskHotkey.Key = m_form.MKeysComboBox.SelectedItem.ToString();
 					StaticData.Settings.StartWithWindows = m_form.MStartWithWinCheckBox.Checked;
+					StaticData.Settings.CheckUpdates = m_form.MUpdateCheckBox.Checked;
 					
 					new SettingsLoader().SaveSettingsToFile();
 					new WarningBox("You need restart application to take efect");
