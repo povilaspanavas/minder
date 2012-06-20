@@ -89,6 +89,11 @@
       <DependentUpon>TaskShowForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\TaskShow\TaskShowFormPreparer.cs" />
+    <Compile Include="Forms\Tasks\TaskNewEditForm.cs" />
+    <Compile Include="Forms\Tasks\TaskNewEditForm.Designer.cs">
+      <DependentUpon>TaskNewEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tasks\TaskNewEditFormPreparer.cs" />
     <Compile Include="Forms\Tasks\TasksForm.cs" />
     <Compile Include="Forms\Tasks\TasksForm.Designer.cs">
       <DependentUpon>TasksForm.cs</DependentUpon>
@@ -142,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TaskShow\TaskShowForm.resx">
       <DependentUpon>TaskShowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tasks\TaskNewEditForm.resx">
+      <DependentUpon>TaskNewEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tasks\TasksForm.resx">
       <DependentUpon>TasksForm.cs</DependentUpon>

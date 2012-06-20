@@ -82,6 +82,27 @@ namespace Minder.Sql
 			return tasks;
 		}
 		
+		public List<Task> LoadAllTasks()
+		{
+			SQLiteCommand sql_cmd = m_sql_con.CreateCommand();
+			DateTime now = DateTime.Now;
+			sql_cmd.CommandText = string.Format("SELECT ID, NAME, DATE_REMAINDER, SOURCE_ID, SHOWED from task");
+			
+			IDataReader reader = sql_cmd.ExecuteReader();
+			List<Task> tasks = new List<Task>();
+			while(reader.Read())
+			{
+				int id = reader.GetInt32(0);
+				string name = reader.GetString(1);
+				DateTime date = DateTime.Parse(reader.GetString(2));
+				string sourceId = reader.GetString(3);
+				Task task = new Task(id, name, date, sourceId);
+				task.Showed = reader.GetBoolean(4);
+				tasks.Add(task);
+			}
+			return tasks;
+		}
+		
 		public Task NextTaskToShow()
 		{
 			SQLiteCommand sql_cmd = m_sql_con.CreateCommand();
