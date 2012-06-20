@@ -12,15 +12,10 @@ Pirmà taskà raðant, nesiraðo, turbût focusas ne ant tekstboxo bûna
 
 Igno:
 
-Neveikia Remind me later, kaþkodël neupdatina duomenø. 
-Taip pat nebegaliojantys taskai (data praëjus) parodomi, tik tada, kai ávedi naujà taskà.
-
 Reikia maþø mygtukø pagrindinëj formoj. ? ir X (Helpas ir iðjungti formà). arba paspaudus deðiná
 
-Atnaujinimà padaryt automatiðkai - reikia ftp
-
-Padaryti installus, ádëti á projektà toolsà ir padaryt scriptà, bei bat'à, kuris pakopins ið debug ir iðtrins .pdb ir kitus nereikalingus failus. Paðalinti empyDb ið installo. arba padaryti, kad restore darant galima bûtø ir db perkopinti.
-Ádëti icon á about formà.
-Padaryti, kad registras paðalintø áraðà, jei pathas ne toks, koks dabar. 
+Atnaujinimà padaryt automatiðkai - reikia ið http
+Padaryti, kad restore darant galima bûtø ir db perkopinti.
 Padaryti soundà, kai taskas parodomas.
+Reikia pridëti changelog'à á about formà.
 
