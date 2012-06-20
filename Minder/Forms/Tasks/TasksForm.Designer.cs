@@ -37,55 +37,58 @@ namespace Minder.Forms.Tasks
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TasksForm));
-			this.button1 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.button3 = new System.Windows.Forms.Button();
+			this.MNewButton = new System.Windows.Forms.Button();
+			this.MEditButton = new System.Windows.Forms.Button();
+			this.MTaskGrid = new System.Windows.Forms.DataGridView();
+			this.MDeleteButton = new System.Windows.Forms.Button();
 			this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.MTaskGrid)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// button1
+			// MNewButton
 			// 
-			this.button1.Location = new System.Drawing.Point(12, 12);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(102, 32);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "New";
-			this.button1.UseVisualStyleBackColor = true;
+			this.MNewButton.Location = new System.Drawing.Point(12, 12);
+			this.MNewButton.Name = "MNewButton";
+			this.MNewButton.Size = new System.Drawing.Size(102, 32);
+			this.MNewButton.TabIndex = 0;
+			this.MNewButton.Text = "New";
+			this.MNewButton.UseVisualStyleBackColor = true;
 			// 
-			// button2
+			// MEditButton
 			// 
-			this.button2.Location = new System.Drawing.Point(120, 12);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(102, 32);
-			this.button2.TabIndex = 1;
-			this.button2.Text = "Edit";
-			this.button2.UseVisualStyleBackColor = true;
+			this.MEditButton.Location = new System.Drawing.Point(120, 12);
+			this.MEditButton.Name = "MEditButton";
+			this.MEditButton.Size = new System.Drawing.Size(102, 32);
+			this.MEditButton.TabIndex = 1;
+			this.MEditButton.Text = "Edit";
+			this.MEditButton.UseVisualStyleBackColor = true;
 			// 
-			// dataGridView1
+			// MTaskGrid
 			// 
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.MTaskGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+									| System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.MTaskGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.MTaskGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
 									this.Column1,
 									this.Column2,
 									this.Column3});
-			this.dataGridView1.Location = new System.Drawing.Point(12, 70);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView1.Size = new System.Drawing.Size(515, 349);
-			this.dataGridView1.TabIndex = 2;
+			this.MTaskGrid.Location = new System.Drawing.Point(12, 62);
+			this.MTaskGrid.Name = "MTaskGrid";
+			this.MTaskGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.MTaskGrid.Size = new System.Drawing.Size(546, 384);
+			this.MTaskGrid.TabIndex = 2;
 			// 
-			// button3
+			// MDeleteButton
 			// 
-			this.button3.Location = new System.Drawing.Point(228, 12);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(102, 32);
-			this.button3.TabIndex = 3;
-			this.button3.Text = "Delete";
-			this.button3.UseVisualStyleBackColor = true;
+			this.MDeleteButton.Location = new System.Drawing.Point(228, 12);
+			this.MDeleteButton.Name = "MDeleteButton";
+			this.MDeleteButton.Size = new System.Drawing.Size(102, 32);
+			this.MDeleteButton.TabIndex = 3;
+			this.MDeleteButton.Text = "Delete";
+			this.MDeleteButton.UseVisualStyleBackColor = true;
 			// 
 			// Column1
 			// 
@@ -98,9 +101,9 @@ namespace Minder.Forms.Tasks
 			// Column2
 			// 
 			this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.Column2.FillWeight = 80F;
+			this.Column2.FillWeight = 60F;
 			this.Column2.HeaderText = "Date";
-			this.Column2.MinimumWidth = 80;
+			this.Column2.MinimumWidth = 60;
 			this.Column2.Name = "Column2";
 			this.Column2.ReadOnly = true;
 			// 
@@ -117,24 +120,24 @@ namespace Minder.Forms.Tasks
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(539, 431);
-			this.Controls.Add(this.button3);
-			this.Controls.Add(this.dataGridView1);
-			this.Controls.Add(this.button2);
-			this.Controls.Add(this.button1);
+			this.ClientSize = new System.Drawing.Size(570, 458);
+			this.Controls.Add(this.MDeleteButton);
+			this.Controls.Add(this.MTaskGrid);
+			this.Controls.Add(this.MEditButton);
+			this.Controls.Add(this.MNewButton);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "TasksForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "TasksForm";
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.MTaskGrid)).EndInit();
 			this.ResumeLayout(false);
 		}
-		private System.Windows.Forms.Button button3;
+		public System.Windows.Forms.Button MDeleteButton;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn Column3;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Button button1;
+		public System.Windows.Forms.DataGridView MTaskGrid;
+		public System.Windows.Forms.Button MEditButton;
+		public System.Windows.Forms.Button MNewButton;
 	}
 }
