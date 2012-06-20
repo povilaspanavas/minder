@@ -49,6 +49,7 @@ namespace Minder.Forms.Main
 			};
 			
 			m_form.MTextBox.LostFocus += delegate { m_form.Visible = false; };
+			m_form.MTextBox.TextChanged += ParseRealTimeAndDisplay;
 		}
 		
 		private void BackroundWorks()
@@ -84,8 +85,6 @@ namespace Minder.Forms.Main
 			
 			m_hotKeys.RegisterHotKey(hotKey, key);
 			m_form.MTextBox.KeyDown += KeyPressed;
-			m_form.MTextBox.TextChanged += ParseRealTimeAndDisplay;
-				
 		}
 		
 		private void ShowHide(object sender, KeyPressedEventArgs e)
