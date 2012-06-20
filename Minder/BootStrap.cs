@@ -40,11 +40,13 @@ namespace Minder
 					                           .GetExecutingAssembly().Location);
 				
 				ConfigLoader.LoadConfiguration(false, startupPath);
-					
+				
 				SettingsLoader loader = new SettingsLoader();
 				loader.LoadSettings();
 				new StartWithWinController().StartWithWindows();
 				new UpdateVersion();
+				if(Minder.Static.StaticData.Settings.CheckUpdates)
+					new UpdateProject(StaticData.VersionCache.Version, true, "Minder");
 				
 				MainFormPreparer preparer = new MainFormPreparer();
 				preparer.PrepareForm();
@@ -57,7 +59,6 @@ namespace Minder
 				new ErrorBox(e.ToString()); // This shows error box and writes to log.
 				Application.Exit();
 			}
-			
 		}
 		
 	}

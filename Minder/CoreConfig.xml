@@ -37,9 +37,9 @@
 	<UpdateProject>
 		<FtpUser></FtpUser>
 		<FtpPass></FtpPass>
-		<FtpVersionFileHost></FtpVersionFileHost>
-		<FtpInstallHost></FtpInstallHost>
-		<InstallFileName></InstallFileName>
+		<FtpVersionFileHost>http://panavas.lt/minder/update/version.cvr</FtpVersionFileHost>
+		<FtpInstallHost>http://panavas.lt/minder/update/mindersetup.exe</FtpInstallHost>
+		<InstallFileName>minderupdate.exe</InstallFileName>
 	</UpdateProject>
 
 </core>
