@@ -18,4 +18,6 @@ del "Install Files\DB\minderdb.db" /Q
 del "Install Files\bin\files\*.pdb" /Q
 del "Install Files\bin\files\*.ini" /Q
 copy "Install Files\DB\emptyminderdb.db" "Install Files\DB\MinderDb.db"
+
+echo CHANGE SVN VERSION!!!
 pause
