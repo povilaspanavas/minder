@@ -13,21 +13,4 @@
 	<Control.Foreground>
 		<LinearGradientBrush />
 	</Control.Foreground>
-	<Grid
-		OverridesDefaultStyle="True"
-		OpacityMask="#FFC48F8F">
-		<Panel.Background>
-			<LinearGradientBrush />
-		</Panel.Background>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition
-				Width="0.491379310344828*" />
-			<ColumnDefinition
-				Width="0.0689655172413789*" />
-			<ColumnDefinition
-				Width="0.196098471382865*" />
-			<ColumnDefinition
-				Width="0.243556701030927*" />
-		</Grid.ColumnDefinitions>
-	</Grid>
 </Window>

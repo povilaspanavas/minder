@@ -80,11 +80,11 @@
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\About\AboutFormPreparer.cs" />
-    <Compile Include="Forms\Main2\Main2Form.xaml.cs">
+    <Compile Include="Forms\Skins\Main2\Main2Form.xaml.cs">
       <DependentUpon>Main2Form.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Forms\Main2\Main2FormPreparer.cs" />
+    <Compile Include="Forms\Skins\Main2\Main2FormPreparer.cs" />
     <Compile Include="Forms\Main\MainForm.cs" />
     <Compile Include="Forms\Main\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -141,7 +141,7 @@
     <Folder Include="Forms\Main" />
     <Folder Include="Engine" />
     <Folder Include="Forms\About" />
-    <Folder Include="Forms\Main2" />
+    <Folder Include="Forms\Skins\Main2" />
     <Folder Include="Forms\Skins" />
     <Folder Include="Forms\Tasks" />
     <Folder Include="Forms\TaskShow" />
@@ -177,7 +177,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Forms\Main2\Main2Form.xaml" />
+    <Page Include="Forms\Skins\Main2\Main2Form.xaml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
