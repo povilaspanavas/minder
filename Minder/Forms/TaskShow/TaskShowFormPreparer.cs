@@ -12,6 +12,7 @@ using Core.Forms;
 using Minder.Objects;
 using Minder.Sql;
 using Minder.Static;
+using Minder.Tools;
 
 namespace Minder.Forms.TaskShow
 {
@@ -53,7 +54,11 @@ namespace Minder.Forms.TaskShow
 		
 		private void PlaySound()
 		{
-			SoundPlayer simpleSound = new SoundPlayer(StaticData.SOUND_FILE_PATH);
+			string soundPath = new PathCutHelper()
+					.CutExecutableFileFromPath(System.Reflection.Assembly
+					                           .GetExecutingAssembly().Location);
+			soundPath += @"\"+StaticData.SOUND_FILE_PATH;
+			SoundPlayer simpleSound = new SoundPlayer(soundPath);
 			simpleSound.Play();
 		}
 		
