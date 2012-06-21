@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BootStrap.cs" />
-    <Compile Include="Controls\MLabel.cs" />
+    <Compile Include="Controls\MLabelWithImage.cs" />
     <Compile Include="Controls\MTextBox.cs" />
     <Compile Include="Engine\DateTimeParser.cs" />
     <Compile Include="Engine\TextParser.cs" />
