@@ -12,6 +12,8 @@ namespace Minder.Forms.Skins
 	/// </summary>
 	public partial class MainFormLaunchy : Form
 	{
+		private Image m_backGroundImage = null;
+		
 		public MainFormLaunchy()
 		{
 			//
@@ -27,7 +29,7 @@ namespace Minder.Forms.Skins
 		protected override void OnPaint(PaintEventArgs e)
 		{
 			base.OnPaint(e);
-			e.Graphics.DrawImage(Bitmap.FromFile("LaunchyClone.png"), new Point(0,0));
+			e.Graphics.DrawImage(m_backGroundImage, new Point(0,0));
 		}
 	}
 }
