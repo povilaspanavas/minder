@@ -9,6 +9,7 @@
 using System;
 using System.IO;
 using Minder.Static;
+using Minder.Tools;
 
 namespace EasyRemainder.Forms.Settings
 {
@@ -17,6 +18,11 @@ namespace EasyRemainder.Forms.Settings
 	/// </summary>
 	public class SettingsLoader
 	{	
+		private string m_settingsPath = new PathCutHelper()
+					.CutExecutableFileFromPath(System.Reflection.Assembly
+					                           .GetExecutingAssembly()
+					                           .Location)+@"\"+StaticData.SETTINGS_FILE_PATH;
+		
 		public void LoadSettings()
 		{
 			LoadFromSettingsFile();
@@ -24,9 +30,9 @@ namespace EasyRemainder.Forms.Settings
 		
 		public void CreateDefaultSettingsFile()
 		{
-			StreamWriter writer = new StreamWriter(StaticData.SETTINGS_FILE_PATH);
+			StreamWriter writer = new StreamWriter(m_settingsPath);
 			writer.Close();
-			IniParser iniParser = new IniParser(StaticData.SETTINGS_FILE_PATH);
+			IniParser iniParser = new IniParser(m_settingsPath);
 			iniParser.AddSetting("NewTaskHotkey", "Ctrl", "false");
 			iniParser.AddSetting("NewTaskHotkey", "Alt", "true");
 			iniParser.AddSetting("NewTaskHotkey", "Win", "false");
@@ -39,10 +45,10 @@ namespace EasyRemainder.Forms.Settings
 		
 		private void LoadFromSettingsFile()
 		{
-			if(File.Exists(StaticData.SETTINGS_FILE_PATH) == false)
+			if(File.Exists(m_settingsPath) == false)
 				CreateDefaultSettingsFile();
 			//HotKey settings
-			IniParser parser = new IniParser(StaticData.SETTINGS_FILE_PATH);
+			IniParser parser = new IniParser(m_settingsPath);
 			StaticData.Settings.NewTaskHotkey.Alt = Convert.ToBoolean(parser.GetSetting("NewTaskHotkey", "alt"));
 			StaticData.Settings.NewTaskHotkey.Ctrl = Convert.ToBoolean(parser.GetSetting("NewTaskHotkey", "ctrl"));
 			StaticData.Settings.NewTaskHotkey.Shift = Convert.ToBoolean(parser.GetSetting("NewTaskHotkey", "shift"));
@@ -55,7 +61,7 @@ namespace EasyRemainder.Forms.Settings
 		
 		public void SaveSettingsToFile()
 		{
-			IniParser parser = new IniParser(StaticData.SETTINGS_FILE_PATH);
+			IniParser parser = new IniParser(m_settingsPath);
 			parser.DeleteSetting("NewTaskHotkey", "alt");
 			parser.DeleteSetting("NewTaskHotkey", "ctrl");
 			parser.DeleteSetting("NewTaskHotkey", "shift");
