@@ -50,7 +50,7 @@ namespace Minder.Forms.Main
 				m_form.Visible = true;
 			};
 			
-			m_form.MTextBox.LostFocus += delegate { m_form.Visible = false; };
+			m_form.Deactivate += delegate { m_form.Visible = false; };
 			m_form.MTextBox.TextChanged += ParseRealTimeAndDisplay;
 		}
 		
@@ -96,6 +96,7 @@ namespace Minder.Forms.Main
 			else
 			{
 				m_form.Visible = true;
+				m_form.Activate();
 				m_form.MTextBox.SelectAll();
 			}
 		}
