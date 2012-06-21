@@ -35,15 +35,21 @@ namespace Minder.Engine
 		{
 			leftText = text;
 			date = DateTime.MinValue;
-			if (TryParseBySeperator("|", text, ref date, ref leftText))
-				return true;
-			if (TryParseMinutesOrHours(text, ref date, ref leftText))
-				return true;
-			if (TryParseDateTime(text, ref date, ref leftText))
-				return true;
-			if (TryParseTime(text, ref date, ref leftText))
-				return true;
-			return false;
+			try
+			{
+				if (TryParseBySeperator("|", text, ref date, ref leftText))
+					return true;
+				if (TryParseMinutesOrHours(text, ref date, ref leftText))
+					return true;
+				if (TryParseDateTime(text, ref date, ref leftText))
+					return true;
+				if (TryParseTime(text, ref date, ref leftText))
+					return true;
+				return false;
+			}
+			catch {
+				return false;
+			}
 		}
 		
 		public static bool TryParseBySeperator(string seperator, string text, ref DateTime date, ref string leftText)
