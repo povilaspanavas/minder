@@ -55,8 +55,8 @@ namespace Minder.Forms.TaskShow
 		private void PlaySound()
 		{
 			string soundPath = new PathCutHelper()
-					.CutExecutableFileFromPath(System.Reflection.Assembly
-					                           .GetExecutingAssembly().Location);
+				.CutExecutableFileFromPath(System.Reflection.Assembly
+				                           .GetExecutingAssembly().Location);
 			soundPath += @"\"+StaticData.SOUND_FILE_PATH;
 			SoundPlayer simpleSound = new SoundPlayer(soundPath);
 			simpleSound.Play();
@@ -66,10 +66,13 @@ namespace Minder.Forms.TaskShow
 		{
 			m_form.OkButton.Click += delegate
 			{
-				m_task.Showed = true;
-				m_task.Update();
-				m_form.Close();
+				CloseOrOkButton();
 			};
+			
+			m_form.Closed += delegate
+			{
+				CloseOrOkButton();
+			}
 			
 			m_form.RemainderMeLaterButton.Click += delegate
 			{
@@ -78,6 +81,13 @@ namespace Minder.Forms.TaskShow
 				m_task.Update();
 				m_form.Close();
 			};
+		}
+
+		void CloseOrOkButton()
+		{
+			m_task.Showed = true;
+			m_task.Update();
+			m_form.Close();
 		}
 		
 		private void SetTaskText()
