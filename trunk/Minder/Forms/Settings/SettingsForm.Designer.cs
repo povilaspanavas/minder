@@ -140,7 +140,7 @@ namespace Minder.Forms.Settings
 			this.MUpdateCheckBox.Name = "MUpdateCheckBox";
 			this.MUpdateCheckBox.Size = new System.Drawing.Size(163, 20);
 			this.MUpdateCheckBox.TabIndex = 2;
-			this.MUpdateCheckBox.Text = "Check automatic updates";
+			this.MUpdateCheckBox.Text = "Automatically check for updates";
 			this.MUpdateCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// MStartWithWinCheckBox
