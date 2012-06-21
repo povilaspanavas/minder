@@ -11,9 +11,6 @@ using System.Windows.Forms;
 
 namespace Minder.Controls
 {
-	/// <summary>
-	/// 
-	/// </summary>
 	public class MTextBox : System.Windows.Forms.TextBox
 	{
 		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

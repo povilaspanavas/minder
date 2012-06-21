@@ -34,9 +34,9 @@ namespace Minder.Forms.Skins
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormLaunchy));
 			this.m_trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
-			this.label1 = new MLabel((System.Drawing.Image)(resources.GetObject("LaunchyCloneLabel")));
+			this.label1 = new MLabelWithImage((System.Drawing.Image)(resources.GetObject("LaunchyCloneLabel")));
 			this.m_textBox = new Minder.Controls.MTextBox();
-			this.labelRemaindDate = new MLabel((System.Drawing.Image)(resources.GetObject("LaunchyCloneRemindTimeLabel")));
+			this.labelRemaindDate = new MLabelWithImage((System.Drawing.Image)(resources.GetObject("LaunchyCloneRemindTimeLabel")));
 			this.SuspendLayout();
 			// 
 			// m_trayIcon
@@ -91,10 +91,10 @@ namespace Minder.Forms.Skins
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
-		private MLabel labelRemaindDate;
+		private MLabelWithImage labelRemaindDate;
 		
 		private Minder.Controls.MTextBox m_textBox;
-		private MLabel label1;
+		private MLabelWithImage label1;
 		
 		public System.Windows.Forms.TextBox MTextBox {
 			get { return m_textBox; }
