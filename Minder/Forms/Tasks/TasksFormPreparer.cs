@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using Core.Forms;
+using Minder.Engine;
 using Minder.Objects;
 using Minder.Sql;
 
@@ -89,6 +90,7 @@ namespace Minder.Forms.Tasks
 					                     m_form.MTaskGrid.SelectedRows[0].Cells[4].Value.ToString());
 					task.Showed = Convert.ToBoolean(m_form.MTaskGrid.SelectedRows[0].Cells[2].Value);
 					task.Delete();
+					TimeEngine.FireTaskChangedEvent(task);
 					LoadTaskGrid();
 				}
 			};
