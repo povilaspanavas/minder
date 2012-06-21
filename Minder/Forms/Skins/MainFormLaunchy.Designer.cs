@@ -34,6 +34,7 @@ namespace Minder.Forms.Skins
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormLaunchy));
 			this.m_trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
+			this.m_backGroundImage = ((System.Drawing.Image)(resources.GetObject("LaunchyClone")));
 			this.label1 = new MLabelWithImage((System.Drawing.Image)(resources.GetObject("LaunchyCloneLabel")));
 			this.m_textBox = new Minder.Controls.MTextBox();
 			this.labelRemaindDate = new MLabelWithImage((System.Drawing.Image)(resources.GetObject("LaunchyCloneRemindTimeLabel")));
