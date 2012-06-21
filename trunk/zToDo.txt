@@ -1,13 +1,8 @@
 Padaryti, kad sesijos kaskart nereiktø atsidaryti, t.y., susirastø jau egzistuojanèià kaip DLC
 
-Pirmà taskà raðant, nesiraðo, turbût focusas ne ant tekstboxo bûna
-
-Turëtø pasislëpti jei focusas dingsta nuo formos
-Padaryti, kad apaièoje rodo ðikar tiðparsintà priminimo laikà
-
-
 Dar padaryti, kad nebûtø lyðno enter vedant taskus
 Pirmà taskà raðant, nesiraðo, turbût focusas ne ant tekstboxo bûna
+Culture Info galima per nustatymus rinktis
 
 
 Igno:
