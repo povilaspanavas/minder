@@ -72,7 +72,7 @@ namespace Minder.Forms.TaskShow
 			m_form.Closed += delegate
 			{
 				CloseOrOkButton();
-			}
+			};
 			
 			m_form.RemainderMeLaterButton.Click += delegate
 			{
