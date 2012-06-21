@@ -60,6 +60,7 @@ namespace Minder.Forms.Settings
 			this.MShiftCheckBox = new System.Windows.Forms.CheckBox();
 			this.MCtrlCheckBox = new System.Windows.Forms.CheckBox();
 			this.MWinCheckBox = new System.Windows.Forms.CheckBox();
+			this.tabPageDateFormats = new System.Windows.Forms.TabPage();
 			this.panel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -88,6 +89,7 @@ namespace Minder.Forms.Settings
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.tabControl1.Controls.Add(this.tabPage1);
 			this.tabControl1.Controls.Add(this.tabPage2);
+			this.tabControl1.Controls.Add(this.tabPageDateFormats);
 			this.tabControl1.Location = new System.Drawing.Point(2, 2);
 			this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
 			this.tabControl1.Name = "tabControl1";
@@ -328,6 +330,16 @@ namespace Minder.Forms.Settings
 			this.MWinCheckBox.Text = "Win";
 			this.MWinCheckBox.UseVisualStyleBackColor = true;
 			// 
+			// tabPageDateFormats
+			// 
+			this.tabPageDateFormats.Location = new System.Drawing.Point(4, 23);
+			this.tabPageDateFormats.Name = "tabPageDateFormats";
+			this.tabPageDateFormats.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPageDateFormats.Size = new System.Drawing.Size(458, 476);
+			this.tabPageDateFormats.TabIndex = 2;
+			this.tabPageDateFormats.Text = "Date Formats";
+			this.tabPageDateFormats.UseVisualStyleBackColor = true;
+			// 
 			// SettingsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -348,6 +360,7 @@ namespace Minder.Forms.Settings
 			this.groupBox1.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.TabPage tabPageDateFormats;
 		public System.Windows.Forms.CheckBox checkBox4;
 		public System.Windows.Forms.CheckBox checkBox3;
 		public System.Windows.Forms.CheckBox checkBox2;
