@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window
+	x:Class="Minder.Forms.Main2.Main2Form" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="Minder.Forms.Main2"
+	Width="398"
+	Height="125"
+	Typography.StylisticSet14="True"
+	Typography.StylisticSet16="False"
+	Typography.StylisticSet13="False">
+	<Control.Background>
+		<LinearGradientBrush />
+	</Control.Background>
+	<Control.Foreground>
+		<LinearGradientBrush />
+	</Control.Foreground>
+	<Grid
+		OverridesDefaultStyle="True"
+		OpacityMask="#FFC48F8F">
+		<Panel.Background>
+			<LinearGradientBrush />
+		</Panel.Background>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="0.491379310344828*" />
+			<ColumnDefinition
+				Width="0.0689655172413789*" />
+			<ColumnDefinition
+				Width="0.196098471382865*" />
+			<ColumnDefinition
+				Width="0.243556701030927*" />
+		</Grid.ColumnDefinitions>
+	</Grid>
+</Window>

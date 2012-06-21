@@ -13,6 +13,7 @@ using Core.Tools.ImportExport;
 using Core.Tools.Log;
 using Minder.Engine;
 using Minder.Forms.About;
+using Minder.Forms.Main2;
 using Minder.Forms.Settings;
 using Minder.Forms.Main;
 using Minder.Forms.Skins;
@@ -147,6 +148,7 @@ namespace Minder.Forms.Main
 			MenuItem menuSeparator = new MenuItem("-");
 			MenuItem menuSeparator2 = new MenuItem("-");
 			MenuItem menuExit = new MenuItem("Exit", ExitApplication);
+//			MenuItem tempMeniu = new MenuItem("WpfForm", ExitApplication);
 			
 			menu.MenuItems.Add(menuItemNewTask);
 			menu.MenuItems.Add(menuSeparator);
@@ -179,7 +181,8 @@ namespace Minder.Forms.Main
 		
 		private void ExitApplication(object sender, EventArgs e)
 		{
-			Application.Exit();
+			new Main2FormPreparer().PrepareForm();
+//			Application.Exit();
 		}
 		#endregion
 		
