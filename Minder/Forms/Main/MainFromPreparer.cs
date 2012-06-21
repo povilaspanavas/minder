@@ -182,8 +182,8 @@ namespace Minder.Forms.Main
 		
 		private void ExitApplication(object sender, EventArgs e)
 		{
-			new Main2FormPreparer().PrepareForm();
-//			Application.Exit();
+//			new Main2FormPreparer().PrepareForm();
+			Application.Exit();
 		}
 		#endregion
 		
