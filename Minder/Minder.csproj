@@ -151,6 +151,9 @@
     <EmbeddedResource Include="Forms\Settings\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Skins\MainFormLaucnhy.resx">
+      <DependentUpon>MainFormLaunchy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\TaskShow\TaskShowForm.resx">
       <DependentUpon>TaskShowForm.cs</DependentUpon>
     </EmbeddedResource>

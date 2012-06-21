@@ -26,14 +26,14 @@ namespace Minder.Forms.Main
 	/// </summary>
 	public class MainFormPreparer : IFormPreparer
 	{
-		private MainForm m_form = null;
+		private MainFormLaunchy m_form = null;
 		private HotKeys m_hotKeys = null;
 		public event TaskData DataEntered;
 		public delegate void TaskData(string dataEntered);
 		
 		public MainFormPreparer()
 		{
-			m_form = new MainForm();
+			m_form = new MainFormLaunchy();
 		}
 
 		public void PrepareForm()

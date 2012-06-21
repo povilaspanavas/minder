@@ -34,15 +34,15 @@ namespace Minder.Forms.Skins
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormLaunchy));
 			this.m_trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
-			this.label1 = new MLabel("LaunchyCloneLabel.png");
+			this.label1 = new MLabel((System.Drawing.Image)(resources.GetObject("LaunchyCloneLabel")));
 			this.m_textBox = new Minder.Controls.MTextBox();
-			this.labelRemaindDate = new MLabel("LaunchyCloneRemindTimeLabel.png");
+			this.labelRemaindDate = new MLabel((System.Drawing.Image)(resources.GetObject("LaunchyCloneRemindTimeLabel")));
 			this.SuspendLayout();
 			// 
 			// m_trayIcon
 			// 
 			this.m_trayIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-//			this.m_trayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("m_trayIcon.Icon")));
+			this.m_trayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("TryIcon")));
 			this.m_trayIcon.Text = "Minder";
 			this.m_trayIcon.Visible = true;
 			// 
