@@ -48,25 +48,25 @@ namespace Minder.Forms.Tasks
 			// 
 			// label1
 			// 
-			this.label1.Location = new System.Drawing.Point(12, 30);
+			this.label1.Location = new System.Drawing.Point(10, 15);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(30, 23);
+			this.label1.Size = new System.Drawing.Size(30, 25);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Text";
 			// 
 			// MTextBox
 			// 
-			this.MTextBox.Location = new System.Drawing.Point(48, 27);
+			this.MTextBox.Location = new System.Drawing.Point(46, 12);
 			this.MTextBox.Multiline = true;
 			this.MTextBox.Name = "MTextBox";
-			this.MTextBox.Size = new System.Drawing.Size(267, 53);
+			this.MTextBox.Size = new System.Drawing.Size(267, 57);
 			this.MTextBox.TabIndex = 1;
 			// 
 			// MDatePicker
 			// 
 			this.MDatePicker.CustomFormat = "yyyy.MM.dd hh.mm";
 			this.MDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.MDatePicker.Location = new System.Drawing.Point(48, 86);
+			this.MDatePicker.Location = new System.Drawing.Point(46, 76);
 			this.MDatePicker.Name = "MDatePicker";
 			this.MDatePicker.ShowUpDown = true;
 			this.MDatePicker.Size = new System.Drawing.Size(267, 20);
@@ -74,44 +74,44 @@ namespace Minder.Forms.Tasks
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(12, 92);
+			this.label2.Location = new System.Drawing.Point(10, 82);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(30, 23);
+			this.label2.Size = new System.Drawing.Size(30, 25);
 			this.label2.TabIndex = 3;
 			this.label2.Text = "Date";
 			// 
 			// MShowedCheckBox
 			// 
-			this.MShowedCheckBox.Location = new System.Drawing.Point(48, 112);
+			this.MShowedCheckBox.Location = new System.Drawing.Point(46, 104);
 			this.MShowedCheckBox.Name = "MShowedCheckBox";
-			this.MShowedCheckBox.Size = new System.Drawing.Size(104, 24);
+			this.MShowedCheckBox.Size = new System.Drawing.Size(104, 26);
 			this.MShowedCheckBox.TabIndex = 4;
 			this.MShowedCheckBox.Text = "Showed";
 			this.MShowedCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// MSaveButton
 			// 
-			this.MSaveButton.Location = new System.Drawing.Point(76, 151);
+			this.MSaveButton.Location = new System.Drawing.Point(75, 128);
 			this.MSaveButton.Name = "MSaveButton";
-			this.MSaveButton.Size = new System.Drawing.Size(87, 30);
+			this.MSaveButton.Size = new System.Drawing.Size(87, 32);
 			this.MSaveButton.TabIndex = 5;
 			this.MSaveButton.Text = "Save";
 			this.MSaveButton.UseVisualStyleBackColor = true;
 			// 
 			// MCancelButton
 			// 
-			this.MCancelButton.Location = new System.Drawing.Point(182, 151);
+			this.MCancelButton.Location = new System.Drawing.Point(168, 128);
 			this.MCancelButton.Name = "MCancelButton";
-			this.MCancelButton.Size = new System.Drawing.Size(87, 30);
+			this.MCancelButton.Size = new System.Drawing.Size(87, 32);
 			this.MCancelButton.TabIndex = 6;
 			this.MCancelButton.Text = "Cancel";
 			this.MCancelButton.UseVisualStyleBackColor = true;
 			// 
 			// TaskNewEditForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(327, 199);
+			this.ClientSize = new System.Drawing.Size(321, 163);
 			this.Controls.Add(this.MCancelButton);
 			this.Controls.Add(this.MSaveButton);
 			this.Controls.Add(this.MShowedCheckBox);
