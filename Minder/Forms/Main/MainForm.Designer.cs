@@ -41,7 +41,7 @@ namespace Minder.Forms.Main
 			// m_trayIcon
 			// 
 			this.m_trayIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-			this.m_trayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("m_trayIcon.Icon")));
+			this.m_trayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("TrayIcon.Icon")));
 			this.m_trayIcon.Text = "Minder";
 			this.m_trayIcon.Visible = true;
 			// 
