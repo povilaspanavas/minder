@@ -15,6 +15,7 @@ using Minder.Engine;
 using Minder.Forms.About;
 using Minder.Forms.Settings;
 using Minder.Forms.Main;
+using Minder.Forms.Skins;
 using Minder.Forms.Tasks;
 using Minder.Sql;
 
@@ -26,7 +27,7 @@ namespace Minder.Forms.Main
 	public class MainFormPreparer : IFormPreparer
 	{
 		private MainForm m_form = null;
-		HotKeys m_hotKeys = null;
+		private HotKeys m_hotKeys = null;
 		public event TaskData DataEntered;
 		public delegate void TaskData(string dataEntered);
 		

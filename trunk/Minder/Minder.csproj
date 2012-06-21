@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BootStrap.cs" />
+    <Compile Include="Controls\MLabel.cs" />
     <Compile Include="Controls\MTextBox.cs" />
     <Compile Include="Engine\DateTimeParser.cs" />
     <Compile Include="Engine\TextParser.cs" />
@@ -84,6 +85,10 @@
     </Compile>
     <Compile Include="Forms\Settings\SettingsFormPreparer.cs" />
     <Compile Include="Forms\Settings\SettingsLoader.cs" />
+    <Compile Include="Forms\Skins\MainFormLaunchy.cs" />
+    <Compile Include="Forms\Skins\MainFormLaunchy.Designer.cs">
+      <DependentUpon>MainFormLaunchy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TaskShow\TaskShowForm.cs" />
     <Compile Include="Forms\TaskShow\TaskShowForm.Designer.cs">
       <DependentUpon>TaskShowForm.cs</DependentUpon>
@@ -125,6 +130,7 @@
     <Folder Include="Forms\Main" />
     <Folder Include="Engine" />
     <Folder Include="Forms\About" />
+    <Folder Include="Forms\Skins" />
     <Folder Include="Forms\Tasks" />
     <Folder Include="Forms\TaskShow" />
     <Folder Include="Forms\Settings" />
