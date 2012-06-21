@@ -8,6 +8,7 @@
  */
 using System;
 using Core.Forms;
+using Minder.Engine;
 using Minder.Objects;
 
 namespace Minder.Forms.Tasks
@@ -75,6 +76,7 @@ namespace Minder.Forms.Tasks
 					task.Showed = false;
 					task.SourceId = string.Format("{0}{1}{2}", DateTime.Now, task.DateRemainder, task.Text);
 					task.Save();
+					TimeEngine.FireTaskChangedEvent(task);
 				}
 				else
 				{
@@ -82,6 +84,7 @@ namespace Minder.Forms.Tasks
 					task.SourceId = m_task.SourceId;
 					task.Id = m_task.Id;
 					task.Update();
+					TimeEngine.FireTaskChangedEvent(task);
 				}
 				
 				m_form.Close();
