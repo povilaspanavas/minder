@@ -9,9 +9,11 @@ rem DEL "Builded installs\*.*" /Q
 rd "Install Files" /s/q
 md "Install Files"
 md "Install Files/bin/files"
+md "Install Files/bin/files/sounds"
 md "Install Files/DB"
 
 copy "..\Minder\bin\debug\*.*" "Install Files\bin\files"
+copy "..\Minder\bin\debug\sounds\*.*" "Install Files\bin\files\sounds"
 copy "..\Minder\DB\*.*" "Install Files\DB"
 if exist "Install Files\bin\log" RD "..\Minder\bin\debug\log" /S /Q
 del "Install Files\DB\minderdb.db" /Q
