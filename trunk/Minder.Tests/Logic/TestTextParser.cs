@@ -179,5 +179,14 @@ namespace Minder.Tests.Logic
 			DateTime date; string leftText;
 			Assert.IsFalse(TextParser.Parse("Susitikimas po 15va", out date, out leftText));
 		}
+		
+		[Test]
+		public void Test_BugFix_Too_Large_Int()
+		{
+			DateTime date; string leftText;
+			Assert.IsFalse(TextParser.Parse("Susitikimas po 131456313256131654651321m", out date, out leftText));
+			Assert.IsFalse(TextParser.Parse("Susitikimas po 131456313256131654651321v", out date, out leftText));
+			Assert.IsFalse(TextParser.Parse("Susitikimas po 131456313256131654651321val.", out date, out leftText));
+		}
 	}
 }
