@@ -74,7 +74,7 @@ namespace Minder.Forms.TaskShow
 			m_form.RemainderMeLaterButton.Click += delegate
 			{
 //				m_task.Showed = false;
-				m_task.DateRemainder = m_task.DateRemainder.AddMinutes(5); //Temp
+				m_task.DateRemainder = DateTime.Now.AddMinutes(5); //Temp
 				m_task.Update();
 				m_form.Close();
 			};
