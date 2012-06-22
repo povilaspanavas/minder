@@ -33,6 +33,7 @@ namespace Minder.Forms.Skins
 //            m_form.MDateLabel.ContentStringFormat = "Ignas";
 //            m_form.MTextBox.Text = "Ignas";
             m_form.ShowInTaskbar = false;
+            m_form.Topmost = true;
             m_form.MTextBox.Focus();
 //            m_form.Hide();
         }
