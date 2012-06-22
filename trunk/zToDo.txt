@@ -8,10 +8,13 @@ Culture Info galima per nustatymus rinktis
 Igno:
 
 Reikia maþø mygtukø pagrindinëj formoj. ? ir X (Helpas ir iðjungti formà). arba paspaudus deðiná
-
-Atnaujinimà padaryt automatiðkai - reikia ið http
-Padaryti, kad restore darant galima bûtø ir db perkopinti.
-Padaryti soundà, kai taskas parodomas.
-Reikia pridëti changelog'à á about formà.
+Padaryti, kad restore darant galima bûtø ir db perkopinti pagal pasirinkimà.
 Padaryti angliðkas antraðtes message boxuose
+
+Girdas:
+po refresho, kad ten pat bûtø paselectinta
+double click - edit
+hotkeys gridui
+defaultinis sortinimas, pirmas neparodyti virðuje, antras pagal datà.
+
 
