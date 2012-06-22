@@ -6,6 +6,8 @@ using System.Drawing;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
+using System.Windows.Input;
+
 using Core;
 using Core.Forms;
 using Core.Tools.GlobalHotKeys;
@@ -13,9 +15,8 @@ using Core.Tools.ImportExport;
 using Core.Tools.Log;
 using Minder.Engine;
 using Minder.Forms.About;
-using Minder.Forms.Main2;
-using Minder.Forms.Settings;
 using Minder.Forms.Main;
+using Minder.Forms.Settings;
 using Minder.Forms.Skins;
 using Minder.Forms.Tasks;
 using Minder.Sql;
@@ -31,27 +32,31 @@ namespace Minder.Forms.Main
 		private HotKeys m_hotKeys = null;
 		public event TaskData DataEntered;
 		public delegate void TaskData(string dataEntered);
+		private WpfSkinPreparer m_wpfPreparer = null;
 		
 		public MainFormPreparer()
 		{
 			m_form = new MainFormLaunchy();
+			m_wpfPreparer = new WpfSkinPreparer();
 		}
 
 		public void PrepareForm()
 		{
 			BackroundWorks();
 			SetEvents();
+			m_wpfPreparer.PrepareForm();
 		}
 
 		public void SetEvents()
 		{
 			m_form.m_trayIcon.DoubleClick += delegate
 			{
-				m_form.Visible = true;
+				m_wpfPreparer.WpfForm.Show();
 			};
 			
 			m_form.Deactivate += delegate { m_form.Visible = false; };
-			m_form.MTextBox.TextChanged += ParseRealTimeAndDisplay;
+//			m_form.MTextBox.TextChanged += ParseRealTimeAndDisplay;
+			m_wpfPreparer.WpfForm.MTextBox.TextChanged += ParseRealTimeAndDisplay;
 		}
 		
 		private void BackroundWorks()
@@ -75,69 +80,82 @@ namespace Minder.Forms.Main
 			
 			// Nesu 100% tikras, kad gerai veikia - bet standartinis atvejis veikia
 			// o kodas daug aiškesnis ir lengviau taisomas
-			ModifierKeys hotKey = new ModifierKeys();
+			Core.Tools.GlobalHotKeys.ModifierKeys hotKey = new Core.Tools.GlobalHotKeys.ModifierKeys();
 			if (alt)
-				hotKey = hotKey | ModifierKeys.Alt;
+				hotKey = hotKey | Core.Tools.GlobalHotKeys.ModifierKeys.Alt;
 			if (shift)
-				hotKey = hotKey | ModifierKeys.Shift;
+				hotKey = hotKey | Core.Tools.GlobalHotKeys.ModifierKeys.Shift;
 			if (ctrl)
-				hotKey = hotKey | ModifierKeys.Control;
+				hotKey = hotKey | Core.Tools.GlobalHotKeys.ModifierKeys.Control;
 			if (win)
-				hotKey = hotKey | ModifierKeys.Win;
+				hotKey = hotKey | Core.Tools.GlobalHotKeys.ModifierKeys.Win;
 			
 			m_hotKeys.RegisterHotKey(hotKey, key);
-			m_form.MTextBox.KeyDown += KeyPressed;
+//			m_form.MTextBox.KeyDown += KeyPressed;
+			m_wpfPreparer.WpfForm.MTextBox.KeyDown += KeyPressed;
 		}
 		
 		private void ShowHide(object sender, KeyPressedEventArgs e)
 		{
-			if(m_form.Visible == true)
-				m_form.Visible = false;
+			if(m_wpfPreparer.WpfForm.IsVisible)
+				m_wpfPreparer.WpfForm.Hide();
 			else
-			{
-				m_form.Visible = true;
-				m_form.Activate();
-				m_form.MTextBox.SelectAll();
-			}
+				m_wpfPreparer.WpfForm.Show();
+//			if(m_form.Visible == true)
+//				m_form.Visible = false;
+//			else
+//			{
+//				m_form.Visible = true;
+//				m_form.Activate();
+//				m_form.MTextBox.SelectAll();
+//			}
 		}
 		
-		private void KeyPressed(object sender, KeyEventArgs e)
+		private void KeyPressed(object sender, System.Windows.Input.KeyEventArgs e)
 		{
-			// Escape paslepia formą (kažko nepavyko tiesiai ant formos užmest
-			if (e.KeyCode.Equals(Keys.Escape))
+//			 Escape paslepia formą (kažko nepavyko tiesiai ant formos užmest
+			if (e.Key == Key.Escape)
 			{
-				m_form.Visible = false;
-				m_form.MTextBox.SelectAll();
+//				m_form.Visible = false;
+//				m_form.MTextBox.SelectAll();
+				m_wpfPreparer.WpfForm.MTextBox.SelectAll();
+				m_wpfPreparer.WpfForm.Hide();
 				return;
 			}
 			
-			if(e.Control == true || e.Shift == true
-			   || e.Alt == true || e.KeyCode != Keys.Enter)
+//			if(e. == true || e.Shift == true
+//			   || e.Alt == true || e.KeyCode != Keys.Enter)
+//			{
+//				e.Handled = false;
+//				return;
+//			}
+			
+			if(e.Key == Key.Enter)
 			{
-				e.Handled = false;
-				return;
+				if (DataEntered != null)
+					DataEntered(this.m_wpfPreparer.WpfForm.MTextBox.Text);
+				this.m_wpfPreparer.WpfForm.MTextBox.Text = string.Empty;
+				this.m_wpfPreparer.WpfForm.Hide();
 			}
-			if (DataEntered != null)
-				DataEntered(this.m_form.MTextBox.Text);
-			this.m_form.MTextBox.Text = string.Empty;
-			this.m_form.Visible = false;
 		}
 		
-		public void ParseRealTimeAndDisplay(object sender, EventArgs e) {
+		public void ParseRealTimeAndDisplay(object sender, EventArgs e)
+		{
 //			// Tikėtina, kad įvesta paprasta raidė
 //			if(e.Control == false && e.Shift == false
 //			   || e.Alt == false)
-			{
-				string leftText; DateTime date;
-				string remainderDateString;
-				if (TextParser.Parse(m_form.MTextBox.Text, out date, out leftText))
-					remainderDateString = string.Format("{0:yyyy.MM.dd HH:mm}", date);
-				else
-					remainderDateString = "Unavailable";
-				m_form.MLabelRemaindDate.Text = remainderDateString;
-				return;
-			}
+//			{
+			string leftText; DateTime date;
+			string remainderDateString;
+			if (TextParser.Parse(m_wpfPreparer.WpfForm.MTextBox.Text, out date, out leftText))
+				remainderDateString = string.Format("{0:yyyy.MM.dd HH:mm}", date);
+			else
+				remainderDateString = "Unavailable";
+			m_wpfPreparer.WpfForm.MDateLabel.Content = remainderDateString;
+			return;
+//			}
 		}
+		
 		private void SetContextMenu()
 		{
 			ContextMenu menu = new ContextMenu();
@@ -182,7 +200,7 @@ namespace Minder.Forms.Main
 		
 		private void ExitApplication(object sender, EventArgs e)
 		{
-//			new Main2FormPreparer().PrepareForm();
+			//new Main2FormPreparer().PrepareForm();
 			Application.Exit();
 		}
 		#endregion
