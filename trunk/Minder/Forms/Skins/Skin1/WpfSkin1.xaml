@@ -11,7 +11,7 @@
             </LinearGradientBrush>
         </Border.Background>
         <Grid Height="63" Name="grid1" Width="272">
-            <Image Height="57" HorizontalAlignment="Left" Margin="6,0,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="57" Source="file:///E:/Projektai/Minder/Minder/Files/minderico.ico" />
+            <Image x:FieldModifier="public" Height="57" HorizontalAlignment="Left" Margin="6,0,0,0" Name="MImage" Stretch="Fill" VerticalAlignment="Top" Width="57" />
             <TextBox x:FieldModifier="public" Height="35" HorizontalAlignment="Left" Margin="69,22,0,0" Name="MTextBox" VerticalAlignment="Top" Width="197" Background="{x:Null}" TextWrapping="Wrap" />
             <Label Content="New task" Height="28" HorizontalAlignment="Left" Margin="69,0,0,0" Name="label1" VerticalAlignment="Top" Width="81" />
             <Label Content="Unavailable" x:FieldModifier="public" Height="28" HorizontalAlignment="Left" Margin="131,0,0,0" Name="MDateLabel" VerticalAlignment="Top" Width="135" FontWeight="Bold" />
