@@ -17,4 +17,10 @@ double click - edit
 hotkeys gridui
 defaultinis sortinimas, pirmas neparodyti virðuje, antras pagal datà.
 
+Forma: selectAll jei taskas nepridedamas
+
+Neuþsikrauna versijos failo, kai pasileidþia kartu su win ið registrø
+
+
+
 
