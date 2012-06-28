@@ -43,6 +43,8 @@ namespace Minder.Forms.Skins
 					                           .GetExecutingAssembly().Location) + @"\minderico.ico";
 			
 			m_form.MImage.Source = new BitmapImage(new Uri(startupPath));
+			m_form.Show();
+			m_form.Hide();
 		}
 
 		public void SetEvents()

@@ -39,7 +39,6 @@ namespace Minder.Engine
 			TimeEngine.TaskChangedEvent += delegate { 
 				m_timerLogic.RefreshInterval();
 			};
-//			m_timerLogic.
 		}
 		
 		public void SaveNewTask(string dataEntered)
