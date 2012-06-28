@@ -18,7 +18,7 @@ hotkeys gridui
 defaultinis sortinimas, pirmas neparodyti virðuje, antras pagal datà.
 
 Forma: selectAll jei taskas nepridedamas
-Inicializuoti reikëtø paèioje pradþioje.
+Inicializuoti reikëtø paèioje pradþioje. performance
 
 Neuþsikrauna versijos failo, kai pasileidþia kartu su win ið registrø
 
