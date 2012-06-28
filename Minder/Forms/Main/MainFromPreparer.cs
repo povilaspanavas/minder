@@ -98,53 +98,40 @@ namespace Minder.Forms.Main
 		private void ShowHide(object sender, KeyPressedEventArgs e)
 		{
 			if(m_wpfPreparer.WpfForm.IsVisible)
+			{
 				m_wpfPreparer.WpfForm.Hide();
+				m_wpfPreparer.WpfForm.MTextBox.SelectAll();
+			}
 			else
+			{
+				m_wpfPreparer.WpfForm.MTextBox.SelectAll();
+				m_wpfPreparer.WpfForm.MTextBox.Focus();
 				m_wpfPreparer.WpfForm.Show();
-//			if(m_form.Visible == true)
-//				m_form.Visible = false;
-//			else
-//			{
-//				m_form.Visible = true;
-//				m_form.Activate();
-//				m_form.MTextBox.SelectAll();
-//			}
+			}
 		}
 		
 		private void KeyPressed(object sender, System.Windows.Input.KeyEventArgs e)
 		{
-//			 Escape paslepia formą (kažko nepavyko tiesiai ant formos užmest
 			if (e.Key == Key.Escape)
 			{
-//				m_form.Visible = false;
-//				m_form.MTextBox.SelectAll();
 				m_wpfPreparer.WpfForm.MTextBox.SelectAll();
 				m_wpfPreparer.WpfForm.Hide();
 				return;
 			}
 			
-//			if(e. == true || e.Shift == true
-//			   || e.Alt == true || e.KeyCode != Keys.Enter)
-//			{
-//				e.Handled = false;
-//				return;
-//			}
-			
 			if(e.Key == Key.Enter)
 			{
 				if (DataEntered != null)
+				{
 					DataEntered(this.m_wpfPreparer.WpfForm.MTextBox.Text);
-				this.m_wpfPreparer.WpfForm.MTextBox.Text = string.Empty;
+					this.m_wpfPreparer.WpfForm.MTextBox.Text = string.Empty;
+				}
 				this.m_wpfPreparer.WpfForm.Hide();
 			}
 		}
 		
 		public void ParseRealTimeAndDisplay(object sender, EventArgs e)
 		{
-//			// Tikėtina, kad įvesta paprasta raidė
-//			if(e.Control == false && e.Shift == false
-//			   || e.Alt == false)
-//			{
 			string leftText; DateTime date;
 			string remainderDateString;
 			if (TextParser.Parse(m_wpfPreparer.WpfForm.MTextBox.Text, out date, out leftText))
@@ -153,7 +140,6 @@ namespace Minder.Forms.Main
 				remainderDateString = "Unavailable";
 			m_wpfPreparer.WpfForm.MDateLabel.Content = remainderDateString;
 			return;
-//			}
 		}
 		
 		private void SetContextMenu()
