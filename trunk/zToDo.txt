@@ -12,10 +12,8 @@ Padaryti, kad restore darant galima bûtø ir db perkopinti pagal pasirinkimà.
 Padaryti angliðkas antraðtes message boxuose
 
 Girdas:
-double click - edit
 hotkeys gridui
 
-Neuþsikrauna versijos failo, kai pasileidþia kartu su win ið registrø
 
 
 

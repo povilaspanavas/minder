@@ -45,6 +45,26 @@ namespace Minder.Forms.Tasks
 			m_form.Show();
 		}
 		
+		public void EditTask()
+		{
+			if(m_form.MTaskGrid.SelectedRows != null &&
+			   m_form.MTaskGrid.SelectedRows.Count != 0)
+			{
+				if(m_form.MTaskGrid.SelectedRows[0].Cells[3].Value == null)
+					return;
+				int taskId = Convert.ToInt32(m_form.MTaskGrid.SelectedRows[0].Cells[3].Value);
+				Task task = new Task(taskId, m_form.MTaskGrid.SelectedRows[0].Cells[0].Value.ToString(),
+				                     Convert.ToDateTime(m_form.MTaskGrid.SelectedRows[0].Cells[1].Value),
+				                     m_form.MTaskGrid.SelectedRows[0].Cells[4].Value.ToString());
+				task.Showed = Convert.ToBoolean(m_form.MTaskGrid.SelectedRows[0].Cells[2].Value);
+				
+				TaskNewEditFormPreparer preparer = new TaskNewEditFormPreparer(true);
+				preparer.Task = task;
+				preparer.Form.Closed += delegate { LoadTaskGrid(); };
+				preparer.PrepareForm();
+			}
+		}
+		
 		public void SetEvents()
 		{
 			m_form.MNewButton.Click += delegate
@@ -54,24 +74,14 @@ namespace Minder.Forms.Tasks
 				preparer.PrepareForm();
 			};
 			
+			m_form.MTaskGrid.DoubleClick += delegate
+			{
+				EditTask();
+			};
+			
 			m_form.MEditButton.Click += delegate
 			{
-				if(m_form.MTaskGrid.SelectedRows != null &&
-				   m_form.MTaskGrid.SelectedRows.Count != 0)
-				{
-					if(m_form.MTaskGrid.SelectedRows[0].Cells[3].Value == null)
-						return;
-					int taskId = Convert.ToInt32(m_form.MTaskGrid.SelectedRows[0].Cells[3].Value);
-					Task task = new Task(taskId, m_form.MTaskGrid.SelectedRows[0].Cells[0].Value.ToString(),
-					                     Convert.ToDateTime(m_form.MTaskGrid.SelectedRows[0].Cells[1].Value),
-					                     m_form.MTaskGrid.SelectedRows[0].Cells[4].Value.ToString());
-					task.Showed = Convert.ToBoolean(m_form.MTaskGrid.SelectedRows[0].Cells[2].Value);
-					
-					TaskNewEditFormPreparer preparer = new TaskNewEditFormPreparer(true);
-					preparer.Task = task;
-					preparer.Form.Closed += delegate { LoadTaskGrid(); };
-					preparer.PrepareForm();
-				}
+				EditTask();
 			};
 			
 			m_form.MDeleteButton.Click += delegate
