@@ -16,6 +16,8 @@ bugas: kai ið context meniu spaudi new task, atidaro senà formà.
 Girdas:
 hotkeys gridui
 
+Neveikia remaind me later!!!!
+
 
 
 
