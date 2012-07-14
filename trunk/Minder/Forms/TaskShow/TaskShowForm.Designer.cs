@@ -42,41 +42,46 @@ namespace Minder.Forms.TaskShow
 			this.TextBox = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
-			// m_remainderMeLaterButton
+			// RemainderMeLaterButton
 			// 
-			this.RemainderMeLaterButton.Location = new System.Drawing.Point(126, 73);
-			this.RemainderMeLaterButton.Name = "m_remainderMeLaterButton";
-			this.RemainderMeLaterButton.Size = new System.Drawing.Size(107, 32);
+			this.RemainderMeLaterButton.Location = new System.Drawing.Point(168, 83);
+			this.RemainderMeLaterButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.RemainderMeLaterButton.Name = "RemainderMeLaterButton";
+			this.RemainderMeLaterButton.Size = new System.Drawing.Size(143, 37);
 			this.RemainderMeLaterButton.TabIndex = 0;
 			this.RemainderMeLaterButton.Text = "Remind me later";
 			this.RemainderMeLaterButton.UseVisualStyleBackColor = true;
 			// 
-			// m_okButton
+			// OkButton
 			// 
-			this.OkButton.Location = new System.Drawing.Point(12, 73);
-			this.OkButton.Name = "m_okButton";
-			this.OkButton.Size = new System.Drawing.Size(107, 32);
+			this.OkButton.Location = new System.Drawing.Point(16, 83);
+			this.OkButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.OkButton.Name = "OkButton";
+			this.OkButton.Size = new System.Drawing.Size(143, 37);
 			this.OkButton.TabIndex = 2;
 			this.OkButton.Text = "Ok";
 			this.OkButton.UseVisualStyleBackColor = true;
 			// 
-			// m_textBox
+			// TextBox
 			// 
-			this.TextBox.Location = new System.Drawing.Point(12, 9);
-			this.TextBox.Name = "m_textBox";
-			this.TextBox.Size = new System.Drawing.Size(221, 72);
+			this.TextBox.Location = new System.Drawing.Point(16, 10);
+			this.TextBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.TextBox.Name = "TextBox";
+			this.TextBox.Size = new System.Drawing.Size(295, 82);
 			this.TextBox.TabIndex = 3;
 			this.TextBox.Text = "Task: task description\r\n\r\nTime: task time";
 			// 
 			// TaskShowForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(245, 111);
+			this.ClientSize = new System.Drawing.Size(327, 127);
+			this.ControlBox = false;
 			this.Controls.Add(this.RemainderMeLaterButton);
 			this.Controls.Add(this.OkButton);
 			this.Controls.Add(this.TextBox);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "TaskShowForm";

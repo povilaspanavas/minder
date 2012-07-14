@@ -146,7 +146,7 @@ namespace Minder.Forms.Main
 		{
 			ContextMenu menu = new ContextMenu();
 			
-			MenuItem menuItemNewTask = new MenuItem("New task", delegate { m_form.Visible = true;}); //TODO
+			MenuItem menuItemNewTask = new MenuItem("New task", delegate { m_wpfPreparer.WpfForm.Show();}); //TODO
 			MenuItem menuItemTasks = new MenuItem("Tasks", OpenTasksForm);
 			MenuItem menuItemSettings = new MenuItem("Settings", OpenSettingsForm);
 			MenuItem menuItemAbout = new MenuItem("About", OpenAboutForm);

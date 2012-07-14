@@ -66,26 +66,28 @@ namespace Minder.Forms.TaskShow
 		{
 			m_form.OkButton.Click += delegate
 			{
+				m_task.Showed = true;
 				CloseOrOkButton();
 			};
 			
-			m_form.Closed += delegate
-			{
-				CloseOrOkButton();
-			};
+			//Tiesiog išmečiau iš formos close mygtuką, dabar arba ok arba remainder later.
+//			m_form.Closed += delegate
+//			{
+//				Close();
+//			};
 			
 			m_form.RemainderMeLaterButton.Click += delegate
 			{
-//				m_task.Showed = false;
-				m_task.DateRemainder = DateTime.Now.AddMinutes(5); //Temp
+				m_task.Showed = false;
+				m_task.DateRemainder = DateTime.Now.AddMinutes(10); //Temp
 				m_task.Update();
-				m_form.Close();
+				m_form.Close(); //Padarom close, o ant close eventas, kad ok arba close button.
+				//tai ir gaunasi, kad remaind me later neveikia.
 			};
 		}
 
-		void CloseOrOkButton()
+		private void CloseOrOkButton()
 		{
-			m_task.Showed = true;
 			m_task.Update();
 			m_form.Close();
 		}
