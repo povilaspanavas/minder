@@ -11,12 +11,9 @@ Reikia maþø mygtukø pagrindinëj formoj. ? ir X (Helpas ir iðjungti formà). arba 
 Padaryti, kad restore darant galima bûtø ir db perkopinti pagal pasirinkimà.
 Padaryti angliðkas antraðtes message boxuose
 
-bugas: kai ið context meniu spaudi new task, atidaro senà formà.
-
 Girdas:
 hotkeys gridui
 
-Neveikia remaind me later!!!!
 
 
 
