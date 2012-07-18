@@ -16,19 +16,9 @@
 		<User>autogidas_lic</User>
 		<Pass>masterkey</Pass>
 		<DBName>autogidas_license</DBName>
-	</DBConfig>
-	
-	<FBDBConfig>
-		<Host>localhost</Host>
-		<User>sysdba</User>
-		<Pass>masterkey</Pass>
-		<DBName>testdb</DBName>
 		<Unicode>UTF8</Unicode>
-	</FBDBConfig>
-	
-	<OracleDb>
-		<OracleConnString>Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=herkus.vgtu.lt)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=mydb)));User Id=ibagdonas;Password=ib4207;</OracleConnString>
-	</OracleDb>
+		<DbType>FireBird</DbType>
+	</DBConfig>
 	
 	<UpdateVersion>
 		<FileName>test.exe</FileName>
