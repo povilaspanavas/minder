@@ -1,9 +1,5 @@
 ﻿<core>
 	
-	<Factory>
-		<WorkingDirectory></WorkingDirectory>
-	</Factory>
-	
 	<LogConfig>
 		<DirName>Log</DirName>
 		<FileName>Log</FileName>
@@ -15,10 +11,20 @@
 		<Host>localhost</Host>
 		<User>sysdba</User>
 		<Pass>masterkey</Pass>
-		<DBName>testdb</DBName>
-		<Unicode>UTF8</Unicode>
-		<DbType>FireBird</DbType>
+		<DBName>TestDb</DBName>
 	</DBConfig>
+	
+	<FBDBConfig>
+		<Host>localhost</Host>
+		<User>sysdba</User>
+		<Pass>masterkey</Pass>
+		<DBName>d:\Projektai\Core\Core\Database\test_db.fdb</DBName>
+		<Unicode>UTF8</Unicode>
+	</FBDBConfig>
+	
+	<OracleDb>
+		<OracleConnString>Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=herkus.vgtu.lt)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=mydb)));User Id=ibagdonas;Password=ib4207;</OracleConnString>
+	</OracleDb>
 	
 	<UpdateVersion>
 		<FileName>test.exe</FileName>
@@ -33,3 +39,4 @@
 	</UpdateProject>
 
 </core>
+
