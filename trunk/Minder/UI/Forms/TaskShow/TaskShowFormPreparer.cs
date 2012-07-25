@@ -48,7 +48,8 @@ namespace Minder.Forms.TaskShow
 		{
 			SetEvents();
 			SetTaskText();
-			PlaySound();
+			if (StaticData.Settings.PlaySound)
+				PlaySound();
 			m_form.ShowDialog();
 		}
 		

@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Globalization;
 using System.IO;
 using Minder.Static;
 using Minder.Tools;
@@ -17,11 +18,11 @@ namespace Minder.Forms.Settings
 	/// Description of SettingsLoader.
 	/// </summary>
 	public class SettingsLoader
-	{	
+	{
 		private string m_settingsPath = new PathCutHelper()
-					.CutExecutableFileFromPath(System.Reflection.Assembly
-					                           .GetExecutingAssembly()
-					                           .Location)+@"\"+StaticData.SETTINGS_FILE_PATH;
+			.CutExecutableFileFromPath(System.Reflection.Assembly
+			                           .GetExecutingAssembly()
+			                           .Location)+@"\"+StaticData.SETTINGS_FILE_PATH;
 		
 		public void LoadSettings()
 		{
@@ -40,6 +41,7 @@ namespace Minder.Forms.Settings
 			iniParser.AddSetting("NewTaskHotkey", "Key", "N");
 			iniParser.AddSetting("General", "startwithwindows", "true");
 			iniParser.AddSetting("General", "autoupdate", "true");
+			iniParser.AddSetting("General", "playsound", "true");
 			iniParser.AddSetting("CultureInfo", "name", "lt-Lt");
 			iniParser.SaveSettings();
 		}
@@ -58,8 +60,16 @@ namespace Minder.Forms.Settings
 			//General
 			StaticData.Settings.StartWithWindows = Convert.ToBoolean(parser.GetSetting("General", "startwithwindows"));
 			StaticData.Settings.CheckUpdates = Convert.ToBoolean(parser.GetSetting("General", "autoupdate"));
+			StaticData.Settings.PlaySound = Convert.ToBoolean(parser.GetSetting("General", "playsound"));
 			string cultureInfoName = parser.GetSetting("CultureInfo", "Name");
-			StaticData.Settings.CultureInfo = new System.Globalization.CultureInfo(cultureInfoName);
+			try
+			{
+				StaticData.Settings.CultureInfo = new System.Globalization.CultureInfo(cultureInfoName);
+			}
+			catch(Exception)
+			{
+				StaticData.Settings.CultureInfo = CultureInfo.CurrentCulture;
+			}
 		}
 		
 		public void SaveSettingsToFile()
@@ -72,6 +82,7 @@ namespace Minder.Forms.Settings
 			parser.DeleteSetting("NewTaskHotkey", "key");
 			parser.DeleteSetting("general", "startwithwindows");
 			parser.DeleteSetting("general", "autoupdate");
+			parser.DeleteSetting("general", "playsound");
 			parser.DeleteSetting("CultureInfo", "name");
 			
 			parser.AddSetting("NewTaskHotkey", "alt", StaticData.Settings.NewTaskHotkey.Alt.ToString());
@@ -82,6 +93,7 @@ namespace Minder.Forms.Settings
 			
 			parser.AddSetting("General", "startwithwindows", StaticData.Settings.StartWithWindows.ToString());
 			parser.AddSetting("General", "autoupdate", StaticData.Settings.CheckUpdates.ToString());
+			parser.AddSetting("General", "playsound", StaticData.Settings.PlaySound.ToString());
 			parser.AddSetting("CultureInfo", "name", StaticData.Settings.CultureInfo.Name.ToString());
 			
 			parser.SaveSettings();

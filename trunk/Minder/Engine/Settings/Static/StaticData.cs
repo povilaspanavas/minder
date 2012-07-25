@@ -86,6 +86,7 @@ namespace Minder.Static
 		{
 			static bool m_startWithWindows;
 			static bool m_checkUpdates;
+			static bool m_playSound;
 			static CultureInfo m_cultureInfo = CultureInfo.CurrentCulture;
 
 			public static CultureInfo CultureInfo {
@@ -105,7 +106,11 @@ namespace Minder.Static
 				get { return m_checkUpdates; }
 				set { m_checkUpdates = value; }
 			}
-			
+
+			public static bool PlaySound {
+				get { return m_playSound; }
+				set { m_playSound = value; }
+			}
 			public static class NewTaskHotkey
 			{
 				static bool m_ctrl;
