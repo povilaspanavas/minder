@@ -1,8 +1,10 @@
+PRIORITETAS: Culture Info galima per nustatymus rinktis
+
 Padaryti, kad sesijos kaskart nereiktø atsidaryti, t.y., susirastø jau egzistuojanèià kaip DLC
 
 Dar padaryti, kad nebûtø lyðno enter vedant taskus
 Pirmà taskà raðant, nesiraðo, turbût focusas ne ant tekstboxo bûna
-Culture Info galima per nustatymus rinktis
+
 
 
 Igno:
