@@ -1,6 +1,8 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Minder.Static
@@ -14,12 +16,12 @@ namespace Minder.Static
 		public const string SETTINGS_FILE_PATH = "settings.ini";
 		public const string SOUND_FILE_PATH = @"Sounds\sound.wav";
 		
-		public static Dictionary<string, Keys> KeysDic 
+		public static Dictionary<string, Keys> KeysDic
 		{
-			get 
+			get
 			{
 				AddKeysToDic();
-				return m_keysDic; 
+				return m_keysDic;
 			}
 		}
 		
@@ -83,13 +85,21 @@ namespace Minder.Static
 		public static class Settings
 		{
 			static bool m_startWithWindows;
-			
+			static bool m_checkUpdates;
+			static CultureInfo m_cultureInfo = CultureInfo.CurrentCulture;
+
+			public static CultureInfo CultureInfo {
+				get { return m_cultureInfo; }
+				set {
+					m_cultureInfo = value;
+					Thread.CurrentThread.CurrentCulture = m_cultureInfo;
+					Thread.CurrentThread.CurrentUICulture = m_cultureInfo;
+				}
+			}
 			public static bool StartWithWindows {
 				get { return m_startWithWindows; }
 				set { m_startWithWindows = value; }
 			}
-			
-			static bool m_checkUpdates;
 			
 			public static bool CheckUpdates {
 				get { return m_checkUpdates; }
@@ -99,34 +109,30 @@ namespace Minder.Static
 			public static class NewTaskHotkey
 			{
 				static bool m_ctrl;
+				static bool m_alt;
+				static bool m_shift;
+				static bool m_win;
+				static string m_key;
 				
 				public static bool Ctrl {
 					get { return m_ctrl; }
 					set { m_ctrl = value; }
 				}
 				
-				static bool m_alt;
-				
 				public static bool Alt {
 					get { return m_alt; }
 					set { m_alt = value; }
 				}
-				
-				static bool m_shift;
 				
 				public static bool Shift {
 					get { return m_shift; }
 					set { m_shift = value; }
 				}
 				
-				static bool m_win;
-				
 				public static bool Win {
 					get { return m_win; }
 					set { m_win = value; }
 				}
-				
-				static string m_key;
 				
 				public static string Key {
 					get { return m_key; }

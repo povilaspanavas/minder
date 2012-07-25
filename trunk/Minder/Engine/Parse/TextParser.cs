@@ -18,7 +18,6 @@ namespace Minder.Engine.Parse
 		
 		public TextParser()
 		{
-//			m_cultureData = 
 		}
 		
 		public static bool Parse(string text, out DateTime date, out string leftText)
