@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using Minder.Engine.Parse;
 using NUnit.Framework;
 using Minder.Engine;
 

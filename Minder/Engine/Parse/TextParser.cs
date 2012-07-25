@@ -9,26 +9,16 @@
 using System;
 using System.Text.RegularExpressions;
 
-namespace Minder.Engine
+namespace Minder.Engine.Parse
 {
-	/// <summary>
-	/// TODO palaikyti
-	/// Palaikyti 11:50 formatą
-	/// 2011 05 10 11:10 ir pan.formatus
-	/// </summary>
 	public class TextParser
 	{
-//			string pattern = @"\b\d*[,]{0,1}\d*((min\.)|(min)|(m\.)|(m))";
-		public const string  MINUTES_STRING = @"\b\d*[,]{0,1}\d*((min\.)|(min\b)|(m\.)|(m\b))";
-		public const string  HOURS_STRING = @"\b\d*[,]{0,1}\d*((val\.)|(val\b)|(v\.)|(v\b)|(h\.)|(h\b))";
-		public const string  TIME_STRING = @"\b\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}$";
-		public const string  DATE_TIME_STRING = @"\b\d{0,4}(\.|-|\\){0,1}\d{1,2}(\.|-|\\)\d{1,2}[ ]\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}$";
-		public const string  YEAR = @"\b\d{4,4}";
-		
+		private static ICultureData m_cultureData = new CultureDataLt();
 		
 		
 		public TextParser()
 		{
+//			m_cultureData = 
 		}
 		
 		public static bool Parse(string text, out DateTime date, out string leftText)
@@ -67,12 +57,12 @@ namespace Minder.Engine
 		
 		public static bool TryParseDateTime(string text, ref DateTime date, ref string leftText)
 		{
-			Match timeMatch = Regex.Match(text, DATE_TIME_STRING);
+			Match timeMatch = Regex.Match(text, m_cultureData.DateTimeRegex);
 			if (timeMatch.Success == false)
 				return false;
 			string dateString = timeMatch.Value;
 			// Jei pradžioj nėra nurodyta metų
-			if (Regex.IsMatch(timeMatch.Value, YEAR) == false)
+			if (Regex.IsMatch(timeMatch.Value, m_cultureData.YearRegex) == false)
 				dateString = DateTime.Now.Year + "." + dateString;
 			if (DateTime.TryParse(dateString, out date) == false)
 				return false;
@@ -82,7 +72,7 @@ namespace Minder.Engine
 		
 		public static bool TryParseTime(string text, ref DateTime date, ref string leftText)
 		{
-			Match timeMatch = Regex.Match(text, TIME_STRING);
+			Match timeMatch = Regex.Match(text, m_cultureData.TimeRegex);
 			if (timeMatch.Success == false)
 				return false;
 			if (DateTime.TryParse(timeMatch.Value, out date) == false)
@@ -95,8 +85,8 @@ namespace Minder.Engine
 		{
 			decimal hours = 0.00m;
 			decimal minutes = 0.00m;
-			MatchCollection minutesCollection = Regex.Matches(text, MINUTES_STRING);
-			MatchCollection hoursCollection = Regex.Matches(text, HOURS_STRING);
+			MatchCollection minutesCollection = Regex.Matches(text, m_cultureData.MinutesRegex);
+			MatchCollection hoursCollection = Regex.Matches(text, m_cultureData.HoursRegex);
 			if (minutesCollection.Count == 0 && hoursCollection.Count == 0)
 				return false;
 			

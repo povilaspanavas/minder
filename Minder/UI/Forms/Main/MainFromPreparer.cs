@@ -7,13 +7,13 @@ using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Input;
-
 using Core;
 using Core.Forms;
 using Core.Tools.GlobalHotKeys;
 using Core.Tools.ImportExport;
 using Core.Tools.Log;
 using Minder.Engine;
+using Minder.Engine.Parse;
 using Minder.Forms.About;
 using Minder.Forms.Main;
 using Minder.Forms.Settings;
