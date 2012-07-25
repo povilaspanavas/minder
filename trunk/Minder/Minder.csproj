@@ -77,7 +77,6 @@
     <Compile Include="Controls\MTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Engine\DateTimeParser.cs" />
     <Compile Include="Engine\TextParser.cs" />
     <Compile Include="Engine\TimeController.cs" />
     <Compile Include="Engine\TimeEngine.cs" />
