@@ -14,7 +14,7 @@
     <NoStdLib>False</NoStdLib>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <ApplicationIcon>UI\Main.ico</ApplicationIcon>
+    <ApplicationIcon>UI\minderico.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -81,65 +81,65 @@
     <Compile Include="Engine\TimeController.cs" />
     <Compile Include="Engine\TimeEngine.cs" />
     <Compile Include="Engine\TimerLogic.cs" />
-    <Compile Include="Forms\About\AboutForm.cs">
+    <Compile Include="UI\Forms\About\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\About\AboutForm.Designer.cs">
+    <Compile Include="UI\Forms\About\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\About\AboutFormPreparer.cs" />
-    <Compile Include="Forms\Main\MainForm.cs">
+    <Compile Include="UI\Forms\About\AboutFormPreparer.cs" />
+    <Compile Include="UI\Forms\Main\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Main\MainForm.Designer.cs">
+    <Compile Include="UI\Forms\Main\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Main\MainFromPreparer.cs" />
-    <Compile Include="Forms\Settings\SettingsForm.cs">
+    <Compile Include="UI\Forms\Main\MainFromPreparer.cs" />
+    <Compile Include="UI\Forms\Settings\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Settings\SettingsForm.Designer.cs">
+    <Compile Include="UI\Forms\Settings\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings\SettingsFormPreparer.cs" />
-    <Compile Include="Forms\Settings\SettingsLoader.cs" />
-    <Compile Include="Forms\Skins\IWpfSkin.cs" />
-    <Compile Include="Forms\Skins\MainFormLaunchy.cs">
+    <Compile Include="UI\Forms\Settings\SettingsFormPreparer.cs" />
+    <Compile Include="UI\Forms\Settings\SettingsLoader.cs" />
+    <Compile Include="UI\Forms\Skins\IWpfSkin.cs" />
+    <Compile Include="UI\Forms\Skins\MainFormLaunchy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Skins\MainFormLaunchy.Designer.cs">
+    <Compile Include="UI\Forms\Skins\MainFormLaunchy.Designer.cs">
       <DependentUpon>MainFormLaunchy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Skins\Skin1\WpfSkin1.xaml.cs">
+    <Compile Include="UI\Forms\Skins\Skin1\WpfSkin1.xaml.cs">
       <DependentUpon>WpfSkin1.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Forms\Skins\WpfSkinPreparer.cs" />
-    <Compile Include="Forms\TaskShow\TaskShowForm.cs">
+    <Compile Include="UI\Forms\Skins\WpfSkinPreparer.cs" />
+    <Compile Include="UI\Forms\TaskShow\TaskShowForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TaskShow\TaskShowForm.Designer.cs">
+    <Compile Include="UI\Forms\TaskShow\TaskShowForm.Designer.cs">
       <DependentUpon>TaskShowForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TaskShow\TaskShowFormPreparer.cs" />
-    <Compile Include="Forms\Tasks\TaskNewEditForm.cs">
+    <Compile Include="UI\Forms\TaskShow\TaskShowFormPreparer.cs" />
+    <Compile Include="UI\Forms\Tasks\TaskNewEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Tasks\TaskNewEditForm.Designer.cs">
+    <Compile Include="UI\Forms\Tasks\TaskNewEditForm.Designer.cs">
       <DependentUpon>TaskNewEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Tasks\TaskNewEditFormPreparer.cs" />
-    <Compile Include="Forms\Tasks\TasksForm.cs">
+    <Compile Include="UI\Forms\Tasks\TaskNewEditFormPreparer.cs" />
+    <Compile Include="UI\Forms\Tasks\TasksForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Tasks\TasksForm.Designer.cs">
+    <Compile Include="UI\Forms\Tasks\TasksForm.Designer.cs">
       <DependentUpon>TasksForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Tasks\TasksFormPreparer.cs" />
+    <Compile Include="UI\Forms\Tasks\TasksFormPreparer.cs" />
     <Compile Include="Objects\Task.cs" />
-    <Compile Include="Sql\DBConnection.cs" />
-    <Compile Include="Sql\DBTypesConverter.cs" />
-    <Compile Include="Static\StaticData.cs" />
+    <Compile Include="Engine\Sql\DBConnection.cs" />
+    <Compile Include="Engine\Sql\DBTypesConverter.cs" />
+    <Compile Include="Engine\Static\StaticData.cs" />
     <Compile Include="Tools\PathCutHelper.cs" />
     <Compile Include="Tools\StartWithWinController.cs" />
   </ItemGroup>
@@ -150,42 +150,42 @@
     <None Include="minderico.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Sounds\sound.wav">
+    <None Include="UI\Sounds\sound.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="UI\minderico.ico" />
     <None Include="version.cvr">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Files\minderico.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Forms\About\AboutForm.resx">
+    <EmbeddedResource Include="UI\Forms\About\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Main\MainForm.resx">
+    <EmbeddedResource Include="UI\Forms\Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\SettingsForm.resx">
+    <EmbeddedResource Include="UI\Forms\Settings\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Skins\MainFormLaucnhy.resx">
+    <EmbeddedResource Include="UI\Forms\Skins\MainFormLaucnhy.resx">
       <DependentUpon>MainFormLaunchy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TaskShow\TaskShowForm.resx">
+    <EmbeddedResource Include="UI\Forms\TaskShow\TaskShowForm.resx">
       <DependentUpon>TaskShowForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Tasks\TaskNewEditForm.resx">
+    <EmbeddedResource Include="UI\Forms\Tasks\TaskNewEditForm.resx">
       <DependentUpon>TaskNewEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Tasks\TasksForm.resx">
+    <EmbeddedResource Include="UI\Forms\Tasks\TasksForm.resx">
       <DependentUpon>TasksForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Page Include="Forms\Skins\Skin1\WpfSkin1.xaml" />
+    <Page Include="UI\Forms\Skins\Skin1\WpfSkin1.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UI" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
