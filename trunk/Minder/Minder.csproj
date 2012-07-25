@@ -77,7 +77,9 @@
     <Compile Include="Controls\MTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Engine\TextParser.cs" />
+    <Compile Include="Engine\Parse\CultureDataLt.cs" />
+    <Compile Include="Engine\Parse\ICultureData.cs" />
+    <Compile Include="Engine\Parse\TextParser.cs" />
     <Compile Include="Engine\TimeController.cs" />
     <Compile Include="Engine\TimeEngine.cs" />
     <Compile Include="Engine\TimerLogic.cs" />
@@ -150,7 +152,7 @@
     <None Include="minderico.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="UI\Sounds\sound.wav">
+    <None Include="Sounds\sound.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="UI\minderico.ico" />
@@ -185,6 +187,7 @@
     <Page Include="UI\Forms\Skins\Skin1\WpfSkin1.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Engine\Parse" />
     <Folder Include="UI" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />

@@ -9,6 +9,7 @@
 using System;
 using System.Text.RegularExpressions;
 using Minder.Engine;
+using Minder.Engine.Parse;
 using Minder.Sql;
 
 namespace Minder.Objects
