@@ -61,6 +61,7 @@ namespace Minder.Forms.Settings
 			this.MCtrlCheckBox = new System.Windows.Forms.CheckBox();
 			this.MWinCheckBox = new System.Windows.Forms.CheckBox();
 			this.tabPageDateFormats = new System.Windows.Forms.TabPage();
+			this.checkBoxSound = new System.Windows.Forms.CheckBox();
 			this.panel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -99,6 +100,7 @@ namespace Minder.Forms.Settings
 			// 
 			// tabPage1
 			// 
+			this.tabPage1.Controls.Add(this.checkBoxSound);
 			this.tabPage1.Controls.Add(this.label2);
 			this.tabPage1.Controls.Add(this.m_taskLimitNumeric);
 			this.tabPage1.Controls.Add(this.MUpdateCheckBox);
@@ -115,7 +117,7 @@ namespace Minder.Forms.Settings
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(82, 71);
+			this.label2.Location = new System.Drawing.Point(81, 98);
 			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(75, 20);
@@ -124,7 +126,7 @@ namespace Minder.Forms.Settings
 			// 
 			// m_taskLimitNumeric
 			// 
-			this.m_taskLimitNumeric.Location = new System.Drawing.Point(20, 69);
+			this.m_taskLimitNumeric.Location = new System.Drawing.Point(20, 96);
 			this.m_taskLimitNumeric.Margin = new System.Windows.Forms.Padding(2);
 			this.m_taskLimitNumeric.Maximum = new decimal(new int[] {
 									10000,
@@ -340,6 +342,16 @@ namespace Minder.Forms.Settings
 			this.tabPageDateFormats.Text = "Date Formats";
 			this.tabPageDateFormats.UseVisualStyleBackColor = true;
 			// 
+			// checkBoxSound
+			// 
+			this.checkBoxSound.Location = new System.Drawing.Point(20, 69);
+			this.checkBoxSound.Margin = new System.Windows.Forms.Padding(2);
+			this.checkBoxSound.Name = "checkBoxSound";
+			this.checkBoxSound.Size = new System.Drawing.Size(183, 23);
+			this.checkBoxSound.TabIndex = 5;
+			this.checkBoxSound.Text = "Play sound when reminding";
+			this.checkBoxSound.UseVisualStyleBackColor = true;
+			// 
 			// SettingsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -360,6 +372,7 @@ namespace Minder.Forms.Settings
 			this.groupBox1.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		public System.Windows.Forms.CheckBox checkBoxSound;
 		private System.Windows.Forms.TabPage tabPageDateFormats;
 		public System.Windows.Forms.CheckBox checkBox4;
 		public System.Windows.Forms.CheckBox checkBox3;

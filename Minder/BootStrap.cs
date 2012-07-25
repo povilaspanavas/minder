@@ -5,7 +5,7 @@ using System.IO;
 using System.Windows.Forms;
 using Core;
 using Core.Forms;
-using EasyRemainder.Forms.Settings;
+using Minder.Forms.Settings;
 using Minder.Engine;
 using Minder.Forms.Main;
 using Minder.Objects;

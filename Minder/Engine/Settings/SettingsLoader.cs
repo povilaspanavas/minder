@@ -11,7 +11,7 @@ using System.IO;
 using Minder.Static;
 using Minder.Tools;
 
-namespace EasyRemainder.Forms.Settings
+namespace Minder.Forms.Settings
 {
 	/// <summary>
 	/// Description of SettingsLoader.
@@ -40,6 +40,7 @@ namespace EasyRemainder.Forms.Settings
 			iniParser.AddSetting("NewTaskHotkey", "Key", "N");
 			iniParser.AddSetting("General", "startwithwindows", "true");
 			iniParser.AddSetting("General", "autoupdate", "true");
+			iniParser.AddSetting("CultureInfo", "name", "lt-Lt");
 			iniParser.SaveSettings();
 		}
 		
@@ -57,6 +58,8 @@ namespace EasyRemainder.Forms.Settings
 			//General
 			StaticData.Settings.StartWithWindows = Convert.ToBoolean(parser.GetSetting("General", "startwithwindows"));
 			StaticData.Settings.CheckUpdates = Convert.ToBoolean(parser.GetSetting("General", "autoupdate"));
+			string cultureInfoName = parser.GetSetting("CultureInfo", "Name");
+			StaticData.Settings.CultureInfo = new System.Globalization.CultureInfo(cultureInfoName);
 		}
 		
 		public void SaveSettingsToFile()
@@ -69,6 +72,7 @@ namespace EasyRemainder.Forms.Settings
 			parser.DeleteSetting("NewTaskHotkey", "key");
 			parser.DeleteSetting("general", "startwithwindows");
 			parser.DeleteSetting("general", "autoupdate");
+			parser.DeleteSetting("CultureInfo", "name");
 			
 			parser.AddSetting("NewTaskHotkey", "alt", StaticData.Settings.NewTaskHotkey.Alt.ToString());
 			parser.AddSetting("NewTaskHotkey", "ctrl", StaticData.Settings.NewTaskHotkey.Ctrl.ToString());
@@ -78,6 +82,7 @@ namespace EasyRemainder.Forms.Settings
 			
 			parser.AddSetting("General", "startwithwindows", StaticData.Settings.StartWithWindows.ToString());
 			parser.AddSetting("General", "autoupdate", StaticData.Settings.CheckUpdates.ToString());
+			parser.AddSetting("CultureInfo", "name", StaticData.Settings.CultureInfo.Name.ToString());
 			
 			parser.SaveSettings();
 		}

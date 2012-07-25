@@ -10,7 +10,7 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 using Core.Forms;
-using EasyRemainder.Forms.Settings;
+using Minder.Forms.Settings;
 using Minder.Static;
 
 namespace Minder.Forms.Settings

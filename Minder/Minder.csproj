@@ -80,6 +80,7 @@
     <Compile Include="Engine\Parse\CultureDataLt.cs" />
     <Compile Include="Engine\Parse\ICultureData.cs" />
     <Compile Include="Engine\Parse\TextParser.cs" />
+    <Compile Include="Engine\Settings\SettingsLoader.cs" />
     <Compile Include="Engine\TimeController.cs" />
     <Compile Include="Engine\TimeEngine.cs" />
     <Compile Include="Engine\TimerLogic.cs" />
@@ -104,7 +105,6 @@
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\Settings\SettingsFormPreparer.cs" />
-    <Compile Include="UI\Forms\Settings\SettingsLoader.cs" />
     <Compile Include="UI\Forms\Skins\IWpfSkin.cs" />
     <Compile Include="UI\Forms\Skins\MainFormLaunchy.cs">
       <SubType>Form</SubType>
@@ -141,7 +141,7 @@
     <Compile Include="Objects\Task.cs" />
     <Compile Include="Engine\Sql\DBConnection.cs" />
     <Compile Include="Engine\Sql\DBTypesConverter.cs" />
-    <Compile Include="Engine\Static\StaticData.cs" />
+    <Compile Include="Engine\Settings\Static\StaticData.cs" />
     <Compile Include="Tools\PathCutHelper.cs" />
     <Compile Include="Tools\StartWithWinController.cs" />
   </ItemGroup>
@@ -187,6 +187,7 @@
     <Page Include="UI\Forms\Skins\Skin1\WpfSkin1.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Engine\Settings" />
     <Folder Include="Engine\Parse" />
     <Folder Include="UI" />
   </ItemGroup>
