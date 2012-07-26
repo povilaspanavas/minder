@@ -56,5 +56,10 @@ namespace Minder.Engine.Parse
 				return YEAR;
 			}
 		}
+		
+		public string AddYearToMonthAndDay(string dateTimeNoYear)
+		{
+			return dateTimeNoYear.Replace(" ", string.Format("/{0} ", DateTime.Now.Year));
+		}
 	}
 }
