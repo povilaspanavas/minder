@@ -92,17 +92,29 @@ namespace Minder.Engine.Parse
 		{
 			decimal hours = 0.00m;
 			decimal minutes = 0.00m;
-			MatchCollection minutesCollection = Regex.Matches(text, m_cultureData.MinutesRegex);
+			Match minutesMatch = null;
+			Match hoursMatch = null;
+			
+			// *** HOURS ***
 			MatchCollection hoursCollection = Regex.Matches(text, m_cultureData.HoursRegex);
+			if (hoursCollection.Count > 0)
+			{
+				hoursMatch = hoursCollection[hoursCollection.Count - 1];
+				leftText = leftText.Replace(hoursMatch.Value, string.Empty);
+			}
+			
+			// *** MINUTES ***
+			MatchCollection minutesCollection = Regex.Matches(leftText, m_cultureData.MinutesRegex);
+			if (minutesCollection.Count > 0)
+			{
+				minutesMatch = minutesCollection[minutesCollection.Count - 1];
+				leftText = leftText.Replace(minutesMatch.Value, string.Empty); // we must remove point from "15h.20min"
+			}
+			
 			if (minutesCollection.Count == 0 && hoursCollection.Count == 0)
 				return false;
 			
-			Match minutesMatch = null;
-			Match hoursMatch = null;
-			if (minutesCollection.Count > 0)
-				minutesMatch = minutesCollection[minutesCollection.Count - 1];
-			if (hoursCollection.Count > 0)
-				hoursMatch = hoursCollection[hoursCollection.Count - 1];
+			leftText = leftText.Trim();
 			
 			string minutesString = minutesMatch != null ? minutesMatch.Value : string.Empty;
 			string hoursString = hoursMatch != null ? hoursMatch.Value : string.Empty;
@@ -110,11 +122,6 @@ namespace Minder.Engine.Parse
 			decimal.TryParse(RemoveMinutesSymbol(minutesString), out minutes);
 			decimal.TryParse(RemoveHoursSymbol(hoursString), out hours);
 			date = DateTime.Now.AddHours((double)hours).AddMinutes((double)minutes);
-			if (minutesMatch != null)
-				leftText = leftText.Replace(minutesString, string.Empty);
-			if (hoursMatch != null)
-				leftText = leftText.Replace(hoursString, string.Empty);
-			leftText = leftText.Trim();
 			return true;
 		}
 		
