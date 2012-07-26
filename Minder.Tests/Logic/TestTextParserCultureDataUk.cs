@@ -44,7 +44,7 @@ namespace Minder.Tests.Logic
 			Assert.AreEqual(now.AddHours(0).AddMinutes(15).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			TextParser.Parse("Susitikimas 15,5min", out date, out leftText);
+			TextParser.Parse("Susitikimas 15.5min", out date, out leftText);
 			Assert.AreEqual(now.AddHours(0).AddMinutes(15.5).ToShortDateString(), date.ToShortDateString());
 			Assert.AreEqual(now.AddHours(0).AddMinutes(15.5).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
@@ -81,25 +81,25 @@ namespace Minder.Tests.Logic
 		{
 			DateTime now = DateTime.Now;
 			DateTime date; string leftText;
-			Assert.IsFalse(TextParser.Parse("Susitikimas 15val.", out date, out leftText));
-//			Assert.AreEqual(now.AddHours(15).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
-//			Assert.AreEqual(now.AddHours(15).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
-//			Assert.AreEqual("Susitikimas", leftText);
+			Assert.IsTrue(TextParser.Parse("Susitikimas 15h.", out date, out leftText));
+			Assert.AreEqual(now.AddHours(15).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(now.AddHours(15).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
+			Assert.AreEqual("Susitikimas", leftText);
 			
-			Assert.IsFalse(TextParser.Parse("Susitikimas 15,5val", out date, out leftText));
+			Assert.IsTrue(TextParser.Parse("Susitikimas 15.5h", out date, out leftText));
 			Assert.AreEqual(now.AddHours(15.5).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
 			Assert.AreEqual(now.AddHours(15.5).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 			
 			Assert.IsFalse(TextParser.Parse("Susitikimas 20v.", out date, out leftText));
-			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
-			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
-			Assert.AreEqual("Susitikimas", leftText);
+//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
+//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
+//			Assert.AreEqual("Susitikimas", leftText);
 			
 			Assert.IsFalse(TextParser.Parse("Susitikimas 20v", out date, out leftText));
-			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
-			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
-			Assert.AreEqual("Susitikimas", leftText);
+//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
+//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
+//			Assert.AreEqual("Susitikimas", leftText);
 			
 			TextParser.Parse("Susitikimas 10h.", out date, out leftText);
 			Assert.AreEqual(now.AddHours(10).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
@@ -118,6 +118,11 @@ namespace Minder.Tests.Logic
 			DateTime now = DateTime.Now;
 			DateTime date; string leftText;
 			Assert.IsTrue(TextParser.Parse("Susitikimas 15h.20min", out date, out leftText));
+			Assert.AreEqual(now.AddHours(15).AddMinutes(20).ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(now.AddHours(15).AddMinutes(20).ToShortTimeString(), date.ToShortTimeString());
+			Assert.AreEqual("Susitikimas", leftText);
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas 15h. 20min", out date, out leftText));
 			Assert.AreEqual(now.AddHours(15).AddMinutes(20).ToShortDateString(), date.ToShortDateString());
 			Assert.AreEqual(now.AddHours(15).AddMinutes(20).ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
@@ -193,7 +198,7 @@ namespace Minder.Tests.Logic
 		}
 		
 		[Test]
-		public void Test_BugFix_Minutes_15va()
+		public void Test_BugFix_Minutes_15ha()
 		{
 			DateTime date; string leftText;
 			Assert.IsFalse(TextParser.Parse("Susitikimas po 15ha", out date, out leftText));
