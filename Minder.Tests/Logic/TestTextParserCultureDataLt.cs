@@ -14,7 +14,7 @@ using Minder.Engine;
 namespace Minder.Tests.Logic
 {
 	[TestFixture]
-	public class TestTextParser
+	public class TestTextParserCultureDataLt
 	{
 		[Test]
 		public void TestMethod_Only_Minutes()

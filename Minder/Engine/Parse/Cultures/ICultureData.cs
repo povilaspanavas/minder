@@ -7,12 +7,14 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace Minder.Engine.Parse
 {
 	public interface ICultureData
 	{
+		CultureInfo CultureInfo {get;}
 		string MinutesRegex {get;}
 		string HoursRegex {get;}
 		string TimeRegex{get;}
