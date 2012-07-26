@@ -64,12 +64,12 @@ namespace Minder.Forms.Settings
 			StaticData.Settings.PlaySound = Convert.ToBoolean(parser.GetSetting("General", "playsound"));
 			string cultureInfoName = parser.GetSetting("CultureInfo", "Name");
 			
-			switch (cultureInfoName) {
-				case "lt-Lt":
+			switch (cultureInfoName.ToLower()) {
+				case "lt-lt":
 					StaticData.Settings.CultureData = new CultureDataLt();
 					break;
-				case "en-UK":
-				case "en-GB":
+				case "en-uk":
+				case "en-gb":
 					StaticData.Settings.CultureData = new CultureDataUK();
 					break;
 				default:

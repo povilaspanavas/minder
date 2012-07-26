@@ -94,6 +94,7 @@ namespace Minder.Static
 				get { return m_cultureData; }
 				set {
 					m_cultureData = value;
+					TextParser.CultureData = m_cultureData;
 					Thread.CurrentThread.CurrentCulture = m_cultureData.CultureInfo;
 					Thread.CurrentThread.CurrentUICulture = m_cultureData.CultureInfo;
 				}
