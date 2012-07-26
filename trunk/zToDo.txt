@@ -1,13 +1,15 @@
-PRIORITETAS: Culture Info galima per nustatymus rinktis
+POVILO:
+	PRIORITETAS: Culture Info galima per nustatymus rinktis
+	* Testuoti, kaip veikia UK
+	* Pridëti US (AM, PM laikai)
 
-Padaryti, kad sesijos kaskart nereiktø atsidaryti, t.y., susirastø jau egzistuojanèià kaip DLC
+	NICE TO HAVE:
+	Padaryti, kad sesijos kaskart nereiktø atsidaryti, t.y., susirastø jau egzistuojanèià kaip DLC
 
-Dar padaryti, kad nebûtø lyðno enter vedant taskus
-Pirmà taskà raðant, nesiraðo, turbût focusas ne ant tekstboxo bûna
+	Dar padaryti, kad nebûtø lyðno enter vedant taskus
 
 
-
-Igno:
+IGNO:
 
 Reikia maþø mygtukø pagrindinëj formoj. ? ir X (Helpas ir iðjungti formà). arba paspaudus deðiná
 Padaryti, kad restore darant galima bûtø ir db perkopinti pagal pasirinkimà.
