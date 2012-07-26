@@ -11,7 +11,7 @@ using Minder.Engine.Parse;
 using NUnit.Framework;
 using Minder.Engine;
 
-namespace Minder.Tests.Logic
+namespace Minder.Tests.Logic.Cultures
 {
 	[TestFixture]
 	public class TestTextParserCultureDataLt

@@ -12,7 +12,7 @@ using Minder.Static;
 using NUnit.Framework;
 using Minder.Engine;
 
-namespace Minder.Tests.Logic
+namespace Minder.Tests.Logic.Cultures
 {
 	[TestFixture]
 	public class TestTextParserCultureDataUk
