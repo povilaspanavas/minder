@@ -70,7 +70,7 @@ namespace Minder.Engine.Parse
 			string dateString = timeMatch.Value;
 			// Jei pradžioj nėra nurodyta metų
 			if (Regex.IsMatch(timeMatch.Value, m_cultureData.YearRegex) == false)
-				dateString = DateTime.Now.Year + "." + dateString;
+				dateString = m_cultureData.AddYearToMonthAndDay(dateString);
 			if (DateTime.TryParse(dateString, out date) == false)
 				return false;
 			leftText = leftText.Replace(timeMatch.Value, string.Empty).Trim();
