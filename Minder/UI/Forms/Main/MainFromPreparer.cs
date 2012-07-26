@@ -135,7 +135,7 @@ namespace Minder.Forms.Main
 			string leftText; DateTime date;
 			string remainderDateString;
 			if (TextParser.Parse(m_wpfPreparer.WpfForm.MTextBox.Text, out date, out leftText))
-				remainderDateString = string.Format("{0:yyyy.MM.dd HH:mm}", date);
+				remainderDateString = date.ToShortDateString() + " " + date.ToShortTimeString();
 			else
 				remainderDateString = "Unavailable";
 			m_wpfPreparer.WpfForm.MDateLabel.Content = remainderDateString;
