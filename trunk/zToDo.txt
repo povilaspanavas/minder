@@ -1,6 +1,5 @@
 POVILO:
-	PRIORITETAS: Culture Info galima per nustatymus rinktis
-	* Testuoti, kaip veikia UK
+	PRIORITETAS: Culture Info 
 	* Pridëti US (AM, PM laikai)
 
 	NICE TO HAVE:
