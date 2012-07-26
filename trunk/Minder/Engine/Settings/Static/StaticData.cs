@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
+using Minder.Engine.Parse;
 
 namespace Minder.Static
 {
@@ -87,14 +88,14 @@ namespace Minder.Static
 			static bool m_startWithWindows;
 			static bool m_checkUpdates;
 			static bool m_playSound;
-			static CultureInfo m_cultureInfo = CultureInfo.CurrentCulture;
+			static ICultureData m_cultureData = new CultureDataLt();
 
-			public static CultureInfo CultureInfo {
-				get { return m_cultureInfo; }
+			public static ICultureData CultureData {
+				get { return m_cultureData; }
 				set {
-					m_cultureInfo = value;
-					Thread.CurrentThread.CurrentCulture = m_cultureInfo;
-					Thread.CurrentThread.CurrentUICulture = m_cultureInfo;
+					m_cultureData = value;
+					Thread.CurrentThread.CurrentCulture = m_cultureData.CultureInfo;
+					Thread.CurrentThread.CurrentUICulture = m_cultureData.CultureInfo;
 				}
 			}
 			public static bool StartWithWindows {

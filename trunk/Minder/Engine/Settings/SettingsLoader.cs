@@ -9,6 +9,7 @@
 using System;
 using System.Globalization;
 using System.IO;
+using Minder.Engine.Parse;
 using Minder.Static;
 using Minder.Tools;
 
@@ -62,13 +63,18 @@ namespace Minder.Forms.Settings
 			StaticData.Settings.CheckUpdates = Convert.ToBoolean(parser.GetSetting("General", "autoupdate"));
 			StaticData.Settings.PlaySound = Convert.ToBoolean(parser.GetSetting("General", "playsound"));
 			string cultureInfoName = parser.GetSetting("CultureInfo", "Name");
-			try
-			{
-				StaticData.Settings.CultureInfo = new System.Globalization.CultureInfo(cultureInfoName);
-			}
-			catch(Exception)
-			{
-				StaticData.Settings.CultureInfo = CultureInfo.CurrentCulture;
+			
+			switch (cultureInfoName) {
+				case "lt-Lt":
+					StaticData.Settings.CultureData = new CultureDataLt();
+					break;
+				case "en-UK":
+				case "en-GB":
+					StaticData.Settings.CultureData = new CultureDataUK();
+					break;
+				default:
+					StaticData.Settings.CultureData = new CultureDataLt();
+					break;
 			}
 		}
 		
@@ -94,7 +100,7 @@ namespace Minder.Forms.Settings
 			parser.AddSetting("General", "startwithwindows", StaticData.Settings.StartWithWindows.ToString());
 			parser.AddSetting("General", "autoupdate", StaticData.Settings.CheckUpdates.ToString());
 			parser.AddSetting("General", "playsound", StaticData.Settings.PlaySound.ToString());
-			parser.AddSetting("CultureInfo", "name", StaticData.Settings.CultureInfo.Name.ToString());
+			parser.AddSetting("CultureInfo", "name", StaticData.Settings.CultureData.CultureInfo.Name.ToString());
 			
 			parser.SaveSettings();
 		}

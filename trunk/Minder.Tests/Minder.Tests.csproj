@@ -52,7 +52,8 @@
     <Compile Include="DB\TestDBConnection.cs" />
     <Compile Include="DB\TestTask.cs" />
     <Compile Include="Logic\TestTaskController.cs" />
-    <Compile Include="Logic\TestTextParser.cs" />
+    <Compile Include="Logic\TestTextParserCultureDataLt.cs" />
+    <Compile Include="Logic\TestTextParserCultureDataUk.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\TestRegEx.cs" />
   </ItemGroup>
