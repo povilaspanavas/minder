@@ -13,7 +13,7 @@ namespace Minder.Engine.Parse
 {
 	public class TextParser
 	{
-		private static ICultureData m_cultureData = new CultureDataLt();
+		private static ICultureData m_cultureData = new CultureDataLT();
 		public static ICultureData CultureData {
 			get {
 				return m_cultureData;

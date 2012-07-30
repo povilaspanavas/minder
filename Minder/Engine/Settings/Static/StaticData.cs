@@ -88,7 +88,7 @@ namespace Minder.Static
 			static bool m_startWithWindows;
 			static bool m_checkUpdates;
 			static bool m_playSound;
-			static ICultureData m_cultureData = new CultureDataLt();
+			static ICultureData m_cultureData = new CultureDataLT();
 
 			public static ICultureData CultureData {
 				get { return m_cultureData; }

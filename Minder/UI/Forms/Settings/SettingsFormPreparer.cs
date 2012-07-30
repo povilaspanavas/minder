@@ -10,6 +10,7 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 using Core.Forms;
+using Minder.Engine.Parse;
 using Minder.Forms.Settings;
 using Minder.Static;
 
@@ -52,6 +53,7 @@ namespace Minder.Forms.Settings
 			m_form.MStartWithWinCheckBox.CheckedChanged += delegate { m_existChanges = true; };
 			m_form.MUpdateCheckBox.CheckedChanged += delegate { m_existChanges = true; };
 			m_form.MPlaySoundCheckBox.CheckedChanged += delegate { m_existChanges = true; };
+			m_form.MComboBoxCultureData.SelectedValueChanged += delegate { m_existChanges = true; };
 			
 			m_form.Closing += FormClosing;
 		}
@@ -78,6 +80,22 @@ namespace Minder.Forms.Settings
 			m_form.MStartWithWinCheckBox.Checked = StaticData.Settings.StartWithWindows;
 			m_form.MUpdateCheckBox.Checked = StaticData.Settings.CheckUpdates;
 			m_form.MPlaySoundCheckBox.Checked = StaticData.Settings.PlaySound;
+			
+			// **** DateFormat tab ****
+			m_form.MComboBoxCultureData.Items.Add(new CultureDataLT());
+			m_form.MComboBoxCultureData.Items.Add(new CultureDataUK());
+			
+			for(int i = 0; i < m_form.MComboBoxCultureData.Items.Count; i++)
+			{
+				if(StaticData.Settings.CultureData.Name
+				   .Equals((m_form.MComboBoxCultureData.Items[i] as ICultureData).Name))
+				{
+					m_form.MComboBoxCultureData.SelectedIndex = i;
+					break;
+				}
+			}
+			
+			
 		}
 		
 		private void FormClosing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -96,6 +114,9 @@ namespace Minder.Forms.Settings
 					StaticData.Settings.StartWithWindows = m_form.MStartWithWinCheckBox.Checked;
 					StaticData.Settings.CheckUpdates = m_form.MUpdateCheckBox.Checked;
 					StaticData.Settings.PlaySound = m_form.MPlaySoundCheckBox.Checked;
+					if (m_form.MComboBoxCultureData.SelectedItem != null &&
+					    m_form.MComboBoxCultureData.SelectedItem is ICultureData)
+						StaticData.Settings.CultureData = m_form.MComboBoxCultureData.SelectedItem as ICultureData;
 					
 					new SettingsLoader().SaveSettingsToFile();
 					new WarningBox("You need restart application to take efect");

@@ -66,14 +66,14 @@ namespace Minder.Forms.Settings
 			
 			switch (cultureInfoName.ToLower()) {
 				case "lt-lt":
-					StaticData.Settings.CultureData = new CultureDataLt();
+					StaticData.Settings.CultureData = new CultureDataLT();
 					break;
 				case "en-uk":
 				case "en-gb":
 					StaticData.Settings.CultureData = new CultureDataUK();
 					break;
 				default:
-					StaticData.Settings.CultureData = new CultureDataLt();
+					StaticData.Settings.CultureData = new CultureDataLT();
 					break;
 			}
 		}

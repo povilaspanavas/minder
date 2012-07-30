@@ -46,31 +46,31 @@ namespace Minder.Tests.Tools
 		[Test]
 		public void TestTime()
 		{
-			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15:10:01", CultureDataLt.TIME_STRING));
-			Assert.AreEqual("15:10:01", Regex.Match("Nupirkti pieno 15:10:01", CultureDataLt.TIME_STRING).Value);
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15:10:01", CultureDataLT.TIME_STRING));
+			Assert.AreEqual("15:10:01", Regex.Match("Nupirkti pieno 15:10:01", CultureDataLT.TIME_STRING).Value);
 			
-			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15:10", CultureDataLt.TIME_STRING));
-			Assert.AreEqual("15:10", Regex.Match("Nupirkti pieno 15:10", CultureDataLt.TIME_STRING).Value);
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 15:10", CultureDataLT.TIME_STRING));
+			Assert.AreEqual("15:10", Regex.Match("Nupirkti pieno 15:10", CultureDataLT.TIME_STRING).Value);
 			
-			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 5:1", CultureDataLt.TIME_STRING));
-			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 5:1:3", CultureDataLt.TIME_STRING));
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 5:1", CultureDataLT.TIME_STRING));
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 5:1:3", CultureDataLT.TIME_STRING));
 			
 		}
 		
 		[Test]
 		public void TestDateAndTime()
 		{
-			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 06.11 15:30", CultureDataLt.DATE_TIME_STRING));
-			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 06\\11 15:30", CultureDataLt.DATE_TIME_STRING));
-			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 06-11 15:30", CultureDataLt.DATE_TIME_STRING));
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 06.11 15:30", CultureDataLT.DATE_TIME_STRING));
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 06\\11 15:30", CultureDataLT.DATE_TIME_STRING));
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 06-11 15:30", CultureDataLT.DATE_TIME_STRING));
 			
-			Assert.AreEqual("06.11 15:30", Regex.Match("Nupirkti pieno 06.11 15:30", CultureDataLt.DATE_TIME_STRING).Value);
+			Assert.AreEqual("06.11 15:30", Regex.Match("Nupirkti pieno 06.11 15:30", CultureDataLT.DATE_TIME_STRING).Value);
 			
-			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 2012.06.11 15:30:10", CultureDataLt.DATE_TIME_STRING));
-			Assert.AreEqual("2012.06.11 15:30:10", Regex.Match("Nupirkti pieno 2012.06.11 15:30:10",  CultureDataLt.DATE_TIME_STRING).Value);
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 2012.06.11 15:30:10", CultureDataLT.DATE_TIME_STRING));
+			Assert.AreEqual("2012.06.11 15:30:10", Regex.Match("Nupirkti pieno 2012.06.11 15:30:10",  CultureDataLT.DATE_TIME_STRING).Value);
 			
-			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 2012-06-11 15:30:10", CultureDataLt.DATE_TIME_STRING));
-			Assert.AreEqual("2012-06-11 15:30:10", Regex.Match("Nupirkti pieno 2012-06-11 15:30:10",  CultureDataLt.DATE_TIME_STRING).Value);
+			Assert.IsTrue(Regex.IsMatch("Nupirkti pieno 2012-06-11 15:30:10", CultureDataLT.DATE_TIME_STRING));
+			Assert.AreEqual("2012-06-11 15:30:10", Regex.Match("Nupirkti pieno 2012-06-11 15:30:10",  CultureDataLT.DATE_TIME_STRING).Value);
 		
 		}
 		
