@@ -1,6 +1,7 @@
 POVILO:
 	PRIORITETAS: Culture Info 
 	* Pridëti US (AM, PM laikai)
+	* Per nustatymø UI leistø rinktis tarp ðiø trijø
 
 	NICE TO HAVE:
 	Padaryti, kad sesijos kaskart nereiktø atsidaryti, t.y., susirastø jau egzistuojanèià kaip DLC
