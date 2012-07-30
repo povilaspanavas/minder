@@ -21,5 +21,7 @@ namespace Minder.Engine.Parse
 		string DateTimeRegex{get;}
 		string YearRegex{get;}
 		string AddYearToMonthAndDay(string dateTimeNoYear);
+		
+		string Name {get;}
 	}
 }
