@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 
 namespace Minder.Engine.Parse
 {
-	public class CultureDataLt : ICultureData
+	public class CultureDataLT : ICultureData
 	{
 		private CultureInfo m_cultureInfo = new CultureInfo("lt-Lt");
 		public const string MINUTES_STRING = @"\b\d*[,]{0,1}\d*((min\.)|(min\b)|(m\.)|(m\b))";

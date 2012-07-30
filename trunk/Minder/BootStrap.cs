@@ -44,7 +44,7 @@ namespace Minder
 				SettingsLoader loader = new SettingsLoader();
 				loader.LoadSettings();
 				new StartWithWinController().StartWithWindows();
-				new UpdateVersion();
+//				new UpdateVersion();
 				if(Minder.Static.StaticData.Settings.CheckUpdates)
 					new UpdateProject(StaticData.VersionCache.Version, true, "Minder");
 				

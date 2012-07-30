@@ -62,6 +62,8 @@ namespace Minder.Forms.Settings
 			this.MCtrlCheckBox = new System.Windows.Forms.CheckBox();
 			this.MWinCheckBox = new System.Windows.Forms.CheckBox();
 			this.tabPageDateFormats = new System.Windows.Forms.TabPage();
+			this.labelCultureData = new System.Windows.Forms.Label();
+			this.MComboBoxCultureData = new System.Windows.Forms.ComboBox();
 			this.panel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -69,6 +71,7 @@ namespace Minder.Forms.Settings
 			this.tabPage2.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
+			this.tabPageDateFormats.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -344,6 +347,8 @@ namespace Minder.Forms.Settings
 			// 
 			// tabPageDateFormats
 			// 
+			this.tabPageDateFormats.Controls.Add(this.labelCultureData);
+			this.tabPageDateFormats.Controls.Add(this.MComboBoxCultureData);
 			this.tabPageDateFormats.Location = new System.Drawing.Point(4, 23);
 			this.tabPageDateFormats.Name = "tabPageDateFormats";
 			this.tabPageDateFormats.Padding = new System.Windows.Forms.Padding(3);
@@ -351,6 +356,26 @@ namespace Minder.Forms.Settings
 			this.tabPageDateFormats.TabIndex = 2;
 			this.tabPageDateFormats.Text = "Date Formats";
 			this.tabPageDateFormats.UseVisualStyleBackColor = true;
+			// 
+			// labelCultureData
+			// 
+			this.labelCultureData.Location = new System.Drawing.Point(6, 8);
+			this.labelCultureData.Name = "labelCultureData";
+			this.labelCultureData.Size = new System.Drawing.Size(81, 22);
+			this.labelCultureData.TabIndex = 6;
+			this.labelCultureData.Text = "Language";
+			// 
+			// MComboBoxCultureData
+			// 
+			this.MComboBoxCultureData.DisplayMember = "Name";
+			this.MComboBoxCultureData.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.MComboBoxCultureData.FormattingEnabled = true;
+			this.MComboBoxCultureData.Location = new System.Drawing.Point(92, 8);
+			this.MComboBoxCultureData.Margin = new System.Windows.Forms.Padding(2);
+			this.MComboBoxCultureData.Name = "MComboBoxCultureData";
+			this.MComboBoxCultureData.Size = new System.Drawing.Size(132, 22);
+			this.MComboBoxCultureData.Sorted = true;
+			this.MComboBoxCultureData.TabIndex = 5;
 			// 
 			// SettingsForm
 			// 
@@ -370,8 +395,11 @@ namespace Minder.Forms.Settings
 			this.tabPage2.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox1.ResumeLayout(false);
+			this.tabPageDateFormats.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		public System.Windows.Forms.ComboBox MComboBoxCultureData;
+		private System.Windows.Forms.Label labelCultureData;
 		public System.Windows.Forms.CheckBox MPlaySoundCheckBox;
 		private System.Windows.Forms.TabPage tabPageDateFormats;
 		public System.Windows.Forms.CheckBox checkBox4;
