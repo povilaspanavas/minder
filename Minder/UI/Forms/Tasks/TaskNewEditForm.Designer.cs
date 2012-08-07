@@ -64,9 +64,10 @@ namespace Minder.Forms.Tasks
 			// 
 			// MDatePicker
 			// 
-			this.MDatePicker.CustomFormat = "yyyy.MM.dd HH.mm";
+			this.MDatePicker.CustomFormat = "yyyy.MM.dd HH:mm";
 			this.MDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
 			this.MDatePicker.Location = new System.Drawing.Point(46, 76);
+			this.MDatePicker.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
 			this.MDatePicker.Name = "MDatePicker";
 			this.MDatePicker.ShowUpDown = true;
 			this.MDatePicker.Size = new System.Drawing.Size(267, 20);
