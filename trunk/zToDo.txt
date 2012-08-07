@@ -19,8 +19,9 @@ Reikia maþø mygtukø pagrindinëj formoj. ? ir X (Helpas ir iðjungti formà). arba 
 Padaryti, kad restore darant galima bûtø ir db perkopinti pagal pasirinkimà.
 Padaryti angliðkas antraðtes message boxuose
 
-Girdas:
+Gridas:
 hotkeys gridui
+galima dabar delitinti rowsus
 
 
  
