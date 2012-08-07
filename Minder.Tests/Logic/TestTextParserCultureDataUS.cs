@@ -92,14 +92,14 @@ namespace Minder.Tests.Logic.Cultures
 			Assert.AreEqual("Susitikimas", leftText);
 			
 			Assert.IsFalse(TextParser.Parse("Susitikimas 20v.", out date, out leftText));
-	//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
-	//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
-	//			Assert.AreEqual("Susitikimas", leftText);
+			//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
+			//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
+			//			Assert.AreEqual("Susitikimas", leftText);
 			
 			Assert.IsFalse(TextParser.Parse("Susitikimas 20v", out date, out leftText));
-	//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
-	//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
-	//			Assert.AreEqual("Susitikimas", leftText);
+			//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
+			//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
+			//			Assert.AreEqual("Susitikimas", leftText);
 			
 			TextParser.Parse("Susitikimas 10h.", out date, out leftText);
 			Assert.AreEqual(now.AddHours(10).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
@@ -140,11 +140,20 @@ namespace Minder.Tests.Logic.Cultures
 			DateTime dateRemind = new DateTime(now.Year, now.Month, now.Day, 15, 20, 0);
 			DateTime date; string leftText;
 			Assert.IsTrue(TextParser.Parse("Susitikimas 15:20", out date, out leftText));
-			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
-			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			CheckByShortDateTimeStrings(dateRemind, date, leftText);
+			Assert.AreEqual("Susitikimas", leftText);
+			
+			dateRemind = new DateTime(now.Year, now.Month, now.Day, 15, 20, 0);
+			Assert.IsTrue(TextParser.Parse("Susitikimas 3:20 PM", out date, out leftText));
+			CheckByShortDateTimeStrings(dateRemind, date, leftText);
+			Assert.AreEqual("Susitikimas", leftText);
+			
+			dateRemind = new DateTime(now.Year, now.Month, now.Day, 3, 20, 0);
+			Assert.IsTrue(TextParser.Parse("Susitikimas 3:20 AM", out date, out leftText));
+			CheckByShortDateTimeStrings(dateRemind, date, leftText);
 			Assert.AreEqual("Susitikimas", leftText);
 		}
-		
+
 		[Test]
 		public void TestMethod_Date_Time()
 		{
@@ -152,27 +161,21 @@ namespace Minder.Tests.Logic.Cultures
 			DateTime dateRemind = new DateTime(2012, 01, 06, 15, 20, 0);
 			DateTime date; string leftText;
 			Assert.IsTrue(TextParser.Parse("Susitikimas 01/06/2012 15:20", out date, out leftText));
-			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
-			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			CheckByShortDateTimeStrings(dateRemind, date, leftText);
 			Assert.AreEqual("Susitikimas", leftText);
 			
 			dateRemind = new DateTime(2013, 04, 2, 15, 20, 10);
 			Assert.IsTrue(TextParser.Parse("Susitikimas 4/2/2013 15:20", out date, out leftText));
-			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
-			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			CheckByShortDateTimeStrings(dateRemind, date, leftText);
 			Assert.AreEqual("Susitikimas", leftText);
 			
 			dateRemind = new DateTime(2012, 01, 06, 15, 20, 10);
 			Assert.IsTrue(TextParser.Parse("Susitikimas 01-06-2012 15:20:10", out date, out leftText));
-			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
-			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			CheckByShortDateTimeStrings(dateRemind, date, leftText);
 			Assert.AreEqual("Susitikimas", leftText);
 			
 			dateRemind = new DateTime(2012, 02, 06, 15, 20, 10);
 			Assert.IsTrue(TextParser.Parse("Susitikimas 02/06 15:20:10", out date, out leftText));
-			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
-			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
-			Assert.AreEqual("Susitikimas", leftText);
 		}
 		
 		
@@ -217,6 +220,12 @@ namespace Minder.Tests.Logic.Cultures
 			Assert.IsFalse(TextParser.Parse("Susitikimas po 131456313256131654651321m", out date, out leftText));
 			Assert.IsFalse(TextParser.Parse("Susitikimas po 131456313256131654651321h", out date, out leftText));
 			Assert.IsFalse(TextParser.Parse("Susitikimas po 131456313256131654651321h.", out date, out leftText));
+		}
+		
+		public void CheckByShortDateTimeStrings(DateTime dateRemind, DateTime date, string leftText)
+		{
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
 		}
 	}
 }
