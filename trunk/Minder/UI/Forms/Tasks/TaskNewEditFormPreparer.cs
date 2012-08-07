@@ -32,6 +32,9 @@ namespace Minder.Forms.Tasks
 		public TaskNewEditFormPreparer(bool edit)
 		{
 			m_form = new TaskNewEditForm();
+			m_form.MDatePicker.CustomFormat = string.Format("{0} {1}",
+			                                                StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortDatePattern,
+			                                                StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortTimePattern);
 			m_edit = edit;
 			if(m_edit)
 				m_form.Text = "Edit task";
@@ -60,9 +63,6 @@ namespace Minder.Forms.Tasks
 			if(m_task == null)
 				return;
 			m_form.MDatePicker.Value = m_task.DateRemainder;
-			m_form.MDatePicker.CustomFormat = string.Format("{0} {1}", 
-			                                                StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortDatePattern,
-			                                                StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortTimePattern);
 			m_form.MTextBox.Text = m_task.Text;
 			m_form.MShowedCheckBox.Checked = m_task.Showed;
 		}
@@ -94,7 +94,7 @@ namespace Minder.Forms.Tasks
 				m_form.Close();
 			};
 			
-			m_form.MCancelButton.Click += delegate 
+			m_form.MCancelButton.Click += delegate
 			{ m_form.Close(); };
 		}
 	}

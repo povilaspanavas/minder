@@ -72,6 +72,9 @@ namespace Minder.Forms.Settings
 				case "en-gb":
 					StaticData.Settings.CultureData = new CultureDataUK();
 					break;
+				case "en-us":
+					StaticData.Settings.CultureData = new CultureDataUS();
+					break;
 				default:
 					StaticData.Settings.CultureData = new CultureDataLT();
 					break;

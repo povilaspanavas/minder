@@ -84,6 +84,7 @@ namespace Minder.Forms.Settings
 			// **** DateFormat tab ****
 			m_form.MComboBoxCultureData.Items.Add(new CultureDataLT());
 			m_form.MComboBoxCultureData.Items.Add(new CultureDataUK());
+			m_form.MComboBoxCultureData.Items.Add(new CultureDataUS());
 			
 			for(int i = 0; i < m_form.MComboBoxCultureData.Items.Count; i++)
 			{
