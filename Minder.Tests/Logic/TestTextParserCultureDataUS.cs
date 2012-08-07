@@ -14,9 +14,8 @@ using Minder.Engine;
 
 namespace Minder.Tests.Logic.Cultures
 {
-
 	[TestFixture]
-	public class TestTextParserCultureDataUk
+	public class TestTextParserCultureDataUS
 	{
 		private ICultureData m_initialCultureInfo = null;
 		
@@ -24,7 +23,7 @@ namespace Minder.Tests.Logic.Cultures
 		public void ChangeCulture()
 		{
 			m_initialCultureInfo = StaticData.Settings.CultureData;
-			StaticData.Settings.CultureData = new CultureDataUK();
+			StaticData.Settings.CultureData = new CultureDataUS();
 			TextParser.CultureData = StaticData.Settings.CultureData;
 		}
 		
@@ -93,14 +92,14 @@ namespace Minder.Tests.Logic.Cultures
 			Assert.AreEqual("Susitikimas", leftText);
 			
 			Assert.IsFalse(TextParser.Parse("Susitikimas 20v.", out date, out leftText));
-//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
-//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
-//			Assert.AreEqual("Susitikimas", leftText);
+	//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
+	//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
+	//			Assert.AreEqual("Susitikimas", leftText);
 			
 			Assert.IsFalse(TextParser.Parse("Susitikimas 20v", out date, out leftText));
-//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
-//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
-//			Assert.AreEqual("Susitikimas", leftText);
+	//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
+	//			Assert.AreEqual(now.AddHours(20).AddMinutes(0).ToShortTimeString(), date.ToShortTimeString());
+	//			Assert.AreEqual("Susitikimas", leftText);
 			
 			TextParser.Parse("Susitikimas 10h.", out date, out leftText);
 			Assert.AreEqual(now.AddHours(10).AddMinutes(0).ToShortDateString(), date.ToShortDateString());
@@ -150,20 +149,26 @@ namespace Minder.Tests.Logic.Cultures
 		public void TestMethod_Date_Time()
 		{
 			DateTime now = DateTime.Now;
-			DateTime dateRemind = new DateTime(2012, 06, 01, 15, 20, 0);
+			DateTime dateRemind = new DateTime(2012, 01, 06, 15, 20, 0);
 			DateTime date; string leftText;
 			Assert.IsTrue(TextParser.Parse("Susitikimas 01/06/2012 15:20", out date, out leftText));
 			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
 			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			dateRemind = new DateTime(2012, 06, 01, 15, 20, 10);
+			dateRemind = new DateTime(2013, 04, 2, 15, 20, 10);
+			Assert.IsTrue(TextParser.Parse("Susitikimas 4/2/2013 15:20", out date, out leftText));
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			Assert.AreEqual("Susitikimas", leftText);
+			
+			dateRemind = new DateTime(2012, 01, 06, 15, 20, 10);
 			Assert.IsTrue(TextParser.Parse("Susitikimas 01-06-2012 15:20:10", out date, out leftText));
 			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
 			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			dateRemind = new DateTime(2012, 06, 02, 15, 20, 10);
+			dateRemind = new DateTime(2012, 02, 06, 15, 20, 10);
 			Assert.IsTrue(TextParser.Parse("Susitikimas 02/06 15:20:10", out date, out leftText));
 			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
 			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
