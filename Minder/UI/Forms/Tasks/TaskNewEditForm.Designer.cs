@@ -64,6 +64,8 @@ namespace Minder.Forms.Tasks
 			// 
 			// MDatePicker
 			// 
+			// While regional settings is wihtout AM/PM ('tt'),
+			// it will not be displayed even if English (US) was selected
 			this.MDatePicker.CustomFormat = "yyyy.MM.dd HH:mm";
 			this.MDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
 			this.MDatePicker.Location = new System.Drawing.Point(46, 76);
