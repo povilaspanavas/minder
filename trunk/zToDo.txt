@@ -2,9 +2,6 @@ POVILO:
 	BUGAI:
 	* Tekstas "sadfa m/h/val. kjlasdf" suparsinamas
 
-	PRIORITETAS: Culture Info 
-	* Pridëti US (AM, PM laikai)
-	
 
 	NICE TO HAVE:
 	Padaryti, kad sesijos kaskart nereiktø atsidaryti, t.y., susirastø jau egzistuojanèià kaip DLC
