@@ -147,8 +147,8 @@ namespace Minder.Forms.Main
 			ContextMenu menu = new ContextMenu();
 			
 			MenuItem menuItemNewTask = new MenuItem("New task", delegate { m_wpfPreparer.WpfForm.Show();}); //TODO
-			MenuItem menuItemTasks = new MenuItem("Tasks", OpenTasksForm);
 			MenuItem menuItemSettings = new MenuItem("Settings", OpenSettingsForm);
+			MenuItem menuItemTasks = new MenuItem("Tasks", OpenTasksForm);
 			MenuItem menuItemAbout = new MenuItem("About", OpenAboutForm);
 			MenuItem menuSeparator = new MenuItem("-");
 			MenuItem menuSeparator2 = new MenuItem("-");
@@ -157,8 +157,8 @@ namespace Minder.Forms.Main
 			
 			menu.MenuItems.Add(menuItemNewTask);
 			menu.MenuItems.Add(menuSeparator);
-			menu.MenuItems.Add(menuItemTasks);
 			menu.MenuItems.Add(menuItemSettings);
+			menu.MenuItems.Add(menuItemTasks);
 			menu.MenuItems.Add(menuItemAbout);
 			menu.MenuItems.Add(menuSeparator2);
 			menu.MenuItems.Add(menuExit);
