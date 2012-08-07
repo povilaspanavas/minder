@@ -79,6 +79,7 @@
     </Compile>
     <Compile Include="Engine\Parse\Cultures\CultureDataLt.cs" />
     <Compile Include="Engine\Parse\Cultures\CultureDataUK.cs" />
+    <Compile Include="Engine\Parse\Cultures\CultureDataUS.cs" />
     <Compile Include="Engine\Parse\Cultures\ICultureData.cs" />
     <Compile Include="Engine\Parse\TextParser.cs" />
     <Compile Include="Engine\Settings\PathCutHelper.cs" />
