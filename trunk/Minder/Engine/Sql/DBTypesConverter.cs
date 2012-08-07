@@ -41,7 +41,7 @@ namespace Minder.Sql
 		/// <returns></returns>
 		public static string ToFullDateStringByCultureInfo(DateTime dateTime)
 		{
-			return string.Format("{0} {1}}", dateTime.ToShortDateString(), dateTime.ToShortTimeString());
+			return string.Format("{0} {1}", dateTime.ToShortDateString(), dateTime.ToShortTimeString());
 		}
 		
 		public static string ToFullDateStringWithQuotes(DateTime dateTime)

@@ -92,9 +92,9 @@ namespace Minder.Forms.Tasks
 				if(m_form.MTaskGrid.SelectedRows[0].Cells[3].Value == null)
 					return;
 				
-				string message = "Do you realy want delete this task?";
+				string message = "Do you realy want to delete this task?";
 				if( m_form.MTaskGrid.SelectedRows.Count > 1)
-					message = "Do you realy want delete these tasks?";
+					message = "Do you realy want to delete these tasks?";
 				
 				if(MessageBox.Show(message, "Question",
 				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
@@ -132,7 +132,9 @@ namespace Minder.Forms.Tasks
 			m_form.MTaskGrid.Rows.Clear();
 			
 			
-			m_tasks = m_tasks.OrderBy(m => m.Showed).ThenBy(n => n.DateRemainder).ToList();
+			m_tasks = m_tasks
+				.OrderBy(m => m.Showed)
+				.ThenByDescending(n => n.DateRemainder).ToList();
 //			m_tasks.Reverse();
 			foreach(Task task in m_tasks)
 			{
