@@ -40,35 +40,37 @@ namespace Minder.Forms.Tasks
 			this.MNewButton = new System.Windows.Forms.Button();
 			this.MEditButton = new System.Windows.Forms.Button();
 			this.MTaskGrid = new System.Windows.Forms.DataGridView();
-			this.MDeleteButton = new System.Windows.Forms.Button();
 			this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.SOURCE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.MDeleteButton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.MTaskGrid)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// MNewButton
 			// 
-			this.MNewButton.Location = new System.Drawing.Point(12, 12);
+			this.MNewButton.Location = new System.Drawing.Point(12, 13);
 			this.MNewButton.Name = "MNewButton";
-			this.MNewButton.Size = new System.Drawing.Size(102, 32);
+			this.MNewButton.Size = new System.Drawing.Size(102, 34);
 			this.MNewButton.TabIndex = 0;
 			this.MNewButton.Text = "New";
 			this.MNewButton.UseVisualStyleBackColor = true;
 			// 
 			// MEditButton
 			// 
-			this.MEditButton.Location = new System.Drawing.Point(120, 12);
+			this.MEditButton.Location = new System.Drawing.Point(120, 13);
 			this.MEditButton.Name = "MEditButton";
-			this.MEditButton.Size = new System.Drawing.Size(102, 32);
+			this.MEditButton.Size = new System.Drawing.Size(102, 34);
 			this.MEditButton.TabIndex = 1;
 			this.MEditButton.Text = "Edit";
 			this.MEditButton.UseVisualStyleBackColor = true;
 			// 
 			// MTaskGrid
 			// 
+			this.MTaskGrid.AllowUserToAddRows = false;
+			this.MTaskGrid.AllowUserToDeleteRows = false;
 			this.MTaskGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
 									| System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
@@ -79,20 +81,11 @@ namespace Minder.Forms.Tasks
 									this.Column3,
 									this.ID,
 									this.SOURCE_ID});
-			this.MTaskGrid.Location = new System.Drawing.Point(12, 62);
+			this.MTaskGrid.Location = new System.Drawing.Point(12, 67);
 			this.MTaskGrid.Name = "MTaskGrid";
 			this.MTaskGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.MTaskGrid.Size = new System.Drawing.Size(546, 384);
+			this.MTaskGrid.Size = new System.Drawing.Size(546, 414);
 			this.MTaskGrid.TabIndex = 2;
-			// 
-			// MDeleteButton
-			// 
-			this.MDeleteButton.Location = new System.Drawing.Point(228, 12);
-			this.MDeleteButton.Name = "MDeleteButton";
-			this.MDeleteButton.Size = new System.Drawing.Size(102, 32);
-			this.MDeleteButton.TabIndex = 3;
-			this.MDeleteButton.Text = "Delete";
-			this.MDeleteButton.UseVisualStyleBackColor = true;
 			// 
 			// Column1
 			// 
@@ -134,11 +127,20 @@ namespace Minder.Forms.Tasks
 			this.SOURCE_ID.ReadOnly = true;
 			this.SOURCE_ID.Visible = false;
 			// 
+			// MDeleteButton
+			// 
+			this.MDeleteButton.Location = new System.Drawing.Point(228, 13);
+			this.MDeleteButton.Name = "MDeleteButton";
+			this.MDeleteButton.Size = new System.Drawing.Size(102, 34);
+			this.MDeleteButton.TabIndex = 3;
+			this.MDeleteButton.Text = "Delete";
+			this.MDeleteButton.UseVisualStyleBackColor = true;
+			// 
 			// TasksForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(570, 458);
+			this.ClientSize = new System.Drawing.Size(570, 493);
 			this.Controls.Add(this.MDeleteButton);
 			this.Controls.Add(this.MTaskGrid);
 			this.Controls.Add(this.MEditButton);
