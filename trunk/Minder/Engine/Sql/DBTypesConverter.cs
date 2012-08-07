@@ -34,6 +34,16 @@ namespace Minder.Sql
 			return string.Format("{0:yyyy.MM.dd HH:mm:ss}", dateTime);
 		}
 		
+		/// <summary>
+		/// Not tested for use in db
+		/// </summary>
+		/// <param name="dateTime"></param>
+		/// <returns></returns>
+		public static string ToFullDateStringByCultureInfo(DateTime dateTime)
+		{
+			return string.Format("{0} {1}}", dateTime.ToShortDateString(), dateTime.ToShortTimeString());
+		}
+		
 		public static string ToFullDateStringWithQuotes(DateTime dateTime)
 		{
 			return AddQuotes(ToFullDateString(dateTime));

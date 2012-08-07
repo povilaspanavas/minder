@@ -10,6 +10,7 @@ using System;
 using Core.Forms;
 using Minder.Engine;
 using Minder.Objects;
+using Minder.Static;
 
 namespace Minder.Forms.Tasks
 {
@@ -59,6 +60,9 @@ namespace Minder.Forms.Tasks
 			if(m_task == null)
 				return;
 			m_form.MDatePicker.Value = m_task.DateRemainder;
+			m_form.MDatePicker.CustomFormat = string.Format("{0} {1}", 
+			                                                StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortDatePattern,
+			                                                StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortTimePattern);
 			m_form.MTextBox.Text = m_task.Text;
 			m_form.MShowedCheckBox.Checked = m_task.Showed;
 		}

@@ -99,7 +99,7 @@ namespace Minder.Forms.TaskShow
 				return;
 			m_form.TextBox.Text =
 				string.Format("Task: {0}{1}{2}Time: {3}", m_task.Text, Environment.NewLine, Environment.NewLine,
-				              DBTypesConverter.ToFullDateString(m_task.DateRemainder));
+				              DBTypesConverter.ToFullDateStringByCultureInfo(m_task.DateRemainder));
 		}
 	}
 }
