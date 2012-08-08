@@ -227,5 +227,18 @@ namespace Minder.Tests.Logic.Cultures
 			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
 			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
 		}
+		
+		[Test]
+		public void Test_BugFix_Minutes_m_h_v()
+		{
+			DateTime date; string leftText;
+			Assert.IsFalse(TextParser.Parse("Susitikimas po m", out date, out leftText));
+			Assert.IsFalse(TextParser.Parse("Susitikimas po min.", out date, out leftText));
+			Assert.IsFalse(TextParser.Parse("Susitikimas po h", out date, out leftText));
+			Assert.IsFalse(TextParser.Parse("Susitikimas po h.", out date, out leftText));
+			Assert.IsFalse(TextParser.Parse("Susitikimas po v", out date, out leftText));
+			Assert.IsFalse(TextParser.Parse("Susitikimas po v.", out date, out leftText));
+			Assert.IsFalse(TextParser.Parse("Susitikimas po val.", out date, out leftText));
+		}
 	}
 }
