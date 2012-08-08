@@ -63,7 +63,8 @@ namespace Minder.Forms.Settings
 			StaticData.Settings.CheckUpdates = Convert.ToBoolean(parser.GetSetting("General", "autoupdate"));
 			StaticData.Settings.PlaySound = Convert.ToBoolean(parser.GetSetting("General", "playsound"));
 			string cultureInfoName = parser.GetSetting("CultureInfo", "Name");
-			
+			if (string.IsNullOrEmpty(cultureInfoName))
+				cultureInfoName = "en-uk";
 			switch (cultureInfoName.ToLower()) {
 				case "lt-lt":
 					StaticData.Settings.CultureData = new CultureDataLT();
