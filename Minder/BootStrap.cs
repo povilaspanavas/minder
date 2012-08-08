@@ -25,40 +25,43 @@ namespace Minder
 		[STAThread]
 		private static void Main(string[] args)
 		{
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
-			Starter();
-			Application.Run();
+			try
+			{
+				Application.EnableVisualStyles();
+				Application.SetCompatibleTextRenderingDefault(false);
+				Starter();
+				Application.Run();
+			}
+			catch (Exception e)
+			{
+				new ErrorBox("We are very sorry, but the program crashed. Please contact support at " +
+				             "http://code.google.com/p/minder/issues/list. Thank you for your patience.\n\n" +
+				             "P.S. you can copy error message by pressing clr + C. Have a nice day."); // This shows error box and writes to log.
+				Application.Exit();
+			}
 		}
 		
 		private static void Starter()
 		{
-			try
-			{
-				string startupPath = new PathCutHelper()
-					.CutExecutableFileFromPath(System.Reflection.Assembly
-					                           .GetExecutingAssembly().Location);
-				
-				ConfigLoader.LoadConfiguration(false, startupPath);
-				
-				SettingsLoader loader = new SettingsLoader();
-				loader.LoadSettings();
-				new StartWithWinController().StartWithWindows();
+
+			string startupPath = new PathCutHelper()
+				.CutExecutableFileFromPath(System.Reflection.Assembly
+				                           .GetExecutingAssembly().Location);
+			
+			ConfigLoader.LoadConfiguration(false, startupPath);
+			
+			SettingsLoader loader = new SettingsLoader();
+			loader.LoadSettings();
+			new StartWithWinController().StartWithWindows();
 //				new UpdateVersion();
-				if(Minder.Static.StaticData.Settings.CheckUpdates)
-					new UpdateProject(StaticData.VersionCache.Version, true, "Minder");
-				
-				MainFormPreparer preparer = new MainFormPreparer();
-				preparer.PrepareForm();
-				
-				TimeController timeController = new TimeController(preparer);
-				timeController.Start();
-			}
-			catch (Exception e)
-			{
-				new ErrorBox(e.ToString()); // This shows error box and writes to log.
-				Application.Exit();
-			}
+			if(Minder.Static.StaticData.Settings.CheckUpdates)
+				new UpdateProject(StaticData.VersionCache.Version, true, "Minder");
+			
+			MainFormPreparer preparer = new MainFormPreparer();
+			preparer.PrepareForm();
+			
+			TimeController timeController = new TimeController(preparer);
+			timeController.Start();
 		}
 		
 	}
