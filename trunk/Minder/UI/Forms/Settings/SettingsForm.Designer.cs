@@ -280,6 +280,7 @@ namespace Minder.Forms.Settings
 			// 
 			// MStartWithWinCheckBox
 			// 
+			this.MStartWithWinCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.MStartWithWinCheckBox.Location = new System.Drawing.Point(20, 16);
 			this.MStartWithWinCheckBox.Margin = new System.Windows.Forms.Padding(2);
 			this.MStartWithWinCheckBox.Name = "MStartWithWinCheckBox";
@@ -290,6 +291,7 @@ namespace Minder.Forms.Settings
 			// 
 			// MUpdateCheckBox
 			// 
+			this.MUpdateCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.MUpdateCheckBox.Location = new System.Drawing.Point(20, 43);
 			this.MUpdateCheckBox.Margin = new System.Windows.Forms.Padding(2);
 			this.MUpdateCheckBox.Name = "MUpdateCheckBox";
@@ -322,6 +324,7 @@ namespace Minder.Forms.Settings
 			// 
 			// MPlaySoundCheckBox
 			// 
+			this.MPlaySoundCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.MPlaySoundCheckBox.Location = new System.Drawing.Point(20, 69);
 			this.MPlaySoundCheckBox.Margin = new System.Windows.Forms.Padding(2);
 			this.MPlaySoundCheckBox.Name = "MPlaySoundCheckBox";
@@ -348,7 +351,7 @@ namespace Minder.Forms.Settings
 			this.labelCultureData.Name = "labelCultureData";
 			this.labelCultureData.Size = new System.Drawing.Size(67, 19);
 			this.labelCultureData.TabIndex = 8;
-			this.labelCultureData.Text = "Date Format";
+			this.labelCultureData.Text = "Date format";
 			// 
 			// tabControl1
 			// 
