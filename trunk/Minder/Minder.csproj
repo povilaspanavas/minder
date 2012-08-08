@@ -109,18 +109,18 @@
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\Settings\SettingsFormPreparer.cs" />
-    <Compile Include="UI\Forms\Skins\IWpfSkin.cs" />
+    <Compile Include="UI\Forms\Skins\ISkin.cs" />
     <Compile Include="UI\Forms\Skins\MainFormLaunchy.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Forms\Skins\MainFormLaunchy.Designer.cs">
       <DependentUpon>MainFormLaunchy.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\Skins\Skin1\WpfSkin1.xaml.cs">
+    <Compile Include="UI\Forms\Skins\WpfSkin1\WpfSkin1.xaml.cs">
       <DependentUpon>WpfSkin1.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UI\Forms\Skins\WpfSkinPreparer.cs" />
+    <Compile Include="UI\Forms\Skins\WpfSkin1\WpfSkinPreparer.cs" />
     <Compile Include="UI\Forms\TaskShow\TaskShowForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,7 +186,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="UI\Forms\Skins\Skin1\WpfSkin1.xaml" />
+    <Page Include="UI\Forms\Skins\WpfSkin1\WpfSkin1.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Engine\Parse\Cultures" />

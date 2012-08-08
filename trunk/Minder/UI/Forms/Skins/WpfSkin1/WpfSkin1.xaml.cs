@@ -15,13 +15,14 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using Minder.UI.Forms.Skins;
 
 namespace Minder.Forms.Skins.Skin1
 {
 	/// <summary>
 	/// Interaction logic for WpfSkin1.xaml
 	/// </summary>
-	public partial class WpfSkin1 : Window, IWpfSkin
+	public partial class WpfSkin1 : Window
 	{
 		public WpfSkin1()
 		{

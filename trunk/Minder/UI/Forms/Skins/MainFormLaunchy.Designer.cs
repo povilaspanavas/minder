@@ -33,7 +33,7 @@ namespace Minder.Forms.Skins
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormLaunchy));
-			this.m_trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
+			this.TrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
 			this.m_backGroundImage = ((System.Drawing.Image)(resources.GetObject("LaunchyClone")));
 			this.label1 = new MLabelWithImage((System.Drawing.Image)(resources.GetObject("LaunchyCloneLabel")));
 			this.m_textBox = new Minder.Controls.MTextBox();
@@ -42,10 +42,10 @@ namespace Minder.Forms.Skins
 			// 
 			// m_trayIcon
 			// 
-			this.m_trayIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-			this.m_trayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("TryIcon")));
-			this.m_trayIcon.Text = "Minder";
-			this.m_trayIcon.Visible = true;
+			this.TrayIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+			this.TrayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("TryIcon")));
+			this.TrayIcon.Text = "Minder";
+			this.TrayIcon.Visible = true;
 			// 
 			// label1
 			// 
@@ -105,6 +105,6 @@ namespace Minder.Forms.Skins
 			get { return labelRemaindDate; }
 		}
 		
-		public System.Windows.Forms.NotifyIcon m_trayIcon;
+		public System.Windows.Forms.NotifyIcon TrayIcon;
 	}
 }
