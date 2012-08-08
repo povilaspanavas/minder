@@ -37,6 +37,9 @@ namespace Minder
 				new ErrorBox("We are very sorry, but the program crashed. Please contact support at " +
 				             "http://code.google.com/p/minder/issues/list. Thank you for your patience.\n\n" +
 				             "P.S. you can copy error message by pressing clr + C. Have a nice day."); // This shows error box and writes to log.
+				// TODO Ignai, kaip tavo logeriu naudotis? Reikia įloginti klaidą. 
+				// Reikia ErrorBox, kuris ne tik išveda pranešimą, bet ir ima klaidą (Exception), kurią įlogina
+				// (kartu ir su originaliu tekstu, o ne paduotu).
 				Application.Exit();
 			}
 		}

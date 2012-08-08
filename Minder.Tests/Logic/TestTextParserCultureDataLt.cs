@@ -189,5 +189,18 @@ namespace Minder.Tests.Logic.Cultures
 			Assert.IsFalse(TextParser.Parse("Susitikimas po 131456313256131654651321v", out date, out leftText));
 			Assert.IsFalse(TextParser.Parse("Susitikimas po 131456313256131654651321val.", out date, out leftText));
 		}
+		
+		[Test]
+		public void Test_BugFix_Minutes_m_h_v()
+		{
+			DateTime date; string leftText;
+			Assert.IsFalse(TextParser.Parse("Susitikimas po m", out date, out leftText));
+			Assert.IsFalse(TextParser.Parse("Susitikimas po min.", out date, out leftText));
+			Assert.IsFalse(TextParser.Parse("Susitikimas po h", out date, out leftText));
+			Assert.IsFalse(TextParser.Parse("Susitikimas po h.", out date, out leftText));
+			Assert.IsFalse(TextParser.Parse("Susitikimas po v", out date, out leftText));
+			Assert.IsFalse(TextParser.Parse("Susitikimas po v.", out date, out leftText));
+			Assert.IsFalse(TextParser.Parse("Susitikimas po val.", out date, out leftText));
+		}
 	}
 }

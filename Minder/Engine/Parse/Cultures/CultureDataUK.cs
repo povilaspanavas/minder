@@ -16,8 +16,8 @@ namespace Minder.Engine.Parse
 	{
 		private CultureInfo m_cultureInfo = new CultureInfo("en-GB");
 		
-		public const string MINUTES_STRING = @"\b\d*[.]{0,1}\d*((min\.)|(min\b)|(m\.)|(m\b))";
-		public const string HOURS_STRING = @"\b\d*[.]{0,1}\d*((h\.)|(h\b))";
+		public const string MINUTES_STRING = @"\b\d+[.]{0,1}\d*((min\.)|(min\b)|(m\.)|(m\b))";
+		public const string HOURS_STRING = @"\b\d+[.]{0,1}\d*((h\.)|(h\b))";
 		public const string TIME_STRING = @"\b\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}$";
 		public const string DATE_TIME_STRING = @"\b\d{1,2}(\.|-|\\|/){0,1}\d{1,2}(\.|-|\\|/)\d{0,4}[ ]\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}$";
 		public const string YEAR = @"\b\d{4,4}";
