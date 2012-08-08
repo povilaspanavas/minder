@@ -57,6 +57,7 @@ namespace Minder.Forms.Main
 			m_form.Deactivate += delegate { m_form.Visible = false; };
 //			m_form.MTextBox.TextChanged += ParseRealTimeAndDisplay;
 			m_wpfPreparer.WpfForm.MTextBox.TextChanged += ParseRealTimeAndDisplay;
+			m_wpfPreparer.WpfForm.Deactivated += delegate { m_wpfPreparer.WpfForm.Hide(); };
 		}
 		
 		private void BackroundWorks()
@@ -99,14 +100,15 @@ namespace Minder.Forms.Main
 		{
 			if(m_wpfPreparer.WpfForm.IsVisible)
 			{
-				m_wpfPreparer.WpfForm.Hide();
+				m_wpfPreparer.WpfForm.Hide(); 
 				m_wpfPreparer.WpfForm.MTextBox.SelectAll();
 			}
 			else
 			{
+				m_wpfPreparer.WpfForm.Show();
 				m_wpfPreparer.WpfForm.MTextBox.SelectAll();
 				m_wpfPreparer.WpfForm.MTextBox.Focus();
-				m_wpfPreparer.WpfForm.Show();
+				m_wpfPreparer.WpfForm.Activate();
 			}
 		}
 		
