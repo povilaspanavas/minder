@@ -49,7 +49,7 @@ namespace Minder.Forms.Main
 
 		public void SetEvents()
 		{
-			m_form.m_trayIcon.DoubleClick += delegate
+			m_form.TrayIcon.DoubleClick += delegate
 			{
 				m_wpfPreparer.WpfForm.Show();
 			};
@@ -162,7 +162,7 @@ namespace Minder.Forms.Main
 			menu.MenuItems.Add(menuItemAbout);
 			menu.MenuItems.Add(menuSeparator2);
 			menu.MenuItems.Add(menuExit);
-			m_form.m_trayIcon.ContextMenu = menu;
+			m_form.TrayIcon.ContextMenu = menu;
 		}
 		
 		#region ContextMenuEvents
