@@ -18,7 +18,6 @@ Padaryti angliðkas antraðtes message boxuose
 
 Gridas:
 hotkeys gridui
-galima dabar delitinti rowsus
 
 BUG: kai fatal error'à pagauname, nenusikilina Minder.exe, o lieka kabëti.
 
