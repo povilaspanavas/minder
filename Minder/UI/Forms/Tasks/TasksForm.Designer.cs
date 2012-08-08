@@ -51,7 +51,7 @@ namespace Minder.Forms.Tasks
 			// 
 			// MNewButton
 			// 
-			this.MNewButton.Location = new System.Drawing.Point(12, 13);
+			this.MNewButton.Location = new System.Drawing.Point(3, 2);
 			this.MNewButton.Name = "MNewButton";
 			this.MNewButton.Size = new System.Drawing.Size(102, 34);
 			this.MNewButton.TabIndex = 0;
@@ -60,7 +60,7 @@ namespace Minder.Forms.Tasks
 			// 
 			// MEditButton
 			// 
-			this.MEditButton.Location = new System.Drawing.Point(120, 13);
+			this.MEditButton.Location = new System.Drawing.Point(111, 2);
 			this.MEditButton.Name = "MEditButton";
 			this.MEditButton.Size = new System.Drawing.Size(102, 34);
 			this.MEditButton.TabIndex = 1;
@@ -81,10 +81,10 @@ namespace Minder.Forms.Tasks
 									this.Column3,
 									this.ID,
 									this.SOURCE_ID});
-			this.MTaskGrid.Location = new System.Drawing.Point(12, 67);
+			this.MTaskGrid.Location = new System.Drawing.Point(3, 42);
 			this.MTaskGrid.Name = "MTaskGrid";
 			this.MTaskGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.MTaskGrid.Size = new System.Drawing.Size(546, 414);
+			this.MTaskGrid.Size = new System.Drawing.Size(469, 434);
 			this.MTaskGrid.TabIndex = 2;
 			// 
 			// Column1
@@ -129,7 +129,7 @@ namespace Minder.Forms.Tasks
 			// 
 			// MDeleteButton
 			// 
-			this.MDeleteButton.Location = new System.Drawing.Point(228, 13);
+			this.MDeleteButton.Location = new System.Drawing.Point(219, 2);
 			this.MDeleteButton.Name = "MDeleteButton";
 			this.MDeleteButton.Size = new System.Drawing.Size(102, 34);
 			this.MDeleteButton.TabIndex = 3;
@@ -140,7 +140,7 @@ namespace Minder.Forms.Tasks
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(570, 493);
+			this.ClientSize = new System.Drawing.Size(476, 478);
 			this.Controls.Add(this.MDeleteButton);
 			this.Controls.Add(this.MTaskGrid);
 			this.Controls.Add(this.MEditButton);
