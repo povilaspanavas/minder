@@ -1,4 +1,10 @@
 #summary How to use Minder
+=== Examples when to use Minder ===
+ * Call Jack again 10m
+ * Make a break 1h
+ * Teapot must be boiled 5min.
+ * Check mail for Annie's important letter 2012.08.10 09:00
+ * Remind Susan about meeting 5h.
 
 === Supported time and date formats ===
 Below are examples from Lithuanian date formatting. Other languages just use their default time and date parsing. For example English (US) instead of 2011.12.01 accepts 12/1/2011 and so on.
