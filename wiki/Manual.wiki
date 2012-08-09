@@ -1,6 +1,7 @@
 #summary How to use Minder
 
 === Supported time and date formats ===
+Below are examples from Lithuanian date formatting. Other languages just use their default time and date parsing. For example English (US) instead of 2011.12.01 accepts 12/1/2011 and so on.
  * "Remind me 2011.12.01 10:15"
  * "Remind me 12.06 19:20"
  * "Remind me 08:08|8:08|8:8" means remind be about this at 08:08.
