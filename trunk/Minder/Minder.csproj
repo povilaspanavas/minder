@@ -148,6 +148,9 @@
     <Compile Include="Engine\Settings\Static\StaticData.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClientConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="CoreConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

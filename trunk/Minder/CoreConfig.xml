@@ -1,9 +1,5 @@
 <core>
 	
-	<Factory>
-		<WorkingDirectory></WorkingDirectory>
-	</Factory>
-	
 	<LogConfig>
 		<DirName>Log</DirName>
 		<FileName>Log</FileName>
@@ -16,23 +12,9 @@
 		<User></User>
 		<Pass></Pass>
 		<DBName></DBName>
-	</DBConfig>
-	
-	<FBDBConfig>
-		<Host></Host>
-		<User></User>
-		<Pass></Pass>
-		<DBName></DBName>
 		<Unicode></Unicode>
-	</FBDBConfig>
-	
-	<OracleDb>
-		<OracleConnString></OracleConnString>
-	</OracleDb>
-	
-	<UpdateVersion>
-		<FileName>Minder.exe</FileName>
-	</UpdateVersion>
+		<DbType></DbType>
+	</DBConfig>
 	
 	<UpdateProject>
 		<FtpUser></FtpUser>
