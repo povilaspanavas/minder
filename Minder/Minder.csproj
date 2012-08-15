@@ -146,6 +146,10 @@
     <Compile Include="Engine\Sql\DBConnection.cs" />
     <Compile Include="Engine\Sql\DBTypesConverter.cs" />
     <Compile Include="Engine\Settings\Static\StaticData.cs" />
+    <Compile Include="UI\SkinController\IMainForm.cs" />
+    <Compile Include="UI\SkinController\MainForms\DefaultSkin\DefaultSkinForm.xaml.cs">
+      <DependentUpon>DefaultSkinForm.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClientConfig.xml">
@@ -190,12 +194,17 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="UI\Forms\Skins\WpfSkin1\WpfSkin1.xaml" />
+    <Page Include="UI\SkinController\MainForms\DefaultSkin\DefaultSkinForm.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Engine\Parse\Cultures" />
     <Folder Include="Engine\Settings" />
     <Folder Include="Engine\Parse" />
     <Folder Include="UI" />
+    <Folder Include="UI\SkinController" />
+    <Folder Include="UI\SkinController\MainForms" />
+    <Folder Include="UI\SkinController\MainForms\DefaultSkin" />
+    <Folder Include="UI\SkinController\TaskShowForms" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
