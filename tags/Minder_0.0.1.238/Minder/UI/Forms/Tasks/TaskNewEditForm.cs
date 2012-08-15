@@ -27,6 +27,10 @@ namespace Minder.Forms.Tasks
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
+			this.MDatePicker.ValueChanged += delegate {
+				if (this.MShowedCheckBox.Checked != false)
+					this.MShowedCheckBox.Checked = false;
+			};
 		}
 	}
 }
