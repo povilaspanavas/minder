@@ -25,7 +25,7 @@ namespace Minder.UI.Forms.TaskShow
 		
 		public decimal Value {
 			get { return val; }
-			set { value = value; }
+			set { val = value; }
 		}
 		
 		public RemindLaterValue(string name, decimal val)
