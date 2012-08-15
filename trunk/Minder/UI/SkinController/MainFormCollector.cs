@@ -21,8 +21,7 @@ namespace Minder.UI.SkinController
 		{
 			if(StaticData.Settings.SkinUniqueCode.ToLower()
 			   .Equals(StaticData.Settings.SkinsUniqueCodes.DEFAULT_SKIN_UNIQUECODE.ToLower()))
-			return new DefaultSkinForm();
-			
+				return new DefaultSkinForm();
 			else
 				return null;
 		}

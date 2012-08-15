@@ -69,6 +69,19 @@ namespace Minder.Forms.Settings
 				m_form.MSkinPreviewPictureBox.Image = new Images()
 					.GetImage(skinUniqueCode.ToLower());
 			};
+			
+			m_form.MDefaultsButton.Click += delegate 
+			{
+				if(MessageBox.Show("Do you realy want restore default settings?", 
+				                   "Settings", MessageBoxButtons.YesNo, 
+				                   MessageBoxIcon.Question) == DialogResult.Yes)
+				{
+					new SettingsLoader().CreateDefaultSettingsFile();
+					new SettingsLoader().LoadSettings();
+					AddDataToControlls();
+					m_existChanges = true;
+				}
+			};
 		}
 		
 		private void AddDataToControlls()
