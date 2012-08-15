@@ -44,6 +44,7 @@ namespace Minder.Forms.Settings
 			iniParser.AddSetting("General", "autoupdate", "true");
 			iniParser.AddSetting("General", "playsound", "true");
 			iniParser.AddSetting("CultureInfo", "name", "lt-Lt");
+			iniParser.AddSetting("Skin", "code", StaticData.Settings.SkinsUniqueCodes.DEFAULT_SKIN_UNIQUECODE);
 			iniParser.SaveSettings();
 		}
 		
@@ -80,6 +81,9 @@ namespace Minder.Forms.Settings
 					StaticData.Settings.CultureData = new CultureDataLT();
 					break;
 			}
+			
+			//Skins
+			StaticData.Settings.SkinUniqueCode = parser.GetSetting("skin", "code");
 		}
 		
 		public void SaveSettingsToFile()

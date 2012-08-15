@@ -88,6 +88,8 @@ namespace Minder.Static
 			static bool m_startWithWindows;
 			static bool m_checkUpdates;
 			static bool m_playSound;
+			static string m_skinUniqueCode;
+			
 			static ICultureData m_cultureData = new CultureDataLT();
 
 			public static ICultureData CultureData {
@@ -113,6 +115,35 @@ namespace Minder.Static
 				get { return m_playSound; }
 				set { m_playSound = value; }
 			}
+			
+			public static string SkinUniqueCode {
+				get { return m_skinUniqueCode; }
+				set { m_skinUniqueCode = value; }
+			}
+			
+			public static class SkinsUniqueCodes
+			{
+				public const string DEFAULT_SKIN_UNIQUECODE = "DefaultSkin";
+				
+				static Dictionary<string, string> m_skinsUniqueCodesAndNames = new Dictionary<string, string>();
+				
+				/// <summary>
+				/// Skin name -> skin uniqueCode
+				/// </summary>
+				public static Dictionary<string, string> SkinsUniqueCodesAndNames {
+					get { AddSkinsToDic();
+						return m_skinsUniqueCodesAndNames; }
+				}
+				
+				private static void AddSkinsToDic()
+				{
+					if(m_skinsUniqueCodesAndNames.Count != 0)
+						return;
+					
+					m_skinsUniqueCodesAndNames.Add("Default skin", DEFAULT_SKIN_UNIQUECODE);
+				}
+			}
+			
 			public static class NewTaskHotkey
 			{
 				static bool m_ctrl;
