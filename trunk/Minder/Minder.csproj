@@ -109,7 +109,7 @@
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\Settings\SettingsFormPreparer.cs" />
-    <Compile Include="UI\Forms\Skins\ISkin.cs" />
+    <Compile Include="UI\Forms\Skins\IWindowsFormSkin.cs" />
     <Compile Include="UI\Forms\Skins\MainFormLaunchy.cs">
       <SubType>Form</SubType>
     </Compile>
