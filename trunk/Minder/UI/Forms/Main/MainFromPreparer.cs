@@ -19,6 +19,8 @@ using Minder.Forms.Settings;
 using Minder.Forms.Skins;
 using Minder.Forms.Tasks;
 using Minder.Sql;
+using Minder.UI.SkinController;
+using Minder.UI.SkinController.MainForms.DefaultSkin;
 
 namespace Minder.Forms.Main
 {
@@ -27,36 +29,35 @@ namespace Minder.Forms.Main
 	/// </summary>
 	public class MainFormPreparer : IFormPreparer
 	{
-		private MainFormLaunchy m_form = null;
+		private MainFormLaunchy m_form = null; //Reikalinga dėl TrayIcon'o
 		private HotKeys m_hotKeys = null;
 		public event TaskData DataEntered;
 		public delegate void TaskData(string dataEntered);
-		private WpfSkinPreparer m_wpfPreparer = null;
+//		private WpfSkinPreparer m_wpfPreparer = null;
+		private IMainForm m_mainForm = null;
 		
 		public MainFormPreparer()
 		{
 			m_form = new MainFormLaunchy();
-			m_wpfPreparer = new WpfSkinPreparer();
+			m_mainForm = new DefaultSkinForm();
 		}
 
 		public void PrepareForm()
 		{
 			BackroundWorks();
 			SetEvents();
-			m_wpfPreparer.PrepareForm();
+//			m_wpfPreparer.PrepareForm();
 		}
 
 		public void SetEvents()
 		{
 			m_form.TrayIcon.DoubleClick += delegate
 			{
-				m_wpfPreparer.WpfForm.Show();
+				m_mainForm.ShowHide();
 			};
 			
-			m_form.Deactivate += delegate { m_form.Visible = false; };
-//			m_form.MTextBox.TextChanged += ParseRealTimeAndDisplay;
-			m_wpfPreparer.WpfForm.MTextBox.TextChanged += ParseRealTimeAndDisplay;
-			m_wpfPreparer.WpfForm.Deactivated += delegate { m_wpfPreparer.WpfForm.Hide(); };
+			m_mainForm.MTextBox.TextChanged += ParseRealTimeAndDisplay;
+			m_mainForm.MWindow.Deactivated += delegate { m_mainForm.MWindow.Hide(); };
 		}
 		
 		private void BackroundWorks()
@@ -68,7 +69,7 @@ namespace Minder.Forms.Main
 		private void RegisterHotKeys()
 		{
 			m_hotKeys = new HotKeys();
-			m_hotKeys.KeyPressed += new EventHandler<KeyPressedEventArgs>(ShowHide);
+			m_hotKeys.KeyPressed += new EventHandler<KeyPressedEventArgs>(m_mainForm.ShowHide);
 			
 			bool alt = Minder.Static.StaticData.Settings.NewTaskHotkey.Alt;
 			bool shift = Minder.Static.StaticData.Settings.NewTaskHotkey.Shift;
@@ -92,31 +93,15 @@ namespace Minder.Forms.Main
 			
 			m_hotKeys.RegisterHotKey(hotKey, key);
 //			m_form.MTextBox.KeyDown += KeyPressed;
-			m_wpfPreparer.WpfForm.MTextBox.KeyDown += KeyPressed;
-		}
-		
-		private void ShowHide(object sender, KeyPressedEventArgs e)
-		{
-			if(m_wpfPreparer.WpfForm.IsVisible)
-			{
-				m_wpfPreparer.WpfForm.Hide(); 
-				m_wpfPreparer.WpfForm.MTextBox.SelectAll();
-			}
-			else
-			{
-				m_wpfPreparer.WpfForm.Show();
-				m_wpfPreparer.WpfForm.MTextBox.SelectAll();
-				m_wpfPreparer.WpfForm.MTextBox.Focus();
-				m_wpfPreparer.WpfForm.Activate();
-			}
+			m_mainForm.MTextBox.KeyDown += KeyPressed;
 		}
 		
 		private void KeyPressed(object sender, System.Windows.Input.KeyEventArgs e)
 		{
 			if (e.Key == Key.Escape)
 			{
-				m_wpfPreparer.WpfForm.MTextBox.SelectAll();
-				m_wpfPreparer.WpfForm.Hide();
+				m_mainForm.MTextBox.SelectAll();
+				m_mainForm.ShowHide();
 				return;
 			}
 			
@@ -124,10 +109,10 @@ namespace Minder.Forms.Main
 			{
 				if (DataEntered != null)
 				{
-					DataEntered(this.m_wpfPreparer.WpfForm.MTextBox.Text);
-					this.m_wpfPreparer.WpfForm.MTextBox.Text = string.Empty;
+					DataEntered(m_mainForm.MTextBox.Text);
+					this.m_mainForm.MTextBox.Text = string.Empty;
 				}
-				this.m_wpfPreparer.WpfForm.Hide();
+				m_mainForm.ShowHide();
 			}
 		}
 		
@@ -135,11 +120,11 @@ namespace Minder.Forms.Main
 		{
 			string leftText; DateTime date;
 			string remainderDateString;
-			if (TextParser.Parse(m_wpfPreparer.WpfForm.MTextBox.Text, out date, out leftText))
+			if (TextParser.Parse(m_mainForm.MTextBox.Text, out date, out leftText))
 				remainderDateString = DBTypesConverter.ToFullDateStringByCultureInfo(date);
 			else
 				remainderDateString = "Unavailable";
-			m_wpfPreparer.WpfForm.MDateLabel.Content = remainderDateString;
+			m_mainForm.MDateLabel.Content = remainderDateString;
 			return;
 		}
 		
@@ -147,14 +132,13 @@ namespace Minder.Forms.Main
 		{
 			ContextMenu menu = new ContextMenu();
 			
-			MenuItem menuItemNewTask = new MenuItem("New task", delegate { m_wpfPreparer.WpfForm.Show();}); //TODO
+			MenuItem menuItemNewTask = new MenuItem("New task", delegate { m_mainForm.ShowHide();}); //TODO
 			MenuItem menuItemSettings = new MenuItem("Settings", OpenSettingsForm);
 			MenuItem menuItemTasks = new MenuItem("Tasks", OpenTasksForm);
 			MenuItem menuItemAbout = new MenuItem("About", OpenAboutForm);
 			MenuItem menuSeparator = new MenuItem("-");
 			MenuItem menuSeparator2 = new MenuItem("-");
 			MenuItem menuExit = new MenuItem("Exit", ExitApplication);
-//			MenuItem tempMeniu = new MenuItem("WpfForm", ExitApplication);
 			
 			menu.MenuItems.Add(menuItemNewTask);
 			menu.MenuItems.Add(menuSeparator);
