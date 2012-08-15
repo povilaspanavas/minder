@@ -82,6 +82,7 @@
     <Compile Include="Engine\Parse\Cultures\CultureDataUS.cs" />
     <Compile Include="Engine\Parse\Cultures\ICultureData.cs" />
     <Compile Include="Engine\Parse\TextParser.cs" />
+    <Compile Include="Engine\Settings\Images.cs" />
     <Compile Include="Engine\Settings\PathCutHelper.cs" />
     <Compile Include="Engine\Settings\SettingsLoader.cs" />
     <Compile Include="Engine\Settings\StartWithWinController.cs" />
@@ -107,6 +108,10 @@
     </Compile>
     <Compile Include="UI\Forms\Settings\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Settings\SettingsForm.Designer1.cs">
+      <DependentUpon>SettingsForm.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="UI\Forms\Settings\SettingsFormPreparer.cs" />
     <Compile Include="UI\Forms\Skins\IWindowsFormSkin.cs" />
@@ -171,6 +176,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Engine\Settings\Images.resx">
+      <DependentUpon>Images.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\About\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +187,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\Settings\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SettingsForm.Designer1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\Skins\MainFormLaucnhy.resx">
       <DependentUpon>MainFormLaunchy.cs</DependentUpon>

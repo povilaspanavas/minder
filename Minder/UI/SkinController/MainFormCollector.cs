@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using Minder.Static;
 using Minder.UI.SkinController.MainForms.DefaultSkin;
 
 namespace Minder.UI.SkinController
@@ -18,7 +19,12 @@ namespace Minder.UI.SkinController
 	{
 		public IMainForm GetForm()
 		{
-			return new DefaultSkinForm();//TODO by settings return skin
+			if(StaticData.Settings.SkinUniqueCode.ToLower()
+			   .Equals(StaticData.Settings.SkinsUniqueCodes.DEFAULT_SKIN_UNIQUECODE.ToLower()))
+			return new DefaultSkinForm();
+			
+			else
+				return null;
 		}
 	}
 }

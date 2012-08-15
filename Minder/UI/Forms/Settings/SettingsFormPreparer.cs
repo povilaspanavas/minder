@@ -7,10 +7,13 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Drawing;
 using System.IO;
+using System.Resources;
 using System.Windows.Forms;
 using Core.Forms;
 using Minder.Engine.Parse;
+using Minder.Engine.Settings;
 using Minder.Forms.Settings;
 using Minder.Static;
 
@@ -54,8 +57,18 @@ namespace Minder.Forms.Settings
 			m_form.MUpdateCheckBox.CheckedChanged += delegate { m_existChanges = true; };
 			m_form.MPlaySoundCheckBox.CheckedChanged += delegate { m_existChanges = true; };
 			m_form.MComboBoxCultureData.SelectedValueChanged += delegate { m_existChanges = true; };
+			m_form.MSkinListBox.SelectedIndexChanged += delegate { m_existChanges = true; };
 			
 			m_form.Closing += FormClosing;
+			
+			m_form.MSkinListBox.SelectedIndexChanged += delegate
+			{
+				string skinUniqueCode = StaticData.Settings
+					.SkinsUniqueCodes.SkinsUniqueCodesAndNames[m_form.MSkinListBox.Items[m_form.MSkinListBox.SelectedIndex]
+				                                                                                .ToString()];
+				m_form.MSkinPreviewPictureBox.Image = new Images()
+					.GetImage(skinUniqueCode.ToLower());
+			};
 		}
 		
 		private void AddDataToControlls()
@@ -96,7 +109,26 @@ namespace Minder.Forms.Settings
 				}
 			}
 			
+			// **** Skins ****
+			int skinNameIndex = 0;
+			foreach(string name in StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames.Keys)
+			{
+				m_form.MSkinListBox.Items.Add(name);
+				string uniqueCode = StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames[name];
+				if(StaticData.Settings.SkinUniqueCode.ToLower().Equals(uniqueCode.ToLower()))
+				{
+					m_form.MSkinListBox.SelectedIndex = skinNameIndex;
+					m_form.MSkinPreviewPictureBox.Image = new Images().GetImage(uniqueCode.ToLower());
+				}
+				skinNameIndex++;
+			}
 			
+		}
+		
+		private void SetSkinSettings()
+		{
+			string skinName = m_form.MSkinListBox.Items[m_form.MSkinListBox.SelectedIndex].ToString();
+			StaticData.Settings.SkinUniqueCode = StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames[skinName];
 		}
 		
 		private void FormClosing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -118,6 +150,8 @@ namespace Minder.Forms.Settings
 					if (m_form.MComboBoxCultureData.SelectedItem != null &&
 					    m_form.MComboBoxCultureData.SelectedItem is ICultureData)
 						StaticData.Settings.CultureData = m_form.MComboBoxCultureData.SelectedItem as ICultureData;
+					
+					SetSkinSettings();
 					
 					new SettingsLoader().SaveSettingsToFile();
 					new WarningBox("You need restart application to take efect");
