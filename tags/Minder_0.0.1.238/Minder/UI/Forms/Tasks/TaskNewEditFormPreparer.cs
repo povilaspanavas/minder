@@ -73,6 +73,11 @@ namespace Minder.Forms.Tasks
 		
 		public void SetEvents()
 		{
+			m_form.MDatePicker.ValueChanged += delegate {
+				if (m_form.MShowedCheckBox.Checked != false)
+					m_form.MShowedCheckBox.Checked = false;
+			};
+			
 			m_form.MSaveButton.Click += delegate
 			{
 				Task task = new Task();
