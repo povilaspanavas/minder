@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{125E2525-BFA7-40E8-8FD8-04E49206A67A}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Minder</RootNamespace>
+    <AssemblyName>Minder</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <ApplicationIcon>UI\minderico.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>x86</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Core">
+      <HintPath>..\libs\Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NUnit.Framework">
+      <HintPath>$(SharpDevelopBinPath)\Tools\NUnit\NUnit.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\libs\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BootStrap.cs" />
+    <Compile Include="Controls\MLabelWithImage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Engine\Parse\Cultures\CultureDataLt.cs" />
+    <Compile Include="Engine\Parse\Cultures\CultureDataUK.cs" />
+    <Compile Include="Engine\Parse\Cultures\CultureDataUS.cs" />
+    <Compile Include="Engine\Parse\Cultures\ICultureData.cs" />
+    <Compile Include="Engine\Parse\TextParser.cs" />
+    <Compile Include="Engine\Settings\PathCutHelper.cs" />
+    <Compile Include="Engine\Settings\SettingsLoader.cs" />
+    <Compile Include="Engine\Settings\StartWithWinController.cs" />
+    <Compile Include="Engine\TimeController.cs" />
+    <Compile Include="Engine\TimeEngine.cs" />
+    <Compile Include="Engine\TimerLogic.cs" />
+    <Compile Include="UI\Forms\About\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\About\AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\About\AboutFormPreparer.cs" />
+    <Compile Include="UI\Forms\Main\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Main\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Main\MainFromPreparer.cs" />
+    <Compile Include="UI\Forms\Settings\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Settings\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Settings\SettingsFormPreparer.cs" />
+    <Compile Include="UI\Forms\Skins\IWindowsFormSkin.cs" />
+    <Compile Include="UI\Forms\Skins\MainFormLaunchy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Skins\MainFormLaunchy.Designer.cs">
+      <DependentUpon>MainFormLaunchy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Skins\WpfSkin1\WpfSkin1.xaml.cs">
+      <DependentUpon>WpfSkin1.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Skins\WpfSkin1\WpfSkinPreparer.cs" />
+    <Compile Include="UI\Forms\TaskShow\TaskShowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\TaskShow\TaskShowForm.Designer.cs">
+      <DependentUpon>TaskShowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\TaskShow\TaskShowFormPreparer.cs" />
+    <Compile Include="UI\Forms\Tasks\TaskNewEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Tasks\TaskNewEditForm.Designer.cs">
+      <DependentUpon>TaskNewEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Tasks\TaskNewEditFormPreparer.cs" />
+    <Compile Include="UI\Forms\Tasks\TasksForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Tasks\TasksForm.Designer.cs">
+      <DependentUpon>TasksForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Tasks\TasksFormPreparer.cs" />
+    <Compile Include="Objects\Task.cs" />
+    <Compile Include="Engine\Sql\DBConnection.cs" />
+    <Compile Include="Engine\Sql\DBTypesConverter.cs" />
+    <Compile Include="Engine\Settings\Static\StaticData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClientConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CoreConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="minderico.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Sounds\sound.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="UI\minderico.ico" />
+    <None Include="version.cvr">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Forms\About\AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Main\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Settings\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Skins\MainFormLaucnhy.resx">
+      <DependentUpon>MainFormLaunchy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\TaskShow\TaskShowForm.resx">
+      <DependentUpon>TaskShowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Tasks\TaskNewEditForm.resx">
+      <DependentUpon>TaskNewEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Tasks\TasksForm.resx">
+      <DependentUpon>TasksForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="UI\Forms\Skins\WpfSkin1\WpfSkin1.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Engine\Parse\Cultures" />
+    <Folder Include="Engine\Settings" />
+    <Folder Include="Engine\Parse" />
+    <Folder Include="UI" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+</Project>
