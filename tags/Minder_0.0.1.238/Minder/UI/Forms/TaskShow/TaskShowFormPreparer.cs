@@ -9,6 +9,7 @@
 using System;
 using System.Media;
 using Core.Forms;
+using Minder.Forms.Tasks;
 using Minder.Objects;
 using Minder.Sql;
 using Minder.Static;
@@ -84,6 +85,13 @@ namespace Minder.Forms.TaskShow
 				m_task.Update();
 				m_form.Close(); //Padarom close, o ant close eventas, kad ok arba close button.
 				//tai ir gaunasi, kad remaind me later neveikia.
+			};
+			
+			m_form.ButtonEditTask.Click += delegate { 
+				// Doesn't work closing, probably because we are in the event of the form we are closing
+				this.m_form.Hide();
+				new TaskNewEditFormPreparer(true, m_task).PrepareForm();
+				this.m_form.Close();
 			};
 		}
 
