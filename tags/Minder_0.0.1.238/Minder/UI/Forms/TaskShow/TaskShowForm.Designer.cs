@@ -49,7 +49,7 @@ namespace Minder.Forms.TaskShow
 			this.RemainderMeLaterButton.Location = new System.Drawing.Point(126, 109);
 			this.RemainderMeLaterButton.Name = "RemainderMeLaterButton";
 			this.RemainderMeLaterButton.Size = new System.Drawing.Size(107, 32);
-			this.RemainderMeLaterButton.TabIndex = 0;
+			this.RemainderMeLaterButton.TabIndex = 1;
 			this.RemainderMeLaterButton.Text = "Remind Me Later";
 			this.RemainderMeLaterButton.UseVisualStyleBackColor = true;
 			// 
@@ -58,7 +58,7 @@ namespace Minder.Forms.TaskShow
 			this.OkButton.Location = new System.Drawing.Point(12, 73);
 			this.OkButton.Name = "OkButton";
 			this.OkButton.Size = new System.Drawing.Size(107, 32);
-			this.OkButton.TabIndex = 2;
+			this.OkButton.TabIndex = 0;
 			this.OkButton.Text = "Close Task";
 			this.OkButton.UseVisualStyleBackColor = true;
 			// 
@@ -67,7 +67,7 @@ namespace Minder.Forms.TaskShow
 			this.TextBox.Location = new System.Drawing.Point(12, 9);
 			this.TextBox.Name = "TextBox";
 			this.TextBox.Size = new System.Drawing.Size(221, 72);
-			this.TextBox.TabIndex = 3;
+			this.TextBox.TabIndex = 4;
 			this.TextBox.Text = "Task: task description\r\n\r\nTime: task time";
 			// 
 			// comboBoxRemindLater
@@ -76,14 +76,14 @@ namespace Minder.Forms.TaskShow
 			this.ComboBoxRemindLater.Location = new System.Drawing.Point(12, 115);
 			this.ComboBoxRemindLater.Name = "comboBoxRemindLater";
 			this.ComboBoxRemindLater.Size = new System.Drawing.Size(107, 22);
-			this.ComboBoxRemindLater.TabIndex = 4;
+			this.ComboBoxRemindLater.TabIndex = 3;
 			// 
 			// buttonEditTask
 			// 
 			this.ButtonEditTask.Location = new System.Drawing.Point(126, 73);
 			this.ButtonEditTask.Name = "buttonEditTask";
 			this.ButtonEditTask.Size = new System.Drawing.Size(107, 32);
-			this.ButtonEditTask.TabIndex = 5;
+			this.ButtonEditTask.TabIndex = 2;
 			this.ButtonEditTask.Text = "Edit Task";
 			this.ButtonEditTask.UseVisualStyleBackColor = true;
 			// 
