@@ -39,7 +39,7 @@ namespace Minder.Forms.Main
 		public MainFormPreparer()
 		{
 			m_form = new MainFormLaunchy();
-			m_mainForm = new DefaultSkinForm();
+			m_mainForm = new MainFormCollector().GetForm();
 		}
 
 		public void PrepareForm()

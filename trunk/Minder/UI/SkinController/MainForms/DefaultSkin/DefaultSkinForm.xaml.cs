@@ -37,6 +37,7 @@ namespace Minder.UI.SkinController.MainForms.DefaultSkin
 					                           .GetExecutingAssembly().Location) + @"\minderico.ico";
 			
 			this.MImage.Source = new BitmapImage(new Uri(imagePath));
+			this.ShowInTaskbar = false;
 		}
 		
 		public TextBox MTextBox {

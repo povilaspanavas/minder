@@ -147,6 +147,7 @@
     <Compile Include="Engine\Sql\DBTypesConverter.cs" />
     <Compile Include="Engine\Settings\Static\StaticData.cs" />
     <Compile Include="UI\SkinController\IMainForm.cs" />
+    <Compile Include="UI\SkinController\MainFormCollector.cs" />
     <Compile Include="UI\SkinController\MainForms\DefaultSkin\DefaultSkinForm.xaml.cs">
       <DependentUpon>DefaultSkinForm.xaml</DependentUpon>
     </Compile>
