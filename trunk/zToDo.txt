@@ -13,11 +13,8 @@ POVILO:
 IGNO:
 
 Reikia maþø mygtukø pagrindinëj formoj. ? ir X (Helpas ir iðjungti formà). arba paspaudus deðiná
-Padaryti, kad restore darant galima bûtø ir db perkopinti pagal pasirinkimà.
 Padaryti angliðkas antraðtes message boxuose
 
-Gridas:
-hotkeys gridui
 
 BUG: kai fatal error'à pagauname, nenusikilina Minder.exe, o lieka kabëti.
 
