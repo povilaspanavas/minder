@@ -40,7 +40,7 @@ namespace Minder.Forms.TaskShow
 			this.RemainderMeLaterButton = new System.Windows.Forms.Button();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.TextBox = new System.Windows.Forms.Label();
-			this.comboBoxRemindLater = new System.Windows.Forms.ComboBox();
+			this.ComboBoxRemindLater = new System.Windows.Forms.ComboBox();
 			this.ButtonEditTask = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
@@ -72,11 +72,11 @@ namespace Minder.Forms.TaskShow
 			// 
 			// comboBoxRemindLater
 			// 
-			this.comboBoxRemindLater.FormattingEnabled = true;
-			this.comboBoxRemindLater.Location = new System.Drawing.Point(12, 115);
-			this.comboBoxRemindLater.Name = "comboBoxRemindLater";
-			this.comboBoxRemindLater.Size = new System.Drawing.Size(107, 22);
-			this.comboBoxRemindLater.TabIndex = 4;
+			this.ComboBoxRemindLater.FormattingEnabled = true;
+			this.ComboBoxRemindLater.Location = new System.Drawing.Point(12, 115);
+			this.ComboBoxRemindLater.Name = "comboBoxRemindLater";
+			this.ComboBoxRemindLater.Size = new System.Drawing.Size(107, 22);
+			this.ComboBoxRemindLater.TabIndex = 4;
 			// 
 			// buttonEditTask
 			// 
@@ -94,7 +94,7 @@ namespace Minder.Forms.TaskShow
 			this.ClientSize = new System.Drawing.Size(248, 153);
 			this.ControlBox = false;
 			this.Controls.Add(this.ButtonEditTask);
-			this.Controls.Add(this.comboBoxRemindLater);
+			this.Controls.Add(this.ComboBoxRemindLater);
 			this.Controls.Add(this.RemainderMeLaterButton);
 			this.Controls.Add(this.OkButton);
 			this.Controls.Add(this.TextBox);
@@ -108,7 +108,7 @@ namespace Minder.Forms.TaskShow
 			this.ResumeLayout(false);
 		}
 		public System.Windows.Forms.Button ButtonEditTask;
-		private System.Windows.Forms.ComboBox comboBoxRemindLater;
+		public System.Windows.Forms.ComboBox ComboBoxRemindLater;
 		public System.Windows.Forms.Button OkButton;
 		public System.Windows.Forms.Label TextBox;
 		public System.Windows.Forms.Button RemainderMeLaterButton;

@@ -121,6 +121,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UI\Forms\Skins\WpfSkin1\WpfSkinPreparer.cs" />
+    <Compile Include="UI\Forms\TaskShow\RemindLaterValue.cs" />
     <Compile Include="UI\Forms\TaskShow\TaskShowForm.cs">
       <SubType>Form</SubType>
     </Compile>
