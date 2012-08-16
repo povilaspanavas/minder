@@ -40,48 +40,65 @@ namespace Minder.Forms.TaskShow
 			this.RemainderMeLaterButton = new System.Windows.Forms.Button();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.TextBox = new System.Windows.Forms.Label();
+			this.ComboBoxRemindLater = new System.Windows.Forms.ComboBox();
+			this.ButtonEditTask = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// RemainderMeLaterButton
 			// 
-			this.RemainderMeLaterButton.Location = new System.Drawing.Point(168, 83);
-			this.RemainderMeLaterButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.RemainderMeLaterButton.Location = new System.Drawing.Point(126, 109);
 			this.RemainderMeLaterButton.Name = "RemainderMeLaterButton";
-			this.RemainderMeLaterButton.Size = new System.Drawing.Size(143, 37);
-			this.RemainderMeLaterButton.TabIndex = 0;
-			this.RemainderMeLaterButton.Text = "Remind me later";
+			this.RemainderMeLaterButton.Size = new System.Drawing.Size(107, 32);
+			this.RemainderMeLaterButton.TabIndex = 1;
+			this.RemainderMeLaterButton.Text = "Remind Me Later";
 			this.RemainderMeLaterButton.UseVisualStyleBackColor = true;
 			// 
 			// OkButton
 			// 
-			this.OkButton.Location = new System.Drawing.Point(16, 83);
-			this.OkButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.OkButton.Location = new System.Drawing.Point(12, 73);
 			this.OkButton.Name = "OkButton";
-			this.OkButton.Size = new System.Drawing.Size(143, 37);
-			this.OkButton.TabIndex = 2;
-			this.OkButton.Text = "Ok";
+			this.OkButton.Size = new System.Drawing.Size(107, 32);
+			this.OkButton.TabIndex = 0;
+			this.OkButton.Text = "Close Task";
 			this.OkButton.UseVisualStyleBackColor = true;
 			// 
 			// TextBox
 			// 
-			this.TextBox.Location = new System.Drawing.Point(16, 10);
-			this.TextBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.TextBox.Location = new System.Drawing.Point(12, 9);
 			this.TextBox.Name = "TextBox";
-			this.TextBox.Size = new System.Drawing.Size(295, 82);
-			this.TextBox.TabIndex = 3;
+			this.TextBox.Size = new System.Drawing.Size(221, 72);
+			this.TextBox.TabIndex = 4;
 			this.TextBox.Text = "Task: task description\r\n\r\nTime: task time";
+			// 
+			// comboBoxRemindLater
+			// 
+			this.ComboBoxRemindLater.FormattingEnabled = true;
+			this.ComboBoxRemindLater.Location = new System.Drawing.Point(12, 115);
+			this.ComboBoxRemindLater.Name = "comboBoxRemindLater";
+			this.ComboBoxRemindLater.Size = new System.Drawing.Size(107, 22);
+			this.ComboBoxRemindLater.TabIndex = 3;
+			// 
+			// buttonEditTask
+			// 
+			this.ButtonEditTask.Location = new System.Drawing.Point(126, 73);
+			this.ButtonEditTask.Name = "buttonEditTask";
+			this.ButtonEditTask.Size = new System.Drawing.Size(107, 32);
+			this.ButtonEditTask.TabIndex = 2;
+			this.ButtonEditTask.Text = "Edit Task";
+			this.ButtonEditTask.UseVisualStyleBackColor = true;
 			// 
 			// TaskShowForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(327, 127);
+			this.ClientSize = new System.Drawing.Size(248, 153);
 			this.ControlBox = false;
+			this.Controls.Add(this.ButtonEditTask);
+			this.Controls.Add(this.ComboBoxRemindLater);
 			this.Controls.Add(this.RemainderMeLaterButton);
 			this.Controls.Add(this.OkButton);
 			this.Controls.Add(this.TextBox);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "TaskShowForm";
@@ -90,6 +107,8 @@ namespace Minder.Forms.TaskShow
 			this.TopMost = true;
 			this.ResumeLayout(false);
 		}
+		public System.Windows.Forms.Button ButtonEditTask;
+		public System.Windows.Forms.ComboBox ComboBoxRemindLater;
 		public System.Windows.Forms.Button OkButton;
 		public System.Windows.Forms.Label TextBox;
 		public System.Windows.Forms.Button RemainderMeLaterButton;
