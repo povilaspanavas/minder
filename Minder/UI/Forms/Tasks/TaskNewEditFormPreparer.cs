@@ -17,16 +17,20 @@ namespace Minder.Forms.Tasks
 	/// <summary>
 	/// Description of TaskNewEditFormPreparer.
 	/// </summary>
-	public class TaskNewEditFormPreparer : IFormPreparer
+	public class TaskNewEditFormPreparer : IFormPreparer, IDisposable
 	{
 		private TaskNewEditForm m_form = null;
 		private bool m_edit = false;
-		
-		Task m_task;
+		private Task m_task;
 		
 		public Task Task {
 			get { return m_task; }
 			set { m_task = value; }
+		}
+		
+		public TaskNewEditFormPreparer(bool edit, Task task) : this(edit)
+		{
+			this.m_task = task;	
 		}
 		
 		public TaskNewEditFormPreparer(bool edit)
@@ -69,6 +73,11 @@ namespace Minder.Forms.Tasks
 		
 		public void SetEvents()
 		{
+			m_form.MDatePicker.ValueChanged += delegate {
+				if (m_form.MShowedCheckBox.Checked != false)
+					m_form.MShowedCheckBox.Checked = false;
+			};
+			
 			m_form.MSaveButton.Click += delegate
 			{
 				Task task = new Task();
@@ -96,6 +105,12 @@ namespace Minder.Forms.Tasks
 			
 			m_form.MCancelButton.Click += delegate
 			{ m_form.Close(); };
+		}
+		
+		public void Dispose()
+		{
+			if (m_form != null && this.m_form.IsDisposed == false)
+				m_form.Dispose();
 		}
 	}
 }
