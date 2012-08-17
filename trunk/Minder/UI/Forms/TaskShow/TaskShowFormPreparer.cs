@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using System.Media;
+using System.Windows.Forms;
 using Core.Forms;
 using Minder.Forms.Tasks;
 using Minder.Objects;
@@ -38,12 +39,12 @@ namespace Minder.Forms.TaskShow
 			m_form = new TaskShowForm();
 			m_form.Text = "Minder Task";
 			m_task = task;
-			m_listRemindLaterValues = new List<RemindLaterValue>();
-			BuildRemindLaterList(m_listRemindLaterValues);
+			m_listRemindLaterValues = BuildRemindLaterList();
 		}
 		
-		protected void BuildRemindLaterList(List<RemindLaterValue> listRemindLaterValues)
+		public static List<RemindLaterValue> BuildRemindLaterList()
 		{
+			List<RemindLaterValue> listRemindLaterValues = new List<RemindLaterValue>();
 			listRemindLaterValues.Add(new RemindLaterValue("5 minutes", 5.0m/60));
 			listRemindLaterValues.Add(new RemindLaterValue("10 minutes", 10.0m/60));
 			listRemindLaterValues.Add(new RemindLaterValue("15 minutes", 15.0m/60));
@@ -55,6 +56,16 @@ namespace Minder.Forms.TaskShow
 			listRemindLaterValues.Add(new RemindLaterValue("1 day", 24m));
 			listRemindLaterValues.Add(new RemindLaterValue("2 days", 24*2m));
 			listRemindLaterValues.Add(new RemindLaterValue("1 week", 24*7m));
+			return listRemindLaterValues;
+		}
+		
+		public static void AddRemindLaterValuesToComboBox(ComboBox comboBox,
+		                                                  List<RemindLaterValue> listRemindLaterValues)
+		{
+			comboBox.ValueMember = "Name";
+			foreach (RemindLaterValue val in listRemindLaterValues) {
+				comboBox.Items.Add(val);
+			}
 		}
 		
 		public System.Windows.Forms.Form Form
@@ -77,14 +88,11 @@ namespace Minder.Forms.TaskShow
 		protected void SetRemindLater()
 		{
 			// Do not put values twice
-			if (m_form.ComboBoxRemindLater.Items.Count < 1)
+			if (m_form.MComboBoxRemindLater.Items.Count < 1)
 			{
-				m_form.ComboBoxRemindLater.ValueMember = "Name";
-				foreach (RemindLaterValue val in m_listRemindLaterValues) {
-					m_form.ComboBoxRemindLater.Items.Add(val);
-				}
+				AddRemindLaterValuesToComboBox(m_form.MComboBoxRemindLater, m_listRemindLaterValues);
 			}
-			m_form.ComboBoxRemindLater.SelectedItem = m_listRemindLaterValues[1];
+			m_form.MComboBoxRemindLater.SelectedItem = m_listRemindLaterValues[1];
 		}
 		
 		private void PlaySound()
@@ -114,9 +122,9 @@ namespace Minder.Forms.TaskShow
 			m_form.RemainderMeLaterButton.Click += delegate
 			{
 				m_task.Showed = false;
-				if (m_form.ComboBoxRemindLater.SelectedItem != null)
+				if (m_form.MComboBoxRemindLater.SelectedItem != null)
 				{
-					RemindLaterValue val = m_form.ComboBoxRemindLater.SelectedItem as RemindLaterValue;
+					RemindLaterValue val = m_form.MComboBoxRemindLater.SelectedItem as RemindLaterValue;
 					m_task.DateRemainder = DateTime.Now.AddHours((double)val.Value);
 				}
 				else
