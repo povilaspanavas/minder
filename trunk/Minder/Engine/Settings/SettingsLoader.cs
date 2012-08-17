@@ -115,6 +115,7 @@ namespace Minder.Forms.Settings
 			parser.DeleteSetting("general", "autoupdate");
 			parser.DeleteSetting("general", "playsound");
 			parser.DeleteSetting("CultureInfo", "name");
+			parser.DeleteSetting("RemindMeLater", "default");
 			
 			parser.AddSetting("NewTaskHotkey", "alt", StaticData.Settings.NewTaskHotkey.Alt.ToString());
 			parser.AddSetting("NewTaskHotkey", "ctrl", StaticData.Settings.NewTaskHotkey.Ctrl.ToString());

@@ -127,6 +127,7 @@ namespace Minder.Forms.Settings
 			}
 			
 			// **** Default Remind Me Later value ****
+			m_form.MComboBoxRemindMeLater.Sorted = false;
 			TaskShowFormPreparer.AddRemindLaterValuesToComboBox(
 				m_form.MComboBoxRemindMeLater,
 				TaskShowFormPreparer.BuildRemindLaterList());
