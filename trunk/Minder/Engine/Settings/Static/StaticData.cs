@@ -92,7 +92,7 @@ namespace Minder.Static
 			static decimal m_remindMeLaterValue = 10.0m/60.0m;
 			static ICultureData m_cultureData = new CultureDataLT();
 
-			public static decimal RemindMeLaterValue {
+			public static decimal RemindMeLaterDefaultValue {
 				get { return m_remindMeLaterValue; }
 				set { m_remindMeLaterValue = value; }
 			}

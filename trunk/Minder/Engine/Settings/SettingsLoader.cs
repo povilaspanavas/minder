@@ -12,6 +12,7 @@ using System.IO;
 using Minder.Engine.Parse;
 using Minder.Static;
 using Minder.Tools;
+using Minder.UI.Forms.TaskShow;
 
 namespace Minder.Forms.Settings
 {
@@ -25,9 +26,20 @@ namespace Minder.Forms.Settings
 			                           .GetExecutingAssembly()
 			                           .Location)+@"\"+StaticData.SETTINGS_FILE_PATH;
 		
+		/// <summary>
+		/// Jei nepavyksta pasikrauti, tai sukuriam defaultinius ir pasikraunam
+		/// </summary>
 		public void LoadSettings()
 		{
-			LoadFromSettingsFile();
+			try
+			{
+				LoadFromSettingsFile();
+			}
+			catch(Exception)
+			{
+				CreateDefaultSettingsFile();
+				LoadFromSettingsFile();
+			}
 		}
 		
 		public void CreateDefaultSettingsFile()
@@ -44,6 +56,7 @@ namespace Minder.Forms.Settings
 			iniParser.AddSetting("General", "autoupdate", "true");
 			iniParser.AddSetting("General", "playsound", "true");
 			iniParser.AddSetting("CultureInfo", "name", "lt-Lt");
+			iniParser.AddSetting("RemindMeLater", "Default", RemindLaterValue.Round(10.0m/60.0m).ToString());
 			iniParser.AddSetting("Skin", "code", StaticData.Settings.SkinsUniqueCodes.DEFAULT_SKIN_UNIQUECODE);
 			iniParser.SaveSettings();
 		}
@@ -81,6 +94,10 @@ namespace Minder.Forms.Settings
 					StaticData.Settings.CultureData = new CultureDataLT();
 					break;
 			}
+			decimal remindLaterDefaultValue = 10.0m/60.0m;
+			decimal.TryParse(parser.GetSetting("RemindMeLater", "Default"), out remindLaterDefaultValue);
+			StaticData.Settings.RemindMeLaterDefaultValue = RemindLaterValue.Round(remindLaterDefaultValue);
+			
 			
 			//Skins
 			StaticData.Settings.SkinUniqueCode = parser.GetSetting("skin", "code");
@@ -109,6 +126,7 @@ namespace Minder.Forms.Settings
 			parser.AddSetting("General", "autoupdate", StaticData.Settings.CheckUpdates.ToString());
 			parser.AddSetting("General", "playsound", StaticData.Settings.PlaySound.ToString());
 			parser.AddSetting("CultureInfo", "name", StaticData.Settings.CultureData.CultureInfo.Name.ToString());
+			parser.AddSetting("RemindMeLater", "default", RemindLaterValue.Round(StaticData.Settings.RemindMeLaterDefaultValue).ToString());
 			
 			parser.SaveSettings();
 		}
