@@ -19,8 +19,6 @@ namespace Minder.UI.SkinController
 	/// </summary>
 	public interface IMainForm
 	{
-//		void Hide();
-//		void Show();
 		void ShowHide();
 		void ShowHide(object sender, KeyPressedEventArgs e);
 		TextBox MTextBox {get;}
