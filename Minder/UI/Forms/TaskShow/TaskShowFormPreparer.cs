@@ -92,7 +92,21 @@ namespace Minder.Forms.TaskShow
 			{
 				AddRemindLaterValuesToComboBox(m_form.MComboBoxRemindLater, m_listRemindLaterValues);
 			}
-			m_form.MComboBoxRemindLater.SelectedItem = m_listRemindLaterValues[1];
+			SelectRemindMeLater(m_form.MComboBoxRemindLater);
+		}
+
+		/// <summary>
+		/// Select default value
+		/// </summary>
+		/// <param name="comboBox"></param>
+		public static void SelectRemindMeLater(ComboBox comboBox)
+		{
+			for (int i = 0; i < comboBox.Items.Count; i++) {
+				if (StaticData.Settings.RemindMeLaterDefaultValue.Equals((comboBox.Items[i] as RemindLaterValue).Value)) {
+					comboBox.SelectedIndex = i;
+					break;
+				}
+			}
 		}
 		
 		private void PlaySound()

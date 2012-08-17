@@ -60,6 +60,7 @@ namespace Minder.Forms.Settings
 			m_form.MUpdateCheckBox.CheckedChanged += delegate { m_existChanges = true; };
 			m_form.MPlaySoundCheckBox.CheckedChanged += delegate { m_existChanges = true; };
 			m_form.MComboBoxCultureData.SelectedValueChanged += delegate { m_existChanges = true; };
+			m_form.MComboBoxRemindMeLater.SelectedValueChanged += delegate { m_existChanges = true; };
 			m_form.MSkinListBox.SelectedIndexChanged += delegate { m_existChanges = true; };
 			
 			m_form.Closing += FormClosing;
@@ -130,15 +131,7 @@ namespace Minder.Forms.Settings
 				m_form.MComboBoxRemindMeLater,
 				TaskShowFormPreparer.BuildRemindLaterList());
 			
-			for(int i = 0; i < m_form.MComboBoxRemindMeLater.Items.Count; i++)
-			{
-				if(StaticData.Settings.RemindMeLaterValue
-				   .Equals((m_form.MComboBoxRemindMeLater.Items[i] as RemindLaterValue).Value))
-				{
-					m_form.MComboBoxRemindMeLater.SelectedIndex = i;
-					break;
-				}
-			}
+			TaskShowFormPreparer.SelectRemindMeLater(m_form.MComboBoxRemindMeLater);
 			
 			// **** Skins ****
 			int skinNameIndex = 0;
@@ -181,6 +174,9 @@ namespace Minder.Forms.Settings
 					if (m_form.MComboBoxCultureData.SelectedItem != null &&
 					    m_form.MComboBoxCultureData.SelectedItem is ICultureData)
 						StaticData.Settings.CultureData = m_form.MComboBoxCultureData.SelectedItem as ICultureData;
+					if (m_form.MComboBoxRemindMeLater.SelectedItem != null &&
+					    m_form.MComboBoxRemindMeLater.SelectedItem is RemindLaterValue)
+						StaticData.Settings.RemindMeLaterDefaultValue = (m_form.MComboBoxRemindMeLater.SelectedItem as RemindLaterValue).Value;
 					
 					SetSkinSettings();
 					

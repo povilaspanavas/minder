@@ -24,7 +24,7 @@ namespace Minder.UI.Forms.TaskShow
 		}
 		
 		public decimal Value {
-			get { return val; }
+			get { return Round(val); }
 			set { val = value; }
 		}
 		
@@ -32,6 +32,11 @@ namespace Minder.UI.Forms.TaskShow
 		{
 			this.name = name;
 			this.val = val;
+		}
+		
+		public static decimal Round(decimal val)
+		{
+			return Math.Round(val, 10, MidpointRounding.AwayFromZero);
 		}
 	}
 }
