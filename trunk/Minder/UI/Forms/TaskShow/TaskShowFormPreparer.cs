@@ -77,12 +77,14 @@ namespace Minder.Forms.TaskShow
 		protected void SetRemindLater()
 		{
 			// Do not put values twice
-			if (m_form.ComboBoxRemindLater.Items.Count > 1)
-				return;
-			m_form.ComboBoxRemindLater.ValueMember = "Name";
-			foreach (RemindLaterValue val in m_listRemindLaterValues) {
-				m_form.ComboBoxRemindLater.Items.Add(val);
+			if (m_form.ComboBoxRemindLater.Items.Count < 1)
+			{
+				m_form.ComboBoxRemindLater.ValueMember = "Name";
+				foreach (RemindLaterValue val in m_listRemindLaterValues) {
+					m_form.ComboBoxRemindLater.Items.Add(val);
+				}
 			}
+			m_form.ComboBoxRemindLater.SelectedItem = m_listRemindLaterValues[1];
 		}
 		
 		private void PlaySound()
