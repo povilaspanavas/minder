@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Resources;
@@ -15,7 +16,9 @@ using Core.Forms;
 using Minder.Engine.Parse;
 using Minder.Engine.Settings;
 using Minder.Forms.Settings;
+using Minder.Forms.TaskShow;
 using Minder.Static;
+using Minder.UI.Forms.TaskShow;
 
 namespace Minder.Forms.Settings
 {
@@ -65,15 +68,15 @@ namespace Minder.Forms.Settings
 			{
 				string skinUniqueCode = StaticData.Settings
 					.SkinsUniqueCodes.SkinsUniqueCodesAndNames[m_form.MSkinListBox.Items[m_form.MSkinListBox.SelectedIndex]
-				                                                                                .ToString()];
+					                                           .ToString()];
 				m_form.MSkinPreviewPictureBox.Image = new Images()
 					.GetImage(skinUniqueCode.ToLower());
 			};
 			
-			m_form.MDefaultsButton.Click += delegate 
+			m_form.MDefaultsButton.Click += delegate
 			{
-				if(MessageBox.Show("Do you realy want restore default settings?", 
-				                   "Settings", MessageBoxButtons.YesNo, 
+				if(MessageBox.Show("Do you realy want restore default settings?",
+				                   "Settings", MessageBoxButtons.YesNo,
 				                   MessageBoxIcon.Question) == DialogResult.Yes)
 				{
 					new SettingsLoader().CreateDefaultSettingsFile();
@@ -118,6 +121,21 @@ namespace Minder.Forms.Settings
 				   .Equals((m_form.MComboBoxCultureData.Items[i] as ICultureData).Name))
 				{
 					m_form.MComboBoxCultureData.SelectedIndex = i;
+					break;
+				}
+			}
+			
+			// **** Default Remind Me Later value ****
+			TaskShowFormPreparer.AddRemindLaterValuesToComboBox(
+				m_form.MComboBoxRemindMeLater,
+				TaskShowFormPreparer.BuildRemindLaterList());
+			
+			for(int i = 0; i < m_form.MComboBoxRemindMeLater.Items.Count; i++)
+			{
+				if(StaticData.Settings.RemindMeLaterValue
+				   .Equals((m_form.MComboBoxRemindMeLater.Items[i] as RemindLaterValue).Value))
+				{
+					m_form.MComboBoxRemindMeLater.SelectedIndex = i;
 					break;
 				}
 			}

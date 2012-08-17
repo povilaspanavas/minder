@@ -60,6 +60,8 @@ namespace Minder.Forms.Settings
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.MSkinPreviewPictureBox = new System.Windows.Forms.PictureBox();
 			this.MSkinListBox = new System.Windows.Forms.ListBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.MComboBoxRemindMeLater = new System.Windows.Forms.ComboBox();
 			this.panel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -77,10 +79,10 @@ namespace Minder.Forms.Settings
 									| System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.panel1.Controls.Add(this.tabControl1);
-			this.panel1.Location = new System.Drawing.Point(9, 10);
+			this.panel1.Location = new System.Drawing.Point(9, 11);
 			this.panel1.Margin = new System.Windows.Forms.Padding(2);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(506, 369);
+			this.panel1.Size = new System.Drawing.Size(506, 397);
 			this.panel1.TabIndex = 0;
 			// 
 			// tabControl1
@@ -95,11 +97,13 @@ namespace Minder.Forms.Settings
 			this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(502, 364);
+			this.tabControl1.Size = new System.Drawing.Size(502, 392);
 			this.tabControl1.TabIndex = 0;
 			// 
 			// tabPage1
 			// 
+			this.tabPage1.Controls.Add(this.label3);
+			this.tabPage1.Controls.Add(this.MComboBoxRemindMeLater);
 			this.tabPage1.Controls.Add(this.labelCultureData);
 			this.tabPage1.Controls.Add(this.MComboBoxCultureData);
 			this.tabPage1.Controls.Add(this.MPlaySoundCheckBox);
@@ -108,20 +112,20 @@ namespace Minder.Forms.Settings
 			this.tabPage1.Controls.Add(this.MUpdateCheckBox);
 			this.tabPage1.Controls.Add(this.MStartWithWinCheckBox);
 			this.tabPage1.Controls.Add(this.MDefaultsButton);
-			this.tabPage1.Location = new System.Drawing.Point(4, 22);
+			this.tabPage1.Location = new System.Drawing.Point(4, 23);
 			this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-			this.tabPage1.Size = new System.Drawing.Size(494, 338);
+			this.tabPage1.Size = new System.Drawing.Size(494, 365);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "General";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
 			// labelCultureData
 			// 
-			this.labelCultureData.Location = new System.Drawing.Point(21, 92);
+			this.labelCultureData.Location = new System.Drawing.Point(21, 99);
 			this.labelCultureData.Name = "labelCultureData";
-			this.labelCultureData.Size = new System.Drawing.Size(67, 18);
+			this.labelCultureData.Size = new System.Drawing.Size(67, 19);
 			this.labelCultureData.TabIndex = 8;
 			this.labelCultureData.Text = "Date format";
 			// 
@@ -130,36 +134,36 @@ namespace Minder.Forms.Settings
 			this.MComboBoxCultureData.DisplayMember = "Name";
 			this.MComboBoxCultureData.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.MComboBoxCultureData.FormattingEnabled = true;
-			this.MComboBoxCultureData.Location = new System.Drawing.Point(92, 89);
+			this.MComboBoxCultureData.Location = new System.Drawing.Point(165, 99);
 			this.MComboBoxCultureData.Margin = new System.Windows.Forms.Padding(2);
 			this.MComboBoxCultureData.Name = "MComboBoxCultureData";
-			this.MComboBoxCultureData.Size = new System.Drawing.Size(132, 21);
+			this.MComboBoxCultureData.Size = new System.Drawing.Size(132, 22);
 			this.MComboBoxCultureData.Sorted = true;
 			this.MComboBoxCultureData.TabIndex = 7;
 			// 
 			// MPlaySoundCheckBox
 			// 
 			this.MPlaySoundCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.MPlaySoundCheckBox.Location = new System.Drawing.Point(20, 64);
+			this.MPlaySoundCheckBox.Location = new System.Drawing.Point(20, 69);
 			this.MPlaySoundCheckBox.Margin = new System.Windows.Forms.Padding(2);
 			this.MPlaySoundCheckBox.Name = "MPlaySoundCheckBox";
-			this.MPlaySoundCheckBox.Size = new System.Drawing.Size(183, 21);
+			this.MPlaySoundCheckBox.Size = new System.Drawing.Size(183, 23);
 			this.MPlaySoundCheckBox.TabIndex = 5;
 			this.MPlaySoundCheckBox.Text = "Play sound when reminding";
 			this.MPlaySoundCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(21, 116);
+			this.label2.Location = new System.Drawing.Point(21, 159);
 			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(68, 17);
+			this.label2.Size = new System.Drawing.Size(68, 18);
 			this.label2.TabIndex = 4;
 			this.label2.Text = "Tasks limit";
 			// 
 			// m_taskLimitNumeric
 			// 
-			this.m_taskLimitNumeric.Location = new System.Drawing.Point(92, 114);
+			this.m_taskLimitNumeric.Location = new System.Drawing.Point(92, 157);
 			this.m_taskLimitNumeric.Margin = new System.Windows.Forms.Padding(2);
 			this.m_taskLimitNumeric.Maximum = new decimal(new int[] {
 									10000,
@@ -173,10 +177,10 @@ namespace Minder.Forms.Settings
 			// MUpdateCheckBox
 			// 
 			this.MUpdateCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.MUpdateCheckBox.Location = new System.Drawing.Point(20, 40);
+			this.MUpdateCheckBox.Location = new System.Drawing.Point(20, 43);
 			this.MUpdateCheckBox.Margin = new System.Windows.Forms.Padding(2);
 			this.MUpdateCheckBox.Name = "MUpdateCheckBox";
-			this.MUpdateCheckBox.Size = new System.Drawing.Size(183, 20);
+			this.MUpdateCheckBox.Size = new System.Drawing.Size(183, 22);
 			this.MUpdateCheckBox.TabIndex = 2;
 			this.MUpdateCheckBox.Text = "Check automatically for updates";
 			this.MUpdateCheckBox.UseVisualStyleBackColor = true;
@@ -184,10 +188,10 @@ namespace Minder.Forms.Settings
 			// MStartWithWinCheckBox
 			// 
 			this.MStartWithWinCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.MStartWithWinCheckBox.Location = new System.Drawing.Point(20, 15);
+			this.MStartWithWinCheckBox.Location = new System.Drawing.Point(20, 16);
 			this.MStartWithWinCheckBox.Margin = new System.Windows.Forms.Padding(2);
 			this.MStartWithWinCheckBox.Name = "MStartWithWinCheckBox";
-			this.MStartWithWinCheckBox.Size = new System.Drawing.Size(183, 21);
+			this.MStartWithWinCheckBox.Size = new System.Drawing.Size(183, 23);
 			this.MStartWithWinCheckBox.TabIndex = 1;
 			this.MStartWithWinCheckBox.Text = "Start Minder with Windows";
 			this.MStartWithWinCheckBox.UseVisualStyleBackColor = true;
@@ -195,10 +199,10 @@ namespace Minder.Forms.Settings
 			// MDefaultsButton
 			// 
 			this.MDefaultsButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.MDefaultsButton.Location = new System.Drawing.Point(198, 280);
+			this.MDefaultsButton.Location = new System.Drawing.Point(198, 327);
 			this.MDefaultsButton.Margin = new System.Windows.Forms.Padding(2);
 			this.MDefaultsButton.Name = "MDefaultsButton";
-			this.MDefaultsButton.Size = new System.Drawing.Size(111, 32);
+			this.MDefaultsButton.Size = new System.Drawing.Size(111, 34);
 			this.MDefaultsButton.TabIndex = 0;
 			this.MDefaultsButton.Text = "Restore defaults";
 			this.MDefaultsButton.UseVisualStyleBackColor = true;
@@ -206,11 +210,11 @@ namespace Minder.Forms.Settings
 			// tabPage2
 			// 
 			this.tabPage2.Controls.Add(this.groupBox1);
-			this.tabPage2.Location = new System.Drawing.Point(4, 22);
+			this.tabPage2.Location = new System.Drawing.Point(4, 23);
 			this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-			this.tabPage2.Size = new System.Drawing.Size(494, 338);
+			this.tabPage2.Size = new System.Drawing.Size(494, 365);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Hotkeys";
 			this.tabPage2.UseVisualStyleBackColor = true;
@@ -229,17 +233,17 @@ namespace Minder.Forms.Settings
 			this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-			this.groupBox1.Size = new System.Drawing.Size(486, 87);
+			this.groupBox1.Size = new System.Drawing.Size(486, 94);
 			this.groupBox1.TabIndex = 4;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "New task";
 			// 
 			// label1
 			// 
-			this.label1.Location = new System.Drawing.Point(126, 37);
+			this.label1.Location = new System.Drawing.Point(126, 40);
 			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(14, 19);
+			this.label1.Size = new System.Drawing.Size(14, 20);
 			this.label1.TabIndex = 5;
 			this.label1.Text = "+";
 			// 
@@ -247,48 +251,48 @@ namespace Minder.Forms.Settings
 			// 
 			this.MKeysComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.MKeysComboBox.FormattingEnabled = true;
-			this.MKeysComboBox.Location = new System.Drawing.Point(160, 34);
+			this.MKeysComboBox.Location = new System.Drawing.Point(160, 37);
 			this.MKeysComboBox.Margin = new System.Windows.Forms.Padding(2);
 			this.MKeysComboBox.Name = "MKeysComboBox";
-			this.MKeysComboBox.Size = new System.Drawing.Size(104, 21);
+			this.MKeysComboBox.Size = new System.Drawing.Size(104, 22);
 			this.MKeysComboBox.TabIndex = 4;
 			// 
 			// MAltCheckBox
 			// 
-			this.MAltCheckBox.Location = new System.Drawing.Point(68, 47);
+			this.MAltCheckBox.Location = new System.Drawing.Point(68, 51);
 			this.MAltCheckBox.Margin = new System.Windows.Forms.Padding(2);
 			this.MAltCheckBox.Name = "MAltCheckBox";
-			this.MAltCheckBox.Size = new System.Drawing.Size(53, 20);
+			this.MAltCheckBox.Size = new System.Drawing.Size(53, 22);
 			this.MAltCheckBox.TabIndex = 2;
 			this.MAltCheckBox.Text = "Alt";
 			this.MAltCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// MShiftCheckBox
 			// 
-			this.MShiftCheckBox.Location = new System.Drawing.Point(16, 24);
+			this.MShiftCheckBox.Location = new System.Drawing.Point(16, 26);
 			this.MShiftCheckBox.Margin = new System.Windows.Forms.Padding(2);
 			this.MShiftCheckBox.Name = "MShiftCheckBox";
-			this.MShiftCheckBox.Size = new System.Drawing.Size(47, 20);
+			this.MShiftCheckBox.Size = new System.Drawing.Size(47, 22);
 			this.MShiftCheckBox.TabIndex = 3;
 			this.MShiftCheckBox.Text = "Shift";
 			this.MShiftCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// MCtrlCheckBox
 			// 
-			this.MCtrlCheckBox.Location = new System.Drawing.Point(16, 48);
+			this.MCtrlCheckBox.Location = new System.Drawing.Point(16, 52);
 			this.MCtrlCheckBox.Margin = new System.Windows.Forms.Padding(2);
 			this.MCtrlCheckBox.Name = "MCtrlCheckBox";
-			this.MCtrlCheckBox.Size = new System.Drawing.Size(43, 20);
+			this.MCtrlCheckBox.Size = new System.Drawing.Size(43, 22);
 			this.MCtrlCheckBox.TabIndex = 0;
 			this.MCtrlCheckBox.Text = "Ctrl";
 			this.MCtrlCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// MWinCheckBox
 			// 
-			this.MWinCheckBox.Location = new System.Drawing.Point(68, 24);
+			this.MWinCheckBox.Location = new System.Drawing.Point(68, 26);
 			this.MWinCheckBox.Margin = new System.Windows.Forms.Padding(2);
 			this.MWinCheckBox.Name = "MWinCheckBox";
-			this.MWinCheckBox.Size = new System.Drawing.Size(53, 20);
+			this.MWinCheckBox.Size = new System.Drawing.Size(53, 22);
 			this.MWinCheckBox.TabIndex = 1;
 			this.MWinCheckBox.Text = "Win";
 			this.MWinCheckBox.UseVisualStyleBackColor = true;
@@ -296,10 +300,10 @@ namespace Minder.Forms.Settings
 			// tabPageSkins
 			// 
 			this.tabPageSkins.Controls.Add(this.groupBox3);
-			this.tabPageSkins.Location = new System.Drawing.Point(4, 22);
+			this.tabPageSkins.Location = new System.Drawing.Point(4, 23);
 			this.tabPageSkins.Name = "tabPageSkins";
 			this.tabPageSkins.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageSkins.Size = new System.Drawing.Size(494, 338);
+			this.tabPageSkins.Size = new System.Drawing.Size(494, 365);
 			this.tabPageSkins.TabIndex = 2;
 			this.tabPageSkins.Text = "Skins";
 			this.tabPageSkins.UseVisualStyleBackColor = true;
@@ -313,7 +317,7 @@ namespace Minder.Forms.Settings
 			this.groupBox3.Controls.Add(this.MSkinListBox);
 			this.groupBox3.Location = new System.Drawing.Point(6, 6);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(482, 326);
+			this.groupBox3.Size = new System.Drawing.Size(482, 351);
 			this.groupBox3.TabIndex = 2;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Skins";
@@ -323,7 +327,7 @@ namespace Minder.Forms.Settings
 			this.MSkinPreviewPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
 									| System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.MSkinPreviewPictureBox.Location = new System.Drawing.Point(161, 19);
+			this.MSkinPreviewPictureBox.Location = new System.Drawing.Point(161, 20);
 			this.MSkinPreviewPictureBox.Name = "MSkinPreviewPictureBox";
 			this.MSkinPreviewPictureBox.Size = new System.Drawing.Size(315, 117);
 			this.MSkinPreviewPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -335,16 +339,37 @@ namespace Minder.Forms.Settings
 			this.MSkinListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
 									| System.Windows.Forms.AnchorStyles.Left)));
 			this.MSkinListBox.FormattingEnabled = true;
-			this.MSkinListBox.Location = new System.Drawing.Point(6, 19);
+			this.MSkinListBox.ItemHeight = 14;
+			this.MSkinListBox.Location = new System.Drawing.Point(6, 20);
 			this.MSkinListBox.Name = "MSkinListBox";
-			this.MSkinListBox.Size = new System.Drawing.Size(149, 290);
+			this.MSkinListBox.Size = new System.Drawing.Size(149, 312);
 			this.MSkinListBox.TabIndex = 0;
+			// 
+			// label3
+			// 
+			this.label3.Location = new System.Drawing.Point(21, 131);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(139, 19);
+			this.label3.TabIndex = 10;
+			this.label3.Text = "Default remind later value";
+			// 
+			// comboBoxRemindMeLater
+			// 
+			this.MComboBoxRemindMeLater.DisplayMember = "Name";
+			this.MComboBoxRemindMeLater.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.MComboBoxRemindMeLater.FormattingEnabled = true;
+			this.MComboBoxRemindMeLater.Location = new System.Drawing.Point(165, 128);
+			this.MComboBoxRemindMeLater.Margin = new System.Windows.Forms.Padding(2);
+			this.MComboBoxRemindMeLater.Name = "comboBoxRemindMeLater";
+			this.MComboBoxRemindMeLater.Size = new System.Drawing.Size(132, 22);
+			this.MComboBoxRemindMeLater.Sorted = true;
+			this.MComboBoxRemindMeLater.TabIndex = 9;
 			// 
 			// SettingsForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(524, 389);
+			this.ClientSize = new System.Drawing.Size(524, 419);
 			this.Controls.Add(this.panel1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(2);
@@ -363,6 +388,8 @@ namespace Minder.Forms.Settings
 			((System.ComponentModel.ISupportInitialize)(this.MSkinPreviewPictureBox)).EndInit();
 			this.ResumeLayout(false);
 		}
+		public System.Windows.Forms.ComboBox MComboBoxRemindMeLater;
+		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.GroupBox groupBox3;
 		public System.Windows.Forms.ListBox MSkinListBox;
 		public System.Windows.Forms.PictureBox MSkinPreviewPictureBox;

@@ -89,9 +89,14 @@ namespace Minder.Static
 			static bool m_checkUpdates;
 			static bool m_playSound;
 			static string m_skinUniqueCode;
-			
+			static decimal m_remindMeLaterValue = 10.0m/60.0m;
 			static ICultureData m_cultureData = new CultureDataLT();
 
+			public static decimal RemindMeLaterValue {
+				get { return m_remindMeLaterValue; }
+				set { m_remindMeLaterValue = value; }
+			}
+			
 			public static ICultureData CultureData {
 				get { return m_cultureData; }
 				set {
