@@ -35,7 +35,7 @@ namespace Minder.Forms.About
 		public void PrepareForm()
 		{
 			SetEvents();
-			m_form.MVersionLabel.Text = string.Format("Version: Alpha {0}", StaticData.VersionCache.Version);
+			m_form.MVersionLabel.Text = string.Format("Version: Beta {0}", StaticData.VersionCache.Version);
 			m_form.ShowDialog();
 		}
 		
