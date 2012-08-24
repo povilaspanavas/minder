@@ -70,18 +70,19 @@ namespace Minder.Forms.TaskShow
 			this.TextBox.TabIndex = 4;
 			this.TextBox.Text = "Task: task description\r\n\r\nTime: task time";
 			// 
-			// comboBoxRemindLater
+			// MComboBoxRemindLater
 			// 
+			this.MComboBoxRemindLater.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.MComboBoxRemindLater.FormattingEnabled = true;
 			this.MComboBoxRemindLater.Location = new System.Drawing.Point(12, 115);
-			this.MComboBoxRemindLater.Name = "comboBoxRemindLater";
+			this.MComboBoxRemindLater.Name = "MComboBoxRemindLater";
 			this.MComboBoxRemindLater.Size = new System.Drawing.Size(107, 22);
 			this.MComboBoxRemindLater.TabIndex = 3;
 			// 
-			// buttonEditTask
+			// ButtonEditTask
 			// 
 			this.ButtonEditTask.Location = new System.Drawing.Point(126, 73);
-			this.ButtonEditTask.Name = "buttonEditTask";
+			this.ButtonEditTask.Name = "ButtonEditTask";
 			this.ButtonEditTask.Size = new System.Drawing.Size(107, 32);
 			this.ButtonEditTask.TabIndex = 2;
 			this.ButtonEditTask.Text = "Edit Task";
