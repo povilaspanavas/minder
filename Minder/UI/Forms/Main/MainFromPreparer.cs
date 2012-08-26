@@ -46,7 +46,13 @@ namespace Minder.Forms.Main
 		{
 			BackroundWorks();
 			SetEvents();
-//			m_wpfPreparer.PrepareForm();
+		}
+		
+		public void PrepareForm(bool showForm)
+		{
+			PrepareForm();
+			if(showForm)
+				m_mainForm.ShowHide();
 		}
 
 		public void SetEvents()
