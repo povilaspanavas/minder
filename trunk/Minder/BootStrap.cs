@@ -30,7 +30,7 @@ namespace Minder
 			{
 				Application.EnableVisualStyles();
 				Application.SetCompatibleTextRenderingDefault(false);
-				Starter();
+				Starter(args);
 				Application.Run();
 			}
 			catch (Exception e)
@@ -51,14 +51,18 @@ namespace Minder
 			}
 		}
 		
-		private static void Starter()
+		private static void Starter(string[] args)
 		{
-
-//			string startupPath = new PathCutHelper()
-//				.CutExecutableFileFromPath(System.Reflection.Assembly
-//				                           .GetExecutingAssembly().Location);
-			
 			ConfigLoader.Load();
+			bool openForm = false;
+			if(args != null)
+			{
+				foreach(string arg in args)
+				{
+					if(arg.ToLower().Equals("--openform"))
+						openForm = true;
+				}
+			}
 			
 			SettingsLoader loader = new SettingsLoader();
 			loader.LoadSettings();
@@ -68,7 +72,10 @@ namespace Minder
 				new UpdateProject(StaticData.VersionCache.Version, true, "Minder");
 			
 			MainFormPreparer preparer = new MainFormPreparer();
-			preparer.PrepareForm();
+			if(openForm)
+				preparer.PrepareForm(openForm);
+			else
+				preparer.PrepareForm();
 			
 			TimeController timeController = new TimeController(preparer);
 			timeController.Start();

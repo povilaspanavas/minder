@@ -8,16 +8,19 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Resources;
 using System.Windows.Forms;
+
 using Core.Forms;
 using Minder.Engine.Parse;
 using Minder.Engine.Settings;
 using Minder.Forms.Settings;
 using Minder.Forms.TaskShow;
 using Minder.Static;
+using Minder.Tools;
 using Minder.UI.Forms.TaskShow;
 
 namespace Minder.Forms.Settings
@@ -182,7 +185,27 @@ namespace Minder.Forms.Settings
 					SetSkinSettings();
 					
 					new SettingsLoader().SaveSettingsToFile();
-					new WarningBox("You need restart application to take efect");
+					if(MessageBox.Show("You need restart application to take efect. Do you want restart application now?", "Settings",
+					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+					{
+						string workingPath = new PathCutHelper()
+							.CutExecutableFileFromPath(System.Reflection.Assembly
+							                           .GetExecutingAssembly().Location);
+						string starterPath = workingPath + @"\Minder.Starter.exe";
+						string minderPath = workingPath + @"\Minder.exe";
+						
+						Process.Start(starterPath, string.Format("--openform --run {0} --sleep 2", minderPath));
+						
+						Process[] proc = Process.GetProcessesByName("Minder");
+						if(proc.Length > 0)
+						{
+							foreach(Process proces in proc)
+							{
+								proces.Kill();
+							}
+						}
+					}
+//					new WarningBox("You need restart application to take efect");
 				}
 				
 			}
