@@ -24,10 +24,31 @@ namespace Minder.Starter
 		[STAThread]
 		private static void Main(string[] args)
 		{
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
-			Start(args);
-			Application.Run();
+			try
+			{
+				Application.EnableVisualStyles();
+				Application.SetCompatibleTextRenderingDefault(false);
+				Start(args);
+				Kill();
+				Application.Run();
+			}
+			catch
+			{
+				Kill();
+			}
+			
+		}
+		
+		private static void Kill()
+		{
+			Process[] proc = Process.GetProcessesByName("Minder.Starter");
+			if(proc.Length > 0)
+			{
+				foreach(Process proces in proc)
+				{
+					proces.Kill();
+				}
+			}
 		}
 		
 		private static void Start(string[] args)
@@ -62,14 +83,7 @@ namespace Minder.Starter
 			
 			Process.Start(path, argument);
 			
-			Process[] proc = Process.GetProcessesByName("Minder.Starter");
-			if(proc.Length > 0)
-			{
-				foreach(Process proces in proc)
-				{
-					proces.Kill();
-				}
-			}
+			Kill();
 		}
 		
 	}
