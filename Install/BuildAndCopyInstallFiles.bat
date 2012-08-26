@@ -1,8 +1,9 @@
 @echo off
-path = "..\Minder\Minder.csproj"
+
 DEL Build.log
 
-"C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild" %path% /t:Rebuild >> Build.log && type Build.log
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild ..\Minder\Minder.csproj /t:Rebuild >> Build.log
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild ..\Minder.Starter\Minder.Starter.csproj /t:Rebuild >> Build.log && type Build.log
 
 rem if exist "..\Minder\bin\debug\log" RD "..\Minder\bin\debug\log" /S /Q
 rem DEL "Builded installs\*.*" /Q 
