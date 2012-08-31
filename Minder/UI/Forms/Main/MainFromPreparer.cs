@@ -46,6 +46,9 @@ namespace Minder.Forms.Main
 		{
 			BackroundWorks();
 			SetEvents();
+			m_form.InitializeLifetimeService();
+			m_mainForm.ShowHide(); //Form init
+			m_mainForm.ShowHide();
 		}
 		
 		public void PrepareForm(bool showForm)
