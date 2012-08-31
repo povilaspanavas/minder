@@ -12,8 +12,9 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Resources;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
-
+using Core;
 using Core.Forms;
 using Minder.Engine.Parse;
 using Minder.Engine.Settings;
@@ -32,6 +33,7 @@ namespace Minder.Forms.Settings
 	{
 		SettingsForm m_form = null;
 		private bool m_existChanges = false;
+		private Loger m_log = new Loger();
 		
 		public SettingsFormPreparer()
 		{
@@ -70,7 +72,7 @@ namespace Minder.Forms.Settings
 			
 			m_form.MSkinListBox.SelectedIndexChanged += delegate
 			{
-				string skinUniqueCode = StaticData.Settings
+				string skinUniqueCode = Minder.Static.StaticData.Settings
 					.SkinsUniqueCodes.SkinsUniqueCodesAndNames[m_form.MSkinListBox.Items[m_form.MSkinListBox.SelectedIndex]
 					                                           .ToString()];
 				m_form.MSkinPreviewPictureBox.Image = new Images()
@@ -93,26 +95,26 @@ namespace Minder.Forms.Settings
 		
 		private void AddDataToControlls()
 		{
-			foreach(string key in StaticData.KeysDic.Keys)
+			foreach(string key in Minder.Static.StaticData.KeysDic.Keys)
 			{
 				m_form.MKeysComboBox.Items.Add(key);
 			}
 			
-			m_form.MAltCheckBox.Checked = StaticData.Settings.NewTaskHotkey.Alt;
-			m_form.MCtrlCheckBox.Checked = StaticData.Settings.NewTaskHotkey.Ctrl;
-			m_form.MShiftCheckBox.Checked = StaticData.Settings.NewTaskHotkey.Shift;
-			m_form.MWinCheckBox.Checked = StaticData.Settings.NewTaskHotkey.Win;
+			m_form.MAltCheckBox.Checked = Minder.Static.StaticData.Settings.NewTaskHotkey.Alt;
+			m_form.MCtrlCheckBox.Checked = Minder.Static.StaticData.Settings.NewTaskHotkey.Ctrl;
+			m_form.MShiftCheckBox.Checked = Minder.Static.StaticData.Settings.NewTaskHotkey.Shift;
+			m_form.MWinCheckBox.Checked = Minder.Static.StaticData.Settings.NewTaskHotkey.Win;
 			
 			for(int i=0; i<m_form.MKeysComboBox.Items.Count; i++)
 			{
-				if(StaticData.Settings.NewTaskHotkey.Key
+				if(Minder.Static.StaticData.Settings.NewTaskHotkey.Key
 				   .Equals(m_form.MKeysComboBox.Items[i].ToString()))
 					m_form.MKeysComboBox.SelectedIndex = i;
 			}
 			
-			m_form.MStartWithWinCheckBox.Checked = StaticData.Settings.StartWithWindows;
-			m_form.MUpdateCheckBox.Checked = StaticData.Settings.CheckUpdates;
-			m_form.MPlaySoundCheckBox.Checked = StaticData.Settings.PlaySound;
+			m_form.MStartWithWinCheckBox.Checked = Minder.Static.StaticData.Settings.StartWithWindows;
+			m_form.MUpdateCheckBox.Checked = Minder.Static.StaticData.Settings.CheckUpdates;
+			m_form.MPlaySoundCheckBox.Checked = Minder.Static.StaticData.Settings.PlaySound;
 			
 			// **** DateFormat tab ****
 			m_form.MComboBoxCultureData.Items.Add(new CultureDataLT());
@@ -121,7 +123,7 @@ namespace Minder.Forms.Settings
 			
 			for(int i = 0; i < m_form.MComboBoxCultureData.Items.Count; i++)
 			{
-				if(StaticData.Settings.CultureData.Name
+				if(Minder.Static.StaticData.Settings.CultureData.Name
 				   .Equals((m_form.MComboBoxCultureData.Items[i] as ICultureData).Name))
 				{
 					m_form.MComboBoxCultureData.SelectedIndex = i;
@@ -139,11 +141,11 @@ namespace Minder.Forms.Settings
 			
 			// **** Skins ****
 			int skinNameIndex = 0;
-			foreach(string name in StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames.Keys)
+			foreach(string name in Minder.Static.StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames.Keys)
 			{
 				m_form.MSkinListBox.Items.Add(name);
-				string uniqueCode = StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames[name];
-				if(StaticData.Settings.SkinUniqueCode.ToLower().Equals(uniqueCode.ToLower()))
+				string uniqueCode = Minder.Static.StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames[name];
+				if(Minder.Static.StaticData.Settings.SkinUniqueCode.ToLower().Equals(uniqueCode.ToLower()))
 				{
 					m_form.MSkinListBox.SelectedIndex = skinNameIndex;
 					m_form.MSkinPreviewPictureBox.Image = new Images().GetImage(uniqueCode.ToLower());
@@ -156,7 +158,7 @@ namespace Minder.Forms.Settings
 		private void SetSkinSettings()
 		{
 			string skinName = m_form.MSkinListBox.Items[m_form.MSkinListBox.SelectedIndex].ToString();
-			StaticData.Settings.SkinUniqueCode = StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames[skinName];
+			Minder.Static.StaticData.Settings.SkinUniqueCode = Minder.Static.StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames[skinName];
 		}
 		
 		private void FormClosing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -167,20 +169,20 @@ namespace Minder.Forms.Settings
 				if(MessageBox.Show("Do you want to save changes?", "Settings",
 				                   MessageBoxButtons.YesNo) ==  DialogResult.Yes)
 				{
-					StaticData.Settings.NewTaskHotkey.Alt = m_form.MAltCheckBox.Checked;
-					StaticData.Settings.NewTaskHotkey.Ctrl = m_form.MCtrlCheckBox.Checked;
-					StaticData.Settings.NewTaskHotkey.Shift = m_form.MShiftCheckBox.Checked;
-					StaticData.Settings.NewTaskHotkey.Win = m_form.MWinCheckBox.Checked;
-					StaticData.Settings.NewTaskHotkey.Key = m_form.MKeysComboBox.SelectedItem.ToString();
-					StaticData.Settings.StartWithWindows = m_form.MStartWithWinCheckBox.Checked;
-					StaticData.Settings.CheckUpdates = m_form.MUpdateCheckBox.Checked;
-					StaticData.Settings.PlaySound = m_form.MPlaySoundCheckBox.Checked;
+					Minder.Static.StaticData.Settings.NewTaskHotkey.Alt = m_form.MAltCheckBox.Checked;
+					Minder.Static.StaticData.Settings.NewTaskHotkey.Ctrl = m_form.MCtrlCheckBox.Checked;
+					Minder.Static.StaticData.Settings.NewTaskHotkey.Shift = m_form.MShiftCheckBox.Checked;
+					Minder.Static.StaticData.Settings.NewTaskHotkey.Win = m_form.MWinCheckBox.Checked;
+					Minder.Static.StaticData.Settings.NewTaskHotkey.Key = m_form.MKeysComboBox.SelectedItem.ToString();
+					Minder.Static.StaticData.Settings.StartWithWindows = m_form.MStartWithWinCheckBox.Checked;
+					Minder.Static.StaticData.Settings.CheckUpdates = m_form.MUpdateCheckBox.Checked;
+					Minder.Static.StaticData.Settings.PlaySound = m_form.MPlaySoundCheckBox.Checked;
 					if (m_form.MComboBoxCultureData.SelectedItem != null &&
 					    m_form.MComboBoxCultureData.SelectedItem is ICultureData)
-						StaticData.Settings.CultureData = m_form.MComboBoxCultureData.SelectedItem as ICultureData;
+						Minder.Static.StaticData.Settings.CultureData = m_form.MComboBoxCultureData.SelectedItem as ICultureData;
 					if (m_form.MComboBoxRemindMeLater.SelectedItem != null &&
 					    m_form.MComboBoxRemindMeLater.SelectedItem is RemindLaterValue)
-						StaticData.Settings.RemindMeLaterDefaultValue = (m_form.MComboBoxRemindMeLater.SelectedItem as RemindLaterValue).Value;
+						Minder.Static.StaticData.Settings.RemindMeLaterDefaultValue = (m_form.MComboBoxRemindMeLater.SelectedItem as RemindLaterValue).Value;
 					
 					SetSkinSettings();
 					
@@ -193,6 +195,9 @@ namespace Minder.Forms.Settings
 							                           .GetExecutingAssembly().Location);
 						string starterPath = workingPath + @"\Minder.Starter.exe";
 						string minderPath = workingPath + @"\Minder.exe";
+						
+						minderPath = minderPath.Insert(0, "\"");
+						minderPath = minderPath.Insert(minderPath.Length, "\"");
 						
 						Process.Start(starterPath, string.Format("--openform --run {0} --sleep 2", minderPath));
 						
