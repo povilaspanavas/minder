@@ -10,6 +10,9 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
+using Core;
+using Core.Forms;
+using Core.Tools.Log;
 
 namespace Minder.Starter
 {
@@ -32,11 +35,22 @@ namespace Minder.Starter
 				Kill();
 				Application.Run();
 			}
-			catch
+			catch(Exception e)
 			{
-				Kill();
+				try
+				{
+					ConfigLoader.Load();
+					Loger log = new Loger();
+					log.LogWrite(e.ToString(), LogerType.Fatal);
+					Kill();
+				}
+				
+				catch (Exception a)
+				{
+					new ErrorBox(a.ToString()+e.ToString(), "Error");
+					Kill();
+				}
 			}
-			
 		}
 		
 		private static void Kill()
