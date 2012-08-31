@@ -95,8 +95,8 @@ namespace Minder.Starter
 			if(openForm)
 				argument = "--openform";
 			
-			Process.Start(path, argument);
-			
+			ProcessStartInfo info = new ProcessStartInfo(path, argument);
+			Process.Start(info);
 			Kill();
 		}
 		
