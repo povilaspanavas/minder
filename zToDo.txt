@@ -11,6 +11,7 @@ POVILO:
 
 
 IGNO:
+Lûþta minder update sistema
 
 Reikia maþø mygtukø pagrindinëj formoj. ? ir X (Helpas ir iðjungti formà). arba paspaudus deðiná
 Padaryti angliðkas antraðtes message boxuose
