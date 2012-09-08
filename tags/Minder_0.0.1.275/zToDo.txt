@@ -1,0 +1,32 @@
+POVILO:
+	BUGAI:
+	* Tekstas "sadfa m/h/val. kjlasdf" suparsinamas
+
+
+	NICE TO HAVE:
+	Padaryti, kad sesijos kaskart nereiktø atsidaryti, t.y., susirastø jau egzistuojanèià kaip DLC
+
+	Dar padaryti, kad nebûtø lyðno enter vedant taskus
+	Priminime galma redaguoti uþduoti vieotj remind later
+
+
+IGNO:
+Lûþta minder update sistema
+
+Reikia maþø mygtukø pagrindinëj formoj. ? ir X (Helpas ir iðjungti formà). arba paspaudus deðiná
+Padaryti angliðkas antraðtes message boxuose
+
+Reikia padaryti, kad kai settingsus keièiame, paklaustø ar norime perkrauti dabar programà. 
+Reikia padaryti, kad bûtø du startavimo metodai. Standartinis, kai startuoja ir bûna prie laikrodþio, o kitas kai startuoja ir iðkart main forma dar atsidaro.
+Pvz. po settingsø keitimo, perkrovimo turëtø startuoti ir atsirasti mainforma. Tas pats ir pirmà kart suinstaliavus.
+Bug: ant xp ðitas neveikia, o ant 7 lyg ir veikia.
+
+
+
+ 
+
+
+
+
+
+
