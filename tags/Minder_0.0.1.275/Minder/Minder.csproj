@@ -8,7 +8,8 @@
     <RootNamespace>Minder</RootNamespace>
     <AssemblyName>Minder</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <NoStdLib>False</NoStdLib>
@@ -159,6 +160,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="ClientConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
