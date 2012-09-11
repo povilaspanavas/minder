@@ -57,13 +57,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Objects\Task.cs" />
     <Compile Include="Soap.cs">
       <DependentUpon>Default.asmx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClientConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CoreConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Default.asmx" />
     <None Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DB" />
+    <Folder Include="Objects" />
+    <Folder Include="Services" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <ProjectExtensions>
