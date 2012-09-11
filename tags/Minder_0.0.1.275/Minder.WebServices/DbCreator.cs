@@ -21,6 +21,7 @@ namespace Minder.WebServices
 		public void DbCreator_1()
 		{
 			ConfigLoader.Load();
+			GenericDbHelper.DropAllTables();
 			GenericDbHelper.CreateTable(typeof(Task));
 		}
 	}

@@ -24,6 +24,8 @@ namespace Minder.WebServices.Services
 		//Main
 		public List<Task> Sync(List<Task> tasks, string userId)
 		{
+			if(Minder.WebServices.Helpers.StaticData.ConfigLoaded == false)
+				ConfigLoader.Load(@"c:\Dokumentai\Projektai\Minder1\Minder.WebServices\bin\CoreConfig.xml");
 			List<Task> tasksFromDb = LoadAllTasksByUserId(userId);
 			List<Task> result = MergeTasks(tasksFromDb, tasks);
 			SaveTasksToDb(tasksFromDb, result);

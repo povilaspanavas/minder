@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbCreator.cs" />
+    <Compile Include="Helpers\StaticData.cs" />
+    <Compile Include="Objects\SyncObject.cs" />
     <Compile Include="Objects\Task.cs" />
     <Compile Include="Services\TaskSyncController.cs" />
     <Compile Include="Soap.cs">
@@ -78,6 +80,7 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Helpers" />
     <Folder Include="Objects" />
     <Folder Include="Services" />
   </ItemGroup>
