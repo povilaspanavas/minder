@@ -75,5 +75,21 @@ namespace Minder.WebServices.Objects
 			get { return m_text; }
 			set { m_text = value; }
 		}
+		
+		DateTime m_lastModifyDate;
+		
+		[DBColumnReference("LAST_MODIFY_DATE")]
+		public DateTime LastModifyDate {
+			get { return m_lastModifyDate; }
+			set { m_lastModifyDate = value; }
+		}
+		
+		bool m_isDeleted;
+		
+		[DBColumnReference("IS_DELETED")]
+		public bool IsDeleted {
+			get { return m_isDeleted; }
+			set { m_isDeleted = value; }
+		}
 	}
 }

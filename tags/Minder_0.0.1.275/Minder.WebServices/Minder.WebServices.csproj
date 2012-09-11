@@ -36,6 +36,9 @@
     <Reference Include="Core">
       <HintPath>..\libs\Core.dll</HintPath>
     </Reference>
+    <Reference Include="NUnit.Framework">
+      <HintPath>$(SharpDevelopBinPath)\Tools\NUnit\NUnit.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -57,7 +60,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbCreator.cs" />
     <Compile Include="Objects\Task.cs" />
+    <Compile Include="Services\TaskSyncController.cs" />
     <Compile Include="Soap.cs">
       <DependentUpon>Default.asmx</DependentUpon>
     </Compile>
@@ -73,7 +78,6 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DB" />
     <Folder Include="Objects" />
     <Folder Include="Services" />
   </ItemGroup>

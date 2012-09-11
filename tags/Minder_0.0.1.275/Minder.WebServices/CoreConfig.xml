@@ -8,12 +8,12 @@
 	</LogConfig>
 	
 	<DBConfig>
-		<Host></Host>
+		<Host>database.db</Host>
 		<User></User>
 		<Pass></Pass>
 		<DBName></DBName>
 		<Unicode></Unicode>
-		<DbType></DbType>
+		<DbType>SQLite</DbType>
 	</DBConfig>
 	
 	<UpdateProject>
