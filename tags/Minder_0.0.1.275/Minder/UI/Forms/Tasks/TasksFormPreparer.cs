@@ -126,10 +126,7 @@ namespace Minder.Forms.Tasks
 		private void LoadTaskGrid()
 		{
 			WaitingForm waitingForm = new WaitingForm("Loading tasks...", "Please wait");
-			using (DBConnection connection = new DBConnection())
-			{
-				m_tasks = connection.LoadAllTasks();
-			}
+			m_tasks = new DbHelper().LoadAllTasks();
 			
 			if(m_tasks == null)
 				return;

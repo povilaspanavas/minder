@@ -32,6 +32,9 @@
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Core">
+      <HintPath>..\libs\Core.dll</HintPath>
+    </Reference>
     <Reference Include="NUnit.Framework">
       <HintPath>..\libs\NUnit.Framework.dll</HintPath>
     </Reference>

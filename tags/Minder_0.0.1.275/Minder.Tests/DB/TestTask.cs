@@ -23,10 +23,10 @@ namespace Minder.Tests.DB
 		[TestFixtureSetUp]
 		public void InitOnce()
 		{
-			DBConnection.TestMode = true;
+			DbHelper.TestMode = true;
 			try
 			{
-				using (DBConnection con = new DBConnection())
+				using (DbHelper con = new DbHelper())
 				{
 					con.CreateTable();
 				}
@@ -51,7 +51,7 @@ namespace Minder.Tests.DB
 			DateTime now = DateTime.Now;
 			Task task = new Task("Darbas", now, "sourceId|15");
 			task.Save();
-			using (DBConnection con = new DBConnection())
+			using (DbHelper con = new DbHelper())
 			{
 				SQLiteDataReader reader = con.ExecuteQuery("SELECT NAME, DATE_REMAINDER, SOURCE_ID, SHOWED FROM TASK");
 				Assert.IsTrue(reader.Read());
@@ -76,7 +76,7 @@ namespace Minder.Tests.DB
 			task.SourceId = "skriptas";
 			task.Update();
 			
-			using (DBConnection con = new DBConnection())
+			using (DbHelper con = new DbHelper())
 			{
 				SQLiteDataReader reader = con.ExecuteQuery("SELECT NAME, DATE_REMAINDER, SOURCE_ID, SHOWED FROM TASK");
 				Assert.IsTrue(reader.Read());
@@ -94,7 +94,7 @@ namespace Minder.Tests.DB
 			task.Save();
 			task.Delete();
 			
-			using (DBConnection con = new DBConnection())
+			using (DbHelper con = new DbHelper())
 			{
 				SQLiteDataReader reader = con.ExecuteQuery("SELECT NAME, DATE_REMAINDER, SOURCE_ID FROM TASK");
 				Assert.IsTrue(reader.Read());
@@ -121,7 +121,7 @@ namespace Minder.Tests.DB
 			Task task3 = new Task("Darbas3", DateTime.Now.AddMinutes(1), "sourceId|mintė+1");
 			task3.Save();
 			
-			using (DBConnection con = new DBConnection())
+			using (DbHelper con = new DbHelper())
 			{
 				List<Task> tasks = con.LoadTasksForShowing();
 				Assert.AreEqual(2, tasks.Count);

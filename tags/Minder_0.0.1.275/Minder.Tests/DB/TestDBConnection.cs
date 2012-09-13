@@ -24,10 +24,10 @@ namespace Minder.Tests.DB
 		[TestFixtureSetUp]
 		public void InitOnce()
 		{
-			DBConnection.TestMode = true;
+			DbHelper.TestMode = true;
 			try
 			{
-				using (DBConnection con = new DBConnection())
+				using (DbHelper con = new DbHelper())
 				{
 					con.CreateTable();
 				}
@@ -50,7 +50,7 @@ namespace Minder.Tests.DB
 			DateTime tomorrow = now.AddDays(1);
 			Task task2 = new Task("Antra", tomorrow, "sourceIdAntra");
 			task2.Save();
-			using (DBConnection con = new DBConnection())
+			using (DbHelper con = new DbHelper())
 			{
 				List<Task> tasks = con.LoadTasksForShowing();
 				Assert.AreEqual(1, tasks.Count);
