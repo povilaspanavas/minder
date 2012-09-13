@@ -15,7 +15,7 @@ namespace Minder.WebServices.Objects
 	/// <summary>
 	/// Description of Task.
 	/// </summary>
-	public class Task : ICoreObject
+	public class TaskSync : ICoreObject
 	{
 		
 		public string Table {

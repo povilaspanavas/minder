@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Core;
 using Core.Forms;
 using Core.Tools.Log;
+using Minder.Engine.Sync;
 using Minder.Forms.Settings;
 using Minder.Engine;
 using Minder.Forms.Main;
@@ -70,6 +71,16 @@ namespace Minder
 //				new UpdateVersion();
 			if(Minder.Static.StaticData.Settings.CheckUpdates)
 				new UpdateProject(StaticData.VersionCache.Version, true, "Minder");
+			
+			//Sync
+			if(Minder.Static.StaticData.Settings.Sync.Enable)
+			{
+				using(new WaitingForm("Syncing tasks...", "Please wait"))
+				{
+					new SyncController().Sync();
+					new SyncController().StartThreadForSync();
+				}
+			}
 			
 			MainFormPreparer preparer = new MainFormPreparer();
 			if(openForm)

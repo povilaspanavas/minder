@@ -26,7 +26,7 @@ namespace Minder.WebServices.Tests
 			//Create data
 			string userId = "Ignas123";
 			
-			Task task1 = new Task();
+			TaskSync task1 = new TaskSync();
 			task1.DateRemainder = DateTime.Now;
 			task1.IsDeleted = false;
 			task1.Showed = false;
@@ -35,7 +35,7 @@ namespace Minder.WebServices.Tests
 			task1.LastModifyDate = DateTime.Now.AddMinutes(-5);
 			task1.SourceId = string.Format("{0}{1}{2}", DateTime.Now, task1.DateRemainder, task1.Text);
 			
-			Task task2 = new Task();
+			TaskSync task2 = new TaskSync();
 			task2.DateRemainder = DateTime.Now;
 			task2.IsDeleted = false;
 			task2.Showed = false;
@@ -45,7 +45,7 @@ namespace Minder.WebServices.Tests
 			task2.SourceId = string.Format("{0}{1}{2}", DateTime.Now, task2.DateRemainder, task2.Text);
 			
 			SyncObject syncObject = new SyncObject();
-			syncObject.Tasks = new System.Collections.Generic.List<Task>();
+			syncObject.Tasks = new System.Collections.Generic.List<TaskSync>();
 			syncObject.Tasks.Add(task1);
 			syncObject.Tasks.Add(task2);
 			syncObject.UserId = userId;
@@ -61,6 +61,7 @@ namespace Minder.WebServices.Tests
 			request.ContentType = "application/json; charset=utf-8";
 			request.Accept = "application/json, text/javascript, */*";
 			request.Method = "POST";
+			request.Timeout = 10000000;
 			using (StreamWriter writer = new StreamWriter(request.GetRequestStream()))
 			{
 				writer.Write(requestString);
@@ -77,6 +78,8 @@ namespace Minder.WebServices.Tests
 					resultJson += reader.ReadLine();
 				}
 			}
+			
+			SyncObject result = JsonHelper.JsonToObject<SyncObject>(resultJson);
 
 		}
 	}

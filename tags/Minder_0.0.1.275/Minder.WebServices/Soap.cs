@@ -40,9 +40,9 @@ namespace Minder.WebServices
 					return string.Empty;
 				
 				string userId = syncObject.UserId;
-				List<Task> tasks = syncObject.Tasks;
+				List<TaskSync> tasks = syncObject.Tasks;
 				
-				List<Task> result = new TaskSyncController().Sync(tasks, userId);
+				List<TaskSync> result = new TaskSyncController().Sync(tasks, userId);
 				
 				SyncObject resultObject = new SyncObject();
 				resultObject.Tasks = result;

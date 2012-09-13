@@ -22,7 +22,7 @@ namespace Minder.WebServices
 		{
 			ConfigLoader.Load();
 			GenericDbHelper.DropAllTables();
-			GenericDbHelper.CreateTable(typeof(Task));
+			GenericDbHelper.CreateTable(typeof(TaskSync));
 		}
 	}
 }

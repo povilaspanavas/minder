@@ -25,7 +25,7 @@ namespace Minder.Sql
 			using(IConnection con = new ConnectionCollector().GetConnection())
 			{
 				string query = string.Format("SELECT ID, NAME, DATE_REMAINDER, SOURCE_ID, SHOWED from task where DATE_REMAINDER <= {0}" +
-				                             "and (SHOWED = 0 or SHOWED is null or SHOWED = '')",
+				                             "and (SHOWED = 0 or SHOWED is null or SHOWED = '') and (IS_DELETED = 0 or IS_DELETED is null)",
 				                             DBTypesConverter.ToFullDateStringWithQuotes(DateTime.Now));
 				
 				IDataReader reader = con.ExecuteReader(query);
@@ -46,7 +46,7 @@ namespace Minder.Sql
 		{
 			using(IConnection con = new ConnectionCollector().GetConnection())
 			{
-				string query = string.Format("SELECT ID, NAME, DATE_REMAINDER, SOURCE_ID, SHOWED from task");
+				string query = string.Format("SELECT ID, NAME, DATE_REMAINDER, SOURCE_ID, SHOWED from task where (IS_DELETED = 0 or IS_DELETED is null)");
 				
 				IDataReader reader = con.ExecuteReader(query);
 				List<Task> tasks = new List<Task>();
@@ -76,7 +76,7 @@ namespace Minder.Sql
 			using(IConnection connection = new ConnectionCollector().GetConnection())
 			{
 				string query = string.Format("select id, name, date_remainder, source_id from task where (showed is null " +
-				                             "or showed = 0 or SHOWED = '') " +
+				                             "or showed = 0 or SHOWED = '') and  (IS_DELETED = 0 or IS_DELETED is null)" +
 				                             " order by date_remainder, id",
 				                             DBTypesConverter.ToFullDateStringWithQuotes(DateTime.Now.AddSeconds(-15)));
 				
@@ -117,7 +117,12 @@ namespace Minder.Sql
 		
 		public void Delete(int id)
 		{
-			GenericDbHelper.RunDirectSql("DELETE FROM TASK WHERE ID = " + id);
+			Task task = GenericDbHelper.GetById<Task>(id);
+			if(task != null)
+			{
+				task.IsDeleted = true;
+				GenericDbHelper.UpdateAndFlush(task);
+			}
 		}
 		
 		public void CreateTable()

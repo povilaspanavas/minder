@@ -67,6 +67,9 @@ namespace Minder.Forms.Settings
 			m_form.MComboBoxCultureData.SelectedValueChanged += delegate { m_existChanges = true; };
 			m_form.MComboBoxRemindMeLater.SelectedValueChanged += delegate { m_existChanges = true; };
 			m_form.MSkinListBox.SelectedIndexChanged += delegate { m_existChanges = true; };
+			m_form.MSyncGenerateIdButton.Click += delegate { m_existChanges = true; };
+			m_form.MSyncIdTextBox.CursorChanged += delegate { m_existChanges = true; };
+			m_form.MSyncIntervalNumeric.ValueChanged += delegate { m_existChanges = true; };
 			
 			m_form.Closing += FormClosing;
 			
@@ -91,6 +94,22 @@ namespace Minder.Forms.Settings
 					m_existChanges = true;
 				}
 			};
+			
+			m_form.MEnableSyncCheckBox.CheckedChanged += delegate
+			{
+				m_form.MSyncGenerateIdButton.Enabled = m_form.MEnableSyncCheckBox.Checked;
+				m_form.MSyncIdTextBox.Enabled = m_form.MEnableSyncCheckBox.Checked;
+				m_form.MSyncIntervalNumeric.Enabled = m_form.MEnableSyncCheckBox.Checked;
+			};
+			
+			m_form.MSyncGenerateIdButton.Click += delegate { GenerateSyncId(); };
+			
+			if(Static.StaticData.Settings.Sync.Enable == false)
+			{
+				m_form.MSyncGenerateIdButton.Enabled = false;
+				m_form.MSyncIdTextBox.Enabled = false;
+				m_form.MSyncIntervalNumeric.Enabled = false;
+			}
 		}
 		
 		private void AddDataToControlls()
@@ -153,12 +172,32 @@ namespace Minder.Forms.Settings
 				skinNameIndex++;
 			}
 			
+			// ***** Sync ******
+			m_form.MEnableSyncCheckBox.Checked = Minder.Static.StaticData.Settings.Sync.Enable;
+			m_form.MSyncIntervalNumeric.Value = Minder.Static.StaticData.Settings.Sync.Interval;
+			m_form.MSyncIdTextBox.Text = Minder.Static.StaticData.Settings.Sync.Id;
+			
 		}
 		
 		private void SetSkinSettings()
 		{
 			string skinName = m_form.MSkinListBox.Items[m_form.MSkinListBox.SelectedIndex].ToString();
 			Minder.Static.StaticData.Settings.SkinUniqueCode = Minder.Static.StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames[skinName];
+		}
+		
+		private void GenerateSyncId()
+		{
+			string rStr = Path.GetRandomFileName();
+			rStr = rStr.Replace(".", ""); // For Removing the .
+			if(string.IsNullOrEmpty(m_form.MSyncIdTextBox.Text))
+				m_form.MSyncIdTextBox.Text = rStr;
+			else
+			{
+				if(MessageBox.Show("Do you really want generate new ID and lose your current ID?", "Warrning", 
+				                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+				m_form.MSyncIdTextBox.Text = rStr;
+			}
+			
 		}
 		
 		private void FormClosing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -183,8 +222,11 @@ namespace Minder.Forms.Settings
 					if (m_form.MComboBoxRemindMeLater.SelectedItem != null &&
 					    m_form.MComboBoxRemindMeLater.SelectedItem is RemindLaterValue)
 						Minder.Static.StaticData.Settings.RemindMeLaterDefaultValue = (m_form.MComboBoxRemindMeLater.SelectedItem as RemindLaterValue).Value;
-					
 					SetSkinSettings();
+					
+					Minder.Static.StaticData.Settings.Sync.Id = m_form.MSyncIdTextBox.Text;
+					Minder.Static.StaticData.Settings.Sync.Interval = Convert.ToInt32(m_form.MSyncIntervalNumeric.Value);
+					Minder.Static.StaticData.Settings.Sync.Enable = m_form.MEnableSyncCheckBox.Checked;
 					
 					new SettingsLoader().SaveSettingsToFile();
 					if(MessageBox.Show("You need restart application to take efect. Do you want restart application now?", "Settings",

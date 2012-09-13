@@ -85,9 +85,11 @@
     <Compile Include="Engine\Settings\SettingsLoader.cs" />
     <Compile Include="Engine\Settings\StartWithWinController.cs" />
     <Compile Include="Engine\Sql\RecreateDb.cs" />
+    <Compile Include="Engine\Sync\SyncController.cs" />
     <Compile Include="Engine\TimeController.cs" />
     <Compile Include="Engine\TimeEngine.cs" />
     <Compile Include="Engine\TimerLogic.cs" />
+    <Compile Include="Objects\SyncObject.cs" />
     <Compile Include="UI\Forms\About\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +211,7 @@
     <Page Include="UI\SkinController\MainForms\DefaultSkin\DefaultSkinForm.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Engine\Sync" />
     <Folder Include="Engine\Parse\Cultures" />
     <Folder Include="Engine\Settings" />
     <Folder Include="Engine\Parse" />

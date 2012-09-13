@@ -22,24 +22,24 @@ namespace Minder.WebServices.Services
 //		Loger m_log = new Loger();
 		
 		//Main
-		public List<Task> Sync(List<Task> tasks, string userId)
+		public List<TaskSync> Sync(List<TaskSync> tasks, string userId)
 		{
 			if(Minder.WebServices.Helpers.StaticData.ConfigLoaded == false)
 				ConfigLoader.Load(@"c:\Dokumentai\Projektai\Minder1\Minder.WebServices\bin\CoreConfig.xml");
-			List<Task> tasksFromDb = LoadAllTasksByUserId(userId);
-			List<Task> result = MergeTasks(tasksFromDb, tasks);
+			List<TaskSync> tasksFromDb = LoadAllTasksByUserId(userId);
+			List<TaskSync> result = MergeTasks(tasksFromDb, tasks);
 			SaveTasksToDb(tasksFromDb, result);
 			return result;
 		}
 		
-		private List<Task> LoadAllTasksByUserId(string userId)
+		private List<TaskSync> LoadAllTasksByUserId(string userId)
 		{
-			List<Task> result = new List<Task>();
+			List<TaskSync> result = new List<TaskSync>();
 			if(string.IsNullOrEmpty(userId))
 				return result;
-			List<Task> allTasks = GenericDbHelper.Get<Task>();
+			List<TaskSync> allTasks = GenericDbHelper.Get<TaskSync>();
 			
-			foreach(Task task in allTasks)
+			foreach(TaskSync task in allTasks)
 			{
 				if(task.UserId.Equals(userId))
 					result.Add(task);
@@ -48,31 +48,31 @@ namespace Minder.WebServices.Services
 			return result;
 		}
 		
-		private void SaveTasksToDb(List<Task> taskFromDb, List<Task> mergedTasks)
+		private void SaveTasksToDb(List<TaskSync> taskFromDb, List<TaskSync> mergedTasks)
 		{
-			foreach(Task task in taskFromDb)
+			foreach(TaskSync task in taskFromDb)
 			{
 				GenericDbHelper.DeleteAndFlush(task);
 			}
 			
-			foreach(Task task in mergedTasks)
+			foreach(TaskSync task in mergedTasks)
 			{
 				GenericDbHelper.SaveAndFlush(task);
 			}
 		}
 		
-		private List<Task> MergeTasks(List<Task> tasksFromDb, List<Task> tasksFromUser)
+		private List<TaskSync> MergeTasks(List<TaskSync> tasksFromDb, List<TaskSync> tasksFromUser)
 		{
-			Dictionary<string, Task> result = new Dictionary<string, Task>();
+			Dictionary<string, TaskSync> result = new Dictionary<string, TaskSync>();
 			
-			foreach(Task task in tasksFromDb)
+			foreach(TaskSync task in tasksFromDb)
 			{
 				result.Add(task.SourceId, task);
 			}
 			
-			foreach(Task task in tasksFromUser)
+			foreach(TaskSync task in tasksFromUser)
 			{
-				Task tempTask = null;
+				TaskSync tempTask = null;
 				result.TryGetValue(task.SourceId, out tempTask);
 				if(tempTask != null)
 				{
@@ -91,7 +91,7 @@ namespace Minder.WebServices.Services
 					result.Add(task.SourceId, task);
 			}
 			
-			return new List<Task>(result.Values);
+			return new List<TaskSync>(result.Values);
 		}
 	}
 }

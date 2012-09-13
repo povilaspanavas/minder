@@ -149,6 +149,30 @@ namespace Minder.Static
 				}
 			}
 			
+			public static class Sync
+			{
+				static string m_id = string.Empty;
+				
+				public static string Id {
+					get { return m_id; }
+					set { m_id = value; }
+				}
+				
+				static bool m_enable = false;
+				
+				public static bool Enable {
+					get { return m_enable; }
+					set { m_enable = value; }
+				}
+				
+				static int m_interval = 1;
+				
+				public static int Interval {
+					get { return m_interval; }
+					set { m_interval = value; }
+				}
+			}
+			
 			public static class NewTaskHotkey
 			{
 				static bool m_ctrl;

@@ -75,6 +75,14 @@ namespace Minder.Objects
 			set { m_isDeleted = value; }
 		}
 		
+		string m_userId = string.Empty;
+		
+		//Not from/to db, only for sync
+		public string UserId {
+			get { return m_userId; }
+			set { m_userId = value; }
+		}
+		
 		public Task(int id, string taskText, DateTime remainderDate, string sourceId) : this()
 		{
 			this.m_id = id;
@@ -103,6 +111,7 @@ namespace Minder.Objects
 		}
 		public void Save()
 		{
+			this.LastModifyDate = DateTime.Now;
 			GenericDbHelper.SaveAndFlush(this);
 		}
 		
@@ -113,22 +122,25 @@ namespace Minder.Objects
 		
 		public void Delete()
 		{
-			GenericDbHelper.DeleteAndFlush(this);
+			this.IsDeleted = true;
+			GenericDbHelper.UpdateAndFlush(this);
 		}
 		
 		public Task ParseString(string dataEntered)
 		{
 			if (string.IsNullOrEmpty(dataEntered))
 				return null;
-			this.SourceId = dataEntered;
-
 			if (TextParser.Parse(dataEntered, out m_dateRemainder, out m_text) == false)
 				return null;
+			
+			this.SourceId = string.Format("{0}{1}{2}", DateTime.Now, m_dateRemainder, m_text);
+			
 			return this;
 		}
 		
 		public void Update()
 		{
+			this.LastModifyDate = DateTime.Now;
 			GenericDbHelper.UpdateAndFlush(this);
 		}
 		

@@ -1,15 +1,15 @@
 ﻿/*
  * Created by SharpDevelop.
  * User: Ignas
- * Date: 2012.09.11
- * Time: 21:38
+ * Date: 2012.09.13
+ * Time: 22:11
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
 using System.Collections.Generic;
 
-namespace Minder.WebServices.Objects
+namespace Minder.Objects
 {
 	/// <summary>
 	/// Description of SyncObject.
@@ -23,9 +23,9 @@ namespace Minder.WebServices.Objects
 			set { m_userId = value; }
 		}
 		
-		List<TaskSync> m_tasks;
+		List<Task> m_tasks;
 		
-		public List<TaskSync> Tasks {
+		public List<Task> Tasks {
 			get { return m_tasks; }
 			set { m_tasks = value; }
 		}
