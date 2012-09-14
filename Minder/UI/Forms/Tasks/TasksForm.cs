@@ -9,13 +9,14 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Minder.UI.Forms;
 
 namespace Minder.Forms.Tasks
 {
 	/// <summary>
 	/// Description of TasksForm.
 	/// </summary>
-	public partial class TasksForm : Form
+	public partial class TasksForm : BasicForm
 	{
 		public TasksForm()
 		{

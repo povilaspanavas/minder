@@ -9,13 +9,14 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Minder.UI.Forms;
 
 namespace Minder.Forms.Tasks
 {
 	/// <summary>
 	/// Description of TaskNewEditForm.
 	/// </summary>
-	public partial class TaskNewEditForm : Form
+	public partial class TaskNewEditForm : BasicForm
 	{
 		public TaskNewEditForm()
 		{

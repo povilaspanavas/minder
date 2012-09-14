@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Minder.UI.Forms;
 using Minder.UI.Forms.Skins;
 
 namespace Minder.Forms.Skins
@@ -11,7 +12,7 @@ namespace Minder.Forms.Skins
 	/// <summary>
 	/// Description of Main_Form.
 	/// </summary>
-	public partial class MainFormLaunchy : Form, IWindowsFormSkin
+	public partial class MainFormLaunchy : BasicForm, IWindowsFormSkin
 	{
 		private Image m_backGroundImage = null;
 		

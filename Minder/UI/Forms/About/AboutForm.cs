@@ -9,13 +9,14 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Minder.UI.Forms;
 
 namespace Minder.Forms.About
 {
 	/// <summary>
 	/// Description of AboutForm.
 	/// </summary>
-	public partial class AboutForm : Form
+	public partial class AboutForm : BasicForm
 	{
 		public AboutForm()
 		{
