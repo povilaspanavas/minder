@@ -73,5 +73,9 @@
       <Name>Minder</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ClientConfig.xml" />
+    <None Include="CoreConfig.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>

@@ -12,6 +12,7 @@ using Minder.Engine;
 using Minder.Forms.Main;
 using Minder.Objects;
 using Minder.Sql;
+using Minder.Sql.DBVersionSystem;
 using Minder.Tools;
 
 namespace Minder
@@ -67,6 +68,9 @@ namespace Minder
 			
 			SettingsLoader loader = new SettingsLoader();
 			loader.LoadSettings();
+			
+			UpdateDBVersion();
+			
 			new StartWithWinController().StartWithWindows();
 //				new UpdateVersion();
 			if(Minder.Static.StaticData.Settings.CheckUpdates)
@@ -90,6 +94,17 @@ namespace Minder
 			
 			TimeController timeController = new TimeController(preparer);
 			timeController.Start();
+		}
+		
+		/// <summary>
+		/// Checks if update is necessary. If no, does nothing, if yes updates
+		/// </summary>
+		static void UpdateDBVersion()
+		{
+			
+			new DBVersionSystemRunner().ExecuteUpdateToDB(new DBVersionRepository()
+			                                              .AddVersions(typeof(Task).Assembly))
+				;
 		}
 		
 	}
