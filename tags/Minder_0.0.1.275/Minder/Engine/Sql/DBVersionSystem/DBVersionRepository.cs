@@ -75,7 +75,7 @@ namespace Minder.Sql.DBVersionSystem
 			return info.VersionAttribute.Version;
 		}
 		
-		private void CheckVersionNumbers(bool core)
+		private void CheckVersionNumbers()
 		{
 			IDBVersionInformation lastVersion = null;
 			foreach (IDBVersionInformation entry in m_versionsTable.Values)
@@ -108,16 +108,15 @@ namespace Minder.Sql.DBVersionSystem
 			if (m_versionsTable.Count == 0)
 				throw new ArgumentOutOfRangeException("There must be at least one method with atrribute DBVersionAttribute");
 			
-			CheckVersionNumbers(false);
-			CheckVersionNumbers(true);
+			CheckVersionNumbers();
 			
-			SortedDictionary<DateTime, IDBVersionInformation> sorted = new SortedDictionary<DateTime, IDBVersionInformation>();
+			SortedDictionary<int, IDBVersionInformation> sorted = new SortedDictionary<int, IDBVersionInformation>();
 			IDBVersionInformation lastVersion = null;
 			foreach (IDBVersionInformation entry in m_versionsTable.Values)
 			{
 				try
 				{
-					sorted.Add(entry.VersionAttribute.Date, entry);
+					sorted.Add(entry.VersionAttribute.Version, entry);
 				}
 				catch (ArgumentException e)
 				{
