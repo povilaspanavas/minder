@@ -2,13 +2,14 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Minder.UI.Forms;
 
 namespace Minder.Forms.Main
 {
 	/// <summary>
 	/// Description of Main_Form.
 	/// </summary>
-	public partial class MainForm : Form
+	public partial class MainForm : BasicForm
 	{
 		public MainForm()
 		{

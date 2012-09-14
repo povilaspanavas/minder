@@ -97,6 +97,7 @@
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\About\AboutFormPreparer.cs" />
+    <Compile Include="UI\Forms\BasicForm.cs" />
     <Compile Include="UI\Forms\Main\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
