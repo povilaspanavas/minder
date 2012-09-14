@@ -75,6 +75,7 @@
     <Compile Include="Controls\MTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Engine\AttributeParser.cs" />
     <Compile Include="Engine\Parse\Cultures\CultureDataLt.cs" />
     <Compile Include="Engine\Parse\Cultures\CultureDataUK.cs" />
     <Compile Include="Engine\Parse\Cultures\CultureDataUS.cs" />
@@ -84,11 +85,24 @@
     <Compile Include="Engine\Settings\PathCutHelper.cs" />
     <Compile Include="Engine\Settings\SettingsLoader.cs" />
     <Compile Include="Engine\Settings\StartWithWinController.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBVersionAttribute.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBHistoryAttribute.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBUpdateException.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBVersionBodyMethodInfo.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBVersionInformation.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBVersionRepository.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBVersionService.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBVersionStructureAttribute.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBVersionSystem.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBVersionSystemRunner.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\IDBVersionBody.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\IDBVersionInformation.cs" />
     <Compile Include="Engine\Sql\RecreateDb.cs" />
     <Compile Include="Engine\Sync\SyncController.cs" />
     <Compile Include="Engine\TimeController.cs" />
     <Compile Include="Engine\TimeEngine.cs" />
     <Compile Include="Engine\TimerLogic.cs" />
+    <Compile Include="Objects\DBVersion.cs" />
     <Compile Include="Objects\SyncObject.cs" />
     <Compile Include="UI\Forms\About\AboutForm.cs">
       <SubType>Form</SubType>
@@ -211,6 +225,7 @@
     <Page Include="UI\SkinController\MainForms\DefaultSkin\DefaultSkinForm.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Engine\Sql\DBVersionSystem" />
     <Folder Include="Engine\Sync" />
     <Folder Include="Engine\Parse\Cultures" />
     <Folder Include="Engine\Settings" />

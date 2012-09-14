@@ -1,0 +1,98 @@
+﻿/*
+ * Created by SharpDevelop.
+ * User: IGNAS
+ * Date: 2012.06.09
+ * Time: 22:54
+ * 
+ * To change this template use Tools | Options | Coding | Edit Standard Headers.
+ */
+using System;
+using System.Text.RegularExpressions;
+using Core.Attributes;
+using Core.DB;
+using Core.Objects;
+using Minder.Engine;
+using Minder.Engine.Parse;
+using Minder.Sql;
+
+namespace Minder.Objects
+{
+	/// <summary>
+	/// Description of Task.
+	/// </summary>
+	public class DBVersion : ICoreObject
+	{
+		int m_id = 0;
+		int m_versionNr = 0;
+		string m_comment = string.Empty;
+		DateTime m_date = DateTime.MinValue;
+		
+		[PrimaryKey("DBVERSION_SEQ"), 
+		 DBColumnReference("ID")]
+		public int Id {
+			get { return m_id; }
+			set { m_id = value; }
+		}
+		
+		[DBColumnReference("DESCRIPTION")]
+		public string Comment {
+			get { return m_comment; }
+			set { m_comment = value; }
+		}
+		
+		[DBColumnReference("DATE_WRITTEN")]
+		public DateTime Date {
+			get { return m_date; }
+			set { m_date = value; }
+		}
+		
+		[DBColumnReference("NUMBER")]
+		public int VersionNr {
+			get { return m_versionNr; }
+			set { m_versionNr = value; }
+		}
+		
+		public DBVersion(int id, int versionNr, string description, DateTime date) : this()
+		{
+			this.m_id = id;
+			this.m_versionNr = versionNr;
+			this.m_comment = description;
+			this.m_date = date;
+		}
+		
+		public DBVersion(int versionNr, string taskText, DateTime date) : this(0, versionNr, taskText, date)
+		{
+		}
+		
+		public DBVersion()
+		{
+			
+		}
+		
+		public void Save()
+		{
+			GenericDbHelper.SaveAndFlush(this);
+		}
+		
+		public static void DeleteAll()
+		{
+			GenericDbHelper.RunDirectSql("DELETE FROM DB_VERSION");
+		}
+		
+		public void Delete()
+		{
+			GenericDbHelper.UpdateAndFlush(this);
+		}
+		
+		public void Update()
+		{
+			GenericDbHelper.UpdateAndFlush(this);
+		}
+		
+		public string Table {
+			get {
+				return "DB_VERSION";
+			}
+		}
+	}
+}
