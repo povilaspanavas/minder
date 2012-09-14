@@ -155,6 +155,10 @@ namespace Minder.Forms.TaskShow
 				new TaskNewEditFormPreparer(true, m_task).PrepareForm();
 				this.m_form.Close();
 			};
+			
+			m_form.MComboBoxRemindLater.SelectedValueChanged += delegate { 
+				m_form.RemainderMeLaterButton.Select();
+			};
 		}
 
 		private void CloseOrOkButton()
