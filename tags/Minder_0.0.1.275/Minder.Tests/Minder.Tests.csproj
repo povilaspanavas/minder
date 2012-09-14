@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\TestDBConnection.cs" />
+    <Compile Include="DB\TestDBVersionSystem.cs" />
     <Compile Include="DB\TestTask.cs" />
     <Compile Include="Logic\TestTaskController.cs" />
     <Compile Include="Logic\TestTextParserCultureDataLt.cs" />

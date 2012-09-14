@@ -1,12 +1,4 @@
-﻿/*
- * Created by SharpDevelop.
- * User: IGNAS
- * Date: 2012.06.09
- * Time: 22:54
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
-using System;
+﻿using System;
 using System.Text.RegularExpressions;
 using Core.Attributes;
 using Core.DB;
@@ -40,7 +32,7 @@ namespace Minder.Objects
 			set { m_comment = value; }
 		}
 		
-		[DBColumnReference("DATE_WRITTEN")]
+		[DBColumnReference("DATE_VERSION")]
 		public DateTime Date {
 			get { return m_date; }
 			set { m_date = value; }

@@ -85,6 +85,7 @@
     <Compile Include="Engine\Settings\PathCutHelper.cs" />
     <Compile Include="Engine\Settings\SettingsLoader.cs" />
     <Compile Include="Engine\Settings\StartWithWinController.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\AllDbVersions.cs" />
     <Compile Include="Engine\Sql\DBVersionSystem\DBVersionAttribute.cs" />
     <Compile Include="Engine\Sql\DBVersionSystem\DBHistoryAttribute.cs" />
     <Compile Include="Engine\Sql\DBVersionSystem\DBUpdateException.cs" />

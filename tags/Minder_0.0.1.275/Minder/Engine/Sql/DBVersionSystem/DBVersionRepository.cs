@@ -186,7 +186,7 @@ namespace Minder.Sql.DBVersionSystem
 		}
 		
 		public DBVersionRepository AddVersions(DBVersionAttribute attribute,
-		                                       MethodInfo method, bool core)
+		                                       MethodInfo method)
 		{
 			if (method == null)
 				AddVersions(new DBVersionInformation(attribute,
@@ -196,13 +196,6 @@ namespace Minder.Sql.DBVersionSystem
 				AddVersions(new DBVersionInformation(attribute,
 				                                     new DBVersionBodyMethodInfo(method),
 				                                     new DBHistoryAttribute()));
-			return this;
-		}
-		
-		public DBVersionRepository AddVersions(DBVersionAttribute attribute,
-		                                       MethodInfo method)
-		{
-			AddVersions(attribute, method, false);
 			return this;
 		}
 		
