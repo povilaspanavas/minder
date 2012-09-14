@@ -8,10 +8,12 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Input;
 using Core;
+using Core.DB;
 using Core.Forms;
 using Core.Tools.GlobalHotKeys;
 using Core.Tools.Log;
 using Minder.Engine;
+using Minder.Engine.Helpers;
 using Minder.Engine.Parse;
 using Minder.Forms.About;
 using Minder.Forms.Main;
@@ -64,9 +66,33 @@ namespace Minder.Forms.Main
 			{
 				m_mainForm.ShowHide();
 			};
-			
+			m_form.TrayIcon.MouseMove += delegate {
+				m_form.TrayIcon.Text = FormatNextTaskRemindingDate();
+			};
 			m_mainForm.MTextBox.TextChanged += ParseRealTimeAndDisplay;
 			m_mainForm.MWindow.Deactivated += delegate { m_mainForm.MWindow.Hide(); };
+		}
+		
+		public string FormatNextTaskRemindingDate()
+		{
+			string text = "Nothing to mindered about";
+			DateTime? nextDate = new DBConnection().NextDateToShow();
+			if (nextDate.HasValue == false)
+				return text;
+			
+			text = string.Format("You will be mindered at {0}", DBTypesConverter.ToFullDateStringByCultureInfo(nextDate.Value));
+			TimeSpan difference = nextDate.Value.Subtract(DateTime.Now);
+			
+			decimal days = RoundHelper.Round((decimal)difference.TotalDays, 0);
+			if (days < 1)
+				text = string.Format("You will be mindered at {0}",  nextDate.Value.ToShortTimeString());
+			
+			decimal minutes = RoundHelper.Round((decimal)difference.TotalMinutes, 0);
+			if (difference.TotalHours < 1)
+				text = string.Format("You will be mindered in {0} minutes", minutes);
+			if (minutes < 1)
+				text = ("You will be mindered in less than a minute");
+			return text;
 		}
 		
 		private void BackroundWorks()
