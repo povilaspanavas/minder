@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using Minder.Engine.Helpers;
 
 namespace Minder.UI.Forms.TaskShow
 {
@@ -36,7 +37,7 @@ namespace Minder.UI.Forms.TaskShow
 		
 		public static decimal Round(decimal val)
 		{
-			return Math.Round(val, 10, MidpointRounding.AwayFromZero);
+			return RoundHelper.Round(val, 10);
 		}
 	}
 }
