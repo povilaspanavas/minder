@@ -74,8 +74,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClientConfig.xml" />
-    <None Include="CoreConfig.xml" />
+    <None Include="ClientConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CoreConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
