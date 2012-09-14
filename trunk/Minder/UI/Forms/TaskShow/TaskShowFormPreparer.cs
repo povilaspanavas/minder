@@ -8,6 +8,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 using Core.Forms;
@@ -158,6 +159,13 @@ namespace Minder.Forms.TaskShow
 			
 			m_form.MComboBoxRemindLater.SelectedValueChanged += delegate { 
 				m_form.RemainderMeLaterButton.Select();
+			};
+			
+			m_form.Deactivate += delegate { 
+				m_form.Opacity = 0.5;
+			};
+			m_form.Activated += delegate {
+				m_form.Opacity = 1.0;
 			};
 		}
 
