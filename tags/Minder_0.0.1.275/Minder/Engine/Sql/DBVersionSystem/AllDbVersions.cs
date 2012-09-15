@@ -15,7 +15,7 @@ namespace Minder.Engine.Sql.DBVersionSystem
 	[DBHistory]
 	public class AllDbVersions
 	{
-		[DBVersion(1, "Adds DBVersion table", "2012.09.15 00:16:00")]
+		[DBVersion(1, "Adds DBVersion's table", "2012.09.15 00:16:00")]
 		public void Version()
 		{
 			GenericDbHelper.RunDirectSql("CREATE TABLE DB_VERSION (ID INTEGER PRIMARY KEY, VERSION_NR INTEGER NOT NULL, " +

@@ -21,7 +21,7 @@ namespace Minder.Tests.DB
 	[DBHistory]
 	public class TestDBVersionsFile
 	{
-		[DBVersion(1, "Adds DBVersion table", "2012.09.15 00:16:00")]
+		[DBVersion(1, "Adds DBVersion's table", "2012.09.15 00:16:00")]
 		public void Version()
 		{
 			GenericDbHelper.RunDirectSql("CREATE TABLE TROL_TEST (ID INTEGER PRIMARY KEY, VERSION_NR INTEGER NOT NULL, " +
