@@ -34,7 +34,7 @@ namespace Minder.Sql.DBVersionSystem
 				                                ;
 			new DBVersionSystemRunner()
 				.ExecuteUpdateToDB(repo)
-				.CreateAllVersionsInDB(repo)
+//				.CreateAllVersionsInDB(repo)
 				;
 //			m_log.Info("DB update finished successfully");
 		}

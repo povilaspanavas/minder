@@ -73,6 +73,11 @@ namespace Minder.Tests.DB
 				
 				// Version number was written?
 				Assert.AreEqual(1, DBVersionSystem.GetCurrentVersion());
+				
+				// DB version numbers is written corretly (was bug, which duplicated lines)
+				reader = con.ExecuteReader("SELECT COUNT(*) FROM DB_VERSION");
+				Assert.IsTrue(reader.Read());
+				Assert.AreEqual(1, reader.GetInt32(0));
 			}
 		}
 	}
