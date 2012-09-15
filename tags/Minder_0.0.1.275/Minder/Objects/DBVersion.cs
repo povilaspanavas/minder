@@ -73,7 +73,7 @@ namespace Minder.Objects
 		
 		public void Delete()
 		{
-			GenericDbHelper.UpdateAndFlush(this);
+			GenericDbHelper.DeleteAndFlush(this);
 		}
 		
 		public void Update()

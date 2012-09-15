@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using Core;
 using Core.DB;
 using Core.DB.Connections;
 using Minder.Objects;
@@ -25,11 +26,13 @@ namespace Minder.Tests.DB
 		[TestFixtureSetUp]
 		public void InitOnce()
 		{
+			ConfigLoader.Load(@"c:\Dokumentai\Projektai\Minder1\Minder.Tests\bin\Debug\CoreConfig.xml");
 //			DbHelper.TestMode = true;
 			try
 			{
 				using (IConnection con = new ConnectionCollector().GetConnection())
 				{
+					GenericDbHelper.DropAllTables();
 					new DbHelper().CreateTable();
 				}
 			} catch (Exception ex) { ex.ToString(); }
