@@ -11,6 +11,7 @@ using System.Data;
 using Core;
 using Core.DB;
 using Core.DB.Connections;
+using Minder.Engine.Sql.DBVersionSystem;
 using Minder.Objects;
 using Minder.Sql;
 using Minder.Sql.DBVersionSystem;
@@ -24,6 +25,7 @@ namespace Minder.Tests.DB
 		[DBVersion(1, "Adds DBVersion's table", "2012.09.15 00:16:00")]
 		public void Version()
 		{
+			
 			GenericDbHelper.RunDirectSql("CREATE TABLE TROL_TEST (ID INTEGER PRIMARY KEY, VERSION_NR INTEGER NOT NULL, " +
 			                             "COMMENT VARCHAR(255))");
 			GenericDbHelper.RunDirectSql("INSERT INTO TROL_TEST (VERSION_NR, COMMENT) VALUES (5, \"Komentaras\")");
@@ -38,12 +40,11 @@ namespace Minder.Tests.DB
 		{
 			ConfigLoader.Load(@"CoreConfig.xml");
 //			DbHelper.TestMode = true;
-			try 
-			{
+			try {
 				GenericDbHelper.DropAllTables();
-				GenericDbHelper.CreateTable(typeof(DBVersion));
-			} 
-			catch{}
+				new AllDbVersions().Version();
+			}
+			catch {}
 		}
 		
 		[Test]
@@ -62,12 +63,16 @@ namespace Minder.Tests.DB
 				.AddVersions(typeof(TestDBVersionSystem).Assembly)
 				;
 //			GenericDbHelper.CreateTable(typeof(DBVersion));
-			new DBVersionSystemRunner().ExecuteUpdateToDB(repo);
+			new DBVersionSystem(new DBVersionRepository().AddVersions(typeof(TestDBVersionsFile).Assembly)).UpdateToNewest();
 			using (IConnection con = new ConnectionCollector().GetConnection())
 			{
 				IDataReader reader = con.ExecuteReader("SELECT COUNT(*) FROM TROL_TEST");
 				Assert.IsTrue(reader.Read());
+				// DB Version was executed?
 				Assert.AreEqual(1, reader.GetInt32(0));
+				
+				// Version number was written?
+				Assert.AreEqual(1, DBVersionSystem.GetCurrentVersion());
 			}
 		}
 	}

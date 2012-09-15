@@ -27,7 +27,7 @@ namespace Minder.Objects
 			set { m_id = value; }
 		}
 		
-		[DBColumnReference("DESCRIPTION")]
+		[DBColumnReference("COMMENT")]
 		public string Comment {
 			get { return m_comment; }
 			set { m_comment = value; }
@@ -39,7 +39,7 @@ namespace Minder.Objects
 			set { m_date = value; }
 		}
 		
-		[DBColumnReference("NUMBER")]
+		[DBColumnReference("VERSION_NR")]
 		public int VersionNr {
 			get { return m_versionNr; }
 			set { m_versionNr = value; }

@@ -28,10 +28,13 @@ namespace Minder.Sql.DBVersionSystem
 			
 			
 //			m_log.Info("Injecting DBStructure versions into database");
-			new DBVersionSystemRunner()
-				.ExecuteUpdateToDB(new DBVersionRepository()
+			DBVersionRepository repo = new DBVersionRepository()
 				                   .AddVersions(m_repository
-				                                .FromVersion(dbVersion)))
+				             .FromVersion(dbVersion))
+				                                ;
+			new DBVersionSystemRunner()
+				.ExecuteUpdateToDB(repo)
+				.CreateAllVersionsInDB(repo)
 				;
 //			m_log.Info("DB update finished successfully");
 		}
@@ -40,12 +43,19 @@ namespace Minder.Sql.DBVersionSystem
 		{
 			using(IConnection con = new ConnectionCollector().GetConnection())
 			{
-				int? max = null;
-				IDataReader dataReader = con.ExecuteReader("SELECT max(VERSION_NR) FROM DB_VERSION");
-				while(dataReader.Read())
-					if (max == null)
-						return 0;
-				return max.Value;
+				int max = 0;
+				try {
+					IDataReader dataReader = con.ExecuteReader("SELECT max(VERSION_NR) FROM DB_VERSION");
+					dataReader.Read();
+					
+					if (dataReader.IsDBNull(0))
+						return max;
+					else
+						max = dataReader.GetInt32(0);
+				} catch (Exception) {
+				}
+				
+				return max;
 			}
 		}
 	}

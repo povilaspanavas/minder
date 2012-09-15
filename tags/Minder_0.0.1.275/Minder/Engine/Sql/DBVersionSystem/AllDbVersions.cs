@@ -22,7 +22,7 @@ namespace Minder.Engine.Sql.DBVersionSystem
 			                             "DATE_VERSION TEXT, COMMENT TEXT)");
 		}
 		
-		[DBVersion(2, "Adds Task.IsDeleted, Task.LastModifyDate.", "2012.09.15 00:43:00")]
+		[DBVersion(2, "Adds Task.IsDeleted, Task.LastModifyDate", "2012.09.15 00:43:00")]
 		public void Version2()
 		{
 			GenericDbHelper.RunDirectSql("ALTER TABLE TASK ADD LAST_MODIFY_DATE TEXT");

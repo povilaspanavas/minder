@@ -17,13 +17,14 @@ namespace Minder.Sql.DBVersionSystem
 		/// Creates all instances of DBVersion or DBCoreVersion from
 		/// provided DBVersionSystem
 		/// </summary>
-		public void CreateAllVersionsInDB(DBVersionRepository system)
+		public DBVersionSystemRunner CreateAllVersionsInDB(DBVersionRepository system)
 		{
 			DBVersionSystemRunner runner = new DBVersionSystemRunner();
 			foreach(IDBVersionInformation info in system.VersionsTable.Values)
 			{
 				runner.CreateVersionInDB(info);
 			}
+			return this;
 		}
 		
 		private SortedDictionary<int, IDBVersionInformation> Sort(DBVersionRepository repo)
@@ -61,7 +62,7 @@ namespace Minder.Sql.DBVersionSystem
 				{
 					//							m_log.Error(string.Format("Could not commit version {0}", versionInfo), e);
 					//							m_log.Error(string.Format("Rolling back"));
-					throw new DBUpdateException(string.Format("Error injecting DB version {2}, date '{1}'.",
+					throw new DBUpdateException(string.Format("Error injecting DB version {1}, date '{0}'.",
 					                                          info.VersionAttribute.Date,
 					                                          info.VersionAttribute.Version)
 					                            , e);
