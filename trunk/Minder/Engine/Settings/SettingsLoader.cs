@@ -58,6 +58,9 @@ namespace Minder.Forms.Settings
 			iniParser.AddSetting("CultureInfo", "name", "lt-Lt");
 			iniParser.AddSetting("RemindMeLater", "Default", RemindLaterValue.Round(10.0m/60.0m).ToString());
 			iniParser.AddSetting("Skin", "code", StaticData.Settings.SkinsUniqueCodes.DEFAULT_SKIN_UNIQUECODE);
+			iniParser.AddSetting("Sync", "enable", "false");
+			iniParser.AddSetting("Sync", "ID", "");
+			iniParser.AddSetting("Sync", "interval", "1");
 			iniParser.SaveSettings();
 		}
 		
@@ -101,6 +104,11 @@ namespace Minder.Forms.Settings
 			
 			//Skins
 			StaticData.Settings.SkinUniqueCode = parser.GetSetting("skin", "code");
+			
+			//Sync
+			StaticData.Settings.Sync.Id = parser.GetSetting("sync", "id");
+			StaticData.Settings.Sync.Enable = Convert.ToBoolean(parser.GetSetting("sync", "enable"));
+			StaticData.Settings.Sync.Interval = Convert.ToInt32(parser.GetSetting("sync", "interval"));
 		}
 		
 		public void SaveSettingsToFile()
@@ -116,6 +124,10 @@ namespace Minder.Forms.Settings
 			parser.DeleteSetting("general", "playsound");
 			parser.DeleteSetting("CultureInfo", "name");
 			parser.DeleteSetting("RemindMeLater", "default");
+			parser.DeleteSetting("skin", "code");
+			parser.DeleteSetting("sync", "id");
+			parser.DeleteSetting("sync", "interval");
+			parser.DeleteSetting("sync", "enable");
 			
 			parser.AddSetting("NewTaskHotkey", "alt", StaticData.Settings.NewTaskHotkey.Alt.ToString());
 			parser.AddSetting("NewTaskHotkey", "ctrl", StaticData.Settings.NewTaskHotkey.Ctrl.ToString());
@@ -128,6 +140,10 @@ namespace Minder.Forms.Settings
 			parser.AddSetting("General", "playsound", StaticData.Settings.PlaySound.ToString());
 			parser.AddSetting("CultureInfo", "name", StaticData.Settings.CultureData.CultureInfo.Name.ToString());
 			parser.AddSetting("RemindMeLater", "default", RemindLaterValue.Round(StaticData.Settings.RemindMeLaterDefaultValue).ToString());
+			parser.AddSetting("skin", "code", StaticData.Settings.SkinsUniqueCodes.DEFAULT_SKIN_UNIQUECODE);
+			parser.AddSetting("sync", "id", StaticData.Settings.Sync.Id);
+			parser.AddSetting("sync", "interval", StaticData.Settings.Sync.Interval.ToString());
+			parser.AddSetting("sync", "enable", StaticData.Settings.Sync.Enable.ToString());
 			
 			parser.SaveSettings();
 		}

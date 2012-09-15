@@ -76,7 +76,7 @@ namespace Minder.Forms.Main
 		public string FormatNextTaskRemindingDate()
 		{
 			string text = "Nothing to mindered about";
-			DateTime? nextDate = new DBConnection().NextDateToShow();
+			DateTime? nextDate = new DbHelper().NextDateToShow();
 			if (nextDate.HasValue == false)
 				return text;
 			

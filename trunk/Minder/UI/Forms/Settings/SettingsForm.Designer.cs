@@ -60,6 +60,14 @@ namespace Minder.Forms.Settings
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.MSkinPreviewPictureBox = new System.Windows.Forms.PictureBox();
 			this.MSkinListBox = new System.Windows.Forms.ListBox();
+			this.tabPage3 = new System.Windows.Forms.TabPage();
+			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.MEnableSyncCheckBox = new System.Windows.Forms.CheckBox();
+			this.MSyncIdTextBox = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.MSyncGenerateIdButton = new System.Windows.Forms.Button();
+			this.label4 = new System.Windows.Forms.Label();
+			this.MSyncIntervalNumeric = new System.Windows.Forms.NumericUpDown();
 			this.panel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -68,6 +76,9 @@ namespace Minder.Forms.Settings
 			this.tabPageSkins.SuspendLayout();
 			this.groupBox3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.MSkinPreviewPictureBox)).BeginInit();
+			this.tabPage3.SuspendLayout();
+			this.groupBox2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.MSyncIntervalNumeric)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -90,6 +101,7 @@ namespace Minder.Forms.Settings
 			this.tabControl1.Controls.Add(this.tabPage1);
 			this.tabControl1.Controls.Add(this.tabPage2);
 			this.tabControl1.Controls.Add(this.tabPageSkins);
+			this.tabControl1.Controls.Add(this.tabPage3);
 			this.tabControl1.Location = new System.Drawing.Point(2, 2);
 			this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
 			this.tabControl1.Name = "tabControl1";
@@ -337,6 +349,98 @@ namespace Minder.Forms.Settings
 			this.MSkinListBox.Size = new System.Drawing.Size(149, 290);
 			this.MSkinListBox.TabIndex = 0;
 			// 
+			// tabPage3
+			// 
+			this.tabPage3.Controls.Add(this.groupBox2);
+			this.tabPage3.Location = new System.Drawing.Point(4, 22);
+			this.tabPage3.Name = "tabPage3";
+			this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage3.Size = new System.Drawing.Size(494, 338);
+			this.tabPage3.TabIndex = 3;
+			this.tabPage3.Text = "Sync";
+			this.tabPage3.UseVisualStyleBackColor = true;
+			// 
+			// groupBox2
+			// 
+			this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+									| System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox2.Controls.Add(this.MSyncIntervalNumeric);
+			this.groupBox2.Controls.Add(this.label4);
+			this.groupBox2.Controls.Add(this.MSyncGenerateIdButton);
+			this.groupBox2.Controls.Add(this.label2);
+			this.groupBox2.Controls.Add(this.MSyncIdTextBox);
+			this.groupBox2.Controls.Add(this.MEnableSyncCheckBox);
+			this.groupBox2.Location = new System.Drawing.Point(6, 6);
+			this.groupBox2.Name = "groupBox2";
+			this.groupBox2.Size = new System.Drawing.Size(482, 326);
+			this.groupBox2.TabIndex = 0;
+			this.groupBox2.TabStop = false;
+			this.groupBox2.Text = "Sync";
+			// 
+			// MEnableSyncCheckBox
+			// 
+			this.MEnableSyncCheckBox.Location = new System.Drawing.Point(21, 19);
+			this.MEnableSyncCheckBox.Name = "MEnableSyncCheckBox";
+			this.MEnableSyncCheckBox.Size = new System.Drawing.Size(205, 24);
+			this.MEnableSyncCheckBox.TabIndex = 0;
+			this.MEnableSyncCheckBox.Text = "Enable synchronization";
+			this.MEnableSyncCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// MSyncIdTextBox
+			// 
+			this.MSyncIdTextBox.Location = new System.Drawing.Point(100, 58);
+			this.MSyncIdTextBox.Name = "MSyncIdTextBox";
+			this.MSyncIdTextBox.Size = new System.Drawing.Size(138, 20);
+			this.MSyncIdTextBox.TabIndex = 1;
+			// 
+			// label2
+			// 
+			this.label2.Location = new System.Drawing.Point(21, 61);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(47, 23);
+			this.label2.TabIndex = 2;
+			this.label2.Text = "Your ID";
+			// 
+			// MSyncGenerateIdButton
+			// 
+			this.MSyncGenerateIdButton.Location = new System.Drawing.Point(253, 56);
+			this.MSyncGenerateIdButton.Name = "MSyncGenerateIdButton";
+			this.MSyncGenerateIdButton.Size = new System.Drawing.Size(100, 23);
+			this.MSyncGenerateIdButton.TabIndex = 3;
+			this.MSyncGenerateIdButton.Text = "Generate ID";
+			this.MSyncGenerateIdButton.UseVisualStyleBackColor = true;
+			// 
+			// label4
+			// 
+			this.label4.Location = new System.Drawing.Point(21, 84);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(119, 23);
+			this.label4.TabIndex = 4;
+			this.label4.Text = "Sync interval (minutes)";
+			// 
+			// MSyncIntervalNumeric
+			// 
+			this.MSyncIntervalNumeric.Location = new System.Drawing.Point(144, 82);
+			this.MSyncIntervalNumeric.Maximum = new decimal(new int[] {
+									100000,
+									0,
+									0,
+									0});
+			this.MSyncIntervalNumeric.Minimum = new decimal(new int[] {
+									1,
+									0,
+									0,
+									0});
+			this.MSyncIntervalNumeric.Name = "MSyncIntervalNumeric";
+			this.MSyncIntervalNumeric.Size = new System.Drawing.Size(94, 20);
+			this.MSyncIntervalNumeric.TabIndex = 5;
+			this.MSyncIntervalNumeric.Value = new decimal(new int[] {
+									1,
+									0,
+									0,
+									0});
+			// 
 			// SettingsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,8 +461,20 @@ namespace Minder.Forms.Settings
 			this.groupBox3.ResumeLayout(false);
 			this.groupBox3.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.MSkinPreviewPictureBox)).EndInit();
+			this.tabPage3.ResumeLayout(false);
+			this.groupBox2.ResumeLayout(false);
+			this.groupBox2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.MSyncIntervalNumeric)).EndInit();
 			this.ResumeLayout(false);
 		}
+		public System.Windows.Forms.Button MSyncGenerateIdButton;
+		private System.Windows.Forms.Label label4;
+		public System.Windows.Forms.NumericUpDown MSyncIntervalNumeric;
+		public System.Windows.Forms.TextBox MSyncIdTextBox;
+		private System.Windows.Forms.Label label2;
+		public System.Windows.Forms.CheckBox MEnableSyncCheckBox;
+		private System.Windows.Forms.GroupBox groupBox2;
+		private System.Windows.Forms.TabPage tabPage3;
 		public System.Windows.Forms.ComboBox MComboBoxRemindMeLater;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.GroupBox groupBox3;

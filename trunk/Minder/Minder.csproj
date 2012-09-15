@@ -8,7 +8,8 @@
     <RootNamespace>Minder</RootNamespace>
     <AssemblyName>Minder</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <NoStdLib>False</NoStdLib>
@@ -56,9 +57,6 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.SQLite">
-      <HintPath>..\libs\System.Data.SQLite.dll</HintPath>
-    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml">
@@ -78,6 +76,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Engine\Helpers\RoundHelper.cs" />
+    <Compile Include="Engine\AttributeParser.cs" />
     <Compile Include="Engine\Parse\Cultures\CultureDataLt.cs" />
     <Compile Include="Engine\Parse\Cultures\CultureDataUK.cs" />
     <Compile Include="Engine\Parse\Cultures\CultureDataUS.cs" />
@@ -87,9 +86,25 @@
     <Compile Include="Engine\Settings\PathCutHelper.cs" />
     <Compile Include="Engine\Settings\SettingsLoader.cs" />
     <Compile Include="Engine\Settings\StartWithWinController.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\AllDbVersions.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBVersionAttribute.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBHistoryAttribute.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBUpdateException.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBVersionBodyMethodInfo.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBVersionInformation.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBVersionRepository.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBVersionStructureAttribute.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBVersionSystem.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\DBVersionSystemRunner.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\IDBVersionBody.cs" />
+    <Compile Include="Engine\Sql\DBVersionSystem\IDBVersionInformation.cs" />
+    <Compile Include="Engine\Sql\RecreateDb.cs" />
+    <Compile Include="Engine\Sync\SyncController.cs" />
     <Compile Include="Engine\TimeController.cs" />
     <Compile Include="Engine\TimeEngine.cs" />
     <Compile Include="Engine\TimerLogic.cs" />
+    <Compile Include="Objects\DBVersion.cs" />
+    <Compile Include="Objects\SyncObject.cs" />
     <Compile Include="UI\Forms\About\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,7 +166,7 @@
     </Compile>
     <Compile Include="UI\Forms\Tasks\TasksFormPreparer.cs" />
     <Compile Include="Objects\Task.cs" />
-    <Compile Include="Engine\Sql\DBConnection.cs" />
+    <Compile Include="Engine\Sql\DbHelper.cs" />
     <Compile Include="Engine\Sql\DBTypesConverter.cs" />
     <Compile Include="Engine\Settings\Static\StaticData.cs" />
     <Compile Include="UI\SkinController\IMainForm.cs" />
@@ -161,6 +176,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="ClientConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -212,6 +228,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Engine\Helpers" />
+    <Folder Include="Engine\Sql\DBVersionSystem" />
+    <Folder Include="Engine\Sync" />
     <Folder Include="Engine\Parse\Cultures" />
     <Folder Include="Engine\Settings" />
     <Folder Include="Engine\Parse" />

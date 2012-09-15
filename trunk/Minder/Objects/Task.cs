@@ -8,6 +8,9 @@
  */
 using System;
 using System.Text.RegularExpressions;
+using Core.Attributes;
+using Core.DB;
+using Core.Objects;
 using Minder.Engine;
 using Minder.Engine.Parse;
 using Minder.Sql;
@@ -17,38 +20,66 @@ namespace Minder.Objects
 	/// <summary>
 	/// Description of Task.
 	/// </summary>
-	public class Task
+	[DbTable("TASK")]
+	public class Task : ICoreObject
 	{
 		int m_id = 0;
 		string m_text = string.Empty;
 		DateTime m_dateRemainder = DateTime.MinValue;
 		string m_sourceId = string.Empty;
 		bool m_showed = false;
+		DateTime m_lastModifyDate;
+		bool m_isDeleted;
+		string m_userId = string.Empty;
 		
+		[DBColumnReference("SHOWED")]
 		public bool Showed {
 			get { return m_showed; }
 			set { m_showed = value; }
 		}
 		
+		[DBColumnReference("SOURCE_ID")]
 		public string SourceId {
 			get { return m_sourceId; }
 			set { m_sourceId = value; }
 		}
 		
+		[PrimaryKey("TASK_SEQ"), 
+		 DBColumnReference("ID")]
 		public int Id {
 			get { return m_id; }
 			set { m_id = value; }
 		}
 		
+		[DBColumnReference("NAME")]
 		public string Text {
 			get { return m_text; }
 			set { m_text = value; }
 		}
 		
-		
+		[DBColumnReference("DATE_REMAINDER")]
 		public DateTime DateRemainder {
 			get { return m_dateRemainder; }
 			set { m_dateRemainder = value; }
+		}
+		
+		[DBColumnReference("LAST_MODIFY_DATE")]
+		public DateTime LastModifyDate {
+			get { return m_lastModifyDate; }
+			set { m_lastModifyDate = value; }
+		}
+		
+		
+		[DBColumnReference("IS_DELETED")]
+		public bool IsDeleted {
+			get { return m_isDeleted; }
+			set { m_isDeleted = value; }
+		}
+		
+		//Not from/to db, only for sync
+		public string UserId {
+			get { return m_userId; }
+			set { m_userId = value; }
 		}
 		
 		public Task(int id, string taskText, DateTime remainderDate, string sourceId) : this()
@@ -79,59 +110,37 @@ namespace Minder.Objects
 		}
 		public void Save()
 		{
-			using (DBConnection con = new DBConnection())
-			{
-				con.ExecuteNonQuery(string.Format("INSERT INTO TASK (NAME, DATE_REMAINDER, SOURCE_ID, SHOWED) " +
-				                                  "VALUES('{0}', {1}, '{2}', {3})",
-				                                  this.Text, DBTypesConverter.ToFullDateStringWithQuotes(this.DateRemainder),
-				                                  this.SourceId, this.Showed ? 1 : 0));
-			}
+			this.LastModifyDate = DateTime.Now;
+			GenericDbHelper.SaveAndFlush(this);
 		}
 		
 		public static void DeleteAll()
 		{
-			using (DBConnection con = new DBConnection())
-			{
-				con.ExecuteNonQuery("DELETE FROM TASK");
-			}
+			GenericDbHelper.RunDirectSql("DELETE FROM TASK");
 		}
 		
 		public void Delete()
 		{
-			if (m_id == 0)
-				return;
-			using (DBConnection con = new DBConnection())
-			{
-				con.ExecuteNonQuery("DELETE FROM TASK WHERE ID = " + m_id);
-			}
+			this.IsDeleted = true;
+			GenericDbHelper.UpdateAndFlush(this);
 		}
 		
 		public Task ParseString(string dataEntered)
 		{
 			if (string.IsNullOrEmpty(dataEntered))
 				return null;
-			this.SourceId = dataEntered;
-
 			if (TextParser.Parse(dataEntered, out m_dateRemainder, out m_text) == false)
 				return null;
+			
+			this.SourceId = string.Format("{0}{1}{2}", DateTime.Now, m_dateRemainder, m_text);
+			
 			return this;
 		}
 		
 		public void Update()
 		{
-			if (m_id == 0)
-				return;
-			int showed = 0;
-			if(m_showed)
-				showed = 1;
-			using (DBConnection con = new DBConnection())
-			{
-				
-				con.ExecuteNonQuery(string.Format("UPDATE TASK SET NAME = '{0}', DATE_REMAINDER = {1}, SOURCE_ID = '{2}', " +
-				                                  "SHOWED = {3} WHERE ID = {4}",
-				                                  this.Text, DBTypesConverter.ToFullDateStringWithQuotes(this.DateRemainder),
-				                                  this.SourceId, showed, m_id));
-			}
+			this.LastModifyDate = DateTime.Now;
+			GenericDbHelper.UpdateAndFlush(this);
 		}
 	}
 }
