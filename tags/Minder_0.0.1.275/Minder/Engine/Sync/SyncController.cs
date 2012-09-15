@@ -57,7 +57,7 @@ namespace Minder.Engine.Sync
 				{
 					bool saved = false;
 					int i = 0;
-					while(saved)
+					while(saved == false)
 					{
 						try 
 						{
@@ -103,10 +103,11 @@ namespace Minder.Engine.Sync
 			requestString += Regex.Replace(json, "\"", "\\\"");
 			requestString += "\"}";
 			
-			HttpWebRequest request = (HttpWebRequest) HttpWebRequest.Create("http://88.223.51.135/Minder.WebServices/default.asmx/Sync");
+			HttpWebRequest request = (HttpWebRequest) HttpWebRequest.Create("http://localhost/Minder.WebServices/default.asmx/Sync");
 			request.ContentType = "application/json; charset=utf-8";
 			request.Accept = "application/json, text/javascript, */*";
 			request.Method = "POST";
+			request.Timeout = 1000 * 7; //7 Seconds
 			using (StreamWriter writer = new StreamWriter(request.GetRequestStream()))
 			{
 				writer.Write(requestString);

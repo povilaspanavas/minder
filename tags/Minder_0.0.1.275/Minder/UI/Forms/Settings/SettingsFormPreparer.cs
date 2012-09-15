@@ -67,9 +67,11 @@ namespace Minder.Forms.Settings
 			m_form.MComboBoxCultureData.SelectedValueChanged += delegate { m_existChanges = true; };
 			m_form.MComboBoxRemindMeLater.SelectedValueChanged += delegate { m_existChanges = true; };
 			m_form.MSkinListBox.SelectedIndexChanged += delegate { m_existChanges = true; };
+			
 			m_form.MSyncGenerateIdButton.Click += delegate { m_existChanges = true; };
-			m_form.MSyncIdTextBox.CursorChanged += delegate { m_existChanges = true; };
+			m_form.MSyncIdTextBox.TextChanged += delegate { m_existChanges = true; };
 			m_form.MSyncIntervalNumeric.ValueChanged += delegate { m_existChanges = true; };
+			m_form.MEnableSyncCheckBox.CheckedChanged += delegate { m_existChanges = true; };
 			
 			m_form.Closing += FormClosing;
 			
@@ -110,6 +112,8 @@ namespace Minder.Forms.Settings
 				m_form.MSyncIdTextBox.Enabled = false;
 				m_form.MSyncIntervalNumeric.Enabled = false;
 			}
+			
+			m_form.MSyncIdTextBox.Leave += delegate { m_form.MSyncIdTextBox.Text = m_form.MSyncIdTextBox.Text.ToUpper(); };
 		}
 		
 		private void AddDataToControlls()
@@ -224,7 +228,7 @@ namespace Minder.Forms.Settings
 						Minder.Static.StaticData.Settings.RemindMeLaterDefaultValue = (m_form.MComboBoxRemindMeLater.SelectedItem as RemindLaterValue).Value;
 					SetSkinSettings();
 					
-					Minder.Static.StaticData.Settings.Sync.Id = m_form.MSyncIdTextBox.Text;
+					Minder.Static.StaticData.Settings.Sync.Id = m_form.MSyncIdTextBox.Text.ToUpper();
 					Minder.Static.StaticData.Settings.Sync.Interval = Convert.ToInt32(m_form.MSyncIntervalNumeric.Value);
 					Minder.Static.StaticData.Settings.Sync.Enable = m_form.MEnableSyncCheckBox.Checked;
 					

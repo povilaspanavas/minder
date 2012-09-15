@@ -15,15 +15,9 @@ namespace Minder.WebServices.Objects
 	/// <summary>
 	/// Description of Task.
 	/// </summary>
+	[DbTable("TASK")]
 	public class TaskSync : ICoreObject
 	{
-		
-		public string Table {
-			get {
-				return "TASK";
-			}
-		}
-		
 		private int m_id;
 		
 		[DBColumnReference("ID"), PrimaryKey("TASK_SEQ")]
