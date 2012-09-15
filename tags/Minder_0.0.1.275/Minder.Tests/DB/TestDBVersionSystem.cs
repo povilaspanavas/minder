@@ -25,7 +25,6 @@ namespace Minder.Tests.DB
 		[DBVersion(1, "Adds DBVersion's table", "2012.09.15 00:16:00")]
 		public void Version()
 		{
-			
 			GenericDbHelper.RunDirectSql("CREATE TABLE TROL_TEST (ID INTEGER PRIMARY KEY, VERSION_NR INTEGER NOT NULL, " +
 			                             "COMMENT VARCHAR(255))");
 			GenericDbHelper.RunDirectSql("INSERT INTO TROL_TEST (VERSION_NR, COMMENT) VALUES (5, \"Komentaras\")");
@@ -39,7 +38,6 @@ namespace Minder.Tests.DB
 		public void InitOnce()
 		{
 			ConfigLoader.Load(@"CoreConfig.xml");
-//			DbHelper.TestMode = true;
 			try {
 				GenericDbHelper.DropAllTables();
 				new AllDbVersions().Version();
@@ -62,19 +60,18 @@ namespace Minder.Tests.DB
 			DBVersionRepository repo = new DBVersionRepository()
 				.AddVersions(typeof(TestDBVersionSystem).Assembly)
 				;
-//			GenericDbHelper.CreateTable(typeof(DBVersion));
 			new DBVersionSystem(new DBVersionRepository().AddVersions(typeof(TestDBVersionsFile).Assembly)).UpdateToNewest();
 			using (IConnection con = new ConnectionCollector().GetConnection())
 			{
+				// DB Version was executed?
 				IDataReader reader = con.ExecuteReader("SELECT COUNT(*) FROM TROL_TEST");
 				Assert.IsTrue(reader.Read());
-				// DB Version was executed?
 				Assert.AreEqual(1, reader.GetInt32(0));
 				
 				// Version number was written?
 				Assert.AreEqual(1, DBVersionSystem.GetCurrentVersion());
 				
-				// DB version numbers is written corretly (was bug, which duplicated lines)
+				// DB version information is written corretly (was bug, which duplicated lines)
 				reader = con.ExecuteReader("SELECT COUNT(*) FROM DB_VERSION");
 				Assert.IsTrue(reader.Read());
 				Assert.AreEqual(1, reader.GetInt32(0));
