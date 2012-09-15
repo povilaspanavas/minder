@@ -8,7 +8,8 @@
     <RootNamespace>Minder.Tests</RootNamespace>
     <AssemblyName>Minder.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <AppDesignerFolder>Properties</AppDesignerFolder>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
@@ -31,6 +32,9 @@
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Core">
+      <HintPath>..\libs\Core.dll</HintPath>
+    </Reference>
     <Reference Include="NUnit.Framework">
       <HintPath>..\libs\NUnit.Framework.dll</HintPath>
     </Reference>
@@ -50,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\TestDBConnection.cs" />
+    <Compile Include="DB\TestDBVersionSystem.cs" />
     <Compile Include="DB\TestTask.cs" />
     <Compile Include="Logic\TestTaskController.cs" />
     <Compile Include="Logic\TestTextParserCultureDataLt.cs" />
@@ -67,6 +72,14 @@
       <Project>{125E2525-BFA7-40E8-8FD8-04E49206A67A}</Project>
       <Name>Minder</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClientConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CoreConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>

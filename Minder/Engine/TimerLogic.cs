@@ -29,29 +29,28 @@ namespace Minder.Engine
 			
 			m_timer.Tick += delegate {
 				m_timer.Stop();
-				using (DBConnection connection = new DBConnection())
-				{
-					List<Task> tasksToShow = connection.LoadTasksForShowing();
-					foreach (Task task in tasksToShow) {
+				
+				List<Task> tasksToShow = new DbHelper().LoadTasksForShowing();
+				foreach (Task task in tasksToShow) {
 //						System.Windows.Forms.MessageBox.Show(
 //							string.Format("Task: {0}, Time:{1}",
 //							              task.Text, DBTypesConverter.ToFullDateString(task.DateRemainder)));
-						new TaskShowFormPreparer(task).PrepareForm(); //Įkėliau viską į preparerį.
+					new TaskShowFormPreparer(task).PrepareForm(); //Įkėliau viską į preparerį.
 //						task.Showed = true;
 //						task.Update();
-					}
-					
-					SetNewTimerInterval(connection);
 				}
+				
+				SetNewTimerInterval();
+				
 				m_timer.Start();
 			};
 			
 			m_timer.Start();
 		}
 
-		public void SetNewTimerInterval(DBConnection connection)
+		public void SetNewTimerInterval()
 		{
-			int interval = connection.SelectNextInterval();
+			int interval = new DbHelper().SelectNextInterval();
 			if (interval < 0)
 				interval = m_sleepTick;
 			if (interval == 0)
@@ -62,12 +61,8 @@ namespace Minder.Engine
 		public void RefreshInterval()
 		{
 			m_timer.Stop();
-			using (DBConnection connection = new DBConnection())
-			{
-				SetNewTimerInterval(connection);
-			}
+			SetNewTimerInterval();
 			m_timer.Start();
-			
 		}
 		
 	}

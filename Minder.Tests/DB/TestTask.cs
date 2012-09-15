@@ -10,6 +10,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using Core;
+using Core.DB;
+using Core.DB.Connections;
 using Minder.Objects;
 using Minder.Sql;
 using NUnit.Framework;
@@ -23,12 +26,14 @@ namespace Minder.Tests.DB
 		[TestFixtureSetUp]
 		public void InitOnce()
 		{
-			DBConnection.TestMode = true;
+			ConfigLoader.Load(@"CoreConfig.xml");
+//			DbHelper.TestMode = true;
 			try
 			{
-				using (DBConnection con = new DBConnection())
+				using (IConnection con = new ConnectionCollector().GetConnection())
 				{
-					con.CreateTable();
+					GenericDbHelper.DropAllTables();
+					new DbHelper().CreateTable();
 				}
 			} catch (Exception ex) { ex.ToString(); }
 		}
@@ -51,9 +56,9 @@ namespace Minder.Tests.DB
 			DateTime now = DateTime.Now;
 			Task task = new Task("Darbas", now, "sourceId|15");
 			task.Save();
-			using (DBConnection con = new DBConnection())
+			using (IConnection con = new ConnectionCollector().GetConnection())
 			{
-				SQLiteDataReader reader = con.ExecuteQuery("SELECT NAME, DATE_REMAINDER, SOURCE_ID, SHOWED FROM TASK");
+				IDataReader reader = con.ExecuteReader("SELECT NAME, DATE_REMAINDER, SOURCE_ID, SHOWED FROM TASK");
 				Assert.IsTrue(reader.Read());
 				Assert.AreEqual(task.Text, reader.GetString(0));
 				Assert.AreEqual(DBTypesConverter.ToFullDateString(task.DateRemainder), reader.GetString(1));
@@ -76,9 +81,9 @@ namespace Minder.Tests.DB
 			task.SourceId = "skriptas";
 			task.Update();
 			
-			using (DBConnection con = new DBConnection())
+			using (IConnection con = new ConnectionCollector().GetConnection())
 			{
-				SQLiteDataReader reader = con.ExecuteQuery("SELECT NAME, DATE_REMAINDER, SOURCE_ID, SHOWED FROM TASK");
+				IDataReader reader = con.ExecuteReader("SELECT NAME, DATE_REMAINDER, SOURCE_ID, SHOWED FROM TASK");
 				Assert.IsTrue(reader.Read());
 				Assert.AreEqual(task.Text, reader.GetString(0));
 				Assert.AreEqual(DBTypesConverter.ToFullDateString(task.DateRemainder), reader.GetString(1));
@@ -94,9 +99,9 @@ namespace Minder.Tests.DB
 			task.Save();
 			task.Delete();
 			
-			using (DBConnection con = new DBConnection())
+			using (IConnection con = new ConnectionCollector().GetConnection())
 			{
-				SQLiteDataReader reader = con.ExecuteQuery("SELECT NAME, DATE_REMAINDER, SOURCE_ID FROM TASK");
+				IDataReader reader = con.ExecuteReader("SELECT NAME, DATE_REMAINDER, SOURCE_ID FROM TASK");
 				Assert.IsTrue(reader.Read());
 			}
 		}
@@ -121,9 +126,9 @@ namespace Minder.Tests.DB
 			Task task3 = new Task("Darbas3", DateTime.Now.AddMinutes(1), "sourceId|mintė+1");
 			task3.Save();
 			
-			using (DBConnection con = new DBConnection())
+			using (IConnection con = new ConnectionCollector().GetConnection())
 			{
-				List<Task> tasks = con.LoadTasksForShowing();
+				List<Task> tasks = new DbHelper().LoadTasksForShowing();
 				Assert.AreEqual(2, tasks.Count);
 			}
 		}

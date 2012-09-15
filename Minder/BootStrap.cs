@@ -6,11 +6,13 @@ using System.Windows.Forms;
 using Core;
 using Core.Forms;
 using Core.Tools.Log;
+using Minder.Engine.Sync;
 using Minder.Forms.Settings;
 using Minder.Engine;
 using Minder.Forms.Main;
 using Minder.Objects;
 using Minder.Sql;
+using Minder.Sql.DBVersionSystem;
 using Minder.Tools;
 
 namespace Minder
@@ -66,10 +68,23 @@ namespace Minder
 			
 			SettingsLoader loader = new SettingsLoader();
 			loader.LoadSettings();
+			
+			UpdateDBVersion();
+			
 			new StartWithWinController().StartWithWindows();
 //				new UpdateVersion();
 			if(Minder.Static.StaticData.Settings.CheckUpdates)
 				new UpdateProject(StaticData.VersionCache.Version, true, "Minder");
+			
+			//Sync
+			if(Minder.Static.StaticData.Settings.Sync.Enable)
+			{
+				using(new WaitingForm("Syncing tasks...", "Please wait"))
+				{
+					new SyncController().Sync();
+					new SyncController().StartThreadForSync();
+				}
+			}
 			
 			MainFormPreparer preparer = new MainFormPreparer();
 			if(openForm)
@@ -79,6 +94,14 @@ namespace Minder
 			
 			TimeController timeController = new TimeController(preparer);
 			timeController.Start();
+		}
+		
+		/// <summary>
+		/// Checks if update is necessary. If no, does nothing, if yes updates
+		/// </summary>
+		static void UpdateDBVersion()
+		{
+			new DBVersionSystem(new DBVersionRepository().AddVersions(typeof(Task).Assembly)).UpdateToNewest();
 		}
 		
 	}
