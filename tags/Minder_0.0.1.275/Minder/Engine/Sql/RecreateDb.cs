@@ -12,6 +12,7 @@ using Core;
 using Core.DB;
 using Core.DB.Connections;
 using Minder.Objects;
+using Minder.Sql;
 using NUnit.Framework;
 using System.Collections.Generic;
 
@@ -23,7 +24,7 @@ namespace Minder.Engine.Sql
 		[Test]
 		public void RecreateDb_1()
 		{
-			ConfigLoader.Load(@"c:\Dokumentai\Projektai\Minder1\Minder\bin\Debug\CoreConfig.xml");
+			ConfigLoader.Load(@"CoreConfig.xml");
 			//Reikia nurodyt pilną, nes testuose jis nesuvokia, kad jo execute katalogas yra debug
 			GenericDbHelper.DropAllTables();
 			GenericDbHelper.CreateTable(typeof(Task));
@@ -66,6 +67,8 @@ namespace Minder.Engine.Sql
 			GenericDbHelper.Delete(task);
 			GenericDbHelper.Flush();
 			GenericDbHelper.DeleteAndFlush(task);
+			
+			Task.DeleteAll();
 		}
 	}
 }

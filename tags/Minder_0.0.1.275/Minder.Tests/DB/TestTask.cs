@@ -26,7 +26,7 @@ namespace Minder.Tests.DB
 		[TestFixtureSetUp]
 		public void InitOnce()
 		{
-			ConfigLoader.Load(@"c:\Dokumentai\Projektai\Minder1\Minder.Tests\bin\Debug\CoreConfig.xml");
+			ConfigLoader.Load(@"CoreConfig.xml");
 //			DbHelper.TestMode = true;
 			try
 			{
