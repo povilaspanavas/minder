@@ -24,9 +24,13 @@ namespace Minder.Tests.DB
 		[DBVersion(1, "Adds DBVersion's table", "2012.09.15 00:16:00")]
 		public void Version()
 		{
+			try {
+				GenericDbHelper.DropAllTables();
+			} catch (Exception) {
+			}
 			GenericDbHelper.RunDirectSql("CREATE TABLE TROL_TEST (ID INTEGER PRIMARY KEY, VERSION_NR INTEGER NOT NULL, " +
-			                             "COMMENT TEXT)");
-			GenericDbHelper.RunDirectSql("INSERT TROL_TEST (VERSION_NR, COMMENT) VALUES (5, '2011.10.10', 'Komentaras')");
+			                             "COMMENT VARCHAR(255))");
+			GenericDbHelper.RunDirectSql("INSERT INTO TROL_TEST (VERSION_NR, COMMENT) VALUES (5, \"Komentaras\")");
 		}
 	}
 	
@@ -38,13 +42,13 @@ namespace Minder.Tests.DB
 		{
 			ConfigLoader.Load(@"CoreConfig.xml");
 //			DbHelper.TestMode = true;
-			try
-			{
-				using (IConnection con = new ConnectionCollector().GetConnection())
-				{
-					new DbHelper().CreateTable();
-				}
-			} catch (Exception ex) { ex.ToString(); }
+//			try
+//			{
+//				using (IConnection con = new ConnectionCollector().GetConnection())
+//				{
+//					new DbHelper().CreateTable();
+//				}
+//			} catch (Exception ex) { ex.ToString(); }
 		}
 		
 		[Test]

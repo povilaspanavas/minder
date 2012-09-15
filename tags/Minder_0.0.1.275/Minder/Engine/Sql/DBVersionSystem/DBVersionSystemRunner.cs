@@ -1,9 +1,9 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.Reflection;
+using Core.DB;
+using Core.DB.Connections;
 using Minder.Objects;
-using Minder.Sql.DBVersionSystem;
 
 namespace Minder.Sql.DBVersionSystem
 {
@@ -40,43 +40,34 @@ namespace Minder.Sql.DBVersionSystem
 		{
 //			m_log.Info(string.Format("Preparing to inject {0} new versions into database",
 //			                         repo.VersionsTable.Count));
-//
-//			foreach (IDBVersionInformation info in Sort(repo).Values)
-//			{
-//				string versionInfo = string.Format(
-//					"[{0} - {1}]",
-//					info.VersionAttribute.Version,
-//					info.VersionAttribute.Date);
-//				using (NHibernateSession sessionScope = new NHibernateSession())
-//				{
-//					ISession session = NHibernateSession.GetISession(typeof(Role));
-//					using (ITransaction tx = session.BeginTransaction())
-//					{
-//						try
-//						{
-//
+
+			foreach (IDBVersionInformation info in Sort(repo).Values)
+			{
+				string versionInfo = string.Format(
+					"[{0} - {1}]",
+					info.VersionAttribute.Version,
+					info.VersionAttribute.Date);
+				try
+				{
+					using (IConnection con = new ConnectionCollector().GetConnection())
+					{
 //							m_log.InfoFormat("Injecting version {0} into database", versionInfo);
-//							info.VersionBody.Execute();
-//							CreateVersionInDB(info);
-//							tx.Commit();
-//						}
-//						catch (Exception e)
-//						{
-			////							m_log.Error(string.Format("Could not commit version {0}", versionInfo), e);
-			////							m_log.Error(string.Format("Rolling back"));
-//							tx.Rollback();
-//							sessionScope.Dispose();
-			////							m_log.Error(string.Format("Stopping db update"));
-//							throw new DBUpdateException(string.Format("Error injecting DB version {2}, date '{1}'.",
-//							                                          info.VersionAttribute.Date,
-//							                                          info.VersionAttribute.Version)
-//							                            , e);
-//						}
-//
-//					}
-//				}
-//			}
-//
+						info.VersionBody.Execute();
+						CreateVersionInDB(info);
+						con.Commit();
+					}
+				}
+				catch (Exception e)
+				{
+					//							m_log.Error(string.Format("Could not commit version {0}", versionInfo), e);
+					//							m_log.Error(string.Format("Rolling back"));
+					throw new DBUpdateException(string.Format("Error injecting DB version {2}, date '{1}'.",
+					                                          info.VersionAttribute.Date,
+					                                          info.VersionAttribute.Version)
+					                            , e);
+				}
+			}
+
 //			m_log.Info(string.Format("Success - Injected {0} new versions into database",
 //			                         repo.VersionsTable.Count));
 			return this;
