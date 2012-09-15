@@ -1,7 +1,10 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Reflection;
+using Core.DB;
+using Core.DB.Connections;
 using Minder.Sql.DBVersionSystem;
 
 namespace Minder.Sql.DBVersionSystem
@@ -17,11 +20,11 @@ namespace Minder.Sql.DBVersionSystem
 			this.m_repository = repoClient;
 		}
 		
-		public void UpdateToVersion()
+		public void UpdateToNewest()
 		{
 			m_repository.CheckVersions();
 			
-			int dbVersion = DBVersionService.GetCurrentClientDBVersion();
+			int dbVersion = GetCurrentVersion();
 			
 			
 //			m_log.Info("Injecting DBStructure versions into database");
@@ -29,8 +32,21 @@ namespace Minder.Sql.DBVersionSystem
 				.ExecuteUpdateToDB(new DBVersionRepository()
 				                   .AddVersions(m_repository
 				                                .FromVersion(dbVersion)))
-				                                ;
+				;
 //			m_log.Info("DB update finished successfully");
+		}
+		
+		public static int GetCurrentVersion()
+		{
+			using(IConnection con = new ConnectionCollector().GetConnection())
+			{
+				int? max = null;
+				IDataReader dataReader = con.ExecuteReader("SELECT max(VERSION_NR) FROM DB_VERSION");
+				while(dataReader.Read())
+					if (max == null)
+						return 0;
+				return max.Value;
+			}
 		}
 	}
 }

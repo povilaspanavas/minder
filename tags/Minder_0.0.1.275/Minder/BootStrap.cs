@@ -101,10 +101,7 @@ namespace Minder
 		/// </summary>
 		static void UpdateDBVersion()
 		{
-			
-			new DBVersionSystemRunner().ExecuteUpdateToDB(new DBVersionRepository()
-			                                              .AddVersions(typeof(Task).Assembly))
-				;
+			new DBVersionSystem(new DBVersionRepository().AddVersions(typeof(Task).Assembly)).UpdateToNewest();
 		}
 		
 	}

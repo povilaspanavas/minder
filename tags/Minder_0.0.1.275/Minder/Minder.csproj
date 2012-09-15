@@ -92,7 +92,6 @@
     <Compile Include="Engine\Sql\DBVersionSystem\DBVersionBodyMethodInfo.cs" />
     <Compile Include="Engine\Sql\DBVersionSystem\DBVersionInformation.cs" />
     <Compile Include="Engine\Sql\DBVersionSystem\DBVersionRepository.cs" />
-    <Compile Include="Engine\Sql\DBVersionSystem\DBVersionService.cs" />
     <Compile Include="Engine\Sql\DBVersionSystem\DBVersionStructureAttribute.cs" />
     <Compile Include="Engine\Sql\DBVersionSystem\DBVersionSystem.cs" />
     <Compile Include="Engine\Sql\DBVersionSystem\DBVersionSystemRunner.cs" />
