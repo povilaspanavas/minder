@@ -12,6 +12,7 @@ namespace Minder.Objects
 	/// <summary>
 	/// Description of Task.
 	/// </summary>
+	[DbTable("DB_VERSION")]
 	public class DBVersion : ICoreObject
 	{
 		int m_id = 0;
@@ -79,12 +80,6 @@ namespace Minder.Objects
 		public void Update()
 		{
 			GenericDbHelper.UpdateAndFlush(this);
-		}
-		
-		public string Table {
-			get {
-				return "DB_VERSION";
-			}
 		}
 	}
 }

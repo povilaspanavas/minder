@@ -20,6 +20,7 @@ namespace Minder.Objects
 	/// <summary>
 	/// Description of Task.
 	/// </summary>
+	[DbTable("TASK")]
 	public class Task : ICoreObject
 	{
 		int m_id = 0;
@@ -27,6 +28,9 @@ namespace Minder.Objects
 		DateTime m_dateRemainder = DateTime.MinValue;
 		string m_sourceId = string.Empty;
 		bool m_showed = false;
+		DateTime m_lastModifyDate;
+		bool m_isDeleted;
+		string m_userId = string.Empty;
 		
 		[DBColumnReference("SHOWED")]
 		public bool Showed {
@@ -59,23 +63,18 @@ namespace Minder.Objects
 			set { m_dateRemainder = value; }
 		}
 		
-		DateTime m_lastModifyDate;
-		
 		[DBColumnReference("LAST_MODIFY_DATE")]
 		public DateTime LastModifyDate {
 			get { return m_lastModifyDate; }
 			set { m_lastModifyDate = value; }
 		}
 		
-		bool m_isDeleted;
 		
 		[DBColumnReference("IS_DELETED")]
 		public bool IsDeleted {
 			get { return m_isDeleted; }
 			set { m_isDeleted = value; }
 		}
-		
-		string m_userId = string.Empty;
 		
 		//Not from/to db, only for sync
 		public string UserId {
@@ -142,12 +141,6 @@ namespace Minder.Objects
 		{
 			this.LastModifyDate = DateTime.Now;
 			GenericDbHelper.UpdateAndFlush(this);
-		}
-		
-		public string Table {
-			get {
-				return "TASK";
-			}
 		}
 	}
 }
