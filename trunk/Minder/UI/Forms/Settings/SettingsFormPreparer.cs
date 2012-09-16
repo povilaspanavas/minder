@@ -196,6 +196,7 @@ namespace Minder.Forms.Settings
 		{
 			string rStr = Path.GetRandomFileName();
 			rStr = rStr.Replace(".", ""); // For Removing the .
+			rStr = rStr.ToUpper();
 			if(string.IsNullOrEmpty(m_form.MSyncIdTextBox.Text))
 				m_form.MSyncIdTextBox.Text = rStr;
 			else
