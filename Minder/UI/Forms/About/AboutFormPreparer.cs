@@ -9,6 +9,7 @@
 using System;
 using System.Windows.Forms;
 using Core;
+using Core.CoreInfo;
 using Core.Forms;
 
 namespace Minder.Forms.About
@@ -36,6 +37,7 @@ namespace Minder.Forms.About
 		{
 			SetEvents();
 			m_form.MVersionLabel.Text = string.Format("Version: RC {0}", StaticData.VersionCache.Version);
+			m_form.MCoreVersionLabel.Text = string.Format("Core version: {0}", CoreVersionInfo.Version);
 			m_form.ShowDialog();
 		}
 		

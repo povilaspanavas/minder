@@ -42,6 +42,7 @@ namespace Minder.Forms.About
 			this.label2 = new System.Windows.Forms.Label();
 			this.MLinkLabelSupport = new System.Windows.Forms.LinkLabel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.MCoreVersionLabel = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -54,28 +55,28 @@ namespace Minder.Forms.About
 			this.label1.Text = "The idea: Ignas Bagdonas\r\nDevelopers: Ignas Bagdonas, Povilas Panavas\r\n\r\nProject " +
 			"start time: 2012.06.04";
 			// 
-			// m_versionLabel
+			// MVersionLabel
 			// 
 			this.MVersionLabel.Location = new System.Drawing.Point(13, 90);
 			this.MVersionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.MVersionLabel.Name = "m_versionLabel";
+			this.MVersionLabel.Name = "MVersionLabel";
 			this.MVersionLabel.Size = new System.Drawing.Size(260, 19);
 			this.MVersionLabel.TabIndex = 1;
 			this.MVersionLabel.Text = "Version: ";
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(13, 109);
+			this.label2.Location = new System.Drawing.Point(13, 128);
 			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(48, 19);
 			this.label2.TabIndex = 2;
 			this.label2.Text = "Support:";
 			// 
-			// m_linkLabelSupport
+			// MLinkLabelSupport
 			// 
-			this.MLinkLabelSupport.Location = new System.Drawing.Point(56, 109);
-			this.MLinkLabelSupport.Name = "m_linkLabelSupport";
+			this.MLinkLabelSupport.Location = new System.Drawing.Point(56, 128);
+			this.MLinkLabelSupport.Name = "MLinkLabelSupport";
 			this.MLinkLabelSupport.Size = new System.Drawing.Size(183, 23);
 			this.MLinkLabelSupport.TabIndex = 3;
 			this.MLinkLabelSupport.TabStop = true;
@@ -92,11 +93,21 @@ namespace Minder.Forms.About
 			this.pictureBox1.TabIndex = 4;
 			this.pictureBox1.TabStop = false;
 			// 
+			// MCoreVersionLabel
+			// 
+			this.MCoreVersionLabel.Location = new System.Drawing.Point(13, 109);
+			this.MCoreVersionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.MCoreVersionLabel.Name = "MCoreVersionLabel";
+			this.MCoreVersionLabel.Size = new System.Drawing.Size(260, 19);
+			this.MCoreVersionLabel.TabIndex = 5;
+			this.MCoreVersionLabel.Text = "Core version: ";
+			// 
 			// AboutForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(302, 203);
+			this.Controls.Add(this.MCoreVersionLabel);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.MLinkLabelSupport);
 			this.Controls.Add(this.label2);
@@ -112,6 +123,7 @@ namespace Minder.Forms.About
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 		}
+		public System.Windows.Forms.Label MCoreVersionLabel;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		public System.Windows.Forms.LinkLabel MLinkLabelSupport;
 		public System.Windows.Forms.Label label2;
