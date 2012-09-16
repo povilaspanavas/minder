@@ -178,7 +178,10 @@ namespace Minder.Forms.Settings
 			
 			// ***** Sync ******
 			m_form.MEnableSyncCheckBox.Checked = Minder.Static.StaticData.Settings.Sync.Enable;
-			m_form.MSyncIntervalNumeric.Value = Minder.Static.StaticData.Settings.Sync.Interval;
+			if(Minder.Static.StaticData.Settings.Sync.Interval <= 0)
+				m_form.MSyncIntervalNumeric.Value = 1;
+			else
+				m_form.MSyncIntervalNumeric.Value = Minder.Static.StaticData.Settings.Sync.Interval;
 			m_form.MSyncIdTextBox.Text = Minder.Static.StaticData.Settings.Sync.Id;
 			
 		}
@@ -197,9 +200,9 @@ namespace Minder.Forms.Settings
 				m_form.MSyncIdTextBox.Text = rStr;
 			else
 			{
-				if(MessageBox.Show("Do you really want generate new ID and lose your current ID?", "Warrning", 
+				if(MessageBox.Show("Do you really want generate new ID and lose your current ID?", "Warrning",
 				                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-				m_form.MSyncIdTextBox.Text = rStr;
+					m_form.MSyncIdTextBox.Text = rStr;
 			}
 			
 		}
