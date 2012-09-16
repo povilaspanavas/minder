@@ -79,7 +79,7 @@ namespace Minder
 			//Sync
 			if(Minder.Static.StaticData.Settings.Sync.Enable)
 			{
-				using(new WaitingForm("Syncing tasks...", "Please wait"))
+				using(new WaitingForm("Syncing tasks...", "Minder. Please wait"))
 				{
 					new SyncController().Sync();
 					new SyncController().StartThreadForSync();
