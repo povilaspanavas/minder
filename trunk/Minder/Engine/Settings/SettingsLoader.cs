@@ -60,7 +60,7 @@ namespace Minder.Forms.Settings
 			iniParser.AddSetting("Skin", "code", StaticData.Settings.SkinsUniqueCodes.DEFAULT_SKIN_UNIQUECODE);
 			iniParser.AddSetting("Sync", "enable", "false");
 			iniParser.AddSetting("Sync", "ID", "");
-			iniParser.AddSetting("Sync", "interval", "1");
+			iniParser.AddSetting("Sync", "interval", "30");
 			iniParser.SaveSettings();
 		}
 		

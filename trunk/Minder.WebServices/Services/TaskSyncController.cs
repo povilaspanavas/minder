@@ -60,15 +60,16 @@ namespace Minder.WebServices.Services
 		
 		private void SaveTasksToDb(List<TaskSync> taskFromDb, List<TaskSync> mergedTasks)
 		{
-			foreach(TaskSync task in taskFromDb)
-			{
-				GenericDbHelper.DeleteAndFlush(task);
-			}
+			string userId = string.Empty;
+			if(taskFromDb.Count != 0)
+				userId = taskFromDb[0].UserId;
+			GenericDbHelper.RunDirectSql(string.Format("DELETE FROM TASK WHERE USER_ID = '{0}'", userId));
 			
 			foreach(TaskSync task in mergedTasks)
 			{
-				GenericDbHelper.SaveAndFlush(task);
+				GenericDbHelper.Save(task);
 			}
+			GenericDbHelper.Flush();
 		}
 		
 		private List<TaskSync> MergeTasks(List<TaskSync> tasksFromDb, List<TaskSync> tasksFromUser)
