@@ -28,6 +28,15 @@ namespace Minder.Engine.Sync
 	{
 		private Loger m_log = new Loger();
 		private System.Windows.Forms.Timer m_timer = null;
+		private int m_newTasks;
+		
+		public delegate void SyncEventHandler();
+        public event SyncEventHandler Synced;
+
+        public int NewTasks {
+        	get { return m_newTasks; }
+        	set { m_newTasks = value; }
+        }
 		
 		public SyncController()
 		{
@@ -52,9 +61,11 @@ namespace Minder.Engine.Sync
 				
 				List<Task> syncedTasks = GetSyncedTasksFromServer(syncObject);
 				GenericDbHelper.RunDirectSql("DELETE FROM TASK");
-				
+				int newTasks = 0;
 				foreach(Task task in syncedTasks)
 				{
+					if(allTasks.Contains(task) == false)
+						newTasks++;
 					bool saved = false;
 					int i = 0;
 					while(saved == false)
@@ -76,6 +87,12 @@ namespace Minder.Engine.Sync
 //							break;
 						}
 					}
+				}
+				
+				if(newTasks != 0)
+				{
+					m_newTasks = newTasks;
+					Synced();
 				}
 				
 				m_log.LogWrite("Synced ok!");
