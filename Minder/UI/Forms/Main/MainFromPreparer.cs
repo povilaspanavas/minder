@@ -53,9 +53,17 @@ namespace Minder.Forms.Main
 			SetEvents();
 			
 			if(Minder.Static.StaticData.Settings.Sync.Enable)
+			{
+				using(new WaitingForm("Syncing tasks...", "Minder. Please wait"))
+				{
+					m_syncController.Sync();
+				}
+				
 				m_syncController.StartThreadForSync(); //Sync
+			}
 			
 			m_form.InitializeLifetimeService();
+			m_mainForm.MWindow.BeginInit();
 			m_mainForm.ShowHide(); //Form init
 			m_mainForm.ShowHide();
 		}
@@ -74,12 +82,17 @@ namespace Minder.Forms.Main
 				m_mainForm.ShowHide();
 			};
 			
-			m_syncController.Synced += delegate 
+			m_syncController.Synced += delegate
 			{
 				m_form.TrayIcon.BalloonTipIcon = ToolTipIcon.Info;
 				m_form.TrayIcon.BalloonTipTitle = "Minder synced!";
 				m_form.TrayIcon.BalloonTipText = String.Format("Add new {0} task(s)!", m_syncController.NewTasks);
 				m_form.TrayIcon.ShowBalloonTip(5);
+			};
+			
+			m_form.TrayIcon.BalloonTipClicked += delegate 
+			{
+				new TasksFormPreparer().PrepareForm();
 			};
 			
 			m_form.TrayIcon.MouseMove += delegate {

@@ -72,18 +72,8 @@ namespace Minder
 			UpdateDBVersion();
 			
 			new StartWithWinController().StartWithWindows();
-//				new UpdateVersion();
 			if(Minder.Static.StaticData.Settings.CheckUpdates)
 				new UpdateProject(StaticData.VersionCache.Version, true, "Minder");
-			
-			//Sync
-			if(Minder.Static.StaticData.Settings.Sync.Enable)
-			{
-				using(new WaitingForm("Syncing tasks...", "Minder. Please wait"))
-				{
-					new SyncController().Sync();
-				}
-			}
 			
 			MainFormPreparer preparer = new MainFormPreparer();
 			if(openForm)

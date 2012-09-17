@@ -24,21 +24,22 @@ namespace Minder.WebServices.Services
 		//Main
 		public List<TaskSync> Sync(List<TaskSync> tasks, string userId)
 		{
-			SetCorrectTime(tasks);
+			SetUTCTime(tasks);
 			if(Minder.WebServices.Helpers.StaticData.ConfigLoaded == false)
 				ConfigLoader.Load(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\CoreConfig.xml");
 			List<TaskSync> tasksFromDb = LoadAllTasksByUserId(userId);
+			SetUTCTime(tasksFromDb);
 			List<TaskSync> result = MergeTasks(tasksFromDb, tasks);
 			SaveTasksToDb(tasksFromDb, result);
 			return result;
 		}
 		
-		private void SetCorrectTime(List<TaskSync> tasks)
+		private void SetUTCTime(List<TaskSync> tasks)
 		{
 			foreach(TaskSync task in tasks)
 			{
-				task.LastModifyDate = task.LastModifyDate.AddHours(3);
-				task.DateRemainder = task.DateRemainder.AddHours(3);
+				task.LastModifyDate = task.LastModifyDate.ToUniversalTime();
+				task.DateRemainder = task.DateRemainder.ToUniversalTime();
 			}
 		}
 		
