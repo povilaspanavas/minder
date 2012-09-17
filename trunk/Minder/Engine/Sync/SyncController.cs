@@ -107,7 +107,7 @@ namespace Minder.Engine.Sync
 			request.ContentType = "application/json; charset=utf-8";
 			request.Accept = "application/json, text/javascript, */*";
 			request.Method = "POST";
-			request.Timeout = 1000 * 7; //7 Seconds
+			request.Timeout = 1000 * 20; //20 Seconds
 			using (StreamWriter writer = new StreamWriter(request.GetRequestStream()))
 			{
 				writer.Write(requestString);
