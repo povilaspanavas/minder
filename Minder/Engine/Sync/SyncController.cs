@@ -91,7 +91,9 @@ namespace Minder.Engine.Sync
 		{
 			m_timer = new System.Windows.Forms.Timer();
 			m_timer.Interval = Minder.Static.StaticData.Settings.Sync.Interval * 1000 * 60;
-			m_timer.Tick += delegate { Sync(); };
+			m_timer.Tick += delegate { 
+				Sync(); 
+			};
 			m_timer.Start();
 		}
 		
