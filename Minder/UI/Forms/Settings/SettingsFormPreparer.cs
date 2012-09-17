@@ -179,7 +179,7 @@ namespace Minder.Forms.Settings
 			// ***** Sync ******
 			m_form.MEnableSyncCheckBox.Checked = Minder.Static.StaticData.Settings.Sync.Enable;
 			if(Minder.Static.StaticData.Settings.Sync.Interval <= 0)
-				m_form.MSyncIntervalNumeric.Value = 1;
+				m_form.MSyncIntervalNumeric.Value = 30;
 			else
 				m_form.MSyncIntervalNumeric.Value = Minder.Static.StaticData.Settings.Sync.Interval;
 			m_form.MSyncIdTextBox.Text = Minder.Static.StaticData.Settings.Sync.Id;
