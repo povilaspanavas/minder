@@ -55,6 +55,8 @@ namespace Minder.Engine.Sync
 				syncObject.Tasks = new List<Task>();
 				foreach(Task task in allTasks)
 				{
+					task.DateRemainder = task.DateRemainder.ToUniversalTime();
+					task.LastModifyDate = task.LastModifyDate.ToUniversalTime();
 					task.UserId = Static.StaticData.Settings.Sync.Id;
 					syncObject.Tasks.Add(task);
 				}
@@ -64,8 +66,8 @@ namespace Minder.Engine.Sync
 				int newTasks = 0;
 				foreach(Task task in syncedTasks)
 				{
-					task.DateRemainder.ToLocalTime();
-					task.LastModifyDate.ToLocalTime();
+					task.DateRemainder = task.DateRemainder.ToLocalTime();
+					task.LastModifyDate = task.LastModifyDate.ToLocalTime();
 					
 					if(allTasks.Contains(task) == false)
 						newTasks++;
