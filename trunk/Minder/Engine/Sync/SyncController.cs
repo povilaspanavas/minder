@@ -64,6 +64,9 @@ namespace Minder.Engine.Sync
 				int newTasks = 0;
 				foreach(Task task in syncedTasks)
 				{
+					task.DateRemainder.ToLocalTime();
+					task.LastModifyDate.ToLocalTime();
+					
 					if(allTasks.Contains(task) == false)
 						newTasks++;
 					bool saved = false;
