@@ -20,7 +20,7 @@ namespace Minder.WebServices
 		[Test]
 		public void DbCreator_1()
 		{
-			ConfigLoader.Load();
+			ConfigLoader.Load(@"CoreConfig.xml");
 			GenericDbHelper.DropAllTables();
 			GenericDbHelper.CreateTable(typeof(TaskSync));
 		}
