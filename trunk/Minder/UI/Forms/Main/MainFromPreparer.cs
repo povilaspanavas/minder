@@ -15,6 +15,7 @@ using Core.Tools.Log;
 using Minder.Engine;
 using Minder.Engine.Helpers;
 using Minder.Engine.Parse;
+using Minder.Engine.Sync;
 using Minder.Forms.About;
 using Minder.Forms.Main;
 using Minder.Forms.Settings;
@@ -37,17 +38,23 @@ namespace Minder.Forms.Main
 		public delegate void TaskData(string dataEntered);
 //		private WpfSkinPreparer m_wpfPreparer = null;
 		private IMainForm m_mainForm = null;
+		private SyncController m_syncController = null;
 		
 		public MainFormPreparer()
 		{
 			m_form = new MainFormLaunchy();
 			m_mainForm = new MainFormCollector().GetForm();
+			m_syncController = new SyncController();
 		}
 
 		public void PrepareForm()
 		{
 			BackroundWorks();
 			SetEvents();
+			
+			if(Minder.Static.StaticData.Settings.Sync.Enable)
+				m_syncController.StartThreadForSync(); //Sync
+			
 			m_form.InitializeLifetimeService();
 			m_mainForm.ShowHide(); //Form init
 			m_mainForm.ShowHide();
@@ -66,6 +73,15 @@ namespace Minder.Forms.Main
 			{
 				m_mainForm.ShowHide();
 			};
+			
+			m_syncController.Synced += delegate 
+			{
+				m_form.TrayIcon.BalloonTipIcon = ToolTipIcon.Info;
+				m_form.TrayIcon.BalloonTipTitle = "Minder synced!";
+				m_form.TrayIcon.BalloonTipText = String.Format("Add new {0} task(s)!", m_syncController.NewTasks);
+				m_form.TrayIcon.ShowBalloonTip(5);
+			};
+			
 			m_form.TrayIcon.MouseMove += delegate {
 				m_form.TrayIcon.Text = FormatNextTaskRemindingDate();
 			};

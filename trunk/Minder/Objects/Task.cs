@@ -44,7 +44,7 @@ namespace Minder.Objects
 			set { m_sourceId = value; }
 		}
 		
-		[PrimaryKey("TASK_SEQ"), 
+		[PrimaryKey("TASK_SEQ"),
 		 DBColumnReference("ID")]
 		public int Id {
 			get { return m_id; }
@@ -142,5 +142,30 @@ namespace Minder.Objects
 			this.LastModifyDate = DateTime.Now;
 			GenericDbHelper.UpdateAndFlush(this);
 		}
+		
+		public override int GetHashCode()
+		{
+			int hashCode = 0;
+			
+			if (m_text != null)
+				hashCode += 1000000009 * m_text.GetHashCode();
+			hashCode += 1000000021 * m_dateRemainder.GetHashCode();
+			if (m_sourceId != null)
+				hashCode += 1000000033 * m_sourceId.GetHashCode();
+			hashCode += 1000000087 * m_showed.GetHashCode();
+			hashCode += 1000000093 * m_lastModifyDate.GetHashCode();
+			hashCode += 1000000097 * m_isDeleted.GetHashCode();
+			
+			return hashCode;
+		}
+		
+		public override bool Equals(object obj)
+		{
+			Task other = obj as Task;
+			if (other == null)
+				return false;
+			return this.m_text == other.m_text && this.m_dateRemainder == other.m_dateRemainder && this.m_sourceId == other.m_sourceId && this.m_showed == other.m_showed && this.m_lastModifyDate == other.m_lastModifyDate && this.m_isDeleted == other.m_isDeleted;
+		}
+
 	}
 }

@@ -78,11 +78,13 @@ namespace Minder.WebServices.Services
 			
 			foreach(TaskSync task in tasksFromDb)
 			{
+				task.Id = 0;
 				result.Add(task.SourceId, task);
 			}
 			
 			foreach(TaskSync task in tasksFromUser)
 			{
+				task.Id = 0;
 				TaskSync tempTask = null;
 				result.TryGetValue(task.SourceId, out tempTask);
 				if(tempTask != null)

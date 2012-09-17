@@ -82,7 +82,6 @@ namespace Minder
 				using(new WaitingForm("Syncing tasks...", "Minder. Please wait"))
 				{
 					new SyncController().Sync();
-					new SyncController().StartThreadForSync();
 				}
 			}
 			
