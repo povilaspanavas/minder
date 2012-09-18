@@ -88,6 +88,7 @@ namespace Minder.Forms.Main
 				m_form.TrayIcon.BalloonTipTitle = "Minder synced!";
 				m_form.TrayIcon.BalloonTipText = String.Format("Add new {0} task(s)!", m_syncController.NewTasks);
 				m_form.TrayIcon.ShowBalloonTip(5);
+				m_syncController.NewTasks = 0;
 			};
 			
 			m_form.TrayIcon.BalloonTipClicked += delegate 
