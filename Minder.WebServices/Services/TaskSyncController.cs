@@ -92,8 +92,8 @@ namespace Minder.WebServices.Services
 						result.Remove(task.SourceId);
 					else
 					{
-						DateTime tempTaskDate = tempTask.LastModifyDate;
-						DateTime taskDate = task.LastModifyDate;
+						DateTime tempTaskDate = Convert.ToDateTime(tempTask.LastModifyDateString);
+						DateTime taskDate = Convert.ToDateTime(task.LastModifyDateString);
 						if(DateTime.Compare(tempTaskDate, taskDate) <= 0)
 						{
 							result.Remove(task.SourceId);
