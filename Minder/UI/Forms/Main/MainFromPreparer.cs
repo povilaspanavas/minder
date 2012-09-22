@@ -54,7 +54,7 @@ namespace Minder.Forms.Main
 			
 			if(Minder.Static.StaticData.Settings.Sync.Enable)
 			{
-				using(new WaitingForm("Syncing tasks...", "Minder. Please wait"))
+				using(new WaitingForm2("Syncing tasks...", "Minder. Please wait"))
 				{
 					m_syncController.Sync();
 				}
@@ -84,9 +84,12 @@ namespace Minder.Forms.Main
 			
 			Application.ApplicationExit += delegate
 			{
-				using(new WaitingForm("Syncing tasks...", "Minder. Please wait"))
+				if(Minder.Static.StaticData.Settings.Sync.Enable)
 				{
-					m_syncController.Sync();
+					using(new WaitingForm2("Syncing tasks...", "Minder. Please wait"))
+					{
+						m_syncController.Sync();
+					}
 				}
 			};
 			
