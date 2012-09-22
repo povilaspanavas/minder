@@ -49,8 +49,8 @@ namespace Minder.Forms.Main
 
 		public void PrepareForm()
 		{
-			BackroundWorks();
 			SetEvents();
+			BackroundWorks();
 			
 			if(Minder.Static.StaticData.Settings.Sync.Enable)
 			{
@@ -82,6 +82,14 @@ namespace Minder.Forms.Main
 				m_mainForm.ShowHide();
 			};
 			
+			Application.ApplicationExit += delegate
+			{
+				using(new WaitingForm("Syncing tasks...", "Minder. Please wait"))
+				{
+					m_syncController.Sync();
+				}
+			};
+			
 			m_syncController.Synced += delegate
 			{
 				m_form.TrayIcon.BalloonTipIcon = ToolTipIcon.Info;
@@ -91,7 +99,7 @@ namespace Minder.Forms.Main
 				m_syncController.NewTasks = 0;
 			};
 			
-			m_form.TrayIcon.BalloonTipClicked += delegate 
+			m_form.TrayIcon.BalloonTipClicked += delegate
 			{
 				new TasksFormPreparer().PrepareForm();
 			};
@@ -236,7 +244,6 @@ namespace Minder.Forms.Main
 		
 		private void ExitApplication(object sender, EventArgs e)
 		{
-			//new Main2FormPreparer().PrepareForm();
 			Application.Exit();
 		}
 		#endregion
