@@ -28,6 +28,19 @@ namespace Minder.Engine.Sql.DBVersionSystem
 			GenericDbHelper.RunDirectSql("ALTER TABLE TASK ADD LAST_MODIFY_DATE TEXT");
 			GenericDbHelper.RunDirectSql("ALTER TABLE TASK ADD IS_DELETED TEXT");
 		}
+		
+		[DBVersion(3, "Adds Task.LastModifyDateString, Task.DateRemainderString", "2012.09.22 19:17:00")]
+		public void Version3()
+		{
+			GenericDbHelper.RunDirectSql("ALTER TABLE TASK ADD LAST_MODIFY_DATE_STRING TEXT");
+			GenericDbHelper.RunDirectSql("ALTER TABLE TASK ADD DATE_REMAINDER_STRING TEXT");
+		}
+		
+		[DBVersion(4, "Copy dates", "2012.09.22 19:28:00")]
+		public void Version4()
+		{
+			GenericDbHelper.RunDirectSql("UPDATE TASK set LAST_MODIFY_DATE_STRING = LAST_MODIFY_DATE, DATE_REMAINDER_STRING = DATE_REMAINDER");
+		}
 	}
 	
 }

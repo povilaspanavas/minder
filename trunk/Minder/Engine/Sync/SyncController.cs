@@ -56,8 +56,6 @@ namespace Minder.Engine.Sync
 				
 				foreach(Task task in allTasks)
 				{
-					task.LastModifyDate = task.LastModifyDate.ToUniversalTime();
-					task.DateRemainder = task.DateRemainder.ToUniversalTime();
 					task.UserId = Static.StaticData.Settings.Sync.Id;
 					syncObject.Tasks.Add(task);
 				}
@@ -67,16 +65,13 @@ namespace Minder.Engine.Sync
 				int newTasks = 0;
 				foreach(Task task in syncedTasks)
 				{	
-					task.LastModifyDate = task.LastModifyDate.ToLocalTime();
-					task.DateRemainder = task.DateRemainder.ToLocalTime();
+					task.LastModifyDate = Convert.ToDateTime(task.LastModifyDateString);
+					task.DateRemainder = Convert.ToDateTime(task.DateRemainderString);
 					
 					bool exist = false;
 					
 					foreach(Task taskFromDb in allTasks)
 					{
-						taskFromDb.DateRemainder = taskFromDb.DateRemainder.ToLocalTime();
-						taskFromDb.LastModifyDate = taskFromDb.LastModifyDate.ToLocalTime();
-						
 						if(taskFromDb.Equals(task))
 							exist = true;
 					}

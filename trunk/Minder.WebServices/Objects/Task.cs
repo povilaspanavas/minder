@@ -38,10 +38,10 @@ namespace Minder.WebServices.Objects
 			set { m_userId = value; }
 		}
 		
-		DateTime m_dateRemainder;
+		string m_dateRemainder = string.Empty;
 		
 		[DBColumnReference("DATE_REMAINDER")]
-		public DateTime DateRemainder {
+		public string DateRemainderString {
 			get { return m_dateRemainder; }
 			set { m_dateRemainder = value; }
 		}
@@ -70,10 +70,10 @@ namespace Minder.WebServices.Objects
 			set { m_text = value; }
 		}
 		
-		DateTime m_lastModifyDate;
+		string m_lastModifyDate = string.Empty;
 		
 		[DBColumnReference("LAST_MODIFY_DATE")]
-		public DateTime LastModifyDate {
+		public string LastModifyDateString {
 			get { return m_lastModifyDate; }
 			set { m_lastModifyDate = value; }
 		}
