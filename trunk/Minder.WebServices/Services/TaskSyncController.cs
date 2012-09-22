@@ -24,24 +24,22 @@ namespace Minder.WebServices.Services
 		//Main
 		public List<TaskSync> Sync(List<TaskSync> tasks, string userId)
 		{
-			SetUTCTime(tasks);
 			if(Minder.WebServices.Helpers.StaticData.ConfigLoaded == false)
 				ConfigLoader.Load(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\CoreConfig.xml");
 			List<TaskSync> tasksFromDb = LoadAllTasksByUserId(userId);
-			SetUTCTime(tasksFromDb);
 			List<TaskSync> result = MergeTasks(tasksFromDb, tasks);
 			SaveTasksToDb(tasksFromDb, result);
 			return result;
 		}
 		
-		private void SetUTCTime(List<TaskSync> tasks)
-		{
-			foreach(TaskSync task in tasks)
-			{
-				task.LastModifyDate = task.LastModifyDate.ToUniversalTime();
-				task.DateRemainder = task.DateRemainder.ToUniversalTime();
-			}
-		}
+//		private void SetUTCTime(List<TaskSync> tasks)
+//		{
+//			foreach(TaskSync task in tasks)
+//			{
+//				task.LastModifyDate = task.LastModifyDate.ToUniversalTime();
+//				task.DateRemainder = task.DateRemainder.ToUniversalTime();
+//			}
+//		}
 		
 		private List<TaskSync> LoadAllTasksByUserId(string userId)
 		{
@@ -94,7 +92,9 @@ namespace Minder.WebServices.Services
 						result.Remove(task.SourceId);
 					else
 					{
-						if(DateTime.Compare(tempTask.LastModifyDate, task.LastModifyDate) <= 0)
+						DateTime tempTaskDate = tempTask.LastModifyDate;
+						DateTime taskDate = task.LastModifyDate;
+						if(DateTime.Compare(tempTaskDate, taskDate) <= 0)
 						{
 							result.Remove(task.SourceId);
 							result.Add(task.SourceId, task);
