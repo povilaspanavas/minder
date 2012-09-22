@@ -12,6 +12,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using Core.Forms;
+using Core.UI.Grid;
 using Minder.Engine;
 using Minder.Objects;
 using Minder.Sql;
@@ -50,13 +51,11 @@ namespace Minder.Forms.Tasks
 			if(m_form.MTaskGrid.SelectedRows != null &&
 			   m_form.MTaskGrid.SelectedRows.Count != 0)
 			{
-				if(m_form.MTaskGrid.SelectedRows[0].Cells[3].Value == null)
+				if(m_form.MTaskGrid.SelectedRows[0].Cells[0].Value == null)
 					return;
-				int taskId = Convert.ToInt32(m_form.MTaskGrid.SelectedRows[0].Cells[3].Value);
-				Task task = new Task(taskId, m_form.MTaskGrid.SelectedRows[0].Cells[0].Value.ToString(),
-				                     Convert.ToDateTime(m_form.MTaskGrid.SelectedRows[0].Cells[1].Value),
-				                     m_form.MTaskGrid.SelectedRows[0].Cells[4].Value.ToString());
-				task.Showed = Convert.ToBoolean(m_form.MTaskGrid.SelectedRows[0].Cells[2].Value);
+				int taskId = Convert.ToInt32(m_form.MTaskGrid.SelectedRows[0].Cells[0].Value);
+				Task task = new Task(taskId, m_form.MTaskGrid.SelectedRows[0].Cells[2].Value.ToString(), Convert.ToDateTime(m_form.MTaskGrid.SelectedRows[0].Cells[3].Value), m_form.MTaskGrid.SelectedRows[0].Cells[1].Value.ToString());
+				task.Showed = Convert.ToBoolean(m_form.MTaskGrid.SelectedRows[0].Cells[4].Value);
 				
 				TaskNewEditFormPreparer preparer = new TaskNewEditFormPreparer(true);
 				preparer.Task = task;
@@ -104,7 +103,7 @@ namespace Minder.Forms.Tasks
 		{
 			if (m_form.MTaskGrid.SelectedRows == null || m_form.MTaskGrid.SelectedRows.Count == 0)
 				return;
-			if (m_form.MTaskGrid.SelectedRows[0].Cells[3].Value == null)
+			if (m_form.MTaskGrid.SelectedRows[0].Cells[0].Value == null)
 				return;
 
 			string message = "Do you realy want to delete this task?";
@@ -113,9 +112,9 @@ namespace Minder.Forms.Tasks
 
 			if (MessageBox.Show(message, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
 				for (int i = 0; i < m_form.MTaskGrid.SelectedRows.Count; i++) {
-					int taskId = Convert.ToInt32(m_form.MTaskGrid.SelectedRows[i].Cells[3].Value);
-					Task task = new Task(taskId, m_form.MTaskGrid.SelectedRows[i].Cells[0].Value.ToString(), Convert.ToDateTime(m_form.MTaskGrid.SelectedRows[0].Cells[1].Value), m_form.MTaskGrid.SelectedRows[i].Cells[4].Value.ToString());
-					task.Showed = Convert.ToBoolean(m_form.MTaskGrid.SelectedRows[i].Cells[2].Value);
+					int taskId = Convert.ToInt32(m_form.MTaskGrid.SelectedRows[i].Cells[0].Value);
+					Task task = new Task(taskId, m_form.MTaskGrid.SelectedRows[i].Cells[2].Value.ToString(), Convert.ToDateTime(m_form.MTaskGrid.SelectedRows[i].Cells[3].Value), m_form.MTaskGrid.SelectedRows[i].Cells[1].Value.ToString());
+					task.Showed = Convert.ToBoolean(m_form.MTaskGrid.SelectedRows[i].Cells[4].Value);
 					task.Delete();
 					TimeEngine.FireTaskChangedEvent(task);
 				}
@@ -125,29 +124,34 @@ namespace Minder.Forms.Tasks
 		
 		private void LoadTaskGrid()
 		{
-			WaitingForm waitingForm = new WaitingForm("Loading tasks...", "Please wait");
-			m_tasks = new DbHelper().LoadAllTasks();
-			
-			if(m_tasks == null)
-				return;
-			
-			int rowIndex = 0;
-			if(m_form.MTaskGrid.CurrentCell != null)
-				rowIndex = m_form.MTaskGrid.CurrentCell.RowIndex;
-			m_form.MTaskGrid.Rows.Clear();
-			
-			
-			m_tasks = m_tasks
-				.OrderBy(m => m.Showed)
-				.ThenByDescending(n => n.DateRemainder).ToList();
-//			m_tasks.Reverse();
-			foreach(Task task in m_tasks)
+			using(new WaitingForm2("Loading tasks...", "Please wait"))
 			{
-				m_form.MTaskGrid.Rows.Add(task.Text, task.DateRemainder, task.Showed, task.Id, task.SourceId);
+				m_tasks = new DbHelper().LoadAllTasks();
+				
+				if(m_tasks == null)
+					return;
+				
+				int rowIndex = 0;
+				if(m_form.MTaskGrid.CurrentCell != null)
+					rowIndex = m_form.MTaskGrid.CurrentCell.RowIndex;
+				
+//				m_form.MTaskGrid.Rows.Clear();
+				
+				
+				m_tasks = m_tasks
+					.OrderBy(m => m.Showed)
+					.ThenByDescending(n => n.DateRemainder).ToList();
+//			m_tasks.Reverse();
+//				foreach(Task task in m_tasks)
+//				{
+//					m_form.MTaskGrid.Rows.Add(task.Text, task.DateRemainder, task.Showed, task.Id, task.SourceId);
+//				}
+				
+				CoreGridController<Task>.AddToGrid(m_form.MTaskGrid, m_tasks);
+				
+				if(m_form.MTaskGrid.Rows.Count > rowIndex)
+					m_form.MTaskGrid.CurrentCell = m_form.MTaskGrid.Rows[rowIndex].Cells[2];
 			}
-			if(m_form.MTaskGrid.Rows.Count > rowIndex)
-				m_form.MTaskGrid.CurrentCell = m_form.MTaskGrid.Rows[rowIndex].Cells[0];
-			waitingForm.Close();
 		}
 	}
 }
