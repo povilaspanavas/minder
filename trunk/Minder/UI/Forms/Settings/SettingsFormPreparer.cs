@@ -33,8 +33,8 @@ namespace Minder.Forms.Settings
 	{
 		SettingsForm m_form = null;
 		private bool m_existChanges = false;
-		private Loger m_log = new Loger();
-		
+		log4net.ILog m_log = log4net.LogManager.GetLogger(typeof(SettingsFormPreparer));
+				
 		public SettingsFormPreparer()
 		{
 			m_form = new SettingsForm();

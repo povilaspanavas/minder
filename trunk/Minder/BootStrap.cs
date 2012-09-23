@@ -45,7 +45,8 @@ namespace Minder
 				// (kartu ir su originaliu tekstu, o ne paduotu).
 				try
 				{
-					new Loger().LogWrite(e.ToString(), LogerType.Fatal);
+					log4net.ILog log = log4net.LogManager.GetLogger(typeof(BootStrap));
+					log.Fatal(e);
 				}
 				catch{} //Jei konfigai neužkrauti
 				
@@ -56,6 +57,14 @@ namespace Minder
 		private static void Starter(string[] args)
 		{
 			ConfigLoader.Load();
+			string log4netConfigPath = new PathCutHelper()
+				.CutExecutableFileFromPath(System.Reflection.Assembly
+				                           .GetExecutingAssembly().Location);
+			log4netConfigPath += @"\Minder.log4net.xml";
+			FileInfo config = new FileInfo(log4netConfigPath);
+			log4net.Config.XmlConfigurator.Configure(config);
+			log4net.ILog logger = log4net.LogManager.GetLogger(typeof(BootStrap));
+			
 			bool openForm = false;
 			if(args != null)
 			{
@@ -83,6 +92,9 @@ namespace Minder
 			
 			TimeController timeController = new TimeController(preparer);
 			timeController.Start();
+			
+			logger.Info("Minder started");
+			
 		}
 		
 		/// <summary>

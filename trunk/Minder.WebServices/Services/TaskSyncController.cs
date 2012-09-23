@@ -8,6 +8,8 @@
  */
 using System;
 using System.Collections.Generic;
+using System.IO;
+
 using Core;
 using Core.DB;
 using Minder.WebServices.Objects;
@@ -25,7 +27,12 @@ namespace Minder.WebServices.Services
 		public List<TaskSync> Sync(List<TaskSync> tasks, string userId)
 		{
 			if(Minder.WebServices.Helpers.StaticData.ConfigLoaded == false)
+			{
 				ConfigLoader.Load(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\CoreConfig.xml");
+				FileInfo config = new FileInfo(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\MinderWebServices.log4net.xml");
+				log4net.Config.XmlConfigurator.Configure(config);
+			}
+			
 			List<TaskSync> tasksFromDb = LoadAllTasksByUserId(userId);
 			List<TaskSync> result = MergeTasks(tasksFromDb, tasks);
 			SaveTasksToDb(tasksFromDb, result);

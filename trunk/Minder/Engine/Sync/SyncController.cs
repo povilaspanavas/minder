@@ -26,7 +26,8 @@ namespace Minder.Engine.Sync
 	/// </summary>
 	public class SyncController
 	{
-		private Loger m_log = new Loger();
+		log4net.ILog m_log = log4net.LogManager.GetLogger(typeof(SyncController));
+		
 		private System.Windows.Forms.Timer m_timer = null;
 		private int m_newTasks;
 		
@@ -108,12 +109,12 @@ namespace Minder.Engine.Sync
 					Synced();
 				}
 				
-				m_log.LogWrite("Synced ok!");
+				m_log.Info("Synced ok!");
 				
 			}
 			catch (Exception e)
 			{
-				m_log.LogWrite(e.ToString(), LogerType.Error);
+				m_log.Error(e.ToString());
 			}
 		}
 		
@@ -124,6 +125,7 @@ namespace Minder.Engine.Sync
 			m_timer.Tick += delegate { 
 				Sync(); 
 			};
+//			Thread.Sleep(m_timer.Interval);
 			m_timer.Start();
 		}
 		
