@@ -39,9 +39,9 @@ namespace Minder.Starter
 			{
 				try
 				{
-					ConfigLoader.Load();
-					Loger log = new Loger();
-					log.LogWrite(e.ToString(), LogerType.Fatal);
+//					ConfigLoader.Load();
+//					Loger log = new Loger();
+//					log.LogWrite(e.ToString(), LogerType.Fatal);
 					Kill();
 				}
 				

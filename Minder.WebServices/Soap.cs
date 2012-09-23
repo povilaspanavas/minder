@@ -9,10 +9,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Web;
+using System.Web.Script.Services;
 using System.Web.Services;
 using System.Web.Services.Protocols;
-using System.Web.Script.Services;
+
 using Core;
 using Core.Tools.Log;
 using Minder.WebServices.Objects;
@@ -30,10 +32,20 @@ namespace Minder.WebServices
 		[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
 		public string Sync(string json)
 		{
+			if(Minder.WebServices.Helpers.StaticData.ConfigLoaded == false)
+			{
+				ConfigLoader.Load(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\CoreConfig.xml");
+				FileInfo config = new FileInfo(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\MinderWebServices.log4net.xml");
+				log4net.Config.XmlConfigurator.Configure(config);
+			}
+			
+			log4net.ILog log = log4net.LogManager.GetLogger(typeof(Soap));
+			
 			try
 			{
 				if(string.IsNullOrEmpty(json))
 					return string.Empty;
+				log.Info("Started sync...");
 				
 				SyncObject syncObject = JsonHelper.OnlyJsonToObject<SyncObject>(json);
 				if(syncObject == null)
@@ -48,10 +60,13 @@ namespace Minder.WebServices
 				resultObject.Tasks = result;
 				resultObject.UserId = userId;
 				
-				return JsonHelper.ConvertToJson<SyncObject>(resultObject);
+				string jsonResult = JsonHelper.ConvertToJson<SyncObject>(resultObject);
+				log.InfoFormat("Successfully synced for user: {0}", userId);
+				return jsonResult;
 			}
 			catch (Exception e)
 			{
+				log.Error(e);
 				return e.ToString();
 			}
 		}
