@@ -147,7 +147,7 @@ namespace Minder.Forms.Tasks
 //					m_form.MTaskGrid.Rows.Add(task.Text, task.DateRemainder, task.Showed, task.Id, task.SourceId);
 //				}
 				
-				CoreGridController<Task>.AddToGrid(m_form.MTaskGrid, m_tasks);
+				CoreGridController<Task>.AddToGrid(m_form.MTaskGrid, m_tasks, false);
 				
 				if(m_form.MTaskGrid.Rows.Count > rowIndex)
 					m_form.MTaskGrid.CurrentCell = m_form.MTaskGrid.Rows[rowIndex].Cells[2];
