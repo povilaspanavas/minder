@@ -48,7 +48,7 @@ namespace Minder.Forms.Tasks
 			// 
 			this.MNewButton.Location = new System.Drawing.Point(3, 2);
 			this.MNewButton.Name = "MNewButton";
-			this.MNewButton.Size = new System.Drawing.Size(102, 32);
+			this.MNewButton.Size = new System.Drawing.Size(102, 34);
 			this.MNewButton.TabIndex = 0;
 			this.MNewButton.Text = "New";
 			this.MNewButton.UseVisualStyleBackColor = true;
@@ -57,7 +57,7 @@ namespace Minder.Forms.Tasks
 			// 
 			this.MEditButton.Location = new System.Drawing.Point(111, 2);
 			this.MEditButton.Name = "MEditButton";
-			this.MEditButton.Size = new System.Drawing.Size(102, 32);
+			this.MEditButton.Size = new System.Drawing.Size(102, 34);
 			this.MEditButton.TabIndex = 1;
 			this.MEditButton.Text = "Edit";
 			this.MEditButton.UseVisualStyleBackColor = true;
@@ -67,25 +67,25 @@ namespace Minder.Forms.Tasks
 			this.MTaskGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
 									| System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.MTaskGrid.Location = new System.Drawing.Point(3, 39);
+			this.MTaskGrid.Location = new System.Drawing.Point(3, 42);
 			this.MTaskGrid.Name = "MTaskGrid";
-			this.MTaskGrid.Size = new System.Drawing.Size(469, 403);
+			this.MTaskGrid.Size = new System.Drawing.Size(530, 436);
 			this.MTaskGrid.TabIndex = 2;
 			// 
 			// MDeleteButton
 			// 
 			this.MDeleteButton.Location = new System.Drawing.Point(219, 2);
 			this.MDeleteButton.Name = "MDeleteButton";
-			this.MDeleteButton.Size = new System.Drawing.Size(102, 32);
+			this.MDeleteButton.Size = new System.Drawing.Size(102, 34);
 			this.MDeleteButton.TabIndex = 3;
 			this.MDeleteButton.Text = "Delete";
 			this.MDeleteButton.UseVisualStyleBackColor = true;
 			// 
 			// TasksForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(476, 444);
+			this.ClientSize = new System.Drawing.Size(537, 480);
 			this.Controls.Add(this.MDeleteButton);
 			this.Controls.Add(this.MTaskGrid);
 			this.Controls.Add(this.MEditButton);
