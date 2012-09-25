@@ -20,6 +20,7 @@ namespace Minder.Engine.Parse
 		string TimeRegex{get;}
 		string DateTimeRegex{get;}
 		string YearRegex{get;}
+		string TomorrowRegex{get;}
 		string AddYearToMonthAndDay(string dateTimeNoYear);
 		
 		string Name {get;}

@@ -34,19 +34,60 @@ namespace Minder.Engine.Parse
 			date = DateTime.MinValue;
 			try
 			{
-				if (TryParseBySeperator("|", text, ref date, ref leftText))
-					return true;
-				if (TryParseMinutesOrHours(text, ref date, ref leftText))
-					return true;
-				if (TryParseDateTime(text, ref date, ref leftText))
-					return true;
-				if (TryParseTime(text, ref date, ref leftText))
-					return true;
+				if (ParseTomorrow(ref text))
+				{
+					leftText = text;
+					if (TryParseDateTime(text, ref date, ref leftText))
+						return true;
+				}
+				else
+				{
+					if (TryParseBySeperator("|", text, ref date, ref leftText))
+						return true;
+					if (TryParseMinutesOrHours(text, ref date, ref leftText))
+						return true;
+					if (TryParseDateTime(text, ref date, ref leftText))
+						return true;
+					if (TryParseTime(text, ref date, ref leftText))
+						return true;
+				}
 				return false;
 			}
 			catch {
 				return false;
 			}
+		}
+		
+		/// <summary>
+		/// Jei randa žodį rytoj, tai keičia jį iškart į kitos dienos datą
+		/// 
+		/// O tada teksto parsinimas vyksta standartiškai ir būtent sekantys
+		/// parseriai nustatys, kad ten yra kažkokia konkreti data
+		/// </summary>
+		/// <param name="leftText"></param>
+		public static bool ParseTomorrow(ref string text)
+		{
+			MatchCollection tommorowMatches = Regex.Matches(text, m_cultureData.TomorrowRegex);
+			Match tommorowMatch = null;
+			if (tommorowMatches.Count > 0)
+			{
+				string newDate = DateTime.Now.AddDays(1).ToShortDateString();
+					if (tommorowMatches.Count == 1)
+				{
+					tommorowMatch = tommorowMatches[0];
+					text = text.Replace(tommorowMatch.Value, newDate);
+					return true;
+				}
+				// pvz Pasukti dėl ryt susitikimo ryt 10:00. Turim tik paskutinį ryt nutrinti
+				if (tommorowMatches.Count > 1)
+				{
+					tommorowMatch = tommorowMatches[tommorowMatches.Count - 1];
+					int lastIndex = text.LastIndexOf(tommorowMatch.Value);
+					text = text.Substring(0, lastIndex) + newDate + text.Substring(lastIndex + tommorowMatch.Value.Length);
+					return true;
+				}
+			}
+			return false;
 		}
 		
 		public static bool TryParseBySeperator(string seperator, string text, ref DateTime date, ref string leftText)

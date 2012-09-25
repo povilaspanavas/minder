@@ -100,7 +100,7 @@ namespace Minder
 		/// <summary>
 		/// Checks if update is necessary. If no, does nothing, if yes updates
 		/// </summary>
-		static void UpdateDBVersion()
+		public static void UpdateDBVersion()
 		{
 			new DBVersionSystem(new DBVersionRepository().AddVersions(typeof(Task).Assembly)).UpdateToNewest();
 		}

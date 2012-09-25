@@ -14,13 +14,15 @@ namespace Minder.Engine.Parse
 {
 	public class CultureDataLT : ICultureData
 	{
+		public const string NAME = "Lithuanian";
 		private CultureInfo m_cultureInfo = new CultureInfo("lt-Lt");
+		
 		public const string MINUTES_STRING = @"\b\d+[,]{0,1}\d*((min\.)|(min\b)|(m\.)|(m\b))";
 		public const string HOURS_STRING = @"\b\d+[,]{0,1}\d*((val\.)|(val\b)|(v\.)|(v\b)|(h\.)|(h\b))";
 		public const string TIME_STRING = @"\b\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}$";
 		public const string DATE_TIME_STRING = @"\b\d{0,4}(\.|-|\\){0,1}\d{1,2}(\.|-|\\)\d{1,2}[ ]\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}$";
 		public const string YEAR = @"\b\d{4,4}";
-		public const string NAME = "Lithuanian";
+		public const string TOMORROW = @"\b((ryt)|(rytoj))((\b)|(\.))";
 		
 		public CultureInfo CultureInfo {
 			get {
@@ -56,6 +58,10 @@ namespace Minder.Engine.Parse
 			get {
 				return YEAR;
 			}
+		}
+		
+		public string TomorrowRegex {
+			get { return TOMORROW; }
 		}
 		
 		public string AddYearToMonthAndDay(string dateTimeNoYear)
