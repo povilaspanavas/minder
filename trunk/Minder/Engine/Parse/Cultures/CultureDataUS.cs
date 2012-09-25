@@ -14,6 +14,7 @@ namespace Minder.Engine.Parse
 {
 	public class CultureDataUS : ICultureData
 	{
+		public const string NAME = "English (United States)";
 		private CultureInfo m_cultureInfo = new CultureInfo("en-US");
 		
 		public const string MINUTES_STRING = @"\b\d+[.]{0,1}\d*((min\.)|(min\b)|(m\.)|(m\b))";
@@ -21,7 +22,7 @@ namespace Minder.Engine.Parse
 		public const string TIME_STRING = @"\b\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}(([ ]((PM)|AM))){0,1}$";
 		public const string DATE_TIME_STRING = @"\b\d{1,2}(\.|-|\\|/){0,1}\d{1,2}(\.|-|\\|/)\d{0,4}[ ]\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}$";
 		public const string YEAR = @"\b\d{4,4}";
-		public const string NAME = "English (United States)";
+		public const string TOMORROW = "\b(ryt)|(rytoj)\b";
 		
 		public CultureInfo CultureInfo {
 			get {
@@ -57,6 +58,11 @@ namespace Minder.Engine.Parse
 				return YEAR;
 			}
 		}
+		
+		public string TomorrowRegex {
+			get { return TOMORROW; }
+		}
+		
 		
 		public string AddYearToMonthAndDay(string dateTimeNoYear)
 		{

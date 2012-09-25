@@ -146,6 +146,32 @@ namespace Minder.Tests.Logic.Cultures
 			Assert.AreEqual("Susitikimas", leftText);
 		}
 		
+		[Test]
+		public void Test_Time_And_Tomorrowe()
+		{
+			DateTime now = DateTime.Now;
+			DateTime dateRemind = new DateTime(now.Year, now.Month, now.Day, 10, 05, 00).AddDays(1);
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas ryt 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			// Nepalaikoma, nes data prieš laiką turėtų eiti
+			Assert.IsFalse(TextParser.Parse("Susitikimas 10:05 ryt", out date, out leftText));
+		}
+		
+		[Test]
+		public void Test_Tommorow_Twice()
+		{
+			DateTime now = DateTime.Now;
+			DateTime dateRemind = new DateTime(now.Year, now.Month, now.Day, 12, 20, 00).AddDays(1);
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas ryt po ryt 12:20", out date, out leftText));
+			Assert.AreEqual("Susitikimas ryt po", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+		}
 		
 		[Test]
 		public void Test_Minutes_Twice()
