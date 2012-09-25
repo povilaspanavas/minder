@@ -147,7 +147,7 @@ namespace Minder.Tests.Logic.Cultures
 		}
 		
 		[Test]
-		public void Test_Time_And_Tomorrowe()
+		public void Test_Time_And_Tomorrow()
 		{
 			DateTime now = DateTime.Now;
 			DateTime dateRemind = new DateTime(now.Year, now.Month, now.Day, 10, 05, 00).AddDays(1);
@@ -159,6 +159,11 @@ namespace Minder.Tests.Logic.Cultures
 			
 			// Nepalaikoma, nes data prieš laiką turėtų eiti
 			Assert.IsFalse(TextParser.Parse("Susitikimas 10:05 ryt", out date, out leftText));
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas rytoj 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
 		}
 		
 		[Test]
