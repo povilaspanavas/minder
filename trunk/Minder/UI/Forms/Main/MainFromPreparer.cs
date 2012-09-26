@@ -21,6 +21,7 @@ using Minder.Forms.Main;
 using Minder.Forms.Settings;
 using Minder.Forms.Skins;
 using Minder.Forms.Tasks;
+using Minder.Objects;
 using Minder.Sql;
 using Minder.UI.SkinController;
 using Minder.UI.SkinController.MainForms.DefaultSkin;
@@ -59,7 +60,7 @@ namespace Minder.Forms.Main
 					m_syncController.Sync();
 				}
 				
-				m_syncController.StartThreadForSync(); //Sync
+//				m_syncController.StartThreadForSync(); //Sync
 			}
 			
 			m_form.InitializeLifetimeService();
@@ -116,23 +117,32 @@ namespace Minder.Forms.Main
 		
 		public string FormatNextTaskRemindingDate()
 		{
+			int maxTimeTextLength = 38; // Text length without task description
+			int maxLength = 64; // for NotifyIcon.Text property it's maximum
+			int maxTaskNameLength = maxLength - maxTimeTextLength;
 			string text = "Nothing to mindered about";
-			DateTime? nextDate = new DbHelper().NextDateToShow();
+			Task nextTask = new DbHelper().NextTaskToShow();
+			if (nextTask == null)
+				return text;
+			if (string.IsNullOrEmpty(nextTask.Text) == false 
+			    && nextTask.Text.Length > maxTaskNameLength)
+				nextTask.Text = nextTask.Text.Substring(0, maxTaskNameLength);
+			DateTime? nextDate = nextTask.DateRemainder;
 			if (nextDate.HasValue == false)
 				return text;
 			
-			text = string.Format("You will be mindered at {0}", DBTypesConverter.ToFullDateStringByCultureInfo(nextDate.Value));
+			text = string.Format("Task {0} minders at {1}", nextTask.Text, DBTypesConverter.ToFullDateStringByCultureInfo(nextDate.Value));
 			TimeSpan difference = nextDate.Value.Subtract(DateTime.Now);
 			
 			decimal days = RoundHelper.Round((decimal)difference.TotalDays, 0);
 			if (days < 1)
-				text = string.Format("You will be mindered at {0}",  nextDate.Value.ToShortTimeString());
+				text = string.Format("Task {0} minders at {1}", nextTask.Text, nextDate.Value.ToShortTimeString());
 			
 			decimal minutes = RoundHelper.Round((decimal)difference.TotalMinutes, 0);
 			if (difference.TotalHours < 1)
-				text = string.Format("You will be mindered in {0} minutes", minutes);
+				text = string.Format("Task {0} minders in {1} minutes", nextTask.Text, minutes);
 			if (minutes < 1)
-				text = ("You will be mindered in less than a minute");
+				text = (string.Format("Task {0} minders in less than a minute", nextTask.Text));
 			return text;
 		}
 		
