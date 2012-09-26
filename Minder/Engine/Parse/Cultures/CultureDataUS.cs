@@ -22,7 +22,7 @@ namespace Minder.Engine.Parse
 		public const string TIME_STRING = @"\b\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}(([ ]((PM)|AM))){0,1}$";
 		public const string DATE_TIME_STRING = @"\b\d{1,2}(\.|-|\\|/){0,1}\d{1,2}(\.|-|\\|/)\d{0,4}[ ]\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}$";
 		public const string YEAR = @"\b\d{4,4}";
-		public const string TOMORROW = "\b(ryt)|(rytoj)\b";
+		public const string TOMORROW = @"\b((tomorrow)|(next day))((\b)|(\.))";
 		
 		public CultureInfo CultureInfo {
 			get {

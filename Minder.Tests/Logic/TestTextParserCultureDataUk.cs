@@ -170,6 +170,37 @@ namespace Minder.Tests.Logic.Cultures
 			Assert.AreEqual("Susitikimas", leftText);
 		}
 		
+		[Test]
+		public void Test_Time_And_Tomorrow()
+		{
+			DateTime now = DateTime.Now;
+			DateTime dateRemind = new DateTime(now.Year, now.Month, now.Day, 10, 05, 00).AddDays(1);
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas tomorrow 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			// Nepalaikoma, nes data prieš laiką turėtų eiti
+			Assert.IsFalse(TextParser.Parse("Susitikimas 10:05 tomorrow", out date, out leftText));
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas next day 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+		}
+//		
+		[Test]
+		public void Test_Tommorow_Twice()
+		{
+			DateTime now = DateTime.Now;
+			DateTime dateRemind = new DateTime(now.Year, now.Month, now.Day, 12, 20, 00).AddDays(1);
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas tomorrow po tomorrow 12:20", out date, out leftText));
+			Assert.AreEqual("Susitikimas tomorrow po", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+		}
 		
 		[Test]
 		public void Test_Minutes_Twice()
