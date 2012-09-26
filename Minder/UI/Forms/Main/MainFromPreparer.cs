@@ -60,7 +60,7 @@ namespace Minder.Forms.Main
 					m_syncController.Sync();
 				}
 				
-//				m_syncController.StartThreadForSync(); //Sync
+				m_syncController.StartThreadForSync(); //Sync
 			}
 			
 			m_form.InitializeLifetimeService();
