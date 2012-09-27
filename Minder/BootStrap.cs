@@ -77,6 +77,7 @@ namespace Minder
 			
 			SettingsLoader loader = new SettingsLoader();
 			loader.LoadSettings();
+			Minder.Static.StaticData.Settings.LogFilePath = @"Log\Minder.log";
 			
 			UpdateDBVersion();
 			
@@ -94,7 +95,6 @@ namespace Minder
 			timeController.Start();
 			
 			logger.Info("Minder started");
-			
 		}
 		
 		/// <summary>
