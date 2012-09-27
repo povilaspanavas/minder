@@ -104,6 +104,8 @@ namespace Minder.Forms.Settings
 			
 			//Skins
 			StaticData.Settings.SkinUniqueCode = parser.GetSetting("skin", "code");
+			if (string.IsNullOrEmpty(StaticData.Settings.SkinUniqueCode))
+				StaticData.Settings.SkinUniqueCode = StaticData.Settings.SkinsUniqueCodes.DEFAULT_SKIN_UNIQUECODE;
 			
 			//Sync
 			StaticData.Settings.Sync.Id = parser.GetSetting("sync", "id");
