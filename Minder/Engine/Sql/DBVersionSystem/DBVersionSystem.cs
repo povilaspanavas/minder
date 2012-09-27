@@ -11,7 +11,7 @@ namespace Minder.Sql.DBVersionSystem
 {
 	public class DBVersionSystem
 	{
-//		private static log4net.ILog m_log = log4net.LogManager.GetLogger(typeof(DBVersionSystem));
+		private static log4net.ILog m_log = log4net.LogManager.GetLogger(typeof(DBVersionSystem));
 		private DBVersionRepository m_repository = null;
 //		private DBVersionRepository m_repoCore = null;
 		
@@ -36,7 +36,7 @@ namespace Minder.Sql.DBVersionSystem
 				.ExecuteUpdateToDB(repo)
 //				.CreateAllVersionsInDB(repo)
 				;
-//			m_log.Info("DB update finished successfully");
+			m_log.Info("DB update finished successfully");
 		}
 		
 		public static int GetCurrentVersion()
