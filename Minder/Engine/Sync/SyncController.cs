@@ -32,12 +32,12 @@ namespace Minder.Engine.Sync
 		private int m_newTasks;
 		
 		public delegate void SyncEventHandler();
-        public event SyncEventHandler Synced;
+		public event SyncEventHandler Synced;
 
-        public int NewTasks {
-        	get { return m_newTasks; }
-        	set { m_newTasks = value; }
-        }
+		public int NewTasks {
+			get { return m_newTasks; }
+			set { m_newTasks = value; }
+		}
 		
 		public SyncController()
 		{
@@ -65,7 +65,7 @@ namespace Minder.Engine.Sync
 				GenericDbHelper.RunDirectSql("DELETE FROM TASK");
 				int newTasks = 0;
 				foreach(Task task in syncedTasks)
-				{	
+				{
 					task.LastModifyDate = Convert.ToDateTime(task.LastModifyDateString);
 					task.DateRemainder = Convert.ToDateTime(task.DateRemainderString);
 					
@@ -80,28 +80,31 @@ namespace Minder.Engine.Sync
 					if(exist == false)
 						newTasks++;
 					
-					bool saved = false;
-					int i = 0;
-					while(saved == false)
+					GenericDbHelper.Save(task);
+				}
+				
+				bool saved = false;
+				int i = 0;
+				while(saved == false)
+				{
+					try
 					{
-						try 
-						{
-							GenericDbHelper.SaveAndFlush(task);
-							saved = true;
-						} 
-						catch (Exception) 
-						{
-							i++;
-							Thread.Sleep(2000); //2 secconds
-						}
-						
-						if(i > 10)
-						{
-							throw new Exception("Can't save task to DB");
+						GenericDbHelper.Flush();
+						saved = true;
+					}
+					catch (Exception)
+					{
+						i++;
+						Thread.Sleep(2000); //2 secconds
+					}
+					
+					if(i > 10)
+					{
+						throw new Exception("Can't save tasks to DB");
 //							break;
-						}
 					}
 				}
+				
 				
 				if(newTasks != 0)
 				{
@@ -122,8 +125,8 @@ namespace Minder.Engine.Sync
 		{
 			m_timer = new System.Windows.Forms.Timer();
 			m_timer.Interval = Minder.Static.StaticData.Settings.Sync.Interval * 1000 * 60;
-			m_timer.Tick += delegate { 
-				Sync(); 
+			m_timer.Tick += delegate {
+				Sync();
 			};
 //			Thread.Sleep(m_timer.Interval);
 			m_timer.Start();
