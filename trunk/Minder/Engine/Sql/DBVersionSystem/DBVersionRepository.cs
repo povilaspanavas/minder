@@ -13,7 +13,7 @@ namespace Minder.Sql.DBVersionSystem
 
 	public class DBVersionRepository
 	{
-//		private static log4net.ILog m_log = log4net.LogManager.GetLogger(typeof(DBVersionRepository));
+		private static log4net.ILog m_log = log4net.LogManager.GetLogger(typeof(DBVersionRepository));
 		
 		private SortedDictionary<int, IDBVersionInformation> m_versionsTable = null;
 		
@@ -23,7 +23,7 @@ namespace Minder.Sql.DBVersionSystem
 		
 		public DBVersionRepository()
 		{
-//			m_log.Debug("DBVersionSystem created");
+			m_log.Debug("DBVersionSystem created");
 			this.m_versionsTable = new SortedDictionary<int, IDBVersionInformation>();
 		}
 		
@@ -104,7 +104,7 @@ namespace Minder.Sql.DBVersionSystem
 		/// <returns>true if all conditions are corect</returns>
 		public void CheckVersions()
 		{
-//			m_log.Debug("Cheking versions");
+			m_log.Debug("Cheking versions");
 			if (m_versionsTable.Count == 0)
 				throw new ArgumentOutOfRangeException("There must be at least one method with atrribute DBVersionAttribute");
 			
@@ -142,7 +142,7 @@ namespace Minder.Sql.DBVersionSystem
 		/// <param name="filename">full path to assembly</param>
 		public DBVersionRepository AddVersions(string filename)
 		{
-//			m_log.Debug(string.Format("Loading methods from file {0}", Path.GetFullPath(filename)));
+			m_log.Debug(string.Format("Loading methods from file {0}", Path.GetFullPath(filename)));
 			Assembly ass = null;
 			try
 			{
@@ -150,7 +150,7 @@ namespace Minder.Sql.DBVersionSystem
 			}
 			catch (System.IO.FileNotFoundException)
 			{
-//				m_log.Error(string.Format("File not found, passed path {0}, fullpath {1}", filename, Path.GetFullPath(filename)));
+				m_log.Error(string.Format("File not found, passed path {0}, fullpath {1}", filename, Path.GetFullPath(filename)));
 				throw;
 			}
 			AddVersions(ass);
@@ -166,11 +166,11 @@ namespace Minder.Sql.DBVersionSystem
 		
 		public DBVersionRepository AddVersions(Type type)
 		{
-//			m_log.Debug(string.Format("Importing methods from type {0}", type.FullName));
+			m_log.Debug(string.Format("Importing methods from type {0}", type.FullName));
 			DBHistoryAttribute dbHistoryAtr = AttributeParser.GetAttribute<DBHistoryAttribute>(type);
 			if (dbHistoryAtr == null)
 			{
-//				m_log.Debug(string.Format("Type {0} doesn't have DBHistoryAttribute", type.FullName));
+				m_log.Debug(string.Format("Type {0} doesn't have DBHistoryAttribute", type.FullName));
 				return this;
 			}
 			foreach (MethodInfo method in type.GetMethods())
@@ -178,7 +178,7 @@ namespace Minder.Sql.DBVersionSystem
 				DBVersionAttribute dbVersionAtr = AttributeParser.GetAttribute<DBVersionAttribute>(method);
 				if (dbVersionAtr == null)
 					continue;
-//				m_log.Debug(string.Format("Adding method {0} with {2} {1}", method.Name, dbVersionAtr.Version, dbHistoryAtr.GetType().Name));
+				m_log.Debug(string.Format("Adding method {0} with {2} {1}", method.Name, dbVersionAtr.Version, dbHistoryAtr.GetType().Name));
 				AddVersions(new DBVersionInformation(dbVersionAtr, new DBVersionBodyMethodInfo(method), dbHistoryAtr));
 			}
 			return this;
@@ -218,7 +218,7 @@ namespace Minder.Sql.DBVersionSystem
 		
 		public DBVersionRepository AddVersions(_Assembly ass)
 		{
-//			m_log.Debug(string.Format("Importing methods from assembly {0}", ass.FullName));
+			m_log.Debug(string.Format("Importing methods from assembly {0}", ass.FullName));
 			foreach (Type type in ass.GetExportedTypes())
 			{
 				if (AttributeParser.GetAttribute<DBHistoryAttribute>(type) == null)

@@ -97,6 +97,7 @@ namespace Minder.Forms.Settings
 					StaticData.Settings.CultureData = new CultureDataLT();
 					break;
 			}
+			
 			decimal remindLaterDefaultValue = 10.0m/60.0m;
 			decimal.TryParse(parser.GetSetting("RemindMeLater", "Default"), out remindLaterDefaultValue);
 			StaticData.Settings.RemindMeLaterDefaultValue = RemindLaterValue.Round(remindLaterDefaultValue);

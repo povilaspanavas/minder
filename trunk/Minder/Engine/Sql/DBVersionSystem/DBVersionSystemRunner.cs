@@ -10,12 +10,11 @@ namespace Minder.Sql.DBVersionSystem
 
 	public class DBVersionSystemRunner
 	{
-//		private static log4net.ILog m_log = log4net.LogManager.GetLogger(typeof(DBVersionSystemRunner));
+		private static log4net.ILog m_log = log4net.LogManager.GetLogger(typeof(DBVersionSystemRunner));
 		
 		
 		/// <summary>
-		/// Creates all instances of DBVersion or DBCoreVersion from
-		/// provided DBVersionSystem
+		/// Creates all instances of DBVersion from provided DBVersionSystem
 		/// </summary>
 		public DBVersionSystemRunner CreateAllVersionsInDB(DBVersionRepository system)
 		{
@@ -39,8 +38,8 @@ namespace Minder.Sql.DBVersionSystem
 		
 		public DBVersionSystemRunner ExecuteUpdateToDB(DBVersionRepository repo)
 		{
-//			m_log.Info(string.Format("Preparing to inject {0} new versions into database",
-//			                         repo.VersionsTable.Count));
+			m_log.Debug(string.Format("Preparing to inject {0} new versions into database",
+			                          repo.VersionsTable.Count));
 
 			foreach (IDBVersionInformation info in Sort(repo).Values)
 			{
@@ -60,8 +59,8 @@ namespace Minder.Sql.DBVersionSystem
 				}
 				catch (Exception e)
 				{
-					//							m_log.Error(string.Format("Could not commit version {0}", versionInfo), e);
-					//							m_log.Error(string.Format("Rolling back"));
+					m_log.Error(string.Format("Could not commit version {0}", versionInfo), e);
+					m_log.Error(string.Format("Rolling back"));
 					throw new DBUpdateException(string.Format("Error injecting DB version {1}, date '{0}'.",
 					                                          info.VersionAttribute.Date,
 					                                          info.VersionAttribute.Version)
@@ -69,8 +68,8 @@ namespace Minder.Sql.DBVersionSystem
 				}
 			}
 
-//			m_log.Info(string.Format("Success - Injected {0} new versions into database",
-//			                         repo.VersionsTable.Count));
+			m_log.Debug(string.Format("Success - Injected {0} new versions into database",
+			                         repo.VersionsTable.Count));
 			return this;
 		}
 		
