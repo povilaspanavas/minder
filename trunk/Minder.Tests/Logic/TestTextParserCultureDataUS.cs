@@ -177,6 +177,18 @@ namespace Minder.Tests.Logic.Cultures
 			dateRemind = new DateTime(2012, 02, 06, 15, 20, 10);
 			Assert.IsTrue(TextParser.Parse("Susitikimas 02/06 15:20:10", out date, out leftText));
 		}
+		
+		[Test]
+		public void TestMethod_Date_Time_Spaces_Around_Text()
+		{
+			DateTime now = DateTime.Now;
+			DateTime dateRemind = new DateTime(2012, 01, 06, 15, 20, 0);
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("  Susitikimas 01/06/2012 15:20 ", out date, out leftText));
+			CheckByShortDateTimeStrings(dateRemind, date, leftText);
+			Assert.AreEqual("Susitikimas", leftText);
+		}
+		
 		[Test]
 		public void Test_Time_And_Tomorrow()
 		{

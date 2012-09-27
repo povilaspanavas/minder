@@ -30,6 +30,8 @@ namespace Minder.Engine.Parse
 		
 		public static bool Parse(string text, out DateTime date, out string leftText)
 		{
+			if (string.IsNullOrEmpty(text) == false)
+				text = text.Trim();
 			leftText = text;
 			date = DateTime.MinValue;
 			try
