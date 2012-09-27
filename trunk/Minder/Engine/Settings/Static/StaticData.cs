@@ -89,6 +89,7 @@ namespace Minder.Static
 			static bool m_checkUpdates;
 			static bool m_playSound;
 			static string m_skinUniqueCode;
+			static string m_logFilePath;
 			static decimal m_remindMeLaterValue = 10.0m/60.0m;
 			static ICultureData m_cultureData = new CultureDataLT();
 
@@ -124,6 +125,11 @@ namespace Minder.Static
 			public static string SkinUniqueCode {
 				get { return m_skinUniqueCode; }
 				set { m_skinUniqueCode = value; }
+			}
+			
+			public static string LogFilePath {
+				get { return m_logFilePath; }
+				set { m_logFilePath = value; }
 			}
 			
 			public static class SkinsUniqueCodes
