@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-# SharpDevelop 4.2.2.8818
+# SharpDevelop 4.2.1.8805
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minder", "Minder\Minder.csproj", "{125E2525-BFA7-40E8-8FD8-04E49206A67A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minder.Tests", "Minder.Tests\Minder.Tests.csproj", "{65C2B0AB-7FB3-4716-A917-A7DD301CABA1}"
