@@ -135,8 +135,6 @@ namespace Minder.Static
 			
 			public static class SkinsUniqueCodes
 			{
-				public const string DEFAULT_SKIN_UNIQUE_CODE = "DefaultSkin";
-				
 				static Dictionary<string, string> m_skinsUniqueCodesAndNames = new Dictionary<string, string>();
 				
 				/// <summary>
