@@ -139,11 +139,6 @@
     <Compile Include="UI\Forms\Skins\MainFormLaunchy.Designer.cs">
       <DependentUpon>MainFormLaunchy.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\Skins\WpfSkin1\WpfSkin1.xaml.cs">
-      <DependentUpon>WpfSkin1.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\Skins\WpfSkin1\WpfSkinPreparer.cs" />
     <Compile Include="UI\Forms\TaskShow\RemindLaterValue.cs" />
     <Compile Include="UI\Forms\TaskShow\TaskShowForm.cs">
       <SubType>Form</SubType>
@@ -230,7 +225,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="UI\Forms\Skins\WpfSkin1\WpfSkin1.xaml" />
     <Page Include="UI\SkinController\MainForms\DefaultSkin\DefaultSkinForm.xaml" />
     <Page Include="UI\SkinController\MainForms\WhiteSkin\WhiteSkin.xaml" />
   </ItemGroup>
@@ -246,7 +240,6 @@
     <Folder Include="UI\SkinController\MainForms" />
     <Folder Include="UI\SkinController\MainForms\DefaultSkin" />
     <Folder Include="UI\SkinController\MainForms\WhiteSkin" />
-    <Folder Include="UI\SkinController\TaskShowForms" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>

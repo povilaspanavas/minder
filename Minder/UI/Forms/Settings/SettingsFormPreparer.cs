@@ -168,10 +168,10 @@ namespace Minder.Forms.Settings
 			{
 				m_form.MSkinListBox.Items.Add(name);
 				string uniqueCode = Minder.Static.StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames[name];
-				if(Minder.Static.StaticData.Settings.SkinUniqueCode.ToLower().Equals(uniqueCode.ToLower()))
+				if(Minder.Static.StaticData.Settings.SkinUniqueCode.ToUpper().Equals(uniqueCode.ToUpper()))
 				{
 					m_form.MSkinListBox.SelectedIndex = skinNameIndex;
-					m_form.MSkinPreviewPictureBox.Image = new Images().GetImage(uniqueCode.ToLower());
+					m_form.MSkinPreviewPictureBox.Image = new Images().GetImage(uniqueCode.ToUpper());
 				}
 				skinNameIndex++;
 			}
