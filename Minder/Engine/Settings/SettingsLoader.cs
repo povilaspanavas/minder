@@ -13,6 +13,7 @@ using Minder.Engine.Parse;
 using Minder.Static;
 using Minder.Tools;
 using Minder.UI.Forms.TaskShow;
+using Minder.UI.SkinController.MainForms;
 
 namespace Minder.Forms.Settings
 {
@@ -57,7 +58,7 @@ namespace Minder.Forms.Settings
 			iniParser.AddSetting("General", "playsound", "true");
 			iniParser.AddSetting("CultureInfo", "name", "lt-Lt");
 			iniParser.AddSetting("RemindMeLater", "Default", RemindLaterValue.Round(10.0m/60.0m).ToString());
-			iniParser.AddSetting("Skin", "code", StaticData.Settings.SkinsUniqueCodes.DEFAULT_SKIN_UNIQUE_CODE);
+			iniParser.AddSetting("Skin", "code", DefaultSkinForm.SKIN_UNIQUE_CODE);
 			iniParser.AddSetting("Sync", "enable", "false");
 			iniParser.AddSetting("Sync", "ID", "");
 			iniParser.AddSetting("Sync", "interval", "30");
@@ -106,7 +107,7 @@ namespace Minder.Forms.Settings
 			//Skins
 			StaticData.Settings.SkinUniqueCode = parser.GetSetting("skin", "code");
 			if (string.IsNullOrEmpty(StaticData.Settings.SkinUniqueCode))
-				StaticData.Settings.SkinUniqueCode = StaticData.Settings.SkinsUniqueCodes.DEFAULT_SKIN_UNIQUE_CODE;
+				StaticData.Settings.SkinUniqueCode = DefaultSkinForm.SKIN_UNIQUE_CODE;
 			
 			//Sync
 			StaticData.Settings.Sync.Id = parser.GetSetting("sync", "id");
@@ -143,7 +144,7 @@ namespace Minder.Forms.Settings
 			parser.AddSetting("General", "playsound", StaticData.Settings.PlaySound.ToString());
 			parser.AddSetting("CultureInfo", "name", StaticData.Settings.CultureData.CultureInfo.Name.ToString());
 			parser.AddSetting("RemindMeLater", "default", RemindLaterValue.Round(StaticData.Settings.RemindMeLaterDefaultValue).ToString());
-			parser.AddSetting("skin", "code", StaticData.Settings.SkinsUniqueCodes.DEFAULT_SKIN_UNIQUE_CODE);
+			parser.AddSetting("skin", "code", StaticData.Settings.SkinUniqueCode);
 			parser.AddSetting("sync", "id", StaticData.Settings.Sync.Id);
 			parser.AddSetting("sync", "interval", StaticData.Settings.Sync.Interval.ToString());
 			parser.AddSetting("sync", "enable", StaticData.Settings.Sync.Enable.ToString());

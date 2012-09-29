@@ -22,8 +22,6 @@ namespace Minder.UI.SkinController
 			string skinUniqueCode = StaticData.Settings.SkinUniqueCode.ToUpper();
 			switch(skinUniqueCode)
 			{
-				case StaticData.Settings.SkinsUniqueCodes.DEFAULT_SKIN_UNIQUE_CODE:
-					return new DefaultSkinForm();
 				case DefaultSkinForm.SKIN_UNIQUE_CODE:
 					return new DefaultSkinForm();
 				case WhiteSkin.SKIN_UNIQUE_CODE:
