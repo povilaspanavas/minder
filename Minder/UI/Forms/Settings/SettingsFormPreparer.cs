@@ -81,7 +81,7 @@ namespace Minder.Forms.Settings
 					.SkinsUniqueCodes.SkinsUniqueCodesAndNames[m_form.MSkinListBox.Items[m_form.MSkinListBox.SelectedIndex]
 					                                           .ToString()];
 				m_form.MSkinPreviewPictureBox.Image = new Images()
-					.GetImage(skinUniqueCode.ToLower());
+					.GetImage(skinUniqueCode.ToUpper());
 			};
 			
 			m_form.MDefaultsButton.Click += delegate
