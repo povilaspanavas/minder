@@ -24,7 +24,6 @@ using Minder.Forms.Tasks;
 using Minder.Objects;
 using Minder.Sql;
 using Minder.UI.SkinController;
-using Minder.UI.SkinController.MainForms.DefaultSkin;
 
 namespace Minder.Forms.Main
 {

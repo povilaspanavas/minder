@@ -8,7 +8,7 @@
  */
 using System;
 using Minder.Static;
-using Minder.UI.SkinController.MainForms.DefaultSkin;
+using Minder.UI.SkinController.MainForms;
 
 namespace Minder.UI.SkinController
 {
@@ -19,11 +19,18 @@ namespace Minder.UI.SkinController
 	{
 		public IMainForm GetForm()
 		{
-			if(StaticData.Settings.SkinUniqueCode.ToLower()
-			   .Equals(StaticData.Settings.SkinsUniqueCodes.DEFAULT_SKIN_UNIQUECODE.ToLower()))
-				return new DefaultSkinForm();
-			else
-				return new DefaultSkinForm(); //Default if not exist;
+			string skinUniqueCode = StaticData.Settings.SkinUniqueCode.ToUpper();
+			switch(skinUniqueCode)
+			{
+				case StaticData.Settings.SkinsUniqueCodes.DEFAULT_SKIN_UNIQUE_CODE:
+					return new DefaultSkinForm();
+				case DefaultSkinForm.SKIN_UNIQUE_CODE:
+					return new DefaultSkinForm();
+				case WhiteSkin.SKIN_UNIQUE_CODE:
+					return new WhiteSkin();
+				default:
+					return new DefaultSkinForm();
+			}
 		}
 	}
 }

@@ -21,13 +21,15 @@ using Core.Tools.GlobalHotKeys;
 using Minder.Tools;
 using Minder.UI.SkinController;
 
-namespace Minder.UI.SkinController.MainForms.DefaultSkin
+namespace Minder.UI.SkinController.MainForms
 {
 	/// <summary>
 	/// Interaction logic for WpfSkin1.xaml
 	/// </summary>
 	public partial class DefaultSkinForm : Window, IMainForm
 	{
+    	public const string SKIN_UNIQUE_CODE = "DEFAULT_SKIN";
+		
 		public DefaultSkinForm()
 		{
 			InitializeComponent();
