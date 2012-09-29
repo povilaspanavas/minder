@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
 using Minder.Engine.Parse;
+using Minder.UI.SkinController.MainForms;
 
 namespace Minder.Static
 {
@@ -151,7 +152,9 @@ namespace Minder.Static
 					if(m_skinsUniqueCodesAndNames.Count != 0)
 						return;
 					
-					m_skinsUniqueCodesAndNames.Add("Default skin", DEFAULT_SKIN_UNIQUE_CODE);
+//					m_skinsUniqueCodesAndNames.Add("Default skin", DEFAULT_SKIN_UNIQUE_CODE);
+					m_skinsUniqueCodesAndNames.Add("Default skin", DefaultSkinForm.SKIN_UNIQUE_CODE);
+					m_skinsUniqueCodesAndNames.Add("White skin", WhiteSkin.SKIN_UNIQUE_CODE);
 				}
 			}
 			
