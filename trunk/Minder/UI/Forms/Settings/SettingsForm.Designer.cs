@@ -63,7 +63,7 @@ namespace Minder.Forms.Settings
 			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.MEnableSyncCheckBox = new System.Windows.Forms.CheckBox();
-			this.MSyncIdTextBox = new System.Windows.Forms.TextBox();
+			this.MSyncIdTextBox = new Minder.Controls.MTextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.MSyncGenerateIdButton = new System.Windows.Forms.Button();
 			this.label4 = new System.Windows.Forms.Label();
@@ -470,7 +470,7 @@ namespace Minder.Forms.Settings
 		public System.Windows.Forms.Button MSyncGenerateIdButton;
 		private System.Windows.Forms.Label label4;
 		public System.Windows.Forms.NumericUpDown MSyncIntervalNumeric;
-		public System.Windows.Forms.TextBox MSyncIdTextBox;
+		public Minder.Controls.MTextBox MSyncIdTextBox;
 		private System.Windows.Forms.Label label2;
 		public System.Windows.Forms.CheckBox MEnableSyncCheckBox;
 		private System.Windows.Forms.GroupBox groupBox2;

@@ -38,7 +38,7 @@ namespace Minder.Forms.Tasks
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskNewEditForm));
 			this.label1 = new System.Windows.Forms.Label();
-			this.MTextBox = new System.Windows.Forms.TextBox();
+			this.MTextBox = new Minder.Controls.MTextBox();
 			this.MDatePicker = new System.Windows.Forms.DateTimePicker();
 			this.label2 = new System.Windows.Forms.Label();
 			this.MShowedCheckBox = new System.Windows.Forms.CheckBox();

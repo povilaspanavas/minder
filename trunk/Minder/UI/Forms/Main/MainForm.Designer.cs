@@ -93,7 +93,7 @@ namespace Minder.Forms.Main
 		private Minder.Controls.MTextBox m_textBox;
 		private System.Windows.Forms.Label label1;
 		
-		public System.Windows.Forms.TextBox MTextBox {
+		public Minder.Controls.MTextBox MTextBox {
 			get { return m_textBox; }
 		}
 		
