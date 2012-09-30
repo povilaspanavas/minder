@@ -145,6 +145,7 @@ namespace Minder.Objects
 		
 		public void Delete()
 		{
+			this.LastModifyDate = DateTime.Now;
 			this.IsDeleted = true;
 			GenericDbHelper.UpdateAndFlush(this);
 		}
