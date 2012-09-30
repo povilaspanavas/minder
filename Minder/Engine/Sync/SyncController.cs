@@ -79,30 +79,30 @@ namespace Minder.Engine.Sync
 				}
 				
 				m_newTasks = tasksFromServer.Count;
-				using(IConnection con = new ConnectionCollector().GetConnection())
+//				using(IConnection con = new ConnectionCollector().GetConnection())
+//				{
+				foreach(Task task in tasksFromServer)
 				{
-					foreach(Task task in tasksFromServer)
+					task.LastModifyDate = task.LastModifyDate.ToLocalTime();
+					task.DateRemainder = task.DateRemainder.ToLocalTime();
+					
+					foreach(Task localTask in allTasks)
 					{
-						task.LastModifyDate = task.LastModifyDate.ToLocalTime();
-						task.DateRemainder = task.DateRemainder.ToLocalTime();
-						
-						foreach(Task localTask in allTasks)
-						{
-							if(localTask.Equals(task))
-								m_newTasks--;
-						}
-						
-						if(ExistTask(task, con))
-						{
-							//Negalime updatinti pagal ID, nes serveryje kitoks id.
-							con.ExecuteQuery(string.Format("DELETE FROM TASK WHERE SOURCE_ID = '{0}'", task.SourceId));
-							GenericDbHelper.Save(task);
-						}
-						else
-							GenericDbHelper.Save(task);
+						if(localTask.Equals(task))
+							m_newTasks--;
 					}
-					GenericDbHelper.Flush();
+					
+					if(ExistTask(task))
+					{
+						//Negalime updatinti pagal ID, nes serveryje kitoks id.
+						GenericDbHelper.RunDirectSql(string.Format("DELETE FROM TASK WHERE SOURCE_ID = '{0}'", task.SourceId));
+						GenericDbHelper.Save(task);
+					}
+					else
+						GenericDbHelper.Save(task);
 				}
+				GenericDbHelper.Flush();
+//				}
 				
 				if(m_newTasks > 0)
 					Synced();
@@ -111,28 +111,30 @@ namespace Minder.Engine.Sync
 				TimeSpan span = DateTime.Now - startSync;
 				m_log.InfoFormat("Synced in {0} seconds", span.TotalSeconds);
 			}
-			catch (Exception e) 
+			catch (Exception e)
 			{
 				m_log.Error(e);
 			}
 			
 		}
 		
-		private bool ExistTask(Task task, IConnection con)
+		private bool ExistTask(Task task)
 		{
 			if(string.IsNullOrEmpty(task.SourceId))
 				throw new Exception("Task without sourceId");
-			
-			IDataReader reader = con.ExecuteReader(string.Format("SELECT COUNT(ID) FROM TASK WHERE SOURCE_ID = '{0}'", task.SourceId));
-			int count = 0;
-			while(reader.Read())
+			using(IConnection con = new ConnectionCollector().GetConnection())
 			{
-				count = reader.GetInt32(0);
+				IDataReader reader = con.ExecuteReader(string.Format("SELECT COUNT(ID) FROM TASK WHERE SOURCE_ID = '{0}'", task.SourceId));
+				int count = 0;
+				while(reader.Read())
+				{
+					count = reader.GetInt32(0);
+				}
+				if(count > 0)
+					return true;
+				else
+					return false;
 			}
-			if(count > 0)
-				return true;
-			else
-				return false;
 		}
 		
 		public void StartThreadForSync()
