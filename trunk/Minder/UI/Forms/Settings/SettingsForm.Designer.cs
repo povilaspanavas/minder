@@ -62,12 +62,14 @@ namespace Minder.Forms.Settings
 			this.MSkinListBox = new System.Windows.Forms.ListBox();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.MEnableSyncCheckBox = new System.Windows.Forms.CheckBox();
-			this.MSyncIdTextBox = new Minder.Controls.MTextBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.MSyncGenerateIdButton = new System.Windows.Forms.Button();
-			this.label4 = new System.Windows.Forms.Label();
+			this.MLastSyncDate = new System.Windows.Forms.DateTimePicker();
 			this.MSyncIntervalNumeric = new System.Windows.Forms.NumericUpDown();
+			this.label4 = new System.Windows.Forms.Label();
+			this.MSyncGenerateIdButton = new System.Windows.Forms.Button();
+			this.label2 = new System.Windows.Forms.Label();
+			this.MSyncIdTextBox = new Minder.Controls.MTextBox();
+			this.MEnableSyncCheckBox = new System.Windows.Forms.CheckBox();
+			this.label5 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -365,6 +367,8 @@ namespace Minder.Forms.Settings
 			this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
 									| System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox2.Controls.Add(this.label5);
+			this.groupBox2.Controls.Add(this.MLastSyncDate);
 			this.groupBox2.Controls.Add(this.MSyncIntervalNumeric);
 			this.groupBox2.Controls.Add(this.label4);
 			this.groupBox2.Controls.Add(this.MSyncGenerateIdButton);
@@ -378,46 +382,16 @@ namespace Minder.Forms.Settings
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Sync";
 			// 
-			// MEnableSyncCheckBox
+			// MLastSyncDate
 			// 
-			this.MEnableSyncCheckBox.Location = new System.Drawing.Point(21, 19);
-			this.MEnableSyncCheckBox.Name = "MEnableSyncCheckBox";
-			this.MEnableSyncCheckBox.Size = new System.Drawing.Size(205, 24);
-			this.MEnableSyncCheckBox.TabIndex = 0;
-			this.MEnableSyncCheckBox.Text = "Enable synchronization";
-			this.MEnableSyncCheckBox.UseVisualStyleBackColor = true;
-			// 
-			// MSyncIdTextBox
-			// 
-			this.MSyncIdTextBox.Location = new System.Drawing.Point(100, 58);
-			this.MSyncIdTextBox.Name = "MSyncIdTextBox";
-			this.MSyncIdTextBox.Size = new System.Drawing.Size(138, 20);
-			this.MSyncIdTextBox.TabIndex = 1;
-			// 
-			// label2
-			// 
-			this.label2.Location = new System.Drawing.Point(21, 61);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(47, 23);
-			this.label2.TabIndex = 2;
-			this.label2.Text = "Your ID";
-			// 
-			// MSyncGenerateIdButton
-			// 
-			this.MSyncGenerateIdButton.Location = new System.Drawing.Point(253, 56);
-			this.MSyncGenerateIdButton.Name = "MSyncGenerateIdButton";
-			this.MSyncGenerateIdButton.Size = new System.Drawing.Size(100, 23);
-			this.MSyncGenerateIdButton.TabIndex = 3;
-			this.MSyncGenerateIdButton.Text = "Generate ID";
-			this.MSyncGenerateIdButton.UseVisualStyleBackColor = true;
-			// 
-			// label4
-			// 
-			this.label4.Location = new System.Drawing.Point(21, 84);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(119, 23);
-			this.label4.TabIndex = 4;
-			this.label4.Text = "Sync interval (minutes)";
+			this.MLastSyncDate.CustomFormat = "yyyy.MM.dd hh:mm:ss";
+			this.MLastSyncDate.Enabled = false;
+			this.MLastSyncDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.MLastSyncDate.Location = new System.Drawing.Point(113, 108);
+			this.MLastSyncDate.Name = "MLastSyncDate";
+			this.MLastSyncDate.ShowUpDown = true;
+			this.MLastSyncDate.Size = new System.Drawing.Size(125, 20);
+			this.MLastSyncDate.TabIndex = 6;
 			// 
 			// MSyncIntervalNumeric
 			// 
@@ -440,6 +414,55 @@ namespace Minder.Forms.Settings
 									0,
 									0,
 									0});
+			// 
+			// label4
+			// 
+			this.label4.Location = new System.Drawing.Point(21, 84);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(119, 23);
+			this.label4.TabIndex = 4;
+			this.label4.Text = "Sync interval (minutes)";
+			// 
+			// MSyncGenerateIdButton
+			// 
+			this.MSyncGenerateIdButton.Location = new System.Drawing.Point(253, 56);
+			this.MSyncGenerateIdButton.Name = "MSyncGenerateIdButton";
+			this.MSyncGenerateIdButton.Size = new System.Drawing.Size(100, 23);
+			this.MSyncGenerateIdButton.TabIndex = 3;
+			this.MSyncGenerateIdButton.Text = "Generate ID";
+			this.MSyncGenerateIdButton.UseVisualStyleBackColor = true;
+			// 
+			// label2
+			// 
+			this.label2.Location = new System.Drawing.Point(21, 61);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(47, 23);
+			this.label2.TabIndex = 2;
+			this.label2.Text = "Your ID";
+			// 
+			// MSyncIdTextBox
+			// 
+			this.MSyncIdTextBox.Location = new System.Drawing.Point(100, 58);
+			this.MSyncIdTextBox.Name = "MSyncIdTextBox";
+			this.MSyncIdTextBox.Size = new System.Drawing.Size(138, 20);
+			this.MSyncIdTextBox.TabIndex = 1;
+			// 
+			// MEnableSyncCheckBox
+			// 
+			this.MEnableSyncCheckBox.Location = new System.Drawing.Point(21, 19);
+			this.MEnableSyncCheckBox.Name = "MEnableSyncCheckBox";
+			this.MEnableSyncCheckBox.Size = new System.Drawing.Size(205, 24);
+			this.MEnableSyncCheckBox.TabIndex = 0;
+			this.MEnableSyncCheckBox.Text = "Enable synchronization";
+			this.MEnableSyncCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// label5
+			// 
+			this.label5.Location = new System.Drawing.Point(28, 112);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(79, 16);
+			this.label5.TabIndex = 7;
+			this.label5.Text = "Last sync date";
 			// 
 			// SettingsForm
 			// 
@@ -467,6 +490,8 @@ namespace Minder.Forms.Settings
 			((System.ComponentModel.ISupportInitialize)(this.MSyncIntervalNumeric)).EndInit();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Label label5;
+		public System.Windows.Forms.DateTimePicker MLastSyncDate;
 		public System.Windows.Forms.Button MSyncGenerateIdButton;
 		private System.Windows.Forms.Label label4;
 		public System.Windows.Forms.NumericUpDown MSyncIntervalNumeric;

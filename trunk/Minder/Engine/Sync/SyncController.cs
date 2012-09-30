@@ -8,6 +8,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
@@ -15,6 +16,7 @@ using System.Threading;
 using System.Windows;
 using Core;
 using Core.DB;
+using Core.DB.Connections;
 using Core.Tools.Log;
 using Minder.Objects;
 using PUV.WebServices.Helpers;
@@ -45,88 +47,94 @@ namespace Minder.Engine.Sync
 		
 		public void Sync()
 		{
-			try
+			
+			if(string.IsNullOrEmpty(Static.StaticData.Settings.Sync.Id))
+				return;
+			DateTime startSync = DateTime.Now;
+			DateTime lastSyncDate = Minder.Static.StaticData.Settings.Sync.LastSyncDate;
+			List<Task> allTasks = GenericDbHelper.Get<Task>(string.Format("LAST_MODIFY_DATE >= '{0}'", lastSyncDate.ToString("yyyy.MM.dd hh:mm:ss")));
+			SyncObject syncObject = new SyncObject();
+			syncObject.UserId = Static.StaticData.Settings.Sync.Id;
+			syncObject.Tasks = new List<Task>();
+			syncObject.LastSyncDate = lastSyncDate.ToUniversalTime();
+			
+			foreach(Task task in allTasks)
 			{
-				if(string.IsNullOrEmpty(Static.StaticData.Settings.Sync.Id))
-					return;
-				
-				List<Task> allTasks = GenericDbHelper.Get<Task>();
-				SyncObject syncObject = new SyncObject();
-				syncObject.UserId = Static.StaticData.Settings.Sync.Id;
-				syncObject.Tasks = new List<Task>();
-				
-				foreach(Task task in allTasks)
-				{
-					task.UserId = Static.StaticData.Settings.Sync.Id;
-					syncObject.Tasks.Add(task);
-				}
-				
-				List<Task> syncedTasks = GetSyncedTasksFromServer(syncObject);
-				GenericDbHelper.RunDirectSql("DELETE FROM TASK");
-				int newTasks = 0;
-				foreach(Task task in syncedTasks)
-				{
-					task.LastModifyDate = Convert.ToDateTime(task.LastModifyDateString);
-					task.DateRemainder = Convert.ToDateTime(task.DateRemainderString);
-					
-					bool exist = false;
-					
-					foreach(Task taskFromDb in allTasks)
-					{
-						if(taskFromDb.Equals(task))
-							exist = true;
-					}
-					
-					if(exist == false)
-						newTasks++;
-					
-					GenericDbHelper.Save(task);
-				}
-				
-				bool saved = false;
-				int i = 0;
-				while(saved == false)
-				{
-					try
-					{
-						GenericDbHelper.Flush();
-						saved = true;
-					}
-					catch (Exception)
-					{
-						i++;
-						Thread.Sleep(2000); //2 secconds
-					}
-					
-					if(i > 10)
-					{
-						throw new Exception("Can't save tasks to DB");
-//							break;
-					}
-				}
-				
-				
-				if(newTasks != 0)
-				{
-					m_newTasks = newTasks;
-					Synced();
-				}
-				
-				m_log.Info("Synced ok!");
-				
+				task.UserId = Static.StaticData.Settings.Sync.Id;
+				syncObject.Tasks.Add(task);
+				task.LastModifyDate = task.LastModifyDate.ToUniversalTime();
+				task.DateRemainder = task.DateRemainder.ToUniversalTime();
 			}
-			catch (Exception e)
+			
+			//Paruošti taskai siuntimui
+			List<Task> tasksFromServer = GetSyncedTasksFromServer(syncObject);
+			
+			foreach(Task task in allTasks)
 			{
-				m_log.Error(e.ToString());
+				task.DateRemainder = task.DateRemainder.ToLocalTime();
+				task.LastModifyDate = task.LastModifyDate.ToLocalTime();
 			}
+			
+			m_newTasks = tasksFromServer.Count;
+			using(IConnection con = new ConnectionCollector().GetConnection())
+			{
+				foreach(Task task in tasksFromServer)
+				{
+					task.LastModifyDate = task.LastModifyDate.ToLocalTime();
+					task.DateRemainder = task.DateRemainder.ToLocalTime();
+					
+					foreach(Task localTask in allTasks)
+					{
+						if(localTask.Equals(task))
+							m_newTasks--;
+					}
+					
+					if(ExistTask(task, con))
+					{
+						//Negalime updatinti pagal ID, nes serveryje kitoks id.
+						con.ExecuteQuery(string.Format("DELETE FROM TASK WHERE SOURCE_ID = '{0}'", task.SourceId));
+						GenericDbHelper.Save(task);
+					}
+					else
+						GenericDbHelper.Save(task);
+				}
+				GenericDbHelper.Flush();
+			}
+			
+			if(m_newTasks > 0)
+				Synced();
+			
+			Minder.Static.StaticData.Settings.Sync.LastSyncDate = DateTime.Now;
+			TimeSpan span = DateTime.Now - startSync;
+			m_log.InfoFormat("Synced in {0} seconds", span.TotalSeconds);
+		}
+		
+		private bool ExistTask(Task task, IConnection con)
+		{
+			if(string.IsNullOrEmpty(task.SourceId))
+				throw new Exception("Task without sourceId");
+			
+			IDataReader reader = con.ExecuteReader(string.Format("SELECT COUNT(ID) FROM TASK WHERE SOURCE_ID = '{0}'", task.SourceId));
+			int count = 0;
+			while(reader.Read())
+			{
+				count = reader.GetInt32(0);
+			}
+			if(count > 0)
+				return true;
+			else
+				return false;
 		}
 		
 		public void StartThreadForSync()
 		{
+			bool firstSync = true;
 			m_timer = new System.Windows.Forms.Timer();
 			m_timer.Interval = Minder.Static.StaticData.Settings.Sync.Interval * 1000 * 60;
 			m_timer.Tick += delegate {
-				Sync();
+				if(firstSync == false)
+					Sync();
+				firstSync = false;
 			};
 //			Thread.Sleep(m_timer.Interval);
 			m_timer.Start();

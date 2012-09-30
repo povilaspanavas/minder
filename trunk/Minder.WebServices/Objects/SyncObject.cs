@@ -29,5 +29,12 @@ namespace Minder.WebServices.Objects
 			get { return m_tasks; }
 			set { m_tasks = value; }
 		}
+		
+		DateTime m_lastSyncDate;
+		
+		public DateTime LastSyncDate {
+			get { return m_lastSyncDate; }
+			set { m_lastSyncDate = value; }
+		}
 	}
 }

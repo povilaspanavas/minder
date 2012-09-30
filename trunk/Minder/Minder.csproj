@@ -24,6 +24,8 @@
     <Optimize>True</Optimize>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <StartAction>Project</StartAction>
+    <StartArguments>--openform</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -76,6 +78,7 @@
     <Compile Include="Controls\MTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Engine\Helpers\InfoFinder.cs" />
     <Compile Include="Engine\Helpers\RoundHelper.cs" />
     <Compile Include="Engine\AttributeParser.cs" />
     <Compile Include="Engine\Parse\Cultures\CultureDataLt.cs" />
@@ -105,6 +108,7 @@
     <Compile Include="Engine\TimeEngine.cs" />
     <Compile Include="Engine\TimerLogic.cs" />
     <Compile Include="Objects\DBVersion.cs" />
+    <Compile Include="Objects\Info.cs" />
     <Compile Include="Objects\SyncObject.cs" />
     <Compile Include="UI\Forms\About\AboutForm.cs">
       <SubType>Form</SubType>
