@@ -50,63 +50,72 @@ namespace Minder.Engine.Sync
 			
 			if(string.IsNullOrEmpty(Static.StaticData.Settings.Sync.Id))
 				return;
-			DateTime startSync = DateTime.Now;
-			DateTime lastSyncDate = Minder.Static.StaticData.Settings.Sync.LastSyncDate;
-			List<Task> allTasks = GenericDbHelper.Get<Task>(string.Format("LAST_MODIFY_DATE >= '{0}'", lastSyncDate.ToString("yyyy.MM.dd hh:mm:ss")));
-			SyncObject syncObject = new SyncObject();
-			syncObject.UserId = Static.StaticData.Settings.Sync.Id;
-			syncObject.Tasks = new List<Task>();
-			syncObject.LastSyncDate = lastSyncDate.ToUniversalTime();
 			
-			foreach(Task task in allTasks)
+			try
 			{
-				task.UserId = Static.StaticData.Settings.Sync.Id;
-				syncObject.Tasks.Add(task);
-				task.LastModifyDate = task.LastModifyDate.ToUniversalTime();
-				task.DateRemainder = task.DateRemainder.ToUniversalTime();
-			}
-			
-			//Paruošti taskai siuntimui
-			List<Task> tasksFromServer = GetSyncedTasksFromServer(syncObject);
-			
-			foreach(Task task in allTasks)
-			{
-				task.DateRemainder = task.DateRemainder.ToLocalTime();
-				task.LastModifyDate = task.LastModifyDate.ToLocalTime();
-			}
-			
-			m_newTasks = tasksFromServer.Count;
-			using(IConnection con = new ConnectionCollector().GetConnection())
-			{
-				foreach(Task task in tasksFromServer)
+				DateTime startSync = DateTime.Now;
+				DateTime lastSyncDate = Minder.Static.StaticData.Settings.Sync.LastSyncDate;
+				List<Task> allTasks = GenericDbHelper.Get<Task>(string.Format("LAST_MODIFY_DATE >= '{0}'", lastSyncDate.ToString("yyyy.MM.dd hh:mm:ss")));
+				SyncObject syncObject = new SyncObject();
+				syncObject.UserId = Static.StaticData.Settings.Sync.Id;
+				syncObject.Tasks = new List<Task>();
+				syncObject.LastSyncDate = lastSyncDate.ToUniversalTime();
+				
+				foreach(Task task in allTasks)
 				{
-					task.LastModifyDate = task.LastModifyDate.ToLocalTime();
-					task.DateRemainder = task.DateRemainder.ToLocalTime();
-					
-					foreach(Task localTask in allTasks)
-					{
-						if(localTask.Equals(task))
-							m_newTasks--;
-					}
-					
-					if(ExistTask(task, con))
-					{
-						//Negalime updatinti pagal ID, nes serveryje kitoks id.
-						con.ExecuteQuery(string.Format("DELETE FROM TASK WHERE SOURCE_ID = '{0}'", task.SourceId));
-						GenericDbHelper.Save(task);
-					}
-					else
-						GenericDbHelper.Save(task);
+					task.UserId = Static.StaticData.Settings.Sync.Id;
+					syncObject.Tasks.Add(task);
+					task.LastModifyDate = task.LastModifyDate.ToUniversalTime();
+					task.DateRemainder = task.DateRemainder.ToUniversalTime();
 				}
-				GenericDbHelper.Flush();
+				
+				//Paruošti taskai siuntimui
+				List<Task> tasksFromServer = GetSyncedTasksFromServer(syncObject);
+				
+				foreach(Task task in allTasks)
+				{
+					task.DateRemainder = task.DateRemainder.ToLocalTime();
+					task.LastModifyDate = task.LastModifyDate.ToLocalTime();
+				}
+				
+				m_newTasks = tasksFromServer.Count;
+				using(IConnection con = new ConnectionCollector().GetConnection())
+				{
+					foreach(Task task in tasksFromServer)
+					{
+						task.LastModifyDate = task.LastModifyDate.ToLocalTime();
+						task.DateRemainder = task.DateRemainder.ToLocalTime();
+						
+						foreach(Task localTask in allTasks)
+						{
+							if(localTask.Equals(task))
+								m_newTasks--;
+						}
+						
+						if(ExistTask(task, con))
+						{
+							//Negalime updatinti pagal ID, nes serveryje kitoks id.
+							con.ExecuteQuery(string.Format("DELETE FROM TASK WHERE SOURCE_ID = '{0}'", task.SourceId));
+							GenericDbHelper.Save(task);
+						}
+						else
+							GenericDbHelper.Save(task);
+					}
+					GenericDbHelper.Flush();
+				}
+				
+				if(m_newTasks > 0)
+					Synced();
+				
+				Minder.Static.StaticData.Settings.Sync.LastSyncDate = DateTime.Now;
+				TimeSpan span = DateTime.Now - startSync;
+				m_log.InfoFormat("Synced in {0} seconds", span.TotalSeconds);
+			}
+			catch (Exception e) 
+			{
+				m_log.Error(e);
 			}
 			
-			if(m_newTasks > 0)
-				Synced();
-			
-			Minder.Static.StaticData.Settings.Sync.LastSyncDate = DateTime.Now;
-			TimeSpan span = DateTime.Now - startSync;
-			m_log.InfoFormat("Synced in {0} seconds", span.TotalSeconds);
 		}
 		
 		private bool ExistTask(Task task, IConnection con)

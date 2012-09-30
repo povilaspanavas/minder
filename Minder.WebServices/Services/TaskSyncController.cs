@@ -26,12 +26,12 @@ namespace Minder.WebServices.Services
 		//Main
 		public List<TaskSync> Sync(List<TaskSync> tasks, string userId, DateTime lastSyncDate)
 		{
-			if(Minder.WebServices.Helpers.StaticData.ConfigLoaded == false)
-			{
-				ConfigLoader.Load(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\CoreConfig.xml");
-				FileInfo config = new FileInfo(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\MinderWebServices.log4net.xml");
-				log4net.Config.XmlConfigurator.Configure(config);
-			}
+//			if(Minder.WebServices.Helpers.StaticData.ConfigLoaded == false)
+//			{
+//				ConfigLoader.Load(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\CoreConfig.xml");
+//				FileInfo config = new FileInfo(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\MinderWebServices.log4net.xml");
+//				log4net.Config.XmlConfigurator.Configure(config);
+//			}
 			
 			List<TaskSync> tasksFromDb = LoadAllTasksByUserId(userId, lastSyncDate);
 			List<TaskSync> result = MergeTasks(tasksFromDb, tasks);
