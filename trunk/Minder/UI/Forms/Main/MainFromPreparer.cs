@@ -55,7 +55,7 @@ namespace Minder.Forms.Main
 			if(Minder.Static.StaticData.Settings.Sync.Enable)
 			{
 				m_syncController.Sync();
-				m_syncController.StartThreadForSync(); //Sync
+//				m_syncController.StartThreadForSync(); //Sync
 			}
 			
 			m_form.InitializeLifetimeService();
