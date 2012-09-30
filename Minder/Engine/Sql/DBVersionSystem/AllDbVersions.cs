@@ -8,6 +8,7 @@
  */
 using System;
 using Core.DB;
+using Minder.Objects;
 using Minder.Sql.DBVersionSystem;
 
 namespace Minder.Engine.Sql.DBVersionSystem
@@ -40,6 +41,21 @@ namespace Minder.Engine.Sql.DBVersionSystem
 		public void Version4()
 		{
 			GenericDbHelper.RunDirectSql("UPDATE TASK set LAST_MODIFY_DATE_STRING = LAST_MODIFY_DATE, DATE_REMAINDER_STRING = DATE_REMAINDER");
+		}
+		
+		[DBVersion(5, "Add new object Info", "2012.09.30 08:57:00")]
+		public void Version5()
+		{
+			GenericDbHelper.CreateTable(typeof(Info));
+		}
+		
+		[DBVersion(6, "Save new object Info", "2012.09.30 09:06:00")]
+		public void Version6()
+		{
+			Info infoSyncDate = new Info();
+			infoSyncDate.UniqueCode = Static.StaticData.InfoUniqueCodes.InfoLastSyncDate;
+			infoSyncDate.Value1 = new DateTime(2012, 1, 1).ToString();
+			GenericDbHelper.SaveAndFlush(infoSyncDate);
 		}
 	}
 	

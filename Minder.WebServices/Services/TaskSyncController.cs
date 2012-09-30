@@ -24,7 +24,7 @@ namespace Minder.WebServices.Services
 //		Loger m_log = new Loger();
 		
 		//Main
-		public List<TaskSync> Sync(List<TaskSync> tasks, string userId)
+		public List<TaskSync> Sync(List<TaskSync> tasks, string userId, DateTime lastSyncDate)
 		{
 			if(Minder.WebServices.Helpers.StaticData.ConfigLoaded == false)
 			{
@@ -33,9 +33,9 @@ namespace Minder.WebServices.Services
 				log4net.Config.XmlConfigurator.Configure(config);
 			}
 			
-			List<TaskSync> tasksFromDb = LoadAllTasksByUserId(userId);
+			List<TaskSync> tasksFromDb = LoadAllTasksByUserId(userId, lastSyncDate);
 			List<TaskSync> result = MergeTasks(tasksFromDb, tasks);
-			SaveTasksToDb(tasksFromDb, result);
+			SaveTasksToDb(tasksFromDb, result, lastSyncDate);
 			return result;
 		}
 		
@@ -48,28 +48,22 @@ namespace Minder.WebServices.Services
 //			}
 //		}
 		
-		private List<TaskSync> LoadAllTasksByUserId(string userId)
+		private List<TaskSync> LoadAllTasksByUserId(string userId, DateTime lastSyncDate)
 		{
 			List<TaskSync> result = new List<TaskSync>();
 			if(string.IsNullOrEmpty(userId))
 				return result;
-			List<TaskSync> allTasks = GenericDbHelper.Get<TaskSync>();
-			
-			foreach(TaskSync task in allTasks)
-			{
-				if(task.UserId.Equals(userId))
-					result.Add(task);
-			}
-			
+			result = GenericDbHelper.Get<TaskSync>(string.Format("LAST_MODIFY_DATE >= '{0}' and USER_ID = '{1}'", 
+			                                                                      lastSyncDate.ToString("yyyy.MM.dd hh:mm:ss"), userId));
 			return result;
 		}
 		
-		private void SaveTasksToDb(List<TaskSync> taskFromDb, List<TaskSync> mergedTasks)
+		private void SaveTasksToDb(List<TaskSync> taskFromDb, List<TaskSync> mergedTasks, DateTime lastSyncDate)
 		{
 			string userId = string.Empty;
 			if(taskFromDb.Count != 0)
 				userId = taskFromDb[0].UserId;
-			GenericDbHelper.RunDirectSql(string.Format("DELETE FROM TASK WHERE USER_ID = '{0}'", userId));
+			GenericDbHelper.RunDirectSql(string.Format("DELETE FROM TASK WHERE LAST_MODIFY_DATE >= '{0}' and USER_ID = '{1}'", lastSyncDate, userId));
 			
 			foreach(TaskSync task in mergedTasks)
 			{
@@ -100,8 +94,8 @@ namespace Minder.WebServices.Services
 						result.Remove(task.SourceId);
 					else
 					{
-						DateTime tempTaskDate = Convert.ToDateTime(tempTask.LastModifyDateString);
-						DateTime taskDate = Convert.ToDateTime(task.LastModifyDateString);
+						DateTime tempTaskDate = Convert.ToDateTime(tempTask.LastModifyDate);
+						DateTime taskDate = Convert.ToDateTime(task.LastModifyDate);
 						if(DateTime.Compare(tempTaskDate, taskDate) <= 0)
 						{
 							result.Remove(task.SourceId);

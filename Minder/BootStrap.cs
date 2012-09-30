@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Core;
 using Core.Forms;
 using Core.Tools.Log;
+using Minder.Engine.Helpers;
 using Minder.Engine.Sync;
 using Minder.Forms.Settings;
 using Minder.Engine;
@@ -78,8 +79,11 @@ namespace Minder
 			SettingsLoader loader = new SettingsLoader();
 			loader.LoadSettings();
 			Minder.Static.StaticData.Settings.LogFilePath = @"Log\Minder.log";
-			
+
 			UpdateDBVersion();
+			Info syncInfo = InfoFinder.FindByUniqueCode(Minder.Static.StaticData.InfoUniqueCodes.InfoLastSyncDate);
+			if(syncInfo != null)
+				Minder.Static.StaticData.Settings.Sync.LastSyncDate = Convert.ToDateTime(syncInfo.Value1);
 			
 			new StartWithWinController().StartWithWindows();
 			if(Minder.Static.StaticData.Settings.CheckUpdates)

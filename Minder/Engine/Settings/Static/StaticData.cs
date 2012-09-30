@@ -84,6 +84,11 @@ namespace Minder.Static
 			
 		}
 		
+		public static class InfoUniqueCodes
+		{
+			public const string InfoLastSyncDate = "UniqueCode_InfoLastSyncDate";
+		}
+		
 		public static class Settings
 		{
 			static bool m_startWithWindows;
@@ -159,6 +164,7 @@ namespace Minder.Static
 			public static class Sync
 			{
 				static string m_id = string.Empty;
+				static DateTime m_lastSyncDate = new DateTime(2000,1,1);
 				
 				public static string Id {
 					get { return m_id; }
@@ -177,6 +183,12 @@ namespace Minder.Static
 				public static int Interval {
 					get { return m_interval; }
 					set { m_interval = value; }
+				}
+				
+				//Not in settings.ini it's in Info obj in DB
+				public static DateTime LastSyncDate {
+					get { return m_lastSyncDate; }
+					set { m_lastSyncDate = value; }
 				}
 			}
 			

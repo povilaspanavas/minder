@@ -53,12 +53,14 @@ namespace Minder.WebServices
 				
 				string userId = syncObject.UserId;
 				List<TaskSync> tasks = syncObject.Tasks;
+				DateTime lastSyncDate = syncObject.LastSyncDate;
 				
-				List<TaskSync> result = new TaskSyncController().Sync(tasks, userId);
+				List<TaskSync> result = new TaskSyncController().Sync(tasks, userId, lastSyncDate);
 				
 				SyncObject resultObject = new SyncObject();
 				resultObject.Tasks = result;
 				resultObject.UserId = userId;
+				resultObject.LastSyncDate = lastSyncDate;
 				
 				string jsonResult = JsonHelper.ConvertToJson<SyncObject>(resultObject);
 				log.InfoFormat("Successfully synced for user: {0}", userId);

@@ -183,6 +183,7 @@ namespace Minder.Forms.Settings
 			else
 				m_form.MSyncIntervalNumeric.Value = Minder.Static.StaticData.Settings.Sync.Interval;
 			m_form.MSyncIdTextBox.Text = Minder.Static.StaticData.Settings.Sync.Id;
+			m_form.MLastSyncDate.Value = Minder.Static.StaticData.Settings.Sync.LastSyncDate;
 			
 		}
 		

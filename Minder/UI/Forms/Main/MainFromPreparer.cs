@@ -54,11 +54,7 @@ namespace Minder.Forms.Main
 			
 			if(Minder.Static.StaticData.Settings.Sync.Enable)
 			{
-				using(new WaitingForm2("Syncing tasks...", "Minder. Please wait", false))
-				{
-					m_syncController.Sync();
-				}
-				
+				m_syncController.Sync();
 				m_syncController.StartThreadForSync(); //Sync
 			}
 			
@@ -86,10 +82,15 @@ namespace Minder.Forms.Main
 			{
 				if(Minder.Static.StaticData.Settings.Sync.Enable)
 				{
-					using(new WaitingForm2("Syncing tasks...", "Minder. Please wait", false))
-					{
-						m_syncController.Sync();
-					}
+//					using(new WaitingForm2("Syncing tasks...", "Minder. Please wait", false))
+//					{
+					m_syncController.Sync();
+					Info infoSync = InfoFinder.FindByUniqueCode(Minder.Static.StaticData.InfoUniqueCodes.InfoLastSyncDate);
+					infoSync.Value1 = Minder.Static.StaticData.Settings.Sync.LastSyncDate.ToString();
+					GenericDbHelper.UpdateAndFlush(infoSync);
+					
+					
+//					}
 				}
 			};
 			
@@ -123,7 +124,7 @@ namespace Minder.Forms.Main
 			Task nextTask = new DbHelper().NextTaskToShow();
 			if (nextTask == null)
 				return text;
-			if (string.IsNullOrEmpty(nextTask.Text) == false 
+			if (string.IsNullOrEmpty(nextTask.Text) == false
 			    && nextTask.Text.Length > maxTaskNameLength)
 				nextTask.Text = nextTask.Text.Substring(0, maxTaskNameLength);
 			DateTime? nextDate = nextTask.DateRemainder;
