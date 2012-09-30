@@ -32,19 +32,23 @@ namespace Minder.WebServices
 		[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
 		public string Sync(string json)
 		{
+			log4net.ILog log = log4net.LogManager.GetLogger(typeof(Soap));
 			if(Minder.WebServices.Helpers.StaticData.ConfigLoaded == false)
 			{
 				ConfigLoader.Load(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\CoreConfig.xml");
-				FileInfo config = new FileInfo(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\MinderWebServices.log4net.xml");
+				FileInfo config = new FileInfo(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\MinderWebServices.log4net.xml");
 				log4net.Config.XmlConfigurator.Configure(config);
+				Minder.WebServices.Helpers.StaticData.ConfigLoaded = true;
+				log.Info("Service started...");
 			}
 			
-			log4net.ILog log = log4net.LogManager.GetLogger(typeof(Soap));
+			
 			
 			try
 			{
 				if(string.IsNullOrEmpty(json))
 					return string.Empty;
+				DateTime startTime = DateTime.Now;
 				log.Info("Started sync...");
 				
 				SyncObject syncObject = JsonHelper.OnlyJsonToObject<SyncObject>(json);
@@ -63,7 +67,8 @@ namespace Minder.WebServices
 				resultObject.LastSyncDate = lastSyncDate;
 				
 				string jsonResult = JsonHelper.ConvertToJson<SyncObject>(resultObject);
-				log.InfoFormat("Successfully synced for user: {0}", userId);
+				TimeSpan span = DateTime.Now - startTime;
+				log.InfoFormat("Successfully synced for user: {0} {1} seconds", userId, span.TotalSeconds);
 				return jsonResult;
 			}
 			catch (Exception e)
