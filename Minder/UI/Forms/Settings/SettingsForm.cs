@@ -9,6 +9,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Core.UI.Forms;
 using Minder.UI.Forms;
 
 namespace Minder.Forms.Settings
@@ -16,7 +17,7 @@ namespace Minder.Forms.Settings
 	/// <summary>
 	/// Description of SettingsForm.
 	/// </summary>
-	public partial class SettingsForm : BasicForm
+	public partial class SettingsForm : CoreBaseForm
 	{
 		public SettingsForm()
 		{
@@ -24,7 +25,7 @@ namespace Minder.Forms.Settings
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
-			
+			this.FormUniqueCode = typeof(SettingsForm).FullName;
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//

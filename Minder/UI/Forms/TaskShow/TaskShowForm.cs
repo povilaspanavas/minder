@@ -9,6 +9,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Core.UI.Forms;
 using Minder.UI.Forms;
 
 namespace Minder.Forms.TaskShow
@@ -16,7 +17,7 @@ namespace Minder.Forms.TaskShow
 	/// <summary>
 	/// Description of TaskShowForm.
 	/// </summary>
-	public partial class TaskShowForm : BasicForm
+	public partial class TaskShowForm : CoreBaseForm
 	{
 		public TaskShowForm()
 		{
@@ -24,7 +25,7 @@ namespace Minder.Forms.TaskShow
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
-			
+			this.FormUniqueCode = typeof(TaskShowForm).FullName;
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
