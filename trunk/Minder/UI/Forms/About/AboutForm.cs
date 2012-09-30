@@ -9,6 +9,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Core.UI.Forms;
 using Minder.UI.Forms;
 
 namespace Minder.Forms.About
@@ -16,7 +17,7 @@ namespace Minder.Forms.About
 	/// <summary>
 	/// Description of AboutForm.
 	/// </summary>
-	public partial class AboutForm : BasicForm
+	public partial class AboutForm : CoreBaseForm
 	{
 		public AboutForm()
 		{
@@ -24,7 +25,7 @@ namespace Minder.Forms.About
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
-			
+			this.FormUniqueCode = typeof(AboutForm).FullName;
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
