@@ -15,21 +15,6 @@ namespace Minder.Engine.Parse
 {
 	public delegate string Converter();
 	
-	public abstract class CultureDataConverter
-	{
-		#region Converters
-		public string Tommorow()
-		{
-			return DateTime.Now.AddDays(1).ToShortDateString();
-		}
-		
-		public string Monday()
-		{
-			return null;
-		}
-		#endregion
-	}
-	
 	public interface ICultureData
 	{
 		string Name {get;} // Just for information
