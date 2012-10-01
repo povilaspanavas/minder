@@ -29,6 +29,13 @@ namespace Minder.Engine.Parse
 		public CultureDataLT()
 		{
 			m_converters.Add(@"\b((ryt)|(rytoj))((\b)|(\.))", Tommorow);
+			m_converters.Add(@"\b((pirmadien(i|į))|(pirm))((\.)|(\b))", Monday);
+			m_converters.Add(@"\b((antradien(i|į))|(antr))((\.)|(\b))", Tuesday);
+			m_converters.Add(@"\b((tre(č|c)iadien(i|į))|(tre(č|c)))((\.)|(\b))", Wednesday);
+			m_converters.Add(@"\b((ketvirtadien(i|į))|(ketv))((\.)|(\b))", Thursday);
+			m_converters.Add(@"\b((penktadien(i|į))|(penkt)|(penk))((\.)|(\b))", Friday);
+			m_converters.Add(@"\b(((š|s)e(š|s)tadien(i|į))|((š|s)e(š|s)t))((\.)|(\b))", Saturday);
+			m_converters.Add(@"\b((sekmadien(i|į))|(sekm))((\.)|(\b))", Sunday);
 		}
 		
 		public string AddYearToMonthAndDay(string dateTimeNoYear)

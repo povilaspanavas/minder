@@ -74,7 +74,7 @@ namespace Minder.Engine.Parse
 				Match regExMatch = null;
 				if (regExMatches.Count > 0)
 				{
-					string newDate = DateTime.Now.AddDays(1).ToShortDateString();
+					string newDate = m_cultureData.Converters[regEx]();
 					if (regExMatches.Count == 1)
 					{
 						regExMatch = regExMatches[0];
