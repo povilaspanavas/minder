@@ -179,6 +179,206 @@ namespace Minder.Tests.Logic.Cultures
 		}
 		
 		[Test]
+		public void Test_Time_And_Monday()
+		{
+			DateTime dateRemind = CultureDataConverter.GetNextDateForDay(DateTime.Now, DayOfWeek.Monday);
+			dateRemind = new DateTime(dateRemind.Year, dateRemind.Month, dateRemind.Day, 10, 05, 00);
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas pirmadieni 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			// Nepalaikoma, nes data prieš laiką turėtų eiti
+			Assert.IsFalse(TextParser.Parse("Susitikimas 10:05 pirmadienį", out date, out leftText));
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas pirm 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas pirm. 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+		}
+		
+		[Test]
+		public void Test_Time_And_Tuesday()
+		{
+			DateTime dateRemind = CultureDataConverter.GetNextDateForDay(DateTime.Now, DayOfWeek.Tuesday);
+			dateRemind = new DateTime(dateRemind.Year, dateRemind.Month, dateRemind.Day, 10, 05, 00);
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas antradienį 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			// Nepalaikoma, nes data prieš laiką turėtų eiti
+			Assert.IsFalse(TextParser.Parse("Susitikimas 10:05 antradieni", out date, out leftText));
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas antr 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas antr. 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+		}
+		
+		[Test]
+		public void Test_Time_And_Wednesday()
+		{
+			DateTime dateRemind = CultureDataConverter.GetNextDateForDay(DateTime.Now, DayOfWeek.Wednesday);
+			dateRemind = new DateTime(dateRemind.Year, dateRemind.Month, dateRemind.Day, 10, 05, 00);
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas trečiadienį 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			// Nepalaikoma, nes data prieš laiką turėtų eiti
+			Assert.IsFalse(TextParser.Parse("Susitikimas 10:05 treciadieni", out date, out leftText));
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas trec 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas treč 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas trec. 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+		}
+		
+		[Test]
+		public void Test_Time_And_Thursday()
+		{
+			DateTime dateRemind = CultureDataConverter.GetNextDateForDay(DateTime.Now, DayOfWeek.Thursday);
+			dateRemind = new DateTime(dateRemind.Year, dateRemind.Month, dateRemind.Day, 10, 05, 00);
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas ketvirtadienį 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			// Nepalaikoma, nes data prieš laiką turėtų eiti
+			Assert.IsFalse(TextParser.Parse("Susitikimas 10:05 ketvirtadieni", out date, out leftText));
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas ketv 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas ketv. 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+		}
+		
+		[Test]
+		public void Test_Time_And_Friday()
+		{
+			DateTime dateRemind = CultureDataConverter.GetNextDateForDay(DateTime.Now, DayOfWeek.Friday);
+			dateRemind = new DateTime(dateRemind.Year, dateRemind.Month, dateRemind.Day, 10, 05, 00);
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas penktadienį 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			// Nepalaikoma, nes data prieš laiką turėtų eiti
+			Assert.IsFalse(TextParser.Parse("Susitikimas 10:05 penktadieni", out date, out leftText));
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas penk 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas penkt 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas penk. 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas penktadieni 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+		}
+		
+		[Test]
+		public void Test_Time_And_Saturday()
+		{
+			DateTime dateRemind = CultureDataConverter.GetNextDateForDay(DateTime.Now, DayOfWeek.Saturday);
+			dateRemind = new DateTime(dateRemind.Year, dateRemind.Month, dateRemind.Day, 10, 05, 00);
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas šeštadienį 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			// Nepalaikoma, nes data prieš laiką turėtų eiti
+			Assert.IsFalse(TextParser.Parse("Susitikimas 10:05 sestadieni", out date, out leftText));
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas sest 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas šešt 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas sest. 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+		}
+		
+		[Test]
+		public void Test_Time_And_Sunday()
+		{
+			DateTime dateRemind = CultureDataConverter.GetNextDateForDay(DateTime.Now, DayOfWeek.Sunday);
+			dateRemind = new DateTime(dateRemind.Year, dateRemind.Month, dateRemind.Day, 10, 05, 00);
+			DateTime date; string leftText;
+			Assert.IsTrue(TextParser.Parse("Susitikimas sekmadienį 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			// Nepalaikoma, nes data prieš laiką turėtų eiti
+			Assert.IsFalse(TextParser.Parse("Susitikimas 10:05 sekmadieni", out date, out leftText));
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas sekm 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas sekm. 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+			
+			Assert.IsTrue(TextParser.Parse("Susitikimas sekmadieni. 10:05", out date, out leftText));
+			Assert.AreEqual("Susitikimas", leftText);
+			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
+			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
+		}
+		
+		[Test]
 		public void Test_Tommorow_Twice()
 		{
 			DateTime now = DateTime.Now;
