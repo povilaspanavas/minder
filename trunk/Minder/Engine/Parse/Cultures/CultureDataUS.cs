@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 
 namespace Minder.Engine.Parse
 {
-	public class CultureDataUS : ICultureData
+	public class CultureDataUS : CultureDataConverter, ICultureData
 	{
 		public const string NAME = "English (United States)";
 		private CultureInfo m_cultureInfo = new CultureInfo("en-US");
@@ -82,11 +82,6 @@ namespace Minder.Engine.Parse
 		public string AddYearToMonthAndDay(string dateTimeNoYear)
 		{
 			return dateTimeNoYear.Replace(" ", string.Format("/{0} ", DateTime.Now.Year));
-		}
-		
-		public string Tommorow()
-		{
-			return DateTime.Now.AddDays(1).ToShortDateString();
 		}
 	}
 }
