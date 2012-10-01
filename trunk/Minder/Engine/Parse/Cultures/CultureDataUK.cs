@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
@@ -22,9 +23,15 @@ namespace Minder.Engine.Parse
 		public const string TIME_STRING = @"\b\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}$";
 		public const string DATE_TIME_STRING = @"\b\d{1,2}(\.|-|\\|/){0,1}\d{1,2}(\.|-|\\|/)\d{0,4}[ ]\d{1,2}[:]\d{1,2}[:]{0,1}\d{0,2}$";
 		public const string YEAR = @"\b\d{4,4}";
-		public const string TOMORROW = @"\b((tomorrow)|(next day))((\b)|(\.))";
 		
+		Dictionary<string, Converter> m_converters = new System.Collections.Generic.Dictionary<string, Converter>();
 		
+		public CultureDataUK()
+		{
+			m_converters.Add(@"\b((tomorrow)|(next day))((\b)|(\.))", Tommorow);
+		}
+		
+		#region Properties
 		public CultureInfo CultureInfo {
 			get {
 				return m_cultureInfo;
@@ -60,19 +67,27 @@ namespace Minder.Engine.Parse
 			}
 		}
 		
-		public string TomorrowRegex {
-			get { return TOMORROW; }
+		public string Name {
+			get {
+				return NAME;
+			}
 		}
+		
+		public System.Collections.Generic.Dictionary<string, Converter> Converters {
+			get {
+				return m_converters;
+			}
+		}
+		#endregion
 		
 		public string AddYearToMonthAndDay(string dateTimeNoYear)
 		{
 			return dateTimeNoYear.Replace(" ", string.Format("/{0} ", DateTime.Now.Year));
 		}
 		
-		public string Name {
-			get {
-				return NAME;
-			}
+		public string Tommorow()
+		{
+			return DateTime.Now.AddDays(1).ToShortDateString();
 		}
 	}
 }

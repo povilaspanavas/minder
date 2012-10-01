@@ -7,22 +7,30 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace Minder.Engine.Parse
 {
+	public delegate string Converter();
+	
 	public interface ICultureData
 	{
+		string Name {get;} // Just for information
 		CultureInfo CultureInfo {get;}
 		string MinutesRegex {get;}
 		string HoursRegex {get;}
 		string TimeRegex{get;}
 		string DateTimeRegex{get;}
 		string YearRegex{get;}
-		string TomorrowRegex{get;}
 		string AddYearToMonthAndDay(string dateTimeNoYear);
 		
-		string Name {get;}
+		/// <summary>
+		/// For example, text Monday converts to Monday's date
+		/// Tommorow converts to tomorrows's date
+		/// </summary>
+		Dictionary<string, Converter> Converters {get;}
+		
 	}
 }

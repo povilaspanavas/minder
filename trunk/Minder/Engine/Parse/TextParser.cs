@@ -36,7 +36,7 @@ namespace Minder.Engine.Parse
 			date = DateTime.MinValue;
 			try
 			{
-				if (ParseTomorrow(ref text))
+				if (ParseTextToDateConverters(ref text))
 				{
 					leftText = text;
 					if (TryParseDateTime(text, ref date, ref leftText))
@@ -61,35 +61,37 @@ namespace Minder.Engine.Parse
 		}
 		
 		/// <summary>
-		/// Jei randa žodį rytoj, tai keičia jį iškart į kitos dienos datą
-		/// 
-		/// O tada teksto parsinimas vyksta standartiškai ir būtent sekantys
-		/// parseriai nustatys, kad ten yra kažkokia konkreti data
+		/// Įvykdo teksto keitimus prieš vykdant standartinį apdororjimą. Pvz.,
+		/// rytoj pakeis į datą formatu 2012.03.05
 		/// </summary>
 		/// <param name="leftText"></param>
-		public static bool ParseTomorrow(ref string text)
+		public static bool ParseTextToDateConverters(ref string text)
 		{
-			MatchCollection tommorowMatches = Regex.Matches(text, m_cultureData.TomorrowRegex);
-			Match tommorowMatch = null;
-			if (tommorowMatches.Count > 0)
+			bool foundAtLeastOneMatch = false;
+			foreach (string regEx in m_cultureData.Converters.Keys)
 			{
-				string newDate = DateTime.Now.AddDays(1).ToShortDateString();
-					if (tommorowMatches.Count == 1)
+				MatchCollection regExMatches = Regex.Matches(text, regEx);
+				Match regExMatch = null;
+				if (regExMatches.Count > 0)
 				{
-					tommorowMatch = tommorowMatches[0];
-					text = text.Replace(tommorowMatch.Value, newDate);
-					return true;
-				}
-				// pvz Pasukti dėl ryt susitikimo ryt 10:00. Turim tik paskutinį ryt nutrinti
-				if (tommorowMatches.Count > 1)
-				{
-					tommorowMatch = tommorowMatches[tommorowMatches.Count - 1];
-					int lastIndex = text.LastIndexOf(tommorowMatch.Value);
-					text = text.Substring(0, lastIndex) + newDate + text.Substring(lastIndex + tommorowMatch.Value.Length);
-					return true;
+					string newDate = DateTime.Now.AddDays(1).ToShortDateString();
+					if (regExMatches.Count == 1)
+					{
+						regExMatch = regExMatches[0];
+						text = text.Replace(regExMatch.Value, newDate);
+						foundAtLeastOneMatch = true;
+					}
+					// pvz Pasukti dėl ryt susitikimo ryt 10:00. Turim tik paskutinį ryt nutrinti
+					if (regExMatches.Count > 1)
+					{
+						regExMatch = regExMatches[regExMatches.Count - 1];
+						int lastIndex = text.LastIndexOf(regExMatch.Value);
+						text = text.Substring(0, lastIndex) + newDate + text.Substring(lastIndex + regExMatch.Value.Length);
+						foundAtLeastOneMatch = true;
+					}
 				}
 			}
-			return false;
+			return foundAtLeastOneMatch;
 		}
 		
 		public static bool TryParseBySeperator(string seperator, string text, ref DateTime date, ref string leftText)
