@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using Core.Attributes;
 using Core.DB;
@@ -193,6 +194,12 @@ namespace Minder.Objects
 				return false;
 			return this.m_text == other.m_text && this.m_dateRemainder == other.m_dateRemainder && this.m_sourceId == other.m_sourceId && this.m_showed == other.m_showed && this.m_lastModifyDate == other.m_lastModifyDate && this.m_isDeleted == other.m_isDeleted;
 		}
+		
+		public override string ToString()
+		{
+			return string.Format("[Task Id={0}, Text={1}, DateRemainder={2}]", m_id, m_text, m_dateRemainder);
+		}
+
 
 	}
 }
