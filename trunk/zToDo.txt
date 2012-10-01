@@ -1,14 +1,5 @@
 POVILO:
-	BUGAI:
-	* Tekstas "sadfa m/h/val. kjlasdf" suparsinamas
-
-
-	NICE TO HAVE:
-	Padaryti, kad sesijos kaskart nereiktø atsidaryti, t.y., susirastø jau egzistuojanèià kaip DLC
-
-	Dar padaryti, kad nebûtø lyðno enter vedant taskus
-	Priminime galma redaguoti uþduoti vieotj remind later
-
+	* Monday, Tuesday ir t.t. palaikymas (kad bûtø tekstas ir á kokià datà konveritnti)
 
 IGNO:
 Lûþta minder update sistema
