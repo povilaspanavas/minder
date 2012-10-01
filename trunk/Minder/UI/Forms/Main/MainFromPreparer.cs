@@ -37,7 +37,7 @@ namespace Minder.Forms.Main
 		public event TaskData DataEntered;
 		public delegate void TaskData(string dataEntered);
 //		private WpfSkinPreparer m_wpfPreparer = null;
-		private IMainForm m_mainForm = null;
+		private AbstractMainForm m_mainForm = null;
 		private SyncController m_syncController = null;
 		
 		public MainFormPreparer()

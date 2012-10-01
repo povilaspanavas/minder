@@ -23,62 +23,31 @@ using Minder.UI.SkinController;
 
 namespace Minder.UI.SkinController.MainForms
 {
-	/// <summary>
-	/// Interaction logic for WpfSkin1.xaml
-	/// </summary>
-	public partial class DefaultSkinForm : Window, IMainForm
+	public partial class DefaultSkinForm : AbstractMainForm
 	{
     	public const string SKIN_UNIQUE_CODE = "DEFAULT_SKIN";
 		
+    	 public override TextBox MTextBox {
+			get {
+				return m_textBox;
+			}
+		}
+		
+		public override Label MDateLabel {
+			get {
+				return m_dateLabel;
+			}
+		}
+    	
 		public DefaultSkinForm()
 		{
 			InitializeComponent();
-			System.Windows.Forms.Integration.ElementHost.EnableModelessKeyboardInterop(this);
 			string imagePath = new PathCutHelper()
 					.CutExecutableFileFromPath(System.Reflection.Assembly
 					                           .GetExecutingAssembly().Location) + @"\minderico.ico";
 			
 			this.MImage.Source = new BitmapImage(new Uri(imagePath));
 			this.ShowInTaskbar = false;
-		}
-		
-		public TextBox MTextBox {
-			get {
-				return m_textBox;
-			}
-		}
-		
-		public Label MDateLabel {
-			get {
-				return m_dateLabel;
-			}
-		}
-		
-		public Window MWindow {
-			get {
-				return this;
-			}
-		}
-		
-		public void ShowHide(object sender, KeyPressedEventArgs e)
-		{
-			ShowHide();
-		}
-		
-		public void ShowHide()
-		{
-			if(MWindow.IsVisible)
-			{
-				MWindow.Hide();
-				MTextBox.SelectAll();
-			}
-			else
-			{
-				MWindow.Show();
-				MTextBox.SelectAll();
-				MTextBox.Focus();
-				MWindow.Activate();
-			}
 		}
 	}
 }

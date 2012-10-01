@@ -55,12 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BlackSkin.xaml.cs">
+      <DependentUpon>BlackSkin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DefaultSkinForm.xaml.cs">
       <DependentUpon>DefaultSkinForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="WhiteSkin.xaml.cs">
       <DependentUpon>WhiteSkin.xaml</DependentUpon>
     </Compile>
+    <Page Include="BlackSkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

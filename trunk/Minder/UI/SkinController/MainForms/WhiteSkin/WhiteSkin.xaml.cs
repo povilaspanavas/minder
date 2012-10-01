@@ -17,52 +17,24 @@ namespace Minder.UI.SkinController.MainForms
     /// <summary>
     /// Interaction logic for WhiteSkin.xaml
     /// </summary>
-    public partial class WhiteSkin : Window, IMainForm
+    public partial class WhiteSkin : AbstractMainForm
     {
     	public const string SKIN_UNIQUE_CODE = "WHITE_SKIN";
     	
         public WhiteSkin()
         {
             InitializeComponent();
-            System.Windows.Forms.Integration.ElementHost.EnableModelessKeyboardInterop(this);
         }
         
-        public TextBox MTextBox {
+        public override TextBox MTextBox {
 			get {
 				return m_textBox;
 			}
 		}
 		
-		public Label MDateLabel {
+		public override Label MDateLabel {
 			get {
 				return m_dateLabel;
-			}
-		}
-		
-		public Window MWindow {
-			get {
-				return this;
-			}
-		}
-		
-		public void ShowHide(object sender, KeyPressedEventArgs e)
-		{
-			ShowHide();
-		}
-		
-		public void ShowHide()
-		{
-			if(MWindow.IsVisible)
-			{
-				MWindow.Hide();
-				MTextBox.SelectAll();
-			}
-			else
-			{
-				MWindow.Show();
-				MTextBox.SelectAll();
-				MTextBox.Focus();
-				MWindow.Activate();
 			}
 		}
     }

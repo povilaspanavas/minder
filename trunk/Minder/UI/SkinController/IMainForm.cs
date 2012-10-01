@@ -17,12 +17,36 @@ namespace Minder.UI.SkinController
 	/// <summary>
 	/// Description of IForm.
 	/// </summary>
-	public interface IMainForm
+	public abstract class AbstractMainForm : Window
 	{
-		void ShowHide();
-		void ShowHide(object sender, KeyPressedEventArgs e);
-		TextBox MTextBox {get;}
-		Label MDateLabel {get;}
-		Window MWindow {get;}
+		public abstract TextBox MTextBox {get;}
+		public abstract Label MDateLabel {get;}
+		public Window MWindow {get { return this;} }
+		
+		public AbstractMainForm()
+		{
+            System.Windows.Forms.Integration.ElementHost.EnableModelessKeyboardInterop(this);
+		}
+		
+		public void ShowHide(object sender, KeyPressedEventArgs e)
+		{
+			ShowHide();
+		}
+		
+		public void ShowHide()
+		{
+			if(MWindow.IsVisible)
+			{
+				MWindow.Hide();
+				MTextBox.SelectAll();
+			}
+			else
+			{
+				MWindow.Show();
+				MTextBox.SelectAll();
+				MTextBox.Focus();
+				MWindow.Activate();
+			}
+		}
 	}
 }
