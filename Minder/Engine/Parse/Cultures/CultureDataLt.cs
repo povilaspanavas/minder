@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 
 namespace Minder.Engine.Parse
 {
-	public class CultureDataLT : ICultureData
+	public class CultureDataLT : CultureDataConverter, ICultureData
 	{
 		public const string NAME = "Lithuanian";
 		private CultureInfo m_cultureInfo = new CultureInfo("lt-Lt");
@@ -85,13 +85,5 @@ namespace Minder.Engine.Parse
 			}
 		}
 		#endregion
-		
-		#region Converters
-		public string Tommorow()
-		{
-			return DateTime.Now.AddDays(1).ToShortDateString();
-		}
-		#endregion
-		
 	}
 }
