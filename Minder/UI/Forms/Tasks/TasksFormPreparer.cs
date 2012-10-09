@@ -59,7 +59,7 @@ namespace Minder.Forms.Tasks
 				
 				TaskNewEditFormPreparer preparer = new TaskNewEditFormPreparer(true);
 				preparer.Task = task;
-				preparer.Form.Closed += delegate { LoadTaskGrid(); };
+				preparer.Form.Closed += delegate { RefreshTaskGrid(); };
 				preparer.PrepareForm();
 			}
 		}
@@ -69,7 +69,7 @@ namespace Minder.Forms.Tasks
 			m_form.MNewButton.Click += delegate
 			{
 				TaskNewEditFormPreparer preparer = new TaskNewEditFormPreparer(false);
-				preparer.Form.Closed += delegate { LoadTaskGrid(); };
+				preparer.Form.Closed += delegate { RefreshTaskGrid(); };
 				preparer.PrepareForm();
 			};
 			
@@ -118,7 +118,7 @@ namespace Minder.Forms.Tasks
 					task.Delete();
 					TimeEngine.FireTaskChangedEvent(task);
 				}
-				LoadTaskGrid();
+				RefreshTaskGrid();
 			}
 		}
 		
@@ -147,11 +147,43 @@ namespace Minder.Forms.Tasks
 //					m_form.MTaskGrid.Rows.Add(task.Text, task.DateRemainder, task.Showed, task.Id, task.SourceId);
 //				}
 				
-				CoreGridController<Task>.AddToGrid(m_form.MTaskGrid, m_tasks, false);
+				CoreGridController<Task>.AddToGrid(m_form.MTaskGrid, m_tasks);
 				
 				if(m_form.MTaskGrid.Rows.Count > rowIndex)
 					m_form.MTaskGrid.CurrentCell = m_form.MTaskGrid.Rows[rowIndex].Cells[2];
 			}
+		}
+		
+		private void RefreshTaskGrid()
+		{
+//			using(new WaitingForm2("Loading tasks...", "Please wait", false))
+//			{
+			m_tasks = new DbHelper().LoadAllTasks();
+			
+			if(m_tasks == null)
+				return;
+			
+			int rowIndex = 0;
+			if(m_form.MTaskGrid.CurrentCell != null)
+				rowIndex = m_form.MTaskGrid.CurrentCell.RowIndex;
+			
+//				m_form.MTaskGrid.Rows.Clear();
+			
+			
+			m_tasks = m_tasks
+				.OrderBy(m => m.Showed)
+				.ThenByDescending(n => n.DateRemainder).ToList();
+//			m_tasks.Reverse();
+//				foreach(Task task in m_tasks)
+//				{
+//					m_form.MTaskGrid.Rows.Add(task.Text, task.DateRemainder, task.Showed, task.Id, task.SourceId);
+//				}
+			
+			CoreGridController<Task>.AddValues(m_form.MTaskGrid, m_tasks);
+			
+			if(m_form.MTaskGrid.Rows.Count > rowIndex)
+				m_form.MTaskGrid.CurrentCell = m_form.MTaskGrid.Rows[rowIndex].Cells[2];
+//			}
 		}
 	}
 }
