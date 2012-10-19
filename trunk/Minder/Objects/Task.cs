@@ -35,36 +35,37 @@ namespace Minder.Objects
 		string m_lastModifyDateString = string.Empty;
 		string m_dateRemainderString = string.Empty;
 		
-		[DBColumnReference("SHOWED"), 
-		 PropertyCaption("Showed", 5)]
-		public bool Showed {
-			get { return m_showed; }
-			set { m_showed = value; }
-		}
-		
-		[DBColumnReference("SOURCE_ID"), 
-		 PropertyCaption("SOURCE_ID", 2, false)]
-		public string SourceId {
-			get { return m_sourceId; }
-			set { m_sourceId = value; }
-		}
 		
 		[PrimaryKey("TASK_SEQ"),
-		 DBColumnReference("ID"), 
+		 DBColumnReference("ID"),
 		 PropertyCaption("ID", 1, false)]
 		public int Id {
 			get { return m_id; }
 			set { m_id = value; }
 		}
 		
-		[DBColumnReference("NAME"), 
+		[DBColumnReference("SHOWED"),
+		 PropertyCaption("Showed", 5)]
+		public bool Showed {
+			get { return m_showed; }
+			set { m_showed = value; }
+		}
+		
+		[DBColumnReference("SOURCE_ID"),
+		 PropertyCaption("SOURCE_ID", 2, false)]
+		public string SourceId {
+			get { return m_sourceId; }
+			set { m_sourceId = value; }
+		}
+		
+		[DBColumnReference("NAME"),
 		 PropertyCaption("Task", 3)]
 		public string Text {
 			get { return m_text; }
 			set { m_text = value; }
 		}
 		
-		[DBColumnReference("DATE_REMAINDER"), 
+		[DBColumnReference("DATE_REMAINDER"),
 		 PropertyCaption("Date", 4)]
 		public DateTime DateRemainder {
 			get { return m_dateRemainder; }
