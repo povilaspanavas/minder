@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="BlackSkin" Height="74" Width="280" WindowStyle="None" ResizeMode="NoResize" Topmost="True" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Fixed">
     <Grid>
-    	<Rectangle RadiusX="14">
+    	<Rectangle StrokeThickness="0">
     		<Rectangle.Fill>
     			<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
     				<LinearGradientBrush.RelativeTransform>
