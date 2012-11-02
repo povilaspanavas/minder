@@ -1,7 +1,7 @@
 ﻿<src:AbstractMainForm x:Class="Minder.UI.SkinController.MainForms.BlackSkin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="BlackSkin" Height="74" Width="280" WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True" ShowInTaskbar="False" ResizeMode="NoResize" Topmost="True"
+        Title="BlackSkin" Height="74" Width="280" WindowStyle="None" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" Left="Auto" ResizeMode="NoResize" Topmost="True" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Fixed"
 		xmlns:src="clr-namespace:Minder.UI.SkinController">
     <Grid>
     	<Rectangle RadiusX="14" RadiusY="14">
