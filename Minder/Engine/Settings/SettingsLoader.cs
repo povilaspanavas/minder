@@ -58,7 +58,7 @@ namespace Minder.Forms.Settings
 			iniParser.AddSetting("General", "playsound", "true");
 			iniParser.AddSetting("CultureInfo", "name", "lt-Lt");
 			iniParser.AddSetting("RemindMeLater", "Default", RemindLaterValue.Round(10.0m/60.0m).ToString());
-			iniParser.AddSetting("Skin", "code", DefaultSkinForm.SKIN_UNIQUE_CODE);
+			iniParser.AddSetting("Skin", "code", BlackSkin.SKIN_UNIQUE_CODE);
 			iniParser.AddSetting("Sync", "enable", "false");
 			iniParser.AddSetting("Sync", "ID", "");
 			iniParser.AddSetting("Sync", "interval", "30");
