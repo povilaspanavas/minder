@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="BlackSkin" Height="74" Width="280" WindowStyle="None" ResizeMode="NoResize" Topmost="True" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Fixed">
     <Grid>
-    	<Rectangle RadiusX="14" RadiusY="14">
+    	<Rectangle RadiusX="14">
     		<Rectangle.Fill>
     			<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
     				<LinearGradientBrush.RelativeTransform>
@@ -35,7 +35,7 @@
     			</LinearGradientBrush>
     		</Ellipse.Fill>
     	</Ellipse>
-    	<TextBox x:FieldModifier="private" Height="35" Margin="10,37,10,2" x:Name="m_textBox" Background="{x:Null}" TextWrapping="Wrap" Foreground="White" BorderThickness="0" TextOptions.TextHintingMode="Animated" />
+    	<TextBox x:FieldModifier="private" Height="35" Margin="10,37,10,2" x:Name="m_textBox" Background="{x:Null}" TextWrapping="Wrap" Foreground="White" BorderThickness="0" />
     	<Label Content="Unavailable" x:FieldModifier="private" Height="28" HorizontalAlignment="Left" Margin="97,6,0,0" x:Name="m_dateLabel" VerticalAlignment="Top" Width="135" FontWeight="Bold" Foreground="White" />
     	<Label Content="New task" Height="28" HorizontalAlignment="Left" Margin="42,6,0,0" x:Name="label1" VerticalAlignment="Top" Width="81" FontFamily="{DynamicResource {x:Static SystemFonts.MenuFontFamilyKey}}" Foreground="White" />
         
