@@ -26,6 +26,8 @@ namespace Minder.UI.SkinController
 					return new DefaultSkinForm();
 				case WhiteSkin.SKIN_UNIQUE_CODE:
 					return new WhiteSkin();
+				case BlackSkin.SKIN_UNIQUE_CODE:
+					return new BlackSkin();
 				default:
 					return new DefaultSkinForm();
 			}

@@ -172,6 +172,9 @@
     <Compile Include="Engine\Settings\Static\StaticData.cs" />
     <Compile Include="UI\SkinController\AbstractMainForm.cs" />
     <Compile Include="UI\SkinController\MainFormCollector.cs" />
+    <Compile Include="UI\SkinController\MainForms\BlackSkin\BlackSkin.xaml.cs">
+      <DependentUpon>BlackSkin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\SkinController\MainForms\DefaultSkin\DefaultSkinForm.xaml.cs">
       <DependentUpon>DefaultSkinForm.xaml</DependentUpon>
     </Compile>
@@ -230,6 +233,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="UI\SkinController\MainForms\BlackSkin\BlackSkin.xaml" />
     <Page Include="UI\SkinController\MainForms\DefaultSkin\DefaultSkinForm.xaml" />
     <Page Include="UI\SkinController\MainForms\WhiteSkin\WhiteSkin.xaml" />
   </ItemGroup>
@@ -244,6 +248,7 @@
     <Folder Include="UI\SkinController" />
     <Folder Include="UI\SkinController\MainForms" />
     <Folder Include="UI\SkinController\MainForms\DefaultSkin" />
+    <Folder Include="UI\SkinController\MainForms\BlackSkin" />
     <Folder Include="UI\SkinController\MainForms\WhiteSkin" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
