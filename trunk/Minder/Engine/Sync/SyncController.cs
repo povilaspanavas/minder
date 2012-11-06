@@ -32,6 +32,7 @@ namespace Minder.Engine.Sync
 		
 		private System.Windows.Forms.Timer m_timer = null;
 		private int m_newTasks;
+		private string m_ip = "192.168.0.92";
 		
 		public delegate void SyncEventHandler();
 		public event SyncEventHandler Synced;
@@ -159,7 +160,7 @@ namespace Minder.Engine.Sync
 			requestString += Regex.Replace(json, "\"", "\\\"");
 			requestString += "\"}";
 			
-			HttpWebRequest request = (HttpWebRequest) HttpWebRequest.Create("http://88.223.51.135/Minder.WebServices/default.asmx/Sync");
+			HttpWebRequest request = (HttpWebRequest) HttpWebRequest.Create(string.Format("http://{0}/Minder.WebServices/default.asmx/Sync", m_ip));
 			request.ContentType = "application/json; charset=utf-8";
 			request.Accept = "application/json, text/javascript, */*";
 			request.Method = "POST";
