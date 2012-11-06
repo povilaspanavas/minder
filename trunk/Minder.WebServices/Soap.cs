@@ -60,6 +60,9 @@ namespace Minder.WebServices
 				DateTime lastSyncDate = syncObject.LastSyncDate;
 				
 				List<TaskSync> result = new TaskSyncController().Sync(tasks, userId, lastSyncDate);
+				foreach (TaskSync taskSyn in result) {
+					taskSyn.DateRemainder = taskSyn.DateRemainder.ToLocalTime();
+				}
 				
 				SyncObject resultObject = new SyncObject();
 				resultObject.Tasks = result;
