@@ -66,8 +66,8 @@ namespace Minder.Engine.Sync
 				{
 					task.UserId = Static.StaticData.Settings.Sync.Id;
 					syncObject.Tasks.Add(task);
-					task.LastModifyDate = task.LastModifyDate.ToUniversalTime();
-					task.DateRemainder = task.DateRemainder.ToUniversalTime();
+//					task.LastModifyDate = task.LastModifyDate.ToUniversalTime();
+//					task.DateRemainder = task.DateRemainder.ToUniversalTime();
 				}
 				
 				//Paruošti taskai siuntimui
