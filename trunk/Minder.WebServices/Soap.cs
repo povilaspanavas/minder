@@ -35,8 +35,8 @@ namespace Minder.WebServices
 			log4net.ILog log = log4net.LogManager.GetLogger(typeof(Soap));
 			if(Minder.WebServices.Helpers.StaticData.ConfigLoaded == false)
 			{
-				ConfigLoader.Load(@"D:\Projektai\Minder\Minder.WebServices\CoreConfig.xml");
-				FileInfo config = new FileInfo(@"D:\Projektai\Minder\Minder.WebServices\MinderWebServices.log4net.xml");
+				ConfigLoader.Load(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\CoreConfig.xml");
+				FileInfo config = new FileInfo(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\MinderWebServices.log4net.xml");
 				log4net.Config.XmlConfigurator.Configure(config);
 				Minder.WebServices.Helpers.StaticData.ConfigLoaded = true;
 				log.Info("Service started...");
