@@ -32,7 +32,7 @@ namespace Minder.Engine.Sync
 		
 		private System.Windows.Forms.Timer m_timer = null;
 		private int m_newTasks;
-		private string m_ip = "192.168.0.92";
+		private string m_ip = "88.223.36.19";
 		
 		public delegate void SyncEventHandler();
 		public event SyncEventHandler Synced;

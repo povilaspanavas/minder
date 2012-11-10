@@ -159,7 +159,7 @@ namespace Minder.Objects
 			if (TextParser.Parse(dataEntered, out m_dateRemainder, out m_text) == false)
 				return null;
 			
-			this.SourceId = string.Format("{0}{1}{2}", DateTime.Now, m_dateRemainder, m_text);
+			this.SourceId = string.Format("{0}{1}{2}", DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss"), m_dateRemainder.ToString("yyyy.MM.dd HH:mm:ss"), m_text);
 			
 			return this;
 		}
