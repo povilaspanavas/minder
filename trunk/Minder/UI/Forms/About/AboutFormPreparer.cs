@@ -11,6 +11,7 @@ using System.IO;
 using System.Windows.Forms;
 using Core.CoreInfo;
 using Core.Forms;
+using Core.Tools;
 using Minder.Static;
 
 namespace Minder.Forms.About
@@ -59,6 +60,8 @@ namespace Minder.Forms.About
 			m_form.toolTip1.SetToolTip(linkLabel, "Click to open log file");
 			
 			string link = Static.StaticData.Settings.LogFilePath;
+			string executablePath = new PathCutHelper().GetExecutablePath();
+			link = string.Format(@"{0}\{1}", executablePath, link);
 			if (File.Exists(link) == false)
 			{
 				m_log.Error(new ArgumentException(string.Format("File was not found. File Path:\n'{0}'", Path.GetFullPath(link))));
