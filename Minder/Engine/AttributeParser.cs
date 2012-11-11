@@ -12,7 +12,7 @@ using System.Reflection;
 namespace Minder.Engine
 {
 	/// <summary>
-	/// Description of AttributeParser.
+	/// Description of Minder.Engine.AttributeParser.
 	/// </summary>
 	public class AttributeParser
 	{
