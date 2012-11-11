@@ -167,7 +167,7 @@ namespace Minder.Sql.DBVersionSystem
 		public DBVersionRepository AddVersions(Type type)
 		{
 			m_log.Debug(string.Format("Importing methods from type {0}", type.FullName));
-			DBHistoryAttribute dbHistoryAtr = AttributeParser.GetAttribute<DBHistoryAttribute>(type);
+			DBHistoryAttribute dbHistoryAtr = Minder.Engine.AttributeParser.GetAttribute<DBHistoryAttribute>(type);
 			if (dbHistoryAtr == null)
 			{
 				m_log.Debug(string.Format("Type {0} doesn't have DBHistoryAttribute", type.FullName));
@@ -175,7 +175,7 @@ namespace Minder.Sql.DBVersionSystem
 			}
 			foreach (MethodInfo method in type.GetMethods())
 			{
-				DBVersionAttribute dbVersionAtr = AttributeParser.GetAttribute<DBVersionAttribute>(method);
+				DBVersionAttribute dbVersionAtr = Minder.Engine.AttributeParser.GetAttribute<DBVersionAttribute>(method);
 				if (dbVersionAtr == null)
 					continue;
 				m_log.Debug(string.Format("Adding method {0} with {2} {1}", method.Name, dbVersionAtr.Version, dbHistoryAtr.GetType().Name));
@@ -221,7 +221,7 @@ namespace Minder.Sql.DBVersionSystem
 			m_log.Debug(string.Format("Importing methods from assembly {0}", ass.FullName));
 			foreach (Type type in ass.GetExportedTypes())
 			{
-				if (AttributeParser.GetAttribute<DBHistoryAttribute>(type) == null)
+				if (Minder.Engine.AttributeParser.GetAttribute<DBHistoryAttribute>(type) == null)
 					continue;
 				AddVersions(type);
 			}
