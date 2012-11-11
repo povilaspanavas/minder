@@ -59,5 +59,12 @@ namespace Minder.UI.Forms.Settings {
 				resourceCulture = value;
 			}
 		}
+		
+		internal static System.Drawing.Bitmap MDefaultsButton_BackgroundImage {
+			get {
+				object obj = ResourceManager.GetObject("MDefaultsButton.BackgroundImage", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
 	}
 }

@@ -92,6 +92,7 @@ namespace Minder.Forms.Tasks
 			// 
 			// MSaveButton
 			// 
+			this.MSaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.MSaveButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MSaveButton.BackgroundImage")));
 			this.MSaveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.MSaveButton.Location = new System.Drawing.Point(110, 123);
@@ -102,6 +103,7 @@ namespace Minder.Forms.Tasks
 			// 
 			// MCancelButton
 			// 
+			this.MCancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.MCancelButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MCancelButton.BackgroundImage")));
 			this.MCancelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.MCancelButton.Location = new System.Drawing.Point(156, 123);
