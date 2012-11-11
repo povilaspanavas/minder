@@ -47,7 +47,6 @@ namespace Minder.Forms.Settings
 			this.MPlaySoundCheckBox = new System.Windows.Forms.CheckBox();
 			this.MUpdateCheckBox = new System.Windows.Forms.CheckBox();
 			this.MStartWithWinCheckBox = new System.Windows.Forms.CheckBox();
-			this.MDefaultsButton = new System.Windows.Forms.Button();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -62,6 +61,7 @@ namespace Minder.Forms.Settings
 			this.MSkinListBox = new System.Windows.Forms.ListBox();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.label5 = new System.Windows.Forms.Label();
 			this.MLastSyncDate = new System.Windows.Forms.DateTimePicker();
 			this.MSyncIntervalNumeric = new System.Windows.Forms.NumericUpDown();
 			this.label4 = new System.Windows.Forms.Label();
@@ -69,7 +69,7 @@ namespace Minder.Forms.Settings
 			this.label2 = new System.Windows.Forms.Label();
 			this.MSyncIdTextBox = new Minder.Controls.MTextBox();
 			this.MEnableSyncCheckBox = new System.Windows.Forms.CheckBox();
-			this.label5 = new System.Windows.Forms.Label();
+			this.MDefaultsButton = new Core.UI.Controlls.Buttons.CoreRefreshButton();
 			this.panel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -113,6 +113,7 @@ namespace Minder.Forms.Settings
 			// 
 			// tabPage1
 			// 
+			this.tabPage1.Controls.Add(this.MDefaultsButton);
 			this.tabPage1.Controls.Add(this.label3);
 			this.tabPage1.Controls.Add(this.MComboBoxRemindMeLater);
 			this.tabPage1.Controls.Add(this.labelCultureData);
@@ -120,7 +121,6 @@ namespace Minder.Forms.Settings
 			this.tabPage1.Controls.Add(this.MPlaySoundCheckBox);
 			this.tabPage1.Controls.Add(this.MUpdateCheckBox);
 			this.tabPage1.Controls.Add(this.MStartWithWinCheckBox);
-			this.tabPage1.Controls.Add(this.MDefaultsButton);
 			this.tabPage1.Location = new System.Drawing.Point(4, 22);
 			this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
 			this.tabPage1.Name = "tabPage1";
@@ -202,17 +202,6 @@ namespace Minder.Forms.Settings
 			this.MStartWithWinCheckBox.TabIndex = 1;
 			this.MStartWithWinCheckBox.Text = "Start Minder with Windows";
 			this.MStartWithWinCheckBox.UseVisualStyleBackColor = true;
-			// 
-			// MDefaultsButton
-			// 
-			this.MDefaultsButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.MDefaultsButton.Location = new System.Drawing.Point(198, 304);
-			this.MDefaultsButton.Margin = new System.Windows.Forms.Padding(2);
-			this.MDefaultsButton.Name = "MDefaultsButton";
-			this.MDefaultsButton.Size = new System.Drawing.Size(111, 32);
-			this.MDefaultsButton.TabIndex = 0;
-			this.MDefaultsButton.Text = "Restore defaults";
-			this.MDefaultsButton.UseVisualStyleBackColor = true;
 			// 
 			// tabPage2
 			// 
@@ -382,6 +371,14 @@ namespace Minder.Forms.Settings
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Sync";
 			// 
+			// label5
+			// 
+			this.label5.Location = new System.Drawing.Point(28, 112);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(79, 16);
+			this.label5.TabIndex = 7;
+			this.label5.Text = "Last sync date";
+			// 
 			// MLastSyncDate
 			// 
 			this.MLastSyncDate.CustomFormat = "yyyy.MM.dd hh:mm:ss";
@@ -456,13 +453,16 @@ namespace Minder.Forms.Settings
 			this.MEnableSyncCheckBox.Text = "Enable synchronization";
 			this.MEnableSyncCheckBox.UseVisualStyleBackColor = true;
 			// 
-			// label5
+			// MDefaultsButton
 			// 
-			this.label5.Location = new System.Drawing.Point(28, 112);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(79, 16);
-			this.label5.TabIndex = 7;
-			this.label5.Text = "Last sync date";
+			this.MDefaultsButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.MDefaultsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MDefaultsButton.BackgroundImage")));
+			this.MDefaultsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.MDefaultsButton.Location = new System.Drawing.Point(216, 293);
+			this.MDefaultsButton.Name = "MDefaultsButton";
+			this.MDefaultsButton.Size = new System.Drawing.Size(40, 40);
+			this.MDefaultsButton.TabIndex = 11;
+			this.MDefaultsButton.UseVisualStyleBackColor = true;
 			// 
 			// SettingsForm
 			// 
@@ -511,7 +511,7 @@ namespace Minder.Forms.Settings
 		public System.Windows.Forms.CheckBox MPlaySoundCheckBox;
 		public System.Windows.Forms.CheckBox MStartWithWinCheckBox;
 		public System.Windows.Forms.CheckBox MUpdateCheckBox;
-		public System.Windows.Forms.Button MDefaultsButton;
+		public Core.UI.Controlls.Buttons.CoreRefreshButton MDefaultsButton;
 		public System.Windows.Forms.ComboBox MKeysComboBox;
 		private System.Windows.Forms.Label label1;
 		public System.Windows.Forms.CheckBox MWinCheckBox;

@@ -121,7 +121,7 @@
   <data name="MSaveButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAVZSURBVFhHpdZ9TBN3GAdwl2Vv2X9LtmTRTYPKnM6XMIb4
+        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAVZSURBVFhHpdZ9TBN3GAdwl2Vv2X9LtmTRTYPKnM6XMIb4
         is7JnLqpqBOxujIFzcaikb0kCpMXARF5kfcho6UttVKgAiog2MqLorUtby0vwWQSN40v7DdlKFjKs+f3
         s+12syctveSTu/aee55v7tq7mzDBumwv6fYQlvUo1uQ1aPar9JpHT8wai2VUM2Qe0QwOm5lh3B4dHdUA
         AK8nIxbN4RqjZlWORiMoNqp2lPQEC5TdL9nm8K4Fyq7LIeW9sCr7AnxzqhlnPF3W5tTBsuPVTEZ9l/37
@@ -150,7 +150,7 @@
   <data name="MCancelButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAdwSURBVFhHpVcLVFNHGr43uQmEkAevQEJ4JFFE3gj0qKfW
+        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAdwSURBVFhHpVcLVFNHGr43uQmEkAevQEJ4JFFE3gj0qKfW
         g/hYW6q2dHdZ+kRZRatWz1rWreyxi7TauBXEpS2tK0oJYNViQUEobcFHKboWAa20exStCC0LPlZxuyvk
         25lbEhLCQ0/vOd/J5M7//983c2fm/4dhHvzxJabLCYoJWlmWuSUSM2YK0r5N3rURmAjSCbQPHnZiy9nE
         5IiTK3s/fIEYv82SYPMRCT78Toy62wJ8fodFySURsqqdkZItQeRCMZxk7H3iU0UQP3H4sS38SVeF1Jsz
