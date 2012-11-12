@@ -1,6 +1,6 @@
 #summary Shows how the program looks
 
-=== Task input skins ===
+=== Task's input skins ===
 https://dl.dropbox.com/u/2504695/Minder/Screenshots/BlackSkin.png
 
 https://dl.dropbox.com/u/2504695/Minder/Screenshots/WhiteSkin.png
