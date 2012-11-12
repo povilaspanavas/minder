@@ -1,6 +1,6 @@
 #summary Shows how the program looks
 
-=== Tasks' input skins ===
+=== Task input skins ===
 http://files.panavas.lt/Minder/Screenshots/BlackSkin.png
 
 http://files.panavas.lt/Minder/Screenshots/WhiteSkin.png
