@@ -48,7 +48,7 @@ namespace Minder.Forms.Tasks
 			// 
 			// label1
 			// 
-			this.label1.Location = new System.Drawing.Point(10, 14);
+			this.label1.Location = new System.Drawing.Point(12, 14);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(30, 23);
 			this.label1.TabIndex = 0;
@@ -56,34 +56,34 @@ namespace Minder.Forms.Tasks
 			// 
 			// MTextBox
 			// 
-			this.MTextBox.Location = new System.Drawing.Point(46, 11);
+			this.MTextBox.Location = new System.Drawing.Point(57, 11);
 			this.MTextBox.Multiline = true;
 			this.MTextBox.Name = "MTextBox";
-			this.MTextBox.Size = new System.Drawing.Size(267, 53);
+			this.MTextBox.Size = new System.Drawing.Size(256, 53);
 			this.MTextBox.TabIndex = 1;
 			// 
 			// MDatePicker
 			// 
 			this.MDatePicker.CustomFormat = "yyyy.MM.dd HH:mm";
 			this.MDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.MDatePicker.Location = new System.Drawing.Point(46, 71);
+			this.MDatePicker.Location = new System.Drawing.Point(57, 71);
 			this.MDatePicker.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
 			this.MDatePicker.Name = "MDatePicker";
 			this.MDatePicker.ShowUpDown = true;
-			this.MDatePicker.Size = new System.Drawing.Size(267, 20);
+			this.MDatePicker.Size = new System.Drawing.Size(256, 22);
 			this.MDatePicker.TabIndex = 2;
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(10, 76);
+			this.label2.Location = new System.Drawing.Point(12, 76);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(30, 23);
+			this.label2.Size = new System.Drawing.Size(41, 23);
 			this.label2.TabIndex = 3;
 			this.label2.Text = "Date";
 			// 
 			// MShowedCheckBox
 			// 
-			this.MShowedCheckBox.Location = new System.Drawing.Point(46, 97);
+			this.MShowedCheckBox.Location = new System.Drawing.Point(57, 99);
 			this.MShowedCheckBox.Name = "MShowedCheckBox";
 			this.MShowedCheckBox.Size = new System.Drawing.Size(104, 24);
 			this.MShowedCheckBox.TabIndex = 4;
@@ -95,7 +95,7 @@ namespace Minder.Forms.Tasks
 			this.MSaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.MSaveButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MSaveButton.BackgroundImage")));
 			this.MSaveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.MSaveButton.Location = new System.Drawing.Point(110, 123);
+			this.MSaveButton.Location = new System.Drawing.Point(124, 131);
 			this.MSaveButton.Name = "MSaveButton";
 			this.MSaveButton.Size = new System.Drawing.Size(40, 40);
 			this.MSaveButton.TabIndex = 7;
@@ -106,7 +106,7 @@ namespace Minder.Forms.Tasks
 			this.MCancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.MCancelButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MCancelButton.BackgroundImage")));
 			this.MCancelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.MCancelButton.Location = new System.Drawing.Point(156, 123);
+			this.MCancelButton.Location = new System.Drawing.Point(170, 131);
 			this.MCancelButton.Name = "MCancelButton";
 			this.MCancelButton.Size = new System.Drawing.Size(40, 40);
 			this.MCancelButton.TabIndex = 9;
@@ -116,7 +116,7 @@ namespace Minder.Forms.Tasks
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(321, 175);
+			this.ClientSize = new System.Drawing.Size(321, 183);
 			this.Controls.Add(this.MCancelButton);
 			this.Controls.Add(this.MSaveButton);
 			this.Controls.Add(this.MShowedCheckBox);
