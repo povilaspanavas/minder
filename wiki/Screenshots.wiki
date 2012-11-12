@@ -1,12 +1,12 @@
 #summary Shows how the program looks
 
 === Task's input skins ===
-https://dl.dropbox.com/u/2504695/Minder/Screenshots/BlackSkin.png
+https://files.panavas.lt/Minder/Screenshots/BlackSkin.png
 
-https://dl.dropbox.com/u/2504695/Minder/Screenshots/WhiteSkin.png
+https://files.panavas.lt/Minder/Screenshots/WhiteSkin.png
 
-https://dl.dropbox.com/u/2504695/Minder/Screenshots/DefaultSkin.png
+https://files.panavas.lt/Minder/Screenshots/DefaultSkin.png
 
 === Tasks' window ===
 
-https://dl.dropbox.com/u/2504695/Minder/Screenshots/Tasks.png
+https://files.panavas.lt/Minder/Screenshots/Tasks.png
