@@ -7,6 +7,6 @@ http://files.panavas.lt/Minder/Screenshots/WhiteSkin.png
 
 http://files.panavas.lt/Minder/Screenshots/DefaultSkin.png
 
-=== Window of tasks ===
+=== Task table ===
 
 http://files.panavas.lt/Minder/Screenshots/Tasks.png
