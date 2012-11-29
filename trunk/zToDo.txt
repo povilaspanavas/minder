@@ -10,7 +10,7 @@ Padaryti angliğkas antrağtes message boxuose
 Reikia padaryti, kad kai settingsus keièiame, paklaustø ar norime perkrauti dabar programà. 
 Reikia padaryti, kad bûtø du startavimo metodai. Standartinis, kai startuoja ir bûna prie laikrodşio, o kitas kai startuoja ir iğkart main forma dar atsidaro.
 Pvz. po settingsø keitimo, perkrovimo turëtø startuoti ir atsirasti mainforma. Tas pats ir pirmà kart suinstaliavus.
-Bug: ant xp ğitas neveikia, o ant 7 lyg ir veikia.
+Bug: ant xp ğitas neveikia, o ant 7 lyg ir veikia. 
 
 
 
