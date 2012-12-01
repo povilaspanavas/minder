@@ -5,12 +5,12 @@ echo Started Core update
 rem update core
 
 rem build core before copying
-call c:\Dokumentai\Projektai\Core_tags\Core_1.9\Build.bat
+call d:\Projektai\Core_tags\Core_2.0\Build.bat
 
 rem copying
 cd "../../../"
-cd "c:\Dokumentai\Projektai\Core_tags\Core_1.9\Core\bin\Debug\"
-copy *.* "c:\Dokumentai\Projektai\Minder\libs\"
+cd "d:\Projektai\Core_tags\Core_2.0\Core\bin\Debug\"
+copy *.* "d:\Projektai\Minder_trunk\libs\"
 
 
 echo CORE UPDATED SUCCESSFULLY! 
