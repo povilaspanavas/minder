@@ -48,6 +48,5 @@ namespace Minder.Engine
 				task.Save();
 		}
 		
-		
 	}
 }
