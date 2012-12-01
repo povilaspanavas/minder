@@ -69,7 +69,7 @@ namespace Minder.Forms.Settings
 			this.label2 = new System.Windows.Forms.Label();
 			this.MSyncIdTextBox = new Minder.Controls.MTextBox();
 			this.MEnableSyncCheckBox = new System.Windows.Forms.CheckBox();
-			this.MDefaultsButton = new Core.UI.Controlls.Buttons.CoreRefreshButton();
+			this.MDefaultsButton = new Core.UI.Controls.Buttons.CoreBlueCustomButton();
 			this.panel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -457,11 +457,13 @@ namespace Minder.Forms.Settings
 			// 
 			this.MDefaultsButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.MDefaultsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MDefaultsButton.BackgroundImage")));
-			this.MDefaultsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.MDefaultsButton.Location = new System.Drawing.Point(216, 293);
+			this.MDefaultsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.MDefaultsButton.Location = new System.Drawing.Point(176, 293);
 			this.MDefaultsButton.Name = "MDefaultsButton";
-			this.MDefaultsButton.Size = new System.Drawing.Size(40, 40);
+			this.MDefaultsButton.Size = new System.Drawing.Size(121, 40);
 			this.MDefaultsButton.TabIndex = 11;
+			this.MDefaultsButton.Text = "Restore defaults";
+			this.MDefaultsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.MDefaultsButton.UseVisualStyleBackColor = true;
 			// 
 			// SettingsForm
@@ -490,6 +492,7 @@ namespace Minder.Forms.Settings
 			((System.ComponentModel.ISupportInitialize)(this.MSyncIntervalNumeric)).EndInit();
 			this.ResumeLayout(false);
 		}
+		public Core.UI.Controls.Buttons.CoreBlueCustomButton MDefaultsButton;
 		private System.Windows.Forms.Label label5;
 		public System.Windows.Forms.DateTimePicker MLastSyncDate;
 		public System.Windows.Forms.Button MSyncGenerateIdButton;
@@ -511,7 +514,6 @@ namespace Minder.Forms.Settings
 		public System.Windows.Forms.CheckBox MPlaySoundCheckBox;
 		public System.Windows.Forms.CheckBox MStartWithWinCheckBox;
 		public System.Windows.Forms.CheckBox MUpdateCheckBox;
-		public Core.UI.Controlls.Buttons.CoreRefreshButton MDefaultsButton;
 		public System.Windows.Forms.ComboBox MKeysComboBox;
 		private System.Windows.Forms.Label label1;
 		public System.Windows.Forms.CheckBox MWinCheckBox;
