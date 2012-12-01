@@ -38,9 +38,9 @@ namespace Minder.Forms.Tasks
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TasksForm));
 			this.MTaskGrid = new System.Windows.Forms.DataGridView();
-			this.MNewButton = new Core.UI.Controlls.Buttons.CoreNewButton();
-			this.MEditButton = new Core.UI.Controlls.Buttons.CoreEditButton();
-			this.MDeleteButton = new Core.UI.Controlls.Buttons.CoreDeleteButton();
+			this.MNewButton = new Core.UI.Controls.Buttons.CoreNewButton();
+			this.MEditButton = new Core.UI.Controls.Buttons.CoreEditButton();
+			this.MDeleteButton = new Core.UI.Controls.Buttons.CoreDeleteButton();
 			((System.ComponentModel.ISupportInitialize)(this.MTaskGrid)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -100,9 +100,9 @@ namespace Minder.Forms.Tasks
 			((System.ComponentModel.ISupportInitialize)(this.MTaskGrid)).EndInit();
 			this.ResumeLayout(false);
 		}
-		public Core.UI.Controlls.Buttons.CoreDeleteButton MDeleteButton;
+		public Core.UI.Controls.Buttons.CoreDeleteButton MDeleteButton;
 		public System.Windows.Forms.DataGridView MTaskGrid;
-		public Core.UI.Controlls.Buttons.CoreEditButton MEditButton;
-		public Core.UI.Controlls.Buttons.CoreNewButton MNewButton;
+		public Core.UI.Controls.Buttons.CoreEditButton MEditButton;
+		public Core.UI.Controls.Buttons.CoreNewButton MNewButton;
 	}
 }

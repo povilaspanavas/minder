@@ -42,8 +42,8 @@ namespace Minder.Forms.Tasks
 			this.MDatePicker = new System.Windows.Forms.DateTimePicker();
 			this.label2 = new System.Windows.Forms.Label();
 			this.MShowedCheckBox = new System.Windows.Forms.CheckBox();
-			this.MSaveButton = new Core.UI.Controlls.Buttons.CoreSaveButton();
-			this.MCancelButton = new Core.UI.Controlls.Buttons.CoreCancelButton();
+			this.MSaveButton = new Core.UI.Controls.Buttons.CoreSaveButton();
+			this.MCancelButton = new Core.UI.Controls.Buttons.CoreBackButton();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -70,7 +70,7 @@ namespace Minder.Forms.Tasks
 			this.MDatePicker.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
 			this.MDatePicker.Name = "MDatePicker";
 			this.MDatePicker.ShowUpDown = true;
-			this.MDatePicker.Size = new System.Drawing.Size(256, 22);
+			this.MDatePicker.Size = new System.Drawing.Size(256, 20);
 			this.MDatePicker.TabIndex = 2;
 			// 
 			// label2
@@ -103,13 +103,13 @@ namespace Minder.Forms.Tasks
 			// 
 			// MCancelButton
 			// 
-			this.MCancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.MCancelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.MCancelButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MCancelButton.BackgroundImage")));
 			this.MCancelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.MCancelButton.Location = new System.Drawing.Point(170, 131);
 			this.MCancelButton.Name = "MCancelButton";
 			this.MCancelButton.Size = new System.Drawing.Size(40, 40);
-			this.MCancelButton.TabIndex = 9;
+			this.MCancelButton.TabIndex = 8;
 			this.MCancelButton.UseVisualStyleBackColor = true;
 			// 
 			// TaskNewEditForm
@@ -132,8 +132,8 @@ namespace Minder.Forms.Tasks
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
-		public Core.UI.Controlls.Buttons.CoreCancelButton MCancelButton;
-		public Core.UI.Controlls.Buttons.CoreSaveButton MSaveButton;
+		public Core.UI.Controls.Buttons.CoreBackButton MCancelButton;
+		public Core.UI.Controls.Buttons.CoreSaveButton MSaveButton;
 		public System.Windows.Forms.CheckBox MShowedCheckBox;
 		private System.Windows.Forms.Label label2;
 		public System.Windows.Forms.DateTimePicker MDatePicker;
