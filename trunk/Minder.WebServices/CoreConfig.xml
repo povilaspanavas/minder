@@ -8,7 +8,7 @@
 	</LogConfig>
 	
 	<DBConfig>
-		<Host>c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\database.db</Host>
+		<Host>d:\Projektai\Minder_trunk\Minder.WebServices\bin\database.db</Host>
 		<User></User>
 		<Pass></Pass>
 		<DBName></DBName>
