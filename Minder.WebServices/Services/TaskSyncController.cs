@@ -9,7 +9,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-
+using System.Threading;
 using Core;
 using Core.DB;
 using Minder.WebServices.Objects;
@@ -26,27 +26,11 @@ namespace Minder.WebServices.Services
 		//Main
 		public List<TaskSync> Sync(List<TaskSync> tasks, string userId, DateTime lastSyncDate)
 		{
-//			if(Minder.WebServices.Helpers.StaticData.ConfigLoaded == false)
-//			{
-//				ConfigLoader.Load(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\CoreConfig.xml");
-//				FileInfo config = new FileInfo(@"c:\Dokumentai\Projektai\Minder\Minder.WebServices\bin\MinderWebServices.log4net.xml");
-//				log4net.Config.XmlConfigurator.Configure(config);
-//			}
-			
 			List<TaskSync> tasksFromDb = LoadAllTasksByUserId(userId, lastSyncDate);
 			List<TaskSync> result = MergeTasks(tasksFromDb, tasks);
 			SaveTasksToDb(tasksFromDb, result, lastSyncDate);
 			return result;
 		}
-		
-//		private void SetUTCTime(List<TaskSync> tasks)
-//		{
-//			foreach(TaskSync task in tasks)
-//			{
-//				task.LastModifyDate = task.LastModifyDate.ToUniversalTime();
-//				task.DateRemainder = task.DateRemainder.ToUniversalTime();
-//			}
-//		}
 		
 		private List<TaskSync> LoadAllTasksByUserId(string userId, DateTime lastSyncDate)
 		{
@@ -61,12 +45,20 @@ namespace Minder.WebServices.Services
 		private void SaveTasksToDb(List<TaskSync> taskFromDb, List<TaskSync> mergedTasks, DateTime lastSyncDate)
 		{
 			string userId = string.Empty;
-			if(taskFromDb.Count != 0)
-				userId = taskFromDb[0].UserId;
-			GenericDbHelper.RunDirectSql(string.Format("DELETE FROM TASK WHERE LAST_MODIFY_DATE >= '{0}' and USER_ID = '{1}'", lastSyncDate, userId));
+			if(mergedTasks.Count != 0)
+				userId = mergedTasks[0].UserId;
+//			GenericDbHelper.RunDirectSql(string.Format("DELETE FROM TASK WHERE LAST_MODIFY_DATE >= '{0}' and USER_ID = '{1}'", lastSyncDate, userId));
 			
 			foreach(TaskSync task in mergedTasks)
 			{
+				string deleteQuery = string.Format("DELETE FROM TASK WHERE SOURCE_ID = '{0}' AND USER_ID = '{1}'", task.SourceId, userId);
+				GenericDbHelper.RunDirectSql(deleteQuery);
+			}
+			
+			foreach(TaskSync task in mergedTasks)
+			{
+//				string deleteQuery = string.Format("DELETE FROM TASK WHERE SOURCE_ID = '{0}' AND USER_ID = '{1}'", task.SourceId, userId);
+//				GenericDbHelper.RunDirectSql(deleteQuery);
 				GenericDbHelper.Save(task);
 			}
 			GenericDbHelper.Flush();
