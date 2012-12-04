@@ -35,7 +35,7 @@
     			</LinearGradientBrush>
     		</Ellipse.Fill>
     	</Ellipse>
-    	<TextBox x:FieldModifier="private" Height="35" Margin="10,37,10,2" x:Name="m_textBox" Background="{x:Null}" TextWrapping="Wrap" Foreground="White" BorderThickness="0" />
+    	<TextBox x:FieldModifier="private" Height="35" Margin="10,37,10,2" x:Name="m_textBox" Background="{x:Null}" TextWrapping="Wrap" Foreground="White" BorderThickness="0" CaretBrush="White" />
     	<Label Content="Unavailable" x:FieldModifier="private" Height="28" HorizontalAlignment="Left" Margin="97,6,0,0" x:Name="m_dateLabel" VerticalAlignment="Top" Width="135" FontWeight="Bold" Foreground="White" />
     	<Label Content="New task" Height="28" HorizontalAlignment="Left" Margin="42,6,0,0" x:Name="label1" VerticalAlignment="Top" Width="81" FontFamily="{DynamicResource {x:Static SystemFonts.MenuFontFamilyKey}}" Foreground="White" />
         
