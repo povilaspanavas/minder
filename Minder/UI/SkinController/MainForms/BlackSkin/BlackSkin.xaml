@@ -1,44 +1,45 @@
 ﻿<src:AbstractMainForm x:Class="Minder.UI.SkinController.MainForms.BlackSkin"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="BlackSkin" Height="74" Width="280" WindowStyle="None" ShowInTaskbar="False" AllowsTransparency="False" WindowStartupLocation="CenterScreen" Left="Auto" ResizeMode="NoResize" Topmost="True" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Fixed"
-		xmlns:src="clr-namespace:Minder.UI.SkinController">
-    <Grid>
-    	<Rectangle RadiusX="14" RadiusY="0">
-    		<Rectangle.Fill>
-    			<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-    				<LinearGradientBrush.RelativeTransform>
-    					<TransformGroup>
-    						<ScaleTransform CenterY="0.5" CenterX="0.5"/>
-    						<SkewTransform CenterY="0.5" CenterX="0.5"/>
-    						<RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-    						<TranslateTransform X="-0.001"/>
-    					</TransformGroup>
-    				</LinearGradientBrush.RelativeTransform>
-    				<GradientStop Color="Black"/>
-    				<GradientStop Color="#FF2C2828" Offset="1"/>
-    			</LinearGradientBrush>
-    		</Rectangle.Fill>
-    	</Rectangle>
-    	<Ellipse HorizontalAlignment="Left" Height="145" Margin="-76,-111,-62,0" VerticalAlignment="Top" Width="418">
-    		<Ellipse.Fill>
-    			<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-    				<LinearGradientBrush.RelativeTransform>
-    					<TransformGroup>
-    						<ScaleTransform CenterY="0.5" CenterX="0.5"/>
-    						<SkewTransform CenterY="0.5" CenterX="0.5"/>
-    						<RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-    						<TranslateTransform X="-0.001"/>
-    					</TransformGroup>
-    				</LinearGradientBrush.RelativeTransform>
-    				<GradientStop Color="Black"/>
-    				<GradientStop Color="#FF4D4545" Offset="1"/>
-    			</LinearGradientBrush>
-    		</Ellipse.Fill>
-    	</Ellipse>
-    	<TextBox x:FieldModifier="private" Height="35" Margin="10,37,10,2" x:Name="m_textBox" Background="{x:Null}" TextWrapping="Wrap" Foreground="White" BorderThickness="0" />
-    	<Label Content="Unavailable" x:FieldModifier="private" Height="28" HorizontalAlignment="Left" Margin="97,6,0,0" x:Name="m_dateLabel" VerticalAlignment="Top" Width="135" FontWeight="Bold" Foreground="White" />
-    	<Label Content="New task" Height="28" HorizontalAlignment="Left" Margin="42,6,0,0" x:Name="label1" VerticalAlignment="Top" Width="81" FontFamily="{DynamicResource {x:Static SystemFonts.MenuFontFamilyKey}}" Foreground="White" />
-        
-    </Grid>
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="BlackSkin" Height="74" Width="280" WindowStyle="None" ShowInTaskbar="False" AllowsTransparency="False" WindowStartupLocation="CenterScreen" Left="Auto" ToolTip="Press here to write text" ResizeMode="NoResize" Topmost="True" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Fixed"
+	xmlns:src="clr-namespace:Minder.UI.SkinController">
+	
+	<Grid>
+		<Rectangle RadiusX="14" RadiusY="0">
+			<Rectangle.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+					<LinearGradientBrush.RelativeTransform>
+						<TransformGroup>
+							<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+							<SkewTransform CenterY="0.5" CenterX="0.5"/>
+							<RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
+							<TranslateTransform X="-0.001"/>
+						</TransformGroup>
+					</LinearGradientBrush.RelativeTransform>
+					<GradientStop Color="Black"/>
+					<GradientStop Color="#FF2C2828" Offset="1"/>
+				</LinearGradientBrush>
+			</Rectangle.Fill>
+		</Rectangle>
+		<Ellipse HorizontalAlignment="Left" Height="145" Margin="-76,-111,-62,0" VerticalAlignment="Top" Width="418">
+			<Ellipse.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+					<LinearGradientBrush.RelativeTransform>
+						<TransformGroup>
+							<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+							<SkewTransform CenterY="0.5" CenterX="0.5"/>
+							<RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
+							<TranslateTransform X="-0.001"/>
+						</TransformGroup>
+					</LinearGradientBrush.RelativeTransform>
+					<GradientStop Color="Black"/>
+					<GradientStop Color="#FF4D4545" Offset="1"/>
+				</LinearGradientBrush>
+			</Ellipse.Fill>
+		</Ellipse>
+		<TextBox x:FieldModifier="private" Height="35" Margin="10,37,10,2" x:Name="m_textBox" Background="{x:Null}" TextWrapping="Wrap" Foreground="White" BorderThickness="0" CaretBrush="White"></TextBox>
+		<Label Content="Unavailable" x:FieldModifier="private" Height="28" HorizontalAlignment="Left" Margin="97,6,0,0" x:Name="m_dateLabel" VerticalAlignment="Top" Width="135" FontWeight="Bold" Foreground="White" />
+		<Label Content="New task" Height="28" HorizontalAlignment="Left" Margin="42,6,0,0" x:Name="label1" VerticalAlignment="Top" Width="81" FontFamily="{DynamicResource {x:Static SystemFonts.MenuFontFamilyKey}}" Foreground="White" />
+	
+	</Grid>
 </src:AbstractMainForm>
