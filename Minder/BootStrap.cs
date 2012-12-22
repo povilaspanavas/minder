@@ -95,6 +95,9 @@ namespace Minder
 			else
 				preparer.PrepareForm();
 			
+			MousePositionHelper mouseMoveChecker = new MousePositionHelper();
+			mouseMoveChecker.SartMouseMoveChecker();
+			
 			TimeController timeController = new TimeController(preparer);
 			timeController.Start();
 			

@@ -79,6 +79,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Engine\Helpers\InfoFinder.cs" />
+    <Compile Include="Engine\Helpers\MousePositionHelper.cs" />
     <Compile Include="Engine\Helpers\RoundHelper.cs" />
     <Compile Include="Engine\AttributeParser.cs" />
     <Compile Include="Engine\Parse\Cultures\CultureDataConverter.cs" />
