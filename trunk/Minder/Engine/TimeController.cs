@@ -32,11 +32,14 @@ namespace Minder.Engine
 		
 		public void Start()
 		{
-			m_formPreparer.DataEntered += delegate(string dataEntered) {
+			m_formPreparer.DataEntered += delegate(string dataEntered) 
+			{
 				SaveNewTask(dataEntered);
 				m_timerLogic.RefreshInterval();
 			};
-			TimeEngine.TaskChangedEvent += delegate { 
+			
+			TimeEngine.TaskChangedEvent += delegate 
+			{
 				m_timerLogic.RefreshInterval();
 			};
 		}

@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Minder.Engine.Helpers;
 using Minder.Forms.Main;
 using Minder.Forms.TaskShow;
 using Minder.Objects;
@@ -61,6 +62,9 @@ namespace Minder.Engine
 		public void RefreshInterval()
 		{
 			m_timer.Stop();
+//			if(MousePositionHelper.MouseNotMoving)
+//				m_timer.Interval = 1000 * 60 * 2; //2 minutes
+//			else
 			SetNewTimerInterval();
 			m_timer.Start();
 		}
