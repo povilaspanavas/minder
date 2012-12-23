@@ -28,21 +28,25 @@ namespace Minder.Engine
 			m_timer = new Timer();
 			m_timer.Interval = m_tick;
 			
-			m_timer.Tick += delegate {
+			m_timer.Tick += delegate
+			{
 				m_timer.Stop();
 				
-				List<Task> tasksToShow = new DbHelper().LoadTasksForShowing();
-				foreach (Task task in tasksToShow) {
+				if(MousePositionHelper.MouseNotMoving == false)
+				{
+					List<Task> tasksToShow = new DbHelper().LoadTasksForShowing();
+					foreach (Task task in tasksToShow)
+					{
 //						System.Windows.Forms.MessageBox.Show(
 //							string.Format("Task: {0}, Time:{1}",
 //							              task.Text, DBTypesConverter.ToFullDateString(task.DateRemainder)));
-					new TaskShowFormPreparer(task).PrepareForm(); //Įkėliau viską į preparerį.
+						new TaskShowFormPreparer(task).PrepareForm(); //Įkėliau viską į preparerį.
 //						task.Showed = true;
 //						task.Update();
+					}
 				}
 				
 				SetNewTimerInterval();
-				
 				m_timer.Start();
 			};
 			
