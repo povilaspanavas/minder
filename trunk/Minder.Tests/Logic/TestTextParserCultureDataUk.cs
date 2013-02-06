@@ -19,6 +19,7 @@ namespace Minder.Tests.Logic.Cultures
 	public class TestTextParserCultureDataUk
 	{
 		private ICultureData m_initialCultureInfo = null;
+		private DateTime m_now = DateTime.Now;
 		
 		[TestFixtureSetUp]
 		public void ChangeCulture()
@@ -163,7 +164,7 @@ namespace Minder.Tests.Logic.Cultures
 			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			dateRemind = new DateTime(2012, 06, 02, 15, 20, 10);
+			dateRemind = new DateTime(m_now.Year, 06, 02, 15, 20, 10);
 			Assert.IsTrue(TextParser.Parse("Susitikimas 02/06 15:20:10", out date, out leftText));
 			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
 			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());

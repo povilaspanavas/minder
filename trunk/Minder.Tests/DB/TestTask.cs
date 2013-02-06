@@ -61,7 +61,7 @@ namespace Minder.Tests.DB
 				IDataReader reader = con.ExecuteReader("SELECT NAME, DATE_REMAINDER, SOURCE_ID, SHOWED FROM TASK");
 				Assert.IsTrue(reader.Read());
 				Assert.AreEqual(task.Text, reader.GetString(0));
-				Assert.AreEqual(DBTypesConverter.ToFullDateString(task.DateRemainder), reader.GetString(1));
+				Assert.AreEqual(DBTypesConverter.ToFullDateStringByCultureInfo(task.DateRemainder), reader.GetString(1));
 				Assert.AreEqual(task.SourceId, reader.GetString(2));
 				Assert.AreEqual(0, reader.GetInt32(3));
 			}
@@ -86,7 +86,7 @@ namespace Minder.Tests.DB
 				IDataReader reader = con.ExecuteReader("SELECT NAME, DATE_REMAINDER, SOURCE_ID, SHOWED FROM TASK");
 				Assert.IsTrue(reader.Read());
 				Assert.AreEqual(task.Text, reader.GetString(0));
-				Assert.AreEqual(DBTypesConverter.ToFullDateString(task.DateRemainder), reader.GetString(1));
+				Assert.AreEqual(DBTypesConverter.ToFullDateStringByCultureInfo(task.DateRemainder), reader.GetString(1));
 				Assert.AreEqual(task.SourceId, reader.GetString(2));
 				Assert.AreEqual(1, reader.GetInt32(3));
 			}

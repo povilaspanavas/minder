@@ -16,6 +16,7 @@ namespace Minder.Tests.Logic.Cultures
 	[TestFixture]
 	public class TestTextParserCultureDataLt
 	{
+		private DateTime m_now = DateTime.Now;
 		[Test]
 		public void TestMethod_Only_Minutes()
 		{
@@ -139,7 +140,7 @@ namespace Minder.Tests.Logic.Cultures
 			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
 			Assert.AreEqual("Susitikimas", leftText);
 			
-			dateRemind = new DateTime(2012, 06, 02, 15, 20, 10);
+			dateRemind = new DateTime(m_now.Year, 06, 02, 15, 20, 10);
 			Assert.IsTrue(TextParser.Parse("Susitikimas 06.02 15:20:10", out date, out leftText));
 			Assert.AreEqual(dateRemind.ToShortDateString(), date.ToShortDateString());
 			Assert.AreEqual(dateRemind.ToShortTimeString(), date.ToShortTimeString());
