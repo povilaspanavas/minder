@@ -29,6 +29,7 @@ namespace Minder.Sql
 		/// </summary>
 		/// <param name="dateTime"></param>
 		/// <returns></returns>
+		[Obsolete("Geriau turbūt ToFullDateStringByCultureInfo naudoti")]
 		public static string ToFullDateString(DateTime dateTime)
 		{
 			return string.Format("{0:yyyy.MM.dd HH:mm:ss}", dateTime);
@@ -41,19 +42,27 @@ namespace Minder.Sql
 		/// <returns></returns>
 		public static string ToFullDateStringByCultureInfo(DateTime dateTime)
 		{
-			return string.Format("{0} {1}", dateTime.ToShortDateString(), dateTime.ToShortTimeString());
+			return string.Format("{0} {1}", dateTime.ToShortDateString(), string.Format("{0:HH:mm:ss}", dateTime));
 		}
 		
+		public static string ToFullDateStringByCultureInfoWithQuotes(DateTime dateTime)
+		{
+			return AddQuotes(ToFullDateStringByCultureInfo(dateTime));
+		}
+		
+		[Obsolete("Turbūt geriau naudoti ToFullDateStringByCultureInfoWithQuotes")]
 		public static string ToFullDateStringWithQuotes(DateTime dateTime)
 		{
 			return AddQuotes(ToFullDateString(dateTime));
 		}
 		
+		[Obsolete]
 		public static string TodayToFullDateString()
 		{
 			return ToFullDateString(DateTime.Now);
 		}
 		
+		[Obsolete]
 		public static string TodayToFullDateStringAddQuotes()
 		{
 			return ToFullDateStringWithQuotes(DateTime.Now);

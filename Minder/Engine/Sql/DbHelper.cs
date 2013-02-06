@@ -26,7 +26,7 @@ namespace Minder.Sql
 			{
 				string query = string.Format("SELECT ID, NAME, DATE_REMAINDER, SOURCE_ID, SHOWED from task where DATE_REMAINDER <= {0}" +
 				                             "and (SHOWED = 0 or SHOWED is null or SHOWED = '') and (IS_DELETED = 0 or IS_DELETED is null)",
-				                             DBTypesConverter.ToFullDateStringWithQuotes(DateTime.Now));
+				                             DBTypesConverter.ToFullDateStringByCultureInfoWithQuotes(DateTime.Now));
 				
 				IDataReader reader = con.ExecuteReader(query);
 				List<Task> tasks = new List<Task>();
@@ -78,7 +78,7 @@ namespace Minder.Sql
 				string query = string.Format("select id, name, date_remainder, source_id from task where (showed is null " +
 				                             "or showed = 0 or SHOWED = '') and  (IS_DELETED = 0 or IS_DELETED is null)" +
 				                             " order by date_remainder, id",
-				                             DBTypesConverter.ToFullDateStringWithQuotes(DateTime.Now.AddSeconds(-15)));
+				                             DBTypesConverter.ToFullDateStringByCultureInfoWithQuotes(DateTime.Now.AddSeconds(-15)));
 				
 				IDataReader reader = connection.ExecuteReader(query);
 				while(reader.Read())
