@@ -13,4 +13,5 @@ Below are examples from Lithuanian date formatting. Other languages just use the
  * "Remind me 08:08|8:08|8:8" means remind be about this at 08:08.
  * "Remind me|15", "Remind me 15min|min.|m.|m" means remind me about task after 15 minutes.
  * "Remind me 15val.|val.|v.|v|h.|h" means remind me about task after 15 hours.
+ * "Remind me tomorrow 9:25" means to remind me about task next day at 9:25. 
  * In formats like h, min. you can use comma. For example "Remind me 1,5h" means remind me about this after 1 hour 30 minutes. 
