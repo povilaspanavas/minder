@@ -171,6 +171,7 @@
     <Compile Include="Engine\Sql\DbHelper.cs" />
     <Compile Include="Engine\Sql\DBTypesConverter.cs" />
     <Compile Include="Engine\Settings\Static\StaticData.cs" />
+    <Compile Include="UI\Helpers\MessageBoxHelper.cs" />
     <Compile Include="UI\SkinController\AbstractMainForm.cs" />
     <Compile Include="UI\SkinController\MainFormCollector.cs" />
     <Compile Include="UI\SkinController\MainForms\BlackSkin\BlackSkin.xaml.cs">
@@ -246,6 +247,7 @@
     <Folder Include="Engine\Settings" />
     <Folder Include="Engine\Parse" />
     <Folder Include="UI" />
+    <Folder Include="UI\Helpers" />
     <Folder Include="UI\SkinController" />
     <Folder Include="UI\SkinController\MainForms" />
     <Folder Include="UI\SkinController\MainForms\DefaultSkin" />
