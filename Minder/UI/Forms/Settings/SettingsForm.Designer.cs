@@ -381,7 +381,7 @@ namespace Minder.Forms.Settings
 			// 
 			// MLastSyncDate
 			// 
-			this.MLastSyncDate.CustomFormat = "yyyy.MM.dd hh:mm:ss";
+			this.MLastSyncDate.CustomFormat = "yyyy.MM.dd HH:mm:ss";
 			this.MLastSyncDate.Enabled = false;
 			this.MLastSyncDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
 			this.MLastSyncDate.Location = new System.Drawing.Point(113, 108);
