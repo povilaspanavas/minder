@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.AccessControl;
 using System.Windows.Forms;
 using Core;
 using Core.Forms;
@@ -15,6 +16,7 @@ using Minder.Objects;
 using Minder.Sql;
 using Minder.Sql.DBVersionSystem;
 using Minder.Tools;
+using Minder.UI.Helpers;
 
 namespace Minder
 {
@@ -31,6 +33,8 @@ namespace Minder
 		{
 			try
 			{
+				if (IsWriteAccess() == false)
+					return;
 				Application.EnableVisualStyles();
 				Application.SetCompatibleTextRenderingDefault(false);
 				Starter(args);
@@ -112,5 +116,22 @@ namespace Minder
 			new DBVersionSystem(new DBVersionRepository().AddVersions(typeof(Task).Assembly)).UpdateToNewest();
 		}
 		
+		/// <summary>
+		/// Checks for write access. If program cannot write, then
+		/// shows message about this error and returs false
+		/// </summary>
+		/// <returns></returns>
+		public static bool IsWriteAccess()
+		{
+			bool writeAccess = false;
+			try {
+				Directory.CreateDirectory("test654");
+				Directory.Delete("test654");
+				writeAccess = true;
+			} catch(Exception) {
+				new MessageBoxHelper().ShowErrorOk("Program doesn't have write permissions. Please fix it.");
+			}
+			return writeAccess;
+		}
 	}
 }
