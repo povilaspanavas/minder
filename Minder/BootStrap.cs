@@ -118,7 +118,7 @@ namespace Minder
 		
 		/// <summary>
 		/// Checks for write access. If program cannot write, then
-		/// shows message about this error and returs false
+		/// shows message about this error and returns false
 		/// </summary>
 		/// <returns></returns>
 		public static bool IsWriteAccess()
