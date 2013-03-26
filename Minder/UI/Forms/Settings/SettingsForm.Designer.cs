@@ -40,6 +40,7 @@ namespace Minder.Forms.Settings
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.MDefaultsButton = new Core.UI.Controls.Buttons.CoreBlueCustomButton();
 			this.label3 = new System.Windows.Forms.Label();
 			this.MComboBoxRemindMeLater = new System.Windows.Forms.ComboBox();
 			this.labelCultureData = new System.Windows.Forms.Label();
@@ -69,7 +70,7 @@ namespace Minder.Forms.Settings
 			this.label2 = new System.Windows.Forms.Label();
 			this.MSyncIdTextBox = new Minder.Controls.MTextBox();
 			this.MEnableSyncCheckBox = new System.Windows.Forms.CheckBox();
-			this.MDefaultsButton = new Core.UI.Controls.Buttons.CoreBlueCustomButton();
+			this.MSyncNow = new Core.UI.Controls.Buttons.CoreBlueCustomButton();
 			this.panel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -129,6 +130,19 @@ namespace Minder.Forms.Settings
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "General";
 			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// MDefaultsButton
+			// 
+			this.MDefaultsButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.MDefaultsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MDefaultsButton.BackgroundImage")));
+			this.MDefaultsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.MDefaultsButton.Location = new System.Drawing.Point(176, 293);
+			this.MDefaultsButton.Name = "MDefaultsButton";
+			this.MDefaultsButton.Size = new System.Drawing.Size(121, 40);
+			this.MDefaultsButton.TabIndex = 11;
+			this.MDefaultsButton.Text = "Restore defaults";
+			this.MDefaultsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.MDefaultsButton.UseVisualStyleBackColor = true;
 			// 
 			// label3
 			// 
@@ -356,6 +370,7 @@ namespace Minder.Forms.Settings
 			this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
 									| System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox2.Controls.Add(this.MSyncNow);
 			this.groupBox2.Controls.Add(this.label5);
 			this.groupBox2.Controls.Add(this.MLastSyncDate);
 			this.groupBox2.Controls.Add(this.MSyncIntervalNumeric);
@@ -453,18 +468,18 @@ namespace Minder.Forms.Settings
 			this.MEnableSyncCheckBox.Text = "Enable synchronization";
 			this.MEnableSyncCheckBox.UseVisualStyleBackColor = true;
 			// 
-			// MDefaultsButton
+			// MSyncNow
 			// 
-			this.MDefaultsButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.MDefaultsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MDefaultsButton.BackgroundImage")));
-			this.MDefaultsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.MDefaultsButton.Location = new System.Drawing.Point(176, 293);
-			this.MDefaultsButton.Name = "MDefaultsButton";
-			this.MDefaultsButton.Size = new System.Drawing.Size(121, 40);
-			this.MDefaultsButton.TabIndex = 11;
-			this.MDefaultsButton.Text = "Restore defaults";
-			this.MDefaultsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.MDefaultsButton.UseVisualStyleBackColor = true;
+			this.MSyncNow.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.MSyncNow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MSyncNow.BackgroundImage")));
+			this.MSyncNow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.MSyncNow.Location = new System.Drawing.Point(173, 280);
+			this.MSyncNow.Name = "MSyncNow";
+			this.MSyncNow.Size = new System.Drawing.Size(121, 40);
+			this.MSyncNow.TabIndex = 12;
+			this.MSyncNow.Text = "Sync Now";
+			this.MSyncNow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.MSyncNow.UseVisualStyleBackColor = true;
 			// 
 			// SettingsForm
 			// 
@@ -492,6 +507,7 @@ namespace Minder.Forms.Settings
 			((System.ComponentModel.ISupportInitialize)(this.MSyncIntervalNumeric)).EndInit();
 			this.ResumeLayout(false);
 		}
+		public Core.UI.Controls.Buttons.CoreBlueCustomButton MSyncNow;
 		public Core.UI.Controls.Buttons.CoreBlueCustomButton MDefaultsButton;
 		private System.Windows.Forms.Label label5;
 		public System.Windows.Forms.DateTimePicker MLastSyncDate;

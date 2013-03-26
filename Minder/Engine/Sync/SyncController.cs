@@ -106,7 +106,10 @@ namespace Minder.Engine.Sync
 //				}
 				
 				if(m_newTasks > 0)
-					Synced();
+				{
+					if (Synced != null)
+						Synced();
+				}
 				
 				Minder.Static.StaticData.Settings.Sync.LastSyncDate = DateTime.Now;
 				TimeSpan span = DateTime.Now - startSync;
