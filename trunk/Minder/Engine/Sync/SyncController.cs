@@ -17,8 +17,10 @@ using System.Windows;
 using Core;
 using Core.DB;
 using Core.DB.Connections;
+using Core.Forms;
 using Core.Tools.Log;
 using Minder.Objects;
+using Minder.Sql;
 using PUV.WebServices.Helpers;
 
 namespace Minder.Engine.Sync
@@ -56,7 +58,9 @@ namespace Minder.Engine.Sync
 			{
 				DateTime startSync = DateTime.Now;
 				DateTime lastSyncDate = Minder.Static.StaticData.Settings.Sync.LastSyncDate;
-				List<Task> allTasks = GenericDbHelper.Get<Task>(string.Format("LAST_MODIFY_DATE >= '{0}'", lastSyncDate.ToString("yyyy.MM.dd hh:mm:ss")));
+				string dateSync = DBTypesConverter.ToFullDateStringByCultureInfo(lastSyncDate);
+//				new ErrorBox(dateSync);
+				List<Task> allTasks = GenericDbHelper.Get<Task>(string.Format("LAST_MODIFY_DATE >= '{0}'", dateSync));
 				SyncObject syncObject = new SyncObject();
 				syncObject.UserId = Static.StaticData.Settings.Sync.Id;
 				syncObject.Tasks = new List<Task>();
