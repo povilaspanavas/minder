@@ -18,6 +18,7 @@ using Core;
 using Core.Forms;
 using Minder.Engine.Parse;
 using Minder.Engine.Settings;
+using Minder.Engine.Sync;
 using Minder.Forms.Settings;
 using Minder.Forms.TaskShow;
 using Minder.Static;
@@ -105,6 +106,11 @@ namespace Minder.Forms.Settings
 			};
 			
 			m_form.MSyncGenerateIdButton.Click += delegate { GenerateSyncId(); };
+			
+			m_form.MSyncNow.Click += delegate
+			{
+				new SyncController().Sync();
+			};
 			
 			if(Static.StaticData.Settings.Sync.Enable == false)
 			{
