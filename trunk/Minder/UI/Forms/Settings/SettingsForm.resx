@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="MDefaultsButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="MSyncNow.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAABdFJREFUWEftlnts01UUxzeQJTgcAiqCQlAEEhAJGgMmooLRYIwajBrlrdEEgzHZ
+        wAAADsABataJCQAABdFJREFUWEftlnts01UUxzeQJTgcAiqCQlAEEhAJGgMmooLRYIwajBrlrdEEgzHZ
         Jtt4swFzG4yHvAJCYDwW5SVIBAbduq7tuke7R7tHu7L217Xr9lvb9deu67ud30NufQSDbsj8x5N80vbe
         3++cc889j8b9L/ciiekliSPXiuPZz8GV0etLk+bsrtJNz1HksaXBlaQMcY6CE3p3l5rMEzOlc9jy4Mio
         daWjPipQd/T19YW8wbDqme3yy2xrcOTRDZI1amtPayAcCUWjUeuuUpPliS3SuWz7/srjm8oSFp/S1OP0
@@ -149,7 +149,7 @@
         F/creHZu2wr4gWYAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="MSyncNow.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="MDefaultsButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wQAADsEBuJFr7QAABdFJREFUWEftlnts01UUxzeQJTgcAiqCQlAEEhAJGgMmooLRYIwajBrlrdEEgzHZ

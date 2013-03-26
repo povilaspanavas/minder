@@ -62,6 +62,7 @@ namespace Minder.Forms.Settings
 			this.MSkinListBox = new System.Windows.Forms.ListBox();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.MSyncNow = new Core.UI.Controls.Buttons.CoreBlueCustomButton();
 			this.label5 = new System.Windows.Forms.Label();
 			this.MLastSyncDate = new System.Windows.Forms.DateTimePicker();
 			this.MSyncIntervalNumeric = new System.Windows.Forms.NumericUpDown();
@@ -70,7 +71,6 @@ namespace Minder.Forms.Settings
 			this.label2 = new System.Windows.Forms.Label();
 			this.MSyncIdTextBox = new Minder.Controls.MTextBox();
 			this.MEnableSyncCheckBox = new System.Windows.Forms.CheckBox();
-			this.MSyncNow = new Core.UI.Controls.Buttons.CoreBlueCustomButton();
 			this.panel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -386,6 +386,19 @@ namespace Minder.Forms.Settings
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Sync";
 			// 
+			// MSyncNow
+			// 
+			this.MSyncNow.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.MSyncNow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MSyncNow.BackgroundImage")));
+			this.MSyncNow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.MSyncNow.Location = new System.Drawing.Point(188, 280);
+			this.MSyncNow.Name = "MSyncNow";
+			this.MSyncNow.Size = new System.Drawing.Size(97, 40);
+			this.MSyncNow.TabIndex = 12;
+			this.MSyncNow.Text = "Sync Now";
+			this.MSyncNow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.MSyncNow.UseVisualStyleBackColor = true;
+			// 
 			// label5
 			// 
 			this.label5.Location = new System.Drawing.Point(28, 112);
@@ -467,19 +480,6 @@ namespace Minder.Forms.Settings
 			this.MEnableSyncCheckBox.TabIndex = 0;
 			this.MEnableSyncCheckBox.Text = "Enable synchronization";
 			this.MEnableSyncCheckBox.UseVisualStyleBackColor = true;
-			// 
-			// MSyncNow
-			// 
-			this.MSyncNow.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.MSyncNow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MSyncNow.BackgroundImage")));
-			this.MSyncNow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.MSyncNow.Location = new System.Drawing.Point(173, 280);
-			this.MSyncNow.Name = "MSyncNow";
-			this.MSyncNow.Size = new System.Drawing.Size(121, 40);
-			this.MSyncNow.TabIndex = 12;
-			this.MSyncNow.Text = "Sync Now";
-			this.MSyncNow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.MSyncNow.UseVisualStyleBackColor = true;
 			// 
 			// SettingsForm
 			// 
