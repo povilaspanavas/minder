@@ -35,7 +35,7 @@ namespace Minder.Forms.Settings
 		SettingsForm m_form = null;
 		private bool m_existChanges = false;
 		log4net.ILog m_log = log4net.LogManager.GetLogger(typeof(SettingsFormPreparer));
-				
+		
 		public SettingsFormPreparer()
 		{
 			m_form = new SettingsForm();
@@ -109,7 +109,10 @@ namespace Minder.Forms.Settings
 			
 			m_form.MSyncNow.Click += delegate
 			{
-				new SyncController().Sync();
+				using(new WaitingForm2("Syncing...", "Please wait", false))
+				{
+					new SyncController().Sync();
+				}
 			};
 			
 			if(Static.StaticData.Settings.Sync.Enable == false)
