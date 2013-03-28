@@ -57,9 +57,9 @@
     <Compile Include="TestTaskSyncService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Minder.WebServices\Minder.WebServices.csproj">
-      <Project>{2C3E8617-8C6E-4C4D-8721-98479BF27365}</Project>
-      <Name>Minder.WebServices</Name>
+    <ProjectReference Include="..\Minder\Minder.csproj">
+      <Project>{125E2525-BFA7-40E8-8FD8-04E49206A67A}</Project>
+      <Name>Minder</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />

@@ -159,7 +159,7 @@ namespace Minder.Engine.Sync
 			m_timer.Start();
 		}
 		
-		private List<Task> GetSyncedTasksFromServer(SyncObject syncObject)
+		public List<Task> GetSyncedTasksFromServer(SyncObject syncObject)
 		{
 			string json = JsonHelper.ConvertToJson<SyncObject>(syncObject);
 			
