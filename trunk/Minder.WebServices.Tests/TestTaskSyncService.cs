@@ -49,19 +49,19 @@ namespace Minder.WebServices.Tests
 //		{
 //			string userId = "TEST_SERVICE";
 //			
-//			Task task1 = new Task();
-//			task1.UserId = userId;
-//			task1.LastModifyDate = DateTime.Now;
-//			task1.Text = "Test";
-//			task1.SourceId = "SourceIdTest";
-//			task1.DateRemainder = DateTime.Now.AddDays(1);
+////			Task task1 = new Task();
+////			task1.UserId = userId;
+////			task1.LastModifyDate = DateTime.Now;
+////			task1.Text = "Test";
+////			task1.SourceId = "SourceIdTest";
+////			task1.DateRemainder = DateTime.Now.AddDays(1);
 //			
-//			List<Task> tasks = new List<Task>();
-//			tasks.Add(task1);
+////			List<Task> tasks = new List<Task>();
+////			tasks.Add(task1);
 //			SyncObject syncObject = new SyncObject();
 //			syncObject.LastSyncDate = DateTime.Now.AddHours(-1);
 //			syncObject.UserId = userId;
-//			syncObject.Tasks = tasks;
+////			syncObject.Tasks = tasks;
 //			
 //			List<Task> result = new SyncController().GetSyncedTasksFromServer(syncObject);
 //			Assert.AreEqual(1, result.Count);
