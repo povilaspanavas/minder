@@ -87,6 +87,7 @@ namespace Minder.Objects
 		
 		//For sync
 		[DBColumnReference("LAST_MODIFY_DATE_STRING")]
+		[Obsolete]
 		public string LastModifyDateString {
 			get { return m_lastModifyDateString; }
 			set { m_lastModifyDateString = value; }
@@ -94,6 +95,7 @@ namespace Minder.Objects
 		
 		//For sync
 		[DBColumnReference("DATE_REMAINDER_STRING")]
+		[Obsolete]
 		public string DateRemainderString {
 			get { return m_dateRemainderString; }
 			set { m_dateRemainderString = value; }
@@ -135,8 +137,8 @@ namespace Minder.Objects
 		public void Save()
 		{
 			this.LastModifyDate = DateTime.Now;
-			this.LastModifyDateString = this.LastModifyDate.ToString();
-			this.DateRemainderString = this.DateRemainder.ToString();
+//			this.LastModifyDateString = this.LastModifyDate.ToString();
+//			this.DateRemainderString = this.DateRemainder.ToString();
 			GenericDbHelper.SaveAndFlush(this);
 		}
 		
@@ -167,8 +169,8 @@ namespace Minder.Objects
 		public void Update()
 		{
 			this.LastModifyDate = DateTime.Now;
-			this.LastModifyDateString = this.LastModifyDate.ToString();
-			this.DateRemainderString = this.DateRemainder.ToString();
+//			this.LastModifyDateString = this.LastModifyDate.ToString();
+//			this.DateRemainderString = this.DateRemainder.ToString();
 			GenericDbHelper.UpdateAndFlush(this);
 		}
 		
