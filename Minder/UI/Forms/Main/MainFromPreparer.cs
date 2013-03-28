@@ -35,7 +35,7 @@ namespace Minder.Forms.Main
 		private MainFormLaunchy m_form = null; //Reikalinga dėl TrayIcon'o
 		private HotKeys m_hotKeys = null;
 		public event TaskData DataEntered;
-		public delegate void TaskData(string dataEntered);
+		public delegate void TaskData(string dataEntered, AbstractMainForm mainForm);
 //		private WpfSkinPreparer m_wpfPreparer = null;
 		private AbstractMainForm m_mainForm = null;
 		private SyncController m_syncController = null;
@@ -194,10 +194,7 @@ namespace Minder.Forms.Main
 			if(e.Key == Key.Enter)
 			{
 				if (DataEntered != null)
-				{
-					DataEntered(m_mainForm.MTextBox.Text);
-					this.m_mainForm.MTextBox.Text = string.Empty;
-				}
+					DataEntered(m_mainForm.MTextBox.Text, m_mainForm);
 				m_mainForm.ShowHide();
 			}
 		}

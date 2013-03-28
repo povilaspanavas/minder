@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Minder.Forms.Main;
 using Minder.Objects;
 using Minder.Sql;
+using Minder.UI.SkinController;
 
 namespace Minder.Engine
 {
@@ -32,9 +33,9 @@ namespace Minder.Engine
 		
 		public void Start()
 		{
-			m_formPreparer.DataEntered += delegate(string dataEntered) 
+			m_formPreparer.DataEntered += delegate(string dataEntered, AbstractMainForm form) 
 			{
-				SaveNewTask(dataEntered);
+				SaveNewTask(dataEntered, form);
 				m_timerLogic.RefreshInterval();
 			};
 			
@@ -44,11 +45,14 @@ namespace Minder.Engine
 			};
 		}
 		
-		public void SaveNewTask(string dataEntered)
+		public void SaveNewTask(string dataEntered, AbstractMainForm form)
 		{
 			Task task = new Task().ParseString(dataEntered);
 			if (task != null)
+			{
 				task.Save();
+				form.MTextBox.Text = string.Empty;
+			}
 		}
 		
 	}
