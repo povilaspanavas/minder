@@ -177,6 +177,9 @@
     <Compile Include="UI\SkinController\MainForms\BlackSkin\BlackSkin.xaml.cs">
       <DependentUpon>BlackSkin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\SkinController\MainForms\BlueOrangeSkin\BlueOrangeSkin.xaml.cs">
+      <DependentUpon>BlueOrangeSkin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\SkinController\MainForms\DefaultSkin\DefaultSkinForm.xaml.cs">
       <DependentUpon>DefaultSkinForm.xaml</DependentUpon>
     </Compile>
@@ -236,6 +239,7 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="UI\SkinController\MainForms\BlackSkin\BlackSkin.xaml" />
+    <Page Include="UI\SkinController\MainForms\BlueOrangeSkin\BlueOrangeSkin.xaml" />
     <Page Include="UI\SkinController\MainForms\DefaultSkin\DefaultSkinForm.xaml" />
     <Page Include="UI\SkinController\MainForms\WhiteSkin\WhiteSkin.xaml" />
   </ItemGroup>
@@ -250,6 +254,7 @@
     <Folder Include="UI\Helpers" />
     <Folder Include="UI\SkinController" />
     <Folder Include="UI\SkinController\MainForms" />
+    <Folder Include="UI\SkinController\MainForms\BlueOrangeSkin" />
     <Folder Include="UI\SkinController\MainForms\DefaultSkin" />
     <Folder Include="UI\SkinController\MainForms\BlackSkin" />
     <Folder Include="UI\SkinController\MainForms\WhiteSkin" />
