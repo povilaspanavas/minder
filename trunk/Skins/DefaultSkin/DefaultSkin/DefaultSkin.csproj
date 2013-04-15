@@ -58,6 +58,9 @@
     <Compile Include="BlackSkin.xaml.cs">
       <DependentUpon>BlackSkin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BlackOrangeSkin.xaml.cs">
+      <DependentUpon>BlackOrangeSkin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DefaultSkinForm.xaml.cs">
       <DependentUpon>DefaultSkinForm.xaml</DependentUpon>
     </Compile>
@@ -67,6 +70,10 @@
     <Page Include="BlackSkin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BlackOrangeSkin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
