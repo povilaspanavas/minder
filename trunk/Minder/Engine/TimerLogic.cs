@@ -23,7 +23,8 @@ namespace Minder.Engine
 		
 		private Timer m_timer = null;
 		private int m_tick = 7000;
-		private int m_sleepTick = 60*60*1000; // viena valanda
+//		private int m_sleepTick = 60*60*1000; // viena valanda
+		private int m_sleepTick = 60*60*1000*4; // 4 hours - while testing
 		
 		public TimerLogic()
 		{
