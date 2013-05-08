@@ -22,6 +22,8 @@ namespace Minder.Engine
 	/// </summary>
 	public class TimeController
 	{
+		private static log4net.ILog m_log = log4net.LogManager.GetLogger(typeof(TimeController));
+		
 		private MainFormPreparer m_formPreparer = null;
 		private TimerLogic m_timerLogic = null;
 		
@@ -43,6 +45,7 @@ namespace Minder.Engine
 			{
 				m_timerLogic.RefreshInterval();
 			};
+			m_log.Debug("TimeController started successfully");
 		}
 		
 		public void SaveNewTask(string dataEntered, AbstractMainForm form)
@@ -53,6 +56,7 @@ namespace Minder.Engine
 				task.Save();
 				form.MTextBox.Text = string.Empty;
 			}
+			m_log.DebugFormat("New task was saved. Name {0}, date {1}", task.Text, task.DateRemainder);
 		}
 		
 	}
