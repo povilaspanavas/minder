@@ -22,6 +22,8 @@ namespace Minder.Forms.Settings
 	/// </summary>
 	public class SettingsLoader
 	{
+		private static log4net.ILog m_log = log4net.LogManager.GetLogger(typeof(SettingsLoader));
+
 		private string m_settingsPath = new PathCutHelper()
 			.CutExecutableFileFromPath(System.Reflection.Assembly
 			                           .GetExecutingAssembly()
@@ -63,6 +65,7 @@ namespace Minder.Forms.Settings
 			iniParser.AddSetting("Sync", "ID", "");
 			iniParser.AddSetting("Sync", "interval", "30");
 			iniParser.SaveSettings();
+			m_log.Info("New settings file was created successfully");
 		}
 		
 		private void LoadFromSettingsFile()
@@ -113,6 +116,7 @@ namespace Minder.Forms.Settings
 			StaticData.Settings.Sync.Id = parser.GetSetting("sync", "id");
 			StaticData.Settings.Sync.Enable = Convert.ToBoolean(parser.GetSetting("sync", "enable"));
 			StaticData.Settings.Sync.Interval = Convert.ToInt32(parser.GetSetting("sync", "interval"));
+			m_log.Info("Settings were loaded successfully");
 		}
 		
 		public void SaveSettingsToFile()
@@ -150,6 +154,7 @@ namespace Minder.Forms.Settings
 			parser.AddSetting("sync", "enable", StaticData.Settings.Sync.Enable.ToString());
 			
 			parser.SaveSettings();
+			m_log.Info("Settings were saved successfully");
 		}
 		
 	}
