@@ -25,7 +25,8 @@ namespace Minder.Sql
 			using(IConnection con = new ConnectionCollector().GetConnection())
 			{
 				string query = string.Format("SELECT ID, NAME, DATE_REMAINDER, SOURCE_ID, SHOWED from task where DATE_REMAINDER <= {0}" +
-				                             "and (SHOWED = 0 or SHOWED is null or SHOWED = '') and (IS_DELETED = 0 or IS_DELETED is null)",
+				                             "and (SHOWED = 0 or SHOWED is null or SHOWED = '') and (IS_DELETED = 0 or IS_DELETED is null" +
+				                            "or IS_DELETED = '')",
 				                             DBTypesConverter.ToFullDateStringByCultureInfoWithQuotes(DateTime.Now));
 				
 				IDataReader reader = con.ExecuteReader(query);
@@ -34,7 +35,7 @@ namespace Minder.Sql
 				{
 					int id = reader.GetInt32(0);
 					string name = reader.GetString(1);
-					DateTime date = DateTime.Parse(reader.GetString(2));
+					DateTime date =  Convert.ToDateTime(reader.GetString(2), Static.StaticData.Settings.CultureData.CultureInfo);
 					string sourceId = reader.GetString(3);
 					tasks.Add(new Task(id, name, date, sourceId));
 				}
@@ -46,7 +47,8 @@ namespace Minder.Sql
 		{
 			using(IConnection con = new ConnectionCollector().GetConnection())
 			{
-				string query = string.Format("SELECT ID, NAME, DATE_REMAINDER, SOURCE_ID, SHOWED from task where (IS_DELETED = 0 or IS_DELETED is null)");
+				string query = string.Format("SELECT ID, NAME, DATE_REMAINDER, SOURCE_ID, SHOWED from task where" +
+"				                             (IS_DELETED = 0 or IS_DELETED is null or IS_DELETED = '')");
 				
 				IDataReader reader = con.ExecuteReader(query);
 				List<Task> tasks = new List<Task>();
@@ -85,7 +87,7 @@ namespace Minder.Sql
 				{
 					int id = reader.GetInt32(0);
 					string name = reader.GetString(1);
-					DateTime date = DateTime.Parse(reader.GetString(2));
+					DateTime date = Convert.ToDateTime(reader.GetString(2), Static.StaticData.Settings.CultureData.CultureInfo);
 					string sourceId = reader.GetString(3);
 					return new Task(id, name, date, sourceId);
 				}
