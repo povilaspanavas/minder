@@ -25,7 +25,7 @@ namespace Minder.Sql
 			using(IConnection con = new ConnectionCollector().GetConnection())
 			{
 				string query = string.Format("SELECT ID, NAME, DATE_REMAINDER, SOURCE_ID, SHOWED from task where DATE_REMAINDER <= {0}" +
-				                             "and (SHOWED = 0 or SHOWED is null or SHOWED = '') and (IS_DELETED = 0 or IS_DELETED is null" +
+				                             "and (SHOWED = 0 or SHOWED is null or SHOWED = '') and (IS_DELETED = 0 or IS_DELETED is null " +
 				                            "or IS_DELETED = '')",
 				                             DBTypesConverter.ToFullDateStringByCultureInfoWithQuotes(DateTime.Now));
 				
@@ -47,7 +47,7 @@ namespace Minder.Sql
 		{
 			using(IConnection con = new ConnectionCollector().GetConnection())
 			{
-				string query = string.Format("SELECT ID, NAME, DATE_REMAINDER, SOURCE_ID, SHOWED from task where" +
+				string query = string.Format("SELECT ID, NAME, DATE_REMAINDER, SOURCE_ID, SHOWED from task where " +
 "				                             (IS_DELETED = 0 or IS_DELETED is null or IS_DELETED = '')");
 				
 				IDataReader reader = con.ExecuteReader(query);
