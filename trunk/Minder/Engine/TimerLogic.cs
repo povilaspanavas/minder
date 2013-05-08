@@ -19,6 +19,8 @@ namespace Minder.Engine
 {
 	public class TimerLogic
 	{
+		private static log4net.ILog m_log = log4net.LogManager.GetLogger(typeof(TimerLogic));
+		
 		private Timer m_timer = null;
 		private int m_tick = 7000;
 		private int m_sleepTick = 60*60*1000; // viena valanda
@@ -30,21 +32,19 @@ namespace Minder.Engine
 			
 			m_timer.Tick += delegate
 			{
+				m_log.Debug("Tick event happened");
 				m_timer.Stop();
-				
-				if(MousePositionHelper.MouseNotMoving == false)
-				{
+				// Commented until find bugs
+//				if(MousePositionHelper.MouseNotMoving == false)
+//				{
 					List<Task> tasksToShow = new DbHelper().LoadTasksForShowing();
+					m_log.DebugFormat("Loaded {0} tasks for showing", tasksToShow.Count);
 					foreach (Task task in tasksToShow)
 					{
-//						System.Windows.Forms.MessageBox.Show(
-//							string.Format("Task: {0}, Time:{1}",
-//							              task.Text, DBTypesConverter.ToFullDateString(task.DateRemainder)));
 						new TaskShowFormPreparer(task).PrepareForm(); //Įkėliau viską į preparerį.
-//						task.Showed = true;
-//						task.Update();
+						m_log.DebugFormat("Showed task with id {0}, name {1}", task.Id, task.Text);
 					}
-				}
+//				}
 				
 				SetNewTimerInterval();
 				m_timer.Start();
@@ -60,6 +60,7 @@ namespace Minder.Engine
 				interval = m_sleepTick;
 			if (interval == 0)
 				interval = 1;
+			m_log.DebugFormat("Picked new timer interval which is {0}", interval);
 			m_timer.Interval = interval;
 		}
 		

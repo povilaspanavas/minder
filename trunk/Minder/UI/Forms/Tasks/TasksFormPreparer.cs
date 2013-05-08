@@ -46,6 +46,9 @@ namespace Minder.Forms.Tasks
 			m_form.Show();
 		}
 		
+		/// <summary>
+		/// The task changedEvent will be fired by taskshowform
+		/// </summary>
 		public void EditTask()
 		{
 			if(m_form.MTaskGrid.SelectedRows != null &&
@@ -183,7 +186,6 @@ namespace Minder.Forms.Tasks
 			
 			if(m_form.MTaskGrid.Rows.Count > rowIndex)
 				m_form.MTaskGrid.CurrentCell = m_form.MTaskGrid.Rows[rowIndex].Cells[2];
-//			}
 		}
 	}
 }
