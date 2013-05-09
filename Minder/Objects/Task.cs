@@ -200,7 +200,8 @@ namespace Minder.Objects
 		
 		public override string ToString()
 		{
-			return string.Format("[Task Id={0}, Text={1}, DateRemainder={2}]", m_id, m_text, m_dateRemainder);
+			return string.Format("[Task Id={0}, Text={1}, DateRemainder={2}]", 
+			                     m_id, m_text, DBTypesConverter.ToFullDateStringByCultureInfo(m_dateRemainder));
 		}
 
 

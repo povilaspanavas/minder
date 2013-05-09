@@ -84,6 +84,7 @@ namespace Minder.Engine.Sync
 				}
 				
 				m_newTasks = tasksFromServer.Count;
+				m_log.DebugFormat("Tasks' count retrieved from server {0}", m_newTasks);
 //				using(IConnection con = new ConnectionCollector().GetConnection())
 //				{
 				foreach(Task task in tasksFromServer)
@@ -102,9 +103,13 @@ namespace Minder.Engine.Sync
 						//Negalime updatinti pagal ID, nes serveryje kitoks id.
 						GenericDbHelper.RunDirectSql(string.Format("DELETE FROM TASK WHERE SOURCE_ID = '{0}'", task.SourceId));
 						GenericDbHelper.Save(task);
+						m_log.DebugFormat("Updated existing task {0}", task);
 					}
 					else
+					{
 						GenericDbHelper.Save(task);
+						m_log.DebugFormat("Created new task {0}", task);
+					}
 				}
 				GenericDbHelper.Flush();
 //				}
