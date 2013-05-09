@@ -27,7 +27,6 @@ namespace Minder.Forms.Settings
 			InitializeComponent();
 			this.FormUniqueCode = typeof(SettingsForm).FullName;
 			//
-			// TODO: Add constructor code after the InitializeComponent() call.
 			//
 		}
 		
