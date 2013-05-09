@@ -23,7 +23,6 @@ namespace Minder.Forms.Skins
 			//
 			InitializeComponent();
 			//
-			// TODO: Add constructor code after the InitializeComponent() call.
 			//
 			this.SetStyle(ControlStyles.UserPaint, true);
 		}	
