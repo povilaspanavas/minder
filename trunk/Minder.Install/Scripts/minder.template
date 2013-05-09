@@ -3,7 +3,7 @@
   !insertmacro un.GetParent
   Name "''Minder''"
   
-  OutFile "..\bin\Minder_Setup_--InsertVersion--.--InsertRevision--.exe"
+  OutFile "..\bin\Minder_Setup_RC_v--InsertVersion--.--InsertRevision--.exe"
   
   InstallDirRegKey HKCU "Software\Minder" ""
   InstallDir "$PROGRAMFILES\Minder"
