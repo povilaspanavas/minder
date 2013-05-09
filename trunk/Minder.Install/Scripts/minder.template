@@ -46,10 +46,13 @@ FunctionEnd
 Section "Minder" Client_Prog
 
   CreateDirectory "$INSTDIR\bin\"
+  CreateDirectory "$INSTDIR\bin\Log"
+  CreateDirectory "$INSTDIR\bin\Sounds"
   CreateDirectory "$INSTDIR\db\"
   
   SetOutPath "$INSTDIR\bin"
-  File /r ..\..\Minder\bin\Debug\*.*
+  File ..\..\Minder\bin\Debug\*.*
+  File /r ..\..\Minder\bin\Debug\Sounds\
   
   SetOutPath "$INSTDIR\db"
   File /oname=MinderDb.db ..\..\Minder\DB\MinderDb_v0.db
