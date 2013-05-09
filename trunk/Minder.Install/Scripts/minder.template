@@ -61,9 +61,11 @@ Section "Minder" Client_Prog
 	CreateDirectory "$INSTDIR\db\"
 	  
 	SetOutPath "$INSTDIR\bin"
-	File /x settings.ini ..\..\Minder\bin\Debug\*.*
+	File /x settings.ini /x version.cvr ..\..\Minder\bin\Debug\*.*
 	File /r ..\..\Minder\bin\Debug\Sounds\
-  
+	
+	File ..\..\Minder\version.cvr
+	
 	IfFileExists "$INSTDIR\db\MinderDb.db" DbALreadyExists
 	SetOutPath "$INSTDIR\db"
 	File /oname=MinderDb.db ..\..\Minder\DB\MinderDb_v0.db
