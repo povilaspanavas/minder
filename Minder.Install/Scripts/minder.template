@@ -54,7 +54,20 @@ Section "Minder" Client_Prog
   SetOutPath "$INSTDIR\db"
   File /oname=MinderDb.db ..\..\Minder\DB\MinderDb_v0.db
   
-  SetOutPath "$INSTDIR\bin"  
+	!include "XML.nsh"
+	${xml::LoadFile} "$INSTDIR\bin\CoreConfig.xml" $0
+	;MessageBox MB_OK "xml::LoadFile$\n$$0=$0" 
+	
+	${xml::GotoPath} "/core/DBConfig/Host" $0
+	; MessageBox MB_OK "xml::1GotoPath$\n$$0=$0"
+	
+	${xml::SetText}  "..\DB\MinderDb.db" $0
+	; MessageBox MB_OK "xml::1SetText$\n$$0=$0"
+	
+	${xml::SaveFile} "$INSTDIR\bin\CoreConfig.xml" $0
+	;MessageBox MB_OK "xml::SaveFile$\n$$0=$0"
+	
+	${xml::Unload}
   ;SetOutPath "$INSTDIR"
   ;File Pictures\Main.ico
   
