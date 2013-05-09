@@ -56,7 +56,8 @@ namespace Minder.Engine
 				task.Save();
 				form.MTextBox.Text = string.Empty;
 			}
-			m_log.DebugFormat("New task was saved. Name {0}, date {1}", task.Text, task.DateRemainder);
+			m_log.DebugFormat("New task was saved. Name {0}, date {1}", task.Text, 
+			                  DBTypesConverter.ToFullDateStringByCultureInfo(task.DateRemainder));
 		}
 		
 	}
