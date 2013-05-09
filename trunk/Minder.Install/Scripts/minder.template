@@ -1,6 +1,6 @@
   !include "MUI.nsh"
   !include "FileFunc.nsh"
-  !insertmacro un.GetParent
+	 
   Name "''Minder''"
   
   OutFile "..\bin\Minder_Setup_RC_v--InsertVersion--.--InsertRevision--.exe"
@@ -8,7 +8,8 @@
   InstallDirRegKey HKCU "Software\Minder" ""
   InstallDir "$PROGRAMFILES\Minder"
   
-  
+  ; it enables to create shortcut on desktop on machines running win8
+  RequestExecutionLevel highest
   !define MUI_HEADERIMAGE
   !define MUI_HEADERIMAGE_BITMAP "Pictures\Header.bmp" 
   !define MUI_ABORTWARNING
@@ -23,13 +24,22 @@
   !define MUI_FINISHPAGE_LINK "https://code.google.com/p/minder/"
   !define MUI_FINISHPAGE_LINK_LOCATION "https://code.google.com/p/minder/"
   
+  !define MUI_FINISHPAGE_RUN
+  !define MUI_FINISHPAGE_RUN_NOTCHECKED
+  !define MUI_FINISHPAGE_RUN_TEXT "Create shortcut on the desktop"
+  !define MUI_FINISHPAGE_RUN_FUNCTION DesktopShortcut
+  
   !define MUI_FINISHPAGE_SHOWREADME
   !define MUI_FINISHPAGE_SHOWREADME_TEXT "Run the application"
   !define MUI_FINISHPAGE_SHOWREADME_FUNCTION OpenProgram
   
-Function OpenProgram
-      ExecShell "open" "$INSTDIR\bin\Minder.exe" 
-FunctionEnd
+	Function OpenProgram
+		ExecShell "open" "$INSTDIR\bin\Minder.exe"
+	FunctionEnd
+
+	Function DesktopShortcut
+		CreateShortCut "$DESKTOP\Minder.lnk" "$INSTDIR\bin\Minder.exe"
+	FunctionEnd
 
   !insertmacro MUI_PAGE_FINISH
   !insertmacro MUI_UNPAGE_CONFIRM
@@ -117,10 +127,7 @@ Section "Uninstall"
   
   ;Delete "$INSTDIR
   RMDir /r "$INSTDIR"
-  
-  ${un.GetParent} $INSTDIR $R0   
-  ;first the directory then the variable where to put the parent
-  RMDir $R0
+
   DeleteRegKey /ifempty HKCU "Software\Minder"
   DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Minder"
 
