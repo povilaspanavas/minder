@@ -1,7 +1,9 @@
-mkdir bin\
-del bin\*.* /Q
+pushd ..\
+svn update
+popd
 
-%windir%\microsoft.net\framework\v4.0.30319\msbuild /p:Configuration=Release /p:SharpDevelopBinPath="C:\Program Files (x86)\SharpDevelop\4.3\bin" ..\Minder.sln
-
-"NSIS\makensis" "Scripts\minder.nsi"
-pause
+pushd VersionFiles
+For /F "Tokens=*" %%I in ('svnversion') Do Set version=%%I
+echo %version% > REVISION
+popd
+call createSetup.bat
