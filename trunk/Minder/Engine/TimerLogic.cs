@@ -43,7 +43,8 @@ namespace Minder.Engine
 					foreach (Task task in tasksToShow)
 					{
 						new TaskShowFormPreparer(task).PrepareForm(); //Įkėliau viską į preparerį.
-						m_log.DebugFormat("Showed task with id {0}, name {1}", task.Id, task.Text);
+						m_log.DebugFormat("Showed task with id {0}, name {1}, showTime {2}", 
+						                  task.Id, task.Text, DBTypesConverter.ToFullDateStringByCultureInfo(task.DateRemainder));
 					}
 //				}
 				
@@ -61,7 +62,8 @@ namespace Minder.Engine
 				interval = m_sleepTick;
 			if (interval == 0)
 				interval = 1;
-			m_log.DebugFormat("Picked new timer interval which is {0}", interval);
+			m_log.DebugFormat("Picked new timer interval which is {0} ms ({1} min.)", 
+			                  interval, RoundHelper.Round(interval / 1000.0m / 60.0m, 2));
 			m_timer.Interval = interval;
 		}
 		
