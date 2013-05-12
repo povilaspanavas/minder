@@ -120,7 +120,7 @@ namespace Minder.Forms.Main
 			int maxTimeTextLength = 38; // Text length without task description
 			int maxLength = 64; // for NotifyIcon.Text property it's maximum
 			int maxTaskNameLength = maxLength - maxTimeTextLength;
-			string text = "Nothing to mindered about";
+			string text = "Nothing to be mindered about";
 			Task nextTask = new DbHelper().NextTaskToShow();
 			if (nextTask == null)
 				return text;
