@@ -1,7 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefaultSkin", "DefaultSkin\DefaultSkin.csproj", "{1312DC46-DA79-4444-9DEF-CA2854164EE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3072B1BB-9082-43B0-8D4C-6D81BBD24E98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
