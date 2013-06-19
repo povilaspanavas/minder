@@ -11,14 +11,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace DefaultSkin
+namespace Minder.UI.SkinController.MainForms
 {
     /// <summary>
-    /// Interaction logic for BlackSkin.xaml
+    /// Interaction logic for BlueOrangeSkin.xaml
     /// </summary>
-    public partial class BlackOrangeSkin : Window
+    public partial class BlueOrangeSkin : Window
     {
-        public BlackOrangeSkin()
+        public BlueOrangeSkin()
         {
             InitializeComponent();
         }
