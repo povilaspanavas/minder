@@ -124,7 +124,7 @@ namespace Minder.WebServices.Tests
 			
 			string userId = "TEST_SERVICE";
 			
-			Task task1 = new Task();
+			Task task1 = new Task(m_userId);
 			task1.UserId = userId;
 			task1.LastModifyDate = DateTime.Now;
 			task1.Text = "Test";
@@ -149,7 +149,7 @@ namespace Minder.WebServices.Tests
 		/// </summary>
 		public void TestTaskSyncService_2()
 		{
-			Task task = new Task();
+			Task task = new Task(m_userId);
 			task.DateRemainder = m_dateNow;
 			task.SourceId = "pirmasTasks";
 			List<Task> result = CreateTaskOnServerReturnSyncResult(m_dateOneHourAgo, task);
@@ -169,7 +169,7 @@ namespace Minder.WebServices.Tests
 		/// </summary>
 		public void TestTaskSyncService_3()
 		{
-			Task task = new Task();
+			Task task = new Task(m_userId);
 			task.DateRemainder = m_dateNow;
 			task.SourceId = "pirmasTasks";
 			List<Task> result = CreateTaskOnServerReturnSyncResult(m_dateOneHourAgo, task);
@@ -202,7 +202,7 @@ namespace Minder.WebServices.Tests
 		/// </summary>
 		public void TestTaskSyncService_Delete()
 		{
-			Task task = new Task();
+			Task task = new Task(m_userId);
 			task.DateRemainder = m_dateNow;
 			task.SourceId = "pirmasTasks";
 			List<Task> result = CreateTaskOnServerReturnSyncResult(m_dateOneHourAgo, task);
@@ -219,8 +219,7 @@ namespace Minder.WebServices.Tests
 			task.LastModifyDate = DateTime.Now;
 			
 			result = CreateTaskOnServerReturnSyncResult(m_dateOneHourAgo, task);
-			Assert.AreEqual(1, result.Count);
-			Assert.AreEqual(task.IsDeleted, result[0].IsDeleted);
+			Assert.AreEqual(0, result.Count);
 		}
 		
 		[Test]
@@ -229,7 +228,7 @@ namespace Minder.WebServices.Tests
 		/// </summary>
 		public void TestTaskSyncService_Delete2()
 		{
-			Task task = new Task();
+			Task task = new Task(m_userId);
 			task.UserId = m_userId;
 			task.DateRemainder = m_dateNow;
 			task.SourceId = "pirmasTasks";
@@ -246,9 +245,10 @@ namespace Minder.WebServices.Tests
 		/// </summary>
 		public void TestTaskSyncService_Delete3()
 		{
-			Task task = new Task();
+			Task task = new Task(m_userId);
 			task.DateRemainder = m_dateNow;
 			task.SourceId = "pirmasTasks";
+			task.UserId = m_userId;
 			List<Task> result = CreateTaskOnServerReturnSyncResult(m_dateOneHourAgo, task);
 			Assert.AreEqual(1, result.Count);
 			
@@ -262,6 +262,7 @@ namespace Minder.WebServices.Tests
 			
 			Assert.AreEqual(1, result.Count);
 			SyncController.SetLocalDate(result.ToArray());
+//			SyncController.SetLocalDate(result.ToArray());
 			Assert.AreEqual(task.SourceId, result[0].SourceId);
 			Assert.AreEqual(task.DateRemainder.Date, result[0].DateRemainder.Date);
 			Assert.AreEqual(task.DateRemainder.ToShortTimeString(), 

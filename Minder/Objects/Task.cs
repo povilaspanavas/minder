@@ -130,6 +130,11 @@ namespace Minder.Objects
 			
 		}
 		
+		public Task(string userId) : this()
+		{
+			m_userId = userId;
+		}
+		
 		public Task()
 		{
 			m_lastModifyDate = DateTime.Now;
