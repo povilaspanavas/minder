@@ -132,7 +132,7 @@ namespace Minder.Objects
 		
 		public Task()
 		{
-			
+			m_lastModifyDate = DateTime.Now;
 		}
 		public void Save()
 		{

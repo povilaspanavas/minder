@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Constants\ServicesConstants.cs" />
     <Compile Include="DbCreator.cs" />
+    <Compile Include="Helpers\ConfigHelper.cs" />
     <Compile Include="Helpers\StaticData.cs" />
     <Compile Include="Objects\DeleteObject.cs" />
     <Compile Include="Objects\SyncObject.cs" />
