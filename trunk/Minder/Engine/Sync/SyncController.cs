@@ -34,7 +34,7 @@ namespace Minder.Engine.Sync
 		
 		private System.Windows.Forms.Timer m_timer = null;
 		private int m_newTasks;
-		private string m_ip = "213.197.147.194:8081";
+		public const string SERVER_IP = "213.197.147.194:8081";
 		
 		public delegate void SyncEventHandler();
 		public event SyncEventHandler Synced;
@@ -77,11 +77,7 @@ namespace Minder.Engine.Sync
 				//Paruošti taskai siuntimui
 				List<Task> tasksFromServer = GetSyncedTasksFromServer(syncObject);
 				
-				foreach(Task task in allTasks)
-				{
-					task.DateRemainder = task.DateRemainder.ToLocalTime();
-					task.LastModifyDate = task.LastModifyDate.ToLocalTime();
-				}
+				SetLocalDate(allTasks.ToArray());
 				
 				m_newTasks = tasksFromServer.Count;
 				m_log.DebugFormat("Tasks' count retrieved from server {0}", m_newTasks);
@@ -130,6 +126,16 @@ namespace Minder.Engine.Sync
 			}
 			
 		}
+
+
+		public static void SetLocalDate(params Task[] allTasks)
+		{
+			foreach (Task task in allTasks) 
+			{
+				task.DateRemainder = task.DateRemainder.ToLocalTime();
+				task.LastModifyDate = task.LastModifyDate.ToLocalTime();
+			}
+		}
 		
 		private bool ExistTask(Task task)
 		{
@@ -172,7 +178,7 @@ namespace Minder.Engine.Sync
 			requestString += Regex.Replace(json, "\"", "\\\"");
 			requestString += "\"}";
 			
-			HttpWebRequest request = (HttpWebRequest) HttpWebRequest.Create(string.Format("http://{0}/Minder.WebServices/Default.asmx/Sync", m_ip));
+			HttpWebRequest request = (HttpWebRequest) HttpWebRequest.Create(string.Format("http://{0}/Minder.WebServices/Default.asmx/Sync", SERVER_IP));
 			request.ContentType = "application/json; charset=utf-8";
 			request.Accept = "application/json, text/javascript, */*";
 			request.Method = "POST";
