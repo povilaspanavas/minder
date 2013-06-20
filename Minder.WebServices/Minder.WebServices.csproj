@@ -64,8 +64,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\ServicesConstants.cs" />
     <Compile Include="DbCreator.cs" />
     <Compile Include="Helpers\StaticData.cs" />
+    <Compile Include="Objects\DeleteObject.cs" />
     <Compile Include="Objects\SyncObject.cs" />
     <Compile Include="Objects\Task.cs" />
     <Compile Include="Services\TaskSyncController.cs" />
@@ -88,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers" />
+    <Folder Include="Constants" />
     <Folder Include="Objects" />
     <Folder Include="Services" />
   </ItemGroup>
