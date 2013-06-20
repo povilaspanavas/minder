@@ -13,7 +13,7 @@ namespace Minder.WebServices.Objects
 	/// <summary>
 	/// Description of DeleteObject.
 	/// </summary>
-	public class DeleteObject
+	public class AdminObject
 	{
 		private string m_userId = string.Empty;
 		private string m_password = string.Empty;

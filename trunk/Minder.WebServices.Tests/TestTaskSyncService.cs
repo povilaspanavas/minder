@@ -29,11 +29,11 @@ namespace Minder.WebServices.Tests
 		[SetUp]
 		public void Init()
 		{
-			DeleteObject deleteObject = new DeleteObject();
+			AdminObject deleteObject = new AdminObject();
 			deleteObject.UserId = m_userId;
 			deleteObject.Password = ServicesConstants.DELETE_PASSWORD;
 			
-			string json = JsonHelper.ConvertToJson<DeleteObject>(deleteObject);
+			string json = JsonHelper.ConvertToJson<AdminObject>(deleteObject);
 			
 			string requestString = "{\"json\" : \" ";
 			requestString += Regex.Replace(json, "\"", "\\\"");
@@ -63,6 +63,44 @@ namespace Minder.WebServices.Tests
 			
 			Assert.IsTrue(resultJson.IndexOf("OK") != -1);
 				
+		}
+		
+		private List<Task> GetAllTaskFromServer()
+		{
+			AdminObject deleteObject = new AdminObject();
+			deleteObject.UserId = m_userId;
+			deleteObject.Password = ServicesConstants.DELETE_PASSWORD;
+			
+			string json = JsonHelper.ConvertToJson<AdminObject>(deleteObject);
+			
+			string requestString = "{\"json\" : \" ";
+			requestString += Regex.Replace(json, "\"", "\\\"");
+			requestString += "\"}";
+			
+			HttpWebRequest request = (HttpWebRequest) HttpWebRequest.Create(string.Format("http://{0}/Minder.WebServices/Default.asmx/GetUserTasks", SyncController.SERVER_IP));
+			request.ContentType = "application/json; charset=utf-8";
+			request.Accept = "application/json, text/javascript, */*";
+			request.Method = "POST";
+			request.Timeout = 1000 * 10; //10 Seconds
+			using (StreamWriter writer = new StreamWriter(request.GetRequestStream()))
+			{
+				writer.Write(requestString);
+			}
+
+			WebResponse response = request.GetResponse();
+			Stream stream = response.GetResponseStream();
+			string resultJson = "";
+
+			using (StreamReader reader = new StreamReader(stream))
+			{
+				while (!reader.EndOfStream)
+				{
+					resultJson += reader.ReadLine();
+				}
+			}
+			
+			 Minder.Objects.SyncObject result = JsonHelper.JsonToObject< Minder.Objects.SyncObject>(resultJson);
+			 return result.Tasks;
 		}
 		
 		private List<Task> CreateTaskOnServerReturnSyncResult(DateTime lastSyncDate, params Task[] task)
@@ -192,6 +230,7 @@ namespace Minder.WebServices.Tests
 		public void TestTaskSyncService_Delete2()
 		{
 			Task task = new Task();
+			task.UserId = m_userId;
 			task.DateRemainder = m_dateNow;
 			task.SourceId = "pirmasTasks";
 			List<Task> result = CreateTaskOnServerReturnSyncResult(m_dateOneHourAgo, task);
@@ -201,6 +240,14 @@ namespace Minder.WebServices.Tests
 			Assert.AreEqual(1, result.Count);
 		}
 		
+		[Test]
+		/// <summary>
+		/// We check that new computer will get tasks
+		/// </summary>
+		public void TestTaskSyncService_Delete3()
+		{
+			
+		}
 
 	}
 }

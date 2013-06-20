@@ -18,6 +18,7 @@ using Core;
 using Core.DB;
 using Core.Tools.Log;
 using Minder.WebServices.Constants;
+using Minder.WebServices.Helpers;
 using Minder.WebServices.Objects;
 using Minder.WebServices.Services;
 using PUV.WebServices.Helpers;
@@ -34,16 +35,16 @@ namespace Minder.WebServices
 		public string Sync(string json)
 		{
 			log4net.ILog log = log4net.LogManager.GetLogger(typeof(Soap));
-			if(Minder.WebServices.Helpers.StaticData.ConfigLoaded == false)
-			{
-				ConfigLoader.Load(@"d:\Projektai\Minder_trunk\Minder.WebServices\bin\CoreConfig.xml");
-				FileInfo config = new FileInfo(@"d:\Projektai\Minder_trunk\Minder.WebServices\bin\MinderWebServices.log4net.xml");
-				log4net.Config.XmlConfigurator.Configure(config);
-				Minder.WebServices.Helpers.StaticData.ConfigLoaded = true;
-				log.Info("Service started...");
-			}
+//			if(Minder.WebServices.Helpers.StaticData.ConfigLoaded == false)
+//			{
+//				ConfigLoader.Load(@"d:\Projektai\Minder_trunk\Minder.WebServices\bin\CoreConfig.xml");
+//				FileInfo config = new FileInfo(@"d:\Projektai\Minder_trunk\Minder.WebServices\bin\MinderWebServices.log4net.xml");
+//				log4net.Config.XmlConfigurator.Configure(config);
+//				Minder.WebServices.Helpers.StaticData.ConfigLoaded = true;
+//				log.Info("Service started...");
+//			}
 			
-			
+			new ConfigHelper().Load();
 			
 			try
 			{
@@ -88,21 +89,14 @@ namespace Minder.WebServices
 		public string DeleteUserTasks(string json)
 		{
 			log4net.ILog log = log4net.LogManager.GetLogger(typeof(Soap));
-			if(Minder.WebServices.Helpers.StaticData.ConfigLoaded == false)
-			{
-				ConfigLoader.Load(@"d:\Projektai\Minder_trunk\Minder.WebServices\bin\CoreConfig.xml");
-				FileInfo config = new FileInfo(@"d:\Projektai\Minder_trunk\Minder.WebServices\bin\MinderWebServices.log4net.xml");
-				log4net.Config.XmlConfigurator.Configure(config);
-				Minder.WebServices.Helpers.StaticData.ConfigLoaded = true;
-				log.Info("Service started...");
-			}
+			new ConfigHelper().Load();
 
 			try
 			{
 				if(string.IsNullOrEmpty(json))
 					return string.Empty;
 	
-				DeleteObject deleteObject = JsonHelper.OnlyJsonToObject<DeleteObject>(json);
+				AdminObject deleteObject = JsonHelper.OnlyJsonToObject<AdminObject>(json);
 				if(deleteObject == null)
 					return string.Empty;
 				
@@ -114,6 +108,40 @@ namespace Minder.WebServices
 				
 				GenericDbHelper.RunDirectSql(string.Format("DELETE FROM TASK WHERE USER_ID = '{0}'", userId));
 				return "OK";
+			}
+			catch (Exception e)
+			{
+				log.Error(e);
+				return e.ToString();
+			}
+		}
+		
+		[WebMethod(EnableSession=true)]
+		[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+		public string GetUserTasks(string json)
+		{
+			log4net.ILog log = log4net.LogManager.GetLogger(typeof(Soap));
+			new ConfigHelper().Load();
+
+			try
+			{
+				if(string.IsNullOrEmpty(json))
+					return string.Empty;
+	
+				AdminObject adminObject = JsonHelper.OnlyJsonToObject<AdminObject>(json);
+				if(adminObject == null)
+					return string.Empty;
+				
+				string userId = adminObject.UserId;
+				string password = adminObject.Password;
+				if(ServicesConstants.DELETE_PASSWORD.Equals(password) == false || 
+				   string.IsNullOrEmpty(userId))
+					return string.Empty;
+				
+				List<TaskSync> tasks = GenericDbHelper.Get<TaskSync>(string.Format("USER_ID = {0}", userId));
+				SyncObject result = new SyncObject();
+				result.Tasks = tasks;
+				return JsonHelper.ConvertToJson<SyncObject>(result);
 			}
 			catch (Exception e)
 			{
