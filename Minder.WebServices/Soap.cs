@@ -138,7 +138,7 @@ namespace Minder.WebServices
 				   string.IsNullOrEmpty(userId))
 					return string.Empty;
 				
-				List<TaskSync> tasks = GenericDbHelper.Get<TaskSync>(string.Format("USER_ID = {0}", userId));
+				List<TaskSync> tasks = GenericDbHelper.Get<TaskSync>(string.Format("USER_ID = '{0}'", userId));
 				SyncObject result = new SyncObject();
 				result.Tasks = tasks;
 				return JsonHelper.ConvertToJson<SyncObject>(result);
