@@ -99,7 +99,7 @@ namespace Minder.WebServices.Tests
 				}
 			}
 			
-			 Minder.Objects.SyncObject result = JsonHelper.JsonToObject< Minder.Objects.SyncObject>(resultJson);
+			 Minder.Objects.SyncObject result = JsonHelper.JsonToObject<Minder.Objects.SyncObject>(resultJson);
 			 return result.Tasks;
 		}
 		
@@ -246,7 +246,26 @@ namespace Minder.WebServices.Tests
 		/// </summary>
 		public void TestTaskSyncService_Delete3()
 		{
+			Task task = new Task();
+			task.DateRemainder = m_dateNow;
+			task.SourceId = "pirmasTasks";
+			List<Task> result = CreateTaskOnServerReturnSyncResult(m_dateOneHourAgo, task);
+			Assert.AreEqual(1, result.Count);
 			
+			SyncController.SetLocalDate(result.ToArray());
+			Assert.AreEqual(task.SourceId, result[0].SourceId);
+			Assert.AreEqual(task.DateRemainder.Date, result[0].DateRemainder.Date);
+			Assert.AreEqual(task.DateRemainder.ToShortTimeString(), 
+			                result[0].DateRemainder.ToShortTimeString());
+			
+			result = GetAllTaskFromServer();
+			
+			Assert.AreEqual(1, result.Count);
+			SyncController.SetLocalDate(result.ToArray());
+			Assert.AreEqual(task.SourceId, result[0].SourceId);
+			Assert.AreEqual(task.DateRemainder.Date, result[0].DateRemainder.Date);
+			Assert.AreEqual(task.DateRemainder.ToShortTimeString(), 
+			                result[0].DateRemainder.ToShortTimeString());
 		}
 
 	}
