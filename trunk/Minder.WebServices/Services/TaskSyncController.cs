@@ -33,7 +33,27 @@ namespace Minder.WebServices.Services
 			List<TaskSync> tasksFromDb = LoadAllTasksByUserId(userId, lastSyncDate);
 			List<TaskSync> result = MergeTasks(tasksFromDb, tasks);
 			SaveTasksToDb(tasksFromDb, result, lastSyncDate);
+			RemoveDeleted(result);
 			return result;
+		}
+		
+		/// <summary>
+		/// We don't need to return deleted tasks
+		/// </summary>
+		/// <param name="result"></param>
+		private void RemoveDeleted(List<TaskSync> result)
+		{
+			int i = 0;
+			while (i < result.Count)
+			{
+				TaskSync task = result[i];
+				if (task.IsDeleted)
+				{
+					result.RemoveAt(i);
+					continue;
+				}
+				i++;
+			}
 		}
 		
 		private List<TaskSync> LoadAllTasksByUserId(string userId, DateTime lastSyncDate)
@@ -51,7 +71,6 @@ namespace Minder.WebServices.Services
 			string userId = string.Empty;
 			if(mergedTasks.Count != 0)
 				userId = mergedTasks[0].UserId;
-//			GenericDbHelper.RunDirectSql(string.Format("DELETE FROM TASK WHERE LAST_MODIFY_DATE >= '{0}' and USER_ID = '{1}'", lastSyncDate, userId));
 			
 			foreach(TaskSync task in mergedTasks)
 			{
@@ -61,8 +80,6 @@ namespace Minder.WebServices.Services
 			
 			foreach(TaskSync task in mergedTasks)
 			{
-//				string deleteQuery = string.Format("DELETE FROM TASK WHERE SOURCE_ID = '{0}' AND USER_ID = '{1}'", task.SourceId, userId);
-//				GenericDbHelper.RunDirectSql(deleteQuery);
 				GenericDbHelper.Save(task);
 			}
 			GenericDbHelper.Flush();
@@ -86,17 +103,12 @@ namespace Minder.WebServices.Services
 				result.TryGetValue(task.SourceId, out tempTask);
 				if(tempTask != null)
 				{
-					if(task.IsDeleted)
-						result.Remove(task.SourceId);
-					else
+					DateTime tempTaskDate = tempTask.LastModifyDate;
+					DateTime taskDate = task.LastModifyDate;
+					if(DateTime.Compare(tempTaskDate, taskDate) <= 0)
 					{
-						DateTime tempTaskDate = tempTask.LastModifyDate;
-						DateTime taskDate = task.LastModifyDate;
-						if(DateTime.Compare(tempTaskDate, taskDate) <= 0)
-						{
-							result.Remove(task.SourceId);
-							result.Add(task.SourceId, task);
-						}
+						result.Remove(task.SourceId);
+						result.Add(task.SourceId, task);
 					}
 				}
 				else
