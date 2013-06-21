@@ -61,8 +61,8 @@ Section "Minder" Client_Prog
 	CreateDirectory "$INSTDIR\db\"
 	  
 	SetOutPath "$INSTDIR\bin"
-	File /x settings.ini /x version.cvr ..\..\Minder\bin\Debug\*.*
-	File /r ..\..\Minder\bin\Debug\Sounds\
+	File /x settings.ini /x version.cvr ..\..\Minder\bin\Release\*.*
+	File /r ..\..\Minder\bin\Release\Sounds\
 	
 	File ..\..\Minder\version.cvr
 	
