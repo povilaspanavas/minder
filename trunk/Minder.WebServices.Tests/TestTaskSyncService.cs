@@ -119,7 +119,7 @@ namespace Minder.WebServices.Tests
 		/// <summary>
 		/// Simple case, send one task
 		/// </summary>
-		public void Test_01_TaskSyncService_SimpleCase()
+		public void Test_01_SimpleCase()
 		{
 			
 			string userId = "TEST_SERVICE";
@@ -150,7 +150,7 @@ namespace Minder.WebServices.Tests
 		/// <summary>
 		/// Simple case, send one task, check dates
 		/// </summary>
-		public void Test_02_TaskSyncService_CheckFields()
+		public void Test_02_CheckFields()
 		{
 			Task task = new Task(m_userId);
 			task.DateRemainder = m_dateNow;
@@ -179,7 +179,7 @@ namespace Minder.WebServices.Tests
 		/// <summary>
 		/// Sends one task, later modifies it and send again
 		/// </summary>
-		public void Test_03_TaskSyncService_SendOneTask_ModifyIt_SendAgain()
+		public void Test_03_SendOneTask_ModifyIt_SendAgain()
 		{
 			Task task = new Task(m_userId);
 			task.DateRemainder = m_dateNow;
@@ -222,7 +222,7 @@ namespace Minder.WebServices.Tests
 		/// <summary>
 		/// Sends one task, later deletes it and sends again
 		/// </summary>
-		public void Test_04_TaskSyncService_Delete()
+		public void Test_04_Delete()
 		{
 			Task task = new Task(m_userId);
 			task.DateRemainder = m_dateNow;
@@ -245,7 +245,8 @@ namespace Minder.WebServices.Tests
 			
 			// We load directly, bypassing sync function and double check it
 			result = GetAllTaskFromServer();
-			Assert.AreEqual(0, result.Count);
+			Assert.AreEqual(1, result.Count);	// Server has one, marked as deleted
+			Assert.IsTrue(result[0].IsDeleted);
 		}
 		
 		[Test]
@@ -254,7 +255,7 @@ namespace Minder.WebServices.Tests
 		/// because new computer doesn't have them. But we expect to get all the tasks
 		/// from server
 		/// </summary>
-		public void Test_05_TaskSyncService_NewComputerSync()
+		public void Test_05_NewComputerSync()
 		{
 			Task task = new Task(m_userId);
 			task.UserId = m_userId;
@@ -264,6 +265,11 @@ namespace Minder.WebServices.Tests
 			Assert.AreEqual(1, result.Count);
 			
 			result = CreateTaskOnServerReturnSyncResult(m_dateOneHourAgo);
+			SyncController.SetLocalDate(result.ToArray());
+			Assert.AreEqual(task.SourceId, result[0].SourceId);
+			Assert.AreEqual(task.DateRemainder.Date, result[0].DateRemainder.Date);
+			Assert.AreEqual(task.DateRemainder.ToShortTimeString(), 
+			                result[0].DateRemainder.ToShortTimeString());
 			Assert.AreEqual(1, result.Count);
 		}
 		
@@ -271,7 +277,7 @@ namespace Minder.WebServices.Tests
 		/// <summary>
 		/// We check that new computer will get tasks
 		/// </summary>
-		public void TestTaskSyncService_Delete3()
+		public void Test_06_NewComputerSync_LoadDirectlyFromServer()
 		{
 			Task task = new Task(m_userId);
 			task.DateRemainder = m_dateNow;
