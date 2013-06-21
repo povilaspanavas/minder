@@ -33,8 +33,8 @@ namespace Minder
 		{
 			try
 			{
-				if (IsWriteAccess() == false)
-					return;
+//				if (IsWriteAccess() == false)
+//					return;
 				Application.EnableVisualStyles();
 				Application.SetCompatibleTextRenderingDefault(false);
 				Starter(args);
