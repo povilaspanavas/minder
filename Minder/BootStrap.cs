@@ -17,6 +17,7 @@ using Minder.Sql;
 using Minder.Sql.DBVersionSystem;
 using Minder.Tools;
 using Minder.UI.Helpers;
+using Minder.UI.Forms.TaskShow;
 
 namespace Minder
 {
@@ -66,7 +67,10 @@ namespace Minder
 			FileInfo config = new FileInfo(log4netConfigPath);
 			log4net.Config.XmlConfigurator.Configure(config);
 			log4net.ILog logger = log4net.LogManager.GetLogger(typeof(BootStrap));
-			
+
+            TaskShowWpfForm form = new TaskShowWpfForm();
+            form.ShowDialog();
+
 			bool openForm = false;
 			if(args != null)
 			{

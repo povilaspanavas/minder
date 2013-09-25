@@ -119,12 +119,8 @@
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\About\AboutFormPreparer.cs" />
-    <Compile Include="UI\Forms\BasicForm.cs" />
-    <Compile Include="UI\Forms\Main\MainForm.cs">
+    <Compile Include="UI\Forms\BasicForm.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\Main\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\Main\MainFromPreparer.cs" />
     <Compile Include="UI\Forms\Settings\SettingsForm.cs">
@@ -153,6 +149,9 @@
       <DependentUpon>TaskShowForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\TaskShow\TaskShowFormPreparer.cs" />
+    <Compile Include="UI\Forms\TaskShow\TaskShowWpfForm.xaml.cs">
+      <DependentUpon>TaskShowWpfForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\Tasks\TaskNewEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,9 +215,6 @@
     <EmbeddedResource Include="UI\Forms\About\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\Main\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\Settings\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <Generator>ResXFileCodeGenerator</Generator>
@@ -238,26 +234,15 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="UI\Forms\TaskShow\TaskShowWpfForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\SkinController\MainForms\BlackSkin\BlackSkin.xaml" />
     <Page Include="UI\SkinController\MainForms\BlueOrangeSkin\BlueOrangeSkin.xaml" />
     <Page Include="UI\SkinController\MainForms\DefaultSkin\DefaultSkinForm.xaml" />
     <Page Include="UI\SkinController\MainForms\WhiteSkin\WhiteSkin.xaml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Engine\Helpers" />
-    <Folder Include="Engine\Sql\DBVersionSystem" />
-    <Folder Include="Engine\Sync" />
-    <Folder Include="Engine\Parse\Cultures" />
-    <Folder Include="Engine\Settings" />
-    <Folder Include="Engine\Parse" />
-    <Folder Include="UI" />
-    <Folder Include="UI\Helpers" />
-    <Folder Include="UI\SkinController" />
-    <Folder Include="UI\SkinController\MainForms" />
-    <Folder Include="UI\SkinController\MainForms\BlueOrangeSkin" />
-    <Folder Include="UI\SkinController\MainForms\DefaultSkin" />
-    <Folder Include="UI\SkinController\MainForms\BlackSkin" />
-    <Folder Include="UI\SkinController\MainForms\WhiteSkin" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
