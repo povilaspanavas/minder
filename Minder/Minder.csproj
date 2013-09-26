@@ -45,6 +45,9 @@
   <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Minder.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Core">
       <HintPath>..\libs\Core.dll</HintPath>
@@ -71,6 +74,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BootStrap.cs" />
     <Compile Include="Controls\MLabelWithImage.cs">
       <SubType>Component</SubType>
@@ -234,6 +240,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UI\Forms\TaskShow\TaskShowWpfForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -243,6 +257,8 @@
     <Page Include="UI\SkinController\MainForms\DefaultSkin\DefaultSkinForm.xaml" />
     <Page Include="UI\SkinController\MainForms\WhiteSkin\WhiteSkin.xaml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
