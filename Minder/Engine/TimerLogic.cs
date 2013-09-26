@@ -42,7 +42,7 @@ namespace Minder.Engine
 					m_log.DebugFormat("Loaded {0} tasks for showing", tasksToShow.Count);
 					foreach (Task task in tasksToShow)
 					{
-						new TaskShowFormPreparer(task).PrepareForm(); //Įkėliau viską į preparerį.
+						new TaskShowController(task).PrepareForm(); //Įkėliau viską į preparerį.
 						m_log.DebugFormat("Showed task with id {0}, name {1}, showTime {2}", 
 						                  task.Id, task.Text, DBTypesConverter.ToFullDateStringByCultureInfo(task.DateRemainder));
 					}
