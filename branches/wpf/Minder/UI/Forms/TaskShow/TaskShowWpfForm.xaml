@@ -3,17 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <Label Content="Label" HorizontalAlignment="Left" Height="33" Margin="39,51,0,0" VerticalAlignment="Top" Width="87"/>
-        <Label Content="Label" HorizontalAlignment="Left" Height="33" Margin="153,51,0,0" VerticalAlignment="Top" Width="87"/>
-        <Label Content="Label" HorizontalAlignment="Left" Height="32" Margin="39,89,0,0" VerticalAlignment="Top" Width="87"/>
-        <Label Content="Label" HorizontalAlignment="Left" Height="32" Margin="153,89,0,0" VerticalAlignment="Top" Width="87"/>
-        <Button Content="Button" HorizontalAlignment="Left" Height="31" Margin="39,144,0,0" VerticalAlignment="Top" Width="87"/>
-        <Button Content="Button" HorizontalAlignment="Left" Height="31" Margin="153,144,0,0" VerticalAlignment="Top" Width="87"/>
-        <Button Content="Button" HorizontalAlignment="Left" Height="31" Margin="39,180,0,0" VerticalAlignment="Top" Width="87"/>
-        <Button Content="Button" HorizontalAlignment="Left" Height="31" Margin="153,180,0,0" VerticalAlignment="Top" Width="87"/>
+             mc:Ignorable="d" Height="191.54" Width="256.154">
+    <Grid Margin="0,0,2,3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="32*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Task:" HorizontalAlignment="Left" Height="33" Margin="9,10,0,0" VerticalAlignment="Top" Width="47"/>
+        <Label Content="task description" HorizontalAlignment="Left" Height="33" Margin="56,10,0,0" VerticalAlignment="Top" Width="189" Grid.ColumnSpan="2"/>
+        <Label Content="Time:" HorizontalAlignment="Left" Height="32" Margin="9,34,0,0" VerticalAlignment="Top" Width="47"/>
+        <Label Content="task time" HorizontalAlignment="Left" Height="32" Margin="55,34,0,0" VerticalAlignment="Top" Width="189" Grid.ColumnSpan="2"/>
+        <Button x:Name="ButtonCloseOk" Content="Close" HorizontalAlignment="Left" Height="31" Margin="9,71,0,0" VerticalAlignment="Top" Width="103"/>
+        <Button x:Name="ButtonEditTask" Content="Edit Task" HorizontalAlignment="Left" Height="31" Margin="127,71,0,0" VerticalAlignment="Top" Width="103" Grid.ColumnSpan="2"/>
+        <Button x:Name="ButtonRemindMeLater" Content="Remind Me Later" HorizontalAlignment="Left" Height="31" Margin="127,111,0,0" VerticalAlignment="Top" Width="103" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="ComboBoxRemindLater" HorizontalAlignment="Left" Margin="9,117,0,0" VerticalAlignment="Top" Width="103" Height="25"/>
 
     </Grid>
 </Window>
