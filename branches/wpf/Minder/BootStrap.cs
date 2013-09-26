@@ -18,6 +18,8 @@ using Minder.Sql.DBVersionSystem;
 using Minder.Tools;
 using Minder.UI.Helpers;
 using Minder.UI.Forms.TaskShow;
+using System.Windows.Media;
+using System.Windows;
 
 namespace Minder
 {
@@ -36,10 +38,10 @@ namespace Minder
 			{
 //				if (IsWriteAccess() == false)
 //					return;
-				Application.EnableVisualStyles();
-				Application.SetCompatibleTextRenderingDefault(false);
+                System.Windows.Forms.Application.EnableVisualStyles();
+                System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 				Starter(args);
-				Application.Run();
+                System.Windows.Forms.Application.Run();
 			}
 			catch (Exception e)
 			{
@@ -53,7 +55,7 @@ namespace Minder
 				}
 				catch{} //Jei konfigai neužkrauti
 				
-				Application.Exit();
+				System.Windows.Forms.Application.Exit();
 			}
 		}
 		
@@ -67,6 +69,10 @@ namespace Minder
 			FileInfo config = new FileInfo(log4netConfigPath);
 			log4net.Config.XmlConfigurator.Configure(config);
 			log4net.ILog logger = log4net.LogManager.GetLogger(typeof(BootStrap));
+
+            // Making clear type for all the text
+            RenderOptions.ClearTypeHintProperty.OverrideMetadata(typeof(FrameworkElement), new FrameworkPropertyMetadata { DefaultValue = ClearTypeHint.Enabled });
+            TextOptions.TextFormattingModeProperty.OverrideMetadata(typeof(FrameworkElement), new FrameworkPropertyMetadata { DefaultValue = TextFormattingMode.Display });
 
             TaskShowWpfForm form = new TaskShowWpfForm();
             form.ShowDialog();
