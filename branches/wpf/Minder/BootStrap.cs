@@ -36,10 +36,18 @@ namespace Minder
 		{
 			try
 			{
-//				if (IsWriteAccess() == false)
-//					return;
+               
+ 
+                   
                 System.Windows.Forms.Application.EnableVisualStyles();
                 System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+                //var app = new System.Windows.Application();
+
+                var resources = System.Windows.Application.LoadComponent(
+                    new Uri("App.xaml", UriKind.Relative))
+                        as System.Windows.ResourceDictionary;
+                // Merge it on application level
+               // app.Resources.MergedDictionaries.Add(resources);
 				Starter(args);
                 System.Windows.Forms.Application.Run();
 			}
@@ -71,8 +79,8 @@ namespace Minder
 			log4net.ILog logger = log4net.LogManager.GetLogger(typeof(BootStrap));
 
             // Making clear type for all the text
-            RenderOptions.ClearTypeHintProperty.OverrideMetadata(typeof(FrameworkElement), new FrameworkPropertyMetadata { DefaultValue = ClearTypeHint.Enabled });
-            TextOptions.TextFormattingModeProperty.OverrideMetadata(typeof(FrameworkElement), new FrameworkPropertyMetadata { DefaultValue = TextFormattingMode.Display });
+            //RenderOptions.ClearTypeHintProperty.OverrideMetadata(typeof(FrameworkElement), new FrameworkPropertyMetadata { DefaultValue = ClearTypeHint.Enabled });
+            //TextOptions.TextFormattingModeProperty.OverrideMetadata(typeof(FrameworkElement), new FrameworkPropertyMetadata { DefaultValue = TextFormattingMode.Display });
 
             TaskShowWpfForm form = new TaskShowWpfForm();
             form.ShowDialog();
