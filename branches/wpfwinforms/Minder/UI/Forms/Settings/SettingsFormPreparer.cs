@@ -165,11 +165,11 @@ namespace Minder.Forms.Settings
 			
 			// **** Default Remind Me Later value ****
 			m_form.MComboBoxRemindMeLater.Sorted = false;
-			TaskShowFormPreparer.AddRemindLaterValuesToComboBox(
+			TaskShowController.AddRemindLaterValuesToComboBox(
 				m_form.MComboBoxRemindMeLater,
-				TaskShowFormPreparer.BuildRemindLaterList());
+				TaskShowController.BuildRemindLaterList());
 			
-			TaskShowFormPreparer.SelectRemindMeLater(m_form.MComboBoxRemindMeLater);
+			TaskShowController.SelectRemindMeLater(m_form.MComboBoxRemindMeLater);
 			
 			// **** Skins ****
 			int skinNameIndex = 0;
