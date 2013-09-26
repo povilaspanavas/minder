@@ -9,7 +9,7 @@
 using System;
 using System.Diagnostics;
 using System.Threading;
-
+using System.Windows.Forms;
 using Core;
 using Core.Forms;
 using Core.Tools.Log;
@@ -29,11 +29,11 @@ namespace Minder.Starter
 		{
 			try
 			{
-				//Application.EnableVisualStyles();
-				//Application.SetCompatibleTextRenderingDefault(false);
+				Application.EnableVisualStyles();
+				Application.SetCompatibleTextRenderingDefault(false);
 				Start(args);
 				Kill();
-				//Application.Run();
+				Application.Run();
 			}
 			catch(Exception e)
 			{

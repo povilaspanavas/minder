@@ -7,8 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
-using System.Timers;
-
+using System.Windows.Forms;
 
 namespace Minder.Engine.Helpers
 {
@@ -38,18 +37,18 @@ namespace Minder.Engine.Helpers
 		public void SartMouseMoveChecker()
 		{
 			m_timer.Interval = 1000 * 60 * 2; //2 minutes
-            //m_timer.Tick += delegate
-            //{
-            //    if(m_x == Cursor.Position.X &&
-            //       m_y == Cursor.Position.Y)
-            //        m_mouseNotMoving = true;
-            //    else
-            //    {
-            //        m_mouseNotMoving = false;
-            //        m_x = Cursor.Position.X;
-            //        m_y = Cursor.Position.Y;
-            //    }
-            //};
+			m_timer.Tick += delegate
+			{
+				if(m_x == Cursor.Position.X &&
+				   m_y == Cursor.Position.Y)
+					m_mouseNotMoving = true;
+				else
+				{
+					m_mouseNotMoving = false;
+					m_x = Cursor.Position.X;
+					m_y = Cursor.Position.Y;
+				}
+			};
 			m_timer.Start();
 			
 		}
