@@ -32,7 +32,7 @@ namespace Minder.Engine.Sync
 	{
 		log4net.ILog m_log = log4net.LogManager.GetLogger(typeof(SyncController));
 		
-		private System.Windows.Forms.Timer m_timer = null;
+		private Timer m_timer = null;
 		private int m_newTasks;
 		public const string SERVER_IP = "213.197.147.194:8081";
 		
@@ -159,15 +159,15 @@ namespace Minder.Engine.Sync
 		public void StartThreadForSync()
 		{
 			bool firstSync = true;
-			m_timer = new System.Windows.Forms.Timer();
-			m_timer.Interval = Minder.Static.StaticData.Settings.Sync.Interval * 1000 * 60;
-			m_timer.Tick += delegate {
-				if(firstSync == false)
-					Sync();
-				firstSync = false;
-			};
-//			Thread.Sleep(m_timer.Interval);
-			m_timer.Start();
+//            m_timer = new Timer();
+//            m_timer.Interval = Minder.Static.StaticData.Settings.Sync.Interval * 1000 * 60;
+//            m_timer.Tick += delegate {
+//                if(firstSync == false)
+//                    Sync();
+//                firstSync = false;
+//            };
+////			Thread.Sleep(m_timer.Interval);
+//            m_timer.Start();
 		}
 		
 		public List<Task> GetSyncedTasksFromServer(SyncObject syncObject)

@@ -8,12 +8,10 @@
  */
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using Minder.Engine.Helpers;
-using Minder.Forms.Main;
-using Minder.Forms.TaskShow;
 using Minder.Objects;
 using Minder.Sql;
+using System.Timers;
 
 namespace Minder.Engine
 {
@@ -31,26 +29,26 @@ namespace Minder.Engine
 			m_timer = new Timer();
 			m_timer.Interval = m_tick;
 			
-			m_timer.Tick += delegate
-			{
-				m_log.Debug("Tick event happened");
-				m_timer.Stop();
-				// Commented until find bugs
-//				if(MousePositionHelper.MouseNotMoving == false)
-//				{
-					List<Task> tasksToShow = new DbHelper().LoadTasksForShowing();
-					m_log.DebugFormat("Loaded {0} tasks for showing", tasksToShow.Count);
-					foreach (Task task in tasksToShow)
-					{
-						new TaskShowFormPreparer(task).PrepareForm(); //Įkėliau viską į preparerį.
-						m_log.DebugFormat("Showed task with id {0}, name {1}, showTime {2}", 
-						                  task.Id, task.Text, DBTypesConverter.ToFullDateStringByCultureInfo(task.DateRemainder));
-					}
-//				}
+//            m_timer. += delegate
+//            {
+//                m_log.Debug("Tick event happened");
+//                m_timer.Stop();
+//                // Commented until find bugs
+////				if(MousePositionHelper.MouseNotMoving == false)
+////				{
+//                    List<Task> tasksToShow = new DbHelper().LoadTasksForShowing();
+//                    m_log.DebugFormat("Loaded {0} tasks for showing", tasksToShow.Count);
+//                    foreach (Task task in tasksToShow)
+//                    {
+//                        new TaskShowFormPreparer(task).PrepareForm(); //Įkėliau viską į preparerį.
+//                        m_log.DebugFormat("Showed task with id {0}, name {1}, showTime {2}", 
+//                                          task.Id, task.Text, DBTypesConverter.ToFullDateStringByCultureInfo(task.DateRemainder));
+//                    }
+////				}
 				
-				SetNewTimerInterval();
-				m_timer.Start();
-			};
+//                SetNewTimerInterval();
+//                m_timer.Start();
+//            };
 			
 			m_timer.Start();
 		}

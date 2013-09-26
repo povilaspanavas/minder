@@ -9,7 +9,7 @@
 using System;
 using System.IO;
 using System.Reflection;
-using System.Windows.Forms;
+
 using Core.Tools.Shortcut;
 using Minder.Static;
 using vbAccelerator.Components.Shell;
