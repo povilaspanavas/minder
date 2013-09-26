@@ -1,0 +1,27 @@
+<core>
+	
+	<LogConfig>
+		<DirName>Log</DirName>
+		<FileName>Log</FileName>
+		<Extension>log</Extension>
+		<LineCount>100</LineCount>
+	</LogConfig>
+	
+	<DBConfig>
+		<Host>../../DB/MinderDb.db</Host>
+		<User></User>
+		<Pass></Pass>
+		<DBName></DBName>
+		<Unicode></Unicode>
+		<DbType>SQLite</DbType>
+	</DBConfig>
+	
+	<UpdateProject>
+		<FtpUser></FtpUser>
+		<FtpPass></FtpPass>
+		<FtpVersionFileHost>http://panavas.lt/minder/update/version.cvr</FtpVersionFileHost>
+		<FtpInstallHost>http://panavas.lt/minder/update/mindersetup.exe</FtpInstallHost>
+		<InstallFileName>minderupdate.exe</InstallFileName>
+	</UpdateProject>
+
+</core>
