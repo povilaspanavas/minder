@@ -17,6 +17,11 @@ using Minder.Sql;
 using Minder.Sql.DBVersionSystem;
 using Minder.Tools;
 using Minder.UI.Helpers;
+using Minder.UI.Forms.TaskShow;
+using System.Windows.Markup;
+using System.Reflection;
+using System.Windows.Resources;
+using Minder.UI.SkinController.MainForms;
 
 namespace Minder
 {
@@ -25,6 +30,16 @@ namespace Minder
 	/// </summary>
 	internal sealed class BootStrap
 	{
+        public static object Load(Stream stream)
+        {
+            ParserContext pc = new ParserContext();
+            MethodInfo loadBamlMethod = typeof(XamlReader).GetMethod("LoadBaml",
+                BindingFlags.NonPublic | BindingFlags.Static);
+            return loadBamlMethod.Invoke(null, new object[] { stream, pc, null, false });
+        }
+
+        static System.Windows.ResourceDictionary resources = null;
+        static System.Windows.Application app = null;
 		/// <summary>
 		/// Program entry point.
 		/// </summary>
@@ -37,8 +52,25 @@ namespace Minder
 //					return;
 				Application.EnableVisualStyles();
 				Application.SetCompatibleTextRenderingDefault(false);
-				Starter(args);
+
+                StreamResourceInfo sri = System.Windows.Application.GetResourceStream(
+      new Uri("App.xaml", UriKind.Relative));
+                var kazkas = Load(sri.Stream);
+                resources = (System.Windows.ResourceDictionary)kazkas;
+                //resources = System.Windows.Application.LoadComponent(
+                //    new Uri("App.xaml", UriKind.Relative))
+                //             as System.Windows.ResourceDictionary;
+                app = new System.Windows.Application();
+                app.Resources.MergedDictionaries.Add(resources);
+                Starter(args);
+                
+                var wpfForm = new TaskShowWpfForm();
+                wpfForm.ShowDialog();
+
+                // new BlackSkin().ShowDialog();
+                //app.Run();
 				Application.Run();
+                
 			}
 			catch (Exception e)
 			{
@@ -87,8 +119,8 @@ namespace Minder
 				Minder.Static.StaticData.Settings.Sync.LastSyncDate = Convert.ToDateTime(syncInfo.Value1);
 			
 			new StartWithWinController().StartWithWindows();
-			if(Minder.Static.StaticData.Settings.CheckUpdates)
-				new UpdateProject(StaticData.VersionCache.Version, true, "Minder");
+			//if(Minder.Static.StaticData.Settings.CheckUpdates)
+			//	new UpdateProject(StaticData.VersionCache.Version, true, "Minder");
 			
 			MainFormPreparer preparer = new MainFormPreparer();
 			if(openForm)
