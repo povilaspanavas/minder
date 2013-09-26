@@ -59,7 +59,7 @@ namespace Minder.Forms.Settings
 			iniParser.AddSetting("General", "autoupdate", "true");
 			iniParser.AddSetting("General", "playsound", "true");
 			iniParser.AddSetting("CultureInfo", "name", "lt-Lt");
-			//iniParser.AddSetting("RemindMeLater", "Default", RemindLaterValue.Round(10.0m/60.0m).ToString());
+			iniParser.AddSetting("RemindMeLater", "Default", RemindLaterValue.Round(10.0m/60.0m).ToString());
 			iniParser.AddSetting("Skin", "code", BlackSkin.SKIN_UNIQUE_CODE);
 			iniParser.AddSetting("Sync", "enable", "false");
 			iniParser.AddSetting("Sync", "ID", "");
@@ -104,7 +104,7 @@ namespace Minder.Forms.Settings
 			
 			decimal remindLaterDefaultValue = 10.0m/60.0m;
 			decimal.TryParse(parser.GetSetting("RemindMeLater", "Default"), out remindLaterDefaultValue);
-			//StaticData.Settings.RemindMeLaterDefaultValue = RemindLaterValue.Round(remindLaterDefaultValue);
+			StaticData.Settings.RemindMeLaterDefaultValue = RemindLaterValue.Round(remindLaterDefaultValue);
 			
 			
 			//Skins
@@ -147,7 +147,7 @@ namespace Minder.Forms.Settings
 			parser.AddSetting("General", "autoupdate", StaticData.Settings.CheckUpdates.ToString());
 			parser.AddSetting("General", "playsound", StaticData.Settings.PlaySound.ToString());
 			parser.AddSetting("CultureInfo", "name", StaticData.Settings.CultureData.CultureInfo.Name.ToString());
-			//parser.AddSetting("RemindMeLater", "default", RemindLaterValue.Round(StaticData.Settings.RemindMeLaterDefaultValue).ToString());
+			parser.AddSetting("RemindMeLater", "default", RemindLaterValue.Round(StaticData.Settings.RemindMeLaterDefaultValue).ToString());
 			parser.AddSetting("skin", "code", StaticData.Settings.SkinUniqueCode);
 			parser.AddSetting("sync", "id", StaticData.Settings.Sync.Id);
 			parser.AddSetting("sync", "interval", StaticData.Settings.Sync.Interval.ToString());

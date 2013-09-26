@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.AccessControl;
-
+using System.Windows.Forms;
 using Core;
 using Core.Forms;
 using Core.Tools.Log;
@@ -11,11 +11,12 @@ using Minder.Engine.Helpers;
 using Minder.Engine.Sync;
 using Minder.Forms.Settings;
 using Minder.Engine;
+using Minder.Forms.Main;
 using Minder.Objects;
 using Minder.Sql;
 using Minder.Sql.DBVersionSystem;
 using Minder.Tools;
-
+using Minder.UI.Helpers;
 using Minder.UI.Forms.TaskShow;
 using System.Windows.Media;
 using System.Windows;
@@ -37,10 +38,10 @@ namespace Minder
 			{
 //				if (IsWriteAccess() == false)
 //					return;
-               // System.Windows.Forms.Application.EnableVisualStyles();
-               // System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+                System.Windows.Forms.Application.EnableVisualStyles();
+                System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 				Starter(args);
-               // System.Windows.Forms.Application.Run();
+                System.Windows.Forms.Application.Run();
 			}
 			catch (Exception e)
 			{
@@ -54,7 +55,7 @@ namespace Minder
 				}
 				catch{} //Jei konfigai neužkrauti
 				
-				//System.Windows.Forms.Application.Exit();
+				System.Windows.Forms.Application.Exit();
 			}
 		}
 		
@@ -99,17 +100,17 @@ namespace Minder
 			if(Minder.Static.StaticData.Settings.CheckUpdates)
 				new UpdateProject(StaticData.VersionCache.Version, true, "Minder");
 			
-            //MainFormPreparer preparer = new MainFormPreparer();
-            //if(openForm)
-            //    preparer.PrepareForm(openForm);
-            //else
-            //    preparer.PrepareForm();
+			MainFormPreparer preparer = new MainFormPreparer();
+			if(openForm)
+				preparer.PrepareForm(openForm);
+			else
+				preparer.PrepareForm();
 			
 			MousePositionHelper mouseMoveChecker = new MousePositionHelper();
 			mouseMoveChecker.SartMouseMoveChecker();
 			
-            //TimeController timeController = new TimeController(preparer);
-            //timeController.Start();
+			TimeController timeController = new TimeController(preparer);
+			timeController.Start();
 			
 			logger.Info("Minder started");
 		}
@@ -135,7 +136,7 @@ namespace Minder
 				Directory.Delete("test654");
 				writeAccess = true;
 			} catch(Exception) {
-				//new MessageBoxHelper().ShowErrorOk("Program doesn't have write permissions. Please fix it.");
+				new MessageBoxHelper().ShowErrorOk("Program doesn't have write permissions. Please fix it.");
 			}
 			return writeAccess;
 		}
