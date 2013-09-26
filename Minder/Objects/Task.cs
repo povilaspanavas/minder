@@ -15,6 +15,7 @@ using Core.Objects;
 using Minder.Engine;
 using Minder.Engine.Parse;
 using Minder.Sql;
+using System.ComponentModel;
 
 namespace Minder.Objects
 {
@@ -22,7 +23,7 @@ namespace Minder.Objects
 	/// Description of Task.
 	/// </summary>
 	[DbTable("TASK")]
-	public class Task : ICoreObject
+    public class Task : ICoreObject, INotifyPropertyChanged
 	{
 		int m_id = 0;
 		string m_text = string.Empty;
@@ -62,14 +63,20 @@ namespace Minder.Objects
 		 PropertyCaption("Task", 3)]
 		public string Text {
 			get { return m_text; }
-			set { m_text = value; }
+			set { m_text = value; 
+             if (PropertyChanged != null)
+                 PropertyChanged(this, new PropertyChangedEventArgs("Text"));
+            }
 		}
 		
 		[DBColumnReference("DATE_REMAINDER"),
 		 PropertyCaption("Date", 4)]
 		public DateTime DateRemainder {
 			get { return m_dateRemainder; }
-			set { m_dateRemainder = value; }
+			set { m_dateRemainder = value; 
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs("DateRemainder"));
+            }
 		}
 		
 		[DBColumnReference("LAST_MODIFY_DATE")]
@@ -210,5 +217,7 @@ namespace Minder.Objects
 		}
 
 
-	}
+
+        public event PropertyChangedEventHandler PropertyChanged;
+    }
 }
