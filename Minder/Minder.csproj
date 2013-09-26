@@ -46,7 +46,7 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Minder.App</StartupObject>
+    <StartupObject>Minder.BootStrap</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Core">
@@ -240,11 +240,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Page Include="Themes\Generic.xaml">
+    <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -259,6 +255,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NewFolder1\" />
+    <Folder Include="Themes\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
