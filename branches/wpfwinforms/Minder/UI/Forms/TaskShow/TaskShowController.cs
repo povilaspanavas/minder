@@ -12,6 +12,8 @@ using Minder.Static;
 using Minder.Tools;
 using Minder.UI.Forms.TaskShow;
 using System.Windows;
+using Minder.UI.Forms;
+using System.Windows.Input;
 
 namespace Minder.Forms.TaskShow
 {
@@ -119,7 +121,18 @@ namespace Minder.Forms.TaskShow
 			SoundPlayer simpleSound = new SoundPlayer(soundPath);
 			simpleSound.Play();
 		}
-		
+
+        public ICommand CloseTaskCommand
+        {
+            get { return new DelegateCommand(new Action(CloseButtonPressed)); }
+        }
+
+        private void CloseButtonPressed()
+        {
+            m_task.Showed = true;
+            CloseOrOkButton();
+        }
+
 		public void SetEvents()
 		{
             //_window.OkButton.Click += delegate
