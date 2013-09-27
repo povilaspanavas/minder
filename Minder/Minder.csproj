@@ -166,14 +166,8 @@
       <DependentUpon>MainFormLaunchy.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\TaskShow\RemindLaterValue.cs" />
-    <Compile Include="UI\Forms\TaskShow\TaskShowForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\TaskShow\TaskShowForm.Designer.cs">
-      <DependentUpon>TaskShowForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Forms\TaskShow\TaskShowController.cs" />
-    <Compile Include="UI\Forms\TaskShow\TaskShowWpfForm.xaml.cs" />
+    <Compile Include="UI\Forms\TaskShow\TaskShowForm.xaml.cs" />
     <Compile Include="UI\Forms\Tasks\TaskNewEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,9 +242,6 @@
     <EmbeddedResource Include="UI\Forms\Skins\MainFormLaucnhy.resx">
       <DependentUpon>MainFormLaunchy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\TaskShow\TaskShowForm.resx">
-      <DependentUpon>TaskShowForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\Tasks\TaskNewEditForm.resx">
       <DependentUpon>TaskNewEditForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,7 +262,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Forms\TaskShow\TaskShowWpfForm.xaml">
+    <Page Include="UI\Forms\TaskShow\TaskShowForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
