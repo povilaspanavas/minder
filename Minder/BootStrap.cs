@@ -38,8 +38,6 @@ namespace Minder
             return loadBamlMethod.Invoke(null, new object[] { stream, pc, null, false });
         }
 
-        static System.Windows.ResourceDictionary resources = null;
-        static System.Windows.Application app = null;
 		/// <summary>
 		/// Program entry point.
 		/// </summary>
@@ -54,21 +52,15 @@ namespace Minder
 				Application.SetCompatibleTextRenderingDefault(false);
 
                 StreamResourceInfo sri = System.Windows.Application.GetResourceStream(
-      new Uri("App.xaml", UriKind.Relative));
-                var kazkas = Load(sri.Stream);
-                resources = (System.Windows.ResourceDictionary)kazkas;
-                //resources = System.Windows.Application.LoadComponent(
-                //    new Uri("App.xaml", UriKind.Relative))
-                //             as System.Windows.ResourceDictionary;
-                app = new System.Windows.Application();
+                    new Uri("App.xaml", UriKind.Relative));
+                var resources = (System.Windows.ResourceDictionary)Load(sri.Stream);
+                var app = new System.Windows.Application();
                 app.Resources.MergedDictionaries.Add(resources);
                 Starter(args);
                 
                 var wpfForm = new TaskShowWpfForm();
                 wpfForm.ShowDialog();
 
-                // new BlackSkin().ShowDialog();
-                //app.Run();
 				Application.Run();
                 
 			}
