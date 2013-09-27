@@ -60,8 +60,8 @@ namespace Minder
                 Starter(args);
 
                 
-                var controller = new TaskShowController(new Task());
-                controller.Window.ShowDialog();
+                //var controller = new TaskShowController(new Task());
+                //controller.Window.ShowDialog();
                 //var wpfForm = new TaskShowWpfForm();
                 //wpfForm.ShowDialog();
 

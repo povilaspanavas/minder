@@ -28,7 +28,7 @@ namespace Minder.Forms.TaskShow
 	/// </summary>
 	public class TaskShowController : IController
 	{
-		private TaskShowWpfForm _window = null;
+		private TaskShowForm _window = null;
 		private Task m_task;
 		private List<RemindLaterValue> m_listRemindLaterValues = null;
 		
@@ -44,7 +44,7 @@ namespace Minder.Forms.TaskShow
 		
 		public TaskShowController(Task task)
 		{
-            _window = new TaskShowWpfForm();
+            _window = new TaskShowForm();
 			_window.Title = "Minder Task";
             _window.DataContext = this;
 			m_task = task;
@@ -68,14 +68,6 @@ namespace Minder.Forms.TaskShow
 			return listRemindLaterValues;
 		}
 		
-		public static void AddRemindLaterValuesToComboBox(ComboBox comboBox,
-		                                                  List<RemindLaterValue> listRemindLaterValues)
-		{
-			comboBox.ValueMember = "Name";
-			foreach (RemindLaterValue val in listRemindLaterValues) {
-				comboBox.Items.Add(val);
-			}
-		}
 
         public Window Window
 		{
@@ -108,15 +100,15 @@ namespace Minder.Forms.TaskShow
 		/// Select default value
 		/// </summary>
 		/// <param name="comboBox"></param>
-		public static void SelectRemindMeLater(ComboBox comboBox)
-		{
-			for (int i = 0; i < comboBox.Items.Count; i++) {
-				if (StaticData.Settings.RemindMeLaterDefaultValue.Equals((comboBox.Items[i] as RemindLaterValue).Value)) {
-					comboBox.SelectedIndex = i;
-					break;
-				}
-			}
-		}
+        //public static void SelectRemindMeLater(ComboBox comboBox)
+        //{
+        //    for (int i = 0; i < comboBox.Items.Count; i++) {
+        //        if (StaticData.Settings.RemindMeLaterDefaultValue.Equals((comboBox.Items[i] as RemindLaterValue).Value)) {
+        //            comboBox.SelectedIndex = i;
+        //            break;
+        //        }
+        //    }
+        //}
 		
 		private void PlaySound()
 		{

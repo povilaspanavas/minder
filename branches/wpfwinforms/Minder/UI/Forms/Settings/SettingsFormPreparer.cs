@@ -164,12 +164,12 @@ namespace Minder.Forms.Settings
 			}
 			
 			// **** Default Remind Me Later value ****
-			m_form.MComboBoxRemindMeLater.Sorted = false;
-			TaskShowController.AddRemindLaterValuesToComboBox(
-				m_form.MComboBoxRemindMeLater,
-				TaskShowController.BuildRemindLaterList());
+            //m_form.MComboBoxRemindMeLater.Sorted = false;
+            //TaskShowController.AddRemindLaterValuesToComboBox(
+            //    m_form.MComboBoxRemindMeLater,
+            //    TaskShowController.BuildRemindLaterList());
 			
-			TaskShowController.SelectRemindMeLater(m_form.MComboBoxRemindMeLater);
+            //TaskShowController.SelectRemindMeLater(m_form.MComboBoxRemindMeLater);
 			
 			// **** Skins ****
 			int skinNameIndex = 0;
