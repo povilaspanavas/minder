@@ -28,7 +28,7 @@ namespace WebSite.Model
             set { m_id = value; }
         }
 
-        [DBColumnReference("URL"), PropertyCaption("Nuoroda", 3)]
+        [DBColumnReference("URL") /*PropertyCaption("Nuoroda", 3)*/]
         public string Url
         {
             get { return m_url; }

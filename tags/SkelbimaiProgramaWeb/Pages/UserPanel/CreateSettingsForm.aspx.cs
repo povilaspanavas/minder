@@ -75,8 +75,12 @@ public partial class Pages_UserPanel_CreateSettingsForm : System.Web.UI.Page
 
     private void FillDropDown()
     {
-        this.M_DropDownList.Items.Add("Autogidas.lt");
-        this.M_DropDownList.Items.Add("Autoplius.lt");
+        foreach (string uniqueCode in AdvertModel.PluginsUniqueCodes.PluginsUniquecodes)
+        {
+            this.M_DropDownList.Items.Add(uniqueCode);
+        }
+        
+        
     }
 
     private void FillFields()
