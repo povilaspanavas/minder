@@ -22,6 +22,7 @@ using System.Windows.Markup;
 using System.Reflection;
 using System.Windows.Resources;
 using Minder.UI.SkinController.MainForms;
+using Minder.Forms.TaskShow;
 
 namespace Minder
 {
@@ -57,9 +58,12 @@ namespace Minder
                 var app = new System.Windows.Application();
                 app.Resources.MergedDictionaries.Add(resources);
                 Starter(args);
+
                 
-                var wpfForm = new TaskShowWpfForm();
-                wpfForm.ShowDialog();
+                var controller = new TaskShowController(new Task());
+                controller.Window.ShowDialog();
+                //var wpfForm = new TaskShowWpfForm();
+                //wpfForm.ShowDialog();
 
 				Application.Run();
                 
