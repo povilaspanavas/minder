@@ -21,7 +21,7 @@ namespace WebSite
         public static Dictionary<int, Token> Tokens { get { return m_tokens; } }
 
         //Modules UniqueCodes
-        public const string AUTOGIDAS = "Autogidas.lt";
-        public const string AUTOPLIUS = "Autoplius.lt";
+       // public const string AUTOGIDAS = "Autogidas.lt";
+        //public const string AUTOPLIUS = "Autoplius.lt";
     }
 }
