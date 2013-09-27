@@ -44,7 +44,6 @@ namespace Minder.Forms.TaskShow
 		
 		public TaskShowController(Task task)
 		{
-            task.Text = "xoxo";
             _window = new TaskShowWpfForm();
 			_window.Title = "Minder Task";
             _window.DataContext = this;
