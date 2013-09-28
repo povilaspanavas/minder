@@ -67,7 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modules\IModule.cs" />
     <Compile Include="Modules\ModuleAutogidas.cs" />
+    <Compile Include="Modules\ModuleAutoplius.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\AdvertService.cs" />

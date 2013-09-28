@@ -32,7 +32,8 @@ namespace AdvertModel
 		string m_image = string.Empty;
 		int m_settingsId;
 		int m_userId;
-        string m_settingsName;
+        string m_settingsName = string.Empty;
+        string m_pluginName = string.Empty;
 
 		[PrimaryKey("SP_ADVERT_SEQ"),
 		 DBColumnReference("ID"),
@@ -152,6 +153,14 @@ namespace AdvertModel
         {
             get { return m_settingsName; }
             set { m_settingsName = value; }
+        }
+
+        [DBColumnReference("PLUGIN_NAME"),
+         PropertyCaption("Tinklapis", 4)]
+        public string PluginName
+        {
+            get { return m_pluginName; }
+            set { m_pluginName = value; }
         }
 
 		public override string ToString()

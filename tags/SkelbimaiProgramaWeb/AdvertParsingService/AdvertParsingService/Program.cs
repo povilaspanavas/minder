@@ -7,7 +7,10 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections.Generic;
+using AdvertModel;
 using AdvertParsingService.Service;
+using Core.DB;
 
 namespace AdvertParsingService
 {
@@ -15,7 +18,8 @@ namespace AdvertParsingService
 	{
 		public static void Main(string[] args)
 		{
-			new AdvertService().Start();
+			AdvertService service = new AdvertService();
+			service.Start();
 		}
 	}
 }
