@@ -8,6 +8,7 @@ using WebSite.Model;
 using WebSite.Helpers;
 using System.Data;
 using Core.DB;
+using AdvertModel;
 
 public partial class Pages_UserPanel_SettingsForm : System.Web.UI.Page
 {

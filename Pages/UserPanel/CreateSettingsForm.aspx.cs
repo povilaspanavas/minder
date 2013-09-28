@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using WebSite.Model;
 using WebSite.Helpers;
 using Core.DB;
+using AdvertModel;
 
 public partial class Pages_UserPanel_CreateSettingsForm : System.Web.UI.Page
 {
