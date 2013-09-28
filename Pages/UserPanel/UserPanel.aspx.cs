@@ -8,6 +8,7 @@ using WebSite.Model;
 using WebSite.Helpers;
 using Core.DB;
 using System.Data;
+using AdvertModel;
 
 public partial class Pages_UserPanel : System.Web.UI.Page
 {
@@ -37,6 +38,12 @@ public partial class Pages_UserPanel : System.Web.UI.Page
             new LoginHelper().LogOut(m_token.TokenValue);
             Response.Redirect(string.Format("~/Default.aspx"));
         };
+
+        this.M_AdvertGrid.RowDataBound += delegate(object sender, GridViewRowEventArgs e)
+        {
+            e.Row.Cells[0].Visible = false; //ID
+            e.Row.Cells[6].Visible = false; //Link url
+        };
     }
 
     private void CheckTempPass()
@@ -48,19 +55,20 @@ public partial class Pages_UserPanel : System.Web.UI.Page
 
     private void LoadGrid()
     {
-        DataTable table = new DataTable();
-        table.Columns.Add("Pavadinimas");
-        table.Columns.Add("Radimo data");
-
-        object[] values = new object[table.Columns.Count];
-        values[0] = "Paskdjasdasd";
-        values[1] = DateTime.Now;
-
-        table.Rows.Add(values);
+        List<Advert> allAdverts = GenericDbHelper.Get<Advert>(string.Format("USER_ID = {0}", m_user.Id));
+        DataTable table = new GridViewHelper().ConvertObjectListToDataTable<Advert>(allAdverts);
+        //Pridedamas checkboxas
+        DataColumn coll = table.Columns.Add("Select", Type.GetType("System.Boolean"));
+        coll.SetOrdinal(1);
 
         this.M_AdvertGrid.DataSource = table;
         this.M_AdvertGrid.DataBind();
 
+        foreach (GridViewRow row in M_AdvertGrid.Rows)
+        {
+            CheckBox check = row.Cells[1].Controls[0] as CheckBox;
+            check.Enabled = true;
+        }
     }
 
     private void StartService()
