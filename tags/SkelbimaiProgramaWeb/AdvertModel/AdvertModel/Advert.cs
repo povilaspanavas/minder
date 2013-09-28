@@ -60,7 +60,7 @@ namespace AdvertModel
 
 		[DBColumnReference("DATA"),
 		 PropertyCaption("Data", 3)]
-		public string Date
+		public string DateA
 		{
 			get { return m_date; }
 			set { m_date = value; }
@@ -68,7 +68,7 @@ namespace AdvertModel
 
 		[DBColumnReference("AD_YEAR"),
 		 PropertyCaption("Metai", 4)]
-		public string Year
+		public string YearA
 		{
 			get { return m_year; }
 			set { m_year = value; }
