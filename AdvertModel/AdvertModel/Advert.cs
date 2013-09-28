@@ -32,6 +32,7 @@ namespace AdvertModel
 		string m_image = string.Empty;
 		int m_settingsId;
 		int m_userId;
+        string m_settingsName;
 
 		[PrimaryKey("SP_ADVERT_SEQ"),
 		 DBColumnReference("ID"),
@@ -51,7 +52,7 @@ namespace AdvertModel
 		}
 
 		[DBColumnReference("URL_LINK"),
-		 PropertyCaption("Nuoroda", 7)]
+		 PropertyCaption("Nuoroda", 8)]
 		public string UrlLink
 		{
 			get { return m_urlLink; }
@@ -59,7 +60,7 @@ namespace AdvertModel
 		}
 
 		[DBColumnReference("DATA"),
-		 PropertyCaption("Data", 4)]
+		 PropertyCaption("Data", 5)]
 		public string DateA
 		{
 			get { return m_date; }
@@ -67,7 +68,7 @@ namespace AdvertModel
 		}
 
 		[DBColumnReference("AD_YEAR"),
-		 PropertyCaption("Metai", 5)]
+		 PropertyCaption("Metai", 6)]
 		public string YearA
 		{
 			get { return m_year; }
@@ -75,7 +76,7 @@ namespace AdvertModel
 		}
 
 		[DBColumnReference("PRICE"),
-		 PropertyCaption("Kaina", 6)]
+		 PropertyCaption("Kaina", 7)]
 		public string Price
 		{
 			get { return m_price; }
@@ -144,6 +145,14 @@ namespace AdvertModel
 			get { return m_settingsId; }
 			set { m_settingsId = value; }
 		}
+
+        [DBColumnReference("SETTINGS_NAME"),
+         PropertyCaption("Nuorodos pavadinimas", 4)]
+        public string SettingsName
+        {
+            get { return m_settingsName; }
+            set { m_settingsName = value; }
+        }
 
 		public override string ToString()
 		{

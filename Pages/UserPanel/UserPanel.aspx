@@ -15,9 +15,14 @@
         <asp:LinkButton ID="M_SettingsLink" runat="server" CssClass="M_SettingsLink">Paieškos nustatymai</asp:LinkButton>
         <asp:LinkButton ID="M_LogOutLink" runat="server" CssClass="M_LogOutLink">Atsijungti</asp:LinkButton>
     
+        <asp:Button ID="M_OpenLinkButton" runat="server" CssClass="M_OpenLinkButton" Text="Atidaryti" />
+    
         <asp:Button ID="M_DeleteButton" runat="server" CssClass="M_DeleteButton" Text="Ištrinti" />
         <asp:Button ID="M_MarkAsReadButton" runat="server" CssClass="M_MarkAsReadButton" Text="Pažymėti kaip perskaitytą" />
     
+        <asp:Button ID="M_SelectAllButton" runat="server" CssClass="M_SelectAllButton" Text="Žymėti viską" />
+        <asp:Button ID="M_RefreshButton" runat="server" CssClass="M_RefreshButton" Text="Atnaujinti" />
+
         <asp:GridView ID="M_AdvertGrid" runat="server" CssClass="M_AdvertGrid" BackColor="White" 
             BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" 
             ShowHeaderWhenEmpty="True" AutoGenerateColumns="True" ViewStateMode="Enabled">
@@ -33,16 +38,35 @@
         </asp:GridView>
     
     </div>
+        
     </form>
 </body>
 </html>
 <style type="text/css">
 
-    .M_DeleteButton
+    .M_SelectAllButton
     {
         position:absolute;
         top: 30pt;
         left: 150pt;
+        height: 20pt;
+        width: 70pt;
+    }
+
+    .M_OpenLinkButton
+    {
+        position:absolute;
+        top: 30pt;
+        left: 222pt;
+        height: 20pt;
+        width: 70pt;
+    }
+
+    .M_DeleteButton
+    {
+        position:absolute;
+        top: 30pt;
+        left: 294pt;
         height: 20pt;
         width: 60pt;
     }
@@ -51,9 +75,18 @@
     {
         position:absolute;
         top: 30pt;
-        left: 215pt;
+        left: 356pt;
         height: 20pt;
         width: 130pt;
+    }
+
+    .M_RefreshButton
+    {
+        position:absolute;
+        top: 30pt;
+        left: 488pt;
+        height: 20pt;
+        width: 70pt;
     }
 
     .M_SettingsLink
@@ -80,6 +113,6 @@
         top: 60pt;
         left: 150pt;
         height: 12pt;
-        width: 600pt;
+        width: 800pt;
     }
 </style>
