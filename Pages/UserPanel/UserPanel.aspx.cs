@@ -16,13 +16,18 @@ public partial class Pages_UserPanel : System.Web.UI.Page
     private string m_userName;
     private User m_user;
 
+    //Indexex in grid
+    int m_indexId = 0;
+    int m_indexRead = 1;
+    int m_indexSelectCheckBox = 2;
+    int m_indexUrl = 7;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         m_token = new TokenHelper().ValidateTokenOnFormOpen(this);
         m_userName = Request["username"].Replace("'", string.Empty);
         SetEvents();
         CheckTempPass();
-        //StartService();
         LoadGrid();
     }
 
@@ -41,8 +46,39 @@ public partial class Pages_UserPanel : System.Web.UI.Page
 
         this.M_AdvertGrid.RowDataBound += delegate(object sender, GridViewRowEventArgs e)
         {
-            e.Row.Cells[0].Visible = false; //ID
-            e.Row.Cells[6].Visible = false; //Link url
+            e.Row.Cells[m_indexId].Visible = false; //ID
+            e.Row.Cells[m_indexRead].Visible = false; //read
+            e.Row.Cells[m_indexUrl].Visible = false; //Link url
+        };
+
+        this.M_DeleteButton.Click += delegate
+        {
+            foreach (GridViewRow row in M_AdvertGrid.Rows)
+            {
+                CheckBox checkBox = row.Cells[m_indexSelectCheckBox].Controls[0] as CheckBox;
+                if (checkBox.Checked)
+                {
+                    int id = Convert.ToInt32(row.Cells[m_indexId].Text);
+                    GenericDbHelper.RunDirectSql("update sp_advert set deleted = 1 where id = " + id);
+                }
+                Response.Redirect(string.Format("~/Pages/UserPanel/UserPanel.aspx?token='{0}'&username='{1}'", m_token.TokenValue, m_userName));
+            }
+        };
+
+        this.M_MarkAsReadButton.Click += delegate
+        {
+            foreach (GridViewRow row in M_AdvertGrid.Rows)
+            {
+                CheckBox checkBox = row.Cells[m_indexSelectCheckBox].Controls[0] as CheckBox;
+                if (checkBox.Checked)
+                {
+                    int id = Convert.ToInt32(row.Cells[m_indexId].Text);
+                    bool read = Convert.ToBoolean(row.Cells[m_indexRead].Text);
+                    if (read == false)
+                        GenericDbHelper.RunDirectSql("update sp_advert set read = 1 where id = " + id);
+                }
+            }
+            Response.Redirect(string.Format("~/Pages/UserPanel/UserPanel.aspx?token='{0}'&username='{1}'", m_token.TokenValue, m_userName));
         };
     }
 
@@ -55,27 +91,28 @@ public partial class Pages_UserPanel : System.Web.UI.Page
 
     private void LoadGrid()
     {
-        List<Advert> allAdverts = GenericDbHelper.Get<Advert>(string.Format("USER_ID = {0}", m_user.Id));
+        if (Page.IsPostBack == true)
+            return;
+
+        List<Advert> allAdverts = GenericDbHelper.Get<Advert>(string.Format("USER_ID = {0} and DELETED = 0", m_user.Id));
         DataTable table = new GridViewHelper().ConvertObjectListToDataTable<Advert>(allAdverts);
         //Pridedamas checkboxas
-        DataColumn coll = table.Columns.Add("Select", Type.GetType("System.Boolean"));
-        coll.SetOrdinal(1);
+        DataColumn coll = table.Columns.Add("Žymėti", Type.GetType("System.Boolean"));
+        coll.SetOrdinal(m_indexSelectCheckBox);
 
         this.M_AdvertGrid.DataSource = table;
         this.M_AdvertGrid.DataBind();
 
         foreach (GridViewRow row in M_AdvertGrid.Rows)
         {
-            CheckBox check = row.Cells[1].Controls[0] as CheckBox;
+            CheckBox check = row.Cells[m_indexSelectCheckBox].Controls[0] as CheckBox;
             check.Enabled = true;
-        }
-    }
 
-    private void StartService()
-    {
-       // if (Page.IsPostBack == false)
-       // {
-           // new AdvertServiceHelper(m_user.Id).Run();
-       // }
+            bool read = Convert.ToBoolean(row.Cells[m_indexRead].Text);
+            if (read == false)
+                row.Style.Add(HtmlTextWriterStyle.FontWeight, "Bold");
+
+            //int? id = row.Cells[0].Text as int?;
+        }
     }
 }
