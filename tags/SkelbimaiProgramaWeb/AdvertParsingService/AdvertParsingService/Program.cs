@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using AdvertParsingService.Service;
 
 namespace AdvertParsingService
 {
@@ -14,7 +15,7 @@ namespace AdvertParsingService
 	{
 		public static void Main(string[] args)
 		{
-			
+			new AdvertService().Start();
 		}
 	}
 }
