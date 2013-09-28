@@ -21,7 +21,7 @@ public partial class Pages_UserPanel : System.Web.UI.Page
     int m_indexId = 0;
     int m_indexRead = 1;
     int m_indexSelectCheckBox = 2;
-    int m_indexUrl = 8;
+    int m_indexUrl = 9;
 
     protected void Page_Load(object sender, EventArgs e)
     {
