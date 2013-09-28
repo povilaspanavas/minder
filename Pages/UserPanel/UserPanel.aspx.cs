@@ -120,6 +120,11 @@ public partial class Pages_UserPanel : System.Web.UI.Page
                     checkBox.Checked = false;
                 }
             }
+            Response.Write("<script>");
+            Response.Write(string.Format(string.Format("window.location=\"{0}\"", string.Format("UserPanel.aspx?token='{0}'&username='{1}'", m_token.TokenValue, m_userName))));
+            Response.Write("</script>");
+            Response.Flush();
+            //Response.Redirect(string.Format("~/Pages/UserPanel/UserPanel.aspx?token='{0}'&username='{1}'", m_token.TokenValue, m_userName));
         };
 
         //this.M_AdvertGrid.RowCommand += delegate(object sender, GridViewCommandEventArgs e)
