@@ -30,6 +30,12 @@ public partial class Pages_DbVersions : System.Web.UI.Page
 
         //-----
         //Advert table
-       // GenericDbHelper.CreateTable(typeof(Advert));
+       // GenericDbHelper.RunDirectSql()
+        //GenericDbHelper.CreateTable(typeof(Advert));
+
+        Advert advert = new Advert();
+        advert.Name = "asdkad";
+        advert.UserId = 28;
+        GenericDbHelper.SaveAndFlush(advert);
     }
 }

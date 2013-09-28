@@ -8,10 +8,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+        
+       
+    <div style="height:100%;width:100%;overflow:scroll;">
     
         <asp:LinkButton ID="M_SettingsLink" runat="server" CssClass="M_SettingsLink">Paieškos nustatymai</asp:LinkButton>
         <asp:LinkButton ID="M_LogOutLink" runat="server" CssClass="M_LogOutLink">Atsijungti</asp:LinkButton>
+    
+        <asp:Button ID="M_DeleteButton" runat="server" CssClass="M_DeleteButton" Text="Ištrinti" />
+        <asp:Button ID="M_MarkAsReadButton" runat="server" CssClass="M_MarkAsReadButton" Text="Pažymėti kaip perskaitytą" />
     
         <asp:GridView ID="M_AdvertGrid" runat="server" CssClass="M_AdvertGrid" BackColor="White" 
             BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" 
@@ -32,9 +37,28 @@
 </body>
 </html>
 <style type="text/css">
+
+    .M_DeleteButton
+    {
+        position:absolute;
+        top: 30pt;
+        left: 150pt;
+        height: 20pt;
+        width: 60pt;
+    }
+
+    .M_MarkAsReadButton
+    {
+        position:absolute;
+        top: 30pt;
+        left: 215pt;
+        height: 20pt;
+        width: 130pt;
+    }
+
     .M_SettingsLink
     {
-        position: fixed;
+        position:absolute;
         top: 30pt;
         left: 20pt;
         height: 12pt;
@@ -43,7 +67,7 @@
     
     .M_LogOutLink
     {
-        position: fixed;
+        position: absolute;
         top: 50pt;
         left: 20pt;
         height: 12pt;
@@ -52,8 +76,8 @@
     
     .M_AdvertGrid
     {
-        position: fixed;
-        top: 30pt;
+        position: absolute;
+        top: 60pt;
         left: 150pt;
         height: 12pt;
         width: 600pt;

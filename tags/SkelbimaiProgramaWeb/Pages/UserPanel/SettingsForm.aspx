@@ -25,7 +25,7 @@
             <SortedDescendingHeaderStyle BackColor="#00547E" />
         </asp:GridView>
         <asp:Button ID="M_CreateSettingsButton" runat="server" Text="Sukurti" CssClass="M_CreateSettingsButton" />
-        <asp:LinkButton ID="M_UserPanelLink" runat="server" CssClass="M_UserPanelLink">Valdymo panelė</asp:LinkButton>
+        <asp:LinkButton ID="M_UserPanelLink" runat="server" CssClass="M_UserPanelLink">Pagrindinis</asp:LinkButton>
       </div>
                  </asp:Panel>
         

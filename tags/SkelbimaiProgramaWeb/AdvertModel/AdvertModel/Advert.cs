@@ -26,7 +26,7 @@ namespace AdvertModel
 		string m_column2 = string.Empty;
 		bool m_read;
 		bool m_mark;
-//		bool m_deleted;
+		bool m_deleted;
 		string m_parserFileName = string.Empty;
 		DateTime m_advertDate;
 		string m_image = string.Empty;
@@ -43,7 +43,7 @@ namespace AdvertModel
 		}
 
 		[DBColumnReference("NAME"),
-		 PropertyCaption("Pavadinimas", 2)]
+		 PropertyCaption("Pavadinimas", 3)]
 		public string Name
 		{
 			get { return m_name; }
@@ -51,7 +51,7 @@ namespace AdvertModel
 		}
 
 		[DBColumnReference("URL_LINK"),
-		 PropertyCaption("Nuoroda", 6)]
+		 PropertyCaption("Nuoroda", 7)]
 		public string UrlLink
 		{
 			get { return m_urlLink; }
@@ -59,7 +59,7 @@ namespace AdvertModel
 		}
 
 		[DBColumnReference("DATA"),
-		 PropertyCaption("Data", 3)]
+		 PropertyCaption("Data", 4)]
 		public string DateA
 		{
 			get { return m_date; }
@@ -67,7 +67,7 @@ namespace AdvertModel
 		}
 
 		[DBColumnReference("AD_YEAR"),
-		 PropertyCaption("Metai", 4)]
+		 PropertyCaption("Metai", 5)]
 		public string YearA
 		{
 			get { return m_year; }
@@ -75,7 +75,7 @@ namespace AdvertModel
 		}
 
 		[DBColumnReference("PRICE"),
-		 PropertyCaption("Kaina", 5)]
+		 PropertyCaption("Kaina", 6)]
 		public string Price
 		{
 			get { return m_price; }
@@ -96,7 +96,7 @@ namespace AdvertModel
 			set { m_column2 = value; }
 		}
 
-		[DBColumnReference("READ")]
+		[DBColumnReference("READ"), PropertyCaption("Perskaitytas", 2)]
 		public bool Read
 		{
 			get { return m_read; }
@@ -109,6 +109,13 @@ namespace AdvertModel
 			get { return m_mark; }
 			set { m_mark = value; }
 		}
+
+        [DBColumnReference("DELETED")]
+        public bool Deleted
+        {
+            get { return m_deleted; }
+            set { m_deleted = value; }
+        }
 
 		[DBColumnReference("ADVERT_DATE")]
 		public DateTime AdvertDate
