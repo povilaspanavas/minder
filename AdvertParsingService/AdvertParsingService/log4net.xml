@@ -23,7 +23,7 @@
 	</root>
 
   <logger name="Core.DB.GenericDbHelper">
-    <level value="Debug" />
+    <level value="Error" />
   </logger>
 	
 
