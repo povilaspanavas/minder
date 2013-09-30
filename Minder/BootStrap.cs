@@ -59,7 +59,7 @@ namespace Minder
                 var app = new System.Windows.Application();
                 app.Resources.MergedDictionaries.Add(resources);
                 Starter(args);
-                ClearTypeOn();
+                // ClearTypeOn();
                 //var controller = new TaskShowController(new Task());
                 //controller.Window.ShowDialog();
                 //var wpfForm = new TaskShowWpfForm();
