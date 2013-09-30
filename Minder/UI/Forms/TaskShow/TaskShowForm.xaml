@@ -6,21 +6,18 @@
              xmlns:src="clr-namespace:Minder.UI.Forms"
              mc:Ignorable="d" Height="167.54" Width="253.154"
              Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
-             Title="Minder Task" WindowStyle="None" WindowStartupLocation="CenterScreen" Topmost="True" AllowsTransparency="True">
+             Title="Minder Task" WindowStartupLocation="CenterScreen" Topmost="True" WindowStyle="None">
 
     <Grid Margin="0,0,2,3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="41*"/>
             <ColumnDefinition Width="32*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Task:" HorizontalAlignment="Left" Height="33" Margin="9,10,0,0" VerticalAlignment="Top" Width="47"/>
-        <Label Content="{Binding Task.Text}" HorizontalAlignment="Left" Height="33" Margin="56,10,0,0" VerticalAlignment="Top" Width="188" Grid.ColumnSpan="2"/>
-        <Label Content="Time:" HorizontalAlignment="Left" Height="32" Margin="9,34,0,0" VerticalAlignment="Top" Width="47"/>
-        <Label Content="{Binding Task.DateRemainder}" HorizontalAlignment="Left" Height="32" Margin="55,34,0,0" VerticalAlignment="Top" Width="189" Grid.ColumnSpan="2"/>
-        <Button x:Name="ButtonCloseOk" Command="{Binding CloseTaskCommand}" Content="Close" HorizontalAlignment="Left" Height="31" Margin="10,71,0,0" VerticalAlignment="Top" Width="103" TabIndex="0"/>
-        <Button x:Name="ButtonEditTask" Content="Edit Task" HorizontalAlignment="Left" Height="31" Margin="128,71,0,0" VerticalAlignment="Top" Width="103" Grid.ColumnSpan="2" TabIndex="2"/>
-        <Button x:Name="ButtonRemindMeLater" Command="{Binding RemindMeLaterCommand}" Content="Remind Me Later" HorizontalAlignment="Left" Height="31" Margin="128,111,0,0" VerticalAlignment="Top" Width="103" Grid.ColumnSpan="2" TabIndex="1"/>
-        <ComboBox x:Name="ComboBoxRemindLater" ItemsSource="{Binding RemindLaterValues}" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="10,117,0,0" VerticalAlignment="Top" Width="103" Height="25" TabIndex="3">
+        <Label Content="{Binding FullText}" HorizontalAlignment="Left" Height="56" Margin="9,10,0,0" VerticalAlignment="Top" Width="222" Grid.ColumnSpan="2"/>
+        <Button x:Name="ButtonCloseOk" Command="{Binding CloseTaskCommand}" Content="Close" HorizontalAlignment="Left" Height="31" Margin="10,84,0,0" VerticalAlignment="Top" Width="103" TabIndex="0"/>
+        <Button x:Name="ButtonEditTask" Content="Edit Task" HorizontalAlignment="Left" Height="31" Margin="128,84,0,0" VerticalAlignment="Top" Width="103" Grid.ColumnSpan="2" TabIndex="2"/>
+        <Button x:Name="ButtonRemindMeLater" Command="{Binding RemindMeLaterCommand}" Content="Remind Me Later" HorizontalAlignment="Left" Height="31" Margin="128,124,0,0" VerticalAlignment="Top" Width="103" Grid.ColumnSpan="2" TabIndex="1"/>
+        <ComboBox x:Name="ComboBoxRemindLater" ItemsSource="{Binding RemindLaterValues}" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="103" Height="25" TabIndex="3">
             <ComboBox.SelectedItem>
                 <Binding Path="RemindLaterValueSelectedItem"/>
             </ComboBox.SelectedItem>
