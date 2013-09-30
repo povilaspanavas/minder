@@ -133,6 +133,33 @@ namespace Minder.Forms.TaskShow
             CloseOrOkButton();
         }
 
+        public ICommand RemindMeLaterCommand
+        {
+            get { return new DelegateCommand(new Action(RemindMeLaterPressed)); }
+        }
+
+        private void RemindMeLaterPressed()
+        {
+            m_task.Showed = false;
+            //if (_window.MComboBoxRemindLater.SelectedItem != null)
+            //{
+            //    RemindLaterValue val = _window.MComboBoxRemindLater.SelectedItem as RemindLaterValue;
+            //    m_task.DateRemainder = DateTime.Now.AddHours((double)val.Value);
+            //}
+            //else
+                m_task.DateRemainder = DateTime.Now.AddMinutes(10); //Temp
+            CloseOrOkButton();
+        }
+
+        //_window.RemainderMeLaterButton.Click += delegate
+        //{
+        //   
+
+        //    m_task.Update();
+        //    _window.Close(); //Padarom close, o ant close eventas, kad ok arba close button.
+        //    //tai ir gaunasi, kad remaind me later neveikia.
+        //};
+
 		public void SetEvents()
 		{
             //_window.OkButton.Click += delegate
@@ -147,21 +174,6 @@ namespace Minder.Forms.TaskShow
 //				Close();
 //			};
 			
-            //_window.RemainderMeLaterButton.Click += delegate
-            //{
-            //    m_task.Showed = false;
-            //    if (_window.MComboBoxRemindLater.SelectedItem != null)
-            //    {
-            //        RemindLaterValue val = _window.MComboBoxRemindLater.SelectedItem as RemindLaterValue;
-            //        m_task.DateRemainder = DateTime.Now.AddHours((double)val.Value);
-            //    }
-            //    else
-            //        m_task.DateRemainder = DateTime.Now.AddMinutes(10); //Temp
-				
-            //    m_task.Update();
-            //    _window.Close(); //Padarom close, o ant close eventas, kad ok arba close button.
-            //    //tai ir gaunasi, kad remaind me later neveikia.
-            //};
 			
             //_window.ButtonEditTask.Click += delegate {
             //    // Doesn't work closing, probably because we are in the event of the form we are closing
