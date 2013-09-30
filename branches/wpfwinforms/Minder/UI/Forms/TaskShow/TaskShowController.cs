@@ -22,7 +22,6 @@ namespace Minder.Forms.TaskShow
         Window Window { get; }
 
         void PrepareWindow();
-        void SetEvents();
     }
 
     /// <summary>
@@ -108,8 +107,6 @@ namespace Minder.Forms.TaskShow
 
         public void PrepareWindow()
         {
-            SetEvents();
-            SetTaskText();
             if (StaticData.Settings.PlaySound)
                 PlaySound();
             _window.ShowDialog();
@@ -151,34 +148,22 @@ namespace Minder.Forms.TaskShow
             CloseOrOkButton();
         }
 
-        public void SetEvents()
-        {
-
-
-            //_window.ButtonEditTask.Click += delegate {
-            //    // Doesn't work closing, probably because we are in the event of the form we are closing
-            //    this._window.Hide();
-            //    new TaskNewEditFormPreparer(true, m_task).PrepareForm();
-            //    this._window.Close();
-            //};
-
-
-            
-        }
-
         private void CloseOrOkButton()
         {
             m_task.Update();
             _window.Close();
         }
 
-        private void SetTaskText()
+        public string FullText
         {
-            //if(m_task == null)
-            //    return;
-            //_window.TextBox.Text =
-            //    string.Format("Task: {0}{1}{2}Time: {3}", m_task.Text, Environment.NewLine, Environment.NewLine,
-            //                  DBTypesConverter.ToFullDateStringByCultureInfo(m_task.DateRemainder));
+            get
+            {
+                if (m_task == null)
+                    return string.Empty;
+
+                return string.Format("Task: {0}{1}{2}Time: {3}", m_task.Text, Environment.NewLine, Environment.NewLine,
+                                  DBTypesConverter.ToFullDateStringByCultureInfo(m_task.DateRemainder));
+            }
         }
     }
 }
