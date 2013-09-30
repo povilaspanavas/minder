@@ -23,6 +23,15 @@ namespace Minder.UI.Forms.TaskShow
         public TaskShowForm()
         {
             InitializeComponent();
+            this.Deactivated += delegate
+            {
+                this.Opacity = 0.5;
+            };
+
+            this.Activated += delegate
+            {
+                this.Opacity = 1.0;
+            };
         }
     }
 }

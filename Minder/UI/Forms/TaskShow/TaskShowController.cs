@@ -163,12 +163,7 @@ namespace Minder.Forms.TaskShow
             //};
 
 
-            //_window.Deactivate += delegate { 
-            //    _window.Opacity = 0.5;
-            //};
-            //_window.Activated += delegate {
-            //    _window.Opacity = 1.0;
-            //};
+            
         }
 
         private void CloseOrOkButton()
