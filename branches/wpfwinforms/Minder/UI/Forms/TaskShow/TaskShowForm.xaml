@@ -6,7 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" Height="167.54" Width="253.154"
              Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
-             Title="Minder Task" WindowStyle="None" WindowStartupLocation="CenterScreen" Topmost="True">
+             Title="Minder Task" WindowStyle="None" WindowStartupLocation="CenterScreen" Topmost="True" AllowsTransparency="True">
 
     <Grid Margin="0,0,2,3">
         <Grid.ColumnDefinitions>
