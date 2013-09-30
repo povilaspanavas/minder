@@ -23,6 +23,7 @@ using System.Reflection;
 using System.Windows.Resources;
 using Minder.UI.SkinController.MainForms;
 using Minder.Forms.TaskShow;
+using System.Windows.Media;
 
 namespace Minder
 {
@@ -58,8 +59,7 @@ namespace Minder
                 var app = new System.Windows.Application();
                 app.Resources.MergedDictionaries.Add(resources);
                 Starter(args);
-
-                
+                ClearTypeOn();
                 //var controller = new TaskShowController(new Task());
                 //controller.Window.ShowDialog();
                 //var wpfForm = new TaskShowWpfForm();
@@ -83,6 +83,12 @@ namespace Minder
 				Application.Exit();
 			}
 		}
+
+        private static void ClearTypeOn()
+        {
+            RenderOptions.ClearTypeHintProperty.OverrideMetadata(typeof(System.Windows.FrameworkElement), new System.Windows.FrameworkPropertyMetadata { DefaultValue = ClearTypeHint.Enabled });
+            TextOptions.TextFormattingModeProperty.OverrideMetadata(typeof(System.Windows.FrameworkElement), new System.Windows.FrameworkPropertyMetadata { DefaultValue = TextFormattingMode.Display });
+        }
 		
 		private static void Starter(string[] args)
 		{

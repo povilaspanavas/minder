@@ -18,6 +18,7 @@ namespace Minder.UI.Forms
                     this.Close();
                 }
             };
+            //base. = true;
         }
     }
 }
