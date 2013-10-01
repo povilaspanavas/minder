@@ -22,6 +22,7 @@ namespace Minder.UI.Forms.Tasks
         public TaskNewEditWpfForm()
         {
             InitializeComponent();
+            this.DateTimePicker.DefaultValue = DateTime.Now;
         }
     }
 }
