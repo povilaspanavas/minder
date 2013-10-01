@@ -24,6 +24,7 @@ using System.Windows.Resources;
 using Minder.UI.SkinController.MainForms;
 using Minder.Forms.TaskShow;
 using System.Windows.Media;
+using WPF.Themes;
 
 namespace Minder
 {
@@ -58,6 +59,8 @@ namespace Minder
                 var resources = (System.Windows.ResourceDictionary)Load(sri.Stream);
                 var app = new System.Windows.Application();
                 app.Resources.MergedDictionaries.Add(resources);
+                //ThemeManager.
+                ThemeManager.ApplyTheme(app, "BubbleCreme");
                 Starter(args);
                 ClearTypeOn();
                 //var controller = new TaskShowController(new Task());

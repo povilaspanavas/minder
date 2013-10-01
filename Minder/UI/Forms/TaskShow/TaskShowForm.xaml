@@ -22,6 +22,5 @@
                 <Binding Path="RemindLaterValueSelectedItem"/>
             </ComboBox.SelectedItem>
         </ComboBox>
-
     </Grid>
 </src:BasicWpfForm>
