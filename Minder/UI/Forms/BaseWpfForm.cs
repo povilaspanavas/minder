@@ -7,9 +7,9 @@ using System.Windows.Input;
 
 namespace Minder.UI.Forms
 {
-    public class BasicWpfForm : Window
+    public class BaseWpfForm : Window
     {
-        public BasicWpfForm() : base()
+        public BaseWpfForm() : base()
         {
             this.KeyUp += delegate(object sender, KeyEventArgs e)
             {
@@ -18,7 +18,6 @@ namespace Minder.UI.Forms
                     this.Close();
                 }
             };
-            //base. = true;
         }
     }
 }

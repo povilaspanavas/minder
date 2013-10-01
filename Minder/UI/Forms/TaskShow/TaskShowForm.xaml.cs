@@ -18,7 +18,7 @@ namespace Minder.UI.Forms.TaskShow
     /// <summary>
     /// Interaction logic for TaskShowWpfForm.xaml
     /// </summary>
-    public partial class TaskShowForm : BasicWpfForm
+    public partial class TaskShowForm : BaseWpfForm
     {
         public TaskShowForm()
         {

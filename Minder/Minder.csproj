@@ -140,7 +140,7 @@
     <Compile Include="UI\Forms\BasicForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Forms\BasicWpfForm.cs" />
+    <Compile Include="UI\Forms\BaseWpfForm.cs" />
     <Compile Include="UI\Forms\DelegateCommand.cs" />
     <Compile Include="UI\Forms\Main\MainForm.cs">
       <SubType>Form</SubType>
