@@ -25,6 +25,7 @@ public partial class Pages_UserPanel : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        //Need do this in base page
         m_token = new TokenHelper().ValidateTokenOnFormOpen(this);
         m_userName = Request["username"].Replace("'", string.Empty);
 
@@ -33,7 +34,7 @@ public partial class Pages_UserPanel : System.Web.UI.Page
         LoadGrid();
 
 
-        //Refresh kas 10 s.
+        //Refresh kas 20 s.
         Response.Expires = 0;
         Response.Buffer = true;
         Response.Clear();
