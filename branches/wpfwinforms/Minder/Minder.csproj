@@ -177,6 +177,9 @@
       <DependentUpon>TaskNewEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\Tasks\TaskNewEditFormPreparer.cs" />
+    <Compile Include="UI\Forms\Tasks\TaskNewEditWpfForm.xaml.cs">
+      <DependentUpon>TaskNewEditWpfForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\Tasks\TasksForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +263,10 @@
     <Page Include="UI\Forms\TaskShow\TaskShowForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Forms\Tasks\TaskNewEditWpfForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\SkinController\MainForms\BlackSkin\BlackSkin.xaml" />
     <Page Include="UI\SkinController\MainForms\BlueOrangeSkin\BlueOrangeSkin.xaml" />
