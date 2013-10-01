@@ -51,7 +51,7 @@
         <GradientStop Color="#FFFFFFFF"/>
         <GradientStop Color="#FFFEFAE3" Offset="1"/>
     </LinearGradientBrush>
-
+    
     <!-- ScrollBar -->
     <Style TargetType="ScrollBar">
         <Setter Property="MinWidth" Value="17"/>
