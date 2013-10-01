@@ -25,6 +25,7 @@ using Minder.UI.SkinController.MainForms;
 using Minder.Forms.TaskShow;
 using System.Windows.Media;
 using WPF.Themes;
+using Minder.UI.Forms.Tasks;
 
 namespace Minder
 {
@@ -63,6 +64,7 @@ namespace Minder
                 ThemeManager.ApplyTheme(app, "BubbleCreme");
                 Starter(args);
                 ClearTypeOn();
+                new TaskNewEditWpfForm().ShowDialog();
                 //var controller = new TaskShowController(new Task());
                 //controller.Window.ShowDialog();
                 //var wpfForm = new TaskShowWpfForm();
