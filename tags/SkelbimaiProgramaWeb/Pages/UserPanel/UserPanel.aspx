@@ -10,11 +10,15 @@
     <form id="form1" runat="server">
         
        
+        
+        
+       
     <div style="height:100%;width:100%;overflow:scroll;">
     
         <asp:LinkButton ID="M_SettingsLink" runat="server" CssClass="M_SettingsLink">Paieškos nustatymai</asp:LinkButton>
         <asp:LinkButton ID="M_LogOutLink" runat="server" CssClass="M_LogOutLink">Atsijungti</asp:LinkButton>
-    
+        <asp:LinkButton ID="M_ProfileLink" runat="server" CssClass="M_ProfileLink">Profilis</asp:LinkButton>
+
         <asp:Button ID="M_OpenLinkButton" runat="server" CssClass="M_OpenLinkButton" Text="Atidaryti" />
     
         <asp:Button ID="M_DeleteButton" runat="server" CssClass="M_DeleteButton" Text="Ištrinti" />
@@ -89,6 +93,15 @@
         width: 70pt;
     }
 
+    .M_ProfileLink
+    {
+        position:absolute;
+        top: 50pt;
+        left: 20pt;
+        height: 12pt;
+        width: 100pt;
+    }
+
     .M_SettingsLink
     {
         position:absolute;
@@ -101,7 +114,7 @@
     .M_LogOutLink
     {
         position: absolute;
-        top: 50pt;
+        top: 70pt;
         left: 20pt;
         height: 12pt;
         width: 100pt;

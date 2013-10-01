@@ -11,6 +11,7 @@ using System.Data;
 using AdvertModel;
 using System.Text.RegularExpressions;
 
+
 public partial class Pages_UserPanel : System.Web.UI.Page
 {
     private Token m_token = null;
@@ -28,7 +29,6 @@ public partial class Pages_UserPanel : System.Web.UI.Page
         //Need do this in base page
         m_token = new TokenHelper().ValidateTokenOnFormOpen(this);
         m_userName = Request["username"].Replace("'", string.Empty);
-
         SetEvents();
         CheckTempPass();
         LoadGrid();
@@ -91,12 +91,26 @@ public partial class Pages_UserPanel : System.Web.UI.Page
             Response.Redirect(string.Format("~/Pages/UserPanel/UserPanel.aspx?token='{0}'&username='{1}'", m_token.TokenValue, m_userName));
         };
 
+        this.M_ProfileLink.Click += delegate
+        {
+            Response.Redirect(string.Format("~/Pages/UserPanel/ProfilePage.aspx?token='{0}'&username='{1}'", m_token.TokenValue, m_userName));
+        };
+
         this.M_SelectAllButton.Click += delegate
         {
+            bool check = true;
+            if (this.M_SelectAllButton.Text.Equals("Žymėti viską"))
+                this.M_SelectAllButton.Text = "Nežymėti";
+            else
+            {
+                this.M_SelectAllButton.Text = "Žymėti viską";
+                check = false;
+            }
+
             foreach (GridViewRow row in M_AdvertGrid.Rows)
             {
                 CheckBox checkBox = row.Cells[m_indexSelectCheckBox].Controls[0] as CheckBox;
-                checkBox.Checked = true;
+                checkBox.Checked = check;
             }
         };
 
