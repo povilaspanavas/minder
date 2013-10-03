@@ -15,7 +15,7 @@
         <Label Content="Date" HorizontalAlignment="Left" Height="25" Margin="10,84,0,0" VerticalAlignment="Top" Width="43"/>
         <TextBox HorizontalAlignment="Left" Height="70" Margin="58,12,0,0" TextWrapping="Wrap" Text="{Binding Task.Text}" VerticalAlignment="Top" Width="246"/>
         <xctk:DateTimePicker Value="{Binding Task.DateRemainder}" x:Name="DateTimePicker" HorizontalAlignment="Left" Height="22" Margin="58,87,0,0" VerticalAlignment="Top" Width="246" FormatString="{Binding DateTimeFormat}" TextAlignment="Left"/>
-        <CheckBox Content="{Binding Task.Showed}" HorizontalAlignment="Left" Height="18" Margin="58,114,0,0" VerticalAlignment="Top" Width="246"/>
+        <CheckBox Content="Showed" IsChecked="{Binding Task.Showed}" Visibility="{Binding Edit}" HorizontalAlignment="Left" Height="18" Margin="58,114,0,0" VerticalAlignment="Top" Width="246"/>
 
     </Grid>
 </src:BaseWpfForm>
