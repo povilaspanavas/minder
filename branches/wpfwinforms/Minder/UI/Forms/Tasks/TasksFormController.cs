@@ -162,7 +162,7 @@ namespace Minder.Forms.Tasks
             {
                 List<Task> _tasksTemp = new DbHelper().LoadAllTasks();
 
-                if (_tasks == null)
+                if (_tasksTemp == null)
                     return;
 
                 //                int rowIndex = 0;
