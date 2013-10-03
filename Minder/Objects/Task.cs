@@ -27,7 +27,7 @@ namespace Minder.Objects
 	{
 		int m_id = 0;
 		string m_text = string.Empty;
-		DateTime m_dateRemainder = DateTime.MinValue;
+		DateTime m_dateRemainder = DateTime.Now;
 		string m_sourceId = string.Empty;
 		bool m_showed = false;
 		DateTime m_lastModifyDate;

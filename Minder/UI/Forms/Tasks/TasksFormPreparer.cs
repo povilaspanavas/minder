@@ -60,8 +60,7 @@ namespace Minder.Forms.Tasks
 				Task task = new Task(taskId, m_form.MTaskGrid.SelectedRows[0].Cells[2].Value.ToString(), Convert.ToDateTime(m_form.MTaskGrid.SelectedRows[0].Cells[3].Value), m_form.MTaskGrid.SelectedRows[0].Cells[1].Value.ToString());
 				task.Showed = Convert.ToBoolean(m_form.MTaskGrid.SelectedRows[0].Cells[4].Value);
 				
-				TaskNewEditFormController preparer = new TaskNewEditFormController(true);
-				preparer.Task = task;
+				TaskNewEditFormController preparer = new TaskNewEditFormController(task);
 				preparer.Window.Closed += delegate { RefreshTaskGrid(); };
 				preparer.PrepareWindow();
 			}
@@ -71,7 +70,7 @@ namespace Minder.Forms.Tasks
 		{
 			m_form.MNewButton.Click += delegate
 			{
-				TaskNewEditFormController preparer = new TaskNewEditFormController(false);
+				TaskNewEditFormController preparer = new TaskNewEditFormController(new Task());
                 preparer.Window.Closed += delegate { RefreshTaskGrid(); };
                 preparer.PrepareWindow();
 			};

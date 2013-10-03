@@ -24,36 +24,35 @@ namespace Minder.Forms.Tasks
     public class TaskNewEditFormController : IController
     {
         private TaskNewEditWpfForm _window = null;
-        private bool m_edit = false;
-        private Task m_task;
+        private bool _edit = false;
+        private Task _task;
 
         public Task Task
         {
-            get { return m_task; }
-            set { m_task = value; }
+            get { return _task; }
+            set { _task = value; }
         }
 
-        public TaskNewEditFormController(bool edit, Task task)
-            : this(edit)
+        public Visibility Edit
         {
-            this.m_task = task;
+            get
+            {
+                return _edit ? Visibility.Visible : Visibility.Collapsed;
+            }
         }
 
-        public TaskNewEditFormController(bool edit)
+        public TaskNewEditFormController(Task task)
         {
+            this._task = task;
             _window = new TaskNewEditWpfForm();
             _window.DataContext = this;
-            m_edit = edit;
-            if (m_edit)
-                _window.Title = "Edit task";
-            else
-                _window.Title = "New task";
+            _edit = _task.Id > 0; // if it was saved to db, we are editing
+            _window.Title = _edit ? "Edit task" : "New Task";
         }
         public string DateTimeFormat
         {
             get
             {
-
                 return string.Format("{0} {1}",
                     StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortDatePattern,
                     StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortTimePattern);
@@ -78,21 +77,6 @@ namespace Minder.Forms.Tasks
             _window.ShowDialog();
         }
 
-        //private void FillFields()
-        //{
-        //    if(m_task == null)
-        //        return;
-        //    _window.MDatePicker.Value = m_task.DateRemainder;
-        //    _window.MTextBox.Text = m_task.Text;
-        //    _window.MShowedCheckBox.Checked = m_task.Showed;
-        //}
-
-        //public void SetEvents()
-        //{
-        //    _window.MDatePicker.ValueChanged += delegate {
-        //        if (_window.MShowedCheckBox.Checked != false)
-        //            _window.MShowedCheckBox.Checked = false;
-        //    };
 
         //    _window.MSaveButton.Click += delegate
         //    {
