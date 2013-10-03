@@ -1,12 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="UserManagementForm.aspx.cs" Inherits="Pages_UserManagementForm" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Pages/MasterPage.master" AutoEventWireup="true" CodeFile="UserManagementForm.aspx.cs" Inherits="Pages_UserManagementForm" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" Runat="Server">
     <form id="form1" runat="server">
     <div>
         <asp:GridView ID="M_UserGridView" runat="server" CssClass="M_UserGridView" BackColor="White" 
@@ -29,34 +25,4 @@
     
     </div>
     </form>
-</body>
-</html>
-
-<style type="text/css">
-    .M_UserGridView
-    {
-        position: fixed;
-        top: 20pt;
-        left: 150pt;
-        height: 12pt;
-        width: 600pt;
-    }
-    
-    .M_CreateUserButton
-    {
-        position: fixed;
-        top: 20pt;
-        left: 30pt;
-        height: 20pt;
-        width: 50pt;
-    }
-    
-     .M_AdminPanelLink
-    {
-        position: fixed;
-        top: 60pt;
-        left: 30pt;
-        height: 20pt;
-        width: 70pt;
-    }
-</style>
+</asp:Content>

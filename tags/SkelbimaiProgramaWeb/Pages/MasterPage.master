@@ -9,9 +9,6 @@
 
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css' />	
     <title></title>
-
-    
-
 	<meta name='robots' content='noindex,nofollow' />
     
     <link href="../App_Themes/Trim/Trim.css" rel="stylesheet" />
@@ -76,7 +73,7 @@
 				    <div class="slide_wrap">
 						<div class="et_text_slide">
 							<h2 class="title"><a href="#">Our Prices Are Simply The Best</a></h2><p>We Provide The Most Affordable Services</p>
-                            <a href=#" class="readmore">Read More</a>
+                            <a href="#" class="readmore">Read More</a>
 						</div>
 					</div>
 			    </li>
@@ -107,10 +104,8 @@
 		                <div class="post-content clearfix">
 									
 			                <div class="entry_content">
-                                <p>
                                     <asp:ContentPlaceHolder id="MainContentPlaceHolder" runat="server">
                                     </asp:ContentPlaceHolder>
-                                </p>
 							</div>
 		                </div>
 	                    </article>
