@@ -84,7 +84,7 @@ namespace Minder.Forms.Tasks
                 return new DelegateCommand(SavePressed);
             }
         }
-
+        
         public void SavePressed()
         {
             if (_edit == false) // new task
