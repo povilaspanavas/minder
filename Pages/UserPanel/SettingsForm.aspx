@@ -1,12 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SettingsForm.aspx.cs" Inherits="Pages_UserPanel_SettingsForm" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Pages/MasterPage.master" AutoEventWireup="true" CodeFile="SettingsForm.aspx.cs" Inherits="Pages_UserPanel_SettingsForm" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" Runat="Server">
     <form id="form1" runat="server">
     
         <asp:Panel ID="Panel1" runat="server" ScrollBars="Both" CssClass="Panel1">
@@ -31,44 +27,4 @@
         
     
     </form>
-</body>
-</html>
-
-<style type="text/css">
-
-     .Panel1
-    {
-        position: fixed;
-        top: 30pt;
-        left: 120pt;
-        height: 20pt;
-        width: 600pt;
-    }
-
-    .M_SettingsGrid
-    {
-        position: fixed;
-        top: 30pt;
-        left: 120pt;
-        height: 20pt;
-        width: 600pt;
-    }
-    
-    .M_CreateSettingsButton
-    {
-        position: fixed;
-        top: 30pt;
-        left: 20pt;
-        height: 20pt;
-        width: 80pt;
-    }
-    
-    .M_UserPanelLink
-    {
-        position: fixed;
-        top: 60pt;
-        left: 20pt;
-        height: 12pt;
-        width: 80pt;
-    }
-</style>
+</asp:Content>

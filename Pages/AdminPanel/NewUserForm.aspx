@@ -1,11 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="NewUserForm.aspx.cs" Inherits="Pages_AdminPanel_NewUserForm" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Pages/MasterPage.master" AutoEventWireup="true" CodeFile="NewUserForm.aspx.cs" Inherits="Pages_AdminPanel_NewUserForm" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" Runat="Server">
     <form id="form1" runat="server">
     <div>
         <asp:TextBox ID="M_UserNameTextBox" runat="server" CssClass="M_UserNameTextBox"></asp:TextBox>
@@ -22,115 +19,5 @@
         <asp:Label ID="M_LogLabel" runat="server" Text="" CssClass="M_LogLabel"></asp:Label>
         <asp:CheckBox ID="M_BlockedCheckBox" runat="server" CssClass="M_BlockedCheckBox" Text="Blokuotas" />
     </div>
-    </form>
-</body>
-</html>
-<style type="text/css">
-    .M_UserNameTextBox
-    {
-        position: fixed;
-        top: 20pt;
-        left: 100pt;
-        height: 12pt;
-        width: 120pt;
-    }
-    
-    .M_EmailTextBox
-    {
-        position: fixed;
-        top: 40pt;
-        left: 100pt;
-        height: 12pt;
-        width: 120pt;
-    }
-    
-    .M_PassTextBox
-    {
-        position: fixed;
-        top: 60pt;
-        left: 100pt;
-        height: 12pt;
-        width: 120pt;
-    }
-    
-    .M_TempPassCheckBox
-    {
-        position: fixed;
-        top: 80pt;
-        left: 100pt;
-        height: 12pt;
-        width: 110pt;
-    }
-    
-    .M_BlockedCheckBox
-    {
-        position: fixed;
-        top: 100pt;
-        left: 100pt;
-        height: 12pt;
-        width: 110pt;
-    }
-    
-    .M_SaveButton
-    {
-        position: fixed;
-        top: 120pt;
-        left: 100pt;
-        height: 20pt;
-        width: 50pt;
-    }
-    
-    .M_CancelButton
-    {
-        position: fixed;
-        top: 120pt;
-        left: 160pt;
-        height: 20pt;
-        width: 50pt;
-    }
-    
-    .Label1
-    {
-        position: fixed;
-        top: 20pt;
-        left: 10pt;
-        height: 12pt;
-        width: 100pt;
-    }
-    
-    .Label2
-    {
-        position: fixed;
-        top: 40pt;
-        left: 10pt;
-        height: 12pt;
-        width: 100pt;
-    }
-    
-    .Label3
-    {
-        position: fixed;
-        top: 60pt;
-        left: 10pt;
-        height: 12pt;
-        width: 100pt;
-    }
-    
-    .M_LogLabel
-    {
-        position: fixed;
-        top: 150pt;
-        left: 10pt;
-        height: 80pt;
-        width: 400pt;
-    }
-    
-    .M_GeneratePassButton
-    {
-        position: fixed;
-        top: 60pt;
-        left: 230pt;
-        height: 20pt;
-        width: 100pt;
-    }
-</style>
+    </form> 
+</asp:Content>
