@@ -62,8 +62,8 @@ namespace Minder.Forms.Tasks
 				
 				TaskNewEditFormPreparer preparer = new TaskNewEditFormPreparer(true);
 				preparer.Task = task;
-				preparer.Form.Closed += delegate { RefreshTaskGrid(); };
-				preparer.PrepareForm();
+				preparer.Window.Closed += delegate { RefreshTaskGrid(); };
+				preparer.PrepareWindow();
 			}
 		}
 		
@@ -72,8 +72,8 @@ namespace Minder.Forms.Tasks
 			m_form.MNewButton.Click += delegate
 			{
 				TaskNewEditFormPreparer preparer = new TaskNewEditFormPreparer(false);
-				preparer.Form.Closed += delegate { RefreshTaskGrid(); };
-				preparer.PrepareForm();
+                preparer.Window.Closed += delegate { RefreshTaskGrid(); };
+                preparer.PrepareWindow();
 			};
 			
 			m_form.MTaskGrid.DoubleClick += delegate
