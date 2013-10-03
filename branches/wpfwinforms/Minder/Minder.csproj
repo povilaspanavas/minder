@@ -207,7 +207,7 @@
     <Compile Include="UI\Forms\Tasks\TaskNewEditForm.Designer.cs">
       <DependentUpon>TaskNewEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\Tasks\TaskNewEditFormPreparer.cs" />
+    <Compile Include="UI\Forms\Tasks\TaskNewEditFormController.cs" />
     <Compile Include="UI\Forms\Tasks\TaskNewEditWpfForm.xaml.cs">
       <DependentUpon>TaskNewEditWpfForm.xaml</DependentUpon>
     </Compile>
