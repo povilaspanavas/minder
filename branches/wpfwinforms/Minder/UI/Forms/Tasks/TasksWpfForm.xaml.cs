@@ -17,7 +17,7 @@ namespace Minder.UI.Forms.Tasks
     /// <summary>
     /// Interaction logic for TasksWpfForm.xaml
     /// </summary>
-    public partial class TasksWpfForm : UserControl
+    public partial class TasksWpfForm : BaseWpfForm
     {
         public TasksWpfForm()
         {

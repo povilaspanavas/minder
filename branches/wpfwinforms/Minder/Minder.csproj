@@ -216,6 +216,9 @@
     <Compile Include="Engine\Sql\DbHelper.cs" />
     <Compile Include="Engine\Sql\DBTypesConverter.cs" />
     <Compile Include="Engine\Settings\Static\StaticData.cs" />
+    <Compile Include="UI\Forms\Tasks\TasksWpfForm.xaml.cs">
+      <DependentUpon>TasksWpfForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Helpers\MessageBoxHelper.cs" />
     <Compile Include="UI\SkinController\AbstractMainForm.cs" />
     <Compile Include="UI\SkinController\MainFormCollector.cs" />
@@ -287,6 +290,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\Forms\Tasks\TaskNewEditForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Forms\Tasks\TasksWpfForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
