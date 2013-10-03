@@ -10,7 +10,7 @@
              Title="Minder Task" WindowStartupLocation="CenterScreen" Topmost="True">
     <Grid>
         <Button Content="Save" HorizontalAlignment="Left" Height="30" Margin="88,152,0,0" VerticalAlignment="Top" Width="55"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Height="30" Margin="148,152,0,0" VerticalAlignment="Top" Width="56"/>
+        <Button Content="Cancel" Command="{Binding CloseCommand}" HorizontalAlignment="Left" Height="30" Margin="148,152,0,0" VerticalAlignment="Top" Width="56"/>
         <Label Content="Text" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="43"/>
         <Label Content="Date" HorizontalAlignment="Left" Height="25" Margin="10,84,0,0" VerticalAlignment="Top" Width="43"/>
         <TextBox HorizontalAlignment="Left" Height="70" Margin="58,12,0,0" TextWrapping="Wrap" Text="{Binding Task.Text}" VerticalAlignment="Top" Width="246"/>
