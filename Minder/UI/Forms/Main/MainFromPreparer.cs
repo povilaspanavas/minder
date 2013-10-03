@@ -105,7 +105,7 @@ namespace Minder.Forms.Main
 
             m_form.TrayIcon.BalloonTipClicked += delegate
             {
-                new TasksFormPreparer().PrepareForm();
+                new TasksFormController().PrepareWindow();
             };
 
             m_form.TrayIcon.MouseMove += delegate
@@ -237,8 +237,8 @@ namespace Minder.Forms.Main
         #region ContextMenuEvents
         private void OpenTasksForm(object sender, EventArgs e)
         {
-            TasksFormPreparer preparer = new TasksFormPreparer();
-            preparer.PrepareForm();
+            TasksFormController preparer = new TasksFormController();
+            preparer.PrepareWindow();
         }
 
         private void OpenSettingsForm(object sender, EventArgs e)
