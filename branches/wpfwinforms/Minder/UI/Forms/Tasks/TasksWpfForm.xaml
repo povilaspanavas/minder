@@ -18,7 +18,7 @@
           CanUserResizeRows="False" CanUserSortColumns="True"
             AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Description" Binding="{Binding Path=Text}"/>
+                <DataGridTextColumn Header="Task" Binding="{Binding Path=Text}"/>
                 <DataGridTextColumn Header="Date" Binding="{Binding Path=DateRemainder}"/>
                 <DataGridCheckBoxColumn Header="Showed" Binding="{Binding Path=Showed}"/>
             </DataGrid.Columns>
