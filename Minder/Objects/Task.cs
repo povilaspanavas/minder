@@ -49,7 +49,10 @@ namespace Minder.Objects
 		 PropertyCaption("Showed", 5)]
 		public bool Showed {
 			get { return m_showed; }
-			set { m_showed = value; }
+			set { m_showed = value; 
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs("Showed"));
+            }
 		}
 		
 		[DBColumnReference("SOURCE_ID"),

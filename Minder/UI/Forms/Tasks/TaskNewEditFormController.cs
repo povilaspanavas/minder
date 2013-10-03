@@ -77,44 +77,31 @@ namespace Minder.Forms.Tasks
             }
         }
 
-        public void PrepareWindow()
+        public ICommand SaveCommand
         {
-            //SetEvents();
-            //if(m_edit == false)
-            //    _window.MShowedCheckBox.Visible = false;
-            //else
-            //    FillFields();
-            _window.ShowDialog();
+            get
+            {
+                return new DelegateCommand(SavePressed);
+            }
         }
 
+        public void SavePressed()
+        {
+            if (_edit == false) // new task
+            {
+                _task.SourceId = string.Format("{0}{1}{2}", DateTime.Now, _task.DateRemainder, _task.Text);
+                _task.Save();
+            }
+            else
+                _task.Update();
 
-        //    _window.MSaveButton.Click += delegate
-        //    {
-        //        Task task = new Task();
-        //        task.Text = _window.MTextBox.Text;
-        //        task.DateRemainder = _window.MDatePicker.Value;
+            TimeEngine.FireTaskChangedEvent(_task);
+            _window.Close();
+        }
 
-        //        if(m_edit == false)
-        //        {
-        //            task.Showed = false;
-        //            task.SourceId = string.Format("{0}{1}{2}", DateTime.Now, task.DateRemainder, task.Text);
-        //            task.Save();
-        //            TimeEngine.FireTaskChangedEvent(task);
-        //        }
-        //        else
-        //        {
-        //            task.Showed = _window.MShowedCheckBox.Checked;
-        //            task.SourceId = m_task.SourceId;
-        //            task.Id = m_task.Id;
-        //            task.Update();
-        //            TimeEngine.FireTaskChangedEvent(task);
-        //        }
-
-        //        _window.Close();
-        //    };
-
-        //    _window.MCancelButton.Click += delegate
-        //    { _window.Close(); };
-
+        public void PrepareWindow()
+        {
+            _window.ShowDialog();
+        }
     }
 }
