@@ -211,7 +211,7 @@
     <Compile Include="UI\Forms\Tasks\TasksForm.Designer.cs">
       <DependentUpon>TasksForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\Tasks\TasksFormPreparer.cs" />
+    <Compile Include="UI\Forms\Tasks\TasksFormController.cs" />
     <Compile Include="Objects\Task.cs" />
     <Compile Include="Engine\Sql\DbHelper.cs" />
     <Compile Include="Engine\Sql\DBTypesConverter.cs" />
