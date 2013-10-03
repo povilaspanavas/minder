@@ -18,54 +18,66 @@ using Minder.UI.Forms.Tasks;
 
 namespace Minder.Forms.Tasks
 {
-	/// <summary>
-	/// Description of TaskNewEditFormPreparer.
-	/// </summary>
-	public class TaskNewEditFormPreparer : IController
-	{
-		private TaskNewEditWpfForm _window = null;
-		private bool m_edit = false;
-		private Task m_task;
-		
-		public Task Task {
-			get { return m_task; }
-			set { m_task = value; }
-		}
-		
-		public TaskNewEditFormPreparer(bool edit, Task task) : this(edit)
-		{
-			this.m_task = task;	
-		}
-		
-		public TaskNewEditFormPreparer(bool edit)
-		{
+    /// <summary>
+    /// Description of TaskNewEditFormPreparer.
+    /// </summary>
+    public class TaskNewEditFormController : IController
+    {
+        private TaskNewEditWpfForm _window = null;
+        private bool m_edit = false;
+        private Task m_task;
+
+        public Task Task
+        {
+            get { return m_task; }
+            set { m_task = value; }
+        }
+
+        public TaskNewEditFormController(bool edit, Task task)
+            : this(edit)
+        {
+            this.m_task = task;
+        }
+
+        public TaskNewEditFormController(bool edit)
+        {
             _window = new TaskNewEditWpfForm();
-            //_window.MDatePicker.CustomFormat = string.Format("{0} {1}",
-            //                                                StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortDatePattern,
-            //                                                StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortTimePattern);
-			m_edit = edit;
-            //if(m_edit)
-            //    _window.Text = "Edit task";
-            //else
-            //    _window.Text = "New task";
-		}
-		
-		public Window Window {
-			get {
+            _window.DataContext = this;
+            m_edit = edit;
+            if (m_edit)
+                _window.Title = "Edit task";
+            else
+                _window.Title = "New task";
+        }
+        public string DateTimeFormat
+        {
+            get
+            {
+
+                return string.Format("{0} {1}",
+                    StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortDatePattern,
+                    StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortTimePattern);
+            }
+        }
+
+        public Window Window
+        {
+            get
+            {
                 return _window;
-			}
-		}
-		
-		public void PrepareWindow()
-		{
+            }
+        }
+
+        public void PrepareWindow()
+        {
             //SetEvents();
             //if(m_edit == false)
             //    _window.MShowedCheckBox.Visible = false;
             //else
             //    FillFields();
-			_window.ShowDialog();
-		}
-		
+            _window.ShowDialog();
+        }
+
         //private void FillFields()
         //{
         //    if(m_task == null)
@@ -74,20 +86,20 @@ namespace Minder.Forms.Tasks
         //    _window.MTextBox.Text = m_task.Text;
         //    _window.MShowedCheckBox.Checked = m_task.Showed;
         //}
-		
+
         //public void SetEvents()
         //{
         //    _window.MDatePicker.ValueChanged += delegate {
         //        if (_window.MShowedCheckBox.Checked != false)
         //            _window.MShowedCheckBox.Checked = false;
         //    };
-			
+
         //    _window.MSaveButton.Click += delegate
         //    {
         //        Task task = new Task();
         //        task.Text = _window.MTextBox.Text;
         //        task.DateRemainder = _window.MDatePicker.Value;
-				
+
         //        if(m_edit == false)
         //        {
         //            task.Showed = false;
@@ -103,12 +115,12 @@ namespace Minder.Forms.Tasks
         //            task.Update();
         //            TimeEngine.FireTaskChangedEvent(task);
         //        }
-				
+
         //        _window.Close();
         //    };
-			
+
         //    _window.MCancelButton.Click += delegate
         //    { _window.Close(); };
-        
-	}
+
+    }
 }
