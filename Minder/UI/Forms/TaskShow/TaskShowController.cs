@@ -17,13 +17,6 @@ using System.Windows.Input;
 
 namespace Minder.Forms.TaskShow
 {
-    public interface IController
-    {
-        Window Window { get; }
-
-        void PrepareWindow();
-    }
-
     /// <summary>
     /// Description of TaskShowFormPreparer.
     /// </summary>

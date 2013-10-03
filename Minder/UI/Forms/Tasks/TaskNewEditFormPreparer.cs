@@ -11,15 +11,19 @@ using Core.Forms;
 using Minder.Engine;
 using Minder.Objects;
 using Minder.Static;
+using Minder.Forms;
+using Minder.UI.Forms;
+using System.Windows;
+using Minder.UI.Forms.Tasks;
 
 namespace Minder.Forms.Tasks
 {
 	/// <summary>
 	/// Description of TaskNewEditFormPreparer.
 	/// </summary>
-	public class TaskNewEditFormPreparer : IFormPreparer, IDisposable
+	public class TaskNewEditFormPreparer : IController
 	{
-		private TaskNewEditForm m_form = null;
+		private TaskNewEditWpfForm _window = null;
 		private bool m_edit = false;
 		private Task m_task;
 		
@@ -35,82 +39,76 @@ namespace Minder.Forms.Tasks
 		
 		public TaskNewEditFormPreparer(bool edit)
 		{
-			m_form = new TaskNewEditForm();
-			m_form.MDatePicker.CustomFormat = string.Format("{0} {1}",
-			                                                StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortDatePattern,
-			                                                StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortTimePattern);
+            _window = new TaskNewEditWpfForm();
+            //_window.MDatePicker.CustomFormat = string.Format("{0} {1}",
+            //                                                StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortDatePattern,
+            //                                                StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortTimePattern);
 			m_edit = edit;
-			if(m_edit)
-				m_form.Text = "Edit task";
-			else
-				m_form.Text = "New task";
+            //if(m_edit)
+            //    _window.Text = "Edit task";
+            //else
+            //    _window.Text = "New task";
 		}
 		
-		public System.Windows.Forms.Form Form {
+		public Window Window {
 			get {
-				return m_form;
+                return _window;
 			}
 		}
 		
-		public void PrepareForm()
+		public void PrepareWindow()
 		{
-			SetEvents();
-			if(m_edit == false)
-				m_form.MShowedCheckBox.Visible = false;
-			else
-				FillFields();
-			m_form.ShowDialog();
+            //SetEvents();
+            //if(m_edit == false)
+            //    _window.MShowedCheckBox.Visible = false;
+            //else
+            //    FillFields();
+			_window.ShowDialog();
 		}
 		
-		private void FillFields()
-		{
-			if(m_task == null)
-				return;
-			m_form.MDatePicker.Value = m_task.DateRemainder;
-			m_form.MTextBox.Text = m_task.Text;
-			m_form.MShowedCheckBox.Checked = m_task.Showed;
-		}
+        //private void FillFields()
+        //{
+        //    if(m_task == null)
+        //        return;
+        //    _window.MDatePicker.Value = m_task.DateRemainder;
+        //    _window.MTextBox.Text = m_task.Text;
+        //    _window.MShowedCheckBox.Checked = m_task.Showed;
+        //}
 		
-		public void SetEvents()
-		{
-			m_form.MDatePicker.ValueChanged += delegate {
-				if (m_form.MShowedCheckBox.Checked != false)
-					m_form.MShowedCheckBox.Checked = false;
-			};
+        //public void SetEvents()
+        //{
+        //    _window.MDatePicker.ValueChanged += delegate {
+        //        if (_window.MShowedCheckBox.Checked != false)
+        //            _window.MShowedCheckBox.Checked = false;
+        //    };
 			
-			m_form.MSaveButton.Click += delegate
-			{
-				Task task = new Task();
-				task.Text = m_form.MTextBox.Text;
-				task.DateRemainder = m_form.MDatePicker.Value;
+        //    _window.MSaveButton.Click += delegate
+        //    {
+        //        Task task = new Task();
+        //        task.Text = _window.MTextBox.Text;
+        //        task.DateRemainder = _window.MDatePicker.Value;
 				
-				if(m_edit == false)
-				{
-					task.Showed = false;
-					task.SourceId = string.Format("{0}{1}{2}", DateTime.Now, task.DateRemainder, task.Text);
-					task.Save();
-					TimeEngine.FireTaskChangedEvent(task);
-				}
-				else
-				{
-					task.Showed = m_form.MShowedCheckBox.Checked;
-					task.SourceId = m_task.SourceId;
-					task.Id = m_task.Id;
-					task.Update();
-					TimeEngine.FireTaskChangedEvent(task);
-				}
+        //        if(m_edit == false)
+        //        {
+        //            task.Showed = false;
+        //            task.SourceId = string.Format("{0}{1}{2}", DateTime.Now, task.DateRemainder, task.Text);
+        //            task.Save();
+        //            TimeEngine.FireTaskChangedEvent(task);
+        //        }
+        //        else
+        //        {
+        //            task.Showed = _window.MShowedCheckBox.Checked;
+        //            task.SourceId = m_task.SourceId;
+        //            task.Id = m_task.Id;
+        //            task.Update();
+        //            TimeEngine.FireTaskChangedEvent(task);
+        //        }
 				
-				m_form.Close();
-			};
+        //        _window.Close();
+        //    };
 			
-			m_form.MCancelButton.Click += delegate
-			{ m_form.Close(); };
-		}
-		
-		public void Dispose()
-		{
-			if (m_form != null && this.m_form.IsDisposed == false)
-				m_form.Dispose();
-		}
+        //    _window.MCancelButton.Click += delegate
+        //    { _window.Close(); };
+        
 	}
 }
