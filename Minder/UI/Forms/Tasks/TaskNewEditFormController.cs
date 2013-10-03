@@ -24,7 +24,7 @@ namespace Minder.Forms.Tasks
     /// </summary>
     public class TaskNewEditFormController : IController
     {
-        private TaskNewEditWpfForm _window = null;
+        private TaskNewEditForm _window = null;
         private bool _edit = false;
         private Task _task;
 
@@ -45,7 +45,7 @@ namespace Minder.Forms.Tasks
         public TaskNewEditFormController(Task task)
         {
             this._task = task;
-            _window = new TaskNewEditWpfForm();
+            _window = new TaskNewEditForm();
             _window.DataContext = this;
             _edit = _task.Id > 0; // if it was saved to db, we are editing
             _window.Title = _edit ? "Edit task" : "New Task";

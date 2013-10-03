@@ -202,8 +202,8 @@
     <Compile Include="UI\Forms\TaskShow\TaskShowController.cs" />
     <Compile Include="UI\Forms\TaskShow\TaskShowForm.xaml.cs" />
     <Compile Include="UI\Forms\Tasks\TaskNewEditFormController.cs" />
-    <Compile Include="UI\Forms\Tasks\TaskNewEditWpfForm.xaml.cs">
-      <DependentUpon>TaskNewEditWpfForm.xaml</DependentUpon>
+    <Compile Include="UI\Forms\Tasks\TaskNewEditForm.xaml.cs">
+      <DependentUpon>TaskNewEditForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\Tasks\TasksForm.cs">
       <SubType>Form</SubType>
@@ -286,7 +286,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Forms\Tasks\TaskNewEditWpfForm.xaml">
+    <Page Include="UI\Forms\Tasks\TaskNewEditForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

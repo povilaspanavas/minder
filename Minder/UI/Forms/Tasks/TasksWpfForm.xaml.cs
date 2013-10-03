@@ -15,14 +15,13 @@ using System.Windows.Shapes;
 namespace Minder.UI.Forms.Tasks
 {
     /// <summary>
-    /// Interaction logic for TaskNewEditWpfForm.xaml
+    /// Interaction logic for TasksWpfForm.xaml
     /// </summary>
-    public partial class TaskNewEditWpfForm : BaseWpfForm
+    public partial class TasksWpfForm : UserControl
     {
-        public TaskNewEditWpfForm()
+        public TasksWpfForm()
         {
             InitializeComponent();
-            this.DateTimePicker.DefaultValue = DateTime.Now;
         }
     }
 }
