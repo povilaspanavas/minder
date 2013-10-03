@@ -39,7 +39,12 @@ namespace Minder.Forms.Tasks
 
         public List<Task> Tasks
         {
-            get { return _tasks; }
+            get {
+
+                if (_tasks == null)
+                    LoadTasks();
+                return _tasks;
+            }
             set { _tasks = value; }
         }
 
@@ -62,14 +67,10 @@ namespace Minder.Forms.Tasks
 
         public void PrepareWindow()
         {
-            SetEvents();
-            LoadTaskGrid();
             _form.Show();
+
         }
 
-        /// <summary>
-        /// The task changedEvent will be fired by taskshowform
-        /// </summary>
         public void EditTask()
         {
             if (_selectedTasks.Count == 0)
@@ -121,10 +122,6 @@ namespace Minder.Forms.Tasks
             //};
 
 
-            //_form.MDeleteButton.Click += delegate
-            //{
-            //    DeleteSelected();
-            //};
 
             //_form.MTaskGrid.KeyUp += delegate(object sender, KeyEventArgs e) {
             //    if (e.Control || e.Alt || e.Shift)
@@ -156,7 +153,7 @@ namespace Minder.Forms.Tasks
             RefreshTaskGrid();
         }
 
-        private void LoadTaskGrid()
+        private void LoadTasks()
         {
             using (new WaitingForm2("Loading tasks...", "Please wait", false))
             {
