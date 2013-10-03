@@ -24,10 +24,5 @@ namespace Minder.UI.Forms.Tasks
             InitializeComponent();
             this.DateTimePicker.DefaultValue = DateTime.Now;
         }
-
-        private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

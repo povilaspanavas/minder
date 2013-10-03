@@ -15,6 +15,7 @@ using Minder.Forms;
 using Minder.UI.Forms;
 using System.Windows;
 using Minder.UI.Forms.Tasks;
+using System.Windows.Input;
 
 namespace Minder.Forms.Tasks
 {
@@ -49,6 +50,7 @@ namespace Minder.Forms.Tasks
             _edit = _task.Id > 0; // if it was saved to db, we are editing
             _window.Title = _edit ? "Edit task" : "New Task";
         }
+
         public string DateTimeFormat
         {
             get
@@ -64,6 +66,14 @@ namespace Minder.Forms.Tasks
             get
             {
                 return _window;
+            }
+        }
+
+        public ICommand CloseCommand
+        {
+            get
+            {
+                return new DelegateCommand(() => _window.Close());
             }
         }
 
