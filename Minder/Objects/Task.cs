@@ -191,18 +191,25 @@ namespace Minder.Objects
 		
 		public override int GetHashCode()
 		{
-			int hashCode = 0;
+            if (m_id != 0)
+                return m_id.GetHashCode();
+            if (string.IsNullOrEmpty(m_sourceId) == false)
+                return m_sourceId.GetHashCode();
+            if (string.IsNullOrEmpty(m_text) == false)
+                return m_text.GetHashCode();
+            return 0.GetHashCode();
+            //int hashCode = 0;
+            
+            //if (m_text != null)
+            //    hashCode += 1000000009 * m_text.GetHashCode();
+            //hashCode += 1000000021 * m_dateRemainder.GetHashCode();
+            //if (m_sourceId != null)
+            //    hashCode += 1000000033 * m_sourceId.GetHashCode();
+            //hashCode += 1000000087 * m_showed.GetHashCode();
+            //hashCode += 1000000093 * m_lastModifyDate.GetHashCode();
+            //hashCode += 1000000097 * m_isDeleted.GetHashCode();
 			
-			if (m_text != null)
-				hashCode += 1000000009 * m_text.GetHashCode();
-			hashCode += 1000000021 * m_dateRemainder.GetHashCode();
-			if (m_sourceId != null)
-				hashCode += 1000000033 * m_sourceId.GetHashCode();
-			hashCode += 1000000087 * m_showed.GetHashCode();
-			hashCode += 1000000093 * m_lastModifyDate.GetHashCode();
-			hashCode += 1000000097 * m_isDeleted.GetHashCode();
-			
-			return hashCode;
+            //return hashCode;
 		}
 		
 		public override bool Equals(object obj)
