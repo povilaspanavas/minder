@@ -40,7 +40,6 @@ namespace Minder.UI.Forms.Tasks
         public List<Task> SelectedTasks
         {
             get { return _selectedTasks; }
-            set { throw new Exception("This property is read-only. To bind to it you must use 'Mode=OneWayToSource'."); }
         }
     }
 }

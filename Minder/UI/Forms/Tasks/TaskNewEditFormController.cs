@@ -25,8 +25,14 @@ namespace Minder.Forms.Tasks
     public class TaskNewEditFormController : IController
     {
         private TaskNewEditForm _window = null;
+        private bool _changesMade = false;
         private bool _edit = false;
         private Task _task;
+
+        public bool ChangesMade
+        {
+            get { return _changesMade; }
+        }
 
         public Task Task
         {
@@ -96,11 +102,13 @@ namespace Minder.Forms.Tasks
                 _task.Update();
 
             TimeEngine.FireTaskChangedEvent(_task);
+            _changesMade = true;
             _window.Close();
         }
 
         public void PrepareWindow()
         {
+            _changesMade = false;
             _window.ShowDialog();
         }
     }
