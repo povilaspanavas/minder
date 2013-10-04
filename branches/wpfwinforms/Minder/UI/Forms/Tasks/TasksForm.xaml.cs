@@ -23,6 +23,11 @@ namespace Minder.UI.Forms.Tasks
     {
         private List<Task> _selectedTasks = new List<Task>();
 
+        public List<Task> SelectedTasks
+        {
+            get { return _selectedTasks; }
+        }
+
         public TasksForm()
         {
             InitializeComponent();
@@ -36,10 +41,27 @@ namespace Minder.UI.Forms.Tasks
             foreach (Task item in e.AddedItems)
                 _selectedTasks.Add(item);
         }
-
-        public List<Task> SelectedTasks
+        
+        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            get { return _selectedTasks; }
+            if (sender == null)
+                return;
+            DataGrid dataGrid = sender as DataGrid;
+            if (dataGrid != null && dataGrid.SelectedItems.Count >= 0)
+            {
+                EditTaskEvent();
+            }
+            e.Handled = true;
+
+        }
+
+        public delegate void DataGridMouseDoubleClick();
+        public event DataGridMouseDoubleClick EditTaskEvent;
+
+        public void OnEditTaskEvent()
+        {
+            if (EditTaskEvent != null)
+                EditTaskEvent();
         }
     }
 }
