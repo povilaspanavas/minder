@@ -29,7 +29,7 @@ namespace Minder.Forms.Tasks
     /// </summary>
     public class TasksFormController : IController
     {
-        private TasksWpfForm _form = null;
+        private TasksForm _form = null;
         private ObservableCollection<Task> _tasks = null;
 
         public List<Task> SelectedTasks
@@ -54,7 +54,7 @@ namespace Minder.Forms.Tasks
 
         public TasksFormController()
         {
-            _form = new TasksWpfForm();
+            _form = new TasksForm();
             _form.Title = "Tasks";
             _form.DataContext = this;
         }

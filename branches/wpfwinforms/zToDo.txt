@@ -1,7 +1,7 @@
 POVILO:
  * icona
  * veiktø tiesiai redagavimas gride
- 
+ * Visas temas iðbandyti, nes kai kurios lûþta
 
 
  

@@ -194,19 +194,13 @@
     <Compile Include="UI\Forms\Tasks\TaskNewEditForm.xaml.cs">
       <DependentUpon>TaskNewEditForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\Tasks\TasksForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\Tasks\TasksForm.Designer.cs">
-      <DependentUpon>TasksForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Forms\Tasks\TasksFormController.cs" />
     <Compile Include="Objects\Task.cs" />
     <Compile Include="Engine\Sql\DbHelper.cs" />
     <Compile Include="Engine\Sql\DBTypesConverter.cs" />
     <Compile Include="Engine\Settings\Static\StaticData.cs" />
-    <Compile Include="UI\Forms\Tasks\TasksWpfForm.xaml.cs">
-      <DependentUpon>TasksWpfForm.xaml</DependentUpon>
+    <Compile Include="UI\Forms\Tasks\TasksForm.xaml.cs">
+      <DependentUpon>TasksForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Helpers\MessageBoxHelper.cs" />
     <Compile Include="UI\SkinController\AbstractMainForm.cs" />
@@ -265,9 +259,6 @@
     <EmbeddedResource Include="UI\Forms\Skins\MainFormLaucnhy.resx">
       <DependentUpon>MainFormLaunchy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\Tasks\TasksForm.resx">
-      <DependentUpon>TasksForm.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Page Include="App.xaml">
@@ -282,7 +273,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Forms\Tasks\TasksWpfForm.xaml">
+    <Page Include="UI\Forms\Tasks\TasksForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
