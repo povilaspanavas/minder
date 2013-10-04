@@ -154,15 +154,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\About\AboutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\About\AboutForm.Designer.cs">
-      <DependentUpon>AboutForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Forms\About\AboutFormController.cs" />
-    <Compile Include="UI\Forms\About\AboutWpfForm.xaml.cs">
-      <DependentUpon>AboutWpfForm.xaml</DependentUpon>
+    <Compile Include="UI\Forms\About\AboutForm.xaml.cs">
+      <DependentUpon>AboutForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\BasicForm.cs">
       <SubType>Form</SubType>
@@ -257,9 +251,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\About\AboutForm.resx">
-      <DependentUpon>AboutForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -277,7 +268,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Forms\About\AboutWpfForm.xaml">
+    <Page Include="UI\Forms\About\AboutForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
