@@ -110,7 +110,7 @@ namespace Minder.Forms.Settings
                 _form.MSyncIntervalNumeric.IsEnabled = false;
             }
 
-            //_form.MSyncIdTextBox.Leave += delegate { _form.MSyncIdTextBox.Text = _form.MSyncIdTextBox.Text.ToUpper(); };
+            _form.MSyncIdTextBox.ManipulationCompleted += delegate { _form.MSyncIdTextBox.Text = _form.MSyncIdTextBox.Text.ToUpper(); };
         }
 
         private void AddDataToControlls()
@@ -125,12 +125,12 @@ namespace Minder.Forms.Settings
             _form.MShiftCheckBox.IsChecked = Minder.Static.StaticData.Settings.NewTaskHotkey.Shift;
             _form.MWinCheckBox.IsChecked = Minder.Static.StaticData.Settings.NewTaskHotkey.Win;
 
-            //for(int i=0; i<_form.MKeysComboBox.Items.Count; i++)
-            //{
-            //    if(Minder.Static.StaticData.Settings.NewTaskHotkey.Key
-            //       .Equals(_form.MKeysComboBox.Items[i].ToString()))
-            //        _form.MKeysComboBox.SelectedIndex = i;
-            //}
+            for (int i = 0; i < _form.MKeysComboBox.Items.Count; i++)
+            {
+                if (Minder.Static.StaticData.Settings.NewTaskHotkey.Key
+                   .Equals(_form.MKeysComboBox.Items[i].ToString()))
+                    _form.MKeysComboBox.SelectedIndex = i;
+            }
 
             _form.MStartWithWinCheckBox.IsChecked = Minder.Static.StaticData.Settings.StartWithWindows;
             _form.MUpdateCheckBox.IsChecked = Minder.Static.StaticData.Settings.CheckUpdates;
