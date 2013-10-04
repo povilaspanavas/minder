@@ -20,6 +20,7 @@
                     <Label Content="Default remind later value" HorizontalAlignment="Left" Margin="4,103,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="32" Width="157"/>
                     <ComboBox x:Name="MComboBoxCultureData" HorizontalAlignment="Left" Height="22" Margin="175,86,0,0" VerticalAlignment="Top" Width="120"/>
                     <ComboBox x:Name="MComboBoxRemindMeLater" HorizontalAlignment="Left" Height="22" Margin="175,113,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Button x:Name="MDefaultsButton" Content="Default Settings" HorizontalAlignment="Left" Height="35" Margin="194,289,0,0" VerticalAlignment="Top" Width="101"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Hotkeys">
