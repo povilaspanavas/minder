@@ -19,6 +19,7 @@ using Minder.UI.Forms;
 using Minder.UI.Forms.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Controls;
 
 namespace Minder.Forms.Tasks
 {
@@ -29,12 +30,13 @@ namespace Minder.Forms.Tasks
     {
         private TasksWpfForm _form = null;
         private List<Task> _tasks = null;
-        private List<Task> _selectedTasks = null;
+        //private List<Task> _selectedTasks = null;
 
         public List<Task> SelectedTasks
         {
-            get { return _selectedTasks; }
-            set { _selectedTasks = value; }
+            get {
+                return _form.SelectedTasks;
+            }
         }
 
         public List<Task> Tasks
@@ -73,9 +75,10 @@ namespace Minder.Forms.Tasks
 
         public void EditTask()
         {
-            if (_selectedTasks.Count == 0)
+            SelectedTasks.ToString();
+            if (SelectedTasks.Count == 0)
                 return;
-            TaskNewEditFormController preparer = new TaskNewEditFormController(_selectedTasks[0]);
+            TaskNewEditFormController preparer = new TaskNewEditFormController(SelectedTasks[0]);
             preparer.Window.Closed += delegate { RefreshTaskGrid(); };
             preparer.PrepareWindow();
         }
