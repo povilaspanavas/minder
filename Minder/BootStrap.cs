@@ -61,7 +61,7 @@ namespace Minder
                 var app = new System.Windows.Application();
                 app.Resources.MergedDictionaries.Add(resources);
                 //ThemeManager.
-                ThemeManager.ApplyTheme(app, "BubbleCreme");
+                ThemeManager.ApplyTheme(app, "ShinyRed");
                 Starter(args);
                 ClearTypeOn();
                // new TasksWpfForm().ShowDialog();

@@ -19,11 +19,11 @@ namespace Minder.UI.Forms.Tasks
     /// <summary>
     /// Interaction logic for TasksWpfForm.xaml
     /// </summary>
-    public partial class TasksWpfForm : BaseWpfForm
+    public partial class TasksForm : BaseWpfForm
     {
         private List<Task> _selectedTasks = new List<Task>();
 
-        public TasksWpfForm()
+        public TasksForm()
         {
             InitializeComponent();
             this.DataGrid.SelectionChanged += DataGrid_SelectionChanged;
