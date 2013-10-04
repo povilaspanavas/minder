@@ -43,33 +43,33 @@ namespace Minder.Forms.Settings
 		
 		public void SetEvents()
 		{
-            //_form.MAltCheckBox.CheckedChanged += delegate {_existChanges = true;};
-            //_form.MCtrlCheckBox.CheckedChanged += delegate {_existChanges = true;};
-            //_form.MShiftCheckBox.CheckedChanged += delegate {_existChanges = true;};
-            //_form.MWinCheckBox.CheckedChanged += delegate {_existChanges = true;};
-            //_form.MKeysComboBox.SelectedIndexChanged += delegate {_existChanges = true;};
-            //_form.MStartWithWinCheckBox.CheckedChanged += delegate { _existChanges = true; };
-            //_form.MUpdateCheckBox.CheckedChanged += delegate { _existChanges = true; };
-            //_form.MPlaySoundCheckBox.CheckedChanged += delegate { _existChanges = true; };
-            //_form.MComboBoxCultureData.SelectedValueChanged += delegate { _existChanges = true; };
-            //_form.MComboBoxRemindMeLater.SelectedValueChanged += delegate { _existChanges = true; };
-            //_form.MSkinListBox.SelectedIndexChanged += delegate { _existChanges = true; };
-			
-            //_form.MSyncGenerateIdButton.Click += delegate { _existChanges = true; };
-            //_form.MSyncIdTextBox.TextChanged += delegate { _existChanges = true; };
-            //_form.MSyncIntervalNumeric.ValueChanged += delegate { _existChanges = true; };
-            //_form.MEnableSyncCheckBox.CheckedChanged += delegate { _existChanges = true; };
+            _form.MAltCheckBox.Checked += delegate { _existChanges = true; };
+            _form.MCtrlCheckBox.Checked += delegate { _existChanges = true; };
+            _form.MShiftCheckBox.Checked += delegate { _existChanges = true; };
+            _form.MWinCheckBox.Checked += delegate { _existChanges = true; };
+            _form.MKeysComboBox.SelectionChanged += delegate { _existChanges = true; };
+            _form.MStartWithWinCheckBox.Checked += delegate { _existChanges = true; };
+            _form.MUpdateCheckBox.Checked += delegate { _existChanges = true; };
+            _form.MPlaySoundCheckBox.Checked += delegate { _existChanges = true; };
+            _form.MComboBoxCultureData.SelectionChanged += delegate { _existChanges = true; };
+            _form.MComboBoxRemindMeLater.SelectionChanged += delegate { _existChanges = true; };
+            _form.MSkinListBox.SelectionChanged += delegate { _existChanges = true; };
+
+            _form.MSyncGenerateIdButton.Click += delegate { _existChanges = true; };
+            _form.MSyncIdTextBox.TextChanged += delegate { _existChanges = true; };
+            _form.MSyncIntervalNumeric.ValueChanged += delegate { _existChanges = true; };
+            _form.MEnableSyncCheckBox.Checked += delegate { _existChanges = true; };
 			
 			_form.Closing += FormClosing;
-			
-            //_form.MSkinListBox.SelectedIndexChanged += delegate
-            //{
-            //    string skinUniqueCode = Minder.Static.StaticData.Settings
-            //        .SkinsUniqueCodes.SkinsUniqueCodesAndNames[_form.MSkinListBox.Items[_form.MSkinListBox.SelectedIndex]
-            //                                                   .ToString()];
-            //    _form.MSkinPreviewPictureBox.Image = new Images()
-            //        .GetImage(skinUniqueCode.ToUpper());
-            //};
+
+            _form.MSkinListBox.SelectionChanged += delegate
+            {
+                string skinUniqueCode = Minder.Static.StaticData.Settings
+                    .SkinsUniqueCodes.SkinsUniqueCodesAndNames[_form.MSkinListBox.Items[_form.MSkinListBox.SelectedIndex]
+                                                               .ToString()];
+                //_form.MSkinPreviewPictureBox = new Images()
+                //    .GetImage(skinUniqueCode.ToUpper());
+            };
 			
             //_form.MDefaultsButton.Click += delegate
             //{
@@ -91,37 +91,37 @@ namespace Minder.Forms.Settings
             //    _form.MSyncIntervalNumeric.Enabled = _form.MEnableSyncCheckBox.Checked;
             //};
 			
-            //_form.MSyncGenerateIdButton.Click += delegate { GenerateSyncId(); };
-			
-            //_form.MSyncNow.Click += delegate
-            //{
-            //    using(new WaitingForm2("Syncing...", "Please wait", false))
-            //    {
-            //        new SyncController().Sync();
-            //    }
-            //};
-			
-            //if(Static.StaticData.Settings.Sync.Enable == false)
-            //{
-            //    _form.MSyncGenerateIdButton.Enabled = false;
-            //    _form.MSyncIdTextBox.Enabled = false;
-            //    _form.MSyncIntervalNumeric.Enabled = false;
-            //}
+            _form.MSyncGenerateIdButton.Click += delegate { GenerateSyncId(); };
+
+            _form.MSyncNowButton.Click += delegate
+            {
+                using (new WaitingForm2("Syncing...", "Please wait", false))
+                {
+                    new SyncController().Sync();
+                }
+            };
+
+            if (Static.StaticData.Settings.Sync.Enable == false)
+            {
+                _form.MSyncGenerateIdButton.IsEnabled = false;
+                _form.MSyncIdTextBox.IsEnabled = false;
+                _form.MSyncIntervalNumeric.IsEnabled = false;
+            }
 			
             //_form.MSyncIdTextBox.Leave += delegate { _form.MSyncIdTextBox.Text = _form.MSyncIdTextBox.Text.ToUpper(); };
 		}
 		
 		private void AddDataToControlls()
 		{
-            //foreach(string key in Minder.Static.StaticData.KeysDic.Keys)
-            //{
-            //    _form.MKeysComboBox.Items.Add(key);
-            //}
-			
-            //_form.MAltCheckBox.Checked = Minder.Static.StaticData.Settings.NewTaskHotkey.Alt;
-            //_form.MCtrlCheckBox.Checked = Minder.Static.StaticData.Settings.NewTaskHotkey.Ctrl;
-            //_form.MShiftCheckBox.Checked = Minder.Static.StaticData.Settings.NewTaskHotkey.Shift;
-            //_form.MWinCheckBox.Checked = Minder.Static.StaticData.Settings.NewTaskHotkey.Win;
+            foreach (string key in Minder.Static.StaticData.KeysDic.Keys)
+            {
+                _form.MKeysComboBox.Items.Add(key);
+            }
+
+            _form.MAltCheckBox.IsChecked = Minder.Static.StaticData.Settings.NewTaskHotkey.Alt;
+            _form.MCtrlCheckBox.IsChecked = Minder.Static.StaticData.Settings.NewTaskHotkey.Ctrl;
+            _form.MShiftCheckBox.IsChecked = Minder.Static.StaticData.Settings.NewTaskHotkey.Shift;
+            _form.MWinCheckBox.IsChecked = Minder.Static.StaticData.Settings.NewTaskHotkey.Win;
 			
             //for(int i=0; i<_form.MKeysComboBox.Items.Count; i++)
             //{
@@ -129,10 +129,10 @@ namespace Minder.Forms.Settings
             //       .Equals(_form.MKeysComboBox.Items[i].ToString()))
             //        _form.MKeysComboBox.SelectedIndex = i;
             //}
-			
-            //_form.MStartWithWinCheckBox.Checked = Minder.Static.StaticData.Settings.StartWithWindows;
-            //_form.MUpdateCheckBox.Checked = Minder.Static.StaticData.Settings.CheckUpdates;
-            //_form.MPlaySoundCheckBox.Checked = Minder.Static.StaticData.Settings.PlaySound;
+
+            _form.MStartWithWinCheckBox.IsChecked = Minder.Static.StaticData.Settings.StartWithWindows;
+            _form.MUpdateCheckBox.IsChecked = Minder.Static.StaticData.Settings.CheckUpdates;
+            _form.MPlaySoundCheckBox.IsChecked = Minder.Static.StaticData.Settings.PlaySound;
 			
 			// **** DateFormat tab ****
 			_form.MComboBoxCultureData.Items.Add(new CultureDataLT());
