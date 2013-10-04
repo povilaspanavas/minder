@@ -35,7 +35,13 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Skins">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <GroupBox Header="Skins" HorizontalAlignment="Left" Height="324" Margin="10,10,0,0" VerticalAlignment="Top" Width="469">
+                       
+                    </GroupBox>
+                    <Image x:Name="MSkinPreviewPictureBox" HorizontalAlignment="Left" Height="96" Margin="192,25,0,0" VerticalAlignment="Top" Width="277"/>
+                    <ListBox x:Name="MSkinListBo" HorizontalAlignment="Left" Height="298" Margin="26,25,0,0" VerticalAlignment="Top" Width="161"/>
+                </Grid>
             </TabItem>
             <TabItem Header="Sync">
                 <Grid Background="#FFE5E5E5"/>
