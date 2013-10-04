@@ -22,7 +22,17 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Hotkeys">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <GroupBox Header="New Task" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="89" Width="469">
+                        <ComboBox x:Name="MKeysComboBox" HorizontalAlignment="Left" Height="22" Margin="168,18,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.57,0"/>
+                    </GroupBox>
+                    <CheckBox x:Name="MCtrlCheckBox" Content="Ctrl" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="56" Margin="21,59,0,0" VerticalContentAlignment="Center"/>
+                    <CheckBox x:Name="MWinCheckBox" Content="Win" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="56" Margin="82,32,0,0" VerticalContentAlignment="Center"/>
+                    <CheckBox x:Name="MAltCheckBox" Content="Alt" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="56"  Margin="82,59,0,0" VerticalContentAlignment="Center"/>
+                    <CheckBox x:Name="MShiftCheckBox" Content="Shift" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="56" Margin="21,32,0,0" VerticalContentAlignment="Center"/>
+                    <Label Content="+" HorizontalAlignment="Left" Height="24" Margin="140,43,0,0" VerticalAlignment="Top" Width="18"/>
+
+                </Grid>
             </TabItem>
             <TabItem Header="Skins">
                 <Grid Background="#FFE5E5E5"/>
