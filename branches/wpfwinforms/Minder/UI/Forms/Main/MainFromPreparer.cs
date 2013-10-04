@@ -243,8 +243,8 @@ namespace Minder.Forms.Main
 
         private void OpenSettingsForm(object sender, EventArgs e)
         {
-            SettingsFormPreparer preparer = new SettingsFormPreparer();
-            preparer.PrepareForm();
+            SettingsFormController preparer = new SettingsFormController();
+            preparer.PrepareWindow();
         }
 
         private void OpenAboutForm(object sender, EventArgs e)
