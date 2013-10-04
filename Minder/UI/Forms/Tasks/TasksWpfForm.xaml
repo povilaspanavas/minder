@@ -20,7 +20,7 @@
             AutoGenerateColumns="False" MinColumnWidth="60">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Task" Binding="{Binding Path=Text}" MinWidth="80" Width="*"/>
-                <DataGridTextColumn Header="Date" Binding="{Binding Path=DateRemainder}" MinWidth="140"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding Path=DateRemainder}" MinWidth="140" SortDirection="Descending"/>
                 <DataGridCheckBoxColumn Header="Showed" Binding="{Binding Path=Showed}" MinWidth="40"/>
             </DataGrid.Columns>
         </DataGrid>
