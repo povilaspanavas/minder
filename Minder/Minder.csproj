@@ -171,11 +171,15 @@
     <Compile Include="UI\Forms\Settings\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\Settings\SettingsForm.Designer1.cs">
-      <DependentUpon>SettingsForm.resx</DependentUpon>
+    <Compile Include="UI\Forms\Settings\SettingsForm1.Designer.cs">
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SettingsForm.resx</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\Settings\SettingsFormPreparer.cs" />
+    <Compile Include="UI\Forms\Settings\SettingsWpfForm.xaml.cs">
+      <DependentUpon>SettingsWpfForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\Skins\MainFormLaunchy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,7 +251,7 @@
     <EmbeddedResource Include="UI\Forms\Settings\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SettingsForm.Designer1.cs</LastGenOutput>
+      <LastGenOutput>SettingsForm1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\Skins\MainFormLaucnhy.resx">
       <DependentUpon>MainFormLaunchy.cs</DependentUpon>
@@ -259,6 +263,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Forms\About\AboutForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Forms\Settings\SettingsWpfForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
