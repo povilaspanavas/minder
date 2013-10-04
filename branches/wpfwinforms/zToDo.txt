@@ -1,5 +1,7 @@
 POVILO:
- * ESC mygtukas vël visur veiktø
+ * icona
+ * veiktø tiesiai redagavimas gride
+ 
 
 
  

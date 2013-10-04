@@ -82,6 +82,14 @@ namespace Minder.Forms.Tasks
             //preparer.Window.Closed += delegate { LoadTasks(); };
             preparer.PrepareWindow();
         }
+        
+        public ICommand ReloadFromDbCommand
+        {
+            get
+            {
+                return new DelegateCommand(LoadTasks);
+            }
+        }
 
         public ICommand EditTaskCommand
         {
