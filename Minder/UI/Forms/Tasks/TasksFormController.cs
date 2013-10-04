@@ -128,15 +128,14 @@ namespace Minder.Forms.Tasks
         {
             _form.EditTaskEvent += EditTask;
 
-            //_form.MTaskGrid.KeyUp += delegate(object sender, KeyEventArgs e) {
-            //    if (e.Control || e.Alt || e.Shift)
-            //        return;
-            //    if (e.KeyCode.Equals(Keys.Delete))
-            //    {
-            //        DeleteSelected();
-            //        e.Handled = true;
-            //    }
-            //};
+            _form.DataGrid.KeyUp += delegate(object sender, KeyEventArgs e)
+            {
+                if (e.Key.Equals(Key.Delete))
+                {
+                    DeleteSelectedTask();
+                    e.Handled = true;
+                }
+            };
         }
 
         public void DeleteSelectedTask()
@@ -160,7 +159,6 @@ namespace Minder.Forms.Tasks
                 }
                 
             }
-            //LoadTasks();
         }
 
         private void LoadTasks()
