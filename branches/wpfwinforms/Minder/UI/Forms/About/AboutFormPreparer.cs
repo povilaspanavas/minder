@@ -1,78 +1,80 @@
-﻿/*
- * Created by SharpDevelop.
- * User: IGNAS
- * Date: 2012.06.14
- * Time: 22:00
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
-using System;
+﻿using System;
 using System.IO;
-using System.Windows.Forms;
 using Core.CoreInfo;
 using Core.Forms;
 using Core.Tools;
 using Minder.Static;
+using Minder.UI.Forms;
+using Minder.UI.Forms.About;
+using System.Windows;
+using System.Windows.Navigation;
 
 namespace Minder.Forms.About
 {
 	/// <summary>
 	/// Description of AboutFormPreparer.
 	/// </summary>
-	public class AboutFormPreparer : IFormPreparer
+	public class AboutFormController : IController
 	{
-		log4net.ILog m_log = log4net.LogManager.GetLogger(typeof(AboutFormPreparer));
+		log4net.ILog _log = log4net.LogManager.GetLogger(typeof(AboutFormController));
 		
-		AboutForm m_form = null;
+		AboutWpfForm _form = null;
 		
-		public AboutFormPreparer()
+		public AboutFormController()
 		{
-			m_form = new AboutForm();
-			m_form.Text = "About";
+            _form = new AboutWpfForm();
+			_form.Title = "About";
 		}
-		
-		public System.Windows.Forms.Form Form {
+
+        public void Blynas(object sender, RequestNavigateEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Uri.AbsoluteUri);
+            e.Handled = true;
+        }
+
+        public Window Window
+        {
 			get {
-				return m_form;
+				return _form;
 			}
 		}
 		
-		public void PrepareForm()
+		public void PrepareWindow()
 		{
 			SetEvents();
-			m_form.MVersionLabel.Text = string.Format("Version: RC {0}", Core.StaticData.VersionCache.Version);
-			m_form.MCoreVersionLabel.Text = string.Format("Core version: {0}", CoreVersionInfo.Version);
-			m_form.ShowDialog();
+            //_form.MVersionLabel.Text = string.Format("Version: RC {0}", Core.StaticData.VersionCache.Version);
+            //_form.MCoreVersionLabel.Text = string.Format("Core version: {0}", CoreVersionInfo.Version);
+			_form.ShowDialog();
 		}
 		
 		public void SetEvents()
 		{
-			m_form.MLinkLabelSupport.Click += delegate
-			{
-				System.Diagnostics.Process.Start("http://code.google.com/p/minder/");
-			};
-			ConfigureLogLabel(m_form.MLabelLogFile);
+            //_form.MLinkLabelSupport.Click += delegate
+            //{
+            //    System.Diagnostics.Process.Start("http://code.google.com/p/minder/");
+            //};
+            //ConfigureLogLabel(_form.MLabelLogFile);
 		}
 		
-		private void ConfigureLogLabel(LinkLabel linkLabel)
-		{
-			m_form.MLabelLogFile.Text = Static.StaticData.Settings.LogFilePath;
-			m_form.toolTip1.SetToolTip(linkLabel, "Click to open log file");
+        //private void ConfigureLogLabel(LinkLabel linkLabel)
+        //{
+        //    _form.MLabelLogFile.Text = Static.StaticData.Settings.LogFilePath;
+        //    _form.toolTip1.SetToolTip(linkLabel, "Click to open log file");
 			
-			string link = Static.StaticData.Settings.LogFilePath;
-			string executablePath = new PathCutHelper().GetExecutablePath();
-			link = string.Format(@"{0}\{1}", executablePath, link);
-			if (File.Exists(link) == false)
-			{
-				m_log.Error(new ArgumentException(string.Format("File was not found. File Path:\n'{0}'", Path.GetFullPath(link))));
-				linkLabel.Enabled = false;
-				m_form.toolTip1.SetToolTip(linkLabel, "Log failas nerastas");
-			}
+        //    string link = Static.StaticData.Settings.LogFilePath;
+        //    string executablePath = new PathCutHelper().GetExecutablePath();
+        //    link = string.Format(@"{0}\{1}", executablePath, link);
+        //    if (File.Exists(link) == false)
+        //    {
+        //        _log.Error(new ArgumentException(string.Format("File was not found. File Path:\n'{0}'", Path.GetFullPath(link))));
+        //        linkLabel.Enabled = false;
+        //        _form.toolTip1.SetToolTip(linkLabel, "Log failas nerastas");
+        //    }
 			
-			linkLabel.Click+= delegate
-			{
-				System.Diagnostics.Process.Start(link);
-			};
-		}
+        //    linkLabel.Click+= delegate
+        //    {
+        //        System.Diagnostics.Process.Start(link);
+        //    };
+        //}
 	}
 }

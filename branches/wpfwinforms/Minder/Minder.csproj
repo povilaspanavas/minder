@@ -149,6 +149,11 @@
     <Compile Include="Objects\DBVersion.cs" />
     <Compile Include="Objects\Info.cs" />
     <Compile Include="Objects\SyncObject.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\About\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +161,9 @@
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\About\AboutFormPreparer.cs" />
+    <Compile Include="UI\Forms\About\AboutWpfForm.xaml.cs">
+      <DependentUpon>AboutWpfForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\BasicForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +253,10 @@
     <EmbeddedResource Include="Engine\Settings\Images.resx">
       <DependentUpon>Images.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\About\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,6 +274,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Forms\About\AboutWpfForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
