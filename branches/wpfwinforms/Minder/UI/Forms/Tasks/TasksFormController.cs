@@ -20,6 +20,7 @@ using Minder.UI.Forms.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Controls;
+using System.Collections.ObjectModel;
 
 namespace Minder.Forms.Tasks
 {
@@ -29,17 +30,16 @@ namespace Minder.Forms.Tasks
     public class TasksFormController : IController
     {
         private TasksWpfForm _form = null;
-        private List<Task> _tasks = null;
-        //private List<Task> _selectedTasks = null;
+        private ObservableCollection<Task> _tasks = null;
 
         public List<Task> SelectedTasks
         {
-            get {
+            get { 
                 return _form.SelectedTasks;
             }
         }
 
-        public List<Task> Tasks
+        public ObservableCollection<Task> Tasks
         {
             get {
 
@@ -79,7 +79,7 @@ namespace Minder.Forms.Tasks
             if (SelectedTasks.Count == 0)
                 return;
             TaskNewEditFormController preparer = new TaskNewEditFormController(SelectedTasks[0]);
-            preparer.Window.Closed += delegate { RefreshTaskGrid(); };
+            //preparer.Window.Closed += delegate { LoadTasks(); };
             preparer.PrepareWindow();
         }
 
@@ -111,8 +111,9 @@ namespace Minder.Forms.Tasks
         public void NewTask()
         {
             TaskNewEditFormController preparer = new TaskNewEditFormController(new Task());
-            preparer.Window.Closed += delegate { RefreshTaskGrid(); };
             preparer.PrepareWindow();
+            if (preparer.ChangesMade)
+                _tasks.Add(preparer.Task);
         }
 
         public void SetEvents()
@@ -146,14 +147,19 @@ namespace Minder.Forms.Tasks
             if (MessageBox.Show(message, "Question",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                for (int i = 0; i < SelectedTasks.Count; i++)
+                // we can't use SelectedTasks, because we are changing selected items by 
+                // removing them from observable collection
+                List<Task> currentSelection = new List<Task>(SelectedTasks);
+                for (int i = 0; i < currentSelection.Count; i++)
                 {
-                    Task task = SelectedTasks[i];
+                    Task task = currentSelection[i];
                     task.Delete();
+                    _tasks.Remove(task); // I think it should be slow
                     TimeEngine.FireTaskChangedEvent(task);
                 }
+                
             }
-            RefreshTaskGrid();
+            //LoadTasks();
         }
 
         private void LoadTasks()
@@ -165,58 +171,10 @@ namespace Minder.Forms.Tasks
                 if (_tasksTemp == null)
                     return;
 
-                //                int rowIndex = 0;
-                //                if(_form.MTaskGrid.CurrentCell != null)
-                //                    rowIndex = _form.MTaskGrid.CurrentCell.RowIndex;
-
-                ////				m_form.MTaskGrid.Rows.Clear();
-
-
-                _tasks = _tasksTemp
+                _tasks = new ObservableCollection<Task>(_tasksTemp
                     .OrderBy(m => m.Showed)
-                    .ThenByDescending(n => n.DateRemainder).ToList();
-                ////			m_tasks.Reverse();
-                ////				foreach(Task task in m_tasks)
-                ////				{
-                ////					m_form.MTaskGrid.Rows.Add(task.Text, task.DateRemainder, task.Showed, task.Id, task.SourceId);
-                ////				}
-
-                //                CoreGridController<Task>.AddToGrid(_form.MTaskGrid, _tasks);
-
-                //                if(_form.MTaskGrid.Rows.Count > rowIndex)
-                //                    _form.MTaskGrid.CurrentCell = _form.MTaskGrid.Rows[rowIndex].Cells[2];
+                    .ThenByDescending(n => n.DateRemainder).ToList());
             }
-        }
-
-        private void RefreshTaskGrid()
-        {
-            ////			using(new WaitingForm2("Loading tasks...", "Please wait", false))
-            ////			{
-            //            _tasks = new DbHelper().LoadAllTasks();
-
-            //            if(_tasks == null)
-            //                return;
-
-            //            int rowIndex = 0;
-            //            if(_form.MTaskGrid.CurrentCell != null)
-            //                rowIndex = _form.MTaskGrid.CurrentCell.RowIndex;
-
-            ////				m_form.MTaskGrid.Rows.Clear();
-
-
-            //            _tasks = _tasks
-            //                .OrderBy(m => m.Showed)
-            //                .ThenByDescending(n => n.DateRemainder).ToList();
-            ////			m_tasks.Reverse();
-            ////				foreach(Task task in m_tasks)
-            ////				{
-            ////					m_form.MTaskGrid.Rows.Add(task.Text, task.DateRemainder, task.Showed, task.Id, task.SourceId);
-            ////				}
-
-            //            CoreGridController<Task>.AddValues(_form.MTaskGrid, _tasks);
-
-            //            if(_form.MTaskGrid.Rows.Count > rowIndex)
-            //                _form.MTaskGrid.CurrentCell = _form.MTaskGrid.Rows[rowIndex].Cells[2];
         }
     }
 }
