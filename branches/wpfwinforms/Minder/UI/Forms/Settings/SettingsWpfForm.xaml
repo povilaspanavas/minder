@@ -1,9 +1,10 @@
-﻿<src:BaseWpfForm  x:Class="Minder.UI.Forms.Settings.SettingsWpfForm"
+﻿<src:BaseWpfForm
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:src="clr-namespace:Minder.UI.Forms"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"  x:Class="Minder.UI.Forms.Settings.SettingsWpfForm"
              mc:Ignorable="d" 
              Height="426" Width="527"
              Background="{DynamicResource WindowBackgroundBrush}"
@@ -36,17 +37,29 @@
             </TabItem>
             <TabItem Header="Skins">
                 <Grid Background="#FFE5E5E5">
-                    <GroupBox Header="Skins" HorizontalAlignment="Left" Height="324" Margin="10,10,0,0" VerticalAlignment="Top" Width="469">
-                       
-                    </GroupBox>
+                    <GroupBox Header="Skins" HorizontalAlignment="Left" Height="324" Margin="10,10,0,0" VerticalAlignment="Top" Width="469"/>
                     <Image x:Name="MSkinPreviewPictureBox" HorizontalAlignment="Left" Height="96" Margin="192,25,0,0" VerticalAlignment="Top" Width="277"/>
-                    <ListBox x:Name="MSkinListBo" HorizontalAlignment="Left" Height="298" Margin="26,25,0,0" VerticalAlignment="Top" Width="161"/>
+                    <ListBox x:Name="MSkinListBo" HorizontalAlignment="Left" Height="287" Margin="26,36,0,0" VerticalAlignment="Top" Width="161"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Sync">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <GroupBox Header="Sync" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="324" Width="469">
+                        <Button x:Name="MSyncGenerateIdButton" Content="Generate ID" HorizontalAlignment="Left" Height="23" Margin="269,37,0,0" VerticalAlignment="Top" Width="98"/>
+
+
+                    </GroupBox>
+                    <CheckBox Content="Enable synchronization" HorizontalAlignment="Left" Height="26" Margin="20,34,0,0" VerticalAlignment="Top" Width="158" RenderTransformOrigin="0.919,1.643"/>
+                    <Label Content="Sync interval (minutes)" HorizontalAlignment="Left" Height="31" Margin="20,89,0,0" VerticalAlignment="Top" Width="136"/>
+                    <Label Content="Your ID" HorizontalAlignment="Left" Height="24" Margin="20,60,0,0" VerticalAlignment="Top" Width="88"/>
+                    <Label Content="Last sync date" HorizontalAlignment="Left" Height="27" Margin="20,120,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="-0.035,1.757"/>
+                    <TextBox x:Name="MSyncIdTextBox" HorizontalAlignment="Left" Margin="123,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.72,5.438" Height="19" Width="148"/>
+
+                    <xctk:DateTimePicker x:Name="MLastSyncDate" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="113" Margin="158,123,0,0"/>
+                    <xctk:IntegerUpDown x:Name="MSyncIntervalNumeric" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="113" Margin="158,94,0,0"/>
+                </Grid>
             </TabItem>
         </TabControl>
 
     </Grid>
-</src:BaseWpfForm >
+</src:BaseWpfForm>
