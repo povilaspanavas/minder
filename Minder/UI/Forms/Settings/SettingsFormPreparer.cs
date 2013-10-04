@@ -70,19 +70,19 @@ namespace Minder.Forms.Settings
                 //_form.MSkinPreviewPictureBox = new Images()
                 //    .GetImage(skinUniqueCode.ToUpper());
             };
-			
-            //_form.MDefaultsButton.Click += delegate
-            //{
-            //    if(MessageBox.Show("Do you realy want restore default settings?",
-            //                       "Settings", MessageBoxButtons.YesNo,
-            //                       MessageBoxIcon.Question) == DialogResult.Yes)
-            //    {
-            //        new SettingsLoader().CreateDefaultSettingsFile();
-            //        new SettingsLoader().LoadSettings();
-            //        AddDataToControlls();
-            //        _existChanges = true;
-            //    }
-            //};
+
+            _form.MDefaultsButton.Click += delegate
+            {
+                if (MessageBox.Show("Do you realy want restore default settings?",
+                                   "Settings", MessageBoxButton.YesNo,
+                                   MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    new SettingsLoader().CreateDefaultSettingsFile();
+                    new SettingsLoader().LoadSettings();
+                    AddDataToControlls();
+                    _existChanges = true;
+                }
+            };
 			
             //_form.MEnableSyncCheckBox.CheckedChanged += delegate
             //{
@@ -198,7 +198,7 @@ namespace Minder.Forms.Settings
             //else
             //{
             //    if(MessageBox.Show("Do you really want generate new ID and lose your current ID?", "Warrning",
-            //                       MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            //                       MessageBoxButton.YesNo, MessageBoxIcon.Warning) == MessageBoxResult.Yes)
             //        _form.MSyncIdTextBox.Text = rStr;
             //}
 			
@@ -210,7 +210,7 @@ namespace Minder.Forms.Settings
 			//if(_existChanges == true)
 //            {
 //                if(MessageBox.Show("Do you want to save changes?", "Settings",
-//                                   MessageBoxButtons.YesNo) ==  DialogResult.Yes)
+//                                   MessageBoxButton.YesNo) ==  MessageBoxResult.Yes)
 //                {
 //                    Minder.Static.StaticData.Settings.NewTaskHotkey.Alt = _form.MAltCheckBox.Checked;
 //                    Minder.Static.StaticData.Settings.NewTaskHotkey.Ctrl = _form.MCtrlCheckBox.Checked;
@@ -234,7 +234,7 @@ namespace Minder.Forms.Settings
 					
 //                    new SettingsLoader().SaveSettingsToFile();
 //                    if(MessageBox.Show("You need restart application to take efect. Do you want restart application now?", "Settings",
-//                                       MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+//                                       MessageBoxButton.YesNo, MessageBoxIcon.Question) == MessageBoxResult.Yes)
 //                    {
 //                        string workingPath = new PathCutHelper()
 //                            .CutExecutableFileFromPath(System.Reflection.Assembly
