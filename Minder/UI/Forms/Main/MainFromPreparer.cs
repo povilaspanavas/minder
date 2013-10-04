@@ -249,8 +249,8 @@ namespace Minder.Forms.Main
 
         private void OpenAboutForm(object sender, EventArgs e)
         {
-            AboutFormPreparer preparer = new AboutFormPreparer();
-            preparer.PrepareForm();
+            AboutFormController preparer = new AboutFormController();
+            preparer.PrepareWindow();
         }
 
         private void ExitApplication(object sender, EventArgs e)

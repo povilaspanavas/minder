@@ -26,6 +26,7 @@ using Minder.Forms.TaskShow;
 using System.Windows.Media;
 using WPF.Themes;
 using Minder.UI.Forms.Tasks;
+using Minder.UI.Forms.About;
 
 namespace Minder
 {
@@ -64,7 +65,7 @@ namespace Minder
                 ThemeManager.ApplyTheme(app, "ShinyRed");
                 Starter(args);
                 ClearTypeOn();
-               // new TasksWpfForm().ShowDialog();
+                new AboutWpfForm().ShowDialog();
                 //var controller = new TaskShowController(new Task());
                 //controller.Window.ShowDialog();
                 //var wpfForm = new TaskShowWpfForm();
