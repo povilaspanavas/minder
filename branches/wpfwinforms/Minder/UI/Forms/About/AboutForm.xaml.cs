@@ -19,9 +19,9 @@ namespace Minder.UI.Forms.About
     /// <summary>
     /// Interaction logic for AboutWpfForm.xaml
     /// </summary>
-    public partial class AboutWpfForm : BaseWpfForm
+    public partial class AboutForm : BaseWpfForm
     {
-        public AboutWpfForm()
+        public AboutForm()
         {
             InitializeComponent();
 

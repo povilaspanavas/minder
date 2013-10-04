@@ -18,11 +18,11 @@ namespace Minder.Forms.About
 	{
 		log4net.ILog _log = log4net.LogManager.GetLogger(typeof(AboutFormController));
 		
-		AboutWpfForm _form = null;
+		AboutForm _form = null;
 		
 		public AboutFormController()
 		{
-            _form = new AboutWpfForm();
+            _form = new AboutForm();
 			_form.Title = "About";
 		}
 
