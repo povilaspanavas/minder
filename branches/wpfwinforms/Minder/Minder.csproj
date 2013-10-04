@@ -164,12 +164,6 @@
     <Compile Include="UI\Forms\BaseWpfForm.cs" />
     <Compile Include="UI\Forms\DelegateCommand.cs" />
     <Compile Include="UI\Forms\IController.cs" />
-    <Compile Include="UI\Forms\Main\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\Main\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Forms\Main\MainFromPreparer.cs" />
     <Compile Include="UI\Forms\Settings\SettingsForm.cs">
       <SubType>Form</SubType>
@@ -182,7 +176,6 @@
       <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="UI\Forms\Settings\SettingsFormPreparer.cs" />
-    <Compile Include="UI\Forms\Skins\IWindowsFormSkin.cs" />
     <Compile Include="UI\Forms\Skins\MainFormLaunchy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,9 +243,6 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\Main\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\Settings\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
