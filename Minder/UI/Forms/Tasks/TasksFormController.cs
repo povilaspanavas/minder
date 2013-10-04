@@ -69,13 +69,13 @@ namespace Minder.Forms.Tasks
 
         public void PrepareWindow()
         {
+            SetEvents();
             _form.Show();
 
         }
 
         public void EditTask()
         {
-            SelectedTasks.ToString();
             if (SelectedTasks.Count == 0)
                 return;
             TaskNewEditFormController preparer = new TaskNewEditFormController(SelectedTasks[0]);
@@ -126,14 +126,7 @@ namespace Minder.Forms.Tasks
 
         public void SetEvents()
         {
-
-
-            //_form.MTaskGrid.DoubleClick += delegate
-            //{
-            //    EditTask();
-            //};
-
-
+            _form.EditTaskEvent += EditTask;
 
             //_form.MTaskGrid.KeyUp += delegate(object sender, KeyEventArgs e) {
             //    if (e.Control || e.Alt || e.Shift)
