@@ -171,11 +171,6 @@
     <Compile Include="UI\Forms\Settings\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\Settings\SettingsForm1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SettingsForm.resx</DependentUpon>
-    </Compile>
     <Compile Include="UI\Forms\Settings\SettingsFormPreparer.cs" />
     <Compile Include="UI\Forms\Settings\SettingsWpfForm.xaml.cs">
       <DependentUpon>SettingsWpfForm.xaml</DependentUpon>
