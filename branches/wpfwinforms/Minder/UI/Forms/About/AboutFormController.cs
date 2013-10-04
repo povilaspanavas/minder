@@ -41,40 +41,7 @@ namespace Minder.Forms.About
 		
 		public void PrepareWindow()
 		{
-			SetEvents();
-            //_form.MVersionLabel.Text = string.Format("Version: RC {0}", Core.StaticData.VersionCache.Version);
-            //_form.MCoreVersionLabel.Text = string.Format("Core version: {0}", CoreVersionInfo.Version);
 			_form.ShowDialog();
 		}
-		
-		public void SetEvents()
-		{
-            //_form.MLinkLabelSupport.Click += delegate
-            //{
-            //    System.Diagnostics.Process.Start("http://code.google.com/p/minder/");
-            //};
-            //ConfigureLogLabel(_form.MLabelLogFile);
-		}
-		
-        //private void ConfigureLogLabel(LinkLabel linkLabel)
-        //{
-        //    _form.MLabelLogFile.Text = Static.StaticData.Settings.LogFilePath;
-        //    _form.toolTip1.SetToolTip(linkLabel, "Click to open log file");
-			
-        //    string link = Static.StaticData.Settings.LogFilePath;
-        //    string executablePath = new PathCutHelper().GetExecutablePath();
-        //    link = string.Format(@"{0}\{1}", executablePath, link);
-        //    if (File.Exists(link) == false)
-        //    {
-        //        _log.Error(new ArgumentException(string.Format("File was not found. File Path:\n'{0}'", Path.GetFullPath(link))));
-        //        linkLabel.Enabled = false;
-        //        _form.toolTip1.SetToolTip(linkLabel, "Log failas nerastas");
-        //    }
-			
-        //    linkLabel.Click+= delegate
-        //    {
-        //        System.Diagnostics.Process.Start(link);
-        //    };
-        //}
 	}
 }

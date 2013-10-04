@@ -160,7 +160,7 @@
     <Compile Include="UI\Forms\About\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\About\AboutFormPreparer.cs" />
+    <Compile Include="UI\Forms\About\AboutFormController.cs" />
     <Compile Include="UI\Forms\About\AboutWpfForm.xaml.cs">
       <DependentUpon>AboutWpfForm.xaml</DependentUpon>
     </Compile>

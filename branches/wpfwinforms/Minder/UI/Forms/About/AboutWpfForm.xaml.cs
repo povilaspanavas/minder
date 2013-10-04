@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Core.CoreInfo;
+using Core.Tools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,9 +24,25 @@ namespace Minder.UI.Forms.About
         public AboutWpfForm()
         {
             InitializeComponent();
+
+            this.LabelProgramVersion.Content = string.Format("Version: Alpha WPF {0}", Core.StaticData.VersionCache.Version);
+            this.LabelCoreVersion.Content = string.Format("Core version: {0}", CoreVersionInfo.Version);
+            this.LabelLogLink.ToolTip = "Click to open log file";
+
         }
 
-        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        private void LogLink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            string link = Static.StaticData.Settings.LogFilePath; 
+            string executablePath = new PathCutHelper().GetExecutablePath();
+            link = string.Format(@"{0}\{1}", executablePath, link);
+            if (System.IO.File.Exists(link) == false)
+                this.LabelLogLink.IsEnabled = false;
+            else
+                System.Diagnostics.Process.Start(link);
+        }
+
+        private void SupportLink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             System.Diagnostics.Process.Start(e.Uri.AbsoluteUri);
             e.Handled = true;
