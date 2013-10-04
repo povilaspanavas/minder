@@ -208,7 +208,6 @@ namespace Minder.Objects
             //hashCode += 1000000087 * m_showed.GetHashCode();
             //hashCode += 1000000093 * m_lastModifyDate.GetHashCode();
             //hashCode += 1000000097 * m_isDeleted.GetHashCode();
-			
             //return hashCode;
 		}
 		
