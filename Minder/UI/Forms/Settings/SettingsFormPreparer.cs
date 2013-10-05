@@ -74,6 +74,8 @@ namespace Minder.Forms.Settings
                                                                .ToString()];
                 _form.MSkinPreviewPictureBox.Source = new Images()
                     .GetBitmapImage(skinUniqueCode.ToUpper());
+
+                //_form.MSkinPreviewPictureBox.
             };
 
             _form.MDefaultsButton.Click += delegate
@@ -172,36 +174,20 @@ namespace Minder.Forms.Settings
                     break;
                 }
             }
-
-            //// ****** Culture data ******
-            //_form.MComboBoxCultureData.DisplayMemberPath = "Name";
-            //_form.MComboBoxCultureData.Items.Add(new CultureDataLT());
-            //_form.MComboBoxCultureData.Items.Add(new CultureDataUK());
-            //_form.MComboBoxCultureData.Items.Add(new CultureDataUS());
-
-            //for (int i = 0; i < _form.MComboBoxCultureData.Items.Count; i++)
-            //{
-            //    if (Minder.Static.StaticData.Settings.CultureData.Name
-            //       .Equals((_form.MComboBoxCultureData.Items[i] as ICultureData).Name))
-            //    {
-            //        _form.MComboBoxCultureData.SelectedIndex = i;
-            //        break;
-            //    }
-            //}
-
+            object obj = new Images().GetImage("BLACK_SKIN");
             // **** Skins ****
-            //int skinNameIndex = 0;
-            //foreach(string name in Minder.Static.StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames.Keys)
-            //{
-            //    _form.MSkinListBox.Items.Add(name);
-            //    string uniqueCode = Minder.Static.StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames[name];
-            //    if(Minder.Static.StaticData.Settings.SkinUniqueCode.ToUpper().Equals(uniqueCode.ToUpper()))
-            //    {
-            //        _form.MSkinListBox.SelectedIndex = skinNameIndex;
-            //        _form.MSkinPreviewPictureBox.Image = new Images().GetImage(uniqueCode.ToUpper());
-            //    }
-            //    skinNameIndex++;
-            //}
+            int skinNameIndex = 0;
+            foreach(string name in Minder.Static.StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames.Keys)
+            {
+                _form.MSkinListBox.Items.Add(name);
+                string uniqueCode = Minder.Static.StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames[name];
+                if(Minder.Static.StaticData.Settings.SkinUniqueCode.ToUpper().Equals(uniqueCode.ToUpper()))
+                {
+                    _form.MSkinListBox.SelectedIndex = skinNameIndex;
+                    //_form.MSkinPreviewPictureBox.Source = new Images().GetBitmapImage(uniqueCode.ToUpper());
+                }
+                skinNameIndex++;
+            }
 
             //***** Sync ******
             _form.MEnableSyncCheckBox.IsChecked = Minder.Static.StaticData.Settings.Sync.Enable;

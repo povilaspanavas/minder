@@ -310,5 +310,13 @@
       <Name>WPF.Themes</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BLACK_SKIN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BLUE_ORANGE_SKIN.bmp" />
+    <Resource Include="Resources\DEFAULT_SKIN.bmp" />
+    <Resource Include="Resources\WHITE_SKIN.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
