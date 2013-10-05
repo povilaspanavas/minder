@@ -10,6 +10,9 @@ using Minder.UI.Forms.TaskShow;
 using Minder.UI.Forms;
 using Minder.UI.Forms.Settings;
 using System.Windows;
+using Minder.Forms.TaskShow;
+using System.Collections.Generic;
+using Minder.Static;
 
 namespace Minder.Forms.Settings
 {
@@ -69,8 +72,8 @@ namespace Minder.Forms.Settings
                 string skinUniqueCode = Minder.Static.StaticData.Settings
                     .SkinsUniqueCodes.SkinsUniqueCodesAndNames[_form.MSkinListBox.Items[_form.MSkinListBox.SelectedIndex]
                                                                .ToString()];
-                //_form.MSkinPreviewPictureBox = new Images()
-                //    .GetImage(skinUniqueCode.ToUpper());
+                _form.MSkinPreviewPictureBox.Source = new Images()
+                    .GetBitmapImage(skinUniqueCode.ToUpper());
             };
 
             _form.MDefaultsButton.Click += delegate
@@ -137,6 +140,7 @@ namespace Minder.Forms.Settings
             _form.MPlaySoundCheckBox.IsChecked = Minder.Static.StaticData.Settings.PlaySound;
 
             // **** DateFormat tab ****
+            _form.MComboBoxCultureData.DisplayMemberPath = "Name";
             _form.MComboBoxCultureData.Items.Add(new CultureDataLT());
             _form.MComboBoxCultureData.Items.Add(new CultureDataUK());
             _form.MComboBoxCultureData.Items.Add(new CultureDataUS());
@@ -152,12 +156,38 @@ namespace Minder.Forms.Settings
             }
 
             // **** Default Remind Me Later value ****
-            //m_form.MComboBoxRemindMeLater.Sorted = false;
-            //TaskShowController.AddRemindLaterValuesToComboBox(
-            //    m_form.MComboBoxRemindMeLater,
-            //    TaskShowController.BuildRemindLaterList());
+            List<RemindLaterValue> listRemindLaterValues = TaskShowController.BuildRemindLaterList();
+            _form.MComboBoxRemindMeLater.DisplayMemberPath = "Name";
+			foreach (RemindLaterValue val in listRemindLaterValues) 
+            {
+				_form.MComboBoxRemindMeLater.Items.Add(val);
+			}
 
-            //TaskShowController.SelectRemindMeLater(m_form.MComboBoxRemindMeLater);
+            // Set index
+            for (int i = 0; i < _form.MComboBoxRemindMeLater.Items.Count; i++)
+            {
+                if (StaticData.Settings.RemindMeLaterDefaultValue.Equals((_form.MComboBoxRemindMeLater.Items[i] as RemindLaterValue).Value))
+                {
+                    _form.MComboBoxRemindMeLater.SelectedIndex = i;
+                    break;
+                }
+            }
+
+            //// ****** Culture data ******
+            //_form.MComboBoxCultureData.DisplayMemberPath = "Name";
+            //_form.MComboBoxCultureData.Items.Add(new CultureDataLT());
+            //_form.MComboBoxCultureData.Items.Add(new CultureDataUK());
+            //_form.MComboBoxCultureData.Items.Add(new CultureDataUS());
+
+            //for (int i = 0; i < _form.MComboBoxCultureData.Items.Count; i++)
+            //{
+            //    if (Minder.Static.StaticData.Settings.CultureData.Name
+            //       .Equals((_form.MComboBoxCultureData.Items[i] as ICultureData).Name))
+            //    {
+            //        _form.MComboBoxCultureData.SelectedIndex = i;
+            //        break;
+            //    }
+            //}
 
             // **** Skins ****
             //int skinNameIndex = 0;

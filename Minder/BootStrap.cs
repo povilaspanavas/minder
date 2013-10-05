@@ -66,11 +66,9 @@ namespace Minder
                 ThemeManager.ApplyTheme(app, "ExpressionDark");
                 Starter(args);
                 ClearTypeOn();
-                new SettingsWpfForm().ShowDialog();
+                //new SettingsWpfForm().ShowDialog();
                 //var controller = new TaskShowController(new Task());
                 //controller.Window.ShowDialog();
-                //var wpfForm = new TaskShowWpfForm();
-                //wpfForm.ShowDialog();
 
 				Application.Run();
                 

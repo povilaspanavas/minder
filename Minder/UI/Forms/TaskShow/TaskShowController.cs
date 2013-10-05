@@ -72,7 +72,7 @@ namespace Minder.Forms.TaskShow
             m_listRemindLaterValues = BuildRemindLaterList();
         }
 
-        public List<RemindLaterValue> BuildRemindLaterList()
+        public static List<RemindLaterValue> BuildRemindLaterList()
         {
             List<RemindLaterValue> listRemindLaterValues = new List<RemindLaterValue>();
             listRemindLaterValues.Add(new RemindLaterValue("5 minutes", 5.0m / 60));
