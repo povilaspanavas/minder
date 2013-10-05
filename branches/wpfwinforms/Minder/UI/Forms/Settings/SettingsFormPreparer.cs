@@ -172,14 +172,14 @@ namespace Minder.Forms.Settings
                     break;
                 }
             }
-            object obj = new Images().GetImage("BLACK_SKIN");
+
             // **** Skins ****
             int skinNameIndex = 0;
             foreach(string name in Minder.Static.StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames.Keys)
             {
                 _form.MSkinListBox.Items.Add(name);
                 string uniqueCode = Minder.Static.StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames[name];
-                if(Minder.Static.StaticData.Settings.SkinUniqueCode.ToUpper().Equals(uniqueCode.ToUpper()))
+                if (Minder.Static.StaticData.Settings.SkinUniqueCode.ToUpper().Equals(uniqueCode.ToUpper()))
                 {
                     _form.MSkinListBox.SelectedIndex = skinNameIndex;
                     _form.MSkinPreviewPictureBox.Source = new Images().GetBitmapImage(uniqueCode.ToUpper());
