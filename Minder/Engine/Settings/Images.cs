@@ -29,7 +29,7 @@ namespace Minder.Engine.Settings
             BitmapImage bmpImage = new BitmapImage();
             bmpImage.BeginInit();
             bmpImage.UriSource = new Uri(
-                    string.Format("pack://application:,,,/Resources/{0}.bmp", name), UriKind.RelativeOrAbsolute);
+                    string.Format("pack://application:,,,/Resources/{0}.png", name), UriKind.RelativeOrAbsolute);
             bmpImage.EndInit();
             return bmpImage;
         }

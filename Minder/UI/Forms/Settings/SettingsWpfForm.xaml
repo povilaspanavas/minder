@@ -6,11 +6,11 @@
              xmlns:src="clr-namespace:Minder.UI.Forms"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"  x:Class="Minder.UI.Forms.Settings.SettingsWpfForm"
              mc:Ignorable="d" 
-             Height="426" Width="527"
+             Height="433" Width="540"
              Background="{DynamicResource WindowBackgroundBrush}"
              >
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="376" Margin="10,10,0,0" VerticalAlignment="Top" Width="499">
+        <TabControl HorizontalAlignment="Left" Height="383" Margin="10,10,0,0" VerticalAlignment="Top" Width="512">
             <TabItem Header="General">
                 <Grid Background="#FFE5E5E5" Margin="0,16,0,-16">
                     <CheckBox x:Name="MStartWithWinCheckBox" Content="Start Minder with Windows" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="20" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
@@ -37,8 +37,8 @@
             </TabItem>
             <TabItem Header="Skins">
                 <Grid Background="#FFE5E5E5">
-                    <GroupBox Header="Skins" HorizontalAlignment="Left" Height="324" Margin="10,10,0,0" VerticalAlignment="Top" Width="469"/>
-                    <Image x:Name="MSkinPreviewPictureBox" HorizontalAlignment="Left" Height="96" Margin="192,25,0,0" VerticalAlignment="Top" Width="277"/>
+                    <GroupBox Header="Skins" HorizontalAlignment="Left" Height="331" Margin="10,10,0,0" VerticalAlignment="Top" Width="482"/>
+                    <Image x:Name="MSkinPreviewPictureBox" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased" HorizontalAlignment="Left" Height="98" Margin="192,25,0,0" VerticalAlignment="Top" Width="290"/>
                     <ListBox x:Name="MSkinListBox" HorizontalAlignment="Left" Height="287" Margin="26,36,0,0" VerticalAlignment="Top" Width="161"/>
                 </Grid>
             </TabItem>
@@ -54,7 +54,7 @@
                     <TextBox x:Name="MSyncIdTextBox" HorizontalAlignment="Left" Margin="123,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.72,5.438" Height="19" Width="148"/>
                     <xctk:DateTimePicker x:Name="MLastSyncDate" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="113" Margin="158,123,0,0"/>
                     <xctk:IntegerUpDown x:Name="MSyncIntervalNumeric" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="113" Margin="158,94,0,0"/>
-                    <Button x:Name="MSyncNowButton" Content="Button" HorizontalAlignment="Left" Height="37" Margin="186,286,0,0" VerticalAlignment="Top" Width="111"/>
+                    <Button x:Name="MSyncNowButton" Content="Sync now" HorizontalAlignment="Left" Height="37" Margin="186,286,0,0" VerticalAlignment="Top" Width="111"/>
 
                 </Grid>
             </TabItem>

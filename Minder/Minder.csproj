@@ -318,5 +318,13 @@
     <Resource Include="Resources\DEFAULT_SKIN.bmp" />
     <Resource Include="Resources\WHITE_SKIN.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BLACK_SKIN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BLUE_ORANGE_SKIN.png" />
+    <Resource Include="Resources\DEFAULT_SKIN.png" />
+    <Resource Include="Resources\WHITE_SKIN.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
