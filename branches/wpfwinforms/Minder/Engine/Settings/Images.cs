@@ -8,6 +8,7 @@
  */
 using System;
 using System.Drawing;
+using System.Windows.Media.Imaging;
 
 namespace Minder.Engine.Settings
 {
@@ -21,5 +22,15 @@ namespace Minder.Engine.Settings
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Images));
 			return ((System.Drawing.Image)(resources.GetObject(name)));
 		}
+
+        public BitmapImage GetBitmapImage(string name)
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Images));
+            BitmapImage bi3 = new BitmapImage();
+            bi3.BeginInit();
+            bi3.StreamSource = resources.GetStream(name);
+            bi3.EndInit();
+            return bi3;
+        }
 	}
 }
