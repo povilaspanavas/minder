@@ -74,8 +74,6 @@ namespace Minder.Forms.Settings
                                                                .ToString()];
                 _form.MSkinPreviewPictureBox.Source = new Images()
                     .GetBitmapImage(skinUniqueCode.ToUpper());
-
-                //_form.MSkinPreviewPictureBox.
             };
 
             _form.MDefaultsButton.Click += delegate
@@ -184,7 +182,7 @@ namespace Minder.Forms.Settings
                 if(Minder.Static.StaticData.Settings.SkinUniqueCode.ToUpper().Equals(uniqueCode.ToUpper()))
                 {
                     _form.MSkinListBox.SelectedIndex = skinNameIndex;
-                    //_form.MSkinPreviewPictureBox.Source = new Images().GetBitmapImage(uniqueCode.ToUpper());
+                    _form.MSkinPreviewPictureBox.Source = new Images().GetBitmapImage(uniqueCode.ToUpper());
                 }
                 skinNameIndex++;
             }
