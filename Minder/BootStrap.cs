@@ -62,6 +62,7 @@ namespace Minder
                 var resources = (System.Windows.ResourceDictionary)Load(sri.Stream);
                 var app = new System.Windows.Application();
                 app.Resources.MergedDictionaries.Add(resources);
+
                 //ThemeManager.
                 ThemeManager.ApplyTheme(app, "ExpressionDark");
                 Starter(args);
