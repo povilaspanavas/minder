@@ -12,7 +12,7 @@
     <Grid>
         <TabControl HorizontalAlignment="Left" Height="383" Margin="10,10,0,0" VerticalAlignment="Top" Width="512">
             <TabItem Header="General">
-                <Grid Background="#FFE5E5E5" Margin="0,16,0,-16">
+                <Grid  Margin="0,16,0,-16">
                     <CheckBox x:Name="MStartWithWinCheckBox" Content="Start Minder with Windows" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="20" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
                     <CheckBox x:Name="MUpdateCheckBox" Content="Check automatically for updates" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Height="20" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
                     <CheckBox x:Name="MPlaySoundCheckBox" Content="Play sound when reminding" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="21" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
@@ -24,7 +24,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Hotkeys">
-                <Grid Background="#FFE5E5E5">
+                <Grid >
                     <GroupBox Header="New Task" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="89" Width="469">
                         <ComboBox x:Name="MKeysComboBox" HorizontalAlignment="Left" Height="22" Margin="168,18,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.57,0"/>
                     </GroupBox>
@@ -36,14 +36,14 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Skins">
-                <Grid Background="#FFE5E5E5">
+                <Grid >
                     <GroupBox Header="Skins" HorizontalAlignment="Left" Height="331" Margin="10,10,0,0" VerticalAlignment="Top" Width="482"/>
                     <Image x:Name="MSkinPreviewPictureBox" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased" HorizontalAlignment="Left" Height="98" Margin="192,25,0,0" VerticalAlignment="Top" Width="290"/>
                     <ListBox x:Name="MSkinListBox" HorizontalAlignment="Left" Height="287" Margin="26,36,0,0" VerticalAlignment="Top" Width="161"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Sync">
-                <Grid Background="#FFE5E5E5">
+                <Grid >
                     <GroupBox Header="Sync" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="324" Width="469">
                         <Button x:Name="MSyncGenerateIdButton" Content="Generate ID" HorizontalAlignment="Left" Height="23" Margin="269,37,0,0" VerticalAlignment="Top" Width="98"/>
                     </GroupBox>
@@ -56,6 +56,14 @@
                     <xctk:IntegerUpDown x:Name="MSyncIntervalNumeric" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="113" Margin="158,94,0,0"/>
                     <Button x:Name="MSyncNowButton" Content="Sync now" HorizontalAlignment="Left" Height="37" Margin="186,286,0,0" VerticalAlignment="Top" Width="111"/>
 
+                </Grid>
+            </TabItem>
+            <TabItem Header="Themes">
+                <Grid >
+                    <GroupBox Header="Themes" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="324" Width="469">
+                    </GroupBox>
+                    <Label Content="Pick a theme" Margin="21,33,398,291"></Label>
+                    <ComboBox x:Name="MThemeComboBox" Margin="120,33,232,291"></ComboBox>
                 </Grid>
             </TabItem>
         </TabControl>
