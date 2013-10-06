@@ -14,6 +14,7 @@ using Minder.Static;
 using Minder.Tools;
 using Minder.UI.Forms.TaskShow;
 using Minder.UI.SkinController.MainForms;
+using WPF.Themes;
 
 namespace Minder.Forms.Settings
 {
@@ -28,7 +29,8 @@ namespace Minder.Forms.Settings
 			.CutExecutableFileFromPath(System.Reflection.Assembly
 			                           .GetExecutingAssembly()
 			                           .Location)+@"\"+StaticData.SETTINGS_FILE_PATH;
-		
+
+        private readonly string _defaultThemeName = "ExpressionDark";
 		/// <summary>
 		/// Jei nepavyksta pasikrauti, tai sukuriam defaultinius ir pasikraunam
 		/// </summary>
@@ -60,7 +62,8 @@ namespace Minder.Forms.Settings
 			iniParser.AddSetting("General", "playsound", "true");
 			iniParser.AddSetting("CultureInfo", "name", "lt-Lt");
 			iniParser.AddSetting("RemindMeLater", "Default", RemindLaterValue.Round(10.0m/60.0m).ToString());
-			iniParser.AddSetting("Skin", "code", BlackSkin.SKIN_UNIQUE_CODE);
+            iniParser.AddSetting("Skin", "code", BlackSkin.SKIN_UNIQUE_CODE);
+            iniParser.AddSetting("Skin", "themename", _defaultThemeName);
 			iniParser.AddSetting("Sync", "enable", "false");
 			iniParser.AddSetting("Sync", "ID", "");
 			iniParser.AddSetting("Sync", "interval", "30");
@@ -112,7 +115,13 @@ namespace Minder.Forms.Settings
 			if (string.IsNullOrEmpty(StaticData.Settings.SkinUniqueCode))
 				StaticData.Settings.SkinUniqueCode = DefaultSkinForm.SKIN_UNIQUE_CODE;
 			
-			//Sync
+            // Theme's name
+            StaticData.Settings.ThemeUniqueCode = parser.GetSetting("skin", "themename");
+            if (string.IsNullOrEmpty(StaticData.Settings.ThemeUniqueCode))
+                StaticData.Settings.ThemeUniqueCode = _defaultThemeName;
+            App.Current.ApplyTheme(StaticData.Settings.ThemeUniqueCode);
+
+            //Sync
 			StaticData.Settings.Sync.Id = parser.GetSetting("sync", "id");
 			StaticData.Settings.Sync.Enable = Convert.ToBoolean(parser.GetSetting("sync", "enable"));
 			StaticData.Settings.Sync.Interval = Convert.ToInt32(parser.GetSetting("sync", "interval"));
@@ -132,7 +141,8 @@ namespace Minder.Forms.Settings
 			parser.DeleteSetting("general", "playsound");
 			parser.DeleteSetting("CultureInfo", "name");
 			parser.DeleteSetting("RemindMeLater", "default");
-			parser.DeleteSetting("skin", "code");
+            parser.DeleteSetting("skin", "code");
+            parser.DeleteSetting("skin", "themename");
 			parser.DeleteSetting("sync", "id");
 			parser.DeleteSetting("sync", "interval");
 			parser.DeleteSetting("sync", "enable");
@@ -148,7 +158,8 @@ namespace Minder.Forms.Settings
 			parser.AddSetting("General", "playsound", StaticData.Settings.PlaySound.ToString());
 			parser.AddSetting("CultureInfo", "name", StaticData.Settings.CultureData.CultureInfo.Name.ToString());
 			parser.AddSetting("RemindMeLater", "default", RemindLaterValue.Round(StaticData.Settings.RemindMeLaterDefaultValue).ToString());
-			parser.AddSetting("skin", "code", StaticData.Settings.SkinUniqueCode);
+            parser.AddSetting("skin", "code", StaticData.Settings.SkinUniqueCode);
+            parser.AddSetting("skin", "themename", StaticData.Settings.ThemeUniqueCode);
 			parser.AddSetting("sync", "id", StaticData.Settings.Sync.Id);
 			parser.AddSetting("sync", "interval", StaticData.Settings.Sync.Interval.ToString());
 			parser.AddSetting("sync", "enable", StaticData.Settings.Sync.Enable.ToString());
