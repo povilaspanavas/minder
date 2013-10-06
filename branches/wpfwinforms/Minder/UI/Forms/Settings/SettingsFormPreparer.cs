@@ -136,6 +136,7 @@ namespace Minder.Forms.Settings
                 return;
             string themeName = (string)(sender as ComboBox).SelectedItem;
             ThemeManager.ApplyTheme(App.Current, themeName);
+            _existChanges = true;
         }
 
         private void AddDataToControlls()
@@ -269,6 +270,7 @@ namespace Minder.Forms.Settings
                     Minder.Static.StaticData.Settings.Sync.Id = _form.MSyncIdTextBox.Text.ToUpper();
                     Minder.Static.StaticData.Settings.Sync.Interval = Convert.ToInt32(_form.MSyncIntervalNumeric.Value);
                     Minder.Static.StaticData.Settings.Sync.Enable = (bool)_form.MEnableSyncCheckBox.IsChecked;
+                    Minder.Static.StaticData.Settings.ThemeUniqueCode = (string)_form.MThemeComboBox.SelectedItem;
 
                     new SettingsLoader().SaveSettingsToFile();
                     if (MessageBox.Show("You need restart application to take efect. Do you want restart application now?", "Settings",
