@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:src="clr-namespace:Minder.UI.Forms"
+             xmlns:local="clr-namespace:WPF.Themes;assembly=WPF.Themes"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"  x:Class="Minder.UI.Forms.Settings.SettingsWpfForm"
              mc:Ignorable="d" 
              Height="433" Width="540"
@@ -58,12 +59,18 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="Themes">
+            <TabItem Header="Themes" DataContext="local:ThemeManager">
                 <Grid >
                     <GroupBox Header="Themes" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="324" Width="469">
                     </GroupBox>
-                    <Label Content="Pick a theme" Margin="21,33,398,291"></Label>
-                    <ComboBox x:Name="MThemeComboBox" Margin="120,33,232,291"></ComboBox>
+                    <Label Content="Pick a theme" Margin="19,35,400,289"></Label>
+                    <ComboBox x:Name="MThemeComboBox" ItemsSource="{Binding Source={x:Static local:ThemeManager.GetThemes}, Mode=OneWay}" Margin="147,35,196,289">
+                        <ComboBox.SelectedItem>
+                            <Binding Mode="TwoWay" Path="ThemeProperty">
+                                
+                            </Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
                 </Grid>
             </TabItem>
         </TabControl>

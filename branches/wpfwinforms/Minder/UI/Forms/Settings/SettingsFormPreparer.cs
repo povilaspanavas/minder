@@ -13,6 +13,8 @@ using System.Windows;
 using Minder.Forms.TaskShow;
 using System.Collections.Generic;
 using Minder.Static;
+using WPF.Themes;
+using System.Windows.Controls;
 
 namespace Minder.Forms.Settings
 {
@@ -39,11 +41,21 @@ namespace Minder.Forms.Settings
             }
         }
 
+        public string[] Themes
+        {
+            get
+            {
+                return ThemeManager.GetThemes;
+            }
+        }
+
         public void PrepareWindow()
         {
             AddDataToControlls();
             SetEvents();
+            _form.DataContext = this;
             _form.Show();
+
         }
 
         public void SetEvents()
@@ -114,6 +126,16 @@ namespace Minder.Forms.Settings
             }
 
             _form.MSyncIdTextBox.ManipulationCompleted += delegate { _form.MSyncIdTextBox.Text = _form.MSyncIdTextBox.Text.ToUpper(); };
+
+            _form.MThemeComboBox.SelectionChanged += MThemeComboBox_SelectionChanged;
+        }
+
+        void MThemeComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (sender == null || sender is ComboBox == false)
+                return;
+            string themeName = (string)(sender as ComboBox).SelectedItem;
+            ThemeManager.ApplyTheme(App.Current, themeName);
         }
 
         private void AddDataToControlls()

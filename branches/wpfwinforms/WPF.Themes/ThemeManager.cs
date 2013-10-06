@@ -7,7 +7,7 @@
     using System.Text;
     using System.Windows;
     using System.Windows.Controls;
-    
+
     public static class ThemeManager
     {
         public static ResourceDictionary GetThemeResourceDictionary(string theme)
@@ -21,9 +21,11 @@
             return null;
         }
 
-        public static string[] GetThemes()
+        public static string[] GetThemes
         {
-            string[] themes = new string[] 
+            get
+            {
+                string[] themes = new string[] 
             { 
                 "ExpressionDark", "ExpressionLight", 
                 "RainierOrange", "RainierPurple", "RainierRadialBlue", 
@@ -38,7 +40,8 @@
                 "UXMusingsRoughRed", "UXMusingsRoughGreen", 
                 "UXMusingsBubblyBlue"
             };
-            return themes;
+                return themes;
+            }
         }
 
         public static void ApplyTheme(this Application app, string theme)
