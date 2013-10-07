@@ -27,6 +27,7 @@
     <Color x:Key="WhiteColor">#FFFFFFFF</Color>
 
     <SolidColorBrush x:Key="TextBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="ComboBoxBorderBrush" Color="Black" />
     <SolidColorBrush x:Key="NormalBrush" Color="{StaticResource MainColor}" />
     <SolidColorBrush x:Key="NormalBorderBrush" Color="#FF333333" />
     <SolidColorBrush x:Key="HoverBrush" Color="{StaticResource HoverColor}" />
@@ -1277,7 +1278,7 @@
                 <ColumnDefinition Width="20" />
             </Grid.ColumnDefinitions>
             <Rectangle Grid.ColumnSpan="2" HorizontalAlignment="Stretch" x:Name="Rectangle" VerticalAlignment="Stretch" Width="Auto" Height="Auto" RadiusX="3" RadiusY="3" Fill="{DynamicResource LightBrush}" Stroke="{DynamicResource NormalBorderBrush}" />
-            <Rectangle Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" RadiusX="3" RadiusY="3" Fill="{DynamicResource LightBrush}" Stroke="{DynamicResource NormalBorderBrush}" />
+            <Rectangle Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" RadiusX="3" RadiusY="3" Fill="{DynamicResource LightBrush}" Stroke="{DynamicResource ComboBoxBorderBrush}" />
             <Border Margin="2,2,2,2" Grid.Column="1" Background="{DynamicResource NormalBrush}" CornerRadius="3,3,3,3" x:Name="border" />
             <Border Margin="2,2,2,2" Background="{DynamicResource HoverBrush}" CornerRadius="3,3,3,3" x:Name="HoverBorder" Grid.Column="1" Opacity="0" />
             <Border Margin="2,2,2,2" Background="{DynamicResource HoverShineBrush}" CornerRadius="3,3,3,3" x:Name="HoverShineBorder" Grid.Column="1" Opacity="0" />
