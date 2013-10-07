@@ -1,6 +1,7 @@
 POVILO:
- * veiktø tiesiai redagavimas gride
  * Visas temas iðbandyti, nes kai kurios lûþta
+ * Tema atsidarius nustatymams pasiþymëtø, nes dabar jokia nepainrkta bûna
+ * veiktø tiesiai redagavimas gride
  * Padaryti, kad temos paèios keistøsi kasdien
 
 
