@@ -2403,7 +2403,7 @@
                                 <VisualState x:Name="Unfocused">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="FocusVisualElement" Storyboard.TargetProperty="Visibility">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                                            <!--<DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>-->
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
