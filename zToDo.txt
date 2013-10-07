@@ -1,9 +1,7 @@
 POVILO:
- * icona
  * veiktø tiesiai redagavimas gride
  * Visas temas iðbandyti, nes kai kurios lûþta
  * Padaryti, kad temos paèios keistøsi kasdien
- * Hot keys nesimato, kad dropboxas yra, uþdëti per stiliø juodai temai rëmelá
 
 
  
