@@ -103,10 +103,10 @@
             if (theme == string.Empty)
                 return;
 
-            ContentControl control = d as ContentControl;
-            if (control != null)
+            Application app = Application.Current;
+            if (app != null)
             {
-                control.ApplyTheme(theme);
+                app.ApplyTheme(theme);
             }
         }
 
