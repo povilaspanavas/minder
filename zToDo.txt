@@ -1,6 +1,6 @@
 POVILO:
  * Visas temas iðbandyti, nes kai kurios lûþta
- * Tema atsidarius nustatymams pasiþymëtø, nes dabar jokia nepainrkta bûna
+ * Tema atsidarius nustatymams pasiþymëtø, nes dabar jokia nepainrkta bûna (reikia perdaryti case sensitive nusatytmø saugojimà arba padaryti senamadiná veikimà)
  * veiktø tiesiai redagavimas gride
  * Padaryti, kad temos paèios keistøsi kasdien
 

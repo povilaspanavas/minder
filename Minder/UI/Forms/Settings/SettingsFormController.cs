@@ -220,6 +220,14 @@ namespace Minder.Forms.Settings
 
             //***** Theme ******
             SelectedTheme = Minder.Static.StaticData.Settings.ThemeUniqueCode;
+            for (int i = 0; i < _form.MThemeComboBox.Items.Count; i++)
+            {
+                if (StaticData.Settings.ThemeUniqueCode.Equals((_form.MThemeComboBox.Items[i] as string).ToUpper()))
+                {
+                    _form.MThemeComboBox.SelectedIndex = i;
+                    break;
+                }
+            }
             //ThemeManager.ThemeProperty.DefaultMetadata.DefaultValue = "BubbleCreme";
 
             //***** Sync ******
