@@ -59,14 +59,14 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="Themes" DataContext="local:ThemeManager">
+            <TabItem Header="Themes">
                 <Grid >
                     <GroupBox Header="Themes" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="324" Width="469">
                     </GroupBox>
                     <Label Content="Pick a theme" Height="24" Margin="19,35,400,289"></Label>
                     <ComboBox x:Name="MThemeComboBox" ItemsSource="{Binding Source={x:Static local:ThemeManager.GetThemes}, Mode=OneWay}" Height="24" Margin="147,35,196,289">
                         <ComboBox.SelectedItem>
-                            <Binding Mode="TwoWay" Path="ThemeProperty">
+                            <Binding Mode="TwoWay" Path="SelectedTheme">
                                 
                             </Binding>
                         </ComboBox.SelectedItem>

@@ -15,17 +15,25 @@ using System.Collections.Generic;
 using Minder.Static;
 using WPF.Themes;
 using System.Windows.Controls;
+using System.ComponentModel;
 
 namespace Minder.Forms.Settings
 {
     /// <summary>
     /// Description of SettingsFromPreparer.
     /// </summary>
-    public class SettingsFormController : IController
+    public class SettingsFormController : IController, INotifyPropertyChanged
     {
         SettingsWpfForm _form = null;
         private bool _existChanges = false;
+        private string _selectedTheme;
         log4net.ILog _log = log4net.LogManager.GetLogger(typeof(SettingsFormController));
+
+        public string SelectedTheme
+        {
+            get { return _selectedTheme; }
+            set { _selectedTheme = value; }
+        }
 
         public SettingsFormController()
         {
@@ -210,6 +218,10 @@ namespace Minder.Forms.Settings
                 skinNameIndex++;
             }
 
+            //***** Theme ******
+            SelectedTheme = Minder.Static.StaticData.Settings.ThemeUniqueCode;
+            //ThemeManager.ThemeProperty.DefaultMetadata.DefaultValue = "BubbleCreme";
+
             //***** Sync ******
             _form.MEnableSyncCheckBox.IsChecked = Minder.Static.StaticData.Settings.Sync.Enable;
             if (Minder.Static.StaticData.Settings.Sync.Interval <= 0)
@@ -300,5 +312,11 @@ namespace Minder.Forms.Settings
             }
         }
 
+
+        event PropertyChangedEventHandler INotifyPropertyChanged.PropertyChanged
+        {
+            add {  }
+            remove { }
+        }
     }
 }
