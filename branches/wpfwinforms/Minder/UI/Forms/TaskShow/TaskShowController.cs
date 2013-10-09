@@ -131,6 +131,21 @@ namespace Minder.Forms.TaskShow
             get { return new DelegateCommand(new Action(RemindMeLaterPressed)); }
         }
 
+        public ICommand EditTaskCommand
+        {
+            get
+            {
+                return new DelegateCommand(EditTask);
+            }
+        }
+
+        public void EditTask()
+        {
+            TaskNewEditFormController preparer = new TaskNewEditFormController(this.Task);
+            preparer.PrepareWindow();
+            _window.Close();
+        }
+
         private void RemindMeLaterPressed()
         {
             m_task.Showed = false;

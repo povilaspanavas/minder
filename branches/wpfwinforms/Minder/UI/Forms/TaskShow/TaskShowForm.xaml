@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
         <Label Content="{Binding FullText}" HorizontalAlignment="Left" Height="56" Margin="9,10,0,0" VerticalAlignment="Top" Width="222" Grid.ColumnSpan="2"/>
         <Button x:Name="ButtonCloseOk" Command="{Binding CloseTaskCommand}" Content="Close" HorizontalAlignment="Left" Height="31" Margin="10,84,0,0" VerticalAlignment="Top" Width="103" TabIndex="0"/>
-        <Button x:Name="ButtonEditTask" Content="Edit Task" HorizontalAlignment="Left" Height="31" Margin="128,84,0,0" VerticalAlignment="Top" Width="103" Grid.ColumnSpan="2" TabIndex="2"/>
+        <Button x:Name="ButtonEditTask" Command="{Binding EditTaskCommand}" Content="Edit Task" HorizontalAlignment="Left" Height="31" Margin="128,84,0,0" VerticalAlignment="Top" Width="103" Grid.ColumnSpan="2" TabIndex="2"/>
         <Button x:Name="ButtonRemindMeLater" Command="{Binding RemindMeLaterCommand}" Content="Remind Me Later" HorizontalAlignment="Left" Height="31" Margin="128,124,0,0" VerticalAlignment="Top" Width="103" Grid.ColumnSpan="2" TabIndex="1"/>
         <ComboBox x:Name="ComboBoxRemindLater" ItemsSource="{Binding RemindLaterValues}" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="103" Height="25" TabIndex="3">
             <ComboBox.SelectedItem>
