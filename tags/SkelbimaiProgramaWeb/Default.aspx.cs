@@ -15,12 +15,17 @@ using WebSite.Helpers;
 public partial class _Default : System.Web.UI.Page
 {
     ILog m_log = LogManager.GetLogger(typeof(_Default));
-    
+
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        Page.Theme = "Login";
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         LoadConfig();
         SetEvents();
-
+        this.LoginLabel.Visible = false;
     }
 
     private void SetEvents()
@@ -36,7 +41,10 @@ public partial class _Default : System.Web.UI.Page
            if (result.Key == WebSite.Helpers.LoginStatus.LoggedUser)
                Response.Redirect(string.Format("~/Pages/UserPanel/UserPanel.aspx?token='{0}'&username='{1}'", result.Value.TokenValue, userName));
            if (result.Key == WebSite.Helpers.LoginStatus.NotLoged)
+           {
+               this.LoginLabel.Visible = true;
                this.LogLabel.Text = "Nepavyko prisijungti!";
+           }
         };
     }
     
@@ -47,6 +55,6 @@ public partial class _Default : System.Web.UI.Page
         FileInfo config = new FileInfo(WebSite.StaticData.LOG4NET_CONFIG_PATH);
         log4net.Config.XmlConfigurator.Configure(config);
 
-        m_log.Info("ConfigLoaded!");
+        m_log.Info("Config Loaded!");
     }
 }
