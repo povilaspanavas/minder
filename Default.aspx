@@ -1,18 +1,36 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Pages/MasterPage.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" Runat="Server">
-    <form id="form1" runat="server">
-    <div style="height: 383px">
-        <asp:TextBox ID="UsernameTextBox" CssClass="userNameTextBox" runat="server"></asp:TextBox>
-        <asp:TextBox ID="PasswordTextBox" CssClass="passwordTextBox" runat="server" TextMode="Password"></asp:TextBox>
-        <asp:Button ID="LoginButton" runat="server" Text="Prisijungti" CssClass="loginButton" />
-        <asp:Label ID="PasswordLabel" runat="server" Text="Slaptažodis" CssClass="passwordLabel"></asp:Label>
-        <asp:Label ID="LogLabel" runat="server" CssClass="logLabel"></asp:Label>
-        <asp:Label ID="UsernameLabel" runat="server" Text="Vartotojo vardas" CssClass="userNameLabel"></asp:Label>
-        <asp:Label ID="LoginLabel" runat="server" Text="Prašome prisijungti" CssClass="loginLabel"></asp:Label>
-        <asp:HyperLink ID="HyperLink1" runat="server" CssClass="lostPasswordLink" NavigateUrl="~/Pages/LostPasswordForm.aspx">Pamiršau slaptažodį</asp:HyperLink>
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head runat="server">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Login Form</title>
+  <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+  <section class="container">
+    <div class="login">
+      <h1>Prisijungimo forma</h1>
+      <form method="post" runat="server">
+      <p><asp:TextBox ID="UsernameTextBox" CssClass="userNameTextBox" runat="server" placeholder="Prisijungimo vardas"></asp:TextBox></p>
+      <p><asp:TextBox ID="PasswordTextBox" CssClass="passwordTextBox" runat="server" TextMode="Password" placeholder="Slaptažodis"></asp:TextBox></p>
+        <p class="submit"><asp:Button ID="LoginButton" runat="server" Text="Prisijungti" CssClass="loginButton" /></p>
+      </form>
     </div>
-    </form>
-</asp:Content>
+
+    <div class="login-help">
+      <p><asp:HyperLink ID="HyperLink1" runat="server" CssClass="lostPasswordLink" NavigateUrl="~/Pages/LostPasswordForm.aspx">Pamiršau slaptažodį</asp:HyperLink>.</p>
+    </div>
+  </section>
+    
+  <div runat="server" class="label" id="LoginLabel">
+      <p class="login-label">
+        <asp:Label ID="LogLabel" runat="server" CssClass="logLabel"></asp:Label>
+      </p>
+  </div>
+</body>
+</html>
