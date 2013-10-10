@@ -157,26 +157,16 @@
     <Compile Include="UI\Forms\About\AboutForm.xaml.cs">
       <DependentUpon>AboutForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\BasicForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="UI\Forms\BaseWpfForm.cs" />
+    <Compile Include="UI\Forms\BasicForm.cs" />
     <Compile Include="UI\Forms\DelegateCommand.cs" />
     <Compile Include="UI\Forms\IController.cs" />
     <Compile Include="UI\Forms\Main\MainFromPreparer.cs" />
-    <Compile Include="UI\Forms\Settings\SettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\Settings\SettingsForm.Designer.cs">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Forms\Settings\SettingsFormController.cs" />
     <Compile Include="UI\Forms\Settings\SettingsWpfForm.xaml.cs">
       <DependentUpon>SettingsWpfForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\Skins\MainFormLaunchy.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="UI\Forms\Skins\MainFormLaunchy.cs" />
     <Compile Include="UI\Forms\Skins\MainFormLaunchy.Designer.cs">
       <DependentUpon>MainFormLaunchy.cs</DependentUpon>
     </Compile>
@@ -241,11 +231,6 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\Settings\SettingsForm.resx">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SettingsForm1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\Skins\MainFormLaucnhy.resx">
       <DependentUpon>MainFormLaunchy.cs</DependentUpon>
