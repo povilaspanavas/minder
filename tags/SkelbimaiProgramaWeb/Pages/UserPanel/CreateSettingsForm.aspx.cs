@@ -76,7 +76,9 @@ public partial class Pages_UserPanel_CreateSettingsForm : System.Web.UI.Page
 
     private void FillDropDown()
     {
-        foreach (string uniqueCode in AdvertModel.PluginsUniqueCodes.PluginsUniquecodes)
+        List<string> uniqueCodes = AdvertModel.PluginsUniqueCodes.PluginsUniquecodes.ToList();
+        uniqueCodes.Sort();
+        foreach (string uniqueCode in uniqueCodes)
         {
             this.M_DropDownList.Items.Add(uniqueCode);
         }

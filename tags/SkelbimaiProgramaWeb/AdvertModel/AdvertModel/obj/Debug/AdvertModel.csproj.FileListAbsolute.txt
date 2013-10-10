@@ -1,4 +1,3 @@
-D:\Projektai\SkelbimaiProgramaWeb\AdvertModel\AdvertModel\obj\Debug\AdvertModel.csprojResolveAssemblyReference.cache
 D:\Projektai\SkelbimaiProgramaWeb\AdvertModel\AdvertModel\bin\Debug\AdvertModel.dll
 D:\Projektai\SkelbimaiProgramaWeb\AdvertModel\AdvertModel\bin\Debug\AdvertModel.pdb
 D:\Projektai\SkelbimaiProgramaWeb\AdvertModel\AdvertModel\bin\Debug\Core.dll
