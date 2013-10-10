@@ -68,14 +68,14 @@ namespace Minder.Forms.Settings
 
         public void SetEvents()
         {
-            _form.MAltCheckBox.Checked += delegate { _existChanges = true; };
-            _form.MCtrlCheckBox.Checked += delegate { _existChanges = true; };
-            _form.MShiftCheckBox.Checked += delegate { _existChanges = true; };
-            _form.MWinCheckBox.Checked += delegate { _existChanges = true; };
+            _form.MAltCheckBox.Click += delegate { _existChanges = true; };
+            _form.MCtrlCheckBox.Click += delegate { _existChanges = true; };
+            _form.MShiftCheckBox.Click += delegate { _existChanges = true; };
+            _form.MWinCheckBox.Click += delegate { _existChanges = true; };
             _form.MKeysComboBox.SelectionChanged += delegate { _existChanges = true; };
-            _form.MStartWithWinCheckBox.Checked += delegate { _existChanges = true; };
-            _form.MUpdateCheckBox.Checked += delegate { _existChanges = true; };
-            _form.MPlaySoundCheckBox.Checked += delegate { _existChanges = true; };
+            _form.MStartWithWinCheckBox.Click += delegate { _existChanges = true; };
+            _form.MUpdateCheckBox.Click += delegate { _existChanges = true; };
+            _form.MPlaySoundCheckBox.Click += delegate { _existChanges = true; };
             _form.MComboBoxCultureData.SelectionChanged += delegate { _existChanges = true; };
             _form.MComboBoxRemindMeLater.SelectionChanged += delegate { _existChanges = true; };
             _form.MSkinListBox.SelectionChanged += delegate { _existChanges = true; };
@@ -83,7 +83,7 @@ namespace Minder.Forms.Settings
             _form.MSyncGenerateIdButton.Click += delegate { _existChanges = true; };
             _form.MSyncIdTextBox.TextChanged += delegate { _existChanges = true; };
             _form.MSyncIntervalNumeric.ValueChanged += delegate { _existChanges = true; };
-            _form.MEnableSyncCheckBox.Checked += delegate { _existChanges = true; };
+            _form.MEnableSyncCheckBox.Click += delegate { _existChanges = true; };
 
             _form.Closing += FormClosing;
 
@@ -109,7 +109,7 @@ namespace Minder.Forms.Settings
                 }
             };
 
-            _form.MEnableSyncCheckBox.Checked += delegate
+            _form.MEnableSyncCheckBox.Click += delegate
             {
                 _form.MSyncGenerateIdButton.IsEnabled = (bool)_form.MEnableSyncCheckBox.IsChecked;
                 _form.MSyncIdTextBox.IsEnabled = (bool)_form.MEnableSyncCheckBox.IsChecked;
