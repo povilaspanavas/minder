@@ -126,6 +126,7 @@
     <Compile Include="Engine\Parse\TextParser.cs" />
     <Compile Include="Engine\Settings\Images.cs" />
     <Compile Include="Engine\Settings\PathCutHelper.cs" />
+    <Compile Include="Engine\Settings\Settings.cs" />
     <Compile Include="Engine\Settings\SettingsLoader.cs" />
     <Compile Include="Engine\Settings\StartWithWinController.cs" />
     <Compile Include="Engine\Sql\DBVersionSystem\AllDbVersions.cs" />

@@ -39,6 +39,7 @@ namespace Minder.Forms.Settings
         {
             _form = new SettingsWpfForm();
             _form.Title = "Settings";
+            _form.DataContext = StaticData.Settings;
         }
 
         public Window Window

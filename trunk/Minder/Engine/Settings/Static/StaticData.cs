@@ -6,18 +6,21 @@ using System.Threading;
 using System.Windows.Forms;
 using Minder.Engine.Parse;
 using Minder.UI.SkinController.MainForms;
+using Minder.Engine.Settings;
 
 namespace Minder.Static
 {
+   
 	/// <summary>
 	/// Description of StaticData.
 	/// </summary>
 	public static class StaticData
 	{
 		private static Dictionary<string, Keys> m_keysDic = new Dictionary<string, Keys>();
-		public const string SETTINGS_FILE_PATH = "settings.ini";
+        private static Settings _settings = new Settings();
+        public const string SETTINGS_FILE_PATH = "settings.ini";
 		public const string SOUND_FILE_PATH = @"Sounds\sound.wav";
-		
+	
 		public static Dictionary<string, Keys> KeysDic
 		{
 			get
@@ -83,159 +86,14 @@ namespace Minder.Static
 			m_keysDic.Add("9", Keys.NumPad9);
 			
 		}
-		
+
+        public static Settings Settings { get { return _settings; } }
+
 		public static class InfoUniqueCodes
 		{
 			public const string InfoLastSyncDate = "UniqueCode_InfoLastSyncDate";
 		}
 		
-		public static class Settings
-		{
-			static bool m_startWithWindows;
-			static bool m_checkUpdates;
-			static bool m_playSound;
-            static string m_skinUniqueCode;
-            static string m_themeUniqueCode;
-
-           
-			static string m_logFilePath;
-			static decimal m_remindMeLaterValue = 10.0m/60.0m;
-			static ICultureData m_cultureData = new CultureDataLT();
-
-            public static string ThemeUniqueCode
-            {
-                get { return Settings.m_themeUniqueCode; }
-                set { Settings.m_themeUniqueCode = value; }
-            }
-
-			public static decimal RemindMeLaterDefaultValue {
-				get { return m_remindMeLaterValue; }
-				set { m_remindMeLaterValue = value; }
-			}
-			
-			public static ICultureData CultureData {
-				get { return m_cultureData; }
-				set {
-					m_cultureData = value;
-					TextParser.CultureData = m_cultureData;
-					Thread.CurrentThread.CurrentCulture = m_cultureData.CultureInfo;
-					Thread.CurrentThread.CurrentUICulture = m_cultureData.CultureInfo;
-				}
-			}
-			public static bool StartWithWindows {
-				get { return m_startWithWindows; }
-				set { m_startWithWindows = value; }
-			}
-			
-			public static bool CheckUpdates {
-				get { return m_checkUpdates; }
-				set { m_checkUpdates = value; }
-			}
-
-			public static bool PlaySound {
-				get { return m_playSound; }
-				set { m_playSound = value; }
-			}
-			
-			public static string SkinUniqueCode {
-				get { return m_skinUniqueCode; }
-				set { m_skinUniqueCode = value; }
-			}
-			
-			public static string LogFilePath {
-				get { return m_logFilePath; }
-				set { m_logFilePath = value; }
-			}
-			
-			public static class SkinsUniqueCodes
-			{
-				static Dictionary<string, string> m_skinsUniqueCodesAndNames = new Dictionary<string, string>();
-				
-				/// <summary>
-				/// Skin name -> skin uniqueCode
-				/// </summary>
-				public static Dictionary<string, string> SkinsUniqueCodesAndNames {
-					get { AddSkinsToDic();
-						return m_skinsUniqueCodesAndNames; }
-				}
-				
-				private static void AddSkinsToDic()
-				{
-					if(m_skinsUniqueCodesAndNames.Count != 0)
-						return;
-					
-//					m_skinsUniqueCodesAndNames.Add("Default skin", DEFAULT_SKIN_UNIQUE_CODE);
-					m_skinsUniqueCodesAndNames.Add("Default skin", DefaultSkinForm.SKIN_UNIQUE_CODE);
-					m_skinsUniqueCodesAndNames.Add("White skin", WhiteSkin.SKIN_UNIQUE_CODE);
-					m_skinsUniqueCodesAndNames.Add("Black skin", BlackSkin.SKIN_UNIQUE_CODE);
-					m_skinsUniqueCodesAndNames.Add("Blue orange skin", BlueOrangeSkin.SKIN_UNIQUE_CODE);
-				}
-			}
-			
-			public static class Sync
-			{
-				static string m_id = string.Empty;
-				static DateTime m_lastSyncDate = new DateTime(2000,1,1);
-				
-				public static string Id {
-					get { return m_id; }
-					set { m_id = value; }
-				}
-				
-				static bool m_enable = false;
-				
-				public static bool Enable {
-					get { return m_enable; }
-					set { m_enable = value; }
-				}
-				
-				static int m_interval = 1;
-				
-				public static int Interval {
-					get { return m_interval; }
-					set { m_interval = value; }
-				}
-				
-				//Not in settings.ini it's in Info obj in DB
-				public static DateTime LastSyncDate {
-					get { return m_lastSyncDate; }
-					set { m_lastSyncDate = value; }
-				}
-			}
-			
-			public static class NewTaskHotkey
-			{
-				static bool m_ctrl;
-				static bool m_alt;
-				static bool m_shift;
-				static bool m_win;
-				static string m_key;
-				
-				public static bool Ctrl {
-					get { return m_ctrl; }
-					set { m_ctrl = value; }
-				}
-				
-				public static bool Alt {
-					get { return m_alt; }
-					set { m_alt = value; }
-				}
-				
-				public static bool Shift {
-					get { return m_shift; }
-					set { m_shift = value; }
-				}
-				
-				public static bool Win {
-					get { return m_win; }
-					set { m_win = value; }
-				}
-				
-				public static string Key {
-					get { return m_key; }
-					set { m_key = value; }
-				}
-			}
-		}
+		
 	}
 }
