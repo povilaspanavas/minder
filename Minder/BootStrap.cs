@@ -17,6 +17,17 @@ using Minder.Sql;
 using Minder.Sql.DBVersionSystem;
 using Minder.Tools;
 using Minder.UI.Helpers;
+using Minder.UI.Forms.TaskShow;
+using System.Windows.Markup;
+using System.Reflection;
+using System.Windows.Resources;
+using Minder.UI.SkinController.MainForms;
+using Minder.Forms.TaskShow;
+using System.Windows.Media;
+using WPF.Themes;
+using Minder.UI.Forms.Tasks;
+using Minder.UI.Forms.About;
+using Minder.UI.Forms.Settings;
 
 namespace Minder
 {
@@ -25,6 +36,14 @@ namespace Minder
 	/// </summary>
 	internal sealed class BootStrap
 	{
+        public static object Load(Stream stream)
+        {
+            ParserContext pc = new ParserContext();
+            MethodInfo loadBamlMethod = typeof(XamlReader).GetMethod("LoadBaml",
+                BindingFlags.NonPublic | BindingFlags.Static);
+            return loadBamlMethod.Invoke(null, new object[] { stream, pc, null, false });
+        }
+
 		/// <summary>
 		/// Program entry point.
 		/// </summary>
@@ -37,8 +56,20 @@ namespace Minder
 //					return;
 				Application.EnableVisualStyles();
 				Application.SetCompatibleTextRenderingDefault(false);
-				Starter(args);
+
+                StreamResourceInfo sri = System.Windows.Application.GetResourceStream(
+                    new Uri("App.xaml", UriKind.Relative));
+                var resources = (System.Windows.ResourceDictionary)Load(sri.Stream);
+                var app = new System.Windows.Application();
+                app.Resources.MergedDictionaries.Add(resources);
+                Starter(args);
+                ClearTypeOn();
+                //new SettingsWpfForm().ShowDialog();
+                //var controller = new TaskShowController(new Task());
+                //controller.Window.ShowDialog();
+
 				Application.Run();
+                
 			}
 			catch (Exception e)
 			{
@@ -55,6 +86,12 @@ namespace Minder
 				Application.Exit();
 			}
 		}
+
+        private static void ClearTypeOn()
+        {
+            RenderOptions.ClearTypeHintProperty.OverrideMetadata(typeof(System.Windows.FrameworkElement), new System.Windows.FrameworkPropertyMetadata { DefaultValue = ClearTypeHint.Enabled });
+            TextOptions.TextFormattingModeProperty.OverrideMetadata(typeof(System.Windows.FrameworkElement), new System.Windows.FrameworkPropertyMetadata { DefaultValue = TextFormattingMode.Display });
+        }
 		
 		private static void Starter(string[] args)
 		{
@@ -87,8 +124,8 @@ namespace Minder
 				Minder.Static.StaticData.Settings.Sync.LastSyncDate = Convert.ToDateTime(syncInfo.Value1);
 			
 			new StartWithWinController().StartWithWindows();
-			if(Minder.Static.StaticData.Settings.CheckUpdates)
-				new UpdateProject(StaticData.VersionCache.Version, true, "Minder");
+			//if(Minder.Static.StaticData.Settings.CheckUpdates)
+			//	new UpdateProject(StaticData.VersionCache.Version, true, "Minder");
 			
 			MainFormPreparer preparer = new MainFormPreparer();
 			if(openForm)

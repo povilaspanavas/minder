@@ -94,10 +94,19 @@ namespace Minder.Static
 			static bool m_startWithWindows;
 			static bool m_checkUpdates;
 			static bool m_playSound;
-			static string m_skinUniqueCode;
+            static string m_skinUniqueCode;
+            static string m_themeUniqueCode;
+
+           
 			static string m_logFilePath;
 			static decimal m_remindMeLaterValue = 10.0m/60.0m;
 			static ICultureData m_cultureData = new CultureDataLT();
+
+            public static string ThemeUniqueCode
+            {
+                get { return Settings.m_themeUniqueCode; }
+                set { Settings.m_themeUniqueCode = value; }
+            }
 
 			public static decimal RemindMeLaterDefaultValue {
 				get { return m_remindMeLaterValue; }

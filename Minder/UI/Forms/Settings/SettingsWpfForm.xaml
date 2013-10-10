@@ -1,0 +1,78 @@
+﻿<src:BaseWpfForm
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:src="clr-namespace:Minder.UI.Forms"
+             xmlns:local="clr-namespace:WPF.Themes;assembly=WPF.Themes"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"  x:Class="Minder.UI.Forms.Settings.SettingsWpfForm"
+             mc:Ignorable="d" 
+             Height="433" Width="540"
+             Background="{DynamicResource WindowBackgroundBrush}"
+             >
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="383" Margin="10,10,0,0" VerticalAlignment="Top" Width="512">
+            <TabItem Header="General">
+                <Grid  Margin="0,16,0,-16">
+                    <CheckBox x:Name="MStartWithWinCheckBox" Content="Start Minder with Windows" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="20" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <CheckBox x:Name="MUpdateCheckBox" Content="Check automatically for updates" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Height="20" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <CheckBox x:Name="MPlaySoundCheckBox" Content="Play sound when reminding" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="21" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <Label x:Name="MLabelCultureData" Content="Date format" HorizontalAlignment="Left" Margin="4,84,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="24" Width="84"/>
+                    <Label Content="Default remind later value" HorizontalAlignment="Left" Margin="4,103,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="32" Width="157"/>
+                    <ComboBox x:Name="MComboBoxCultureData" HorizontalAlignment="Left" Height="22" Margin="175,86,0,0" VerticalAlignment="Top" Width="120"/>
+                    <ComboBox x:Name="MComboBoxRemindMeLater" HorizontalAlignment="Left" Height="22" Margin="175,113,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Button x:Name="MDefaultsButton" Content="Default Settings" HorizontalAlignment="Left" Height="35" Margin="194,289,0,0" VerticalAlignment="Top" Width="101"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Hotkeys">
+                <Grid >
+                    <GroupBox Header="New Task" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="89" Width="469">
+                        <ComboBox x:Name="MKeysComboBox" HorizontalAlignment="Left" Height="22" Margin="168,18,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.57,0"/>
+                    </GroupBox>
+                    <CheckBox x:Name="MCtrlCheckBox" Content="Ctrl" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="56" Margin="21,59,0,0" VerticalContentAlignment="Center"/>
+                    <CheckBox x:Name="MWinCheckBox" Content="Win" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="56" Margin="82,32,0,0" VerticalContentAlignment="Center"/>
+                    <CheckBox x:Name="MAltCheckBox" Content="Alt" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="56"  Margin="82,59,0,0" VerticalContentAlignment="Center"/>
+                    <CheckBox x:Name="MShiftCheckBox" Content="Shift" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="56" Margin="21,32,0,0" VerticalContentAlignment="Center"/>
+                    <Label Content="+" HorizontalAlignment="Left" Height="24" Margin="140,43,0,0" VerticalAlignment="Top" Width="18"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Skins">
+                <Grid >
+                    <GroupBox Header="Skins" HorizontalAlignment="Left" Height="331" Margin="10,10,0,0" VerticalAlignment="Top" Width="482"/>
+                    <Image x:Name="MSkinPreviewPictureBox" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased" HorizontalAlignment="Left" Height="98" Margin="192,25,0,0" VerticalAlignment="Top" Width="290"/>
+                    <ListBox x:Name="MSkinListBox" HorizontalAlignment="Left" Height="287" Margin="26,36,0,0" VerticalAlignment="Top" Width="161"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Sync">
+                <Grid >
+                    <GroupBox Header="Sync" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="324" Width="469">
+                        <Button x:Name="MSyncGenerateIdButton" Content="Generate ID" HorizontalAlignment="Left" Height="23" Margin="269,37,0,0" VerticalAlignment="Top" Width="98"/>
+                    </GroupBox>
+                    <CheckBox Content="Enable synchronization" x:Name="MEnableSyncCheckBox" HorizontalAlignment="Left" Height="26" Margin="20,34,0,0" VerticalAlignment="Top" Width="158" RenderTransformOrigin="0.919,1.643"/>
+                    <Label Content="Sync interval (minutes)" HorizontalAlignment="Left" Height="31" Margin="20,89,0,0" VerticalAlignment="Top" Width="136"/>
+                    <Label Content="Your ID" HorizontalAlignment="Left" Height="24" Margin="20,60,0,0" VerticalAlignment="Top" Width="88"/>
+                    <Label Content="Last sync date" HorizontalAlignment="Left" Height="27" Margin="20,120,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="-0.035,1.757"/>
+                    <TextBox x:Name="MSyncIdTextBox" HorizontalAlignment="Left" Margin="123,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.72,5.438" Height="19" Width="148"/>
+                    <xctk:DateTimePicker x:Name="MLastSyncDate" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="113" Margin="158,123,0,0"/>
+                    <xctk:IntegerUpDown x:Name="MSyncIntervalNumeric" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="113" Margin="158,94,0,0"/>
+                    <Button x:Name="MSyncNowButton" Content="Sync now" HorizontalAlignment="Left" Height="37" Margin="186,286,0,0" VerticalAlignment="Top" Width="111"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Themes">
+                <Grid >
+                    <GroupBox Header="Themes" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="324" Width="469">
+                    </GroupBox>
+                    <Label Content="Pick a theme" Height="24" Margin="19,35,400,289"></Label>
+                    <ComboBox x:Name="MThemeComboBox" ItemsSource="{Binding Source={x:Static local:ThemeManager.GetThemes}, Mode=OneWay}" Height="24" Margin="147,35,196,289">
+                        <ComboBox.SelectedItem>
+                            <Binding Mode="TwoWay" Path="SelectedTheme">
+                                
+                            </Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</src:BaseWpfForm>
