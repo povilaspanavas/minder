@@ -16,6 +16,21 @@
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <ApplicationIcon>UI\minderico.ico</ApplicationIcon>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -45,6 +60,18 @@
   <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Core">
       <HintPath>..\libs\Core.dll</HintPath>
@@ -69,8 +96,17 @@
     <Reference Include="WindowsFormsIntegration">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid">
+      <HintPath>..\libs\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\libs\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BootStrap.cs" />
     <Compile Include="Controls\MLabelWithImage.cs">
       <SubType>Component</SubType>
@@ -112,20 +148,21 @@
     <Compile Include="Objects\DBVersion.cs" />
     <Compile Include="Objects\Info.cs" />
     <Compile Include="Objects\SyncObject.cs" />
-    <Compile Include="UI\Forms\About\AboutForm.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\About\AboutFormController.cs" />
+    <Compile Include="UI\Forms\About\AboutForm.xaml.cs">
+      <DependentUpon>AboutForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\BasicForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Forms\About\AboutForm.Designer.cs">
-      <DependentUpon>AboutForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\About\AboutFormPreparer.cs" />
-    <Compile Include="UI\Forms\BasicForm.cs" />
-    <Compile Include="UI\Forms\Main\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\Main\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="UI\Forms\BaseWpfForm.cs" />
+    <Compile Include="UI\Forms\DelegateCommand.cs" />
+    <Compile Include="UI\Forms\IController.cs" />
     <Compile Include="UI\Forms\Main\MainFromPreparer.cs" />
     <Compile Include="UI\Forms\Settings\SettingsForm.cs">
       <SubType>Form</SubType>
@@ -133,12 +170,10 @@
     <Compile Include="UI\Forms\Settings\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\Settings\SettingsForm.Designer1.cs">
-      <DependentUpon>SettingsForm.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
+    <Compile Include="UI\Forms\Settings\SettingsFormController.cs" />
+    <Compile Include="UI\Forms\Settings\SettingsWpfForm.xaml.cs">
+      <DependentUpon>SettingsWpfForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\Settings\SettingsFormPreparer.cs" />
-    <Compile Include="UI\Forms\Skins\IWindowsFormSkin.cs" />
     <Compile Include="UI\Forms\Skins\MainFormLaunchy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,31 +181,20 @@
       <DependentUpon>MainFormLaunchy.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\TaskShow\RemindLaterValue.cs" />
-    <Compile Include="UI\Forms\TaskShow\TaskShowForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="UI\Forms\TaskShow\TaskShowController.cs" />
+    <Compile Include="UI\Forms\TaskShow\TaskShowForm.xaml.cs" />
+    <Compile Include="UI\Forms\Tasks\TaskNewEditFormController.cs" />
+    <Compile Include="UI\Forms\Tasks\TaskNewEditForm.xaml.cs">
+      <DependentUpon>TaskNewEditForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\TaskShow\TaskShowForm.Designer.cs">
-      <DependentUpon>TaskShowForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\TaskShow\TaskShowFormPreparer.cs" />
-    <Compile Include="UI\Forms\Tasks\TaskNewEditForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\Tasks\TaskNewEditForm.Designer.cs">
-      <DependentUpon>TaskNewEditForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\Tasks\TaskNewEditFormPreparer.cs" />
-    <Compile Include="UI\Forms\Tasks\TasksForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\Tasks\TasksForm.Designer.cs">
-      <DependentUpon>TasksForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\Tasks\TasksFormPreparer.cs" />
+    <Compile Include="UI\Forms\Tasks\TasksFormController.cs" />
     <Compile Include="Objects\Task.cs" />
     <Compile Include="Engine\Sql\DbHelper.cs" />
     <Compile Include="Engine\Sql\DBTypesConverter.cs" />
     <Compile Include="Engine\Settings\Static\StaticData.cs" />
+    <Compile Include="UI\Forms\Tasks\TasksForm.xaml.cs">
+      <DependentUpon>TasksForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Helpers\MessageBoxHelper.cs" />
     <Compile Include="UI\SkinController\AbstractMainForm.cs" />
     <Compile Include="UI\SkinController\MainFormCollector.cs" />
@@ -197,6 +221,7 @@
     </None>
     <None Include="Minder.log4net.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="minderico.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -213,51 +238,92 @@
     <EmbeddedResource Include="Engine\Settings\Images.resx">
       <DependentUpon>Images.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\About\AboutForm.resx">
-      <DependentUpon>AboutForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\Main\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\Settings\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SettingsForm.Designer1.cs</LastGenOutput>
+      <LastGenOutput>SettingsForm1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\Skins\MainFormLaucnhy.resx">
       <DependentUpon>MainFormLaunchy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\TaskShow\TaskShowForm.resx">
-      <DependentUpon>TaskShowForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\Tasks\TaskNewEditForm.resx">
-      <DependentUpon>TaskNewEditForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\Tasks\TasksForm.resx">
-      <DependentUpon>TasksForm.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Forms\About\AboutForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Forms\Settings\SettingsWpfForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Forms\TaskShow\TaskShowForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Forms\Tasks\TaskNewEditForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Forms\Tasks\TasksForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\SkinController\MainForms\BlackSkin\BlackSkin.xaml" />
     <Page Include="UI\SkinController\MainForms\BlueOrangeSkin\BlueOrangeSkin.xaml" />
     <Page Include="UI\SkinController\MainForms\DefaultSkin\DefaultSkinForm.xaml" />
     <Page Include="UI\SkinController\MainForms\WhiteSkin\WhiteSkin.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Engine\Helpers" />
-    <Folder Include="Engine\Sql\DBVersionSystem" />
-    <Folder Include="Engine\Sync" />
-    <Folder Include="Engine\Parse\Cultures" />
-    <Folder Include="Engine\Settings" />
-    <Folder Include="Engine\Parse" />
-    <Folder Include="UI" />
-    <Folder Include="UI\Helpers" />
-    <Folder Include="UI\SkinController" />
-    <Folder Include="UI\SkinController\MainForms" />
-    <Folder Include="UI\SkinController\MainForms\BlueOrangeSkin" />
-    <Folder Include="UI\SkinController\MainForms\DefaultSkin" />
-    <Folder Include="UI\SkinController\MainForms\BlackSkin" />
-    <Folder Include="UI\SkinController\MainForms\WhiteSkin" />
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wpf.Themes\WPF.Themes.csproj">
+      <Project>{689a9248-a62c-4b7c-8c76-14c1e2b46c66}</Project>
+      <Name>WPF.Themes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BLACK_SKIN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BLUE_ORANGE_SKIN.bmp" />
+    <Resource Include="Resources\DEFAULT_SKIN.bmp" />
+    <Resource Include="Resources\WHITE_SKIN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BLACK_SKIN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BLUE_ORANGE_SKIN.png" />
+    <Resource Include="Resources\DEFAULT_SKIN.png" />
+    <Resource Include="Resources\WHITE_SKIN.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>

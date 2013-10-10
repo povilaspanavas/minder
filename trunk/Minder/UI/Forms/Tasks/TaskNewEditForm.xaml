@@ -1,0 +1,21 @@
+﻿<src:BaseWpfForm x:Class="Minder.UI.Forms.Tasks.TaskNewEditForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:src="clr-namespace:Minder.UI.Forms"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+             mc:Ignorable="d" Height="234" Width="322"
+             Background="{DynamicResource WindowBackgroundBrush}"
+             Title="Minder Task" WindowStartupLocation="CenterScreen" Topmost="True">
+    <Grid>
+        <Button Content="Save" Command="{Binding SaveCommand}" HorizontalAlignment="Left" Height="30" Margin="88,152,0,0" VerticalAlignment="Top" Width="55"/>
+        <Button Content="Cancel" Command="{Binding CloseCommand}" HorizontalAlignment="Left" Height="30" Margin="148,152,0,0" VerticalAlignment="Top" Width="56"/>
+        <Label Content="Text" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="43"/>
+        <Label Content="Date" HorizontalAlignment="Left" Height="25" Margin="10,84,0,0" VerticalAlignment="Top" Width="43"/>
+        <TextBox HorizontalAlignment="Left" Height="70" Margin="58,12,0,0" TextWrapping="Wrap" Text="{Binding Task.Text}" VerticalAlignment="Top" Width="246"/>
+        <xctk:DateTimePicker Value="{Binding Task.DateRemainder}" x:Name="DateTimePicker" HorizontalAlignment="Left" Height="22" Margin="58,87,0,0" VerticalAlignment="Top" Width="246" TextAlignment="Left" CultureInfo="lt-LT" IsManipulationEnabled="True"/>
+        <CheckBox Content="Showed" IsChecked="{Binding Task.Showed}" Visibility="{Binding Edit}" HorizontalAlignment="Left" Height="18" Margin="58,114,0,0" VerticalAlignment="Top" Width="246"/>
+
+    </Grid>
+</src:BaseWpfForm>
