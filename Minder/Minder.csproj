@@ -158,7 +158,9 @@
       <DependentUpon>AboutForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\BaseWpfForm.cs" />
-    <Compile Include="UI\Forms\BasicForm.cs" />
+    <Compile Include="UI\Forms\BasicForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UI\Forms\DelegateCommand.cs" />
     <Compile Include="UI\Forms\IController.cs" />
     <Compile Include="UI\Forms\Main\MainFromPreparer.cs" />
@@ -166,7 +168,9 @@
     <Compile Include="UI\Forms\Settings\SettingsWpfForm.xaml.cs">
       <DependentUpon>SettingsWpfForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\Skins\MainFormLaunchy.cs" />
+    <Compile Include="UI\Forms\Skins\MainFormLaunchy.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UI\Forms\Skins\MainFormLaunchy.Designer.cs">
       <DependentUpon>MainFormLaunchy.cs</DependentUpon>
     </Compile>
