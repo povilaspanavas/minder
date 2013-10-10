@@ -14,7 +14,7 @@
 <body>
   <section class="container">
     <div class="login">
-      <h1>Prisijungimo forma</h1>
+      <h1>Prisijungti</h1>
       <form method="post" runat="server">
       <p><asp:TextBox ID="UsernameTextBox" CssClass="userNameTextBox" runat="server" placeholder="Prisijungimo vardas"></asp:TextBox></p>
       <p><asp:TextBox ID="PasswordTextBox" CssClass="passwordTextBox" runat="server" TextMode="Password" placeholder="Slaptažodis"></asp:TextBox></p>
