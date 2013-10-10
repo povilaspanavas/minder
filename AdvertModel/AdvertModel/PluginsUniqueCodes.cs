@@ -11,20 +11,20 @@ namespace AdvertModel
         { 
           "Autogidas.lt", 
           "Autoplius.lt",
-          "www.plius.lt", 
-          "www.skelbiu.lt",
-          "www.auto24.ee",
-          "www.blocket.se",
-          "www.mobile.de",
-          "www.marktplaats.nl",
-          "www.finn.no",
-          "www.gaspedaal.nl",
-          "www.speurders.nl",
-          "www.otomoto.pl",
-          "www.allegro.pl",
-          "www.leboncoin.fr",
-          "www.donedeal.ie",
-          "www.autotrader.co.uk"
+          "Plius.lt", 
+          "Skelbiu.lt",
+          "Auto24.ee",
+          "Blocket.se",
+          "Mobile.de",
+          "Marktplaats.nl",
+          "Finn.no",
+          "Gaspedaal.nl",
+          "Speurders.nl",
+          "Otomoto.pl",
+          "Allegro.pl",
+          "Leboncoin.fr",
+          "Donedeal.ie",
+          "Autotrader.co.uk"
         };
     }
 }
