@@ -69,16 +69,13 @@ namespace Minder.Forms.Settings
 
         public void SetEvents()
         {
+            StaticData.Settings.PropertyChanged += (sender, args) => _existChanges = true;
             _form.MAltCheckBox.Click += delegate { _existChanges = true; };
             _form.MCtrlCheckBox.Click += delegate { _existChanges = true; };
             _form.MShiftCheckBox.Click += delegate { _existChanges = true; };
             _form.MWinCheckBox.Click += delegate { _existChanges = true; };
             _form.MKeysComboBox.SelectionChanged += delegate { _existChanges = true; };
-            _form.MStartWithWinCheckBox.Click += delegate { _existChanges = true; };
-            _form.MUpdateCheckBox.Click += delegate { _existChanges = true; };
-            _form.MPlaySoundCheckBox.Click += delegate { _existChanges = true; };
-            _form.MComboBoxCultureData.SelectionChanged += delegate { _existChanges = true; };
-            _form.MComboBoxRemindMeLater.SelectionChanged += delegate { _existChanges = true; };
+
             _form.MSkinListBox.SelectionChanged += delegate { _existChanges = true; };
 
             _form.MSyncGenerateIdButton.Click += delegate { _existChanges = true; };
@@ -167,44 +164,6 @@ namespace Minder.Forms.Settings
                     _form.MKeysComboBox.SelectedIndex = i;
             }
 
-            _form.MStartWithWinCheckBox.IsChecked = Minder.Static.StaticData.Settings.StartWithWindows;
-            _form.MUpdateCheckBox.IsChecked = Minder.Static.StaticData.Settings.CheckUpdates;
-            _form.MPlaySoundCheckBox.IsChecked = Minder.Static.StaticData.Settings.PlaySound;
-
-            // **** DateFormat tab ****
-            _form.MComboBoxCultureData.DisplayMemberPath = "Name";
-            _form.MComboBoxCultureData.Items.Add(new CultureDataLT());
-            _form.MComboBoxCultureData.Items.Add(new CultureDataUK());
-            _form.MComboBoxCultureData.Items.Add(new CultureDataUS());
-
-            for (int i = 0; i < _form.MComboBoxCultureData.Items.Count; i++)
-            {
-                if (Minder.Static.StaticData.Settings.CultureData.Name
-                   .Equals((_form.MComboBoxCultureData.Items[i] as ICultureData).Name))
-                {
-                    _form.MComboBoxCultureData.SelectedIndex = i;
-                    break;
-                }
-            }
-
-            // **** Default Remind Me Later value ****
-            List<RemindLaterValue> listRemindLaterValues = TaskShowController.BuildRemindLaterList();
-            _form.MComboBoxRemindMeLater.DisplayMemberPath = "Name";
-			foreach (RemindLaterValue val in listRemindLaterValues) 
-            {
-				_form.MComboBoxRemindMeLater.Items.Add(val);
-			}
-
-            // Set index
-            for (int i = 0; i < _form.MComboBoxRemindMeLater.Items.Count; i++)
-            {
-                if (StaticData.Settings.RemindMeLaterDefaultValue.Equals((_form.MComboBoxRemindMeLater.Items[i] as RemindLaterValue).Value))
-                {
-                    _form.MComboBoxRemindMeLater.SelectedIndex = i;
-                    break;
-                }
-            }
-
             // **** Skins ****
             int skinNameIndex = 0;
             foreach(string name in Minder.Static.StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames.Keys)
@@ -285,7 +244,7 @@ namespace Minder.Forms.Settings
                         Minder.Static.StaticData.Settings.CultureData = _form.MComboBoxCultureData.SelectedItem as ICultureData;
                     if (_form.MComboBoxRemindMeLater.SelectedItem != null &&
                         _form.MComboBoxRemindMeLater.SelectedItem is RemindLaterValue)
-                        Minder.Static.StaticData.Settings.RemindMeLaterDefaultValue = (_form.MComboBoxRemindMeLater.SelectedItem as RemindLaterValue).Value;
+                        Minder.Static.StaticData.Settings.RemindMeLaterDecimalValue = (_form.MComboBoxRemindMeLater.SelectedItem as RemindLaterValue).Value;
                     SetSkinSettings();
 
                     Minder.Static.StaticData.Settings.Sync.Id = _form.MSyncIdTextBox.Text.ToUpper();

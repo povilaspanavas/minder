@@ -149,6 +149,7 @@
     <Compile Include="Objects\DBVersion.cs" />
     <Compile Include="Objects\Info.cs" />
     <Compile Include="Objects\SyncObject.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

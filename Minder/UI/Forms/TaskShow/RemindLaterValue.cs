@@ -39,5 +39,11 @@ namespace Minder.UI.Forms.TaskShow
 		{
 			return RoundHelper.Round(val, 10);
 		}
+
+	    public bool Equals(RemindLaterValue obj)
+	    {
+	        if (obj == null) return false;
+	        return this.Value.Equals(obj.Value);
+	    }
 	}
 }

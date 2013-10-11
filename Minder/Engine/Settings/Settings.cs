@@ -1,4 +1,9 @@
-﻿using Minder.Engine.Parse;
+﻿using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
+using Minder.Annotations;
+using Minder.Engine.Parse;
+using Minder.Forms.TaskShow;
+using Minder.UI.Forms.TaskShow;
 using Minder.UI.SkinController.MainForms;
 using System;
 using System.Collections.Generic;
@@ -8,92 +13,160 @@ using System.Threading;
 
 namespace Minder.Engine.Settings
 {
-    public class Settings
+    public class Settings : INotifyPropertyChanged
     {
-        bool m_startWithWindows;
-        bool m_checkUpdates;
-        bool m_playSound;
-        string m_skinUniqueCode;
-        string m_themeUniqueCode;
+        bool _startWithWindows;
+        bool _checkUpdates;
+        bool _playSound;
+        string _skinUniqueCode;
+        string _themeUniqueCode;
+        private List<ICultureData> _cultureDataValues;
+        private List<RemindLaterValue> _listRemindLaterValues;
 
-        public NewTaskHotkey NewTaskHotkey { get; set;}
-        public Sync Sync { get; set;}
-        public SkinsUniqueCodes SkinsUniqueCodes { get; set;}
+        public NewTaskHotkey NewTaskHotkey { get; set; }
+        public Sync Sync { get; set; }
+        public SkinsUniqueCodes SkinsUniqueCodes { get; set; }
 
-         string m_logFilePath;
-         decimal m_remindMeLaterValue = 10.0m / 60.0m;
-         ICultureData m_cultureData = new CultureDataLT();
+        string _logFilePath;
+        decimal _remindMeLaterDecimalValue = 10.0m / 60.0m;
+        ICultureData _cultureData = new CultureDataLT();
+        private RemindLaterValue _remindMeLaterValue;
 
-         public Settings()
-         {
-             NewTaskHotkey = new NewTaskHotkey();
-             Sync = new Sync();
-             SkinsUniqueCodes = new SkinsUniqueCodes();
-         }
+        public Settings()
+        {
+            NewTaskHotkey = new NewTaskHotkey();
+            Sync = new Sync();
+            SkinsUniqueCodes = new SkinsUniqueCodes();
+
+            _cultureDataValues = new List<ICultureData> {new CultureDataLT(), new CultureDataUK(), new CultureDataUS()};
+            ListRemindLaterValues = TaskShowController.BuildRemindLaterList();
+
+        }
+        // **** Default Remind Me Later value ****
+            //_form.MComboBoxRemindMeLater.DisplayMemberPath = "Name";
+            //foreach (RemindLaterValue val in listRemindLaterValues) 
+            //{
+            //    _form.MComboBoxRemindMeLater.Items.Add(val);
+            //}
+
+            // Set index
+            //for (int i = 0; i < _form.MComboBoxRemindMeLater.Items.Count; i++)
+            //{
+            //    if (StaticData.Settings.RemindMeLaterDecimalDecimalValue.Equals((_form.MComboBoxRemindMeLater.Items[i] as RemindLaterValue).Value))
+            //    {
+            //        _form.MComboBoxRemindMeLater.SelectedIndex = i;
+            //        break;
+            //    }
+            //}
 
         public string ThemeUniqueCode
         {
-            get { return m_themeUniqueCode; }
-            set { m_themeUniqueCode = value; }
+            get { return _themeUniqueCode; }
+            set { _themeUniqueCode = value; }
         }
 
-        public decimal RemindMeLaterDefaultValue
+        public RemindLaterValue RemindMyLaterDefaultValue
         {
-            get { return m_remindMeLaterValue; }
-            set { m_remindMeLaterValue = value; }
+            get
+            {
+                if (_remindMeLaterValue != null) return _remindMeLaterValue;
+                return _listRemindLaterValues.First(x => x.Value.Equals(_remindMeLaterDecimalValue));
+            }
+            set
+            {
+                RemindMeLaterDecimalValue = value.Value;
+                _remindMeLaterValue = value; 
+            }
+        }
+
+        public decimal RemindMeLaterDecimalValue
+        {
+            get
+            {
+                if (RemindMyLaterDefaultValue == null)
+                    return _remindMeLaterDecimalValue;
+                return RemindMyLaterDefaultValue.Value;
+            }
+            set { _remindMeLaterDecimalValue = value; }
         }
 
         public ICultureData CultureData
         {
-            get { return m_cultureData; }
+            get { return _cultureData; }
             set
             {
-                m_cultureData = value;
-                TextParser.CultureData = m_cultureData;
-                Thread.CurrentThread.CurrentCulture = m_cultureData.CultureInfo;
-                Thread.CurrentThread.CurrentUICulture = m_cultureData.CultureInfo;
+                if (value == null)
+                {
+                    _cultureData = null;
+                    return;
+                }
+                var cultureData = CultureDataValues
+                    .Where(x => x.Name != null)
+                    .First(x => x.Name.Equals(value.Name));
+                _cultureData = cultureData;
+                TextParser.CultureData = _cultureData;
+                Thread.CurrentThread.CurrentCulture = _cultureData.CultureInfo;
+                Thread.CurrentThread.CurrentUICulture = _cultureData.CultureInfo;
             }
         }
         public bool StartWithWindows
         {
-            get { return m_startWithWindows; }
-            set { m_startWithWindows = value; }
+            get { return _startWithWindows; }
+            set { _startWithWindows = value; }
         }
 
         public bool CheckUpdates
         {
-            get { return m_checkUpdates; }
-            set { m_checkUpdates = value; }
+            get { return _checkUpdates; }
+            set { _checkUpdates = value; }
         }
 
         public bool PlaySound
         {
-            get { return m_playSound; }
-            set { m_playSound = value; }
+            get { return _playSound; }
+            set { _playSound = value; }
         }
 
         public string SkinUniqueCode
         {
-            get { return m_skinUniqueCode; }
-            set { m_skinUniqueCode = value; }
+            get { return _skinUniqueCode; }
+            set { _skinUniqueCode = value; }
         }
 
         public string LogFilePath
         {
-            get { return m_logFilePath; }
-            set { m_logFilePath = value; }
+            get { return _logFilePath; }
+            set { _logFilePath = value; }
         }
 
-        
+        public List<ICultureData> CultureDataValues
+        {
+            get
+            {
+                return _cultureDataValues;
+            }
+            set { _cultureDataValues = value; }
+        }
 
-        
+        public List<RemindLaterValue> ListRemindLaterValues
+        {
+            get { return _listRemindLaterValues; }
+            set { _listRemindLaterValues = value; }
+        }
 
-        
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 
     public class SkinsUniqueCodes
     {
-        Dictionary<string, string> m_skinsUniqueCodesAndNames = new Dictionary<string, string>();
+        Dictionary<string, string> _skinsUniqueCodesAndNames = new Dictionary<string, string>();
 
         /// <summary>
         /// Skin name -> skin uniqueCode
@@ -103,94 +176,94 @@ namespace Minder.Engine.Settings
             get
             {
                 AddSkinsToDic();
-                return m_skinsUniqueCodesAndNames;
+                return _skinsUniqueCodesAndNames;
             }
         }
 
         private void AddSkinsToDic()
         {
-            if (m_skinsUniqueCodesAndNames.Count != 0)
+            if (_skinsUniqueCodesAndNames.Count != 0)
                 return;
 
-            //					m_skinsUniqueCodesAndNames.Add("Default skin", DEFAULT_SKIN_UNIQUE_CODE);
-            m_skinsUniqueCodesAndNames.Add("Default skin", DefaultSkinForm.SKIN_UNIQUE_CODE);
-            m_skinsUniqueCodesAndNames.Add("White skin", WhiteSkin.SKIN_UNIQUE_CODE);
-            m_skinsUniqueCodesAndNames.Add("Black skin", BlackSkin.SKIN_UNIQUE_CODE);
-            m_skinsUniqueCodesAndNames.Add("Blue orange skin", BlueOrangeSkin.SKIN_UNIQUE_CODE);
+            //					_skinsUniqueCodesAndNames.Add("Default skin", DEFAULT_SKIN_UNIQUE_CODE);
+            _skinsUniqueCodesAndNames.Add("Default skin", DefaultSkinForm.SKIN_UNIQUE_CODE);
+            _skinsUniqueCodesAndNames.Add("White skin", WhiteSkin.SKIN_UNIQUE_CODE);
+            _skinsUniqueCodesAndNames.Add("Black skin", BlackSkin.SKIN_UNIQUE_CODE);
+            _skinsUniqueCodesAndNames.Add("Blue orange skin", BlueOrangeSkin.SKIN_UNIQUE_CODE);
         }
     }
 
     public class Sync
     {
-        string m_id = string.Empty;
-        DateTime m_lastSyncDate = new DateTime(2000, 1, 1);
+        string _id = string.Empty;
+        DateTime _lastSyncDate = new DateTime(2000, 1, 1);
 
         public string Id
         {
-            get { return m_id; }
-            set { m_id = value; }
+            get { return _id; }
+            set { _id = value; }
         }
 
-        bool m_enable = false;
+        bool _enable = false;
 
         public bool Enable
         {
-            get { return m_enable; }
-            set { m_enable = value; }
+            get { return _enable; }
+            set { _enable = value; }
         }
 
-        int m_interval = 1;
+        int _interval = 1;
 
         public int Interval
         {
-            get { return m_interval; }
-            set { m_interval = value; }
+            get { return _interval; }
+            set { _interval = value; }
         }
 
         //Not in settings.ini it's in Info obj in DB
         public DateTime LastSyncDate
         {
-            get { return m_lastSyncDate; }
-            set { m_lastSyncDate = value; }
+            get { return _lastSyncDate; }
+            set { _lastSyncDate = value; }
         }
     }
 
     public class NewTaskHotkey
     {
-        bool m_ctrl;
-        bool m_alt;
-        bool m_shift;
-        bool m_win;
-        string m_key;
+        bool _ctrl;
+        bool _alt;
+        bool _shift;
+        bool _win;
+        string _key;
 
         public bool Ctrl
         {
-            get { return m_ctrl; }
-            set { m_ctrl = value; }
+            get { return _ctrl; }
+            set { _ctrl = value; }
         }
 
         public bool Alt
         {
-            get { return m_alt; }
-            set { m_alt = value; }
+            get { return _alt; }
+            set { _alt = value; }
         }
 
         public bool Shift
         {
-            get { return m_shift; }
-            set { m_shift = value; }
+            get { return _shift; }
+            set { _shift = value; }
         }
 
         public bool Win
         {
-            get { return m_win; }
-            set { m_win = value; }
+            get { return _win; }
+            set { _win = value; }
         }
 
         public string Key
         {
-            get { return m_key; }
-            set { m_key = value; }
+            get { return _key; }
+            set { _key = value; }
         }
     }
 }

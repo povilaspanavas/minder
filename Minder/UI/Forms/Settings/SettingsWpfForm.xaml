@@ -13,15 +13,23 @@
              >
     <Grid>
         <TabControl HorizontalAlignment="Left" Height="383" Margin="10,10,0,0" VerticalAlignment="Top" Width="512">
-            <TabItem Header="General">
+            <TabItem Header="General" DataContext="{x:Static stc:StaticData.Settings}">
                 <Grid  Margin="0,16,0,-16">
                     <CheckBox x:Name="MStartWithWinCheckBox" IsChecked="{Binding StartWithWindows}" Content="Start Minder with Windows" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="20" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-                    <CheckBox x:Name="MUpdateCheckBox" Content="Check automatically for updates" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Height="20" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-                    <CheckBox x:Name="MPlaySoundCheckBox" Content="Play sound when reminding" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="21" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <CheckBox x:Name="MUpdateCheckBox" IsChecked="{Binding CheckUpdates}" Content="Check automatically for updates" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Height="20" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <CheckBox x:Name="MPlaySoundCheckBox" IsChecked="{Binding PlaySound}" Content="Play sound when reminding" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="21" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
                     <Label x:Name="MLabelCultureData" Content="Date format" HorizontalAlignment="Left" Margin="4,84,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="24" Width="84"/>
                     <Label Content="Default remind later value" HorizontalAlignment="Left" Margin="4,103,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="32" Width="157"/>
-                    <ComboBox x:Name="MComboBoxCultureData" HorizontalAlignment="Left" Height="22" Margin="175,86,0,0" VerticalAlignment="Top" Width="120"/>
-                    <ComboBox x:Name="MComboBoxRemindMeLater" HorizontalAlignment="Left" Height="22" Margin="175,113,0,0" VerticalAlignment="Top" Width="120"/>
+                    <ComboBox x:Name="MComboBoxCultureData" ItemsSource="{Binding CultureDataValues}" DisplayMemberPath="Name" HorizontalAlignment="Left" Height="22" Margin="175,86,0,0" VerticalAlignment="Top" Width="120">
+                        <ComboBox.SelectedItem>
+                            <Binding Path="CultureData"></Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
+                    <ComboBox x:Name="MComboBoxRemindMeLater" ItemsSource="{Binding ListRemindLaterValues}" DisplayMemberPath="Name" HorizontalAlignment="Left" Height="22" Margin="175,113,0,0" VerticalAlignment="Top" Width="120">
+                        <ComboBox.SelectedItem>
+                            <Binding Path="RemindMyLaterDefaultValue"></Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
                     <Button x:Name="MDefaultsButton" Content="Default Settings" HorizontalAlignment="Left" Height="35" Margin="194,289,0,0" VerticalAlignment="Top" Width="101"/>
                 </Grid>
             </TabItem>
