@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Windows.Input;
 using Core.Forms;
+using Minder.Annotations;
 using Minder.Engine.Parse;
 using Minder.Engine.Sync;
 using Minder.Tools;
@@ -31,7 +33,7 @@ namespace Minder.Forms
 
         public SettingsFormController()
         {
-            _form = new SettingsWpfForm {Title = "Settings", DataContext = this};
+            _form = new SettingsWpfForm { Title = "Settings", DataContext = this };
         }
 
         public Window Window
@@ -55,6 +57,62 @@ namespace Minder.Forms
             get { return Minder.Static.StaticData.Settings; }
         }
 
+        #region Commands
+        public ICommand DefaultsCommand
+        {
+            get { return new DelegateCommand(RestoreDefaultSettings); }
+        }
+
+        public ICommand GenerateIdCommand
+        {
+            get { return new DelegateCommand(GenerateSyncId); }
+        }
+
+        private void RestoreDefaultSettings()
+        {
+            if (MessageBox.Show("Do you realy want restore default settings?",
+                               "Settings", MessageBoxButton.YesNo,
+                               MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                new SettingsLoader().CreateDefaultSettingsFile();
+                new SettingsLoader().LoadSettings();
+                _existChanges = true;
+            }
+        }
+
+        private void GenerateSyncId()
+        {
+            string rStr = Path.GetRandomFileName();
+            rStr = rStr.Replace(".", ""); // For Removing the .
+            rStr = rStr.ToUpper();
+            if (string.IsNullOrEmpty(_form.MSyncIdTextBox.Text))
+                _form.MSyncIdTextBox.Text = rStr;
+            else
+            {
+                if (MessageBox.Show("Do you really want generate new ID and lose your current ID?", "Warrning",
+                                   MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                    _form.MSyncIdTextBox.Text = rStr;
+            }
+
+        }
+
+        public ICommand SyncNowCommand
+        {
+            get
+            {
+                return new DelegateCommand(SyncNow);
+            }
+        }
+
+        private void SyncNow()
+        {
+            using (new WaitingForm2("Syncing...", "Please wait", false))
+            {
+                new SyncController().Sync();
+            }
+        }
+        #endregion
+
         public void SetEvents()
         {
             StaticData.Settings.PropertyChanged += (sender, args) => _existChanges = true;
@@ -67,34 +125,12 @@ namespace Minder.Forms
                     .GetBitmapImage(Minder.Static.StaticData.Settings.SkinsUniqueCodes.SelectedSkin.ToUpper());
             };
 
-            _form.MDefaultsButton.Click += delegate
-            {
-                if (MessageBox.Show("Do you realy want restore default settings?",
-                                   "Settings", MessageBoxButton.YesNo,
-                                   MessageBoxImage.Question) == MessageBoxResult.Yes)
-                {
-                    new SettingsLoader().CreateDefaultSettingsFile();
-                    new SettingsLoader().LoadSettings();
-                    _existChanges = true;
-                }
-            };
-
             _form.MEnableSyncCheckBox.Click += delegate
             {
                 var isChecked = _form.MEnableSyncCheckBox.IsChecked != null && _form.MEnableSyncCheckBox.IsChecked.Value;
                 _form.MSyncGenerateIdButton.IsEnabled = isChecked;
                 _form.MSyncIdTextBox.IsEnabled = isChecked;
                 _form.MSyncIntervalNumeric.IsEnabled = isChecked;
-            };
-
-            _form.MSyncGenerateIdButton.Click += delegate { GenerateSyncId(); };
-
-            _form.MSyncNowButton.Click += delegate
-            {
-                using (new WaitingForm2("Syncing...", "Please wait", false))
-                {
-                    new SyncController().Sync();
-                }
             };
 
             if (Static.StaticData.Settings.Sync.Enable == false)
@@ -123,21 +159,7 @@ namespace Minder.Forms
                 StaticData.Settings.SkinsUniqueCodes.SelectedSkin.ToUpper());
         }
 
-        private void GenerateSyncId()
-        {
-            string rStr = Path.GetRandomFileName();
-            rStr = rStr.Replace(".", ""); // For Removing the .
-            rStr = rStr.ToUpper();
-            if (string.IsNullOrEmpty(_form.MSyncIdTextBox.Text))
-                _form.MSyncIdTextBox.Text = rStr;
-            else
-            {
-                if (MessageBox.Show("Do you really want generate new ID and lose your current ID?", "Warrning",
-                                   MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
-                    _form.MSyncIdTextBox.Text = rStr;
-            }
 
-        }
 
         private void FormClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
