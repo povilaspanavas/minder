@@ -22,24 +22,15 @@ namespace Minder.Forms.Settings
     /// <summary>
     /// Description of SettingsFromPreparer.
     /// </summary>
-    public class SettingsFormController : IController, INotifyPropertyChanged
+    public class SettingsFormController : IController
     {
         SettingsWpfForm _form = null;
         private bool _existChanges = false;
-        private string _selectedTheme;
         log4net.ILog _log = log4net.LogManager.GetLogger(typeof(SettingsFormController));
-
-        public string SelectedTheme
-        {
-            get { return _selectedTheme; }
-            set { _selectedTheme = value; }
-        }
 
         public SettingsFormController()
         {
-            _form = new SettingsWpfForm();
-            _form.Title = "Settings";
-            _form.DataContext = StaticData.Settings;
+            _form = new SettingsWpfForm {Title = "Settings", DataContext = this};
         }
 
         public Window Window
@@ -47,14 +38,6 @@ namespace Minder.Forms.Settings
             get
             {
                 return _form;
-            }
-        }
-
-        public string[] Themes
-        {
-            get
-            {
-                return ThemeManager.GetThemes;
             }
         }
 
@@ -70,18 +53,6 @@ namespace Minder.Forms.Settings
         public void SetEvents()
         {
             StaticData.Settings.PropertyChanged += (sender, args) => _existChanges = true;
-            _form.MAltCheckBox.Click += delegate { _existChanges = true; };
-            _form.MCtrlCheckBox.Click += delegate { _existChanges = true; };
-            _form.MShiftCheckBox.Click += delegate { _existChanges = true; };
-            _form.MWinCheckBox.Click += delegate { _existChanges = true; };
-            _form.MKeysComboBox.SelectionChanged += delegate { _existChanges = true; };
-
-            _form.MSkinListBox.SelectionChanged += delegate { _existChanges = true; };
-
-            _form.MSyncGenerateIdButton.Click += delegate { _existChanges = true; };
-            _form.MSyncIdTextBox.TextChanged += delegate { _existChanges = true; };
-            _form.MSyncIntervalNumeric.ValueChanged += delegate { _existChanges = true; };
-            _form.MEnableSyncCheckBox.Click += delegate { _existChanges = true; };
 
             _form.Closing += FormClosing;
 
@@ -147,23 +118,6 @@ namespace Minder.Forms.Settings
 
         private void AddDataToControlls()
         {
-            foreach (string key in Minder.Static.StaticData.KeysDic.Keys)
-            {
-                _form.MKeysComboBox.Items.Add(key);
-            }
-
-            _form.MAltCheckBox.IsChecked = Minder.Static.StaticData.Settings.NewTaskHotkey.Alt;
-            _form.MCtrlCheckBox.IsChecked = Minder.Static.StaticData.Settings.NewTaskHotkey.Ctrl;
-            _form.MShiftCheckBox.IsChecked = Minder.Static.StaticData.Settings.NewTaskHotkey.Shift;
-            _form.MWinCheckBox.IsChecked = Minder.Static.StaticData.Settings.NewTaskHotkey.Win;
-
-            for (int i = 0; i < _form.MKeysComboBox.Items.Count; i++)
-            {
-                if (Minder.Static.StaticData.Settings.NewTaskHotkey.Key
-                   .Equals(_form.MKeysComboBox.Items[i].ToString()))
-                    _form.MKeysComboBox.SelectedIndex = i;
-            }
-
             // **** Skins ****
             int skinNameIndex = 0;
             foreach(string name in Minder.Static.StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames.Keys)
@@ -177,28 +131,6 @@ namespace Minder.Forms.Settings
                 }
                 skinNameIndex++;
             }
-
-            //***** Theme ******
-            SelectedTheme = Minder.Static.StaticData.Settings.ThemeUniqueCode;
-            for (int i = 0; i < _form.MThemeComboBox.Items.Count; i++)
-            {
-                if (StaticData.Settings.ThemeUniqueCode.Equals((_form.MThemeComboBox.Items[i] as string).ToUpper()))
-                {
-                    _form.MThemeComboBox.SelectedIndex = i;
-                    break;
-                }
-            }
-            //ThemeManager.ThemeProperty.DefaultMetadata.DefaultValue = "BubbleCreme";
-
-            //***** Sync ******
-            _form.MEnableSyncCheckBox.IsChecked = Minder.Static.StaticData.Settings.Sync.Enable;
-            if (Minder.Static.StaticData.Settings.Sync.Interval <= 0)
-                _form.MSyncIntervalNumeric.Value = 30;
-            else
-                _form.MSyncIntervalNumeric.Value = Minder.Static.StaticData.Settings.Sync.Interval;
-            _form.MSyncIdTextBox.Text = Minder.Static.StaticData.Settings.Sync.Id;
-            _form.MLastSyncDate.Value = Minder.Static.StaticData.Settings.Sync.LastSyncDate;
-
         }
 
         private void SetSkinSettings()
@@ -231,20 +163,10 @@ namespace Minder.Forms.Settings
                 if (MessageBox.Show("Do you want to save changes?", "Settings",
                                    MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    Minder.Static.StaticData.Settings.NewTaskHotkey.Alt = (bool)_form.MAltCheckBox.IsChecked;
-                    Minder.Static.StaticData.Settings.NewTaskHotkey.Ctrl = (bool)_form.MCtrlCheckBox.IsChecked;
-                    Minder.Static.StaticData.Settings.NewTaskHotkey.Shift = (bool)_form.MShiftCheckBox.IsChecked;
-                    Minder.Static.StaticData.Settings.NewTaskHotkey.Win = (bool)_form.MWinCheckBox.IsChecked;
-                    Minder.Static.StaticData.Settings.NewTaskHotkey.Key = _form.MKeysComboBox.SelectedItem.ToString();
-                    Minder.Static.StaticData.Settings.StartWithWindows = (bool)_form.MStartWithWinCheckBox.IsChecked;
-                    Minder.Static.StaticData.Settings.CheckUpdates = (bool)_form.MUpdateCheckBox.IsChecked;
-                    Minder.Static.StaticData.Settings.PlaySound = (bool)_form.MPlaySoundCheckBox.IsChecked;
-                    if (_form.MComboBoxCultureData.SelectedItem != null &&
-                        _form.MComboBoxCultureData.SelectedItem is ICultureData)
-                        Minder.Static.StaticData.Settings.CultureData = _form.MComboBoxCultureData.SelectedItem as ICultureData;
-                    if (_form.MComboBoxRemindMeLater.SelectedItem != null &&
-                        _form.MComboBoxRemindMeLater.SelectedItem is RemindLaterValue)
-                        Minder.Static.StaticData.Settings.RemindMeLaterDecimalValue = (_form.MComboBoxRemindMeLater.SelectedItem as RemindLaterValue).Value;
+                    // not sure if it will work. There are two properties for RemindLaterValue
+                    //if (_form.MComboBoxRemindMeLater.SelectedItem != null &&
+                    //    _form.MComboBoxRemindMeLater.SelectedItem is RemindLaterValue)
+                    //    Minder.Static.StaticData.Settings.RemindMeLaterDecimalValue = (_form.MComboBoxRemindMeLater.SelectedItem as RemindLaterValue).Value;
                     SetSkinSettings();
 
                     Minder.Static.StaticData.Settings.Sync.Id = _form.MSyncIdTextBox.Text.ToUpper();
@@ -278,13 +200,6 @@ namespace Minder.Forms.Settings
                     }
                 }
             }
-        }
-
-
-        event PropertyChangedEventHandler INotifyPropertyChanged.PropertyChanged
-        {
-            add {  }
-            remove { }
         }
     }
 }

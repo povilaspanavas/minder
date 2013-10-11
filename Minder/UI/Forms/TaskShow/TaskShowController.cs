@@ -141,7 +141,7 @@ namespace Minder.Forms.TaskShow
 
         public void EditTask()
         {
-            TaskNewEditFormController preparer = new TaskNewEditFormController(this.Task);
+            var preparer = new TaskNewEditFormController(this.Task);
             preparer.PrepareWindow();
             _window.Close();
         }

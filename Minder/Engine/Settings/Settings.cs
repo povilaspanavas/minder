@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Security.Cryptography.X509Certificates;
+using System.Windows.Forms;
 using Minder.Annotations;
 using Minder.Engine.Parse;
 using Minder.Forms.TaskShow;
@@ -10,10 +11,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using WPF.Themes;
 
 namespace Minder.Engine.Settings
 {
-    public class Settings : INotifyPropertyChanged
+    public abstract class  NotifyPropertyChanged : INotifyPropertyChanged
+    {
+         public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
+
+    public class Settings : NotifyPropertyChanged
     {
         bool _startWithWindows;
         bool _checkUpdates;
@@ -35,34 +49,26 @@ namespace Minder.Engine.Settings
         public Settings()
         {
             NewTaskHotkey = new NewTaskHotkey();
+            NewTaskHotkey.PropertyChanged += (sender, args) => OnPropertyChanged("NewTaskHotkey");
+            
             Sync = new Sync();
+            Sync.PropertyChanged += (sender, args) => OnPropertyChanged("Sync");
+            
             SkinsUniqueCodes = new SkinsUniqueCodes();
 
-            _cultureDataValues = new List<ICultureData> {new CultureDataLT(), new CultureDataUK(), new CultureDataUS()};
+            _cultureDataValues = new List<ICultureData> { new CultureDataLT(), new CultureDataUK(), new CultureDataUS() };
             ListRemindLaterValues = TaskShowController.BuildRemindLaterList();
 
         }
-        // **** Default Remind Me Later value ****
-            //_form.MComboBoxRemindMeLater.DisplayMemberPath = "Name";
-            //foreach (RemindLaterValue val in listRemindLaterValues) 
-            //{
-            //    _form.MComboBoxRemindMeLater.Items.Add(val);
-            //}
-
-            // Set index
-            //for (int i = 0; i < _form.MComboBoxRemindMeLater.Items.Count; i++)
-            //{
-            //    if (StaticData.Settings.RemindMeLaterDecimalDecimalValue.Equals((_form.MComboBoxRemindMeLater.Items[i] as RemindLaterValue).Value))
-            //    {
-            //        _form.MComboBoxRemindMeLater.SelectedIndex = i;
-            //        break;
-            //    }
-            //}
 
         public string ThemeUniqueCode
         {
             get { return _themeUniqueCode; }
-            set { _themeUniqueCode = value; }
+            set
+            {
+                _themeUniqueCode = value;
+                OnPropertyChanged("ThemeUniqueCode");
+            }
         }
 
         public RemindLaterValue RemindMyLaterDefaultValue
@@ -75,7 +81,8 @@ namespace Minder.Engine.Settings
             set
             {
                 RemindMeLaterDecimalValue = value.Value;
-                _remindMeLaterValue = value; 
+                _remindMeLaterValue = value;
+                OnPropertyChanged("RemindMyLaterDefaultValue");
             }
         }
 
@@ -107,30 +114,49 @@ namespace Minder.Engine.Settings
                 TextParser.CultureData = _cultureData;
                 Thread.CurrentThread.CurrentCulture = _cultureData.CultureInfo;
                 Thread.CurrentThread.CurrentUICulture = _cultureData.CultureInfo;
+                OnPropertyChanged("CultureData");
             }
         }
         public bool StartWithWindows
         {
             get { return _startWithWindows; }
-            set { _startWithWindows = value; }
+            set
+            {
+                _startWithWindows = value; 
+                OnPropertyChanged("StartWithWindows");
+            }
         }
 
         public bool CheckUpdates
         {
             get { return _checkUpdates; }
-            set { _checkUpdates = value; }
+            set
+            {
+                _checkUpdates = value;
+                OnPropertyChanged("CheckUpdates");
+
+            }
         }
 
         public bool PlaySound
         {
             get { return _playSound; }
-            set { _playSound = value; }
+            set
+            {
+                _playSound = value;
+                OnPropertyChanged("PlaySound");
+                
+            }
         }
 
         public string SkinUniqueCode
         {
             get { return _skinUniqueCode; }
-            set { _skinUniqueCode = value; }
+            set
+            {
+                _skinUniqueCode = value; 
+                OnPropertyChanged("SkinUniqueCode");
+            }
         }
 
         public string LogFilePath
@@ -153,20 +179,11 @@ namespace Minder.Engine.Settings
             get { return _listRemindLaterValues; }
             set { _listRemindLaterValues = value; }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 
     public class SkinsUniqueCodes
     {
-        Dictionary<string, string> _skinsUniqueCodesAndNames = new Dictionary<string, string>();
+        readonly Dictionary<string, string> _skinsUniqueCodesAndNames = new Dictionary<string, string>();
 
         /// <summary>
         /// Skin name -> skin uniqueCode
@@ -193,31 +210,42 @@ namespace Minder.Engine.Settings
         }
     }
 
-    public class Sync
+    public class Sync : NotifyPropertyChanged
     {
+        bool _enable = false;
+        int _interval = 30;
         string _id = string.Empty;
         DateTime _lastSyncDate = new DateTime(2000, 1, 1);
 
         public string Id
         {
             get { return _id; }
-            set { _id = value; }
+            set
+            {
+                _id = value; 
+                OnPropertyChanged("Id");
+            }
         }
-
-        bool _enable = false;
 
         public bool Enable
         {
             get { return _enable; }
-            set { _enable = value; }
+            set
+            {
+                _enable = value;
+                OnPropertyChanged("Enable");
+            }
         }
-
-        int _interval = 1;
 
         public int Interval
         {
             get { return _interval; }
-            set { _interval = value; }
+            set
+            {
+                _interval = value;
+                OnPropertyChanged("Interval");
+                
+            }
         }
 
         //Not in settings.ini it's in Info obj in DB
@@ -228,42 +256,139 @@ namespace Minder.Engine.Settings
         }
     }
 
-    public class NewTaskHotkey
+    public class NewTaskHotkey : NotifyPropertyChanged
     {
-        bool _ctrl;
-        bool _alt;
-        bool _shift;
-        bool _win;
-        string _key;
+        private string _key;
+        private bool _ctrl;
+        private bool _alt;
+        private bool _shift;
+        private bool _win;
 
+
+        public string Key
+        {
+            get { return _key; }
+            set
+            {
+                _key = value;
+                OnPropertyChanged("Key");
+            }
+        }
         public bool Ctrl
         {
             get { return _ctrl; }
-            set { _ctrl = value; }
+            set
+            {
+                _ctrl = value;
+                OnPropertyChanged("Ctrl");
+            }
         }
 
         public bool Alt
         {
             get { return _alt; }
-            set { _alt = value; }
+            set
+            {
+                _alt = value;
+                OnPropertyChanged("Alt");
+            }
         }
 
         public bool Shift
         {
             get { return _shift; }
-            set { _shift = value; }
+            set
+            {
+                _shift = value;
+                OnPropertyChanged("Shift");
+            }
         }
 
         public bool Win
         {
             get { return _win; }
-            set { _win = value; }
+            set
+            {
+                _win = value;
+                OnPropertyChanged("Win");
+            }
+        }
+        private readonly Dictionary<string, Keys> _keysDic = new Dictionary<string, Keys>();
+
+        public NewTaskHotkey()
+        {
+            AddKeysToDic();
+            //_keysDic.Keys[;
         }
 
-        public string Key
+
+        public Dictionary<string, Keys> KeysDic
         {
-            get { return _key; }
-            set { _key = value; }
+            get
+            {
+                AddKeysToDic();
+                return _keysDic;
+            }
         }
+
+
+
+        private void AddKeysToDic()
+        {
+            if (_keysDic.Count != 0)
+                return;
+
+            _keysDic.Add("F1", Keys.F1);
+            _keysDic.Add("F2", Keys.F2);
+            _keysDic.Add("F3", Keys.F3);
+            _keysDic.Add("F4", Keys.F4);
+            _keysDic.Add("F5", Keys.F5);
+            _keysDic.Add("F6", Keys.F6);
+            _keysDic.Add("F7", Keys.F7);
+            _keysDic.Add("F8", Keys.F8);
+            _keysDic.Add("F9", Keys.F9);
+            _keysDic.Add("F10", Keys.F10);
+            _keysDic.Add("F11", Keys.F11);
+            _keysDic.Add("F12", Keys.F12);
+
+            _keysDic.Add("A", Keys.A);
+            _keysDic.Add("B", Keys.B);
+            _keysDic.Add("C", Keys.C);
+            _keysDic.Add("D", Keys.D);
+            _keysDic.Add("E", Keys.E);
+            _keysDic.Add("F", Keys.F);
+            _keysDic.Add("G", Keys.G);
+            _keysDic.Add("H", Keys.H);
+            _keysDic.Add("I", Keys.I);
+            _keysDic.Add("Y", Keys.Y);
+            _keysDic.Add("J", Keys.J);
+            _keysDic.Add("K", Keys.K);
+            _keysDic.Add("L", Keys.L);
+            _keysDic.Add("M", Keys.M);
+            _keysDic.Add("N", Keys.N);
+            _keysDic.Add("P", Keys.P);
+            _keysDic.Add("R", Keys.R);
+            _keysDic.Add("S", Keys.S);
+            _keysDic.Add("Q", Keys.Q);
+            _keysDic.Add("T", Keys.T);
+            _keysDic.Add("U", Keys.U);
+            _keysDic.Add("V", Keys.V);
+            _keysDic.Add("W", Keys.W);
+            _keysDic.Add("X", Keys.X);
+            _keysDic.Add("Z", Keys.Z);
+
+            _keysDic.Add("0", Keys.NumPad0);
+            _keysDic.Add("1", Keys.NumPad1);
+            _keysDic.Add("2", Keys.NumPad2);
+            _keysDic.Add("3", Keys.NumPad3);
+            _keysDic.Add("4", Keys.NumPad4);
+            _keysDic.Add("5", Keys.NumPad5);
+            _keysDic.Add("6", Keys.NumPad6);
+            _keysDic.Add("7", Keys.NumPad7);
+            _keysDic.Add("8", Keys.NumPad8);
+            _keysDic.Add("9", Keys.NumPad9);
+        }
+
+       
     }
 }

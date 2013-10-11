@@ -164,7 +164,7 @@ namespace Minder.Forms.Main
             bool win = Minder.Static.StaticData.Settings.NewTaskHotkey.Win;
             string keyString = Minder.Static.StaticData.Settings.NewTaskHotkey.Key;
             Keys key = Keys.Decimal;
-            Minder.Static.StaticData.KeysDic.TryGetValue(keyString, out key);
+            Minder.Static.StaticData.Settings.NewTaskHotkey.KeysDic.TryGetValue(keyString, out key);
 
             // Nesu 100% tikras, kad gerai veikia - bet standartinis atvejis veikia
             // o kodas daug aiškesnis ir lengviau taisomas
