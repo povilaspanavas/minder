@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using Core.Forms;
 using Minder.Engine.Parse;
-using Minder.Engine.Settings;
 using Minder.Engine.Sync;
 using Minder.Tools;
 using Minder.UI.Forms.TaskShow;
@@ -16,17 +15,19 @@ using Minder.Static;
 using WPF.Themes;
 using System.Windows.Controls;
 using System.ComponentModel;
+using Minder.Engine.Settings;
+using Minder.Forms.Settings;
 
-namespace Minder.Forms.Settings
+namespace Minder.Forms
 {
     /// <summary>
     /// Description of SettingsFromPreparer.
     /// </summary>
     public class SettingsFormController : IController
     {
-        SettingsWpfForm _form = null;
+        readonly SettingsWpfForm _form = null;
+        readonly log4net.ILog _log = log4net.LogManager.GetLogger(typeof(SettingsFormController));
         private bool _existChanges = false;
-        log4net.ILog _log = log4net.LogManager.GetLogger(typeof(SettingsFormController));
 
         public SettingsFormController()
         {
@@ -47,7 +48,11 @@ namespace Minder.Forms.Settings
             SetEvents();
             _form.DataContext = this;
             _form.Show();
+        }
 
+        public Engine.Settings.Settings Settings
+        {
+            get { return Minder.Static.StaticData.Settings; }
         }
 
         public void SetEvents()
