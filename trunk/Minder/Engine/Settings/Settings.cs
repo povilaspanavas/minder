@@ -34,14 +34,14 @@ namespace Minder.Engine.Settings
         bool _playSound;
         string _skinUniqueCode;
         string _themeUniqueCode;
-        private List<ICultureData> _cultureDataValues;
-        private List<RemindLaterValue> _listRemindLaterValues;
+        public string LogFilePath { get; set; }
+        public List<ICultureData> CultureDataValues { get; set; }
+        public List<RemindLaterValue> ListRemindLaterValues { get; set; }
 
         public NewTaskHotkey NewTaskHotkey { get; set; }
         public Sync Sync { get; set; }
         public SkinsUniqueCodes SkinsUniqueCodes { get; set; }
 
-        string _logFilePath;
         decimal _remindMeLaterDecimalValue = 10.0m / 60.0m;
         ICultureData _cultureData = new CultureDataLT();
         private RemindLaterValue _remindMeLaterValue;
@@ -56,7 +56,7 @@ namespace Minder.Engine.Settings
             
             SkinsUniqueCodes = new SkinsUniqueCodes();
 
-            _cultureDataValues = new List<ICultureData> { new CultureDataLT(), new CultureDataUK(), new CultureDataUS() };
+            CultureDataValues = new List<ICultureData> { new CultureDataLT(), new CultureDataUK(), new CultureDataUS() };
             ListRemindLaterValues = TaskShowController.BuildRemindLaterList();
 
         }
@@ -76,7 +76,7 @@ namespace Minder.Engine.Settings
             get
             {
                 if (_remindMeLaterValue != null) return _remindMeLaterValue;
-                return _listRemindLaterValues.First(x => x.Value.Equals(_remindMeLaterDecimalValue));
+                return ListRemindLaterValues.First(x => x.Value.Equals(_remindMeLaterDecimalValue));
             }
             set
             {
@@ -134,7 +134,6 @@ namespace Minder.Engine.Settings
             {
                 _checkUpdates = value;
                 OnPropertyChanged("CheckUpdates");
-
             }
         }
 
@@ -145,7 +144,6 @@ namespace Minder.Engine.Settings
             {
                 _playSound = value;
                 OnPropertyChanged("PlaySound");
-                
             }
         }
 
@@ -158,27 +156,7 @@ namespace Minder.Engine.Settings
                 OnPropertyChanged("SkinUniqueCode");
             }
         }
-
-        public string LogFilePath
-        {
-            get { return _logFilePath; }
-            set { _logFilePath = value; }
-        }
-
-        public List<ICultureData> CultureDataValues
-        {
-            get
-            {
-                return _cultureDataValues;
-            }
-            set { _cultureDataValues = value; }
-        }
-
-        public List<RemindLaterValue> ListRemindLaterValues
-        {
-            get { return _listRemindLaterValues; }
-            set { _listRemindLaterValues = value; }
-        }
+       
     }
 
     public class SkinsUniqueCodes
