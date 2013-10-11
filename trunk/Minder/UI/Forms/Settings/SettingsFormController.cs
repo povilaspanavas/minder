@@ -70,16 +70,16 @@ namespace Minder.Forms.Settings
                 {
                     new SettingsLoader().CreateDefaultSettingsFile();
                     new SettingsLoader().LoadSettings();
-                    AddDataToControlls();
                     _existChanges = true;
                 }
             };
 
             _form.MEnableSyncCheckBox.Click += delegate
             {
-                _form.MSyncGenerateIdButton.IsEnabled = (bool)_form.MEnableSyncCheckBox.IsChecked;
-                _form.MSyncIdTextBox.IsEnabled = (bool)_form.MEnableSyncCheckBox.IsChecked;
-                _form.MSyncIntervalNumeric.IsEnabled = (bool)_form.MEnableSyncCheckBox.IsChecked;
+                var isChecked = _form.MEnableSyncCheckBox.IsChecked != null && _form.MEnableSyncCheckBox.IsChecked.Value;
+                _form.MSyncGenerateIdButton.IsEnabled = isChecked;
+                _form.MSyncIdTextBox.IsEnabled = isChecked;
+                _form.MSyncIntervalNumeric.IsEnabled = isChecked;
             };
 
             _form.MSyncGenerateIdButton.Click += delegate { GenerateSyncId(); };
@@ -108,28 +108,14 @@ namespace Minder.Forms.Settings
         {
             if (sender == null || sender is ComboBox == false)
                 return;
-            string themeName = (string)(sender as ComboBox).SelectedItem;
-            ThemeManager.ApplyTheme(App.Current, themeName);
-            _existChanges = true;
+            var themeName = (string)(sender as ComboBox).SelectedItem;
+            Application.Current.ApplyTheme(themeName);
         }
 
         private void AddDataToControlls()
         {
-            // **** Skins ****
-            foreach(string name in Minder.Static.StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames.Keys)
-            {
-                string uniqueCode = Minder.Static.StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames[name];
-                if (Minder.Static.StaticData.Settings.SkinsUniqueCodes.SelectedSkin.ToUpper().Equals(uniqueCode.ToUpper()))
-                {
-                    _form.MSkinPreviewPictureBox.Source = new Images().GetBitmapImage(uniqueCode.ToUpper());
-                }
-            }
-        }
-
-        private void SetSkinSettings()
-        {
-            string skinName = _form.MSkinListBox.Items[_form.MSkinListBox.SelectedIndex].ToString();
-            Minder.Static.StaticData.Settings.SkinsUniqueCodes.SelectedSkin = Minder.Static.StaticData.Settings.SkinsUniqueCodes.SkinsUniqueCodesAndNames[skinName];
+            _form.MSkinPreviewPictureBox.Source = new Images().GetBitmapImage(
+                StaticData.Settings.SkinsUniqueCodes.SelectedSkin.ToUpper());
         }
 
         private void GenerateSyncId()
@@ -158,7 +144,6 @@ namespace Minder.Forms.Settings
             //if (_form.MComboBoxRemindMeLater.SelectedItem != null &&
             //    _form.MComboBoxRemindMeLater.SelectedItem is RemindLaterValue)
             //    Minder.Static.StaticData.Settings.RemindMeLaterDecimalValue = (_form.MComboBoxRemindMeLater.SelectedItem as RemindLaterValue).Value;
-            SetSkinSettings();
             new SettingsLoader().SaveSettingsToFile();
             if (MessageBox.Show("You need restart application to take efect. Do you want restart application now?", "Settings",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
