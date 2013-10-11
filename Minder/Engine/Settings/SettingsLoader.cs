@@ -9,6 +9,7 @@
 using System;
 using System.Globalization;
 using System.IO;
+using System.Windows;
 using Minder.Engine.Parse;
 using Minder.Static;
 using Minder.Tools;
@@ -111,15 +112,15 @@ namespace Minder.Forms.Settings
 			
 			
 			//Skins
-			StaticData.Settings.SkinUniqueCode = parser.GetSetting("skin", "code");
-			if (string.IsNullOrEmpty(StaticData.Settings.SkinUniqueCode))
-				StaticData.Settings.SkinUniqueCode = DefaultSkinForm.SKIN_UNIQUE_CODE;
+            StaticData.Settings.SkinsUniqueCodes.SelectedSkin = parser.GetSetting("skin", "code");
+            if (string.IsNullOrEmpty(StaticData.Settings.SkinsUniqueCodes.SelectedSkin))
+                StaticData.Settings.SkinsUniqueCodes.SelectedSkin = DefaultSkinForm.SKIN_UNIQUE_CODE;
 			
             // Theme's name
             StaticData.Settings.ThemeUniqueCode = parser.GetSetting("skin", "themename");
             if (string.IsNullOrEmpty(StaticData.Settings.ThemeUniqueCode))
                 StaticData.Settings.ThemeUniqueCode = _defaultThemeName;
-            App.Current.ApplyTheme(StaticData.Settings.ThemeUniqueCode);
+            Application.Current.ApplyTheme(StaticData.Settings.ThemeUniqueCode);
 
             //Sync
 			StaticData.Settings.Sync.Id = parser.GetSetting("sync", "id");
@@ -158,7 +159,7 @@ namespace Minder.Forms.Settings
 			parser.AddSetting("General", "playsound", StaticData.Settings.PlaySound.ToString());
 			parser.AddSetting("CultureInfo", "name", StaticData.Settings.CultureData.CultureInfo.Name.ToString());
             parser.AddSetting("RemindMeLater", "default", RemindLaterValue.Round(StaticData.Settings.RemindMeLaterDecimalValue).ToString());
-            parser.AddSetting("skin", "code", StaticData.Settings.SkinUniqueCode);
+            parser.AddSetting("skin", "code", StaticData.Settings.SkinsUniqueCodes.SelectedSkin);
             parser.AddSetting("skin", "themename", StaticData.Settings.ThemeUniqueCode);
 			parser.AddSetting("sync", "id", StaticData.Settings.Sync.Id);
 			parser.AddSetting("sync", "interval", StaticData.Settings.Sync.Interval.ToString());

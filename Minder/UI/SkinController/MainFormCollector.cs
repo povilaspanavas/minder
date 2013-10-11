@@ -11,7 +11,7 @@ namespace Minder.UI.SkinController
 	{
 		public AbstractMainForm GetForm()
 		{
-			string skinUniqueCode = StaticData.Settings.SkinUniqueCode.ToUpper();
+			string skinUniqueCode = StaticData.Settings.SkinsUniqueCodes.SelectedSkin.ToUpper();
 			switch(skinUniqueCode)
 			{
 				case DefaultSkinForm.SKIN_UNIQUE_CODE:
