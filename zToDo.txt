@@ -1,6 +1,7 @@
 POVILO:
- * Visas temas iðbandyti, nes kai kurios lûþta
- * veiktø tiesiai redagavimas gride
+ * Gride teisingas datos formatas
+ * Be restarto settingsai pasikeistø
+ * Veiktø tiesiai redagavimas gride
  * Padaryti, kad temos paèios keistøsi kasdien
 
 SomeDay
