@@ -32,7 +32,6 @@ namespace Minder.Engine.Settings
         bool _startWithWindows;
         bool _checkUpdates;
         bool _playSound;
-        string _skinUniqueCode;
         string _themeUniqueCode;
         public string LogFilePath { get; set; }
         public List<ICultureData> CultureDataValues { get; set; }
@@ -67,7 +66,7 @@ namespace Minder.Engine.Settings
             get { return _themeUniqueCode; }
             set
             {
-                _themeUniqueCode = value;
+                _themeUniqueCode = ThemeManager.GetThemes.First(theme => theme.ToUpper().Equals(value));
                 OnPropertyChanged("ThemeUniqueCode");
             }
         }

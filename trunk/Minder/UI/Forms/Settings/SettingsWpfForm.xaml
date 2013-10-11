@@ -5,36 +5,36 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:src="clr-namespace:Minder.UI.Forms"
              xmlns:local="clr-namespace:WPF.Themes;assembly=WPF.Themes"
+             xmlns:VM="clr-namespace:Minder.Forms"
              xmlns:stc="clr-namespace:Minder.Static"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"  x:Class="Minder.UI.Forms.Settings.SettingsWpfForm"
              mc:Ignorable="d" 
              Height="433" Width="540"
              Background="{DynamicResource WindowBackgroundBrush}"
-             
              >
     <Grid>
-        <TabControl DataContext="{x:Static stc:StaticData.Settings}" HorizontalAlignment="Left" Height="383" Margin="10,10,0,0" VerticalAlignment="Top" Width="512">
+        <TabControl HorizontalAlignment="Left" Height="383" Margin="10,10,0,0" VerticalAlignment="Top" Width="512">
             <TabItem Header="General" >
                 <Grid  Margin="0,16,0,-16">
-                    <CheckBox x:Name="MStartWithWinCheckBox" IsChecked="{Binding StartWithWindows}" Content="Start Minder with Windows" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="20" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-                    <CheckBox x:Name="MUpdateCheckBox" IsChecked="{Binding CheckUpdates}" Content="Check automatically for updates" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Height="20" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-                    <CheckBox x:Name="MPlaySoundCheckBox" IsChecked="{Binding PlaySound}" Content="Play sound when reminding" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="21" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <CheckBox x:Name="MStartWithWinCheckBox" IsChecked="{Binding Settings.StartWithWindows}" Content="Start Minder with Windows" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="20" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <CheckBox x:Name="MUpdateCheckBox" IsChecked="{Binding Settings.CheckUpdates}" Content="Check automatically for updates" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Height="20" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <CheckBox x:Name="MPlaySoundCheckBox" IsChecked="{Binding Settings.PlaySound}" Content="Play sound when reminding" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="21" Width="199" FlowDirection="RightToLeft" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
                     <Label x:Name="MLabelCultureData" Content="Date format" HorizontalAlignment="Left" Margin="4,84,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="24" Width="84"/>
                     <Label Content="Default remind later value" HorizontalAlignment="Left" Margin="4,103,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="32" Width="157"/>
-                    <ComboBox x:Name="MComboBoxCultureData" ItemsSource="{Binding CultureDataValues}" DisplayMemberPath="Name" HorizontalAlignment="Left" Height="22" Margin="175,86,0,0" VerticalAlignment="Top" Width="120">
+                    <ComboBox x:Name="MComboBoxCultureData" ItemsSource="{Binding Settings.CultureDataValues}" DisplayMemberPath="Name" HorizontalAlignment="Left" Height="22" Margin="175,86,0,0" VerticalAlignment="Top" Width="120">
                         <ComboBox.SelectedItem>
-                            <Binding Path="CultureData"></Binding>
+                            <Binding Path="Settings.CultureData"></Binding>
                         </ComboBox.SelectedItem>
                     </ComboBox>
-                    <ComboBox x:Name="MComboBoxRemindMeLater" ItemsSource="{Binding ListRemindLaterValues}" DisplayMemberPath="Name" HorizontalAlignment="Left" Height="22" Margin="175,113,0,0" VerticalAlignment="Top" Width="120">
+                    <ComboBox x:Name="MComboBoxRemindMeLater" ItemsSource="{Binding Settings.ListRemindLaterValues}" DisplayMemberPath="Name" HorizontalAlignment="Left" Height="22" Margin="175,113,0,0" VerticalAlignment="Top" Width="120">
                         <ComboBox.SelectedItem>
-                            <Binding Path="RemindMyLaterDefaultValue"></Binding>
+                            <Binding Path="Settings.RemindMyLaterDefaultValue"></Binding>
                         </ComboBox.SelectedItem>
                     </ComboBox>
                     <Button x:Name="MDefaultsButton" Content="Default Settings" HorizontalAlignment="Left" Height="35" Margin="194,289,0,0" VerticalAlignment="Top" Width="101"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Hotkeys" DataContext="{Binding NewTaskHotkey}">
+            <TabItem Header="Hotkeys" DataContext="{Binding Settings.NewTaskHotkey}">
                 <Grid >
                     <GroupBox Header="New Task" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="89" Width="469">
                         <ComboBox x:Name="MKeysComboBox" ItemsSource="{Binding KeysDic}" DisplayMemberPath="Key" SelectedValuePath="Value" HorizontalAlignment="Left" Height="22" Margin="168,18,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.57,0">
@@ -50,7 +50,7 @@
                     <Label Content="+" HorizontalAlignment="Left" Height="24" Margin="140,43,0,0" VerticalAlignment="Top" Width="18"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Skins" DataContext="{Binding SkinsUniqueCodes}">
+            <TabItem Header="Skins" DataContext="{Binding Settings.SkinsUniqueCodes}">
                 <Grid >
                     <GroupBox Header="Skins" HorizontalAlignment="Left" Height="331" Margin="10,10,0,0" VerticalAlignment="Top" Width="482"/>
                     <Image x:Name="MSkinPreviewPictureBox" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased" HorizontalAlignment="Left" Height="98" Margin="192,25,0,0" VerticalAlignment="Top" Width="290"/>
@@ -61,18 +61,18 @@
                     </ListBox>
                 </Grid>
             </TabItem>
-            <TabItem Header="Sync" DataContext="{Binding Sync}">
+            <TabItem Header="Sync">
                 <Grid >
                     <GroupBox Header="Sync" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="324" Width="469">
                         <Button x:Name="MSyncGenerateIdButton" Content="Generate ID" HorizontalAlignment="Left" Height="23" Margin="269,37,0,0" VerticalAlignment="Top" Width="98"/>
                     </GroupBox>
-                    <CheckBox Content="Enable synchronization" IsChecked="{Binding Enable}" x:Name="MEnableSyncCheckBox" HorizontalAlignment="Left" Height="26" Margin="20,34,0,0" VerticalAlignment="Top" Width="158" RenderTransformOrigin="0.919,1.643"/>
+                    <CheckBox Content="Enable synchronization" IsChecked="{Binding Settings.Sync.Enable}" x:Name="MEnableSyncCheckBox" HorizontalAlignment="Left" Height="26" Margin="20,34,0,0" VerticalAlignment="Top" Width="158" RenderTransformOrigin="0.919,1.643"/>
                     <Label Content="Sync interval (minutes)" HorizontalAlignment="Left" Height="31" Margin="20,89,0,0" VerticalAlignment="Top" Width="136"/>
                     <Label Content="Your ID" HorizontalAlignment="Left" Height="24" Margin="20,60,0,0" VerticalAlignment="Top" Width="88"/>
                     <Label Content="Last sync date" HorizontalAlignment="Left" Height="27" Margin="20,120,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="-0.035,1.757"/>
-                    <TextBox x:Name="MSyncIdTextBox" Text="{Binding Id}" HorizontalAlignment="Left" Margin="123,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.72,5.438" Height="19" Width="148"/>
-                    <xctk:DateTimePicker x:Name="MLastSyncDate" Value="{Binding LastSyncDate}" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="113" Margin="158,123,0,0"/>
-                    <xctk:IntegerUpDown x:Name="MSyncIntervalNumeric" Value="{Binding Interval}" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="113" Margin="158,94,0,0"/>
+                    <TextBox x:Name="MSyncIdTextBox" Text="{Binding Settings.Sync.Id}" HorizontalAlignment="Left" Margin="123,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.72,5.438" Height="19" Width="148"/>
+                    <xctk:DateTimePicker x:Name="MLastSyncDate" Value="{Binding Settings.Sync.LastSyncDate}" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="113" Margin="158,123,0,0"/>
+                    <xctk:IntegerUpDown x:Name="MSyncIntervalNumeric" Value="{Binding Settings.Sync.Interval}" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="113" Margin="158,94,0,0"/>
                     <Button x:Name="MSyncNowButton" Content="Sync now" HorizontalAlignment="Left" Height="37" Margin="186,286,0,0" VerticalAlignment="Top" Width="111"/>
 
                 </Grid>
@@ -84,7 +84,7 @@
                     <Label Content="Pick a theme" Height="24" Margin="19,35,400,289"></Label>
                     <ComboBox x:Name="MThemeComboBox" ItemsSource="{Binding Source={x:Static local:ThemeManager.GetThemes}, Mode=OneWay}" Height="24" Margin="147,35,196,289">
                         <ComboBox.SelectedItem>
-                            <Binding Mode="TwoWay" Path="ThemeUniqueCode">
+                            <Binding Mode="TwoWay" Path="Settings.ThemeUniqueCode">
 
                             </Binding>
                         </ComboBox.SelectedItem>
