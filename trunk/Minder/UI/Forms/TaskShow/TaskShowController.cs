@@ -51,7 +51,7 @@ namespace Minder.Forms.TaskShow
         {
             foreach (var remindMeLaterValue in m_listRemindLaterValues)
             {
-                if (StaticData.Settings.RemindMeLaterDefaultValue.Equals(remindMeLaterValue.Value))
+                if (StaticData.Settings.RemindMeLaterDecimalValue.Equals(remindMeLaterValue.Value))
                     return remindMeLaterValue;
             }
             return null;
@@ -149,7 +149,7 @@ namespace Minder.Forms.TaskShow
         private void RemindMeLaterPressed()
         {
             m_task.Showed = false;
-            decimal val = StaticData.Settings.RemindMeLaterDefaultValue;
+            decimal val = StaticData.Settings.RemindMeLaterDecimalValue;
             if (m_remindLaterValueSelectedItem != null)
                 val = m_remindLaterValueSelectedItem.Value;
             m_task.DateRemainder = m_task.DateRemainder = DateTime.Now.AddHours((double)val); //Temp
