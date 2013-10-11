@@ -44,6 +44,11 @@ namespace Minder.Forms
             }
         }
 
+        public Engine.Settings.Settings Settings
+        {
+            get { return Minder.Static.StaticData.Settings; }
+        }
+
         public void PrepareWindow()
         {
             AddDataToControlls();
@@ -52,10 +57,7 @@ namespace Minder.Forms
             _form.Show();
         }
 
-        public Engine.Settings.Settings Settings
-        {
-            get { return Minder.Static.StaticData.Settings; }
-        }
+        
 
         #region Commands
         public ICommand DefaultsCommand
@@ -159,18 +161,13 @@ namespace Minder.Forms
                 StaticData.Settings.SkinsUniqueCodes.SelectedSkin.ToUpper());
         }
 
-
-
         private void FormClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             // Check or exist changes
             if (_existChanges != true) return;
             if (MessageBox.Show("Do you want to save changes?", "Settings",
                 MessageBoxButton.YesNo) != MessageBoxResult.Yes) return;
-            // not sure if it will work. There are two properties for RemindLaterValue
-            //if (_form.MComboBoxRemindMeLater.SelectedItem != null &&
-            //    _form.MComboBoxRemindMeLater.SelectedItem is RemindLaterValue)
-            //    Minder.Static.StaticData.Settings.RemindMeLaterDecimalValue = (_form.MComboBoxRemindMeLater.SelectedItem as RemindLaterValue).Value;
+
             new SettingsLoader().SaveSettingsToFile();
             if (MessageBox.Show("You need restart application to take efect. Do you want restart application now?", "Settings",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
