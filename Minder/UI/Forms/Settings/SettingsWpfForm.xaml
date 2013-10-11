@@ -31,7 +31,7 @@
                             <Binding Path="Settings.RemindMyLaterDefaultValue"></Binding>
                         </ComboBox.SelectedItem>
                     </ComboBox>
-                    <Button x:Name="MDefaultsButton" Content="Default Settings" HorizontalAlignment="Left" Height="35" Margin="194,289,0,0" VerticalAlignment="Top" Width="101"/>
+                    <Button x:Name="MDefaultsButton" Command="{Binding DefaultsCommand}" Content="Default Settings" HorizontalAlignment="Left" Height="35" Margin="194,289,0,0" VerticalAlignment="Top" Width="101"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Hotkeys" DataContext="{Binding Settings.NewTaskHotkey}">
@@ -64,7 +64,7 @@
             <TabItem Header="Sync">
                 <Grid >
                     <GroupBox Header="Sync" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="324" Width="469">
-                        <Button x:Name="MSyncGenerateIdButton" Content="Generate ID" HorizontalAlignment="Left" Height="23" Margin="269,37,0,0" VerticalAlignment="Top" Width="98"/>
+                        <Button x:Name="MSyncGenerateIdButton" Command="{Binding GenerateIdCommand}" Content="Generate ID" HorizontalAlignment="Left" Height="23" Margin="269,37,0,0" VerticalAlignment="Top" Width="98"/>
                     </GroupBox>
                     <CheckBox Content="Enable synchronization" IsChecked="{Binding Settings.Sync.Enable}" x:Name="MEnableSyncCheckBox" HorizontalAlignment="Left" Height="26" Margin="20,34,0,0" VerticalAlignment="Top" Width="158" RenderTransformOrigin="0.919,1.643"/>
                     <Label Content="Sync interval (minutes)" HorizontalAlignment="Left" Height="31" Margin="20,89,0,0" VerticalAlignment="Top" Width="136"/>
@@ -73,7 +73,7 @@
                     <TextBox x:Name="MSyncIdTextBox" Text="{Binding Settings.Sync.Id}" HorizontalAlignment="Left" Margin="123,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.72,5.438" Height="19" Width="148"/>
                     <xctk:DateTimePicker x:Name="MLastSyncDate" Value="{Binding Settings.Sync.LastSyncDate}" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="113" Margin="158,123,0,0"/>
                     <xctk:IntegerUpDown x:Name="MSyncIntervalNumeric" Value="{Binding Settings.Sync.Interval}" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="113" Margin="158,94,0,0"/>
-                    <Button x:Name="MSyncNowButton" Content="Sync now" HorizontalAlignment="Left" Height="37" Margin="186,286,0,0" VerticalAlignment="Top" Width="111"/>
+                    <Button x:Name="MSyncNowButton" Content="Sync now" Command="{Binding SyncNowCommand}" HorizontalAlignment="Left" Height="37" Margin="186,286,0,0" VerticalAlignment="Top" Width="111"/>
 
                 </Grid>
             </TabItem>
