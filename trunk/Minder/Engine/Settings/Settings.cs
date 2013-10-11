@@ -55,6 +55,7 @@ namespace Minder.Engine.Settings
             Sync.PropertyChanged += (sender, args) => OnPropertyChanged("Sync");
             
             SkinsUniqueCodes = new SkinsUniqueCodes();
+            SkinsUniqueCodes.PropertyChanged += (sender, args) => OnPropertyChanged("SkinsUniqueCodes");
 
             CultureDataValues = new List<ICultureData> { new CultureDataLT(), new CultureDataUK(), new CultureDataUS() };
             ListRemindLaterValues = TaskShowController.BuildRemindLaterList();
@@ -146,23 +147,21 @@ namespace Minder.Engine.Settings
                 OnPropertyChanged("PlaySound");
             }
         }
-
-        public string SkinUniqueCode
-        {
-            get { return _skinUniqueCode; }
-            set
-            {
-                _skinUniqueCode = value; 
-                OnPropertyChanged("SkinUniqueCode");
-            }
-        }
-       
     }
 
-    public class SkinsUniqueCodes
+    public class SkinsUniqueCodes : NotifyPropertyChanged
     {
         readonly Dictionary<string, string> _skinsUniqueCodesAndNames = new Dictionary<string, string>();
+        private string _selectedSkin;
 
+        public SkinsUniqueCodes()
+        {
+            //					_skinsUniqueCodesAndNames.Add("Default skin", DEFAULT_SKIN_UNIQUE_CODE);
+            _skinsUniqueCodesAndNames.Add("Default skin", DefaultSkinForm.SKIN_UNIQUE_CODE);
+            _skinsUniqueCodesAndNames.Add("White skin", WhiteSkin.SKIN_UNIQUE_CODE);
+            _skinsUniqueCodesAndNames.Add("Black skin", BlackSkin.SKIN_UNIQUE_CODE);
+            _skinsUniqueCodesAndNames.Add("Blue orange skin", BlueOrangeSkin.SKIN_UNIQUE_CODE);
+        }
         /// <summary>
         /// Skin name -> skin uniqueCode
         /// </summary>
@@ -170,21 +169,18 @@ namespace Minder.Engine.Settings
         {
             get
             {
-                AddSkinsToDic();
                 return _skinsUniqueCodesAndNames;
             }
         }
 
-        private void AddSkinsToDic()
+        public string SelectedSkin
         {
-            if (_skinsUniqueCodesAndNames.Count != 0)
-                return;
-
-            //					_skinsUniqueCodesAndNames.Add("Default skin", DEFAULT_SKIN_UNIQUE_CODE);
-            _skinsUniqueCodesAndNames.Add("Default skin", DefaultSkinForm.SKIN_UNIQUE_CODE);
-            _skinsUniqueCodesAndNames.Add("White skin", WhiteSkin.SKIN_UNIQUE_CODE);
-            _skinsUniqueCodesAndNames.Add("Black skin", BlackSkin.SKIN_UNIQUE_CODE);
-            _skinsUniqueCodesAndNames.Add("Blue orange skin", BlueOrangeSkin.SKIN_UNIQUE_CODE);
+            get { return _selectedSkin; }
+            set
+            {
+                _selectedSkin = value;
+                OnPropertyChanged("SelectedSkin");
+            }
         }
     }
 
