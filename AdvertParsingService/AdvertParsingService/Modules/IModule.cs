@@ -18,6 +18,7 @@ namespace AdvertParsingService.Modules
 	public interface IModule
 	{
 		List<Advert> Parse(string url);
+        List<string> TestLinks { get; }
 	}
 	
 }
