@@ -25,17 +25,41 @@ namespace WebSite.Helpers
             List<User> user = GenericDbHelper.Get<User>(string.Format("EMAIL = '{0}'", mail));
             if (user == null || user.Count == 0)
                 return "Su tokiu el. pašto adresu nerastas nei vienas naudotojas!";
-            else if(user.Count == 1)
+            else if (user.Count == 1)
             {
-                //TODO IGNO padaryti nuorodas restorinimui
+                AddTokenToRestoreAndSendMail(user[0]);
                 return "Informacija išsiųsta į nurodytą el. paštą!";
             }
             return "Nenustatyta klaida!";
         }
 
-        private void AddTokenToRestoreAndSendMail()
+        private void AddTokenToRestoreAndSendMail(User user)
         {
- 
+            string randomString = new TokenHelper().GetRandomString();
+            GenericDbHelper.RunDirectSql("DELETE FROM SP_RESTORE_PASS WHERE USER_ID = " + user.Id);
+            RestorePasswordHash newHash = new RestorePasswordHash();
+            newHash.UserId = user.Id;
+            newHash.DateTo = DateTime.Now.AddHours(1);
+            newHash.HashCode = randomString;
+            GenericDbHelper.SaveAndFlush(newHash);
+
+            //Send mail
+            string mailText =
+            string.Format(
+@"
+Sveiki, 
+
+Norėdami iš naujo nustatyti slaptažodį paspauskite šią nuorodą: {0}
+Nuoroda galioja iki {1}.
+", GenerateLink(randomString), newHash.DateTo.ToString());
+
+            string subject = "Slaptažodio priminimas!";
+            new MailSendHelper().Send(user.Email, subject, mailText);
+        }
+
+        private string GenerateLink(string hashCode)
+        {
+            return string.Format("http://localhost:50108/SkelbimaiProgramaWeb/Pages/RestorePasswordForm.aspx?hashcode='{0}'", hashCode);
         }
     }
 }

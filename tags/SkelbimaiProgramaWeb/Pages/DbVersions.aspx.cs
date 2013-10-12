@@ -33,9 +33,11 @@ public partial class Pages_DbVersions : System.Web.UI.Page
        // GenericDbHelper.RunDirectSql()
         //GenericDbHelper.CreateTable(typeof(Advert));
 
-        Advert advert = new Advert();
-        advert.Name = "asdkad";
-        advert.UserId = 28;
-        GenericDbHelper.SaveAndFlush(advert);
+       // Advert advert = new Advert();
+        //advert.Name = "asdkad";
+       // advert.UserId = 28;
+        //GenericDbHelper.SaveAndFlush(advert);
+
+        GenericDbHelper.CreateTable(typeof(RestorePasswordHash));
     }
 }
