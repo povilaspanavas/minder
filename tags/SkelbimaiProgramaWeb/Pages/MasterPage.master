@@ -94,35 +94,35 @@
             </div> -->
             <div id="content">
                 <div id="main_content" class="clearfix">
-	<div id="left_area">
-		<div id="breadcrumbs">
-					<a href="http://elegantthemes.com/preview/Trim">Home</a> <span class="raquo">&raquo;</span><%= Page.Title %>
-		</div>	
+	                <div id="left_area">
+		                <div id="breadcrumbs">
+					                <a href="http://elegantthemes.com/preview/Trim">Home</a> <span class="raquo">&raquo;</span><%= Page.Title %>
+		                </div>	
 						
-	<article class="entry post clearfix">
-		<h1 class="main_title"><%= Page.Title %></h1>
+	                <article class="entry post clearfix">
+		                <h1 class="main_title"><%= Page.Title %></h1>
 
-		<div class="post-content clearfix">
-			<div class="entry_content">
-			</div>
-		</div>
-	</article>
+		                <div class="post-content clearfix">
+			                <div class="entry_content">
+			                </div>
+		                </div>
+	                </article>
 		
-		<div id="et-contact" class="responsive">
-			<div id="et-contact-message"> </div>
-			 <asp:ContentPlaceHolder id="MainContentPlaceHolder" runat="server">
-             </asp:ContentPlaceHolder>
-		</div> <!-- end #et-contact -->
+		                <div id="et-contact" class="responsive">
+			                <div id="et-contact-message"> </div>
+			                 <asp:ContentPlaceHolder id="MainContentPlaceHolder" runat="server">
+                             </asp:ContentPlaceHolder>
+		                </div> <!-- end #et-contact -->
 		
-	</div> <!-- end #left_area -->
+	                </div> <!-- end #left_area -->
 	
-		<div id="sidebar">
-            <asp:ContentPlaceHolder id="Sidebar" runat="server">
-             </asp:ContentPlaceHolder>
-		</div> <!-- end #sidebar -->
-</div> <!-- end #main_content -->
+		            <div id="sidebar">
+                        <asp:ContentPlaceHolder id="Sidebar" runat="server">
+                         </asp:ContentPlaceHolder>
+		            </div> <!-- end #sidebar -->
+                </div> <!-- end #main_content -->
                 <div id="footer">
-					<div id="footer-widgets" class="clearfix">
+					<!-- <div id="footer-widgets" class="clearfix">
 						<div class="footer-widget">
                             <div id="recent-posts-3" class="f_widget widget_recent_entries">
                                 <h4 class="widgettitle">Recent Posts</h4>
@@ -179,8 +179,8 @@
 	                            </ul>
                             </div>
                         </div>
-					</div>
-				</div>
+					</div> -->
+				</div> 
             </div>
         <p id="copyright">Designed by <a href="./" title="ARTas">ARTas</a></p>
         </div>
