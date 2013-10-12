@@ -17,8 +17,17 @@ public partial class Pages_UserManagementForm : System.Web.UI.Page
     {
         SetEvents();
         m_token = new TokenHelper().ValidateTokenOnFormOpen(this);
-
+        Page.Title = "Vartotojų paskyrų tvarkymai";
+        SetUrls();
         LoadUserGrid();
+    }
+
+    private void SetUrls()
+    {
+        this.M_AdminPanelLink.NavigateUrl = string.Format("~/Pages/AdminPanel/AdminPanel.aspx?token='{0}'", m_token.TokenValue);
+        this.M_UserManagementLink.NavigateUrl = string.Format("~/Pages/AdminPanel/UserManagementForm.aspx?token='{0}'", m_token.TokenValue);
+        this.M_LogOutLink.NavigateUrl = string.Format("~/Default.aspx?token='{0}'", m_token.TokenValue);
+        this.M_ConnectedUserLink.NavigateUrl = string.Format("~/Pages/AdminPanel/ConnectedUsersForm.aspx?token='{0}'", m_token.TokenValue);
     }
 
     private void SetEvents()
@@ -65,11 +74,6 @@ public partial class Pages_UserManagementForm : System.Web.UI.Page
         this.M_CreateUserButton.Click += delegate
         {
             Response.Redirect(string.Format("~/Pages/AdminPanel/NewUserForm.aspx?token='{0}'&update='false'", m_token.TokenValue));
-        };
-
-        this.M_AdminPanelLink.Click += delegate
-        {
-            Response.Redirect(string.Format("~/Pages/AdminPanel/AdminPanel.aspx?token='{0}'", m_token.TokenValue));
         };
     }
 

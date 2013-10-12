@@ -19,6 +19,8 @@ public partial class Pages_AdminPanel_NewUserForm : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         m_token = new TokenHelper().ValidateTokenOnFormOpen(this);
+        Page.Title = "Naujas vartotojas";
+        SetUrls();
 
         string update = Request["update"].Replace("'", string.Empty);
         if (update.Equals("true"))
@@ -32,6 +34,14 @@ public partial class Pages_AdminPanel_NewUserForm : System.Web.UI.Page
         PrepareForm();
 
 
+    }
+
+    private void SetUrls()
+    {
+        this.M_AdminPanelLink.NavigateUrl = string.Format("~/Pages/AdminPanel/AdminPanel.aspx?token='{0}'", m_token.TokenValue);
+        this.M_UserManagementLink.NavigateUrl = string.Format("~/Pages/AdminPanel/UserManagementForm.aspx?token='{0}'", m_token.TokenValue);
+        this.M_LogOutLink.NavigateUrl = string.Format("~/Default.aspx?token='{0}'", m_token.TokenValue);
+        this.M_ConnectedUserLink.NavigateUrl = string.Format("~/Pages/AdminPanel/ConnectedUsersForm.aspx?token='{0}'", m_token.TokenValue);
     }
 
     private void SetEvents()
