@@ -32,5 +32,10 @@ namespace WebSite.Helpers
             }
             return "Nenustatyta klaida!";
         }
+
+        private void AddTokenToRestoreAndSendMail()
+        {
+ 
+        }
     }
 }
