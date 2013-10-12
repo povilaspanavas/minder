@@ -78,10 +78,29 @@ namespace WebSite.Helpers
 
         public Token ValidateTokenOnFormOpen(System.Web.UI.Page page)
         {
-            string tokenValue = page.Request["token"].Replace("'", string.Empty);
+            string tokenValue = string.Empty;
+            if (string.IsNullOrEmpty(page.Request["token"]))
+            {
+                page.Response.Redirect("~/Default.aspx");
+            }
+
+            tokenValue = page.Request["token"].Replace("'", string.Empty);
             Token token = CheckToken(tokenValue);
             if (token == null)
                 page.Response.Redirect("~/Default.aspx");
+            return token;
+        }
+
+        public Token GetToken(System.Web.UI.Page page)
+        {
+            string tokenValue = string.Empty;
+            if (string.IsNullOrEmpty(page.Request["token"]))
+            {
+                return null;
+            }
+
+            tokenValue = page.Request["token"].Replace("'", string.Empty);
+            Token token = CheckToken(tokenValue);
             return token;
         }
     }

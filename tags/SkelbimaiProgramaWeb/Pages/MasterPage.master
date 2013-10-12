@@ -31,12 +31,12 @@
                     </div>
                 </div>
                 <div id="menu" class="clearfix">
-                    <a href="#" id="mobile_nav" class="closed">Navigation Menu</a>					
+                    <a href="#" id="mobile_nav" class="closed">Meniu</a>					
 					<nav id="main-menu">
                         <ul id="menu-new-menu" class="nav">
-                            <li id="menu-item1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item"><a href="#">Home</a></li>
-                            <li id="menu-item2" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#">Other</a></li>
-                            <li id="menu-item3" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#">Another</a></li>
+                            <li id="menu-item1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item"><a href="#">Pagrindinis</a></li>
+                            <li id="menu-item2" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#">Kita</a></li>
+                            <li id="menu-item3" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#">Kai kas daugiau</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -45,8 +45,9 @@
                     <a href='#' target='_blank'><img alt='Rss' src='<%=ResolveUrl("~/App_Themes/" + Page.Theme + "/images/rss.png") %>' /></a>
                     <a href='#' target='_blank'><img alt='Facebook' src='<%=ResolveUrl("~/App_Themes/" + Page.Theme + "/images/facebook.png") %>' /></a>
                 </div>
+
             </header>
-            <div id="featured" class="flexslider et_slider_auto et_slider_speed_5000">
+            <!-- <div id="featured" class="flexslider et_slider_auto et_slider_speed_5000">
                 <ul class="slides">
 				<li class="slide et_slide_text">
                     <div class="slide_wrap">
@@ -90,27 +91,36 @@
 					</div>
 			    </li>
                 </ul>
-            </div>
+            </div> -->
             <div id="content">
-                <div id="main_content" class="clearfix fullwidth">
-	                <div id="left_area">
-		                <div id="breadcrumbs">
-					        <a href="#">Home</a> <span class="raquo">&raquo;</span>
-                            Pavadinimas
-		                </div>					
-	                    <article class="entry post clearfix">
-		                <h1 class="main_title">Pavadinimas</h1>
+                <div id="main_content" class="clearfix">
+	<div id="left_area">
+		<div id="breadcrumbs">
+					<a href="http://elegantthemes.com/preview/Trim">Home</a> <span class="raquo">&raquo;</span><%= Page.Title %>
+		</div>	
+						
+	<article class="entry post clearfix">
+		<h1 class="main_title"><%= Page.Title %></h1>
 
-		                <div class="post-content clearfix">
-									
-			                <div class="entry_content">
-                                    <asp:ContentPlaceHolder id="MainContentPlaceHolder" runat="server">
-                                    </asp:ContentPlaceHolder>
-							</div>
-		                </div>
-	                    </article>
-			         </div>
-                 </div>
+		<div class="post-content clearfix">
+			<div class="entry_content">
+			</div>
+		</div>
+	</article>
+		
+		<div id="et-contact" class="responsive">
+			<div id="et-contact-message"> </div>
+			 <asp:ContentPlaceHolder id="MainContentPlaceHolder" runat="server">
+             </asp:ContentPlaceHolder>
+		</div> <!-- end #et-contact -->
+		
+	</div> <!-- end #left_area -->
+	
+		<div id="sidebar">
+            <asp:ContentPlaceHolder id="Sidebar" runat="server">
+             </asp:ContentPlaceHolder>
+		</div> <!-- end #sidebar -->
+</div> <!-- end #main_content -->
                 <div id="footer">
 					<div id="footer-widgets" class="clearfix">
 						<div class="footer-widget">

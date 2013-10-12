@@ -15,10 +15,14 @@ using WebSite.Helpers;
 public partial class _Default : System.Web.UI.Page
 {
     ILog m_log = LogManager.GetLogger(typeof(_Default));
+    private Token m_token = null;
 
     protected void Page_PreInit(object sender, EventArgs e)
     {
         Page.Theme = "Login";
+        m_token = new TokenHelper().GetToken(this);
+        if (m_token != null)
+            new LoginHelper().LogOut(m_token.TokenValue);
     }
 
     protected void Page_Load(object sender, EventArgs e)

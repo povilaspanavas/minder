@@ -13,26 +13,16 @@ public partial class Pages_AdminPanel : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        SetEvents();
+        Page.Title = "Administravimo panelė";
         m_token = new TokenHelper().ValidateTokenOnFormOpen(this);
+        SetUrls();
     }
 
-    private void SetEvents()
+    private void SetUrls()
     {
-        this.M_UserManagementLink.Click += delegate
-        {
-            Response.Redirect(string.Format("~/Pages/AdminPanel/UserManagementForm.aspx?token='{0}'", m_token.TokenValue));
-        };
-
-        this.M_LogOutLink.Click += delegate
-        {
-            new LoginHelper().LogOut(m_token.TokenValue);
-            Response.Redirect(string.Format("~/Default.aspx"));
-        };
-
-        this.M_ConnectedUserLink.Click += delegate
-        {
-            Response.Redirect(string.Format("~/Pages/AdminPanel/ConnectedUsersForm.aspx?token='{0}'", m_token.TokenValue));
-        };
+        this.M_AdminPanelLink.NavigateUrl = string.Format("~/Pages/AdminPanel/AdminPanel.aspx?token='{0}'", m_token.TokenValue);
+        this.M_UserManagementLink.NavigateUrl = string.Format("~/Pages/AdminPanel/UserManagementForm.aspx?token='{0}'", m_token.TokenValue);
+        this.M_LogOutLink.NavigateUrl = string.Format("~/Default.aspx?token='{0}'", m_token.TokenValue);
+        this.M_ConnectedUserLink.NavigateUrl = string.Format("~/Pages/AdminPanel/ConnectedUsersForm.aspx?token='{0}'", m_token.TokenValue);
     }
 }
