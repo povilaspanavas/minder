@@ -14,7 +14,6 @@ namespace WebSite.Model
         private string m_token;
         private DateTime m_dateTo;
 
-       
         public int UserId
         {
             get { return m_userId; }

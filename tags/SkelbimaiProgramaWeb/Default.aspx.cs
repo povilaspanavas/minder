@@ -55,10 +55,6 @@ public partial class _Default : System.Web.UI.Page
 
     private void LoadConfig()
     {
-        ConfigLoader.Load(WebSite.StaticData.CORE_CONFIG_PATH);
-        FileInfo config = new FileInfo(WebSite.StaticData.LOG4NET_CONFIG_PATH);
-        log4net.Config.XmlConfigurator.Configure(config);
-
-        m_log.Info("Config Loaded!");
+        new WebSite.Helpers.ConfigLoader().Load();
     }
 }

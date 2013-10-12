@@ -15,11 +15,10 @@ namespace WebSite.Helpers
     {
         private static Random m_random = new Random((int)DateTime.Now.Ticks);
 
+        //TODO IGNO gal reiktų čia į duombazę perkelti, o ne naudoti statinį dictionary
         public TokenHelper()
         {
-            //
-            // TODO: Add constructor logic here
-            //
+           
         }
 
         public Token RegisterToken(int userId)
