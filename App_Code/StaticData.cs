@@ -20,8 +20,10 @@ namespace WebSite
         //Public
         public static Dictionary<int, Token> Tokens { get { return m_tokens; } }
 
-        //Modules UniqueCodes
-       // public const string AUTOGIDAS = "Autogidas.lt";
-        //public const string AUTOPLIUS = "Autoplius.lt";
+        public static class EmailSettings
+        {
+            public const string EMAIL = "autogidascheck2@gmail.com";
+            public const string PASS = "verbatim963";
+        }
     }
 }

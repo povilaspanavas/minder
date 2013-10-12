@@ -8,51 +8,47 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    <asp:TextBox ID="M_Pass1TextBox" runat="server" CssClass="M_Pass1TextBox"></asp:TextBox>
-    <asp:TextBox ID="M_Pass2TextBox" runat="server" CssClass="M_Pass2TextBox"></asp:TextBox>
+        <div>
+            <asp:TextBox ID="M_EmailTextBox" runat="server" CssClass="M_Pass1TextBox"></asp:TextBox>
+            <asp:Label ID="Label1" runat="server" Text="El. paštas" CssClass="Label1"></asp:Label>
+            <asp:Button ID="M_OkButton" runat="server" Text="Gerai" CssClass="M_OkButton" />
+            <asp:Label ID="M_LogLabel" runat="server" CssClass="M_LogLabel" Font-Bold="True"></asp:Label>
+             </div>
 
-    <asp:Label ID="Label1" runat="server" Text="Slaptažodis" CssClass=Label1></asp:Label>
-    <asp:Label ID="Label2" runat="server" Text="Pakartoti slaptažodį" CssClass=Label2></asp:Label>
-    </div>
-    
     </form>
 </body>
 </html>
 <style type="text/css">
-    .M_Pass1TextBox
-    {
+    .M_Pass1TextBox {
         position: fixed;
         top: 40pt;
         left: 120pt;
-        height: 20pt;
+        height: 12pt;
         width: 120pt;
     }
-    
-    .M_Pass2TextBox
-    {
-        position: fixed;
-        top: 70pt;
-        left: 120pt;
-        height: 20pt;
-        width: 120pt;
-    }
-    
-    .Label1
-    {
+
+    .Label1 {
         position: fixed;
         top: 40pt;
         left: 25pt;
+        height: 12pt;
+        width: 60pt;
+    }
+
+    .M_OkButton {
+        position: fixed;
+        top: 40pt;
+        left: 250pt;
         height: 20pt;
         width: 60pt;
     }
-    
-    .Label2
-    {
+
+    .M_LogLabel {
         position: fixed;
         top: 70pt;
-        left: 25pt;
-        height: 20pt;
-        width: 100pt;
+        left: 50pt;
+        height: 40pt;
+        width: 300pt;
     }
+
 </style>
