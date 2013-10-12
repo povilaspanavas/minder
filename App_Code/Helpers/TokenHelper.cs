@@ -38,7 +38,7 @@ namespace WebSite.Helpers
             return existToken;
         }
 
-        //Public for auto pass generation
+        //Public for auto pass generation and temp pass restore
         public string GetRandomString()
         {
             StringBuilder builder = new StringBuilder();

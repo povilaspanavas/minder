@@ -24,6 +24,7 @@ namespace WebSite
         {
             public const string EMAIL = "autogidascheck2@gmail.com";
             public const string PASS = "verbatim963";
+            public const string SENDER_NAME = "Skelbimų tikrinimo sistema";
         }
     }
 }
