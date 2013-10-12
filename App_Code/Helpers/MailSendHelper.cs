@@ -13,9 +13,6 @@ namespace WebSite.Helpers
     {
         public MailSendHelper()
         {
-            //
-            // TODO: Add constructor logic here
-            //
         }
 
         public void Send(string email, string subject, string mailText)
