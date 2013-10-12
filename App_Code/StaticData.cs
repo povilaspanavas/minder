@@ -14,6 +14,7 @@ namespace WebSite
         public const string CORE_CONFIG_PATH = "d:\\Projektai\\SkelbimaiProgramaWeb\\CoreConfig.xml";
         public const string LOG4NET_CONFIG_PATH = "d:\\Projektai\\SkelbimaiProgramaWeb\\log4net.xml";
         public const int TOKEN_EXPIRE_AFTER_HOURS = 1;
+        public const string MAIN_WEB_PAGE_URL = "localhost:50108";
 
         private static Dictionary<int, Token> m_tokens = new Dictionary<int, Token>();
 
