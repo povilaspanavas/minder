@@ -17,7 +17,7 @@ public partial class Pages_UserManagementForm : System.Web.UI.Page
     {
         SetEvents();
         m_token = new TokenHelper().ValidateTokenOnFormOpen(this);
-        Page.Title = "Vartotojų paskyrų tvarkymai";
+        Page.Title = "Vartotojų paskyrų tvarkymas";
         SetUrls();
         LoadUserGrid();
     }
