@@ -98,7 +98,13 @@ namespace AdvertParsingService.Modules
 //				return "COLUMN1";
 //			}
 //		}
-	}
+
+
+        public List<string> TestLinks
+        {
+            get { throw new NotImplementedException(); }
+        }
+    }
 	
 	public static class GetFields
 	{

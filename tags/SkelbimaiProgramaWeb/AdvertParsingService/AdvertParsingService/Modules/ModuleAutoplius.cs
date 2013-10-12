@@ -112,5 +112,10 @@ namespace AdvertParsingService.Modules
 			webClient.Dispose();
 			return source;
 		}
-	}
+
+        public List<string> TestLinks
+        {
+            get { throw new NotImplementedException(); }
+        }
+    }
 }
