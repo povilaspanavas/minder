@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Minder.Sql;
+using Minder.Static;
 
 namespace Minder.UI.Forms.Tasks
 {
@@ -32,6 +34,8 @@ namespace Minder.UI.Forms.Tasks
         {
             InitializeComponent();
             this.DataGrid.SelectionChanged += DataGrid_SelectionChanged;
+            this.GridColumnDateColumn.Binding.StringFormat = "{0:" + DBTypesConverter.FullDateFormat + "}";
+            //this.DataGrid.form
         }
 
         void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -41,7 +45,7 @@ namespace Minder.UI.Forms.Tasks
             foreach (Task item in e.AddedItems)
                 _selectedTasks.Add(item);
         }
-        
+
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (sender == null)

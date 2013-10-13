@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using Minder.Static;
 
 namespace Minder.Sql
 {
@@ -34,7 +35,22 @@ namespace Minder.Sql
 		{
 			return string.Format("{0:yyyy.MM.dd HH:mm:ss}", dateTime);
 		}
-		
+
+	    public static string ShortDateFormat
+	    {
+	        get { return StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.ShortDatePattern; }
+	    }
+
+	    public static string TimeFormat
+	    {
+            get { return StaticData.Settings.CultureData.CultureInfo.DateTimeFormat.LongTimePattern; }
+	    }
+
+	    public static string FullDateFormat
+	    {
+	        get { return ShortDateFormat + " " + TimeFormat; }
+	    }
+
 		/// <summary>
 		/// Not tested for use in db
 		/// </summary>
