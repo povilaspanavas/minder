@@ -45,7 +45,9 @@ namespace Minder.Engine.Settings
         ICultureData _cultureData = new CultureDataLT();
         private RemindLaterValue _remindMeLaterValue;
 
-        public Settings()
+        public static readonly Settings Instance = new Settings();
+
+        private Settings()
         {
             NewTaskHotkey = new NewTaskHotkey();
             NewTaskHotkey.PropertyChanged += (sender, args) => OnPropertyChanged("NewTaskHotkey");
