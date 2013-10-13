@@ -12,8 +12,6 @@ http://files.panavas.lt/Minder/Screenshots/BlueOrangeSkin.png
 === Themes ===
 http://youtu.be/jQq3Ank2POY
 
-<iframe width="960" height="720" src="//www.youtube.com/embed/jQq3Ank2POY" frameborder="0" allowfullscreen></iframe>
-
 === Task table ===
 
 http://files.panavas.lt/Minder/Screenshots/Tasks.png
