@@ -1,6 +1,6 @@
 POVILO:
-
- * Gride teisingas datos formatas
+ * Naujà buildà padaryti
+ * Padaryti skinø video
  * Be restarto settingsai pasikeistø
  * Veiktø tiesiai redagavimas gride
  * Padaryti, kad temos paèios keistøsi kasdien
