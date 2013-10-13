@@ -9,6 +9,9 @@ http://files.panavas.lt/Minder/Screenshots/DefaultSkin.png
 
 http://files.panavas.lt/Minder/Screenshots/BlueOrangeSkin.png
 
+=== Themes ===
+http://youtu.be/jQq3Ank2POY
+
 === Task table ===
 
 http://files.panavas.lt/Minder/Screenshots/Tasks.png
