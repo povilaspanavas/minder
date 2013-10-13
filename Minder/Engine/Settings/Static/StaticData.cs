@@ -16,7 +16,7 @@ namespace Minder.Static
 	/// </summary>
 	public static class StaticData
 	{
-        private static Settings _settings = new Settings();
+        private static Settings _settings = Settings.Instance;
         public const string SETTINGS_FILE_PATH = "settings.ini";
 		public const string SOUND_FILE_PATH = @"Sounds\sound.wav";
 	

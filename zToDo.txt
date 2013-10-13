@@ -1,4 +1,5 @@
 POVILO:
+ * SIngleTon Settings
  * Gride teisingas datos formatas
  * Be restarto settingsai pasikeistø
  * Veiktø tiesiai redagavimas gride
