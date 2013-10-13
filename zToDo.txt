@@ -2,6 +2,7 @@ POVILO:
  * Be restarto settingsai pasikeistø
  * Veiktø tiesiai redagavimas gride
  * Padaryti, kad temos paèios keistøsi kasdien
+ * DateTimePicker irgi bûtø pritaikomi stiliai
 
 SomeDay
  * Saugoti nustatymus case sensitive, nes problemø dël to daug kyla ir XML prisiminti ádomu bûtø
