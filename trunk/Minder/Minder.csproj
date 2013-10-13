@@ -192,6 +192,7 @@
       <DependentUpon>TasksForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Helpers\MessageBoxHelper.cs" />
+    <Compile Include="Engine\NotifyPropertyChanged.cs" />
     <Compile Include="UI\SkinController\AbstractMainForm.cs" />
     <Compile Include="UI\SkinController\MainFormCollector.cs" />
     <Compile Include="UI\SkinController\MainForms\BlackSkin\BlackSkin.xaml.cs">
