@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 
 /// <summary>
-/// Summary description for Token
+/// Non database bo.
 /// </summary>
 namespace WebSite.Model
 {
