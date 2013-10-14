@@ -90,17 +90,17 @@ namespace WebSite.Helpers
             return token;
         }
 
-        public Token GetToken(System.Web.UI.Page page)
-        {
-            string tokenValue = string.Empty;
-            if (string.IsNullOrEmpty(page.Request["token"]))
-            {
-                return null;
-            }
+        //public Token GetToken(System.Web.UI.Page page)
+        //{
+        //    string tokenValue = string.Empty;
+        //    if (string.IsNullOrEmpty(page.Request["token"]))
+        //    {
+        //        return null;
+        //    }
 
-            tokenValue = page.Request["token"].Replace("'", string.Empty);
-            Token token = CheckToken(tokenValue);
-            return token;
-        }
+        //    tokenValue = page.Request["token"].Replace("'", string.Empty);
+        //    Token token = CheckToken(tokenValue);
+        //    return token;
+        //}
     }
 }

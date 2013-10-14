@@ -16,6 +16,13 @@ public partial class Pages_AdminPanel : System.Web.UI.Page
         Page.Title = "Administravimo panelė";
         m_token = new TokenHelper().ValidateTokenOnFormOpen(this);
         SetUrls();
+        SetEvents();
+    }
+
+    private void SetEvents()
+    {
+        //this.M_LogOutLink.Click
+        // Čia reikia atstatyti į LinkButtonus ir viskas bus gerai.
     }
 
     private void SetUrls()
