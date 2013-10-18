@@ -44,6 +44,10 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.ExpressApp.Security.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress\DXperience 13.1\Bin\Framework\DevExpress.ExpressApp.Security.v13.1.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.ExpressApp.Xpo.v13.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
@@ -66,6 +70,9 @@
     <Reference Include="DevExpress.Xpo.v13.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="FirebirdSql.Data.FirebirdClient">
+      <HintPath>..\..\BussinessLogic\libs\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Name>System</Name>
       <Private>False</Private>
@@ -80,6 +87,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessObjects\ORMDataModelCode\Classificators\SKPlugin.bo.cs">
+      <DependentUpon>SKPlugin.bo</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModelCode\Classificators\SKPlugin.bo.designer.cs">
+      <DependentUpon>SKPlugin.bo</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModelCode\ConnectionHelper.cs" />
+    <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKAdvert.bo.cs">
+      <DependentUpon>SKAdvert.bo</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKAdvert.bo.designer.cs">
+      <DependentUpon>SKAdvert.bo</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKUser.bo.cs">
+      <DependentUpon>SKUser.bo</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKUser.bo.designer.cs">
+      <DependentUpon>SKUser.bo</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKUserSearchSettings.bo.cs">
+      <DependentUpon>SKUserSearchSettings.bo</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKUserSearchSettings.bo.designer.cs">
+      <DependentUpon>SKUserSearchSettings.bo</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModule\DLCEmployee.cs" />
+    <Compile Include="SecurityModule\DLCEmployeeRole.cs" />
+    <Compile Include="SecurityModule\DLCEmployeeTask.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -95,8 +130,17 @@
       <SubType>Designer</SubType>
       <DependentUpon>Module.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BusinessObjects\ORMDataModel.xpo" />
+    <None Include="BusinessObjects\ORMDataModel.xpo.diagram">
+      <DependentUpon>ORMDataModel.xpo</DependentUpon>
+    </None>
+    <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Objects\SKUserSearchSettings.bo" />
+    <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Objects\SKUser.bo" />
+    <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Classificators\SKPlugin.bo" />
+    <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Objects\SKAdvert.bo" />
     <None Include="DatabaseUpdate\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
