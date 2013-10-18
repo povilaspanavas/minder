@@ -29,7 +29,7 @@ namespace XAFSkelbimaiPrograma.Module.DatabaseUpdate
         public override void UpdateDatabaseAfterUpdateSchema()
         {
             base.UpdateDatabaseAfterUpdateSchema();
-            CreateDefaultUsers();
+           // CreateDefaultUsers();
 
             //string name = "MyName";
             //DomainObject1 theObject = ObjectSpace.FindObject<DomainObject1>(CriteriaOperator.Parse("Name=?", name));
