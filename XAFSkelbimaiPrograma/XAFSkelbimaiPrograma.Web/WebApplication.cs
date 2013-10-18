@@ -5,6 +5,9 @@ using DevExpress.ExpressApp.Xpo;
 using DevExpress.ExpressApp.Web;
 using System.Collections.Generic;
 //using DevExpress.ExpressApp.Security;
+using XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects;
+using PUVWeb_TEST.Module.DLCSecuritySystem;
+using XAFSkelbimaiPrograma.Module.SecurityModule;
 
 namespace XAFSkelbimaiPrograma.Web
 {
@@ -15,6 +18,9 @@ namespace XAFSkelbimaiPrograma.Web
         private DevExpress.ExpressApp.Web.SystemModule.SystemAspNetModule module2;
         private XAFSkelbimaiPrograma.Module.XAFSkelbimaiProgramaModule module3;
         private XAFSkelbimaiPrograma.Module.Web.XAFSkelbimaiProgramaAspNetModule module4;
+        private DevExpress.ExpressApp.Security.SecurityStrategyComplex securityStrategyComplex1;
+        private DevExpress.ExpressApp.Security.AuthenticationStandard authenticationStandard1;
+        private DevExpress.ExpressApp.Security.SecurityModule securityModule1;
         private System.Data.SqlClient.SqlConnection sqlConnection1;
 
         public XAFSkelbimaiProgramaAspNetApplication()
@@ -78,12 +84,30 @@ namespace XAFSkelbimaiPrograma.Web
             this.module3 = new XAFSkelbimaiPrograma.Module.XAFSkelbimaiProgramaModule();
             this.module4 = new XAFSkelbimaiPrograma.Module.Web.XAFSkelbimaiProgramaAspNetModule();
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
+            this.securityStrategyComplex1 = new DevExpress.ExpressApp.Security.SecurityStrategyComplex();
+            this.securityModule1 = new DevExpress.ExpressApp.Security.SecurityModule();
+            this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // sqlConnection1
             // 
-            this.sqlConnection1.ConnectionString = @"Integrated Security=SSPI;Pooling=false;Data Source=.\SQLEXPRESS;Initial Catalog=XAFSkelbimaiPrograma";
+            this.sqlConnection1.ConnectionString = "Integrated Security=SSPI;Pooling=false;Data Source=.\\SQLEXPRESS;Initial Catalog=X" +
+    "AFSkelbimaiPrograma";
             this.sqlConnection1.FireInfoMessageEventOnUserErrors = false;
+            // 
+            // securityStrategyComplex1
+            // 
+            this.securityStrategyComplex1.Authentication = this.authenticationStandard1;
+            this.securityStrategyComplex1.RoleType = typeof(DLCEmployeeRole);
+            this.securityStrategyComplex1.UserType = typeof(DLCEmployee);
+            // 
+            // securityModule1
+            // 
+            this.securityModule1.UserType = typeof(DLCEmployee);
+            // 
+            // authenticationStandard1
+            // 
+            this.authenticationStandard1.LogonParametersType = typeof(DevExpress.ExpressApp.Security.AuthenticationStandardLogonParameters);
             // 
             // XAFSkelbimaiProgramaAspNetApplication
             // 
@@ -93,7 +117,8 @@ namespace XAFSkelbimaiPrograma.Web
             this.Modules.Add(this.module2);
             this.Modules.Add(this.module3);
             this.Modules.Add(this.module4);
-
+            this.Modules.Add(this.securityModule1);
+            this.Security = this.securityStrategyComplex1;
             this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.XAFSkelbimaiProgramaAspNetApplication_DatabaseVersionMismatch);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
