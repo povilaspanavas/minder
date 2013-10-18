@@ -100,12 +100,6 @@
     <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKAdvert.bo.designer.cs">
       <DependentUpon>SKAdvert.bo</DependentUpon>
     </Compile>
-    <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKUser.bo.cs">
-      <DependentUpon>SKUser.bo</DependentUpon>
-    </Compile>
-    <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKUser.bo.designer.cs">
-      <DependentUpon>SKUser.bo</DependentUpon>
-    </Compile>
     <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKUserSearchSettings.bo.cs">
       <DependentUpon>SKUserSearchSettings.bo</DependentUpon>
     </Compile>
@@ -138,7 +132,6 @@
       <DependentUpon>ORMDataModel.xpo</DependentUpon>
     </None>
     <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Objects\SKUserSearchSettings.bo" />
-    <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Objects\SKUser.bo" />
     <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Classificators\SKPlugin.bo" />
     <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Objects\SKAdvert.bo" />
     <None Include="DatabaseUpdate\ReadMe.txt" />

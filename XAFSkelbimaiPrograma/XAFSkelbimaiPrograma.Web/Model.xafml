@@ -2,12 +2,19 @@
 <Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model">
   <NavigationItems>
     <Items>
-      <Item Id="Paieškos nustatymai" ImageName="Action_Printing_Preview" Index="0" IsNewNode="True">
+      <Item Id="Skelbimai" Index="0" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="Nauji" ViewId="SKAdvert_ListView" Caption="Nauji" Index="0" IsNewNode="True" />
+          <Item Id="Perskaityti" ViewId="SKAdvert_ListView" Caption="Perskaityti" Index="1" IsNewNode="True" />
+          <Item Id="Pažymėti" ViewId="SKAdvert_ListView" Caption="Pažymėti" Index="2" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Paieškos nustatymai" ImageName="Action_Printing_Preview" Index="1" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="Paieškos nuorodos" ViewId="SKUserSearchSettings_ListView" Caption="Paieškos nuorodos" ImageName="BO_Localization" IsNewNode="True" />
         </Items>
       </Item>
-      <Item Id="Default" Caption="Nustatymai" ImageName="ModelEditor_Settings" Index="1">
+      <Item Id="Default" Caption="Nustatymai" ImageName="ModelEditor_Settings" Index="2">
         <Items>
           <Item Id="MyDetails" Caption="Mano profilis" Index="0" />
           <Item Id="DLCEmployee_ListView" Caption="Vartotojai" Index="1" />
