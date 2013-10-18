@@ -19,6 +19,7 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
   [DefaultClassOptions]
   public partial class SKAdvert : DevExpress.Persistent.BaseImpl.BaseObject
   {
+    private XAFSkelbimaiPrograma.Module.SecurityModule.DLCEmployee _sKUser;
     private System.Boolean _mark;
     private System.Boolean _read;
     private XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKUserSearchSettings _searchSetting;
@@ -129,6 +130,17 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
       set
       {
         SetPropertyValue("Mark", ref _mark, value);
+      }
+    }
+    public XAFSkelbimaiPrograma.Module.SecurityModule.DLCEmployee SKUser
+    {
+      get
+      {
+        return _sKUser;
+      }
+      set
+      {
+        SetPropertyValue("SKUser", ref _sKUser, value);
       }
     }
   }

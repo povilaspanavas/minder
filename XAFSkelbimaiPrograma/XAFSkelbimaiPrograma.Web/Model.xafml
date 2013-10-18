@@ -22,7 +22,6 @@
           <Item Id="DLCEmployeeTask_ListView" Removed="True" />
           <Item Id="SKAdvert_ListView" Removed="True" />
           <Item Id="SKPlugin_ListView" Removed="True" />
-          <Item Id="SKUser_ListView" Caption="Vartotojai" Removed="True" />
           <Item Id="SKUserSearchSettings_ListView" Removed="True" />
         </Items>
       </Item>
@@ -32,4 +31,7 @@
     <SchemaModule Name="SystemAspNetModule" Version="13.1.7.0" IsNewNode="True" />
     <SchemaModule Name="SystemModule" Version="13.1.7.0" IsNewNode="True" />
   </SchemaModules>
+  <Views>
+    <ListView Id="SKAdvert_ListView" Filter="" Criteria="[SKUser.Oid] = CurrentUserId()" />
+  </Views>
 </Application>
