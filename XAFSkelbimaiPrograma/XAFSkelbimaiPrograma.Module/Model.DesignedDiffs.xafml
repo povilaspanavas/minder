@@ -1,8 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="XAFSkelbimaiPrograma" Logo="BO_Security_Permission_Model">
+  <ActionDesign>
+    <Actions>
+      <Action Id="Cancel" Caption="Atšaukti" />
+      <Action Id="Delete" Caption="Ištrinti" />
+      <Action Id="Delete Item" Caption="Ištrinti objektą" />
+      <Action Id="Link" Caption="Susieti" />
+      <Action Id="Logoff" Caption="Atsijungti" />
+      <Action Id="Logon" Caption="Prisijungti" />
+      <Action Id="New" Caption="Sukurti" />
+      <Action Id="Save" Caption="Išsaugoti" />
+      <Action Id="SaveAndClose" Caption="Išsaugoti ir uždaryti" />
+      <Action Id="SaveAndNew" Caption="Išsaugoti ir kurti naują" />
+      <Action Id="SetFilter" Caption="Filtras" />
+      <Action Id="Unlink" Caption="Atsieti" />
+    </Actions>
+  </ActionDesign>
   <BOModel>
-    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKUser" IsDesigned="True" />
-    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKUserSearchSettings" IsDesigned="True" />
+    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Classificators.SKPlugin" IsDesigned="True" Caption="Tinklapis">
+      <OwnMembers>
+        <Member Name="Name" Caption="Pavadinimas" />
+        <Member Name="UniqueCode" Caption="Unikalus kodas" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" IsDesigned="True" Caption="Skelbimas">
+      <OwnMembers>
+        <Member Name="FoundDate" Caption="Radimo data" />
+        <Member Name="FuelType" Caption="Kuro tipas" />
+        <Member Name="Year" Caption="Metai" />
+        <Member Name="Link" Caption="Nuoroda" />
+        <Member Name="Mark" Caption="Pažymėtas" />
+        <Member Name="Name" Caption="Pavadinimas" />
+        <Member Name="Price" Caption="Kaina" />
+        <Member Name="Read" Caption="Perskaitytas" />
+        <Member Name="SearchSetting" Caption="Paieškos nustatymo pavadinimas" />
+        <Member Name="SKUser" Caption="Vartotojas" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKUserSearchSettings" IsDesigned="True" Caption="Paieškos nustatymai">
+      <OwnMembers>
+        <Member Name="Name" Caption="Pavadinimas" />
+        <Member Name="Plugin" Caption="Tinklapis" />
+        <Member Name="SKUser" Caption="Vartotojas" />
+        <Member Name="Url" Caption="Nuoroda" Size="150" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XAFSkelbimaiPrograma.Module.SecurityModule.DLCEmployee" Caption="Vartotojas">
+      <OwnMembers>
+        <Member Name="ChangePasswordOnFirstLogon" Caption="Keisti slaptažodį pirmo prisijungimo metu" />
+        <Member Name="EmployeeRoles" Caption="Rolės" />
+        <Member Name="IsActive" Caption="Aktyvus" />
+        <Member Name="OwnTasks" Caption="Darbai" />
+        <Member Name="UserName" Caption="Vartotojo vardas" />
+      </OwnMembers>
+    </Class>
   </BOModel>
   <SchemaModules>
     <SchemaModule Name="SystemModule" Version="13.1.7.0" IsNewNode="True" />
