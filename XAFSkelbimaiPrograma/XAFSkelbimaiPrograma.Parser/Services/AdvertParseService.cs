@@ -42,9 +42,9 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                 if(settings.SKUser == null || settings.Plugin == null)
                     continue;
 
-                string userId = settings.SKUser.Oid.ToString();
+                object userId = settings.SKUser.Oid;
                 string urlLink = settings.Url;
-                string settingsId = settings.Oid.ToString();
+                object settingsId = settings.Oid;
                 string pluginUniqueCode = settings.Plugin.UniqueCode;
                 if (string.IsNullOrEmpty(urlLink))
                     continue;
@@ -53,7 +53,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             }
         }
 
-        private void ParseAdverts(string userId, string urlLink, string settingsId, string pluginUniqueCode)
+        private void ParseAdverts(object userId, string urlLink, object settingsId, string pluginUniqueCode)
         {
             IPlugin plugin = GetPluginByUniqueCode(pluginUniqueCode);
             if (plugin == null)
@@ -63,13 +63,13 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             new SaveHelper().SaveAdverts(adverts);
         }
 
-        private void SetAdditionalInfoToAdverts(List<AdvertDto> adverts, string userId, string settingsId)
+        private void SetAdditionalInfoToAdverts(List<AdvertDto> adverts, object userId, object settingsId)
         {
             foreach (AdvertDto advert in adverts)
             {
                 advert.UserId = userId;
                 advert.SettingsId = settingsId;
-                advert.Date = DateTime.Now.ToString();
+                advert.Date = DateTime.Now;
             }
         }
 
