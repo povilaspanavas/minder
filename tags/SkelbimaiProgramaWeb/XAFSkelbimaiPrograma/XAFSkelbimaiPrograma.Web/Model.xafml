@@ -60,6 +60,7 @@
           <Item Id="DLCEmployee_ListView" Caption="Vartotojai" Index="1" />
           <Item Id="DLCEmployeeRole_ListView" Caption="Rolės" Index="2" />
           <Item Id="DLCEmployeeTask_ListView" Removed="True" />
+          <Item Id="Pluginai" ViewId="SKPlugin_ListView" Caption="Įskiepiai" IsNewNode="True" />
           <Item Id="SKAdvert_ListView" Removed="True" />
           <Item Id="SKPlugin_ListView" Removed="True" />
           <Item Id="SKUserSearchSettings_ListView" Removed="True" />
