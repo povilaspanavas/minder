@@ -106,6 +106,7 @@
     <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKUserSearchSettings.bo.designer.cs">
       <DependentUpon>SKUserSearchSettings.bo</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObjects\ORMDataModelCode\StaticData.cs" />
     <Compile Include="SecurityModule\DLCEmployee.cs" />
     <Compile Include="SecurityModule\DLCEmployeeRole.cs" />
     <Compile Include="SecurityModule\DLCEmployeeTask.cs" />
