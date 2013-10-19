@@ -8,7 +8,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
     interface IPlugin
     {
         string UniqueCode { get; }
-        void Parse(string url);
+        List<AdvertDto> Parse(string url);
         List<string> TestLinks { get; }
     }
 }

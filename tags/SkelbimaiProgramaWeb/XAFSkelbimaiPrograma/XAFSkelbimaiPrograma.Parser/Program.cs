@@ -2,6 +2,7 @@
 //using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using XAFSkelbimaiPrograma.Parser.Services;
 //using DevExpress.Data.Filtering;
 //using DevExpress.Xpo;
 //using DevExpress.Xpo.Metadata;
@@ -15,7 +16,7 @@ namespace XAFSkelbimaiPrograma.Parser
         static void Main(string[] args)
         {
             //TryLoadAllSettings();
-            Console.ReadKey(true);
+            new AdvertParseService().RunService();
         }
 
         //private static void TryLoadAllSettings()

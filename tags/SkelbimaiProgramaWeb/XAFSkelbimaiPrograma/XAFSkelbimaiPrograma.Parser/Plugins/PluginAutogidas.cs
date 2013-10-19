@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using XAFSkelbimaiPrograma.Parser.Helpers;
 
 namespace XAFSkelbimaiPrograma.Parser.Plugins
 {
@@ -15,51 +16,51 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 		{
 		}
 		
-		public void Parse(string url)
+		public List<AdvertDto> Parse(string url)
 		{
-            //List<Advert> result = new List<Advert>();
+            List<AdvertDto> result = new List<AdvertDto>();
+
+            string source = new SourceHelper().GetSource(url);
+            List<AdvertDto> objectList = MakeObjectsFromSource(source);
+            result.AddRange(objectList);
 			
-            //string source = GetSource(url);
-            //List<Advert> objectList = MakeObjectsFromSource(source);
-            //result.AddRange(objectList);
-			
-			//return result;
+            return result;
 		}
-		
-		
-		
-        //private List<Advert> MakeObjectsFromSource(string source)
-        //{
-        //    if(string.IsNullOrEmpty(source))
-        //        return new List<Advert>();
-        //    string[] splitedFirst = Regex.Split(source, m_firstPattern);
-        //    List<Advert> result = new List<Advert>();
-			
-        //    if(splitedFirst.Length == 1)
-        //        return result;
-			
-        //    string[] splitedSecond = Regex.Split(splitedFirst[1], m_secondPattern);
-			
-        //    for(int i=1; i<splitedSecond.Length; i++)
-        //    {
-        //        Advert advert = CreateObject(splitedSecond[i]);
-        //        result.Add(advert);
-        //    }
-			
-        //    return result;
-        //}
-		
-		private void CreateObject(string sourcePart)
+
+
+
+        private List<AdvertDto> MakeObjectsFromSource(string source)
+        {
+            if (string.IsNullOrEmpty(source))
+                return new List<AdvertDto>();
+            string[] splitedFirst = Regex.Split(source, m_firstPattern);
+            List<AdvertDto> result = new List<AdvertDto>();
+
+            if (splitedFirst.Length == 1)
+                return result;
+
+            string[] splitedSecond = Regex.Split(splitedFirst[1], m_secondPattern);
+
+            for (int i = 1; i < splitedSecond.Length; i++)
+            {
+                AdvertDto advert = CreateObject(splitedSecond[i]);
+                result.Add(advert);
+            }
+
+            return result;
+        }
+
+        private AdvertDto CreateObject(string sourcePart)
 		{
-//            Advert advert = new Advert();
-//            advert.UrlLink = GetFields.GetLink(sourcePart);
-//            advert.Name = GetFields.GetName(sourcePart);
-////			advert. = GetFields.GetFuelType(sourcePart);
-//            advert.YearA = GetFields.GetYear(sourcePart);
-//            advert.Price = GetFields.GetPrice(sourcePart);
-////			advert. = GetFields.GetCity(sourcePart);
-			
-//            return advert;
+            AdvertDto advert = new AdvertDto();
+            advert.UrlLink = GetFields.GetLink(sourcePart);
+            advert.Name = GetFields.GetName(sourcePart);
+            //			advert. = GetFields.GetFuelType(sourcePart);
+            advert.Year = GetFields.GetYear(sourcePart);
+            advert.Price = GetFields.GetPrice(sourcePart);
+            //			advert. = GetFields.GetCity(sourcePart);
+
+            return advert;
 		}
 		
 //		public string Name {
@@ -88,7 +89,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 
         public string UniqueCode
         {
-            get { throw new NotImplementedException(); }
+            get { return "Autogidas.lt"; }
         }
     }
 	

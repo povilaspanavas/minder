@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Helpers\SaveHelper.cs" />
     <Compile Include="Helpers\SourceHelper.cs" />
+    <Compile Include="Plugins\AdvertDto.cs" />
     <Compile Include="Plugins\IPlugin.cs" />
     <Compile Include="Plugins\PluginAutogidas.cs" />
     <Compile Include="Program.cs" />
