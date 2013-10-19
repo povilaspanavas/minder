@@ -1,12 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model">
+  <ActionDesign>
+    <Actions>
+      <Action Id="Edit" Caption="Redaguoti" />
+      <Action Id="Export" Caption="Eksportuoti" />
+      <Action Id="Logon" Caption="Prisijungti" />
+      <Action Id="MyDetails" Caption="Mano profilis" />
+      <Action Id="Refresh" Caption="Atnaujinti" />
+    </Actions>
+  </ActionDesign>
   <NavigationItems>
     <Items>
       <Item Id="Skelbimai" Index="0" IsNewNode="True">
         <Items IsNewNode="True">
-          <Item Id="Nauji" ViewId="SKAdvert_ListView" Caption="Nauji" Index="0" IsNewNode="True" />
+          <Item Id="Nauji" Caption="Nauji" Index="0" ViewId="SKAdvertNew_ListView" IsNewNode="True" />
           <Item Id="Perskaityti" ViewId="SKAdvert_ListView" Caption="Perskaityti" Index="1" IsNewNode="True" />
-          <Item Id="Pažymėti" ViewId="SKAdvert_ListView" Caption="Pažymėti" Index="2" IsNewNode="True" />
+          <Item Id="Pažymėti" Caption="Pažymėti" Index="2" ViewId="SKAdvertMark_ListView" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="Paieškos nustatymai" ImageName="Action_Printing_Preview" Index="1" IsNewNode="True">
@@ -32,6 +41,41 @@
     <SchemaModule Name="SystemModule" Version="13.1.7.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
-    <ListView Id="SKAdvert_ListView" Filter="" Criteria="[SKUser.Oid] = CurrentUserId()" />
+    <ListView Id="SKAdvert_ListView" Filter="" Criteria="[SKUser.Oid] = CurrentUserId() And [Read] = True">
+      <Columns>
+        <ColumnInfo Id="Name" Index="0" />
+        <ColumnInfo Id="SearchSetting" Index="1" />
+        <ColumnInfo Id="FoundDate" Index="2" />
+        <ColumnInfo Id="Price" Index="3" />
+        <ColumnInfo Id="Year" Index="4" />
+        <ColumnInfo Id="FuelType" Index="5" />
+        <ColumnInfo Id="Link" Index="6" />
+        <ColumnInfo Id="Mark" Removed="True" />
+        <ColumnInfo Id="Read" Removed="True" />
+        <ColumnInfo Id="SKUser" Removed="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="SKAdvertMark_ListView" ClassName="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" Criteria="[SKUser.Oid] = CurrentUserId() And [Mark] = True" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Name" PropertyName="Name" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Search Setting" PropertyName="SearchSetting" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Found Date" PropertyName="FoundDate" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Price" PropertyName="Price" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Year" PropertyName="Year" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Fuel Type" PropertyName="FuelType" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Link" PropertyName="Link" Index="6" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="SKAdvertNew_ListView" ClassName="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" Caption="SKAdvertNew_ListView" Criteria="[SKUser.Oid] = CurrentUserId() And [Read] = False" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Name" PropertyName="Name" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Search Setting" PropertyName="SearchSetting" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Found Date" PropertyName="FoundDate" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Price" PropertyName="Price" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Year" PropertyName="Year" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Fuel Type" PropertyName="FuelType" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Link" PropertyName="Link" Index="6" IsNewNode="True" />
+      </Columns>
+    </ListView>
   </Views>
 </Application>
