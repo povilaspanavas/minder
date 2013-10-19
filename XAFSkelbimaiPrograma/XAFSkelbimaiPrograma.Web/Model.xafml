@@ -9,6 +9,37 @@
       <Action Id="Refresh" Caption="Atnaujinti" />
     </Actions>
   </ActionDesign>
+  <BOModel>
+    <Class Name="DevExpress.Persistent.BaseImpl.Address">
+      <OwnMembers>
+        <Member Name="City" Caption="Miestas" />
+        <Member Name="Country" Caption="Šalis" />
+        <Member Name="FullAddress" Caption="Pilnas adresas" />
+        <Member Name="StateProvince" Caption="Rajonas" />
+        <Member Name="Street" Caption="Gatvė" />
+        <Member Name="ZipPostal" Caption="Pašto kodas" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.BaseImpl.Party">
+      <OwnMembers>
+        <Member Name="Address1" Caption="Adresas" />
+        <Member Name="Address2" Caption="Papildomas adresas" />
+        <Member Name="DisplayName" Caption="Pavadinimas" />
+        <Member Name="PhoneNumbers" Caption="Tel. numeriai" />
+        <Member Name="Photo" Caption="Nuotrauka" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.BaseImpl.Person" Caption="Asmuo">
+      <OwnMembers>
+        <Member Name="Birthday" Caption="Gimimo data" />
+        <Member Name="Email" Caption="El. paštas" />
+        <Member Name="FirstName" Caption="Vardas" />
+        <Member Name="FullName" Caption="Pilnas vardas" />
+        <Member Name="LastName" Caption="Pavardė" />
+        <Member Name="MiddleName" Caption="Antras vardas" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
   <NavigationItems>
     <Items>
       <Item Id="Skelbimai" Index="0" IsNewNode="True">
@@ -41,7 +72,7 @@
     <SchemaModule Name="SystemModule" Version="13.1.7.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
-    <ListView Id="SKAdvert_ListView" Filter="" Criteria="[SKUser.Oid] = CurrentUserId() And [Read] = True">
+    <ListView Id="SKAdvert_ListView" Filter="" Criteria="[SKUser.Oid] = CurrentUserId() And [Read] = True" Caption="Perskaityti skelbimai">
       <Columns>
         <ColumnInfo Id="Name" Index="0" />
         <ColumnInfo Id="SearchSetting" Index="1" />
@@ -55,7 +86,7 @@
         <ColumnInfo Id="SKUser" Removed="True" />
       </Columns>
     </ListView>
-    <ListView Id="SKAdvertMark_ListView" ClassName="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" Criteria="[SKUser.Oid] = CurrentUserId() And [Mark] = True" IsNewNode="True">
+    <ListView Id="SKAdvertMark_ListView" ClassName="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" Criteria="[SKUser.Oid] = CurrentUserId() And [Mark] = True" Caption="Pažymėti skelbimai" IsNewNode="True">
       <Columns IsNewNode="True">
         <ColumnInfo Id="Name" PropertyName="Name" Index="0" IsNewNode="True" />
         <ColumnInfo Id="Search Setting" PropertyName="SearchSetting" Index="1" IsNewNode="True" />
@@ -66,7 +97,7 @@
         <ColumnInfo Id="Link" PropertyName="Link" Index="6" IsNewNode="True" />
       </Columns>
     </ListView>
-    <ListView Id="SKAdvertNew_ListView" ClassName="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" Caption="SKAdvertNew_ListView" Criteria="[SKUser.Oid] = CurrentUserId() And [Read] = False" IsNewNode="True">
+    <ListView Id="SKAdvertNew_ListView" ClassName="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" Caption="Nauji skelbimai" Criteria="[SKUser.Oid] = CurrentUserId() And [Read] = False" IsNewNode="True">
       <Columns IsNewNode="True">
         <ColumnInfo Id="Name" PropertyName="Name" Index="0" IsNewNode="True" />
         <ColumnInfo Id="Search Setting" PropertyName="SearchSetting" Index="1" IsNewNode="True" />
@@ -77,5 +108,7 @@
         <ColumnInfo Id="Link" PropertyName="Link" Index="6" IsNewNode="True" />
       </Columns>
     </ListView>
+    <ListView Id="SKUserSearchSettings_ListView" Criteria="[SKUser.Oid] = CurrentUserId()" />
+    <ListView Id="SKUserSearchSettings_LookupListView" Criteria="[SKUser.Oid] = CurrentUserId()" />
   </Views>
 </Application>

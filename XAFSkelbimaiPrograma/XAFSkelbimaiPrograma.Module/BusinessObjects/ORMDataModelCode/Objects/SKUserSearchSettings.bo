@@ -1,6 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
   <BOModel>
-    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKUserSearchSettings" IsDesigned="True" />
+    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKUserSearchSettings" IsDesigned="True" Caption="Paieškos nustatymai">
+      <OwnMembers>
+        <Member Name="Name" Caption="Pavadinimas" />
+        <Member Name="Plugin" Caption="Tinklapis" />
+        <Member Name="SKUser" Caption="Vartotojas" />
+        <Member Name="Url" Caption="Nuoroda" Size="150" />
+      </OwnMembers>
+    </Class>
   </BOModel>
+  <Views>
+    <DetailView Id="SKUserSearchSettings_DetailView">
+      <Items>
+        <PropertyEditor Id="SKUser" Removed="True" />
+      </Items>
+    </DetailView>
+    <ListView Id="SKUserSearchSettings_ListView">
+      <Columns>
+        <ColumnInfo Id="SKUser" Removed="True" />
+      </Columns>
+    </ListView>
+  </Views>
 </Application>

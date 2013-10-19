@@ -37,14 +37,6 @@
         <Member Name="SKUser" Caption="Vartotojas" />
       </OwnMembers>
     </Class>
-    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKUserSearchSettings" IsDesigned="True" Caption="Paieškos nustatymai">
-      <OwnMembers>
-        <Member Name="Name" Caption="Pavadinimas" />
-        <Member Name="Plugin" Caption="Tinklapis" />
-        <Member Name="SKUser" Caption="Vartotojas" />
-        <Member Name="Url" Caption="Nuoroda" Size="150" />
-      </OwnMembers>
-    </Class>
     <Class Name="XAFSkelbimaiPrograma.Module.SecurityModule.DLCEmployee" Caption="Vartotojas">
       <OwnMembers>
         <Member Name="ChangePasswordOnFirstLogon" Caption="Keisti slaptažodį pirmo prisijungimo metu" />
@@ -58,4 +50,5 @@
   <SchemaModules>
     <SchemaModule Name="SystemModule" Version="13.1.7.0" IsNewNode="True" />
   </SchemaModules>
+  <Views></Views>
 </Application>
