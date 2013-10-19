@@ -107,6 +107,12 @@
       <DependentUpon>SKUserSearchSettings.bo</DependentUpon>
     </Compile>
     <Compile Include="BusinessObjects\ORMDataModelCode\StaticData.cs" />
+    <Compile Include="Controllers\AdvertActions.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\AdvertActions.Designer.cs">
+      <DependentUpon>AdvertActions.cs</DependentUpon>
+    </Compile>
     <Compile Include="SecurityModule\DLCEmployee.cs" />
     <Compile Include="SecurityModule\DLCEmployeeRole.cs" />
     <Compile Include="SecurityModule\DLCEmployeeTask.cs" />
@@ -120,6 +126,9 @@
     <Compile Include="DatabaseUpdate\Updater.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controllers\AdvertActions.resx">
+      <DependentUpon>AdvertActions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
     <EmbeddedResource Include="Module.resx">
       <SubType>Designer</SubType>
