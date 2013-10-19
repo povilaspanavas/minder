@@ -106,12 +106,13 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
 
                 
                 advert = session.GetObjectByKey<SKAdvert>(advert.Oid);
-                Process.Start(advert.Link);
-                if (advert.Mark == false)
+                
+                if (advert.Read == false)
                 {
-                    advert.Mark = true;
+                    advert.Read = true;
                     advert.Save();
                 }
+                Process.Start(advert.Link);
             }
             session.CommitTransaction();
             this.View.ObjectSpace.CommitChanges();
