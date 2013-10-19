@@ -9,7 +9,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
     {
         string m_name = string.Empty;
         string m_urlLink = string.Empty;
-        string m_date = string.Empty;
+        DateTime m_date;
         string m_year = string.Empty;
         string m_price = string.Empty;
         string m_column1 = string.Empty;
@@ -18,8 +18,8 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
         bool m_mark;
         bool m_deleted;
         string m_image = string.Empty;
-        string m_settingsId;
-        string m_userId;
+        object m_settingsId;
+        object m_userId;
 
         public string Name
         {
@@ -33,7 +33,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
             set { m_urlLink = value; }
         }
 
-        public string Date
+        public DateTime Date
         {
             get { return m_date; }
             set { m_date = value; }
@@ -87,13 +87,13 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
             set { m_image = value; }
         }
 
-        public string UserId
+        public object UserId
         {
             get { return m_userId; }
             set { m_userId = value; }
         }
 
-        public string SettingsId
+        public object SettingsId
         {
             get { return m_settingsId; }
             set { m_settingsId = value; }

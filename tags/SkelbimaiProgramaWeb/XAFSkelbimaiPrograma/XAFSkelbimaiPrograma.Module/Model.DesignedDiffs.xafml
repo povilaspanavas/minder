@@ -28,7 +28,7 @@
         <Member Name="FoundDate" Caption="Radimo data" />
         <Member Name="FuelType" Caption="Kuro tipas" />
         <Member Name="Year" Caption="Metai" />
-        <Member Name="Link" Caption="Nuoroda" />
+        <Member Name="Link" Caption="Nuoroda" Size="300" />
         <Member Name="Mark" Caption="Pažymėtas" />
         <Member Name="Name" Caption="Pavadinimas" />
         <Member Name="Price" Caption="Kaina" />
