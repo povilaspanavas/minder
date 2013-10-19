@@ -16,6 +16,7 @@ using DevExpress.ExpressApp.Model.NodeGenerators;
 using DevExpress.Xpo;
 using XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode;
 using XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects;
+using System.Diagnostics;
 
 namespace XAFSkelbimaiPrograma.Module.Controllers
 {
@@ -84,6 +85,33 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
                 else
                     advert.Mark = false;
                 advert.Save();
+            }
+            session.CommitTransaction();
+            this.View.ObjectSpace.CommitChanges();
+            this.View.ObjectSpace.Refresh();
+            this.View.Refresh();
+        }
+
+        private void simpleAction3_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            var selectedObjects = e.SelectedObjects;
+            Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
+
+            session.BeginTransaction();
+            foreach (object obj in selectedObjects)
+            {
+                SKAdvert advert = obj as SKAdvert;
+                if (advert == null)
+                    continue;
+
+                
+                advert = session.GetObjectByKey<SKAdvert>(advert.Oid);
+                Process.Start(advert.Link);
+                if (advert.Mark == false)
+                {
+                    advert.Mark = true;
+                    advert.Save();
+                }
             }
             session.CommitTransaction();
             this.View.ObjectSpace.CommitChanges();

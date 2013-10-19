@@ -29,8 +29,27 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.simpleAction3 = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.simpleAction1 = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.simpleAction2 = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+           
+
+            // 
+            // simpleAction3
+            // 
+            this.simpleAction3.Caption = "Atidaryti";
+            this.simpleAction3.ConfirmationMessage = null;
+            this.simpleAction3.Id = "fde552ba-efdf-4ad6-8db3-044dc6d2a66d";
+            this.simpleAction3.ImageName = null;
+            this.simpleAction3.Shortcut = null;
+            this.simpleAction3.Tag = null;
+            this.simpleAction3.TargetObjectsCriteria = null;
+            this.simpleAction3.TargetObjectType = typeof(XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert);
+            this.simpleAction3.TargetViewId = null;
+            this.simpleAction3.ToolTip = null;
+            this.simpleAction3.TypeOfView = null;
+            this.simpleAction3.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.simpleAction3_Execute);
+
             // 
             // simpleAction1
             // 
@@ -60,6 +79,7 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
             this.simpleAction2.ToolTip = null;
             this.simpleAction2.TypeOfView = typeof(DevExpress.ExpressApp.View);
             this.simpleAction2.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.simpleAction2_Execute);
+           
 
         }
 
@@ -67,5 +87,6 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
 
         private DevExpress.ExpressApp.Actions.SimpleAction simpleAction1;
         private DevExpress.ExpressApp.Actions.SimpleAction simpleAction2;
+        private DevExpress.ExpressApp.Actions.SimpleAction simpleAction3;
     }
 }
