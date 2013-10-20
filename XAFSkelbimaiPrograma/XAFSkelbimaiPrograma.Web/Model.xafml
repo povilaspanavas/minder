@@ -77,7 +77,7 @@
       <Items>
         <PropertyEditor Id="Name" Index="0" />
         <PropertyEditor Id="SearchSetting" Index="1" />
-        <PropertyEditor Id="FoundDate" Index="2" />
+        <PropertyEditor Id="FoundDate" Index="2" EditMaskType="DateTime" EditMask="g" DisplayFormat="{0:g}" />
         <PropertyEditor Id="Year" Index="3" />
         <PropertyEditor Id="Price" Index="4" />
         <PropertyEditor Id="FuelType" Index="5" />
@@ -92,7 +92,7 @@
       <Columns>
         <ColumnInfo Id="Name" Index="0" />
         <ColumnInfo Id="SearchSetting" Index="1" />
-        <ColumnInfo Id="FoundDate" Index="2" />
+        <ColumnInfo Id="FoundDate" Index="2" EditMaskType="DateTime" EditMask="g" DisplayFormat="{0:g}" />
         <ColumnInfo Id="Price" Index="3" />
         <ColumnInfo Id="Year" Index="4" />
         <ColumnInfo Id="FuelType" Index="5" />
@@ -107,7 +107,7 @@
       <Columns IsNewNode="True">
         <ColumnInfo Id="Name" PropertyName="Name" Index="0" IsNewNode="True" />
         <ColumnInfo Id="Search Setting" PropertyName="SearchSetting" Index="1" IsNewNode="True" />
-        <ColumnInfo Id="Found Date" PropertyName="FoundDate" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Found Date" PropertyName="FoundDate" Index="2" EditMaskType="DateTime" EditMask="g" DisplayFormat="{0:g}" IsNewNode="True" />
         <ColumnInfo Id="Price" PropertyName="Price" Index="3" IsNewNode="True" />
         <ColumnInfo Id="Year" PropertyName="Year" Index="4" IsNewNode="True" />
         <ColumnInfo Id="Fuel Type" PropertyName="FuelType" Index="5" IsNewNode="True" />
@@ -118,7 +118,7 @@
       <Columns IsNewNode="True">
         <ColumnInfo Id="Name" PropertyName="Name" Index="0" IsNewNode="True" />
         <ColumnInfo Id="Search Setting" PropertyName="SearchSetting" Index="1" IsNewNode="True" />
-        <ColumnInfo Id="Found Date" PropertyName="FoundDate" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Found Date" PropertyName="FoundDate" Index="2" EditMaskType="DateTime" EditMask="g" DisplayFormat="{0:g}" IsNewNode="True" />
         <ColumnInfo Id="Price" PropertyName="Price" Index="3" IsNewNode="True" />
         <ColumnInfo Id="Year" PropertyName="Year" Index="4" IsNewNode="True" />
         <ColumnInfo Id="Fuel Type" PropertyName="FuelType" Index="5" IsNewNode="True" />
