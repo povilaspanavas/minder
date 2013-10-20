@@ -45,6 +45,7 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
         SetPropertyValue("Name", ref _name, value);
       }
     }
+    //[Custom("DisplayFormat", "{0ddd, dd MMMM yyyy hh:mm:ss tt}")]
     public System.DateTime FoundDate
     {
       get

@@ -48,6 +48,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\DevExpress\DXperience 13.1\Bin\Framework\DevExpress.ExpressApp.Security.v13.1.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.ExpressApp.Web.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress\DXperience 13.1\Bin\Framework\DevExpress.ExpressApp.Web.v13.1.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.ExpressApp.Xpo.v13.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
@@ -112,6 +116,12 @@
     </Compile>
     <Compile Include="Controllers\AdvertActions.Designer.cs">
       <DependentUpon>AdvertActions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\SKUserSettingsController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\SKUserSettingsController.Designer.cs">
+      <DependentUpon>SKUserSettingsController.cs</DependentUpon>
     </Compile>
     <Compile Include="SecurityModule\DLCEmployee.cs" />
     <Compile Include="SecurityModule\DLCEmployeeRole.cs" />

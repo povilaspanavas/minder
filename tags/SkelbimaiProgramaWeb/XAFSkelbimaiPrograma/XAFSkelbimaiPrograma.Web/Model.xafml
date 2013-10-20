@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model">
+<Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model" VersionFormat="Version 1.0.1">
   <ActionDesign>
     <Actions>
       <Action Id="Edit" Caption="Redaguoti" />
@@ -73,6 +73,21 @@
     <SchemaModule Name="SystemModule" Version="13.1.7.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
+    <DetailView Id="SKAdvert_DetailView">
+      <Items>
+        <PropertyEditor Id="Name" Index="0" />
+        <PropertyEditor Id="SearchSetting" Index="1" />
+        <PropertyEditor Id="FoundDate" Index="2" />
+        <PropertyEditor Id="Year" Index="3" />
+        <PropertyEditor Id="Price" Index="4" />
+        <PropertyEditor Id="FuelType" Index="5" />
+        <PropertyEditor Id="Link" Index="6" />
+        <PropertyEditor Id="Deleted" Removed="True" />
+        <PropertyEditor Id="Mark" Removed="True" />
+        <PropertyEditor Id="Read" Removed="True" />
+        <PropertyEditor Id="SKUser" Removed="True" />
+      </Items>
+    </DetailView>
     <ListView Id="SKAdvert_ListView" Filter="" Criteria="[SKUser.Oid] = CurrentUserId() And [Read] = True And [Deleted] = False" Caption="Perskaityti skelbimai">
       <Columns>
         <ColumnInfo Id="Name" Index="0" />
@@ -82,12 +97,13 @@
         <ColumnInfo Id="Year" Index="4" />
         <ColumnInfo Id="FuelType" Index="5" />
         <ColumnInfo Id="Link" Index="6" />
+        <ColumnInfo Id="Deleted" Removed="True" />
         <ColumnInfo Id="Mark" Removed="True" />
         <ColumnInfo Id="Read" Removed="True" />
         <ColumnInfo Id="SKUser" Removed="True" />
       </Columns>
     </ListView>
-    <ListView Id="SKAdvertMark_ListView" ClassName="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" Criteria="[SKUser.Oid] = CurrentUserId() And [Mark] = True And [Deleted] = False" Caption="Pažymėti skelbimai" IsNewNode="True">
+    <ListView Id="SKAdvertMark_ListView" ClassName="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" Criteria="[SKUser.Oid] = CurrentUserId() And [Mark] = True" Caption="Pažymėti skelbimai" IsNewNode="True">
       <Columns IsNewNode="True">
         <ColumnInfo Id="Name" PropertyName="Name" Index="0" IsNewNode="True" />
         <ColumnInfo Id="Search Setting" PropertyName="SearchSetting" Index="1" IsNewNode="True" />
