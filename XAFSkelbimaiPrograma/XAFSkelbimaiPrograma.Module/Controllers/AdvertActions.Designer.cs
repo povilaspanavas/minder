@@ -32,8 +32,7 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
             this.simpleAction3 = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.simpleAction1 = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.simpleAction2 = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
-           
-
+            this.simpleAction4 = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // simpleAction3
             // 
@@ -49,7 +48,6 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
             this.simpleAction3.ToolTip = null;
             this.simpleAction3.TypeOfView = null;
             this.simpleAction3.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.simpleAction3_Execute);
-
             // 
             // simpleAction1
             // 
@@ -79,7 +77,21 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
             this.simpleAction2.ToolTip = null;
             this.simpleAction2.TypeOfView = typeof(DevExpress.ExpressApp.View);
             this.simpleAction2.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.simpleAction2_Execute);
-           
+            // 
+            // simpleAction4
+            // 
+            this.simpleAction4.Caption = "Iðtrinti";
+            this.simpleAction4.ConfirmationMessage = null;
+            this.simpleAction4.Id = "ee969542-30b5-4944-8202-18c0abcd78e9";
+            this.simpleAction4.ImageName = null;
+            this.simpleAction4.Shortcut = null;
+            this.simpleAction4.Tag = null;
+            this.simpleAction4.TargetObjectsCriteria = null;
+            this.simpleAction4.TargetObjectType = typeof(XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert);
+            this.simpleAction4.TargetViewId = null;
+            this.simpleAction4.ToolTip = null;
+            this.simpleAction4.TypeOfView = null;
+            this.simpleAction4.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.simpleAction4_Execute);
 
         }
 
@@ -88,5 +100,6 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction simpleAction1;
         private DevExpress.ExpressApp.Actions.SimpleAction simpleAction2;
         private DevExpress.ExpressApp.Actions.SimpleAction simpleAction3;
+        private DevExpress.ExpressApp.Actions.SimpleAction simpleAction4;
     }
 }

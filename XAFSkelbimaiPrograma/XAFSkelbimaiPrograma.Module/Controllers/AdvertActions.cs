@@ -104,15 +104,37 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
                 if (advert == null)
                     continue;
 
-                
+
                 advert = session.GetObjectByKey<SKAdvert>(advert.Oid);
-                
+
                 if (advert.Read == false)
                 {
                     advert.Read = true;
                     advert.Save();
                 }
                 Process.Start(advert.Link);
+            }
+            session.CommitTransaction();
+            this.View.ObjectSpace.CommitChanges();
+            this.View.ObjectSpace.Refresh();
+            this.View.Refresh();
+        }
+
+        private void simpleAction4_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            var selectedObjects = e.SelectedObjects;
+            Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
+
+            session.BeginTransaction();
+            foreach (object obj in selectedObjects)
+            {
+                SKAdvert advert = obj as SKAdvert;
+                if (advert == null)
+                    continue;
+
+                advert = session.GetObjectByKey<SKAdvert>(advert.Oid);
+                advert.Deleted = true;
+                advert.Save();
             }
             session.CommitTransaction();
             this.View.ObjectSpace.CommitChanges();
