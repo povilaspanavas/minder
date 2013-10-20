@@ -3,7 +3,7 @@
   <ActionDesign>
     <Actions>
       <Action Id="Edit" Caption="Redaguoti" />
-      <Action Id="Export" Caption="Eksportuoti" />
+      <Action Id="Export" Caption="Eksportuoti" ValidationContexts="" />
       <Action Id="Logon" Caption="Prisijungti" />
       <Action Id="MyDetails" Caption="Mano profilis" />
       <Action Id="Refresh" Caption="Atnaujinti" />
@@ -73,7 +73,7 @@
     <SchemaModule Name="SystemModule" Version="13.1.7.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
-    <ListView Id="SKAdvert_ListView" Filter="" Criteria="[SKUser.Oid] = CurrentUserId() And [Read] = True" Caption="Perskaityti skelbimai">
+    <ListView Id="SKAdvert_ListView" Filter="" Criteria="[SKUser.Oid] = CurrentUserId() And [Read] = True And [Deleted] = False" Caption="Perskaityti skelbimai">
       <Columns>
         <ColumnInfo Id="Name" Index="0" />
         <ColumnInfo Id="SearchSetting" Index="1" />
@@ -87,7 +87,7 @@
         <ColumnInfo Id="SKUser" Removed="True" />
       </Columns>
     </ListView>
-    <ListView Id="SKAdvertMark_ListView" ClassName="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" Criteria="[SKUser.Oid] = CurrentUserId() And [Mark] = True" Caption="Pažymėti skelbimai" IsNewNode="True">
+    <ListView Id="SKAdvertMark_ListView" ClassName="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" Criteria="[SKUser.Oid] = CurrentUserId() And [Mark] = True And [Deleted] = False" Caption="Pažymėti skelbimai" IsNewNode="True">
       <Columns IsNewNode="True">
         <ColumnInfo Id="Name" PropertyName="Name" Index="0" IsNewNode="True" />
         <ColumnInfo Id="Search Setting" PropertyName="SearchSetting" Index="1" IsNewNode="True" />
@@ -98,7 +98,7 @@
         <ColumnInfo Id="Link" PropertyName="Link" Index="6" IsNewNode="True" />
       </Columns>
     </ListView>
-    <ListView Id="SKAdvertNew_ListView" ClassName="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" Caption="Nauji skelbimai" Criteria="[SKUser.Oid] = CurrentUserId() And [Read] = False" IsNewNode="True">
+    <ListView Id="SKAdvertNew_ListView" ClassName="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" Caption="Nauji skelbimai" Criteria="[SKUser.Oid] = CurrentUserId() And [Read] = False And [Deleted] = False" IsNewNode="True">
       <Columns IsNewNode="True">
         <ColumnInfo Id="Name" PropertyName="Name" Index="0" IsNewNode="True" />
         <ColumnInfo Id="Search Setting" PropertyName="SearchSetting" Index="1" IsNewNode="True" />

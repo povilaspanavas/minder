@@ -19,4 +19,16 @@ public partial class Default : BaseXafPage
             return Content;
         }
     }
+
+    protected void Page_Init()
+    {
+        CustomizeTemplateContent += delegate(object sender, CustomizeTemplateContentEventArgs e)
+        {
+            DefaultVerticalTemplateContent content = e.TemplateContent as DefaultVerticalTemplateContent;
+            if (content == null)
+                return;
+            content.HeaderImageControl.DefaultThemeImageLocation = "~/Images";
+            content.HeaderImageControl.ImageName = "logo.png";
+        };
+    }
 }
