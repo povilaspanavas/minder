@@ -54,15 +54,18 @@
           <Item Id="Paieškos nuorodos" ViewId="SKUserSearchSettings_ListView" Caption="Paieškos nuorodos" ImageName="BO_Localization" IsNewNode="True" />
         </Items>
       </Item>
-      <Item Id="Default" Caption="Nustatymai" ImageName="ModelEditor_Settings" Index="2">
+      <Item Id="Default" Caption="Admin nustatymai" ImageName="ModelEditor_Settings" Index="2">
         <Items>
-          <Item Id="MyDetails" Caption="Mano profilis" Index="0" />
+          <Item Id="MyDetails" Caption="Mano profilis" Index="0" Removed="True" />
           <Item Id="DLCEmployee_ListView" Caption="Vartotojai" Index="1" />
           <Item Id="DLCEmployeeRole_ListView" Caption="Rolės" Index="2" />
+          <Item Id="Pluginai" ViewId="SKPlugin_ListView" Caption="Įskiepiai" Index="3" IsNewNode="True" />
+          <Item Id="SKUser License" ViewId="SKUserLicense_ListView" Caption="Licencijos" Index="4" IsNewNode="True" />
+          <Item Id="SKLicenseType_ListView" Caption="Licensijų tipai" Index="5" />
           <Item Id="DLCEmployeeTask_ListView" Removed="True" />
-          <Item Id="Pluginai" ViewId="SKPlugin_ListView" Caption="Įskiepiai" IsNewNode="True" />
           <Item Id="SKAdvert_ListView" Removed="True" />
           <Item Id="SKPlugin_ListView" Removed="True" />
+          <Item Id="SKUserLicense_ListView" Removed="True" />
           <Item Id="SKUserSearchSettings_ListView" Removed="True" />
         </Items>
       </Item>
@@ -73,6 +76,18 @@
     <SchemaModule Name="SystemModule" Version="13.1.7.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
+    <DetailView Id="DLCEmployee_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="EmployeeRoles" Index="0" />
+            <LayoutGroup Id="Licenses" Index="1" />
+            <LayoutGroup Id="OwnTasks" Removed="True" />
+            <LayoutGroup Id="PhoneNumbers" Removed="True" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <DetailView Id="SKAdvert_DetailView">
       <Items>
         <PropertyEditor Id="Name" Index="0" />
