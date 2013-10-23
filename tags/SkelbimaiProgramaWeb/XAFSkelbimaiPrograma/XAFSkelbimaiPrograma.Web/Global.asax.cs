@@ -29,6 +29,7 @@ namespace XAFSkelbimaiPrograma.Web
         }
         protected void Session_Start(Object sender, EventArgs e)
         {
+            //MyDetailsController.c = false;
             WebApplication.SetInstance(Session, new XAFSkelbimaiProgramaAspNetApplication());
 #if EASYTEST
 			if(ConfigurationManager.ConnectionStrings["EasyTestConnectionString"] != null) {

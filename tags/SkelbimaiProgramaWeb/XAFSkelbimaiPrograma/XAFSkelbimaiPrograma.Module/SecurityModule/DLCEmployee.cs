@@ -9,6 +9,7 @@ using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 using PUVWeb_TEST.Module.DLCSecuritySystem;
+using XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects;
 
 namespace XAFSkelbimaiPrograma.Module.SecurityModule
 {
@@ -23,6 +24,12 @@ namespace XAFSkelbimaiPrograma.Module.SecurityModule
         public XPCollection<DLCEmployeeTask> OwnTasks
         {
             get { return GetCollection<DLCEmployeeTask>("OwnTasks"); }
+        }
+
+        [Association("Employee-License")]
+        public XPCollection<SKUserLicense> Licenses
+        {
+            get { return GetCollection<SKUserLicense>("Licenses"); }
         }
 
         #region ISecurityUser Members

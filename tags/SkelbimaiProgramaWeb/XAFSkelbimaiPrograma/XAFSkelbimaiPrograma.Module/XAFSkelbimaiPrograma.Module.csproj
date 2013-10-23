@@ -91,6 +91,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessObjects\ORMDataModelCode\Classificators\SKLicenseType.bo.cs">
+      <DependentUpon>SKLicenseType.bo</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModelCode\Classificators\SKLicenseType.bo.designer.cs">
+      <DependentUpon>SKLicenseType.bo</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObjects\ORMDataModelCode\Classificators\SKPlugin.bo.cs">
       <DependentUpon>SKPlugin.bo</DependentUpon>
     </Compile>
@@ -104,6 +110,12 @@
     <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKAdvert.bo.designer.cs">
       <DependentUpon>SKAdvert.bo</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKUserLicense.bo.cs">
+      <DependentUpon>SKUserLicense.bo</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKUserLicense.bo.designer.cs">
+      <DependentUpon>SKUserLicense.bo</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKUserSearchSettings.bo.cs">
       <DependentUpon>SKUserSearchSettings.bo</DependentUpon>
     </Compile>
@@ -116,6 +128,12 @@
     </Compile>
     <Compile Include="Controllers\AdvertActions.Designer.cs">
       <DependentUpon>AdvertActions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\HideUserListViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\HideUserListViewController.Designer.cs">
+      <DependentUpon>HideUserListViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\SKUserSettingsController.cs">
       <SubType>Component</SubType>
@@ -154,6 +172,8 @@
     <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Objects\SKUserSearchSettings.bo" />
     <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Classificators\SKPlugin.bo" />
     <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Objects\SKAdvert.bo" />
+    <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Objects\SKUserLicense.bo" />
+    <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Classificators\SKLicenseType.bo" />
     <None Include="DatabaseUpdate\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
