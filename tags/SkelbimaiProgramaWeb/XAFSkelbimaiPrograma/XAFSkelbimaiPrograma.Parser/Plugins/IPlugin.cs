@@ -5,10 +5,10 @@ using System.Text;
 
 namespace XAFSkelbimaiPrograma.Parser.Plugins
 {
-    interface IPlugin
+    public interface IPlugin
     {
-        string UniqueCode { get; }
-        List<AdvertDto> Parse(string url);
-        List<string> TestLinks { get; }
+         string UniqueCode { get; }
+         List<AdvertDto> Parse(string url);
+         List<string> TestLinks { get; }
     }
 }
