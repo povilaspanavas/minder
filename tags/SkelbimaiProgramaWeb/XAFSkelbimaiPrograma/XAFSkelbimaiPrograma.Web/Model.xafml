@@ -40,6 +40,11 @@
       </OwnMembers>
     </Class>
   </BOModel>
+  <Localization>
+    <LocalizationGroup Name="Texts">
+      <LocalizationItem Name="NullValueText" Value="Nepasirinkta" />
+    </LocalizationGroup>
+  </Localization>
   <NavigationItems>
     <Items>
       <Item Id="Skelbimai" Index="0" IsNewNode="True">
@@ -77,11 +82,27 @@
   </SchemaModules>
   <Views>
     <DetailView Id="DLCEmployee_DetailView">
+      <Items>
+        <PropertyEditor Id="MiddleName" Caption="Telefonas" />
+      </Items>
       <Layout>
         <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Person" Caption="Informacija">
+              <LayoutGroup Id="Person_col1">
+                <LayoutItem Id="MiddleName" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Person_col2">
+                <LayoutItem Id="Birthday" Removed="True" />
+                <LayoutItem Id="FullName" Removed="True" />
+                <LayoutItem Id="Telefonas" ViewItem="MiddleName" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="Party" Removed="True" />
+          </LayoutGroup>
           <TabbedGroup Id="Tabs">
             <LayoutGroup Id="EmployeeRoles" Index="0" />
-            <LayoutGroup Id="Licenses" Index="1" />
+            <LayoutGroup Id="Licenses" Index="1" Caption="Licencijos" />
             <LayoutGroup Id="OwnTasks" Removed="True" />
             <LayoutGroup Id="PhoneNumbers" Removed="True" />
           </TabbedGroup>
@@ -140,6 +161,15 @@
         <ColumnInfo Id="Link" PropertyName="Link" Index="6" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="SKLicenseType_DetailView" Caption="Licencijos tipas">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="SKLicenseType" Caption="Licencijos tipas" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <ListView Id="SKUserSearchSettings_ListView" Criteria="[SKUser.Oid] = CurrentUserId()" />
     <ListView Id="SKUserSearchSettings_LookupListView" Criteria="[SKUser.Oid] = CurrentUserId()" />
   </Views>
