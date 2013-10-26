@@ -28,8 +28,6 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
             return result;
 		}
 
-
-
         private List<AdvertDto> MakeObjectsFromSource(string source)
         {
             if (string.IsNullOrEmpty(source))
