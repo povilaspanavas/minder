@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
 using DevExpress.Xpo.Metadata;
 using XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode;
@@ -36,6 +37,8 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             if (m_settings == null)
                 return;
 
+            //TODO reikia čia lygiagretinti
+
             foreach (object obj in m_settings)
             {
                 SKUserSearchSettings settings = obj as SKUserSearchSettings;
@@ -46,11 +49,26 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                 string urlLink = settings.Url;
                 object settingsId = settings.Oid;
                 string pluginUniqueCode = settings.Plugin.UniqueCode;
+
+                if (AllowParse(userId) == false)
+                    continue;
+                
                 if (string.IsNullOrEmpty(urlLink))
                     continue;
 
                 ParseAdverts(userId, urlLink, settingsId, pluginUniqueCode);
             }
+        }
+
+        private bool AllowParse(object userId)
+        {
+            Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
+            XPClassInfo licenceClass = session.GetClassInfo(typeof(SKUserLicense));
+            ICollection licences = session.GetObjects(licenceClass, CriteriaOperator.Parse(string.Format("SKUser.Oid = '{0}' AND (Blocked = false or Blocked = null)", userId)), null, 0, 0, false, true);
+            List<SKUserLicense> licencesList = licences.Cast<SKUserLicense>().ToList();
+            if (licencesList.Count != 1)
+                return false;
+            return true;
         }
 
         private void ParseAdverts(object userId, string urlLink, object settingsId, string pluginUniqueCode)

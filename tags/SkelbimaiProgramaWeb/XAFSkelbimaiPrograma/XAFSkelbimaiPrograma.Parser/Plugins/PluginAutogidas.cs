@@ -11,11 +11,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
     {
         private const string m_firstPattern = "<div class=\"sk-sar\">";
 		private const string m_secondPattern = "<td class=\"tceil-1\">";
-		
-		public PluginAutogidas()
-		{
-		}
-		
+
 		public List<AdvertDto> Parse(string url)
 		{
             List<AdvertDto> result = new List<AdvertDto>();
@@ -55,7 +51,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
             AdvertDto advert = new AdvertDto();
             advert.UrlLink = GetFields.GetLink(sourcePart);
             advert.Name = GetFields.GetName(sourcePart);
-            //			advert. = GetFields.GetFuelType(sourcePart);
+            advert.Column1 = GetFields.GetFuelType(sourcePart);
             advert.Year = GetFields.GetYear(sourcePart);
             advert.Price = GetFields.GetPrice(sourcePart);
             //			advert. = GetFields.GetCity(sourcePart);

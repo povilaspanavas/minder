@@ -12,9 +12,18 @@ using XAFSkelbimaiPrograma.Parser.Plugins;
 
 namespace XAFSkelbimaiPrograma.Parser.Helpers
 {
-    class SaveHelper
+    class SaveHelper : IDisposable
     {
-       private Session m_session;
+        private Session m_session;
+
+        public void Dispose()
+        {
+            if (m_session != null)
+            {
+                m_session.Dispose();
+                m_session = null;
+            }
+        }
 
         public void SaveAdverts(List<AdvertDto> adverts)
         {
@@ -29,7 +38,7 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
                 SKAdvert advertXpo = new SKAdvert(m_session);
                 advertXpo.Name = advert.Name;
                 advertXpo.FoundDate = advert.Date;
-                advertXpo.FuelType = string.Empty; //TODO čia reikia padaryt
+                advertXpo.FuelType = advert.Column1; //TODO čia reikia padaryt
                 advertXpo.Year = advert.Year;
                 advertXpo.Link = advert.UrlLink;
                 advertXpo.Price = advert.Price;
@@ -45,7 +54,7 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
         {
             Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
             SKAdvert advertXpo = session.FindObject<SKAdvert>
-                (CriteriaOperator.Parse(string.Format("Link = '{0}' And SKUser.Oid = '{1}'", 
+                (CriteriaOperator.Parse(string.Format("Link = '{0}' And SKUser.Oid = '{1}'",
                advert.UrlLink, advert.UserId)));
 
             if (advertXpo == null)
