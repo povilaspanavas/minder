@@ -5,7 +5,7 @@ using System.Text;
 
 namespace XAFSkelbimaiPrograma.Parser.Plugins
 {
-    class AdvertDto
+    public class AdvertDto
     {
         string m_name = string.Empty;
         string m_urlLink = string.Empty;

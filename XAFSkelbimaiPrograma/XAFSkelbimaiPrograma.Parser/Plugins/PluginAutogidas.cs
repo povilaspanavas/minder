@@ -12,6 +12,11 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
         private const string m_firstPattern = "<div class=\"sk-sar\">";
 		private const string m_secondPattern = "<td class=\"tceil-1\">";
 
+        public PluginAutogidas()
+        {
+ 
+        }
+
 		public List<AdvertDto> Parse(string url)
 		{
             List<AdvertDto> result = new List<AdvertDto>();
@@ -80,7 +85,11 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 
         public List<string> TestLinks
         {
-            get { throw new NotImplementedException(); }
+            get { return new List<string>(new string[] 
+            { 
+                "http://www.autogidas.lt/automobiliai/?f_1=&f_model_14=--------&f_41=&f_42=&f_215=&f_216=&f_2=&f_245=Visos+%C5%A1alys&f_60=728&f_376=&search=Surasti&f_50=ivedimo_laika_asc" 
+            
+            }); }
         }
 
         public string UniqueCode
