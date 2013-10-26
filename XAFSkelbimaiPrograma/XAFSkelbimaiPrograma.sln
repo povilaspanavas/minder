@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAFSkelbimaiPrograma.Web", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAFSkelbimaiPrograma.Parser", "XAFSkelbimaiPrograma.Parser\XAFSkelbimaiPrograma.Parser.csproj", "{7CAE55F2-0E06-4ECD-9F07-AE8FF855B9FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAFSkelbimaiPrograma.Parser.Tests", "XAFSkelbimaiPrograma.Parser.Tests\XAFSkelbimaiPrograma.Parser.Tests.csproj", "{5C203209-D4C2-4D6E-8546-DF62BC6C610C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,12 @@ Global
 		{7CAE55F2-0E06-4ECD-9F07-AE8FF855B9FC}.EasyTest|Any CPU.Build.0 = Release|Any CPU
 		{7CAE55F2-0E06-4ECD-9F07-AE8FF855B9FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CAE55F2-0E06-4ECD-9F07-AE8FF855B9FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C203209-D4C2-4D6E-8546-DF62BC6C610C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C203209-D4C2-4D6E-8546-DF62BC6C610C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C203209-D4C2-4D6E-8546-DF62BC6C610C}.EasyTest|Any CPU.ActiveCfg = Release|Any CPU
+		{5C203209-D4C2-4D6E-8546-DF62BC6C610C}.EasyTest|Any CPU.Build.0 = Release|Any CPU
+		{5C203209-D4C2-4D6E-8546-DF62BC6C610C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C203209-D4C2-4D6E-8546-DF62BC6C610C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
