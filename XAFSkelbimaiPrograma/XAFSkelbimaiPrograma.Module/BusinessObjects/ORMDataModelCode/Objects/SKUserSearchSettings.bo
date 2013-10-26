@@ -5,6 +5,7 @@
       <OwnMembers>
         <Member Name="Name" Caption="Pavadinimas" />
         <Member Name="Plugin" Caption="Tinklapis" />
+        <Member Name="SendEmail" Caption="Siųsti į el. paštą" />
         <Member Name="SKUser" Caption="Vartotojas" />
         <Member Name="Url" Caption="Nuoroda" Size="150" />
       </OwnMembers>

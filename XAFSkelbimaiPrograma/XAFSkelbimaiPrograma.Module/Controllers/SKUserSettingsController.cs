@@ -59,13 +59,29 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
                 return;
             }
 
+            if (AllowCreate())
+                base.New(args);
+        }
+
+        private bool AllowCreate()
+        {
+            //Èia reikia pagal licencijos tipà leisti arba neleisti kurti
             Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
             XPClassInfo settingsClass = session.GetClassInfo(typeof(SKUserSearchSettings));
+            XPClassInfo licenceClass = session.GetClassInfo(typeof(SKUserLicense));
             ICollection settings = session.GetObjects(settingsClass, CriteriaOperator.Parse(string.Format("SKUser.Oid = '{0}'", SecuritySystem.CurrentUserId)), null, 0, 0, false, true);
-            DLCEmployee user = session.GetObjectByKey<DLCEmployee>(SecuritySystem.CurrentUserId);
+           // DLCEmployee user = session.GetObjectByKey<DLCEmployee>(SecuritySystem.CurrentUserId);
+            ICollection licences = session.GetObjects(licenceClass, CriteriaOperator.Parse(string.Format("SKUser.Oid = '{0}' AND (Blocked = false or Blocked = null)", SecuritySystem.CurrentUserId)), null, 0, 0, false, true);
+            List<SKUserLicense> licencesList = licences.Cast<SKUserLicense>().ToList();
+            List<SKUserSearchSettings> settingsList = settings.Cast<SKUserSearchSettings>().ToList();
+            if(licencesList.Count != 1)
+                return false;
 
-            base.New(args);
-        }
+            if (licencesList[0].LicenseType.UrlLinkCount > settingsList.Count)
+                return true;
+            return false;
         
+        }
+
     }
 }

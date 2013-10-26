@@ -19,6 +19,10 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Classific
   [DefaultClassOptions]
   public partial class SKLicenseType : DevExpress.Persistent.BaseImpl.BaseObject
   {
+    private System.Decimal _priceMonth12;
+    private System.Decimal _priceMonth6;
+    private System.Decimal _priceMonth1;
+    private System.Boolean _email;
     private System.Int32 _urlLinkCount;
     private System.String _name;
     public SKLicenseType(DevExpress.Xpo.Session session)
@@ -45,6 +49,50 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Classific
       set
       {
         SetPropertyValue("UrlLinkCount", ref _urlLinkCount, value);
+      }
+    }
+    public System.Boolean Email
+    {
+      get
+      {
+        return _email;
+      }
+      set
+      {
+        SetPropertyValue("Email", ref _email, value);
+      }
+    }
+    public System.Decimal PriceMonth1
+    {
+      get
+      {
+        return _priceMonth1;
+      }
+      set
+      {
+        SetPropertyValue("PriceMonth1", ref _priceMonth1, value);
+      }
+    }
+    public System.Decimal PriceMonth6
+    {
+      get
+      {
+        return _priceMonth6;
+      }
+      set
+      {
+        SetPropertyValue("PriceMonth6", ref _priceMonth6, value);
+      }
+    }
+    public System.Decimal PriceMonth12
+    {
+      get
+      {
+        return _priceMonth12;
+      }
+      set
+      {
+        SetPropertyValue("PriceMonth12", ref _priceMonth12, value);
       }
     }
   }

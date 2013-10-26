@@ -17,6 +17,26 @@
     </Actions>
   </ActionDesign>
   <BOModel>
+    <Class Name="DevExpress.Persistent.BaseImpl.Person">
+      <OwnMembers>
+        <Member Name="Birthday" Caption="Gimimo data" />
+        <Member Name="Email" Caption="El. paštas" />
+        <Member Name="FirstName" Caption="Vardas" />
+        <Member Name="FullName" Caption="Pilnas vardas" />
+        <Member Name="LastName" Caption="Pavardė" />
+        <Member Name="MiddleName" Caption="Antras vardas" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Classificators.SKLicenseType" IsDesigned="True" Caption="Licencijos tipas">
+      <OwnMembers>
+        <Member Name="Email" Caption="Siųsti el. laiškus" />
+        <Member Name="Name" Caption="Pavadinimas" />
+        <Member Name="PriceMonth1" Caption="Kaina 1 mėn." />
+        <Member Name="PriceMonth12" Caption="Kaina 12 mėn." />
+        <Member Name="PriceMonth6" Caption="Kaina 6 mėn." />
+        <Member Name="UrlLinkCount" Caption="Nuorodų skaičius" />
+      </OwnMembers>
+    </Class>
     <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Classificators.SKPlugin" IsDesigned="True" Caption="Tinklapis">
       <OwnMembers>
         <Member Name="Name" Caption="Pavadinimas" />
@@ -34,6 +54,16 @@
         <Member Name="Price" Caption="Kaina" />
         <Member Name="Read" Caption="Perskaitytas" />
         <Member Name="SearchSetting" Caption="Paieškos nustatymo pavadinimas" />
+        <Member Name="SKUser" Caption="Vartotojas" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKUserLicense" IsDesigned="True">
+      <OwnMembers>
+        <Member Name="Blocked" Caption="Negalioja" />
+        <Member Name="DateFrom" Caption="Galioja nuo" />
+        <Member Name="DateTo" Caption="Galioja iki" />
+        <Member Name="LicenseType" Caption="Licencijos tipas" />
+        <Member Name="Paid" Caption="Sumokėta" />
         <Member Name="SKUser" Caption="Vartotojas" />
       </OwnMembers>
     </Class>
