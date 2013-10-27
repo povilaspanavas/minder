@@ -34,14 +34,8 @@
         <Member Name="Birthday" Caption="Gimimo data" />
         <Member Name="Email" Caption="El. paštas" />
         <Member Name="FirstName" Caption="Vardas" />
-        <Member Name="FullName" Caption="Pilnas vardas" />
         <Member Name="LastName" Caption="Pavardė" />
         <Member Name="MiddleName" Caption="Antras vardas" />
-      </OwnMembers>
-    </Class>
-    <Class Name="XAFSkelbimaiPrograma.Module.SecurityModule.DLCEmployee">
-      <OwnMembers>
-        <Member Name="PhoneNumber" PropertyEditorType="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxStringPropertyEditor" RowCount="0" Removed="True" />
       </OwnMembers>
     </Class>
   </BOModel>
@@ -88,11 +82,17 @@
   <Views>
     <DetailView Id="DLCEmployee_DetailView">
       <Items>
+        <PropertyEditor Id="FullName" Removed="True" />
         <PropertyEditor Id="MiddleName" Caption="Telefonas" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main">
           <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="DLCEmployee">
+              <LayoutItem Id="UserName" Index="1" />
+              <LayoutItem Id="ChangePasswordOnFirstLogon" Index="2" />
+              <LayoutItem Id="SKPhoneNumber" Index="3" />
+            </LayoutGroup>
             <LayoutGroup Id="Person" Caption="Informacija">
               <LayoutGroup Id="Person_col1">
                 <LayoutItem Id="MiddleName" Removed="True" />
@@ -100,7 +100,6 @@
               <LayoutGroup Id="Person_col2">
                 <LayoutItem Id="Birthday" Removed="True" />
                 <LayoutItem Id="FullName" Removed="True" />
-                <LayoutItem Id="Telefonas" ViewItem="MiddleName" IsNewNode="True" />
               </LayoutGroup>
             </LayoutGroup>
             <LayoutGroup Id="Party" Removed="True" />
@@ -114,6 +113,16 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <ListView Id="DLCEmployee_ListView">
+      <Columns>
+        <ColumnInfo Id="FullName" Removed="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="DLCEmployee_LookupListView">
+      <Columns>
+        <ColumnInfo Id="FullName" Removed="True" />
+      </Columns>
+    </ListView>
     <DetailView Id="SKAdvert_DetailView">
       <Items>
         <PropertyEditor Id="Name" Index="0" />

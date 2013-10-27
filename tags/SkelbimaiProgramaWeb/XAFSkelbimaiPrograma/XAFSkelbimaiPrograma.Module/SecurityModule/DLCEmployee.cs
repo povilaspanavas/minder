@@ -39,6 +39,14 @@ namespace XAFSkelbimaiPrograma.Module.SecurityModule
             get { return isActive; }
             set { SetPropertyValue("IsActive", ref isActive, value); }
         }
+
+        private string sKPhoneNumber;
+        public string SKPhoneNumber
+        {
+            get { return sKPhoneNumber; }
+            set { SetPropertyValue("SKPhoneNumber", ref sKPhoneNumber, value); }
+        }
+
         private string userName = String.Empty;
         [RuleRequiredField("EmployeeUserNameRequired", DefaultContexts.Save)]
         [RuleUniqueValue("EmployeeUserNameIsUnique", DefaultContexts.Save,

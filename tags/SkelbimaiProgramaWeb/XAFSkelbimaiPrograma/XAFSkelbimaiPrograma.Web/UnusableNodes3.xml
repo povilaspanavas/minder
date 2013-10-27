@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="DevExpress.Persistent.BaseImpl.Person">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="FullName" Caption="Pilnas vardas" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XAFSkelbimaiPrograma.Module.SecurityModule.DLCEmployee">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="PhoneNumber" PropertyEditorType="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxStringPropertyEditor" RowCount="0" Removed="True" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+</Application>

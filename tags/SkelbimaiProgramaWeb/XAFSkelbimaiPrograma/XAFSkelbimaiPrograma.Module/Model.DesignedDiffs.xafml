@@ -22,7 +22,7 @@
         <Member Name="Birthday" Caption="Gimimo data" />
         <Member Name="Email" Caption="El. paštas" />
         <Member Name="FirstName" Caption="Vardas" />
-        <Member Name="FullName" Caption="Pilnas vardas" />
+        <Member Name="FullName" Caption="Pilnas vardas" Removed="True" />
         <Member Name="LastName" Caption="Pavardė" />
         <Member Name="MiddleName" Caption="Antras vardas" />
       </OwnMembers>
@@ -73,6 +73,7 @@
         <Member Name="EmployeeRoles" Caption="Rolės" />
         <Member Name="IsActive" Caption="Aktyvus" />
         <Member Name="OwnTasks" Caption="Darbai" />
+        <Member Name="SKPhoneNumber" Caption="Telefonas" />
         <Member Name="UserName" Caption="Vartotojo vardas" />
       </OwnMembers>
     </Class>
