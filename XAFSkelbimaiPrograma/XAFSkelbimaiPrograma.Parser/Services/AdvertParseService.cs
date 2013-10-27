@@ -27,7 +27,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                 LoadSettingsCollection();
                 StartParsing();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(e.Message);
@@ -40,6 +40,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             Session session = new Session() { ConnectionString = StaticData.CONNECTION_STRING };
             XPClassInfo settingsClass = session.GetClassInfo(typeof(SKUserSearchSettings));
             m_settings = session.GetObjects(settingsClass, null, null, 0, 0, false, true);
+            session.Dispose();
         }
 
         private void StartParsing()
@@ -53,7 +54,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             {
                 SKUserSearchSettings settings = obj as SKUserSearchSettings;
                 if (settings.SKUser == null || settings.Plugin == null)
-                   return;
+                    return;
 
                 object userId = settings.SKUser.Oid;
                 string urlLink = settings.Url;
@@ -73,14 +74,22 @@ namespace XAFSkelbimaiPrograma.Parser.Services
 
         private bool AllowParse(object userId)
         {
-            //TODO direct sql
-            Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
-            XPClassInfo licenceClass = session.GetClassInfo(typeof(SKUserLicense));
-            ICollection licences = session.GetObjects(licenceClass, CriteriaOperator.Parse(string.Format("SKUser.Oid = '{0}' AND (Blocked = false or Blocked = null)", userId)), null, 0, 0, false, true);
-            List<SKUserLicense> licencesList = licences.Cast<SKUserLicense>().ToList();
-            if (licencesList.Count != 1)
-                return false;
-            return true;
+            //direct sql
+            try
+            {
+                Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
+                string query = string.Format("select \"Oid\" from \"SKUserLicense\" where \"SKUser\" = '{0}' and \"Blocked\" = 0", userId);
+                object result = session.ExecuteScalar(query);
+                session.Dispose();
+                if (result != null)
+                    return true;
+                else
+                    return false;
+            }
+            catch
+            {
+                return AllowParse(userId); //TimeOut
+            }
         }
 
         private void ParseAdverts(object userId, string urlLink, object settingsId, string pluginUniqueCode)
