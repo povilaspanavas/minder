@@ -81,6 +81,13 @@
     <Compile Include="Plugins\PluginAllegro.cs" />
     <Compile Include="Plugins\PluginAuto24.cs" />
     <Compile Include="Plugins\PluginAutogidas.cs" />
+    <Compile Include="Plugins\PluginAutoplius.cs" />
+    <Compile Include="Plugins\PluginAutotrader.cs" />
+    <Compile Include="Plugins\PluginBlocket.cs" />
+    <Compile Include="Plugins\PluginDonedeal.cs" />
+    <Compile Include="Plugins\PluginFinn.cs" />
+    <Compile Include="Plugins\PluginGaspedaal.cs" />
+    <Compile Include="Plugins\PluginLeboncoin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AdvertParseService.cs" />
