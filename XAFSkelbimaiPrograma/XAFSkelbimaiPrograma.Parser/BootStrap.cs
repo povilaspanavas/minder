@@ -2,6 +2,7 @@
 //using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using XAFSkelbimaiPrograma.Parser.Services;
 //using DevExpress.Data.Filtering;
 //using DevExpress.Xpo;
@@ -15,25 +16,14 @@ namespace XAFSkelbimaiPrograma.Parser
     {
         static void Main(string[] args)
         {
-            //TryLoadAllSettings();
-            new AdvertParseService().RunService();
+            while (true)
+            {
+                Console.WriteLine("Starting parse service...");
+                new AdvertParseService().RunService();
+                Console.WriteLine("Parse service end work.");
+                Thread.Sleep(10 * 1000);
+            }
         }
-
-        //private static void TryLoadAllSettings()
-        //{
-        //    ICollection settings;
-        //    XPClassInfo settingsClass;
-
-        //    Session session = new Session() { ConnectionString = StaticData.CONNECTION_STRING };
-        //    settingsClass = session.GetClassInfo(typeof(SKUserSearchSettings));
-
-        //    settings = session.GetObjects(settingsClass, null, null, 0, null, true);
-
-
-        //    //var me = session2.FindObject<DLCEmployee>(CriteriaOperator.Parse("FullName = 'Ignas Bagdonas'"));
-
-        //}
-
 
     }
 }
