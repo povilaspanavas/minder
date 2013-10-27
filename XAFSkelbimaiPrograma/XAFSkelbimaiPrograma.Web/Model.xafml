@@ -39,6 +39,11 @@
         <Member Name="MiddleName" Caption="Antras vardas" />
       </OwnMembers>
     </Class>
+    <Class Name="XAFSkelbimaiPrograma.Module.SecurityModule.DLCEmployee">
+      <OwnMembers>
+        <Member Name="PhoneNumber" PropertyEditorType="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxStringPropertyEditor" RowCount="0" Removed="True" />
+      </OwnMembers>
+    </Class>
   </BOModel>
   <Localization>
     <LocalizationGroup Name="Texts">
@@ -166,6 +171,15 @@
         <LayoutGroup Id="Main">
           <LayoutGroup Id="SimpleEditors">
             <LayoutGroup Id="SKLicenseType" Caption="Licencijos tipas" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="SKUserLicense_DetailView" Caption="Licencija">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="SKUserLicense" ShowCaption="False" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>
