@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="DLCEmployee_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="PhoneNumber" PropertyName="PhoneNumber" PropertyEditorType="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxStringPropertyEditor" MaxLength="100" RowCount="0" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="DLCEmployee">
+              <LayoutItem Id="PhoneNumber" ViewItem="PhoneNumber" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>
