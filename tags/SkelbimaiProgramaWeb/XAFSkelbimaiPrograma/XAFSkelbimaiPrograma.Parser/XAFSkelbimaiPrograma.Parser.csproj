@@ -50,6 +50,11 @@
       <HintPath>..\Libs\DevExpress.ExpressApp.v13.1.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.ExpressApp.Xpo.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\DevExpress.ExpressApp.Xpo.v13.1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.Persistent.Base.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libs\DevExpress.Persistent.Base.v13.1.dll</HintPath>
@@ -64,6 +69,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libs\DevExpress.Xpo.v13.1.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="FirebirdSql.Data.FirebirdClient, Version=3.1.1.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\BussinessLogic\libs\FirebirdSql.Data.FirebirdClient.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

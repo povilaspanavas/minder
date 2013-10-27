@@ -88,6 +88,11 @@
       <HintPath>..\Libs\DevExpress.Printing.v13.1.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Web.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\DevExpress.Web.v13.1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.Xpo.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libs\DevExpress.Xpo.v13.1.dll</HintPath>
@@ -104,6 +109,7 @@
       <Name>System.Data</Name>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libs\System.Windows.Interactivity.dll</HintPath>

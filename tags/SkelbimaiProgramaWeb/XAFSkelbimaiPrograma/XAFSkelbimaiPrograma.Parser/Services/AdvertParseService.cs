@@ -73,6 +73,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
 
         private bool AllowParse(object userId)
         {
+            //TODO direct sql
             Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
             XPClassInfo licenceClass = session.GetClassInfo(typeof(SKUserLicense));
             ICollection licences = session.GetObjects(licenceClass, CriteriaOperator.Parse(string.Format("SKUser.Oid = '{0}' AND (Blocked = false or Blocked = null)", userId)), null, 0, 0, false, true);

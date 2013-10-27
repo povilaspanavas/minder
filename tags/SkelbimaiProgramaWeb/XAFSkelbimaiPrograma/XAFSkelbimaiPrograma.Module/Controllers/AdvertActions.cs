@@ -17,6 +17,9 @@ using DevExpress.Xpo;
 using XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode;
 using XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects;
 using System.Diagnostics;
+using DevExpress.Utils.OAuth.Provider;
+using DevExpress.ExpressApp.Web;
+using DevExpress.Web.ASPxEditors;
 
 namespace XAFSkelbimaiPrograma.Module.Controllers
 {
@@ -112,7 +115,14 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
                     advert.Read = true;
                     advert.Save();
                 }
-                Process.Start(advert.Link);
+                //Process.Start(advert.Link);
+                //WebApplication.Redirect(string.Format("<script>window.location({0}, '_blank');</script>", advert.Link));
+                WebApplication.Redirect(string.Format("OpenLinkPage.aspx?linkId={0}", advert.Link));
+                //ASPxHyperLink link = new ASPxHyperLink();
+                //link.NavigateUrl = advert.Link;
+                //link.
+                //Launcher.LaunchUriAsync();
+
             }
             session.CommitTransaction();
             this.View.ObjectSpace.CommitChanges();
