@@ -94,6 +94,7 @@
     <Compile Include="Plugins\PluginOtomoto.cs" />
     <Compile Include="Plugins\PluginPlius.cs" />
     <Compile Include="Plugins\PluginSkelbiu.cs" />
+    <Compile Include="Plugins\PluginSpeurders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AdvertParseService.cs" />
   </ItemGroup>
