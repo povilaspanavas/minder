@@ -19,8 +19,12 @@ namespace XAFSkelbimaiPrograma.Parser
             while (true)
             {
                 Console.WriteLine("Starting parse service...");
+                DateTime startTime = DateTime.Now;
                 new AdvertParseService().RunService();
-                Console.WriteLine("Parse service end work.");
+                DateTime endTime = DateTime.Now;
+                TimeSpan span = endTime - startTime;
+
+                Console.WriteLine(string.Format("Parse service end work in {0} seconds", span.TotalSeconds));
                 Thread.Sleep(25 * 1000);
             }
         }
