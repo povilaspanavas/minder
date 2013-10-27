@@ -11,7 +11,7 @@ using XAFSkelbimaiPrograma.Parser.Services;
 
 namespace XAFSkelbimaiPrograma.Parser
 {
-    class Program
+    class BootStrap
     {
         static void Main(string[] args)
         {

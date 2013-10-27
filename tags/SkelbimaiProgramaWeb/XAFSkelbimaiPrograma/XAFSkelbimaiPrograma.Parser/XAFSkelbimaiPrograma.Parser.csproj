@@ -88,7 +88,7 @@
     <Compile Include="Plugins\PluginFinn.cs" />
     <Compile Include="Plugins\PluginGaspedaal.cs" />
     <Compile Include="Plugins\PluginLeboncoin.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="BootStrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AdvertParseService.cs" />
   </ItemGroup>
