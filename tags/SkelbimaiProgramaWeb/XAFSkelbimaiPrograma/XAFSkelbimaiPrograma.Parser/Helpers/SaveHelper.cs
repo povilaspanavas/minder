@@ -52,14 +52,21 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
 
         private bool NeedSave(AdvertDto advert)
         {
-            Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
-            SKAdvert advertXpo = session.FindObject<SKAdvert>
-                (CriteriaOperator.Parse(string.Format("Link = '{0}' And SKUser.Oid = '{1}'",
-               advert.UrlLink, advert.UserId)));
+            //Using DirectSql
 
-            if (advertXpo == null)
-                return true;
-            return false;
+            //Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
+            //session.e
+            string query = string.Format("SELECT \"Oid\" from \"SKAdvert\" where \"SKUser\" = '{0}'", advert.UserId);
+            object result = m_session.ExecuteScalar(query);
+            //SKAdvert advertXpo = m_session.FindObject<SKAdvert>
+            //    (CriteriaOperator.Parse(string.Format("Link = '{0}' And SKUser.Oid = '{1}'",
+            //   advert.UrlLink, advert.UserId)));
+
+            //if (advertXpo == null)
+            //    return true;
+            if (result != null)
+                return false;
+            return true;
         }
     }
 }

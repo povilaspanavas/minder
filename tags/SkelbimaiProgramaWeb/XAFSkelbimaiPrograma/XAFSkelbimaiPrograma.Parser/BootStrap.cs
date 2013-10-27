@@ -21,7 +21,7 @@ namespace XAFSkelbimaiPrograma.Parser
                 Console.WriteLine("Starting parse service...");
                 new AdvertParseService().RunService();
                 Console.WriteLine("Parse service end work.");
-                Thread.Sleep(10 * 1000);
+                Thread.Sleep(20 * 1000);
             }
         }
 

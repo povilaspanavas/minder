@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
 using DevExpress.Xpo.Metadata;
@@ -28,7 +29,9 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             }
             catch(Exception e)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(e.Message);
+                Console.ResetColor();
             }
         }
 
@@ -43,14 +46,14 @@ namespace XAFSkelbimaiPrograma.Parser.Services
         {
             if (m_settings == null)
                 return;
-
-            //TODO reikia čia lygiagretinti
-
-            foreach (object obj in m_settings)
+            LoadPlugins();
+            //.NET 4.5 multithreading
+            List<SKUserSearchSettings> settingsList = m_settings.Cast<SKUserSearchSettings>().ToList();
+            Parallel.ForEach<SKUserSearchSettings>(settingsList, obj =>
             {
                 SKUserSearchSettings settings = obj as SKUserSearchSettings;
-                if(settings.SKUser == null || settings.Plugin == null)
-                    continue;
+                if (settings.SKUser == null || settings.Plugin == null)
+                   return;
 
                 object userId = settings.SKUser.Oid;
                 string urlLink = settings.Url;
@@ -58,13 +61,14 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                 string pluginUniqueCode = settings.Plugin.UniqueCode;
 
                 if (AllowParse(userId) == false)
-                    continue;
-                
+                    return;
+
                 if (string.IsNullOrEmpty(urlLink))
-                    continue;
+                    return;
 
                 ParseAdverts(userId, urlLink, settingsId, pluginUniqueCode);
             }
+            );
         }
 
         private bool AllowParse(object userId)
@@ -98,23 +102,23 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             }
         }
 
-        private IPlugin GetPluginByUniqueCode(string uniqueCode)
+        private void LoadPlugins()
         {
-            if (m_plugins == null) //Indexing
+            m_plugins = new Dictionary<string, IPlugin>();
+            var instances = from t in Assembly.GetExecutingAssembly().GetTypes()
+                            where t.GetInterfaces().Contains(typeof(IPlugin))
+                                     && t.GetConstructor(Type.EmptyTypes) != null
+                            select Activator.CreateInstance(t) as IPlugin;
+            foreach (IPlugin plugin in instances)
             {
-                var instances = from t in Assembly.GetExecutingAssembly().GetTypes()
-                                where t.GetInterfaces().Contains(typeof(IPlugin))
-                                         && t.GetConstructor(Type.EmptyTypes) != null
-                                select Activator.CreateInstance(t) as IPlugin;
-                m_plugins = new Dictionary<string, IPlugin>();
-                foreach (IPlugin plugin in instances)
-                {
-                    m_plugins.Add(plugin.UniqueCode, plugin);
-                }
-
+                m_plugins.Add(plugin.UniqueCode, plugin);
             }
 
-            IPlugin result;
+        }
+
+        private IPlugin GetPluginByUniqueCode(string uniqueCode)
+        {
+            IPlugin result = null;
             m_plugins.TryGetValue(uniqueCode, out result);
             return result;
         }
