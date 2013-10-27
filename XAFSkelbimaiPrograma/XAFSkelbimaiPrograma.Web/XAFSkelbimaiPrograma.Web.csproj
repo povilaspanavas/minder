@@ -199,6 +199,7 @@
     <Content Include="Error.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
+    <Content Include="OpenLinkPage.aspx" />
     <Content Include="UnusableNodes.xml">
       <DependentUpon>Model.xafml</DependentUpon>
       <SubType>Designer</SubType>
@@ -229,6 +230,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OpenLinkPage.aspx.cs">
+      <DependentUpon>OpenLinkPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OpenLinkPage.aspx.designer.cs">
+      <DependentUpon>OpenLinkPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebApplication.cs">
       <SubType>Component</SubType>
