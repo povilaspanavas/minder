@@ -27,8 +27,16 @@ namespace XAFSkelbimaiPrograma.Parser.Tests
             {
                 foreach (string link in plugin.TestLinks)
                 {
-                    List<AdvertDto> adverts = plugin.Parse(link);
-                    Assert.AreNotEqual(0, adverts.Count);
+                    try
+                    {
+                        List<AdvertDto> adverts = plugin.Parse(link);
+                        Assert.AreNotEqual(0, adverts.Count);
+                    }
+                    catch (Exception e)
+                    {
+                        throw new Exception(string.Format("Plugin: {0} Link: {1}, Message: {2}", 
+                            plugin.UniqueCode, link, e));
+                    }
                 }
             }
         }
