@@ -93,9 +93,9 @@ namespace XAFSkelbimaiPrograma.Module.SecurityModule
         }
         #endregion
         [Association("Employees-EmployeeRoles")]
-        [RuleRequiredField("EmployeeRoleIsRequired", DefaultContexts.Save,
-            TargetCriteria = "IsActive",
-            CustomMessageTemplate = "An active employee must have at least one role assigned")]
+        //[RuleRequiredField("EmployeeRoleIsRequired", DefaultContexts.Save,
+            //TargetCriteria = "IsActive",
+          //  CustomMessageTemplate = "An active employee must have at least one role assigned")]
         public XPCollection<DLCEmployeeRole> EmployeeRoles
         {
             get
