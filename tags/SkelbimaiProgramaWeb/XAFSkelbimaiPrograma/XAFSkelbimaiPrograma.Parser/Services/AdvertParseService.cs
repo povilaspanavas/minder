@@ -21,8 +21,15 @@ namespace XAFSkelbimaiPrograma.Parser.Services
 
         public void RunService()
         {
-            LoadSettingsCollection();
-            StartParsing();
+            try
+            {
+                LoadSettingsCollection();
+                StartParsing();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         private void LoadSettingsCollection()

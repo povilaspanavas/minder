@@ -170,6 +170,15 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <DetailView Id="SKUserSearchSettings_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="SKUserSearchSettings" ShowCaption="False" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <ListView Id="SKUserSearchSettings_ListView" Criteria="[SKUser.Oid] = CurrentUserId()" />
     <ListView Id="SKUserSearchSettings_LookupListView" Criteria="[SKUser.Oid] = CurrentUserId()" />
   </Views>
