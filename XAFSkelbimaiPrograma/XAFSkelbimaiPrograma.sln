@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAFSkelbimaiPrograma.Parser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAFSkelbimaiPrograma.RuleExecutor", "XAFSkelbimaiPrograma.RuleExecutor\XAFSkelbimaiPrograma.RuleExecutor.csproj", "{352CFB01-94A5-4B6A-B2C4-35B9B3598F83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAFSkelbimaiPrograma.Parser.Starter", "XAFSkelbimaiPrograma.Parser.Starter\XAFSkelbimaiPrograma.Parser.Starter.csproj", "{5C0A7DD5-9581-4129-85C2-E1FA6D55B204}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,12 @@ Global
 		{352CFB01-94A5-4B6A-B2C4-35B9B3598F83}.EasyTest|Any CPU.Build.0 = Release|Any CPU
 		{352CFB01-94A5-4B6A-B2C4-35B9B3598F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{352CFB01-94A5-4B6A-B2C4-35B9B3598F83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C0A7DD5-9581-4129-85C2-E1FA6D55B204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C0A7DD5-9581-4129-85C2-E1FA6D55B204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C0A7DD5-9581-4129-85C2-E1FA6D55B204}.EasyTest|Any CPU.ActiveCfg = Release|Any CPU
+		{5C0A7DD5-9581-4129-85C2-E1FA6D55B204}.EasyTest|Any CPU.Build.0 = Release|Any CPU
+		{5C0A7DD5-9581-4129-85C2-E1FA6D55B204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C0A7DD5-9581-4129-85C2-E1FA6D55B204}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
