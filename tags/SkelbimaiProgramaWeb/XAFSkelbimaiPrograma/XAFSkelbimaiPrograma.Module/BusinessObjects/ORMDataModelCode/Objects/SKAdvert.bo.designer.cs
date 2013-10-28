@@ -34,6 +34,7 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
       : base(session)
     {
     }
+    [DevExpress.Xpo.SizeAttribute(300)]
     public System.String Name
     {
       get
@@ -57,6 +58,7 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
         SetPropertyValue("FoundDate", ref _foundDate, value);
       }
     }
+    [DevExpress.Xpo.SizeAttribute(300)]
     public System.String Year
     {
       get
@@ -68,6 +70,7 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
         SetPropertyValue("Year", ref _year, value);
       }
     }
+    [DevExpress.Xpo.SizeAttribute(500)]
     public System.String Link
     {
       get
@@ -79,6 +82,7 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
         SetPropertyValue("Link", ref _link, value);
       }
     }
+    [DevExpress.Xpo.SizeAttribute(300)]
     public System.String Price
     {
       get
@@ -90,6 +94,7 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
         SetPropertyValue("Price", ref _price, value);
       }
     }
+    [DevExpress.Xpo.SizeAttribute(300)]
     public System.String FuelType
     {
       get
