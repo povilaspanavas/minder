@@ -60,9 +60,10 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             //.NET 4.5 multithreading
             List<SKUserSearchSettings> settingsList = m_settings.Cast<SKUserSearchSettings>().ToList();
             
-            Parallel.ForEach<SKUserSearchSettings>(settingsList, obj =>
+            //Parallel.ForEach<SKUserSearchSettings>(settingsList, obj =>
+            foreach (SKUserSearchSettings settings in settingsList)
             {
-                SKUserSearchSettings settings = obj as SKUserSearchSettings;
+                //SKUserSearchSettings settings = obj as SKUserSearchSettings;
                 if (settings.SKUser == null || settings.Plugin == null)
                     return;
 
@@ -79,7 +80,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
 
                 ParseAdverts(userId, urlLink, settingsId, pluginUniqueCode);
             }
-            );
+            //);
         }
 
         private bool AllowParse(object userId)
