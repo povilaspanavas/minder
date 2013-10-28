@@ -3,6 +3,7 @@
   <BOModel>
     <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKUserSearchSettings" IsDesigned="True" Caption="Paieškos nustatymai">
       <OwnMembers>
+        <Member Name="LastParseDate" Caption="Paskutinį kart tikrinta" />
         <Member Name="Name" Caption="Pavadinimas" />
         <Member Name="Plugin" Caption="Tinklapis" />
         <Member Name="SendEmail" Caption="Siųsti į el. paštą" />
