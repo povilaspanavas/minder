@@ -57,6 +57,13 @@
         <Member Name="SKUser" Caption="Vartotojas" />
       </OwnMembers>
     </Class>
+    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKParserLog" IsDesigned="True" Caption="Logas">
+      <OwnMembers>
+        <Member Name="LogDate" Caption="Data" />
+        <Member Name="LogType" Caption="Tipas" />
+        <Member Name="Message" Caption="Pranešimas" />
+      </OwnMembers>
+    </Class>
     <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKUserLicense" IsDesigned="True" Caption="Licencija">
       <OwnMembers>
         <Member Name="Blocked" Caption="Negalioja" />
