@@ -23,6 +23,7 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
   [DefaultClassOptions]
   public partial class SKUserSearchSettings : DevExpress.Persistent.BaseImpl.BaseObject
   {
+    private System.DateTime _lastParseDate;
     private System.Boolean _sendEmail;
     private XAFSkelbimaiPrograma.Module.SecurityModule.DLCEmployee _sKUser;
     private XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Classificators.SKPlugin _plugin;
@@ -95,6 +96,17 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
       set
       {
         SetPropertyValue("SendEmail", ref _sendEmail, value);
+      }
+    }
+    public System.DateTime LastParseDate
+    {
+      get
+      {
+        return _lastParseDate;
+      }
+      set
+      {
+        SetPropertyValue("LastParseDate", ref _lastParseDate, value);
       }
     }
   }
