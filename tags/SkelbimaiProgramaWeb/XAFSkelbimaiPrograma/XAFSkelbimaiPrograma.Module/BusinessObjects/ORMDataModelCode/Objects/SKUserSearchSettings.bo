@@ -17,6 +17,26 @@
       <Items>
         <PropertyEditor Id="SKUser" Removed="True" />
       </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="13">
+            <LayoutGroup Id="SKUserSearchSettings" RelativeSize="100">
+              <LayoutGroup Id="SKUserSearchSettings_col1" RelativeSize="48">
+                <LayoutItem Id="Name" SizeConstraintsType="Default" RelativeSize="48" />
+                <LayoutItem Id="Plugin" SizeConstraintsType="Default" RelativeSize="36" />
+                <LayoutItem Id="SKUser" ShowCaption="False" SizeConstraintsType="Default" RelativeSize="15" ViewItem="" />
+              </LayoutGroup>
+              <LayoutGroup Id="SKUserSearchSettings_col2" RelativeSize="48">
+                <LayoutItem Id="SendEmail" SizeConstraintsType="Default" RelativeSize="48" />
+                <LayoutItem Id="LastParseDate" SizeConstraintsType="Default" RelativeSize="51" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="86">
+            <LayoutItem Id="Url" SizeConstraintsType="Default" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
     </DetailView>
     <ListView Id="SKUserSearchSettings_ListView">
       <Columns>
