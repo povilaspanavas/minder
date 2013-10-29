@@ -30,7 +30,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             catch (Exception e)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(e.Message);
+                Console.WriteLine(e);
                 Console.ResetColor();
             }
         }
