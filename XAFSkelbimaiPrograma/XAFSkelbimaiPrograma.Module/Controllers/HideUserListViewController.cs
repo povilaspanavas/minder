@@ -32,32 +32,35 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
         protected override void OnActivated()
         {
             base.OnActivated();
-            Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
-            XPCollection<DLCEmployee> users = new XPCollection<DLCEmployee>(session);
-            users.Criteria = CriteriaOperator.Parse("Oid = ?", SecuritySystem.CurrentUserId);
-
-            bool admin = false;
-            foreach (DLCEmployeeRole role in users[0].EmployeeRoles)
+            using (Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING })
             {
-                if (role.IsAdministrative)
-                {
-                    admin = true;
-                    break;
-                }
-            }
+                XPCollection<DLCEmployee> users = new XPCollection<DLCEmployee>(session);
+                users.Criteria = CriteriaOperator.Parse("Oid = ?", SecuritySystem.CurrentUserId);
 
-            if (admin == false)
-            {
-                // No, it is not administrator
-                SingleChoiceAction StandardShowNavigationItemAction = Frame.GetController<DevExpress.ExpressApp.SystemModule.ShowNavigationItemController>().ShowNavigationItemAction;
-                for (int i = 0; i < StandardShowNavigationItemAction.Items.Count; i++)
+                bool admin = false;
+                foreach (DLCEmployeeRole role in users[0].EmployeeRoles)
                 {
-                    if (StandardShowNavigationItemAction.Items[i].Id == "Default")
+                    if (role.IsAdministrative)
                     {
-                        StandardShowNavigationItemAction.Items.Remove(StandardShowNavigationItemAction.Items[i]);
+                        admin = true;
                         break;
                     }
                 }
+
+                if (admin == false)
+                {
+                    // No, it is not administrator
+                    SingleChoiceAction StandardShowNavigationItemAction = Frame.GetController<DevExpress.ExpressApp.SystemModule.ShowNavigationItemController>().ShowNavigationItemAction;
+                    for (int i = 0; i < StandardShowNavigationItemAction.Items.Count; i++)
+                    {
+                        if (StandardShowNavigationItemAction.Items[i].Id == "Default")
+                        {
+                            StandardShowNavigationItemAction.Items.Remove(StandardShowNavigationItemAction.Items[i]);
+                            break;
+                        }
+                    }
+                }
+                session.Disconnect();
             }
 
             // Perform various tasks depending on the target View.
