@@ -37,19 +37,13 @@ namespace XAFSkelbimaiPrograma.Parser.Services
 
         private void LoadSettingsCollection()
         {
-            Session session = new Session() { ConnectionString = StaticData.CONNECTION_STRING };
-            try
+            using (Session session = new Session() { ConnectionString = StaticData.CONNECTION_STRING })
             {
                 XPClassInfo settingsClass = session.GetClassInfo(typeof(SKUserSearchSettings));
                 m_settings = session.GetObjects(settingsClass, null, null, 0, 0, false, true);
-                session.Dispose();
+                session.Disconnect();
             }
-            catch
-            {
-                session.Dispose();
-                LoadSettingsCollection(); //Time exeeded
-            }
-            
+
         }
 
         private void StartParsing()
@@ -59,7 +53,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             LoadPlugins();
             //.NET 4.5 multithreading
             List<SKUserSearchSettings> settingsList = m_settings.Cast<SKUserSearchSettings>().ToList();
-            
+
             //Parallel.ForEach<SKUserSearchSettings>(settingsList, obj =>
             foreach (SKUserSearchSettings settings in settingsList)
             {
@@ -86,21 +80,15 @@ namespace XAFSkelbimaiPrograma.Parser.Services
         private bool AllowParse(object userId)
         {
             //direct sql
-            Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
-            try
+            using (Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING })
             {
                 string query = string.Format("select \"Oid\" from \"SKUserLicense\" where \"SKUser\" = '{0}' and \"Blocked\" = 0", userId);
                 object result = session.ExecuteScalar(query);
-                session.Dispose();
+                session.Disconnect();
                 if (result != null)
                     return true;
                 else
                     return false;
-            }
-            catch
-            {
-                session.Dispose();
-                return AllowParse(userId); //TimeOut
             }
         }
 

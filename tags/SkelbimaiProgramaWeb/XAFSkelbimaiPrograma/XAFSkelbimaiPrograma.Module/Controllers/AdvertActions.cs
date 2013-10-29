@@ -51,105 +51,119 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
         private void simpleAction1_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
             var selectedObjects = e.SelectedObjects;
-            Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
-
-            session.BeginTransaction();
-            foreach (object obj in selectedObjects)
+            using (Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING })
             {
-                SKAdvert advert = obj as SKAdvert;
-                if (advert == null)
-                    continue;
 
-                advert = session.GetObjectByKey<SKAdvert>(advert.Oid);
-                advert.Read = true;
-                advert.Save();
+                session.BeginTransaction();
+                foreach (object obj in selectedObjects)
+                {
+                    SKAdvert advert = obj as SKAdvert;
+                    if (advert == null)
+                        continue;
+
+                    advert = session.GetObjectByKey<SKAdvert>(advert.Oid);
+                    advert.Read = true;
+                    advert.Save();
+                }
+                session.CommitTransaction();
+                this.View.ObjectSpace.CommitChanges();
+                this.View.ObjectSpace.Refresh();
+                this.View.Refresh();
+                session.Disconnect();
             }
-            session.CommitTransaction();
-            this.View.ObjectSpace.CommitChanges();
-            this.View.ObjectSpace.Refresh();
-            this.View.Refresh();
         }
 
         private void simpleAction2_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
             var selectedObjects = e.SelectedObjects;
-            Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
-
-            session.BeginTransaction();
-            foreach (object obj in selectedObjects)
+            using (Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING })
             {
-                SKAdvert advert = obj as SKAdvert;
-                if (advert == null)
-                    continue;
 
-                advert = session.GetObjectByKey<SKAdvert>(advert.Oid);
-                if (advert.Mark == false)
-                    advert.Mark = true;
-                else
-                    advert.Mark = false;
-                advert.Save();
+                session.BeginTransaction();
+                foreach (object obj in selectedObjects)
+                {
+                    SKAdvert advert = obj as SKAdvert;
+                    if (advert == null)
+                        continue;
+
+                    advert = session.GetObjectByKey<SKAdvert>(advert.Oid);
+                    if (advert.Mark == false)
+                        advert.Mark = true;
+                    else
+                        advert.Mark = false;
+                    advert.Save();
+                }
+                session.CommitTransaction();
+                this.View.ObjectSpace.CommitChanges();
+                this.View.ObjectSpace.Refresh();
+                this.View.Refresh();
+                session.Disconnect();
             }
-            session.CommitTransaction();
-            this.View.ObjectSpace.CommitChanges();
-            this.View.ObjectSpace.Refresh();
-            this.View.Refresh();
         }
 
         private void simpleAction3_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
             var selectedObjects = e.SelectedObjects;
-            Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
-
-            session.BeginTransaction();
-            foreach (object obj in selectedObjects)
+            using (Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING })
             {
-                SKAdvert advert = obj as SKAdvert;
-                if (advert == null)
-                    continue;
 
-
-                advert = session.GetObjectByKey<SKAdvert>(advert.Oid);
-
-                if (advert.Read == false)
+                session.BeginTransaction();
+                foreach (object obj in selectedObjects)
                 {
-                    advert.Read = true;
-                    advert.Save();
-                }
-                //Process.Start(advert.Link);
-                //WebApplication.Redirect(string.Format("<script>window.location({0}, '_blank');</script>", advert.Link));
-                WebApplication.Redirect(string.Format("OpenLinkPage.aspx?linkId={0}", advert.Link));
-                //ASPxHyperLink link = new ASPxHyperLink();
-                //link.NavigateUrl = advert.Link;
-                //link.
-                //Launcher.LaunchUriAsync();
+                    SKAdvert advert = obj as SKAdvert;
+                    if (advert == null)
+                        continue;
 
+
+                    advert = session.GetObjectByKey<SKAdvert>(advert.Oid);
+
+                    if (advert.Read == false)
+                    {
+                        advert.Read = true;
+                        advert.Save();
+                    }
+                    //Process.Start(advert.Link);
+                    //WebApplication.Redirect(string.Format("<script>window.location({0}, '_blank');</script>", advert.Link));
+                    WebApplication.Redirect(string.Format("OpenLinkPage.aspx?linkId={0}", advert.Link));
+                    //ASPxHyperLink link = new ASPxHyperLink();
+                    //link.NavigateUrl = advert.Link;
+                    //link.
+                    //Launcher.LaunchUriAsync();
+
+
+                }
+
+                session.CommitTransaction();
+                this.View.ObjectSpace.CommitChanges();
+                this.View.ObjectSpace.Refresh();
+                this.View.Refresh();
+                session.Disconnect();
             }
-            session.CommitTransaction();
-            this.View.ObjectSpace.CommitChanges();
-            this.View.ObjectSpace.Refresh();
-            this.View.Refresh();
         }
 
         private void simpleAction4_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
             var selectedObjects = e.SelectedObjects;
-            Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
-
-            session.BeginTransaction();
-            foreach (object obj in selectedObjects)
+            using (Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING })
             {
-                SKAdvert advert = obj as SKAdvert;
-                if (advert == null)
-                    continue;
 
-                advert = session.GetObjectByKey<SKAdvert>(advert.Oid);
-                advert.Deleted = true;
-                advert.Save();
+                session.BeginTransaction();
+                foreach (object obj in selectedObjects)
+                {
+                    SKAdvert advert = obj as SKAdvert;
+                    if (advert == null)
+                        continue;
+
+                    advert = session.GetObjectByKey<SKAdvert>(advert.Oid);
+                    advert.Deleted = true;
+                    advert.Save();
+                }
+                session.CommitTransaction();
+                this.View.ObjectSpace.CommitChanges();
+                this.View.ObjectSpace.Refresh();
+                this.View.Refresh();
+                session.Disconnect();
             }
-            session.CommitTransaction();
-            this.View.ObjectSpace.CommitChanges();
-            this.View.ObjectSpace.Refresh();
-            this.View.Refresh();
         }
     }
 }
