@@ -20,6 +20,7 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
         {
             if (m_session != null)
             {
+                m_session.Disconnect();
                 m_session.Dispose();
                 m_session = null;
             }
@@ -48,6 +49,8 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
                 advertXpo.Save();
             }
             m_session.CommitTransaction();
+            m_session.Disconnect();
+            m_session.Dispose();
         }
 
         private bool NeedSave(AdvertDto advert)
