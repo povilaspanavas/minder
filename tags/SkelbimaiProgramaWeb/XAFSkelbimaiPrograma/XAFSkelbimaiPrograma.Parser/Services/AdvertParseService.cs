@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
@@ -17,8 +18,9 @@ namespace XAFSkelbimaiPrograma.Parser.Services
 {
     class AdvertParseService
     {
-        private ICollection m_settings;
+        private List<SKUserSearchSettings> m_settingsList;
         private Dictionary<string, IPlugin> m_plugins;
+        private Dictionary<object, bool?> m_allowParseCache = new Dictionary<object,bool?>();
 
         public void RunService()
         {
@@ -40,56 +42,87 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             using (Session session = new Session() { ConnectionString = StaticData.CONNECTION_STRING })
             {
                 XPClassInfo settingsClass = session.GetClassInfo(typeof(SKUserSearchSettings));
-                m_settings = session.GetObjects(settingsClass, null, null, 0, 0, false, true);
+                ICollection settings = session.GetObjects(settingsClass, null, null, 0, 0, false, true);
                 session.Disconnect();
+                m_settingsList = settings.Cast<SKUserSearchSettings>().ToList();
+                m_settingsList = m_settingsList.OrderBy(M => M.LastParseDate).ToList();
             }
 
         }
 
         private void StartParsing()
         {
-            if (m_settings == null)
+            if (m_settingsList == null)
                 return;
             LoadPlugins();
+
             //.NET 4.5 multithreading
-            List<SKUserSearchSettings> settingsList = m_settings.Cast<SKUserSearchSettings>().ToList();
-
-            Parallel.ForEach<SKUserSearchSettings>(settingsList, obj =>
-            //foreach (SKUserSearchSettings settings in settingsList)
+            Parallel.ForEach<SKUserSearchSettings>(m_settingsList, obj =>
             {
-                SKUserSearchSettings settings = obj as SKUserSearchSettings;
-                if (settings.SKUser == null || settings.Plugin == null)
-                    return;
+                try
+                {
+                    SKUserSearchSettings settings = obj as SKUserSearchSettings;
 
-                object userId = settings.SKUser.Oid;
-                string urlLink = settings.Url;
-                object settingsId = settings.Oid;
-                string pluginUniqueCode = settings.Plugin.UniqueCode;
+                    if (ValidateSettings(settings) == false)
+                        return;
 
-                if (AllowParse(userId) == false)
-                    return;
+                    object userId = settings.SKUser.Oid;
+                    string urlLink = settings.Url;
+                    object settingsId = settings.Oid;
+                    string pluginUniqueCode = settings.Plugin.UniqueCode;
 
-                if (string.IsNullOrEmpty(urlLink))
-                    return;
+                    if (AllowParse(userId) == false)
+                        return;
 
-                ParseAdverts(userId, urlLink, settingsId, pluginUniqueCode);
+                    if (string.IsNullOrEmpty(urlLink))
+                        return;
+
+                    ParseAdverts(userId, urlLink, settingsId, pluginUniqueCode);
+                }
+                catch (Exception e)
+                {
+                    //TODO log to DB
+                    throw e;
+                }
+               
             }
             );
+        }
+
+        private bool ValidateSettings(SKUserSearchSettings settings)
+        {
+            return true;
         }
 
         private bool AllowParse(object userId)
         {
             //direct sql
-            using (Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING })
+            bool? result = null;
+
+            lock (m_allowParseCache) // Lock cache
             {
-                string query = string.Format("select \"Oid\" from \"SKUserLicense\" where \"SKUser\" = '{0}' and \"Blocked\" = 0", userId);
-                object result = session.ExecuteScalar(query);
-                session.Disconnect();
+                m_allowParseCache.TryGetValue(userId, out result);
+
+
                 if (result != null)
-                    return true;
-                else
-                    return false;
+                    return result.Value;
+
+                using (Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING })
+                {
+                    string query = string.Format("select \"Oid\" from \"SKUserLicense\" where \"SKUser\" = '{0}' and \"Blocked\" = 0", userId);
+                    object resultQuery = session.ExecuteScalar(query);
+                    session.Disconnect();
+                    if (resultQuery != null)
+                        result = true;
+                    else
+                        result = false;
+
+
+                    m_allowParseCache.Add(userId, result);
+                }
             }
+
+            return result.Value;
         }
 
         private void ParseAdverts(object userId, string urlLink, object settingsId, string pluginUniqueCode)
@@ -99,7 +132,19 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                 return;
             List<AdvertDto> adverts = plugin.Parse(urlLink);
             SetAdditionalInfoToAdverts(adverts, userId, settingsId);
+            SetLastParseDate(settingsId);
             new SaveHelper().SaveAdverts(adverts);
+        }
+
+        private void SetLastParseDate(object settingsId)
+        {
+            using (Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING })
+            {
+                string query = string.Format("update \"SKUserSearchSettings\" set \"LastParseDate\" "+
+                    "= '{0}' where \"Oid\" = '{1}'", DateTime.Now, settingsId);
+                session.ExecuteNonQuery(query);
+                session.Disconnect();
+            }
         }
 
         private void SetAdditionalInfoToAdverts(List<AdvertDto> adverts, object userId, object settingsId)

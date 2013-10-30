@@ -195,7 +195,7 @@
     </DetailView>
     <DetailView Id="SKUserSearchSettings_DetailView">
       <Items>
-        <PropertyEditor Id="LastParseDate" AllowEdit="False" />
+        <PropertyEditor Id="LastParseDate" AllowEdit="False" EditMaskType="DateTime" EditMask="g" DisplayFormat="{0:g}" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main">
@@ -205,7 +205,11 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="SKUserSearchSettings_ListView" Criteria="[SKUser.Oid] = CurrentUserId()" />
+    <ListView Id="SKUserSearchSettings_ListView" Criteria="[SKUser.Oid] = CurrentUserId()">
+      <Columns>
+        <ColumnInfo Id="LastParseDate" EditMaskType="DateTime" EditMask="g" DisplayFormat="{0:g}" />
+      </Columns>
+    </ListView>
     <ListView Id="SKUserSearchSettings_LookupListView" Criteria="[SKUser.Oid] = CurrentUserId()" />
   </Views>
 </Application>
