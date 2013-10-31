@@ -23,6 +23,7 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
   [DefaultClassOptions]
   public partial class SKUserSearchSettings : DevExpress.Persistent.BaseImpl.BaseObject
   {
+    private System.Boolean _blocked;
     private System.DateTime _lastParseDate;
     private System.Boolean _sendEmail;
     private XAFSkelbimaiPrograma.Module.SecurityModule.DLCEmployee _sKUser;
@@ -107,6 +108,17 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
       set
       {
         SetPropertyValue("LastParseDate", ref _lastParseDate, value);
+      }
+    }
+    public System.Boolean Blocked
+    {
+      get
+      {
+        return _blocked;
+      }
+      set
+      {
+        SetPropertyValue("Blocked", ref _blocked, value);
       }
     }
   }
