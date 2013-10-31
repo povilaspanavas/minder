@@ -83,6 +83,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\LogDBHelper.cs" />
     <Compile Include="Helpers\SaveHelper.cs" />
     <Compile Include="Helpers\SourceHelper.cs" />
     <Compile Include="Plugins\AdvertDto.cs" />

@@ -20,7 +20,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
     {
         private List<SKUserSearchSettings> m_settingsList;
         private Dictionary<string, IPlugin> m_plugins;
-        private Dictionary<object, bool?> m_allowParseCache = new Dictionary<object,bool?>();
+        private Dictionary<object, bool?> m_allowParseCache = new Dictionary<object, bool?>();
 
         public void RunService()
         {
@@ -42,7 +42,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             using (Session session = new Session() { ConnectionString = StaticData.CONNECTION_STRING })
             {
                 XPClassInfo settingsClass = session.GetClassInfo(typeof(SKUserSearchSettings));
-                ICollection settings = session.GetObjects(settingsClass, null, null, 0, 0, false, true);
+                ICollection settings = session.GetObjects(settingsClass, CriteriaOperator.Parse("Blocked = false"), null, 0, 0, false, true);
                 session.Disconnect();
                 m_settingsList = settings.Cast<SKUserSearchSettings>().ToList();
                 m_settingsList = m_settingsList.OrderBy(M => M.LastParseDate).ToList();
@@ -81,17 +81,41 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                 }
                 catch (Exception e)
                 {
-                    //TODO log to DB
-                    throw e;
+                    //log to DB
+                    SKUserSearchSettings settings = obj as SKUserSearchSettings;
+                    new LogDBHelper().Log(e, settings, LogType.ParserError);
                 }
-               
+
             }
             );
         }
 
         private bool ValidateSettings(SKUserSearchSettings settings)
         {
-            return true;
+            bool result = false;
+
+            if (string.IsNullOrEmpty(settings.Url) || settings.SKUser == null || settings.Plugin == null)
+                result = false;
+            else if (settings.Url.IndexOf("http://") == -1)
+                result = false;
+            else if (settings.Url.ToLower().IndexOf(settings.Plugin.UniqueCode.ToLower()) == -1)
+                return false;
+            else
+                result = true;
+
+            if (result == false)
+            {
+                //Block
+                Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
+
+                session.ExecuteNonQuery(string.Format("update \"SKUserSearchSettings\" set \"Blocked\" = 1 where \"Oid\" = '{0}'", 
+                    settings.Oid));
+               
+                session.Disconnect();
+                session.Dispose();
+            }
+
+            return result;
         }
 
         private bool AllowParse(object userId)
@@ -140,7 +164,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
         {
             using (Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING })
             {
-                string query = string.Format("update \"SKUserSearchSettings\" set \"LastParseDate\" "+
+                string query = string.Format("update \"SKUserSearchSettings\" set \"LastParseDate\" " +
                     "= '{0}' where \"Oid\" = '{1}'", DateTime.Now, settingsId);
                 session.ExecuteNonQuery(query);
                 session.Disconnect();

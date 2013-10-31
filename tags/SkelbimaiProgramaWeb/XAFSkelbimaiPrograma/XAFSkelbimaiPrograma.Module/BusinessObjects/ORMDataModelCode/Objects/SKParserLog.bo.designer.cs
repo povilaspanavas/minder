@@ -26,7 +26,7 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
       : base(session)
     {
     }
-    [DevExpress.Xpo.SizeAttribute(1000)]
+    [DevExpress.Xpo.SizeAttribute(5000)]
     public System.String Message
     {
       get

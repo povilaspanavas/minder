@@ -3,6 +3,7 @@
   <BOModel>
     <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKUserSearchSettings" IsDesigned="True" Caption="Paieškos nustatymai">
       <OwnMembers>
+        <Member Name="Blocked" Caption="Užblokuota" />
         <Member Name="LastParseDate" Caption="Paskutinį kart tikrinta" />
         <Member Name="Name" Caption="Pavadinimas" />
         <Member Name="Plugin" Caption="Tinklapis" />
@@ -22,18 +23,18 @@
           <LayoutGroup Id="SimpleEditors" RelativeSize="13">
             <LayoutGroup Id="SKUserSearchSettings" RelativeSize="100">
               <LayoutGroup Id="SKUserSearchSettings_col1" RelativeSize="48">
-                <LayoutItem Id="Name" SizeConstraintsType="Default" RelativeSize="48" />
-                <LayoutItem Id="Plugin" SizeConstraintsType="Default" RelativeSize="36" />
+                <LayoutItem Id="Name" SizeConstraintsType="Default" RelativeSize="48" ViewItem="Name" />
+                <LayoutItem Id="Plugin" SizeConstraintsType="Default" RelativeSize="36" ViewItem="Plugin" />
                 <LayoutItem Id="SKUser" ShowCaption="False" SizeConstraintsType="Default" RelativeSize="15" ViewItem="" />
               </LayoutGroup>
               <LayoutGroup Id="SKUserSearchSettings_col2" RelativeSize="48">
-                <LayoutItem Id="SendEmail" SizeConstraintsType="Default" RelativeSize="48" />
-                <LayoutItem Id="LastParseDate" SizeConstraintsType="Default" RelativeSize="51" />
+                <LayoutItem Id="SendEmail" SizeConstraintsType="Default" RelativeSize="48" ViewItem="SendEmail" />
+                <LayoutItem Id="LastParseDate" SizeConstraintsType="Default" RelativeSize="51" ViewItem="LastParseDate" />
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
           <LayoutGroup Id="SizeableEditors" RelativeSize="86">
-            <LayoutItem Id="Url" SizeConstraintsType="Default" RelativeSize="100" />
+            <LayoutItem Id="Url" SizeConstraintsType="Default" RelativeSize="100" ViewItem="Url" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>
