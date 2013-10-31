@@ -12,6 +12,5 @@ rem copying
 cd "d:\Projektai\Core_tags\Core_2.5\Core\bin\Debug\"
 copy *.* "d:\Projektai\SkelbimaiProgramaWeb\BussinessLogic\libs\"
 
-
 echo CORE UPDATED SUCCESSFULLY! 
 pause
