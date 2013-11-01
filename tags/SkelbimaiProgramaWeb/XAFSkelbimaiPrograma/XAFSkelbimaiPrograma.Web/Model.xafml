@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model" VersionFormat="Versija 1.0.11 Developer Preview">
+<Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model" VersionFormat="Versija 1.0.12 Developer Preview" ProtectedContentText="Nerodoma">
   <ActionDesign>
     <Actions>
       <Action Id="Edit" Caption="Redaguoti" Shortcut="Redaguoti" />
@@ -49,7 +49,7 @@
       <Item Id="Skelbimai" Index="0" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="Nauji" Caption="Nauji" Index="0" ViewId="SKAdvertNew_ListView" IsNewNode="True" />
-          <Item Id="Perskaityti" ViewId="SKAdvert_ListView" Caption="Perskaityti" Index="1" IsNewNode="True" />
+          <Item Id="Perskaityti" Caption="Perskaityti" Index="1" ViewId="SKAdvertRead_ListView" IsNewNode="True" />
           <Item Id="Pažymėti" Caption="Pažymėti" Index="2" ViewId="SKAdvertMark_ListView" IsNewNode="True" />
         </Items>
       </Item>
@@ -182,6 +182,20 @@
       </Columns>
       <Sorting IsNewNode="True">
         <SortProperty Id="@0b37b4f8-7db6-4dce-aae8-39912626212a" Direction="Descending" PropertyName="FoundDate" IsNewNode="True" />
+      </Sorting>
+    </ListView>
+    <ListView Id="SKAdvertRead_ListView" ClassName="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" Criteria="[SKUser.Oid] = CurrentUserId() And [Read] = True And [Deleted] = False" Caption="Perskaityti skelbimai" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Name" PropertyName="Name" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="SearchSetting" PropertyName="SearchSetting" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="FoundDate" PropertyName="FoundDate" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Price" PropertyName="Price" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Year" PropertyName="Year" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="FuelType" PropertyName="FuelType" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Link" PropertyName="Link" Index="6" IsNewNode="True" />
+      </Columns>
+      <Sorting IsNewNode="True">
+        <SortProperty Id="@e0c3dcc1-793b-464c-87c4-b1b2180e3ceb" Direction="Descending" PropertyName="FoundDate" IsNewNode="True" />
       </Sorting>
     </ListView>
     <DetailView Id="SKLicenseType_DetailView" Caption="Licencijos tipas">

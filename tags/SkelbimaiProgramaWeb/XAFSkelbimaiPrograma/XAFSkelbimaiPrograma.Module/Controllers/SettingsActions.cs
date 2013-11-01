@@ -63,7 +63,7 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
 
                     //Process.Start(advert.Link);
                     //WebApplication.Redirect(string.Format("<script>window.location({0}, '_blank');</script>", advert.Link));
-                    WebApplication.Redirect(string.Format("OpenLinkPage.aspx?linkId={0}", settings.Url));
+                    WebApplication.Redirect(string.Format("OpenLinkPage.aspx?linkId={0}", settings.Url.Replace("&", "sklink")));
                     //ASPxHyperLink link = new ASPxHyperLink();
                     //link.NavigateUrl = advert.Link;
                     //link.
