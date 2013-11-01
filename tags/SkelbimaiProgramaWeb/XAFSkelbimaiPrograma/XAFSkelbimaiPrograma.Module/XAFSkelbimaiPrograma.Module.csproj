@@ -170,6 +170,12 @@
     <Compile Include="Controllers\HideUserListViewController.Designer.cs">
       <DependentUpon>HideUserListViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\SettingsActions.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\SettingsActions.Designer.cs">
+      <DependentUpon>SettingsActions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\SKUserSettingsController.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -191,6 +197,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Controllers\AdvertActions.resx">
       <DependentUpon>AdvertActions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\SettingsActions.resx">
+      <DependentUpon>SettingsActions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
     <EmbeddedResource Include="Module.resx">
