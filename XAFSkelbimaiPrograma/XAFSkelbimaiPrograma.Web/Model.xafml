@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model" VersionFormat="Versija 1.0.8 Developer Preview">
+<Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model" VersionFormat="Versija 1.0.9 Developer Preview">
   <ActionDesign>
     <Actions>
-      <Action Id="Edit" Caption="Redaguoti" />
+      <Action Id="Edit" Caption="Redaguoti" Shortcut="Redaguoti" />
       <Action Id="Export" Caption="Eksportuoti" ValidationContexts="" />
       <Action Id="Logon" Caption="Prisijungti" />
       <Action Id="MyDetails" Caption="Mano profilis" />
@@ -123,7 +123,7 @@
         <ColumnInfo Id="FullName" Removed="True" />
       </Columns>
     </ListView>
-    <DetailView Id="SKAdvert_DetailView">
+    <DetailView Id="SKAdvert_DetailView" AllowEdit="False">
       <Items>
         <PropertyEditor Id="Name" Index="0" />
         <PropertyEditor Id="SearchSetting" Index="1" />
@@ -193,7 +193,7 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <DetailView Id="SKUserSearchSettings_DetailView">
+    <DetailView Id="SKUserSearchSettings_DetailView" AllowEdit="True">
       <Items>
         <PropertyEditor Id="Blocked" AllowEdit="False" />
         <PropertyEditor Id="LastParseDate" AllowEdit="False" EditMaskType="DateTime" EditMask="g" DisplayFormat="{0:g}" />
@@ -203,7 +203,7 @@
           <LayoutGroup Id="SimpleEditors">
             <LayoutGroup Id="SKUserSearchSettings" ShowCaption="False">
               <LayoutGroup Id="SKUserSearchSettings_col1">
-                <LayoutItem Id="SendEmail" ViewItem="SendEmail" Index="2" SizeConstraintsType="Default" RelativeSize="48" ShowCaption="" IsNewNode="True" />
+                <LayoutItem Id="SendEmail" ViewItem="SendEmail" Index="2" SizeConstraintsType="Default" RelativeSize="48" IsNewNode="True" />
                 <LayoutItem Id="SKUser" Index="3" Removed="True" />
               </LayoutGroup>
               <LayoutGroup Id="SKUserSearchSettings_col2">

@@ -16,7 +16,7 @@ namespace XAFSkelbimaiPrograma.Parser
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 10; i++)
             {
                 Console.WriteLine("Starting parse service...");
                 DateTime startTime = DateTime.Now;

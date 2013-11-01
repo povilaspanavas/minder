@@ -43,7 +43,7 @@
         <Member Name="UniqueCode" Caption="Unikalus kodas" />
       </OwnMembers>
     </Class>
-    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" IsDesigned="True" Caption="Skelbimas">
+    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" IsDesigned="True" Caption="Skelbimas" ImageName="">
       <OwnMembers>
         <Member Name="FoundDate" Caption="Radimo data" />
         <Member Name="FuelType" Caption="Kuro tipas" />

@@ -39,7 +39,7 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
             this.simpleAction3.Caption = "Atidaryti";
             this.simpleAction3.ConfirmationMessage = null;
             this.simpleAction3.Id = "fde552ba-efdf-4ad6-8db3-044dc6d2a66d";
-            this.simpleAction3.ImageName = null;
+            this.simpleAction3.ImageName = "Action_Open";
             this.simpleAction3.Shortcut = null;
             this.simpleAction3.Tag = null;
             this.simpleAction3.TargetObjectsCriteria = null;
@@ -54,7 +54,7 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
             this.simpleAction1.Caption = "Paþymëti kaip perskaitytà";
             this.simpleAction1.ConfirmationMessage = null;
             this.simpleAction1.Id = "ae4dd754-c4af-4890-b382-ddf26a2c6fd1";
-            this.simpleAction1.ImageName = null;
+            this.simpleAction1.ImageName = "Action_Grant";
             this.simpleAction1.Shortcut = null;
             this.simpleAction1.Tag = null;
             this.simpleAction1.TargetObjectsCriteria = null;
@@ -68,7 +68,7 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
             this.simpleAction2.Caption = "Paþymëti/Atþymëti";
             this.simpleAction2.ConfirmationMessage = null;
             this.simpleAction2.Id = "d07f1c25-e0d2-4b02-a844-4d874d304ece";
-            this.simpleAction2.ImageName = null;
+            this.simpleAction2.ImageName = "BO_Security_Permission";
             this.simpleAction2.Shortcut = null;
             this.simpleAction2.Tag = null;
             this.simpleAction2.TargetObjectsCriteria = null;
@@ -83,7 +83,7 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
             this.simpleAction4.Caption = "Iðtrinti";
             this.simpleAction4.ConfirmationMessage = null;
             this.simpleAction4.Id = "ee969542-30b5-4944-8202-18c0abcd78e9";
-            this.simpleAction4.ImageName = null;
+            this.simpleAction4.ImageName = "Action_Delete";
             this.simpleAction4.Shortcut = null;
             this.simpleAction4.Tag = null;
             this.simpleAction4.TargetObjectsCriteria = null;
