@@ -170,12 +170,6 @@
     <Compile Include="Controllers\HideUserListViewController.Designer.cs">
       <DependentUpon>HideUserListViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\RefreshAdvertListController.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controllers\RefreshAdvertListController.Designer.cs">
-      <DependentUpon>RefreshAdvertListController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\SettingsActions.cs">
       <SubType>Component</SubType>
     </Compile>
