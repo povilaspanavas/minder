@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model" VersionFormat="Versija 1.0.12 Developer Preview" ProtectedContentText="Nerodoma">
+<Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model" VersionFormat="Versija 1.0.14 Developer Preview" ProtectedContentText="Nerodoma">
   <ActionDesign>
     <Actions>
       <Action Id="Edit" Caption="Redaguoti" Shortcut="Redaguoti" />
@@ -188,7 +188,7 @@
       <Columns IsNewNode="True">
         <ColumnInfo Id="Name" PropertyName="Name" Index="0" IsNewNode="True" />
         <ColumnInfo Id="SearchSetting" PropertyName="SearchSetting" Index="1" IsNewNode="True" />
-        <ColumnInfo Id="FoundDate" PropertyName="FoundDate" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="FoundDate" PropertyName="FoundDate" Index="2" EditMaskType="DateTime" EditMask="g" DisplayFormat="{0:g}" IsNewNode="True" />
         <ColumnInfo Id="Price" PropertyName="Price" Index="3" IsNewNode="True" />
         <ColumnInfo Id="Year" PropertyName="Year" Index="4" IsNewNode="True" />
         <ColumnInfo Id="FuelType" PropertyName="FuelType" Index="5" IsNewNode="True" />
