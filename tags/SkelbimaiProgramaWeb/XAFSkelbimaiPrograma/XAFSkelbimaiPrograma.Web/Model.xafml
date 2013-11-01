@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model" VersionFormat="Versija 1.0.9 Developer Preview">
+<Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model" VersionFormat="Versija 1.0.10 Developer Preview">
   <ActionDesign>
     <Actions>
       <Action Id="Edit" Caption="Redaguoti" Shortcut="Redaguoti" />
@@ -152,6 +152,9 @@
         <ColumnInfo Id="Read" Removed="True" />
         <ColumnInfo Id="SKUser" Removed="True" />
       </Columns>
+      <Sorting>
+        <SortProperty Id="@ef2fe6f9-01fc-4658-8eb7-16f1ae1e0646" PropertyName="FoundDate" Direction="Descending" IsNewNode="True" />
+      </Sorting>
     </ListView>
     <ListView Id="SKAdvertMark_ListView" ClassName="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" Criteria="[SKUser.Oid] = CurrentUserId() And [Mark] = True" Caption="Pažymėti skelbimai" IsNewNode="True">
       <Columns IsNewNode="True">
@@ -163,6 +166,9 @@
         <ColumnInfo Id="Fuel Type" PropertyName="FuelType" Index="5" IsNewNode="True" />
         <ColumnInfo Id="Link" PropertyName="Link" Index="6" IsNewNode="True" />
       </Columns>
+      <Sorting IsNewNode="True">
+        <SortProperty Id="@68a46370-77e9-430b-b3e3-e893678476ce" Direction="Descending" PropertyName="FoundDate" IsNewNode="True" />
+      </Sorting>
     </ListView>
     <ListView Id="SKAdvertNew_ListView" ClassName="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" Caption="Nauji skelbimai" Criteria="[SKUser.Oid] = CurrentUserId() And [Read] = False And [Deleted] = False" IsNewNode="True">
       <Columns IsNewNode="True">
@@ -174,6 +180,9 @@
         <ColumnInfo Id="Fuel Type" PropertyName="FuelType" Index="5" IsNewNode="True" />
         <ColumnInfo Id="Link" PropertyName="Link" Index="6" IsNewNode="True" />
       </Columns>
+      <Sorting IsNewNode="True">
+        <SortProperty Id="@0b37b4f8-7db6-4dce-aae8-39912626212a" Direction="Descending" PropertyName="FoundDate" IsNewNode="True" />
+      </Sorting>
     </ListView>
     <DetailView Id="SKLicenseType_DetailView" Caption="Licencijos tipas">
       <Layout>
