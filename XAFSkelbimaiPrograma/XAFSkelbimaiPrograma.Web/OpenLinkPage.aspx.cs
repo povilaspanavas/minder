@@ -11,7 +11,7 @@ namespace XAFSkelbimaiPrograma.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string link = Request["linkId"];
+            string link = Request["linkId"].Replace("sklink", "&");
             Response.Write("<script Language=JavaScript>");
             Response.Write("window.open('" + link + "','_blank')");
             Response.Write("</script> ");
