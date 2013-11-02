@@ -17,6 +17,9 @@ using XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects;
 using DevExpress.Xpo;
 using XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode;
 using DevExpress.ExpressApp.Web;
+using System.Diagnostics;
+using DevExpress.Web.ASPxPopupControl;
+using System.Web.UI;
 
 namespace XAFSkelbimaiPrograma.Module.Controllers
 {
@@ -47,6 +50,7 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
 
         private void simpleAction1_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
+            
             var selectedObjects = e.SelectedObjects;
             using (Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING })
             {
@@ -61,12 +65,18 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
 
                     settings = session.GetObjectByKey<SKUserSearchSettings>(settings.Oid);
 
-                    //Process.Start(advert.Link);
-                    //WebApplication.Redirect(string.Format("<script>window.location({0}, '_blank');</script>", advert.Link));
+                    //ASPxPopupControl popup = new ASPxPopupControl();
+                    //popup.ContentUrl = "http://www.google.lt";
+                    //popup.ShowOnPageLoad = true;
+
+                   // Process.Start(settings.Url);
+
+                    //WebApplication.Redirect
                     WebApplication.Redirect(string.Format("OpenLinkPage.aspx?linkId={0}", settings.Url.Replace("&", "sklink")));
                     //ASPxHyperLink link = new ASPxHyperLink();
                     //link.NavigateUrl = advert.Link;
                     //link.
+                    
                     //Launcher.LaunchUriAsync();
 
 

@@ -225,9 +225,6 @@
     <None Include="BusinessObjects\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Controllers\ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="FunctionalTests\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
