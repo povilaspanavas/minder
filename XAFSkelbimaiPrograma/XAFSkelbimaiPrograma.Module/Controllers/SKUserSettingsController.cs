@@ -75,13 +75,16 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
                 ICollection licences = session.GetObjects(licenceClass, CriteriaOperator.Parse(string.Format("SKUser.Oid = '{0}' AND (Blocked = false or Blocked = null)", SecuritySystem.CurrentUserId)), null, 0, 0, false, true);
                 List<SKUserLicense> licencesList = licences.Cast<SKUserLicense>().ToList();
                 List<SKUserSearchSettings> settingsList = settings.Cast<SKUserSearchSettings>().ToList();
+                bool result = true;
                 if (licencesList.Count != 1)
-                    return false;
+                    result = false;
 
-                if (licencesList[0].LicenseType.UrlLinkCount > settingsList.Count)
-                    return true;
-                return false;
+                if (result == true && licencesList[0].LicenseType.UrlLinkCount > settingsList.Count)
+                    result = true;
+                result = false;
+
                 session.Disconnect();
+                return result;
             }
         
         }
