@@ -164,6 +164,12 @@
     <Compile Include="Controllers\AdvertActions.Designer.cs">
       <DependentUpon>AdvertActions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AdvertCountErrorController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\AdvertCountErrorController.Designer.cs">
+      <DependentUpon>AdvertCountErrorController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HideUserListViewController.cs">
       <SubType>Component</SubType>
     </Compile>
