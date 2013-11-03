@@ -43,6 +43,12 @@
         <Member Name="UniqueCode" Caption="Unikalus kodas" />
       </OwnMembers>
     </Class>
+    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Classificators.SKRuleType" IsDesigned="True" Caption="Taisyklės tipas">
+      <OwnMembers>
+        <Member Name="Name" Caption="Pavadinimas" />
+        <Member Name="UniqueCode" Caption="Unikalus kodas" />
+      </OwnMembers>
+    </Class>
     <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert" IsDesigned="True" Caption="Skelbimas" ImageName="">
       <OwnMembers>
         <Member Name="FoundDate" Caption="Radimo data" />
@@ -55,13 +61,6 @@
         <Member Name="Read" Caption="Perskaitytas" />
         <Member Name="SearchSetting" Caption="Paieškos nustatymo pavadinimas" />
         <Member Name="SKUser" Caption="Vartotojas" />
-      </OwnMembers>
-    </Class>
-    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKParserLog" IsDesigned="True" Caption="Logas">
-      <OwnMembers>
-        <Member Name="LogDate" Caption="Data" />
-        <Member Name="LogType" Caption="Tipas" />
-        <Member Name="Message" Caption="Pranešimas" />
       </OwnMembers>
     </Class>
     <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKUserLicense" IsDesigned="True" Caption="Licencija">
