@@ -182,6 +182,7 @@
     <Compile Include="Controllers\SKUserSettingsController.Designer.cs">
       <DependentUpon>SKUserSettingsController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\MessageBox.cs" />
     <Compile Include="SecurityModule\DLCEmployee.cs" />
     <Compile Include="SecurityModule\DLCEmployeeRole.cs" />
     <Compile Include="SecurityModule\DLCEmployeeTask.cs" />
