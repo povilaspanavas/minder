@@ -81,12 +81,13 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
 
                 if (result == true && licencesList[0].LicenseType.UrlLinkCount > settingsList.Count)
                     result = true;
-                result = false;
+                else
+                    result = false;
 
                 session.Disconnect();
                 return result;
             }
-        
+
         }
 
     }
