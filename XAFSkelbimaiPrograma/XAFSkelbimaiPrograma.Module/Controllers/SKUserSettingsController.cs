@@ -61,6 +61,18 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
 
             if (AllowCreate())
                 base.New(args);
+            else
+            {
+                MessageBox.Show(Application, "Daugiau kurti nuorodø negalite!",
+                   new Action(delegate
+                   {
+
+                   }),
+                   new Action(delegate
+                   {
+
+                   }));
+            }
         }
 
         private bool AllowCreate()

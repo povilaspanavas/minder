@@ -2,6 +2,8 @@
 <Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model" VersionFormat="Versija 1.0.16 Developer Preview" ProtectedContentText="Nerodoma">
   <ActionDesign>
     <Actions>
+      <Action Id="DialogCancel" Caption="Uždaryti" />
+      <Action Id="DialogOK" Caption="Gerai" />
       <Action Id="Edit" Caption="Redaguoti" Shortcut="Redaguoti" />
       <Action Id="Export" Caption="Eksportuoti" ValidationContexts="" />
       <Action Id="Logon" Caption="Prisijungti" />
