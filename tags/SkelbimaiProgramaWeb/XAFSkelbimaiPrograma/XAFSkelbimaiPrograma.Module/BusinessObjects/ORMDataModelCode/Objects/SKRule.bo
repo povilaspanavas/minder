@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel>
+    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKRule" IsDesigned="True" Caption="Taisyklė">
+      <OwnMembers>
+        <Member Name="LastRunTime" Caption="Paskutinį kart vykdyta" />
+        <Member Name="Name" Caption="Pavadinimas" />
+        <Member Name="RuleNameSpace" Caption="Kelias" />
+        <Member Name="RuleType" Caption="Tipas" />
+        <Member Name="RunTime" Caption="Vykdymo pradžia" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views>
+    <ListView Id="SKRule_ListView">
+      <Columns>
+        <ColumnInfo Id="RunTime" EditMask="g" DisplayFormat="{0:g}" />
+        <ColumnInfo Id="LastRunTime" EditMask="g" DisplayFormat="{0:g}" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

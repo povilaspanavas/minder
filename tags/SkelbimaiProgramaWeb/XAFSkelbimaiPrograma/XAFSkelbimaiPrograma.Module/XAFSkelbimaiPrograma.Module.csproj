@@ -132,6 +132,12 @@
     <Compile Include="BusinessObjects\ORMDataModelCode\Classificators\SKPlugin.bo.designer.cs">
       <DependentUpon>SKPlugin.bo</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObjects\ORMDataModelCode\Classificators\SKRuleType.bo.cs">
+      <DependentUpon>SKRuleType.bo</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModelCode\Classificators\SKRuleType.bo.designer.cs">
+      <DependentUpon>SKRuleType.bo</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObjects\ORMDataModelCode\ConnectionHelper.cs" />
     <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKAdvert.bo.cs">
       <DependentUpon>SKAdvert.bo</DependentUpon>
@@ -144,6 +150,12 @@
     </Compile>
     <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKParserLog.bo.designer.cs">
       <DependentUpon>SKParserLog.bo</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKRule.bo.cs">
+      <DependentUpon>SKRule.bo</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKRule.bo.designer.cs">
+      <DependentUpon>SKRule.bo</DependentUpon>
     </Compile>
     <Compile Include="BusinessObjects\ORMDataModelCode\Objects\SKUserLicense.bo.cs">
       <DependentUpon>SKUserLicense.bo</DependentUpon>
@@ -226,6 +238,8 @@
     <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Objects\SKUserLicense.bo" />
     <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Classificators\SKLicenseType.bo" />
     <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Objects\SKParserLog.bo" />
+    <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Objects\SKRule.bo" />
+    <EmbeddedResource Include="BusinessObjects\ORMDataModelCode\Classificators\SKRuleType.bo" />
     <None Include="DatabaseUpdate\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>

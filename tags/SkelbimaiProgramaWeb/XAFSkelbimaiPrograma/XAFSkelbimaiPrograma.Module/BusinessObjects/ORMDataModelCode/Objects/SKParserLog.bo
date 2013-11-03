@@ -1,6 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
   <BOModel>
-    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKParserLog" IsDesigned="True" />
+    <Class Name="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKParserLog" IsDesigned="True" Caption="Logas">
+      <OwnMembers>
+        <Member Name="LogDate" Caption="Data" />
+        <Member Name="LogType" Caption="Tipas" />
+        <Member Name="Message" Caption="Pranešimas" />
+      </OwnMembers>
+    </Class>
   </BOModel>
+  <Views>
+    <DetailView Id="SKParserLog_DetailView">
+      <Items>
+        <PropertyEditor Id="LogDate" EditMask="g" DisplayFormat="{0:g}" />
+      </Items>
+    </DetailView>
+    <ListView Id="SKParserLog_ListView">
+      <Columns>
+        <ColumnInfo Id="LogDate" EditMaskType="DateTime" EditMask="g" DisplayFormat="{0:g}" />
+      </Columns>
+    </ListView>
+  </Views>
 </Application>
