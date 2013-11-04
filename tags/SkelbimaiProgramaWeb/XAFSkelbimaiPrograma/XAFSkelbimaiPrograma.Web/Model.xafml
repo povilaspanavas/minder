@@ -139,6 +139,23 @@
         <PropertyEditor Id="Read" Removed="True" />
         <PropertyEditor Id="SKUser" Removed="True" />
       </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors" Index="0" />
+          <LayoutGroup Id="SimpleEditors" Index="1">
+            <LayoutGroup Id="SKAdvert" ShowCaption="False">
+              <LayoutGroup Id="SKAdvert_col1">
+                <LayoutItem Id="Image" ViewItem="Image" ShowCaption="" Index="2" IsNewNode="True" />
+                <LayoutItem Id="Mark" Removed="True" />
+                <LayoutItem Id="Read" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="SKAdvert_col2" Removed="True">
+                <LayoutItem Id="Image" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
     </DetailView>
     <ListView Id="SKAdvert_ListView" Filter="" Criteria="[SKUser.Oid] = CurrentUserId() And [Read] = True And [Deleted] = False" Caption="Perskaityti skelbimai">
       <Columns>

@@ -19,6 +19,7 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
   [DefaultClassOptions]
   public partial class SKAdvert : DevExpress.Persistent.BaseImpl.BaseObject
   {
+    private System.Drawing.Image _image;
     private System.Boolean _deleted;
     private XAFSkelbimaiPrograma.Module.SecurityModule.DLCEmployee _sKUser;
     private System.Boolean _mark;
@@ -159,6 +160,18 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
       set
       {
         SetPropertyValue("Deleted", ref _deleted, value);
+      }
+    }
+    [DevExpress.Xpo.ValueConverterAttribute(typeof(DevExpress.Xpo.Metadata.ImageValueConverter))]
+    public System.Drawing.Image Image
+    {
+      get
+      {
+        return _image;
+      }
+      set
+      {
+        SetPropertyValue("Image", ref _image, value);
       }
     }
   }
