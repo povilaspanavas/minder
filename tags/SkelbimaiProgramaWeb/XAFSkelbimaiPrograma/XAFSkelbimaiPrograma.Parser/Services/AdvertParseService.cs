@@ -49,7 +49,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                 m_settingsList = m_settingsList.OrderBy(M => M.LastParseDate).ToList();
                 
             }
-            Console.WriteLine("Settings loaded");
+            Console.WriteLine("Settings loaded " + m_settingsList.Count);
         }
 
         private void StartParsing()
@@ -59,7 +59,8 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             LoadPlugins();
 
             //.NET 4.5 multithreading
-            Parallel.ForEach<SKUserSearchSettings>(m_settingsList, obj =>
+           // Parallel.ForEach<SKUserSearchSettings>(m_settingsList, obj =>
+            foreach (SKUserSearchSettings obj in m_settingsList)
             {
                 try
                 {
@@ -89,7 +90,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                 }
 
             }
-            );
+            //);
         }
 
         private bool ValidateSettings(SKUserSearchSettings settings)
