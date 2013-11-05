@@ -98,8 +98,9 @@
       <HintPath>..\Libs\DevExpress.Xpo.v13.1.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="FirebirdSql.Data.FirebirdClient">
-      <HintPath>..\..\BussinessLogic\libs\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    <Reference Include="FirebirdSql.Data.FirebirdClient, Version=2.1.0.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\FirebirdSql.Data.FirebirdClient.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>

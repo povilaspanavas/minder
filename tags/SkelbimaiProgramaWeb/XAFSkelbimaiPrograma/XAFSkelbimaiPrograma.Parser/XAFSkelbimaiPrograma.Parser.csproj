@@ -92,6 +92,7 @@
     <Compile Include="Plugins\PluginAuto24.cs" />
     <Compile Include="Plugins\PluginAutogidas.cs" />
     <Compile Include="Plugins\PluginAutoplius.cs" />
+    <Compile Include="Plugins\PluginAutoScout24.cs" />
     <Compile Include="Plugins\PluginAutotrader.cs" />
     <Compile Include="Plugins\PluginBlocket.cs" />
     <Compile Include="Plugins\PluginDonedeal.cs" />
