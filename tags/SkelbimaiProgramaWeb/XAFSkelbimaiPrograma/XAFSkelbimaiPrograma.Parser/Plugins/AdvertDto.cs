@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -17,7 +18,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
         bool m_read;
         bool m_mark;
         bool m_deleted;
-        string m_image = string.Empty;
+        Image m_image;
         object m_settingsId;
         object m_userId;
 
@@ -81,7 +82,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
             set { m_deleted = value; }
         }
 
-        public string Image
+        public Image Image
         {
             get { return m_image; }
             set { m_image = value; }

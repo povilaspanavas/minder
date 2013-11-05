@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -33,7 +34,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                 advert.Year = GetYear(part);
                 advert.Price = GetPrice(part);
                 advert.UrlLink = GetLink(part);
-
+                
                 result.Add(advert);
             }
 

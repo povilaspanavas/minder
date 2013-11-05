@@ -43,6 +43,7 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
                 advertXpo.Year = advert.Year;
                 advertXpo.Link = advert.UrlLink;
                 advertXpo.Price = advert.Price;
+                advertXpo.Image = advert.Image;
                 advertXpo.SearchSetting = m_session.GetObjectByKey<SKUserSearchSettings>(advert.SettingsId);
                 advertXpo.SKUser = m_session.GetObjectByKey<DLCEmployee>(advert.UserId);
 
