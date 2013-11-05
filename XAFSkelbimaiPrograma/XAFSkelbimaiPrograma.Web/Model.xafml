@@ -145,7 +145,7 @@
           <LayoutGroup Id="SimpleEditors" Index="1">
             <LayoutGroup Id="SKAdvert" ShowCaption="False">
               <LayoutGroup Id="SKAdvert_col1">
-                <LayoutItem Id="Image" ViewItem="Image" ShowCaption="" Index="2" IsNewNode="True" />
+                <LayoutItem Id="Image" ViewItem="Image" Index="2" IsNewNode="True" />
                 <LayoutItem Id="Mark" Removed="True" />
                 <LayoutItem Id="Read" Removed="True" />
               </LayoutGroup>
@@ -198,6 +198,7 @@
         <ColumnInfo Id="Year" PropertyName="Year" Index="4" IsNewNode="True" />
         <ColumnInfo Id="Fuel Type" PropertyName="FuelType" Index="5" IsNewNode="True" />
         <ColumnInfo Id="Link" PropertyName="Link" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="@2b5d5285-c377-442b-9050-f0fad6c7af3b" PropertyName="Image" IsNewNode="True" />
       </Columns>
       <Sorting IsNewNode="True">
         <SortProperty Id="@0b37b4f8-7db6-4dce-aae8-39912626212a" Direction="Descending" PropertyName="FoundDate" IsNewNode="True" />

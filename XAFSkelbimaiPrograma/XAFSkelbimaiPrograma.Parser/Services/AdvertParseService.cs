@@ -39,6 +39,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
 
         private void LoadSettingsCollection()
         {
+            Console.WriteLine("Loading settings...");
             using (Session session = new Session() { ConnectionString = StaticData.CONNECTION_STRING })
             {
                 XPClassInfo settingsClass = session.GetClassInfo(typeof(SKUserSearchSettings));
@@ -46,8 +47,9 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                 session.Disconnect();
                 m_settingsList = settings.Cast<SKUserSearchSettings>().ToList();
                 m_settingsList = m_settingsList.OrderBy(M => M.LastParseDate).ToList();
+                
             }
-
+            Console.WriteLine("Settings loaded");
         }
 
         private void StartParsing()

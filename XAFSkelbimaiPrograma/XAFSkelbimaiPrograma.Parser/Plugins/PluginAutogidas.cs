@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -57,6 +58,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
             advert.Column1 = GetFields.GetFuelType(sourcePart);
             advert.Year = GetFields.GetYear(sourcePart);
             advert.Price = GetFields.GetPrice(sourcePart);
+            advert.Image = GetImage(sourcePart);
             //			advert. = GetFields.GetCity(sourcePart);
 
             return advert;
@@ -79,6 +81,15 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 //				return "COLUMN1";
 //			}
 //		}
+
+        private Image GetImage(string sourcePart)
+        {
+            string[] split = Regex.Split(sourcePart, "<img src=\"");
+            string[] split1 = Regex.Split(split[1], "\"");
+
+
+            return new SourceHelper().GetImage(split1[0]);
+        }
 
 
         public List<string> TestLinks
