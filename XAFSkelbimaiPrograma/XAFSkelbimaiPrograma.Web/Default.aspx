@@ -18,5 +18,14 @@
     <cc4:ASPxProgressControl ID="ProgressControl" runat="server" />
     <div runat="server" id="Content" />
     </form>
+
+    <script type="text/javascript">
+        var timeout = setTimeout("location.reload(true);", 60000);
+        function resetTimeout() {
+            clearTimeout(timeout);
+            timeout = setTimeout("location.reload(true);", 60000);
+        }
+    </script>
+
 </body>
 </html>

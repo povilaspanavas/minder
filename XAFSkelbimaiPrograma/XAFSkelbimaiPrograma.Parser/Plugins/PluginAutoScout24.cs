@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -11,6 +12,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
     public class PluginAutoScout24 : IPlugin
     {
         public const string LINK_PREFIX = "http://www.autoscout24.de/Details.aspx?id=";
+        public const string IMG_PREFIX = "http://pic3.autoscout24.net/images-small/";
         public List<AdvertDto> Parse(string url)
         {
             string source = new SourceHelper().GetSource(url);
@@ -28,7 +30,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                 advert.UrlLink = GetLink(part);
                 advert.Year = GetYear(part);
                 advert.Price = GetPrice(part);
-                // advert.Image = GetImage(part);
+                advert.Image = GetImage(part);
                 result.Add(advert);
             }
 
@@ -55,9 +57,9 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
         }
 
         private string GetLink(string part)
-        { 
+        {
             string[] parts = Regex.Split(part, "\"ei\":");
-            string[] parts2 = Regex.Split(parts[1], "\"");
+            string[] parts2 = Regex.Split(parts[1], ",");
             return LINK_PREFIX + parts2[0];
         }
 
@@ -73,6 +75,16 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
             string[] parts = Regex.Split(part, "\"pp\":\"");
             string[] parts2 = Regex.Split(parts[1], "\"");
             return parts2[0];
+        }
+
+        private Image GetImage(string part)
+        {
+                part = part.Replace("[", string.Empty);
+                string[] parts = Regex.Split(part, "\"il\":\"");
+                if(parts.Length == 1)
+                    return null;
+                string[] parts2 = Regex.Split(parts[1], "\"");
+                return new SourceHelper().GetImage(IMG_PREFIX + parts2[0].Replace("\\", string.Empty));
         }
 
         //private string GetImage(string part)
