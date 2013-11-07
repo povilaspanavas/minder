@@ -31,6 +31,7 @@
       <OwnMembers>
         <Member Name="Email" Caption="Siųsti el. laiškus" />
         <Member Name="Name" Caption="Pavadinimas" />
+        <Member Name="Photo" Caption="Krauti nuotraukas" />
         <Member Name="PriceMonth1" Caption="Kaina 1 mėn." />
         <Member Name="PriceMonth12" Caption="Kaina 12 mėn." />
         <Member Name="PriceMonth6" Caption="Kaina 6 mėn." />
@@ -54,6 +55,7 @@
         <Member Name="FoundDate" Caption="Radimo data" />
         <Member Name="FuelType" Caption="Kuro tipas" />
         <Member Name="Year" Caption="Metai" />
+        <Member Name="Image" Caption="Nuotrauka" />
         <Member Name="Link" Caption="Nuoroda" Size="300" />
         <Member Name="Mark" Caption="Pažymėtas" />
         <Member Name="Name" Caption="Pavadinimas" />

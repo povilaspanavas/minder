@@ -13,8 +13,11 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
     {
         public const string LINK_PREFIX = "http://www.autoscout24.de/Details.aspx?id=";
         public const string IMG_PREFIX = "http://pic3.autoscout24.net/images-small/";
-        public List<AdvertDto> Parse(string url)
+        private UserParseInfoDto m_info = null;
+
+        public List<AdvertDto> Parse(string url, UserParseInfoDto info)
         {
+            m_info = info;
             string source = new SourceHelper().GetSource(url);
             List<string> parts = ParseToParts(source);
             return ParseToAdvertDtos(parts);
@@ -79,12 +82,15 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 
         private Image GetImage(string part)
         {
-                part = part.Replace("[", string.Empty);
-                string[] parts = Regex.Split(part, "\"il\":\"");
-                if(parts.Length == 1)
-                    return null;
-                string[] parts2 = Regex.Split(parts[1], "\"");
-                return new SourceHelper().GetImage(IMG_PREFIX + parts2[0].Replace("\\", string.Empty));
+            if (m_info == null || m_info.Photo == false)
+                return null;
+
+            part = part.Replace("[", string.Empty);
+            string[] parts = Regex.Split(part, "\"il\":\"");
+            if (parts.Length == 1)
+                return null;
+            string[] parts2 = Regex.Split(parts[1], "\"");
+            return new SourceHelper().GetImage(IMG_PREFIX + parts2[0].Replace("\\", string.Empty));
         }
 
         //private string GetImage(string part)

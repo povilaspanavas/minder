@@ -84,9 +84,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\LogDBHelper.cs" />
     <Compile Include="Helpers\SaveHelper.cs" />
     <Compile Include="Helpers\SourceHelper.cs" />
+    <Compile Include="Helpers\UserParseInfoDto.cs" />
     <Compile Include="Plugins\AdvertDto.cs" />
     <Compile Include="Plugins\IPlugin.cs" />
     <Compile Include="Plugins\PluginAllegro.cs" />

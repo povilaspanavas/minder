@@ -5,6 +5,7 @@
       <OwnMembers>
         <Member Name="Blocked" Caption="Užblokuota" />
         <Member Name="LastParseDate" Caption="Paskutinį kart tikrinta" />
+        <Member Name="LoadPhoto" Caption="Krauti nuotraukas" />
         <Member Name="Name" Caption="Pavadinimas" />
         <Member Name="Plugin" Caption="Tinklapis" />
         <Member Name="SendEmail" Caption="Siųsti į el. paštą" />
@@ -28,7 +29,6 @@
                 <LayoutItem Id="SKUser" ShowCaption="False" SizeConstraintsType="Default" RelativeSize="15" ViewItem="" />
               </LayoutGroup>
               <LayoutGroup Id="SKUserSearchSettings_col2" RelativeSize="48">
-                <LayoutItem Id="SendEmail" SizeConstraintsType="Default" RelativeSize="48" ViewItem="SendEmail" />
                 <LayoutItem Id="LastParseDate" SizeConstraintsType="Default" RelativeSize="51" ViewItem="LastParseDate" />
               </LayoutGroup>
             </LayoutGroup>

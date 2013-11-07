@@ -10,7 +10,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 {
     class PluginBlocket : IPlugin
     {
-        public List<AdvertDto> Parse(string url)
+        public List<AdvertDto> Parse(string url, UserParseInfoDto info)
         {
             string source = new SourceHelper().GetSource(url);
             return ParserSource(source);

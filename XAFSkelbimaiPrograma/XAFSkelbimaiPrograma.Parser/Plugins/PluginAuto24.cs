@@ -12,7 +12,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
     public class PluginAuto24 : IPlugin
     {
 
-        public List<AdvertDto> Parse(string url)
+        public List<AdvertDto> Parse(string url, UserParseInfoDto info)
         {
             string source = new SourceHelper().GetSource(url);
             return ParseSource(source);
