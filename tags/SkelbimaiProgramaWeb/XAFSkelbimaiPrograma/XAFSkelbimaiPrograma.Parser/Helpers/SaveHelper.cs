@@ -12,25 +12,21 @@ using XAFSkelbimaiPrograma.Parser.Plugins;
 
 namespace XAFSkelbimaiPrograma.Parser.Helpers
 {
-    class SaveHelper : IDisposable
+    class SaveHelper
     {
         private Session m_session;
+        private UserParseInfoDto m_info;
 
-        public void Dispose()
+        public SaveHelper(Session session, UserParseInfoDto info)
         {
-            if (m_session != null)
-            {
-                m_session.Disconnect();
-                m_session.Dispose();
-                m_session = null;
-            }
+            m_session = session;
+            m_info = info;
         }
 
         public void SaveAdverts(List<AdvertDto> adverts)
         {
-            m_session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
             m_session.BeginTransaction();
-
+            List<SKAdvert> savedAdverts = new List<SKAdvert>();
             foreach (AdvertDto advert in adverts)
             {
                 if (NeedSave(advert) == false)
@@ -46,12 +42,13 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
                 advertXpo.Image = advert.Image;
                 advertXpo.SearchSetting = m_session.GetObjectByKey<SKUserSearchSettings>(advert.SettingsId);
                 advertXpo.SKUser = m_session.GetObjectByKey<DLCEmployee>(advert.UserId);
-
+                savedAdverts.Add(advertXpo);
                 advertXpo.Save();
             }
             m_session.CommitTransaction();
-            m_session.Disconnect();
-            m_session.Dispose();
+
+            if (m_info.Email && savedAdverts.Count != 0)
+                new EmailHelper(m_session).SendEmail(savedAdverts);
         }
 
         private bool NeedSave(AdvertDto advert)

@@ -12,14 +12,16 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
     {
         private const string m_firstPattern = "<div class=\"sk-sar\">";
 		private const string m_secondPattern = "<td class=\"tceil-1\">";
-
+        private UserParseInfoDto m_info;
+        
         public PluginAutogidas()
         {
  
         }
 
-		public List<AdvertDto> Parse(string url)
+        public List<AdvertDto> Parse(string url, UserParseInfoDto info)
 		{
+            m_info = info;
             List<AdvertDto> result = new List<AdvertDto>();
 
             string source = new SourceHelper().GetSource(url);
@@ -84,6 +86,9 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 
         private Image GetImage(string sourcePart)
         {
+            if (m_info == null || m_info.Photo == false)
+                return null;
+
             string[] split = Regex.Split(sourcePart, "<img src=\"");
             string[] split1 = Regex.Split(split[1], "\"");
 

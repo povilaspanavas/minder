@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using XAFSkelbimaiPrograma.Parser.Helpers;
 using XAFSkelbimaiPrograma.Parser.Plugins;
 
 namespace XAFSkelbimaiPrograma.Parser.Tests
@@ -29,7 +30,7 @@ namespace XAFSkelbimaiPrograma.Parser.Tests
                 {
                     try
                     {
-                        List<AdvertDto> adverts = plugin.Parse(link);
+                        List<AdvertDto> adverts = plugin.Parse(link, new UserParseInfoDto { Photo = true });
                         Assert.AreNotEqual(0, adverts.Count);
                     }
                     catch (Exception e)

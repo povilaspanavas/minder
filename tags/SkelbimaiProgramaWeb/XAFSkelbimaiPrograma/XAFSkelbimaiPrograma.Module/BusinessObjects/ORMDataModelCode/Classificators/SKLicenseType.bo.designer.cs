@@ -19,6 +19,7 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Classific
   [DefaultClassOptions]
   public partial class SKLicenseType : DevExpress.Persistent.BaseImpl.BaseObject
   {
+    private System.Boolean _photo;
     private System.Decimal _priceMonth12;
     private System.Decimal _priceMonth6;
     private System.Decimal _priceMonth1;
@@ -93,6 +94,17 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Classific
       set
       {
         SetPropertyValue("PriceMonth12", ref _priceMonth12, value);
+      }
+    }
+    public System.Boolean Photo
+    {
+      get
+      {
+        return _photo;
+      }
+      set
+      {
+        SetPropertyValue("Photo", ref _photo, value);
       }
     }
   }

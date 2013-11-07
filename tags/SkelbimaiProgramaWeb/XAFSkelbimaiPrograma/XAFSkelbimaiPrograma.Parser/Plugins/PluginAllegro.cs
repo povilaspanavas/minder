@@ -11,7 +11,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
     public class PluginAllegro : IPlugin
     {
 
-        public List<AdvertDto> Parse(string url)
+        public List<AdvertDto> Parse(string url, UserParseInfoDto info)
         {
             string source = new SourceHelper().GetSource(url);
             List<string> parts = ParseToParts(source);

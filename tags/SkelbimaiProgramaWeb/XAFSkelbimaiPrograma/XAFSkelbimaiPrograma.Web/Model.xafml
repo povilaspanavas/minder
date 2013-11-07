@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model" VersionFormat="Versija 1.0.17 Developer Preview" ProtectedContentText="Nerodoma">
+<Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model" VersionFormat="Versija 1.0.18 Developer Preview" ProtectedContentText="Nerodoma">
   <ActionDesign>
     <Actions>
       <Action Id="DialogCancel" Caption="Uždaryti" />
@@ -107,8 +107,8 @@
             <LayoutGroup Id="Party" Removed="True" />
           </LayoutGroup>
           <TabbedGroup Id="Tabs">
-            <LayoutGroup Id="EmployeeRoles" Index="0" />
-            <LayoutGroup Id="Licenses" Index="1" Caption="Licencijos" />
+            <LayoutGroup Id="Licenses" Index="0" Caption="Licencijos" />
+            <LayoutGroup Id="EmployeeRoles" Index="1" />
             <LayoutGroup Id="OwnTasks" Removed="True" />
             <LayoutGroup Id="PhoneNumbers" Removed="True" />
           </TabbedGroup>
@@ -184,6 +184,7 @@
         <ColumnInfo Id="Year" PropertyName="Year" Index="4" IsNewNode="True" />
         <ColumnInfo Id="Fuel Type" PropertyName="FuelType" Index="5" IsNewNode="True" />
         <ColumnInfo Id="Link" PropertyName="Link" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="Image" PropertyName="Image" IsNewNode="True" />
       </Columns>
       <Sorting IsNewNode="True">
         <SortProperty Id="@68a46370-77e9-430b-b3e3-e893678476ce" Direction="Descending" PropertyName="FoundDate" IsNewNode="True" />
@@ -198,7 +199,7 @@
         <ColumnInfo Id="Year" PropertyName="Year" Index="4" IsNewNode="True" />
         <ColumnInfo Id="Fuel Type" PropertyName="FuelType" Index="5" IsNewNode="True" />
         <ColumnInfo Id="Link" PropertyName="Link" Index="6" IsNewNode="True" />
-        <ColumnInfo Id="@2b5d5285-c377-442b-9050-f0fad6c7af3b" PropertyName="Image" IsNewNode="True" />
+        <ColumnInfo Id="Image" PropertyName="Image" Caption="Nuotrauka" IsNewNode="True" />
       </Columns>
       <Sorting IsNewNode="True">
         <SortProperty Id="@0b37b4f8-7db6-4dce-aae8-39912626212a" Direction="Descending" PropertyName="FoundDate" IsNewNode="True" />
@@ -213,6 +214,7 @@
         <ColumnInfo Id="Year" PropertyName="Year" Index="4" IsNewNode="True" />
         <ColumnInfo Id="FuelType" PropertyName="FuelType" Index="5" IsNewNode="True" />
         <ColumnInfo Id="Link" PropertyName="Link" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="Image" PropertyName="Image" IsNewNode="True" />
       </Columns>
       <Sorting IsNewNode="True">
         <SortProperty Id="@e0c3dcc1-793b-464c-87c4-b1b2180e3ceb" Direction="Descending" PropertyName="FoundDate" IsNewNode="True" />
@@ -222,11 +224,30 @@
       <Layout>
         <LayoutGroup Id="Main">
           <LayoutGroup Id="SimpleEditors">
-            <LayoutGroup Id="SKLicenseType" Caption="Licencijos tipas" />
+            <LayoutGroup Id="SKLicenseType" Caption="Licencijos tipas">
+              <LayoutGroup Id="SKLicenseType_col1">
+                <LayoutItem Id="Photo" ViewItem="Photo" Index="2" IsNewNode="True" />
+                <LayoutItem Id="PriceMonth1" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="SKLicenseType_col2">
+                <LayoutItem Id="PriceMonth1" ViewItem="PriceMonth1" Index="0" IsNewNode="True" />
+                <LayoutItem Id="PriceMonth6" Index="1" />
+                <LayoutItem Id="PriceMonth12" Index="2" />
+                <LayoutItem Id="Photo" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
           </LayoutGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <ListView Id="SKLicenseType_ListView">
+      <Columns>
+        <ColumnInfo Id="Photo" Index="3" />
+        <ColumnInfo Id="PriceMonth1" Index="4" />
+        <ColumnInfo Id="PriceMonth6" Index="5" />
+        <ColumnInfo Id="PriceMonth12" Index="6" />
+      </Columns>
+    </ListView>
     <DetailView Id="SKUserLicense_DetailView" Caption="Licencija">
       <Layout>
         <LayoutGroup Id="Main">
@@ -246,11 +267,12 @@
           <LayoutGroup Id="SimpleEditors">
             <LayoutGroup Id="SKUserSearchSettings" ShowCaption="False">
               <LayoutGroup Id="SKUserSearchSettings_col1">
-                <LayoutItem Id="SendEmail" ViewItem="SendEmail" Index="2" SizeConstraintsType="Default" RelativeSize="48" IsNewNode="True" />
+                <LayoutItem Id="SendEmail" Index="2" SizeConstraintsType="Default" RelativeSize="48" ViewItem="SendEmail" IsNewNode="True" />
+                <LayoutItem Id="LoadPhoto" ViewItem="LoadPhoto" Index="3" IsNewNode="True" />
                 <LayoutItem Id="SKUser" Index="3" Removed="True" />
               </LayoutGroup>
               <LayoutGroup Id="SKUserSearchSettings_col2">
-                <LayoutItem Id="SendEmail" Removed="True" />
+                <LayoutItem Id="LoadPhoto" Removed="True" />
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
@@ -259,7 +281,9 @@
     </DetailView>
     <ListView Id="SKUserSearchSettings_ListView" Criteria="[SKUser.Oid] = CurrentUserId()">
       <Columns>
-        <ColumnInfo Id="LastParseDate" EditMaskType="DateTime" EditMask="g" DisplayFormat="{0:g}" />
+        <ColumnInfo Id="SendEmail" Index="2" />
+        <ColumnInfo Id="LoadPhoto" Index="3" />
+        <ColumnInfo Id="LastParseDate" EditMaskType="DateTime" EditMask="g" DisplayFormat="{0:g}" Index="4" />
       </Columns>
     </ListView>
     <ListView Id="SKUserSearchSettings_LookupListView" Criteria="[SKUser.Oid] = CurrentUserId()" />

@@ -23,6 +23,7 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
   [DefaultClassOptions]
   public partial class SKUserSearchSettings : DevExpress.Persistent.BaseImpl.BaseObject
   {
+    private System.Boolean _loadPhoto;
     private System.Boolean _blocked;
     private System.DateTime _lastParseDate;
     private System.Boolean _sendEmail;
@@ -119,6 +120,17 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
       set
       {
         SetPropertyValue("Blocked", ref _blocked, value);
+      }
+    }
+    public System.Boolean LoadPhoto
+    {
+      get
+      {
+        return _loadPhoto;
+      }
+      set
+      {
+        SetPropertyValue("LoadPhoto", ref _loadPhoto, value);
       }
     }
   }
