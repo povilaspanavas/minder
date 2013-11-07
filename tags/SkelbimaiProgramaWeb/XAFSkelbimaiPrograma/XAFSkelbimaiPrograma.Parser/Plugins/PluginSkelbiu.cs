@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -10,9 +11,10 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 {
     class PluginSkelbiu : IPlugin
     {
-
+        private UserParseInfoDto m_info;
         public List<AdvertDto> Parse(string url, UserParseInfoDto info)
         {
+            m_info = info;
             string source = new SourceHelper().GetSource(url);
             List<string> parts = ParseToParts(source);
             return ParseToAdvertDtos(parts);
@@ -32,7 +34,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                 advert.UrlLink = GetLink(part);
                 //advert.Column3 = GetDate(part);
                 advert.Price = GetPrice(part);
-
+                advert.Image = GetImage(part);
                 result.Add(advert);
             }
 
@@ -54,6 +56,20 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
             string[] parts = Regex.Split(part, "<a href=\\\"");
             string[] parts2 = Regex.Split(parts[1], "\\\" >");
             return "http://skelbiu.lt" + parts2[0];
+        }
+
+        private Image GetImage(string part)
+        {
+            if (m_info == null || m_info.Photo == false)
+                return null;
+
+            string[] parts = Regex.Split(part, "<img src=\"");
+            if (parts.Length == 1)
+                return null;
+            string[] parts2 = Regex.Split(parts[1], "\"");
+            if (parts2[0].IndexOf("list_no_photo.gif") != -1)
+                return null;
+            return new SourceHelper().GetImage(parts2[0]);
         }
 
         private string GetDate(string part)
