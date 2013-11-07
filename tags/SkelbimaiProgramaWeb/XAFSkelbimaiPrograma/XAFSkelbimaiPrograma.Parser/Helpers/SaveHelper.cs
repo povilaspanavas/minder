@@ -25,7 +25,7 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
 
         public void SaveAdverts(List<AdvertDto> adverts)
         {
-            m_session.BeginTransaction();
+            //m_session.BeginTransaction();
             List<SKAdvert> savedAdverts = new List<SKAdvert>();
             foreach (AdvertDto advert in adverts)
             {
@@ -45,7 +45,7 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
                 savedAdverts.Add(advertXpo);
                 advertXpo.Save();
             }
-            m_session.CommitTransaction();
+            //m_session.CommitTransaction();
 
             if (m_info.Email && savedAdverts.Count != 0)
                 new EmailHelper(m_session).SendEmail(savedAdverts);

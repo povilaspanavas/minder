@@ -68,6 +68,7 @@
           <Item Id="Pluginai" ViewId="SKPlugin_ListView" Caption="Įskiepiai" Index="3" IsNewNode="True" />
           <Item Id="SKUser License" ViewId="SKUserLicense_ListView" Caption="Licencijos" Index="4" IsNewNode="True" />
           <Item Id="SKLicenseType_ListView" Caption="Licensijų tipai" Index="5" />
+          <Item Id="@1ad2e93a-77c8-4c4f-a09c-834b77c92102" ViewId="SKUserSearchSettingsAll_ListView" IsNewNode="True" />
           <Item Id="DLCEmployeeTask_ListView" Removed="True" />
           <Item Id="SKAdvert_ListView" Removed="True" />
           <Item Id="SKPlugin_ListView" Removed="True" />
@@ -287,5 +288,17 @@
       </Columns>
     </ListView>
     <ListView Id="SKUserSearchSettings_LookupListView" Criteria="[SKUser.Oid] = CurrentUserId()" />
+    <ListView Id="SKUserSearchSettingsAll_ListView" ClassName="XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKUserSearchSettings" Caption="Visi paieškos nustatymai" IsGroupPanelVisible="True" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="SKUser" PropertyName="SKUser" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Plugin" PropertyName="Plugin" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="SendEmail" PropertyName="SendEmail" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="LoadPhoto" PropertyName="LoadPhoto" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="LastParseDate" PropertyName="LastParseDate" Index="5" DisplayFormat="{0:g}" EditMask="g" IsNewNode="True" />
+        <ColumnInfo Id="Blocked" PropertyName="Blocked" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="Url" PropertyName="Url" Index="7" IsNewNode="True" />
+      </Columns>
+    </ListView>
   </Views>
 </Application>
