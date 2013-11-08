@@ -249,6 +249,12 @@
         <ColumnInfo Id="PriceMonth12" Index="6" />
       </Columns>
     </ListView>
+    <DetailView Id="SKRule_DetailView">
+      <Items>
+        <PropertyEditor Id="LastRunTime" DisplayFormat="{0:g}" EditMask="g" />
+        <PropertyEditor Id="RunTime" DisplayFormat="{0:g}" EditMask="g" />
+      </Items>
+    </DetailView>
     <DetailView Id="SKUserLicense_DetailView" Caption="Licencija">
       <Layout>
         <LayoutGroup Id="Main">
