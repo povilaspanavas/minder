@@ -28,5 +28,11 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode
         //  "Donedeal.ie",
         //  "Autotrader.co.uk"
         //};
+
+        public const string RULE_TYPE_ONE = "OneTime";
+        public const string RULE_TYPE_HOUR = "Hour";
+        public const string RULE_TYPE_DAY = "Daily";
+
+
     }
 }
