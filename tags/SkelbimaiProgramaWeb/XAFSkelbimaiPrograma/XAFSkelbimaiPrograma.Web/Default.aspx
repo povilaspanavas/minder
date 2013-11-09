@@ -8,6 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Main Page</title>
+    
     <meta http-equiv="Expires" content="0" />
 </head>
 <body class="VerticalTemplate">
@@ -20,12 +21,21 @@
     </form>
 
     <script type="text/javascript">
-        var timeout = setTimeout("location.reload(true);", 60000);
-        function resetTimeout() {
-            clearTimeout(timeout);
-            timeout = setTimeout("location.reload(true);", 60000);
+        var timeout = setTimeout("ReloadIfNeeded(60000);", 60000);
+        function ReloadIfNeeded(interval) {
+            if (document.URL.indexOf("SKAdvertNew_ListView") >= 0)
+                location.reload(true);
+            else 
+                timeout = setTimeout("ReloadIfNeeded(" + interval + ");", interval);
         }
     </script>
 
+<audio id="beep" src="Sounds/beep.wav" preload="auto"></audio>    
+<script type="text/javascript">
+    function PlayBeep() {
+        document.getElementById('beep').play();
+    }
+</script>
+<!--<embed src="beep.wav" autostart=true width=0 height=0 name="sound1" enablejavascript="true"> -->
 </body>
 </html>
