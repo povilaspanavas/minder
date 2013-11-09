@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -10,8 +11,11 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 {
     class PluginAutoplius : IPlugin
     {
+        private UserParseInfoDto m_info;
+
         public List<AdvertDto> Parse(string url, UserParseInfoDto info)
         {
+            m_info = info;
             string source = new SourceHelper().GetSource(url);
             List<string> parts = ParseToParts(source);
             return ParseToAdvertDtos(parts);
@@ -41,6 +45,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                 advert.Year = GetYear(part);
                 advert.Column1 = GetFuelType(part);
                 advert.Price = GetPrice(part);
+                advert.Image = GetImage(part);
                 //advert. = GetCity(part);
                 advert.UrlLink = GetLink(part);
                 result.Add(advert);
@@ -92,6 +97,21 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
             string[] parts = Regex.Split(part, "<a href=\\\"");
             string[] parts2 = Regex.Split(parts[1], "\\\"");
             return parts2[0];
+        }
+
+        private Image GetImage(string sourcePart)
+        {
+            if (m_info == null || m_info.Photo == false)
+                return null;
+
+            string[] split = Regex.Split(sourcePart, "src=\"");
+            if (split.Length < 2)
+                return null;
+            string[] split1 = Regex.Split(split[1], "\"");
+            if (split1.Length < 2)
+                return null;
+
+            return new SourceHelper().GetImage(split1[0]);
         }
 
         public string UniqueCode

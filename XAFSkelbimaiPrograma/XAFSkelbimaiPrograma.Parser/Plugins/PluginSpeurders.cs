@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -10,8 +11,11 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 {
     class PluginSpeurders : IPlugin
     {
+        private UserParseInfoDto m_info;
+
         public List<AdvertDto> Parse(string url, UserParseInfoDto info)
         {
+            m_info = info;
             string source = new SourceHelper().GetSource(url);
             List<string> parts = ParseToParts(source);
             return ParseToAdvertDtos(parts);
@@ -40,7 +44,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                 advert.Name = GetName(part);
                 advert.UrlLink = GetLink(part);
                 advert.Price = GetPrice(part);
-                //advert.Image = GetImage(part);
+                advert.Image = GetImage(part);
 
                 result.Add(advert);
             }
@@ -95,19 +99,20 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 
         }
 
-        //private string GetImage(string part)
-        //{
-        //    //			if(ImageHelper.LoadImages() == false)
-        //    //				return string.Empty;
+        private Image GetImage(string part)
+        {
+            if (m_info == null || m_info.Photo == false)
+                return null;
 
-        //    string[] parts = Regex.Split(part, "url");
-        //    string[] parts2 = Regex.Split(parts[1], ";");
-        //    string result = parts2[0];
-        //    result = "http:" + result;
-        //    return ImageHelper.ConvertToBase64(result.Replace("'", string.Empty)
-        //                                       .Replace("(", string.Empty)
-        //                                       .Replace(")", string.Empty));
-        //}
+            part = part.Replace(":", string.Empty).Replace("(", string.Empty);
+            string[] parts = Regex.Split(part, "style=\"background-image url'//");
+            if (parts.Length == 1)
+                return null;
+            string[] parts2 = Regex.Split(parts[1], "'");
+            if (parts2.Length == 1)
+                return null;
+            return new SourceHelper().GetImage("http://" + parts2[0]);
+        }
         #endregion
 
         public string UniqueCode

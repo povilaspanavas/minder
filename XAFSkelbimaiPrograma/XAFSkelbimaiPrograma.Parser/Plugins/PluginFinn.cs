@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -10,9 +11,11 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 {
     class PluginFinn : IPlugin
     {
+        private UserParseInfoDto m_info;
 
         public List<AdvertDto> Parse(string url, UserParseInfoDto info)
         {
+            m_info = info;
             string source = new SourceHelper().GetSource(url);
             List<string> parts = ParseToParts(source);
             return ParseToAdvertDtos(parts);
@@ -29,7 +32,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                 advert.UrlLink = GetLink(part);
                 advert.Year = GetYear(part);
                 advert.Price = GetPrice(part);
-                //advert.Image = GetImage(part);
+                advert.Image = GetImage(part);
 
                 adverts.Add(advert);
 
@@ -91,6 +94,20 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 
         }
 
+        private Image GetImage(string sourcePart)
+        {
+            if (m_info == null || m_info.Photo == false)
+                return null;
+
+            string[] split = Regex.Split(sourcePart, "<img src=\"");
+            if (split.Length < 2)
+                return null;
+            string[] split1 = Regex.Split(split[1], "\"");
+            if (split.Length < 2)
+                return null;
+
+            return new SourceHelper().GetImage(split1[0]);
+        }
         #endregion
 
         private List<string> ParseToParts(string source)

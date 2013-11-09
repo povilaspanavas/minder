@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -10,8 +11,11 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 {
     class PluginBlocket : IPlugin
     {
+        private UserParseInfoDto m_info;
+
         public List<AdvertDto> Parse(string url, UserParseInfoDto info)
         {
+            m_info = info;
             string source = new SourceHelper().GetSource(url);
             return ParserSource(source);
         }
@@ -23,13 +27,14 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                 smallSources.RemoveAt(0);
             List<AdvertDto> result = new List<AdvertDto>();
 
-            foreach (string sourcePart in smallSources)
+            foreach (string part in smallSources)
             {
                 AdvertDto advert = new AdvertDto();
-                advert.Name = GetName(sourcePart);
-                advert.UrlLink = GetLink(sourcePart);
+                advert.Name = GetName(part);
+                advert.UrlLink = GetLink(part);
                // advert. = GetDateTime(sourcePart);
-                advert.Price = GetPrice(sourcePart);
+                advert.Price = GetPrice(part);
+                advert.Image = GetImage(part);
                 result.Add(advert);
             }
 
@@ -80,9 +85,30 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 
         private string GetLink(string sourcePart)
         {
-            string[] parts = Regex.Split(sourcePart, "class=\"item_link\" href=\"");
-            string[] parts2 = Regex.Split(parts[1], "\">");
-            return parts2[0];
+            try
+            {
+                string[] parts = Regex.Split(sourcePart, "class=\"item_link\" href=\"");
+                string[] parts2 = Regex.Split(parts[1], "\">");
+                return parts2[0];
+            }
+            catch
+            { return null; }
+        }
+
+        private Image GetImage(string sourcePart)
+        {
+            if (m_info == null || m_info.Photo == false)
+                return null;
+
+            string[] split = Regex.Split(sourcePart, "<img src=\"");
+            if (split.Length < 2)
+                return null;
+            string[] split1 = Regex.Split(split[1], "\"");
+            if (split1.Length < 2)
+                return null;
+            if (split1[0].Equals("/img/transparent.gif"))
+                return null;
+            return new SourceHelper().GetImage(split1[0]);
         }
 
         //private string GetDateTime(string sourcePart)
@@ -98,8 +124,10 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 
         private List<string> ParseAdvertDtoSmallSource(string source)
         {
-            string[] smallSources = Regex.Split(source, "<div class=\"desc\"");
-            return new List<string>(smallSources);
+            string[] smallSources = Regex.Split(source, "<div class=\"image_container");
+            List<string> resultList = new List<string>(smallSources);
+            resultList.RemoveAt(0);
+            return resultList;
         }
 
         public string UniqueCode

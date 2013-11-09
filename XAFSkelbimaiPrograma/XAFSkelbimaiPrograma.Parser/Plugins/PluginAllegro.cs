@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -10,9 +11,11 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 {
     public class PluginAllegro : IPlugin
     {
-
+        private UserParseInfoDto m_info = null;
+        public const string IMG_PREFIX = "http://img18.allegroimg.pl/photos/128x96/";
         public List<AdvertDto> Parse(string url, UserParseInfoDto info)
         {
+            m_info = info;
             string source = new SourceHelper().GetSource(url);
             List<string> parts = ParseToParts(source);
             return ParseToAdvertDtos(parts);
@@ -30,8 +33,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                 advert.Price = GetPrice(part);
                 //advert.Column4 = GetExpiry(part);
                 advert.Year = GetYear(part);
-
-                //advert.Image = GetImage(part);
+                advert.Image = GetImage(part);
 
                 result.Add(advert);
             }
@@ -80,17 +82,19 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
         //    return parts3[0].Trim();
         //}
 
-        //private string GetImage(string part)
-        //{
-        //    if (ImageHelper.LoadImages() == false)
-        //        return string.Empty;
+        private Image GetImage(string part)
+        {
+            if (m_info == null || m_info.Photo == false)
+                return null;
 
-        //    string[] parts = Regex.Split(part, "data-img='");
-        //    if (parts.Length <= 1)
-        //        return string.Empty;
-        //    string[] parts2 = Regex.Split(parts[1].Replace("[[\"", string.Empty), "\"");
-        //    return ImageHelper.ConvertToBase64(parts2[0].Trim());
-        //}
+            string[] parts = Regex.Split(part, IMG_PREFIX);
+            if (parts.Length < 2)
+                return null;
+            string[] parts2 = Regex.Split(parts[1], "\"");
+            if (parts2.Length < 2)
+                return null;
+            return new SourceHelper().GetImage(IMG_PREFIX + parts2[0]);
+        }
 
         private string GetYear(string part)
         {

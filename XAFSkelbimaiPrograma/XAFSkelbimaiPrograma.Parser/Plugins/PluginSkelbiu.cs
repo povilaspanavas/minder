@@ -12,6 +12,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
     class PluginSkelbiu : IPlugin
     {
         private UserParseInfoDto m_info;
+
         public List<AdvertDto> Parse(string url, UserParseInfoDto info)
         {
             m_info = info;

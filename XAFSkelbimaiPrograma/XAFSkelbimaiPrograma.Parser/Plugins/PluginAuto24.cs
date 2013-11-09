@@ -11,9 +11,11 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 {
     public class PluginAuto24 : IPlugin
     {
+        private UserParseInfoDto m_info = null;
 
         public List<AdvertDto> Parse(string url, UserParseInfoDto info)
         {
+            m_info = info;
             string source = new SourceHelper().GetSource(url);
             return ParseSource(source);
         }
@@ -30,7 +32,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 
                 AdvertDto advert = new AdvertDto();
                 advert.Name = GetName(part);
-
+                advert.Image = GetImage(part);
                 advert.Year = GetYear(part);
                 advert.Price = GetPrice(part);
                 advert.UrlLink = GetLink(part);
@@ -101,6 +103,20 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                 throw;
             }
 
+        }
+
+        private Image GetImage(string part)
+        {
+            if (m_info == null || m_info.Photo == false)
+                return null;
+
+            string[] parts = Regex.Split(part, "<img src=\"");
+            if (parts.Length < 2)
+                return null;
+            string[] parts2 = Regex.Split(parts[1], "\"");
+            if (parts2.Length < 2)
+                return null;
+            return new SourceHelper().GetImage(parts2[0]);
         }
 
         //[Obsolete("Neaišku kas čia ir ar išvis reikia")]
