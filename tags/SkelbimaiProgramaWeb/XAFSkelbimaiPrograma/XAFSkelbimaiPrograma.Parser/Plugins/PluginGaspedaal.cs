@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -10,8 +11,11 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 {
     class PluginGaspedaal : IPlugin
     {
+        private UserParseInfoDto m_info;
+        public const string IMG_PREFIX = "http://www.gaspedaal.nl/";
         public List<AdvertDto> Parse(string url, UserParseInfoDto info)
         {
+            m_info = info;
             string source = new SourceHelper().GetSource(url);
             List<string> parts = ParseToParts(source);
             return ParseToAdvertDtos(parts);
@@ -41,7 +45,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                 advert.UrlLink = GetLink(part);
                 advert.Price = GetPrice(part);
                 advert.Year = GetYear(part);
-               // advert.Image = GetImage(part);
+                advert.Image = GetImage(part);
 
                 result.Add(advert);
             }
@@ -84,16 +88,25 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
             return result;
         }
 
-        //private string GetImage(string part)
-        //{
-        //    if (ImageHelper.LoadImages() == false)
-        //        return string.Empty;
+        private Image GetImage(string part)
+        {
+                if (m_info == null || m_info.Photo == false)
+                    return null;
 
-        //    string[] parts = Regex.Split(part, "<img src=\"");
-        //    string[] parts2 = Regex.Split(parts[1], "\"");
-        //    string result = parts2[0];
-        //    return ImageHelper.ConvertToBase64(result);
-        //}
+                part = part.Replace("[", string.Empty);
+                string[] parts = Regex.Split(part, "\"foto\":\"");
+                if (parts.Length == 1)
+                    return null;
+                string[] parts2 = Regex.Split(parts[1], "\"");
+                if (parts2.Length == 1)
+                    return null;
+                parts2[0] = parts2[0].Replace("\\", string.Empty);
+                if (parts2[0].Contains("http://") || parts2[0].Contains("https://"))
+                    parts2[0].Replace("w=640&h=480", "w=160&h=120");
+                else
+                    parts2[0] = IMG_PREFIX + parts2[0];
+                return new SourceHelper().GetImage(parts2[0]);
+        }
         #endregion
 
 

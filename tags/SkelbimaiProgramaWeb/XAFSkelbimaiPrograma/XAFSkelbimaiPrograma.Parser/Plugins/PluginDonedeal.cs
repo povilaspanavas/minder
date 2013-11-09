@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -10,8 +11,11 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 {
     class PluginDonedeal : IPlugin
     {
+        private UserParseInfoDto m_info;
+
         public List<AdvertDto> Parse(string url, UserParseInfoDto info)
         {
+            m_info = info;
             string source = new SourceHelper().GetSource(url);
             List<string> parts = ParseToParts(source);
             return ParseToAdvertDtos(parts);
@@ -29,7 +33,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                 advert.Year = GetYear(part);
                 advert.Price = GetPrice(part);
                // advert.Column5 = GetCountry(part);
-               // advert.Image = GetImage(part);
+                advert.Image = GetImage(part);
 
                 result.Add(advert);
             }
@@ -84,19 +88,19 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
         //    return split2[0];
         //}
 
-        //private string GetImage(string part)
-        //{
-        //    if (ImageHelper.LoadImages() == false)
-        //        return string.Empty;
+        private Image GetImage(string sourcePart)
+        {
+            if (m_info == null || m_info.Photo == false)
+                return null;
 
-        //    if (part.IndexOf("<img src=\"") == -1)
-        //        return string.Empty;
-
-        //    string image = Regex.Split(part, "<img src=\"")[1];
-        //    image = Regex.Split(image, "\"")[0].Trim();
-
-        //    return ImageHelper.ConvertToBase64(image);
-        //}
+            string[] split = Regex.Split(sourcePart, "<img src=\"");
+            if (split.Length < 2)
+                return null;
+            string[] split1 = Regex.Split(split[1], "\"");
+            if (split1.Length < 2)
+                return null;
+            return new SourceHelper().GetImage(split1[0]);
+        }
 
         private List<string> ParseToParts(string source)
         {
