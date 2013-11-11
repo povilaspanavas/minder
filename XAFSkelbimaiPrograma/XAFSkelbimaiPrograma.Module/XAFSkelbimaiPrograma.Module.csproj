@@ -203,6 +203,12 @@
       <DependentUpon>SKUserSettingsController.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\MessageBox.cs" />
+    <Compile Include="Controllers\SoundViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\SoundViewController.Designer.cs">
+      <DependentUpon>SoundViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="SecurityModule\DLCEmployee.cs" />
     <Compile Include="SecurityModule\DLCEmployeeRole.cs" />
     <Compile Include="SecurityModule\DLCEmployeeTask.cs" />
