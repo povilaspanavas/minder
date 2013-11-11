@@ -26,24 +26,27 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
         public void SaveAdverts(List<AdvertDto> adverts)
         {
             //m_session.BeginTransaction();
-            List<SKAdvert> savedAdverts = new List<SKAdvert>();
-            foreach (AdvertDto advert in adverts)
+            lock (m_session)
             {
-                if (NeedSave(advert) == false)
-                    continue;
+                List<SKAdvert> savedAdverts = new List<SKAdvert>();
+                foreach (AdvertDto advert in adverts)
+                {
+                    if (NeedSave(advert) == false)
+                        continue;
 
-                SKAdvert advertXpo = new SKAdvert(m_session);
-                advertXpo.Name = advert.Name;
-                advertXpo.FoundDate = advert.Date;
-                advertXpo.FuelType = advert.Column1; //TODO čia reikia padaryt
-                advertXpo.Year = advert.Year;
-                advertXpo.Link = advert.UrlLink;
-                advertXpo.Price = advert.Price;
-                advertXpo.Image = advert.Image;
-                advertXpo.SearchSetting = m_session.GetObjectByKey<SKUserSearchSettings>(advert.SettingsId);
-                advertXpo.SKUser = m_session.GetObjectByKey<DLCEmployee>(advert.UserId);
-                savedAdverts.Add(advertXpo);
-                advertXpo.Save();
+                    SKAdvert advertXpo = new SKAdvert(m_session);
+                    advertXpo.Name = advert.Name;
+                    advertXpo.FoundDate = advert.Date;
+                    advertXpo.FuelType = advert.Column1; //TODO čia reikia padaryt
+                    advertXpo.Year = advert.Year;
+                    advertXpo.Link = advert.UrlLink;
+                    advertXpo.Price = advert.Price;
+                    advertXpo.Image = advert.Image;
+                    advertXpo.SearchSetting = m_session.GetObjectByKey<SKUserSearchSettings>(advert.SettingsId);
+                    advertXpo.SKUser = m_session.GetObjectByKey<DLCEmployee>(advert.UserId);
+                    savedAdverts.Add(advertXpo);
+                    advertXpo.Save();
+                }
             }
             //m_session.CommitTransaction();
 
