@@ -81,6 +81,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rules\IRule.cs" />
     <Compile Include="Rules\RuleBlockLicence.cs" />
+    <Compile Include="Rules\RuleDemoUserRefresh.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
