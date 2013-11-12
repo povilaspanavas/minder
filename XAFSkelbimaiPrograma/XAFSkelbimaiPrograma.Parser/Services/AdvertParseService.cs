@@ -127,8 +127,8 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                 result = false;
             else if (settings.Url.IndexOf("http://") == -1)
                 result = false;
-            else if (settings.Url.ToLower().IndexOf(settings.Plugin.UniqueCode.ToLower()) == -1)
-                return false;
+            //else if (settings.Url.ToLower().Replace(".", "").IndexOf(settings.Plugin.UniqueCode.ToLower().Replace()) == -1)
+            //    result = false;
             else
                 result = true;
 
@@ -139,8 +139,6 @@ namespace XAFSkelbimaiPrograma.Parser.Services
 
                 m_session.ExecuteNonQuery(string.Format("update \"SKUserSearchSettings\" set \"Blocked\" = 1 where \"Oid\" = '{0}'",
                     settings.Oid));
-
-
             }
 
             return result;

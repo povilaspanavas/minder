@@ -47,11 +47,12 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
                     savedAdverts.Add(advertXpo);
                     advertXpo.Save();
                 }
+                if (m_info.Email && savedAdverts.Count != 0)
+                    new EmailHelper(m_session).SendEmail(savedAdverts);
             }
             //m_session.CommitTransaction();
 
-            if (m_info.Email && savedAdverts.Count != 0)
-                new EmailHelper(m_session).SendEmail(savedAdverts);
+            
         }
 
         private bool NeedSave(AdvertDto advert)
