@@ -43,20 +43,32 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
         #region Get functions
         private string GetName(string part)
         {
-            string result = string.Empty;
-            string[] parts = Regex.Split(part, "\"mk\":\"");
-            string[] parts2 = Regex.Split(parts[1], "\"");
-            result += parts2[0] + " ";
+            try
+            {
+                string result = string.Empty;
+                string[] parts = Regex.Split(part, "\"mk\":\"");
+                string[] parts2 = Regex.Split(parts[1], "\"");
+                result += parts2[0] + " ";
 
-            parts = Regex.Split(part, "\"md\":\"");
-            parts2 = Regex.Split(parts[1], "\"");
-            result += parts2[0] + " ";
+                parts = Regex.Split(part, "\"md\":\"");
+                parts2 = Regex.Split(parts[1], "\"");
+                result += parts2[0] + " ";
 
-            parts = Regex.Split(part, "\"vr\":\"");
-            parts2 = Regex.Split(parts[1], "\"");
-            result += parts2[0];
+                parts = Regex.Split(part, "\"vr\":\"");
+                if (parts.Length > 1) //buna kartais čia null, ir nėra kabučių
+                {
+                    parts2 = Regex.Split(parts[1], "\"");
+                    result += parts2[0];
+                }
 
-            return result;
+                return result;
+            }
+            catch (Exception e)
+            {
+                
+                throw e;
+            }
+            
         }
 
         private string GetLink(string part)
@@ -125,7 +137,8 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
             {
                 return new List<string>(new string[] 
             { 
-                "http://fahrzeuge.autoscout24.de/?atype=C&make=74&model=2084&mmvmk0=74&mmvmd0=2084&mmvco=1&fregfrom=1999&priceto=1000&cy=D&zipc=D&zipr=200&ustate=N,U&sort=price&results=20&page=1&event=addB||firstreg"
+                "http://fahrzeuge.autoscout24.de/?atype=C&make=74&model=2084&mmvmk0=74&mmvmd0=2084&mmvco=1&fregfrom=1999&priceto=1000&cy=D&zipc=D&zipr=200&ustate=N,U&sort=price&results=20&page=1&event=addB||firstreg",
+                "http://fahrzeuge.autoscout24.de/?atype=C&make=9&model=1619&mmvmk0=9&mmvmd0=1619&mmvco=1&fregfrom=1988&fregto=1991&priceto=1500&cy=B,D,F,L,NL,A&ustate=A,N,U&sort=age&desc=1&results=20&page=1"
             });
             }
         }

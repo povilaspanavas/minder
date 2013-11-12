@@ -105,7 +105,15 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                     parts2[0].Replace("w=640&h=480", "w=160&h=120");
                 else
                     parts2[0] = IMG_PREFIX + parts2[0];
-                return new SourceHelper().GetImage(parts2[0]);
+                try
+                {
+                    return new SourceHelper().GetImage(parts2[0]);
+                }
+                catch (Exception) //mistika
+                {
+                    return null;
+                }
+                
         }
         #endregion
 

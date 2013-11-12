@@ -13,7 +13,7 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
         public string GetSource(string link) //TODO Need implement proxy
         {
             WebClient webClient = new WebClient();
-            webClient.Headers["Accept-Language"] = "lt-LT";
+            //webClient.Headers["Accept-Language"] = "lt-LT";
             string source = webClient.DownloadString(link);
             webClient.Dispose();
             return source;
