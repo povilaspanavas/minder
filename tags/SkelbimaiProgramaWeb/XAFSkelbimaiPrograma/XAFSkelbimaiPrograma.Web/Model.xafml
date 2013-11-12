@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model" VersionFormat="Versija 1.0.20 Beta" ProtectedContentText="Nerodoma">
+<Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model" VersionFormat="Versija 1.0.21 Beta" ProtectedContentText="Nerodoma">
   <ActionDesign>
     <Actions>
       <Action Id="DialogCancel" Caption="Uždaryti" />
@@ -136,6 +136,7 @@
         <PropertyEditor Id="FuelType" Index="5" />
         <PropertyEditor Id="Link" Index="6" />
         <PropertyEditor Id="Deleted" Removed="True" />
+        <PropertyEditor Id="Image" ImageEditorFixedHeight="150" ImageEditorFixedWidth="150" />
         <PropertyEditor Id="Mark" Removed="True" />
         <PropertyEditor Id="Read" Removed="True" />
         <PropertyEditor Id="SKUser" Removed="True" />
@@ -185,7 +186,7 @@
         <ColumnInfo Id="Year" PropertyName="Year" Index="4" IsNewNode="True" />
         <ColumnInfo Id="Fuel Type" PropertyName="FuelType" Index="5" IsNewNode="True" />
         <ColumnInfo Id="Link" PropertyName="Link" Index="6" IsNewNode="True" />
-        <ColumnInfo Id="Image" PropertyName="Image" IsNewNode="True" />
+        <ColumnInfo Id="Image" PropertyName="Image" ImageEditorFixedHeight="150" ImageEditorFixedWidth="150" IsNewNode="True" />
       </Columns>
       <Sorting IsNewNode="True">
         <SortProperty Id="@68a46370-77e9-430b-b3e3-e893678476ce" Direction="Descending" PropertyName="FoundDate" IsNewNode="True" />
@@ -200,7 +201,7 @@
         <ColumnInfo Id="Year" PropertyName="Year" Index="4" IsNewNode="True" />
         <ColumnInfo Id="Fuel Type" PropertyName="FuelType" Index="5" IsNewNode="True" />
         <ColumnInfo Id="Link" PropertyName="Link" Index="6" IsNewNode="True" />
-        <ColumnInfo Id="Image" PropertyName="Image" Caption="Nuotrauka" IsNewNode="True" />
+        <ColumnInfo Id="Image" PropertyName="Image" Caption="Nuotrauka" ImageEditorFixedHeight="150" ImageEditorFixedWidth="150" IsNewNode="True" />
       </Columns>
       <Sorting IsNewNode="True">
         <SortProperty Id="@0b37b4f8-7db6-4dce-aae8-39912626212a" Direction="Descending" PropertyName="FoundDate" IsNewNode="True" />
@@ -215,7 +216,7 @@
         <ColumnInfo Id="Year" PropertyName="Year" Index="4" IsNewNode="True" />
         <ColumnInfo Id="FuelType" PropertyName="FuelType" Index="5" IsNewNode="True" />
         <ColumnInfo Id="Link" PropertyName="Link" Index="6" IsNewNode="True" />
-        <ColumnInfo Id="Image" PropertyName="Image" IsNewNode="True" />
+        <ColumnInfo Id="Image" PropertyName="Image" ImageEditorFixedHeight="150" ImageEditorFixedWidth="150" IsNewNode="True" />
       </Columns>
       <Sorting IsNewNode="True">
         <SortProperty Id="@e0c3dcc1-793b-464c-87c4-b1b2180e3ceb" Direction="Descending" PropertyName="FoundDate" IsNewNode="True" />
