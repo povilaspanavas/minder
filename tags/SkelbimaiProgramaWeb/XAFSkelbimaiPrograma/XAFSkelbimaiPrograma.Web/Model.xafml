@@ -269,6 +269,7 @@
       <Items>
         <PropertyEditor Id="Blocked" AllowEdit="False" />
         <PropertyEditor Id="LastParseDate" AllowEdit="False" EditMaskType="DateTime" EditMask="g" DisplayFormat="{0:g}" />
+        <PropertyEditor Id="Url" MaxLength="1000" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main">

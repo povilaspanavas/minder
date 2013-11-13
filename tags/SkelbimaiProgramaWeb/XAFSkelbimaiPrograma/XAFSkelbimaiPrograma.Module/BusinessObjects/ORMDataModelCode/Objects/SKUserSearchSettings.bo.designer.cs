@@ -48,7 +48,7 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
       }
     }
     [RuleRequiredField(DefaultContexts.Save)]
-    [DevExpress.Xpo.SizeAttribute(500)]
+    [DevExpress.Xpo.SizeAttribute(1000)]
     public System.String Url
     {
       get
