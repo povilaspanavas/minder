@@ -293,6 +293,8 @@
         <ColumnInfo Id="SendEmail" Index="2" />
         <ColumnInfo Id="LoadPhoto" Index="3" />
         <ColumnInfo Id="LastParseDate" EditMaskType="DateTime" EditMask="g" DisplayFormat="{0:g}" Index="4" />
+        <ColumnInfo Id="Blocked" Index="5" />
+        <ColumnInfo Id="Url" Index="6" />
       </Columns>
     </ListView>
     <ListView Id="SKUserSearchSettings_LookupListView" Criteria="[SKUser.Oid] = CurrentUserId()" />
