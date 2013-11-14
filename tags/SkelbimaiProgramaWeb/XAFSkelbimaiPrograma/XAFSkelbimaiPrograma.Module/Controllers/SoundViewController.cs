@@ -13,6 +13,8 @@ using DevExpress.ExpressApp.Templates;
 using DevExpress.Persistent.Validation;
 using DevExpress.ExpressApp.SystemModule;
 using DevExpress.ExpressApp.Model.NodeGenerators;
+using DevExpress.ExpressApp.Web;
+using XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode;
 
 namespace XAFSkelbimaiPrograma.Module.Controllers
 {
@@ -35,6 +37,8 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
             if (count != 0)
             {
                 //Beep this
+                WebApplication.Redirect("http://google.lt");
+               // StaticData
             }
 
         }
