@@ -45,15 +45,23 @@ namespace XAFSkelbimaiPrograma.Parser.Services
 
         private void LoadSettingsCollection()
         {
-            Console.WriteLine("Loading settings...");
+            ConsoleHelper.WriteLineWithTime("Loading settings and reserving...");
 
-            XPClassInfo settingsClass = m_session.GetClassInfo(typeof(SKUserSearchSettings));
-            ICollection settings = m_session.GetObjects(settingsClass, CriteriaOperator.Parse("Blocked = false"), null, 0, 0, false, true);
-            m_settingsList = settings.Cast<SKUserSearchSettings>().ToList();
+            XPCollection<SKUserSearchSettings> settingsXpCollection =
+                new XPCollection<SKUserSearchSettings>(m_session,
+                    CriteriaOperator.Parse("Blocked = false AND Reserved = false"),
+                    new SortProperty("LastParseDate", SortingDirection.Ascending));
+            settingsXpCollection.TopReturnedObjects = 30;
+
+            foreach (SKUserSearchSettings set in settingsXpCollection)
+            {
+                string query = string.Format("update \"SKUserSearchSettings\" set \"Reserved\" = 1 where \"Oid\" = '{0}'", set.Oid);
+                m_session.ExecuteNonQuery(query);
+            }
+            m_settingsList = settingsXpCollection.Cast<SKUserSearchSettings>().ToList();
             m_settingsList = m_settingsList.OrderBy(M => M.LastParseDate).ToList();
 
-
-            Console.WriteLine("Settings loaded " + m_settingsList.Count);
+            ConsoleHelper.WriteLineWithTime("Settings loaded " + m_settingsList.Count);
         }
 
         private void StartParsing()
@@ -63,44 +71,59 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             LoadPlugins();
 
             //.NET 4.5 multithreading
-             Parallel.ForEach<SKUserSearchSettings>(m_settingsList, obj =>
-            //foreach (SKUserSearchSettings obj in m_settingsList)
+            //Parallel.ForEach<SKUserSearchSettings>(m_settingsList, obj =>
+           foreach (SKUserSearchSettings obj in m_settingsList)
+           {
+               try
+               {
+                   SKUserSearchSettings settings = obj as SKUserSearchSettings;
+
+                   if (ValidateSettings(settings) == false)
+                       return;
+
+                   object userId = settings.SKUser.Oid;
+                   string urlLink = settings.Url;
+                   object settingsId = settings.Oid;
+                   string pluginUniqueCode = settings.Plugin.UniqueCode;
+
+                   UserParseInfoDto info = AllowParse(userId);
+                   if (info == null)
+                       return;
+
+                   if (string.IsNullOrEmpty(urlLink))
+                       return;
+
+                   info = OverideParseInfo(info, settings);
+                   ParseAdverts(userId, urlLink, settingsId, pluginUniqueCode, info);
+                   ConsoleHelper.WriteLineWithTime(string.Format("Parsed: {0}", settings.Plugin.Name));
+               }
+               catch (Exception e)
+               {
+                   //log to DB
+                   SKUserSearchSettings settings = obj as SKUserSearchSettings;
+                   new LogDBHelper().Log(e, settings, LogType.ParserError);
+
+                   Console.ForegroundColor = ConsoleColor.Red;
+                   Console.WriteLine(e);
+                   Console.ResetColor();
+               }
+
+           }
+          // );
+            UnreserveSettings();
+        }
+
+        private void UnreserveSettings()
+        {
+            ConsoleHelper.WriteLineWithTime("Unreserving settings...");
+
+            foreach (SKUserSearchSettings settings in m_settingsList)
             {
-                try
-                {
-                    SKUserSearchSettings settings = obj as SKUserSearchSettings;
-
-                    if (ValidateSettings(settings) == false)
-                        return;
-
-                    object userId = settings.SKUser.Oid;
-                    string urlLink = settings.Url;
-                    object settingsId = settings.Oid;
-                    string pluginUniqueCode = settings.Plugin.UniqueCode;
-
-                    UserParseInfoDto info = AllowParse(userId);
-                    if (info == null)
-                        return;
-
-                    if (string.IsNullOrEmpty(urlLink))
-                        return;
-
-                    info = OverideParseInfo(info, settings);
-                    ParseAdverts(userId, urlLink, settingsId, pluginUniqueCode, info);
-                }
-                catch (Exception e)
-                {
-                    //log to DB
-                    SKUserSearchSettings settings = obj as SKUserSearchSettings;
-                    new LogDBHelper().Log(e, settings, LogType.ParserError);
-
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(e);
-                    Console.ResetColor();
-                }
-
+                string query = string.Format("update \"SKUserSearchSettings\" set \"Reserved\" = 0 where \"Oid\" = '{0}'", settings.Oid);
+                m_session.ExecuteNonQuery(query);
             }
-            );
+
+            ConsoleHelper.WriteLineWithTime("Settings unreserved");
         }
 
         private UserParseInfoDto OverideParseInfo(UserParseInfoDto info, SKUserSearchSettings settings)
@@ -150,8 +173,8 @@ namespace XAFSkelbimaiPrograma.Parser.Services
 
             lock (m_allowParseCache) // Lock cache
             {
-               bool found = m_allowParseCache.TryGetValue(userId, out result);
-               if (found == true)
+                bool found = m_allowParseCache.TryGetValue(userId, out result);
+                if (found == true)
                     return result;
 
                 string query = string.Format("select a.\"SKUser\" as UserId, b.\"Email\" as Email, b.\"Photo\" as Photo from \"SKUserLicense\" a left join \"SKLicenseType\" b on b.\"Oid\" = a.\"LicenseType\" where \"Blocked\" = 0 and a.\"SKUser\" = '{0}'", userId);
@@ -172,7 +195,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             return result;
         }
 
-        private void ParseAdverts(object userId, string urlLink, object settingsId, 
+        private void ParseAdverts(object userId, string urlLink, object settingsId,
             string pluginUniqueCode, UserParseInfoDto info)
         {
             IPlugin plugin = GetPluginByUniqueCode(pluginUniqueCode);
