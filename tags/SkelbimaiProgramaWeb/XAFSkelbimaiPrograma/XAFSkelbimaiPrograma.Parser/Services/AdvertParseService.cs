@@ -51,7 +51,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                 new XPCollection<SKUserSearchSettings>(m_session,
                     CriteriaOperator.Parse("Blocked = false AND Reserved = false"),
                     new SortProperty("LastParseDate", SortingDirection.Ascending));
-            settingsXpCollection.TopReturnedObjects = 30;
+            settingsXpCollection.TopReturnedObjects = 40;
 
             foreach (SKUserSearchSettings set in settingsXpCollection)
             {
