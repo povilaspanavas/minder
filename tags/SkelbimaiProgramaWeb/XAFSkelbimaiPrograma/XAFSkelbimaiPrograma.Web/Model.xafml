@@ -282,6 +282,7 @@
               </LayoutGroup>
               <LayoutGroup Id="SKUserSearchSettings_col2">
                 <LayoutItem Id="LoadPhoto" Removed="True" />
+                <LayoutItem Id="Reserved" Removed="True" />
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
@@ -295,6 +296,7 @@
         <ColumnInfo Id="LastParseDate" EditMaskType="DateTime" EditMask="g" DisplayFormat="{0:g}" Index="4" />
         <ColumnInfo Id="Blocked" Index="5" />
         <ColumnInfo Id="Url" Index="6" PropertyEditorType="HyperLinkPropertyEditor.HyperLinkPropertyEditor" />
+        <ColumnInfo Id="Reserved" Removed="True" />
       </Columns>
     </ListView>
     <ListView Id="SKUserSearchSettings_LookupListView" Criteria="[SKUser.Oid] = CurrentUserId()" />
