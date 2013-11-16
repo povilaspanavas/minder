@@ -55,8 +55,22 @@ namespace XAFSkelbimaiPrograma.Parser.Services
 
             foreach (SKUserSearchSettings set in settingsXpCollection)
             {
-                string query = string.Format("update \"SKUserSearchSettings\" set \"Reserved\" = 1 where \"Oid\" = '{0}'", set.Oid);
-                m_session.ExecuteNonQuery(query);
+                bool notExecuted = true;
+                while (notExecuted)
+                {
+                    try
+                    {
+                        string query = string.Format("update \"SKUserSearchSettings\" set \"Reserved\" = 1 where \"Oid\" = '{0}'", set.Oid);
+                        m_session.ExecuteNonQuery(query);
+                        notExecuted = false;
+                    }
+                    catch
+                    {
+                        //Dead lock
+                        Thread.Sleep(1000);
+                    }
+                   
+                }
             }
             m_settingsList = settingsXpCollection.Cast<SKUserSearchSettings>().ToList();
             m_settingsList = m_settingsList.OrderBy(M => M.LastParseDate).ToList();
@@ -119,8 +133,22 @@ namespace XAFSkelbimaiPrograma.Parser.Services
 
             foreach (SKUserSearchSettings settings in m_settingsList)
             {
-                string query = string.Format("update \"SKUserSearchSettings\" set \"Reserved\" = 0 where \"Oid\" = '{0}'", settings.Oid);
-                m_session.ExecuteNonQuery(query);
+                bool notExecuted = true;
+                while (notExecuted)
+                {
+                    try
+                    {
+                        string query = string.Format("update \"SKUserSearchSettings\" set \"Reserved\" = 0 where \"Oid\" = '{0}'", settings.Oid);
+                        m_session.ExecuteNonQuery(query);
+                        notExecuted = false;
+                    }
+                    catch
+                    {
+                        //Dead lock
+                        Thread.Sleep(1000);
+                    }
+                   
+                }
             }
 
             ConsoleHelper.WriteLineWithTime("Settings unreserved");
