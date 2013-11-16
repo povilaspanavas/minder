@@ -37,7 +37,7 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
             if (count != 0)
             {
                 //Beep this
-                WebApplication.Redirect("http://google.lt");
+               // WebApplication.Redirect("http://google.lt");
                // StaticData
             }
 
