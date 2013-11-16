@@ -71,8 +71,8 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             LoadPlugins();
 
             //.NET 4.5 multithreading
-            //Parallel.ForEach<SKUserSearchSettings>(m_settingsList, obj =>
-           foreach (SKUserSearchSettings obj in m_settingsList)
+            Parallel.ForEach<SKUserSearchSettings>(m_settingsList, obj =>
+           //foreach (SKUserSearchSettings obj in m_settingsList)
            {
                try
                {
@@ -109,7 +109,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                }
 
            }
-          // );
+           );
             UnreserveSettings();
         }
 
