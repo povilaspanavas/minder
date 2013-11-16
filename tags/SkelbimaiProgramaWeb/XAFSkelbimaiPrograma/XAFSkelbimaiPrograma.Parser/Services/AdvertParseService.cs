@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -43,6 +44,12 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             }
         }
 
+        private int LoadLinkCountLimit()
+        {
+            string[] lines = File.ReadAllLines("LinkLoadLimit.txt");
+            return Convert.ToInt32(lines[0]);
+        }
+
         private void LoadSettingsCollection()
         {
             ConsoleHelper.WriteLineWithTime("Loading settings and reserving...");
@@ -51,7 +58,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                 new XPCollection<SKUserSearchSettings>(m_session,
                     CriteriaOperator.Parse("Blocked = false AND Reserved = false"),
                     new SortProperty("LastParseDate", SortingDirection.Ascending));
-            settingsXpCollection.TopReturnedObjects = 40;
+            settingsXpCollection.TopReturnedObjects = LoadLinkCountLimit();
 
             foreach (SKUserSearchSettings set in settingsXpCollection)
             {
