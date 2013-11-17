@@ -53,32 +53,34 @@ namespace XAFSkelbimaiPrograma.Parser.Services
         private void LoadSettingsCollection()
         {
             ConsoleHelper.WriteLineWithTime("Loading settings and reserving...");
+            string machineName = Environment.MachineName;
+            int rows = LoadLinkCountLimit();
+
+            string reserveQuery = string.Format("update \"SKUserSearchSettings\" a set a.\"Reserved\" = '{1}' " +
+            "where a.\"Oid\" in (select first {0} b.\"Oid\" from \"SKUserSearchSettings\" b where " +
+            "b.\"Reserved\" is null and b.\"Blocked\" = 0 and b.\"GCRecord\" is null order by b.\"LastParseDate\")", rows, machineName);
+
+            bool notExecuted = true;
+            while (notExecuted)
+            {
+                try
+                {
+                    m_session.ExecuteNonQuery(reserveQuery);
+                    notExecuted = false;
+                }
+                catch
+                {
+                    //Dead lock
+                    Thread.Sleep(500);
+                }
+
+            }
 
             XPCollection<SKUserSearchSettings> settingsXpCollection =
                 new XPCollection<SKUserSearchSettings>(m_session,
-                    CriteriaOperator.Parse("Blocked = false AND Reserved = false"),
-                    new SortProperty("LastParseDate", SortingDirection.Ascending));
-            settingsXpCollection.TopReturnedObjects = LoadLinkCountLimit();
+                    CriteriaOperator.Parse(string.Format("Reserved = '{0}'", machineName)),
+                    null);
 
-            foreach (SKUserSearchSettings set in settingsXpCollection)
-            {
-                bool notExecuted = true;
-                while (notExecuted)
-                {
-                    try
-                    {
-                        string query = string.Format("update \"SKUserSearchSettings\" set \"Reserved\" = 1 where \"Oid\" = '{0}'", set.Oid);
-                        m_session.ExecuteNonQuery(query);
-                        notExecuted = false;
-                    }
-                    catch
-                    {
-                        //Dead lock
-                        Thread.Sleep(1000);
-                    }
-                   
-                }
-            }
             m_settingsList = settingsXpCollection.Cast<SKUserSearchSettings>().ToList();
             m_settingsList = m_settingsList.OrderBy(M => M.LastParseDate).ToList();
 
@@ -137,25 +139,21 @@ namespace XAFSkelbimaiPrograma.Parser.Services
         private void UnreserveSettings()
         {
             ConsoleHelper.WriteLineWithTime("Unreserving settings...");
-
-            foreach (SKUserSearchSettings settings in m_settingsList)
+            string query = string.Format("update \"SKUserSearchSettings\" set \"Reserved\" = null where \"Reserved\" = '{0}'", Environment.MachineName);
+            bool notExecuted = true;
+            while (notExecuted)
             {
-                bool notExecuted = true;
-                while (notExecuted)
+                try
                 {
-                    try
-                    {
-                        string query = string.Format("update \"SKUserSearchSettings\" set \"Reserved\" = 0 where \"Oid\" = '{0}'", settings.Oid);
-                        m_session.ExecuteNonQuery(query);
-                        notExecuted = false;
-                    }
-                    catch
-                    {
-                        //Dead lock
-                        Thread.Sleep(1000);
-                    }
-                   
+                    m_session.ExecuteNonQuery(query);
+                    notExecuted = false;
                 }
+                catch
+                {
+                    //Dead lock
+                    Thread.Sleep(500);
+                }
+
             }
 
             ConsoleHelper.WriteLineWithTime("Settings unreserved");
