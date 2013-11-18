@@ -104,14 +104,25 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
             if (m_info == null || m_info.Photo == false)
                 return null;
 
-            part = part.Replace(":", string.Empty).Replace("(", string.Empty);
-            string[] parts = Regex.Split(part, "style=\"background-image url'//");
-            if (parts.Length == 1)
-                return null;
-            string[] parts2 = Regex.Split(parts[1], "'");
-            if (parts2.Length == 1)
-                return null;
-            return new SourceHelper().GetImage("http://" + parts2[0]);
+            try
+            {
+                part = part.Replace(":", string.Empty).Replace("(", string.Empty);
+                string[] parts = Regex.Split(part, "style=\"background-image url'//");
+                if (parts.Length == 1)
+                    return null;
+                string[] parts2 = Regex.Split(parts[1], "'");
+                if (parts2.Length == 1)
+                    return null;
+                return new SourceHelper().GetImage("http://" + parts2[0]);
+            }
+            catch (Exception e)
+            {
+                if (e.Message.IndexOf("The remote server returned an error: (404) Not Found") == -1)
+                    throw e;
+                else
+                    return null;
+            }
+
         }
         #endregion
 
