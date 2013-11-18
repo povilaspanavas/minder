@@ -13,6 +13,7 @@ using DevExpress.ExpressApp.Templates;
 using DevExpress.Persistent.Validation;
 using DevExpress.ExpressApp.SystemModule;
 using DevExpress.ExpressApp.Model.NodeGenerators;
+using XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects;
 
 namespace XAFSkelbimaiPrograma.Module.Controllers
 {
@@ -24,7 +25,9 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
             InitializeComponent();
             RegisterActions(components);
             // Target required Views (via the TargetXXX properties) and create their Actions.
-            this.TargetViewId = "SKAdvertRead_ListView";
+            //this.TargetViewId = "SKAdvertRead_ListView";
+            this.TargetObjectType = typeof(SKAdvert);
+            this.TargetViewType = ViewType.ListView;
         }
         protected override void OnActivated()
         {
@@ -33,7 +36,7 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
             ListView listView = View as ListView;
             int count = listView.CollectionSource.GetCount();
             if (count > 300)
-                MessageBox.Show(Application, "Turimø skelbimø kiekis jau didesnis nei 300! Praðome iðtrinti perskaitytus skelbimus.",
+                MessageBox.Show(Application, "Turimø skelbimø kiekis jau didesnis nei 300! Praðome iðtrinti skelbimus.",
                        new Action(delegate
                        {
 

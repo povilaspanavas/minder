@@ -37,6 +37,8 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                 advert.UrlLink = GetLink(part);
                 advert.Price = GetPrice(part);
                 advert.Year = GetYear(part);
+
+
                 advert.Image = GetImage(part);
 
                 result.Add(advert);
@@ -86,14 +88,14 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
             if (m_info == null || m_info.Photo == false)
                 return null;
 
-            string[] split = Regex.Split(sourcePart, "<img src=\"");
+            string[] split = Regex.Split(sourcePart, "\"http://i.ebayimg.com/");
             if (split.Length < 2)
                 return null;
             string[] split1 = Regex.Split(split[1], "\"");
             if (split1.Length < 2)
                 return null;
 
-            return new SourceHelper().GetImage(split1[0]);
+            return new SourceHelper().GetImage("http://i.ebayimg.com/"+split1[0]);
         }
         #endregion
 
