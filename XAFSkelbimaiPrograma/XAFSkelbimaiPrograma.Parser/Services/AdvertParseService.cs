@@ -71,6 +71,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                 catch
                 {
                     //Dead lock
+                    ConsoleHelper.WriteLineWithTime("Deadlok in reserve links!");
                     Thread.Sleep(500);
                 }
 
