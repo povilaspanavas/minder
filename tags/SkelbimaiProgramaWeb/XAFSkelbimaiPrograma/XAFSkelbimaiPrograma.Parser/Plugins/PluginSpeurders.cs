@@ -117,7 +117,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
             }
             catch (Exception e)
             {
-                if (e.Message.IndexOf("The remote server returned an error: (404) Not Found") == -1)
+                if (e.Message.IndexOf("(404) Not Found") == -1)
                     throw e;
                 else
                     return null;
