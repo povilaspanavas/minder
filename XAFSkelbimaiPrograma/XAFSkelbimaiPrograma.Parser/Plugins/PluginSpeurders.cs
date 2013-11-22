@@ -80,7 +80,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
         {
             try
             {
-                string[] parts = Regex.Split(part, "euro");
+                string[] parts = Regex.Split(part, "&euro");
                 if (parts.Length == 1)
                     return string.Empty;
                 string[] parts1 = Regex.Split(parts[1], "</");
@@ -138,7 +138,8 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                 return new List<string>(new string[] 
             { 
                 "http://www.speurders.nl/overzicht/autos/ford/f_automodel-Focus/f_particulier_zakelijk-particulier/?fh_sort_by=-sort_tijd&excludeEroAds=1",
-                "http://www.speurders.nl/overzicht/autos/bmw/f_automodel-X5/f_particulier_zakelijk-particulier/?fh_sort_by=-sort_tijd"
+                "http://www.speurders.nl/overzicht/autos/bmw/f_automodel-X5/f_particulier_zakelijk-particulier/?fh_sort_by=-sort_tijd",
+                "http://www.speurders.nl/overzicht/autos/f_particulier_zakelijk-particulier,zakelijk/f_bouwjaar-na%202004,2000%20tot%202004/?order_direction=desc&order_by=date&local-postcode=&query=motorschade&max_prijs=&local-distance_value=0&min_prijs="
             });
             }
         }
