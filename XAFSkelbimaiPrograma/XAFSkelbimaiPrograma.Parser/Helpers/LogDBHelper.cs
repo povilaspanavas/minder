@@ -11,9 +11,16 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
 {
     class LogDBHelper
     {
+        private static HashSet<string> allMessages = new HashSet<string>();
+
         public void Log(Exception e, SKUserSearchSettings settings, LogType logType)
         {
             string message = FormatMessage(e, settings);
+            bool added = allMessages.Add(message);
+
+            if (added == false) //Jau tokią pat loginome
+                return;
+
             Session session = new Session { ConnectionString = StaticData.CONNECTION_STRING };
             SKParserLog logObj = new SKParserLog(session);
             logObj.Message = message;

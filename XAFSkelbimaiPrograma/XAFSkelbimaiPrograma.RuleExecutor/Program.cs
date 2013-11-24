@@ -16,7 +16,7 @@ namespace XAFSkelbimaiPrograma.RuleExecutor
                 Console.WriteLine("Execute rules...");
                 new RuleExecutor.Executor.RuleExecutor().RunRules();
                 Console.WriteLine("Rules executed.");
-                Thread.Sleep(60 * 1000 * 50);
+                Thread.Sleep(60 * 1000 * 5);
             }
         }
     }

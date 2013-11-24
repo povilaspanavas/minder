@@ -42,5 +42,14 @@ namespace XAFSkelbimaiPrograma.Parser.Tests
             }
         }
 
+        //[TestMethod]
+        //public void TestSimple()
+        //{
+        //    HashSet<string> hashSet = new HashSet<string>();
+        //    bool result = hashSet.Add("Labas");
+        //    bool result1 = hashSet.Add("Labas");
+           
+        //}
+
     }
 }
