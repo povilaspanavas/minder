@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model" VersionFormat="Versija 1.0.29 Beta" ProtectedContentText="Nerodoma">
+<Application Title="Skelbimų tikrinimo sistema" Company="www.serviceit.lt" Copyright="2013" Logo="BO_Security_Permission_Model" VersionFormat="Versija 1.0.30 Beta" ProtectedContentText="Nerodoma">
   <ActionDesign>
     <Actions>
       <Action Id="DialogCancel" Caption="Uždaryti" />
@@ -72,6 +72,8 @@
           <Item Id="DLCEmployeeTask_ListView" Removed="True" />
           <Item Id="SKAdvert_ListView" Removed="True" />
           <Item Id="SKPlugin_ListView" Removed="True" />
+          <Item Id="SKRule_ListView" Caption="Taisyklės" />
+          <Item Id="SKRuleType_ListView" Caption="Taisyklės tipai" />
           <Item Id="SKUserLicense_ListView" Removed="True" />
           <Item Id="SKUserSearchSettings_ListView" Removed="True" />
         </Items>
