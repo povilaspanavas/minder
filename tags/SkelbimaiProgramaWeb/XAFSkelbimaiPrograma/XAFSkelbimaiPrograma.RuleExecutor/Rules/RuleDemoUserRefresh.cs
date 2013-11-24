@@ -18,6 +18,8 @@ namespace XAFSkelbimaiPrograma.RuleExecutor.Rules
             DLCEmployee demoUser = session.FindObject<DLCEmployee>(CriteriaOperator.Parse("UserName = ?", "demo"));
             session.ExecuteNonQuery(string.Format("delete from \"SKAdvert\" where \"SKUser\" = '{0}'", demoUser.Oid));
             session.ExecuteNonQuery(string.Format("delete from \"SKUserSearchSettings\" where \"SKUser\" = '{0}'", demoUser.Oid));
+            session.Disconnect();
+            session.Dispose();
         }
     }
 }
