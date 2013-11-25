@@ -18,7 +18,10 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
             m_info = info;
             string source = new SourceHelper().GetSource(url);
             if (source.IndexOf("JÅ«s virÅijote leistinÄ") != -1)
-                throw new Exception("Autoplius.lt limitas!!!");
+            {
+                source = new SourceHelper().GetSourceByProxy(url);
+                new LogDBHelper().Log(new Exception(), null, LogType.ParserError);
+            }
             List<string> parts = ParseToParts(source);
             return ParseToAdvertDtos(parts);
         }

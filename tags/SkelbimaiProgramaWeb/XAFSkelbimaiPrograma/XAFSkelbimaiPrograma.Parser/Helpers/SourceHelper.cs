@@ -19,16 +19,43 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
             string source = webClient.DownloadString(link);
             webClient.Dispose();
             return source;
-
-            //InitProxyList();
-            //WebClient client = new WebClient();
-            //WebProxy wp = new WebProxy(GetRandomProxy());
-            //client.Proxy = wp;
-            //string str = client.DownloadString(link);
-            //client.Dispose();
-            //return str;
-
         }
+
+        public string GetSourceByProxy(string link)
+        {
+            int tryCount = 3;
+
+            while (tryCount != 0)
+            {
+                try
+                {
+                    InitProxyList();
+                    WebClient client = new WebClient();
+                    WebProxy wp = new WebProxy(GetRandomProxy());
+                    client.Proxy = wp;
+                    string str = client.DownloadString(link);
+                    client.Dispose();
+                    return str;
+                }
+                catch (Exception)
+                {
+                    tryCount--;
+                }
+                
+            }
+            throw new Exception("Not work proxy IP");
+        }
+
+        public Image GetImage(string link)
+        {
+            WebClient wc = new WebClient();
+            byte[] bytes = wc.DownloadData(link);
+            MemoryStream ms = new MemoryStream(bytes);
+            Image img = Image.FromStream(ms);
+            return img;
+        }
+
+        //Privates ------------------------------------------------------
 
         private string GetRandomProxy()
         {
@@ -36,7 +63,7 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
             {
                 int start = 0;
                 int end = m_proxies.Count - 1;
-                int ticks = (int)DateTime.Now.Ticks; 
+                int ticks = (int)DateTime.Now.Ticks;
                 Random random = new Random(ticks);
                 int randomInt = random.Next(start, end);
                 return m_proxies[randomInt];
@@ -54,15 +81,6 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
                 string[] proxiesFromFile = File.ReadAllLines("ProxyList.txt");
                 m_proxies.AddRange(proxiesFromFile);
             }
-        }
-
-        public Image GetImage(string link)
-        {
-            WebClient wc = new WebClient();
-            byte[] bytes = wc.DownloadData(link);
-            MemoryStream ms = new MemoryStream(bytes);
-            Image img = Image.FromStream(ms);
-            return img;
         }
 
     }
