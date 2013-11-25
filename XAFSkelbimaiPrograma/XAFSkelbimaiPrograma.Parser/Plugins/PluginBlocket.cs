@@ -108,6 +108,8 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                 return null;
             if (split1[0].Equals("/img/transparent.gif"))
                 return null;
+            if (split1[0].IndexOf("none.gif") != -1)
+                return null;
             return new SourceHelper().GetImage(split1[0]);
         }
 

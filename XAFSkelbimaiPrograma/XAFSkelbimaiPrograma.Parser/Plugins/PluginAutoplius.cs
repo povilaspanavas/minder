@@ -17,6 +17,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
         {
             m_info = info;
             string source = new SourceHelper().GetSource(url);
+            //if(source.ToLower().IndexOf("") != -1)
             List<string> parts = ParseToParts(source);
             return ParseToAdvertDtos(parts);
         }
