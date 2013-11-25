@@ -62,18 +62,20 @@
       </Item>
       <Item Id="Default" Caption="Admin nustatymai" ImageName="ModelEditor_Settings" Index="2">
         <Items>
+          <Item Id="DLCEmployee_ListView" Caption="Vartotojai" Index="0" />
           <Item Id="MyDetails" Caption="Mano profilis" Index="0" Removed="True" />
-          <Item Id="DLCEmployee_ListView" Caption="Vartotojai" Index="1" />
-          <Item Id="DLCEmployeeRole_ListView" Caption="Rolės" Index="2" />
-          <Item Id="Pluginai" ViewId="SKPlugin_ListView" Caption="Įskiepiai" Index="3" IsNewNode="True" />
-          <Item Id="SKUser License" ViewId="SKUserLicense_ListView" Caption="Licencijos" Index="4" IsNewNode="True" />
-          <Item Id="SKLicenseType_ListView" Caption="Licensijų tipai" Index="5" />
-          <Item Id="@1ad2e93a-77c8-4c4f-a09c-834b77c92102" ViewId="SKUserSearchSettingsAll_ListView" IsNewNode="True" />
+          <Item Id="DLCEmployeeRole_ListView" Caption="Rolės" Index="1" />
+          <Item Id="Pluginai" ViewId="SKPlugin_ListView" Caption="Įskiepiai" Index="2" IsNewNode="True" />
+          <Item Id="SKUser License" ViewId="SKUserLicense_ListView" Caption="Licencijos" Index="3" IsNewNode="True" />
+          <Item Id="SKLicenseType_ListView" Caption="Licensijų tipai" Index="4" />
+          <Item Id="SKParserLog_ListView" Index="5" />
+          <Item Id="SKRule_ListView" Caption="Taisyklės" Index="6" />
+          <Item Id="SKRuleType_ListView" Caption="Taisyklės tipai" Index="7" />
+          <Item Id="@69a3bad7-cc52-4766-a41f-566e117fcb9f" ViewId="SKAdvert_ListView" Caption="Visi skelbimai" Index="8" IsNewNode="True" />
+          <Item Id="@1ad2e93a-77c8-4c4f-a09c-834b77c92102" ViewId="SKUserSearchSettingsAll_ListView" Index="9" IsNewNode="True" />
           <Item Id="DLCEmployeeTask_ListView" Removed="True" />
           <Item Id="SKAdvert_ListView" Removed="True" />
           <Item Id="SKPlugin_ListView" Removed="True" />
-          <Item Id="SKRule_ListView" Caption="Taisyklės" />
-          <Item Id="SKRuleType_ListView" Caption="Taisyklės tipai" />
           <Item Id="SKUserLicense_ListView" Removed="True" />
           <Item Id="SKUserSearchSettings_ListView" Removed="True" />
         </Items>
@@ -161,7 +163,7 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="SKAdvert_ListView" Filter="" Criteria="[SKUser.Oid] = CurrentUserId() And [Read] = True And [Deleted] = False" Caption="Perskaityti skelbimai">
+    <ListView Id="SKAdvert_ListView" Filter="" Criteria="" Caption="Perskaityti skelbimai">
       <Columns>
         <ColumnInfo Id="Name" Index="0" />
         <ColumnInfo Id="SearchSetting" Index="1" />
