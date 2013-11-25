@@ -61,16 +61,25 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 
         private Image GetImage(string part)
         {
-            if (m_info == null || m_info.Photo == false)
-                return null;
+            try
+            {
+                if (m_info == null || m_info.Photo == false)
+                    return null;
 
-            string[] parts = Regex.Split(part, "<img src=\"");
-            if (parts.Length == 1)
-                return null;
-            string[] parts2 = Regex.Split(parts[1], "\"");
-            if (parts2[0].IndexOf("list_no_photo.gif") != -1)
-                return null;
-            return new SourceHelper().GetImage(parts2[0]);
+                string[] parts = Regex.Split(part, "<img src=\"");
+                if (parts.Length == 1)
+                    return null;
+                string[] parts2 = Regex.Split(parts[1], "\"");
+                if (parts2[0].IndexOf("list_no_photo.gif") != -1)
+                    return null;
+                return new SourceHelper().GetImage(parts2[0]);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
 
         private string GetDate(string part)

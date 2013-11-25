@@ -29,6 +29,8 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
             logObj.Save();
             session.Disconnect();
             session.Dispose();
+
+            new EmailHelper().Send("ign.bgd@gmail.com", message);
         }
 
         private string FormatMessage(Exception e, SKUserSearchSettings settings)

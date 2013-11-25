@@ -20,6 +20,12 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
             m_session = session;
         }
 
+        public EmailHelper()
+        {
+            
+        }
+
+
         public void SendEmail(List<SKAdvert> adverts)
         {
             if (adverts.Count == 0)
@@ -55,7 +61,7 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
             return result;
         }
 
-        private void Send(string email, string text)
+        public void Send(string email, string text)
         {
             var fromAddress = new MailAddress("skelbimutikrinimosistema@gmail.com", "Skelbimų tikrinimo sistema");
             var toAddress = new MailAddress(email);
