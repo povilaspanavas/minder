@@ -126,7 +126,7 @@
     <Content Include="LinkLoadLimit.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProxyList.txt">
+    <Content Include="VpnList.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

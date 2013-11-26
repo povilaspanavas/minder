@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace XAFSkelbimaiPrograma.Parser.Helpers
 {
     public class SourceHelper
     {
-        private List<string> m_proxies;
+        private List<string> m_vpnList;
 
         public string GetSource(string link) //TODO Need implement proxy
         {
@@ -21,29 +23,44 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
             return source;
         }
 
-        public string GetSourceByProxy(string link)
+        public string GetSourceViaVpn(string link)
         {
-            int tryCount = 3;
-
-            while (tryCount != 0)
+            //Connect
+            InitVpnList();
+            lock (m_vpnList)
             {
+                Process.Start("rasdial.exe", m_vpnList[0]);
                 try
                 {
-                    InitProxyList();
-                    WebClient client = new WebClient();
-                    WebProxy wp = new WebProxy(GetRandomProxy());
-                    client.Proxy = wp;
-                    string str = client.DownloadString(link);
-                    client.Dispose();
-                    return str;
+                    string[] parts = Regex.Split(m_vpnList[0], " ");
+                    Process.Start("rasdial.exe", parts[0] + " /d");
+                    parts = Regex.Split(m_vpnList[1], " ");
+                    Process.Start("rasdial.exe", parts[0] + " /d");
+                    parts = Regex.Split(m_vpnList[0], " ");
+
+                    WebClient webClient = new WebClient();
+                    string source = webClient.DownloadString(link);
+                    webClient.Dispose();
+
+                    Process.Start("rasdial.exe", parts[0] + " /d");
+                    return source;
                 }
-                catch (Exception)
+                catch
                 {
-                    tryCount--;
+                    string[] parts = Regex.Split(m_vpnList[0], " ");
+                    Process.Start("rasdial.exe", parts[0] + " /d");
+                    Process.Start("rasdial.exe", m_vpnList[1]);
+
+                    WebClient webClient = new WebClient();
+                    //webClient.Headers["Accept-Language"] = "lt-LT";
+                    string source = webClient.DownloadString(link);
+                    webClient.Dispose();
+                    parts = Regex.Split(m_vpnList[1], " ");
+                    Process.Start("rasdial.exe", parts[0] + " /d");
+                    return source;
                 }
-                
             }
-            throw new Exception("Not work proxy IP");
+           
         }
 
         public Image GetImage(string link)
@@ -57,29 +74,16 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
 
         //Privates ------------------------------------------------------
 
-        private string GetRandomProxy()
+        private void InitVpnList()
         {
-            lock (m_proxies)
-            {
-                int start = 0;
-                int end = m_proxies.Count - 1;
-                int ticks = (int)DateTime.Now.Ticks;
-                Random random = new Random(ticks);
-                int randomInt = random.Next(start, end);
-                return m_proxies[randomInt];
-            }
-        }
-
-        private void InitProxyList()
-        {
-            if (m_proxies != null)
+            if (m_vpnList != null)
                 return;
 
-            m_proxies = new List<string>();
-            lock (m_proxies)
+            m_vpnList = new List<string>();
+            lock (m_vpnList)
             {
-                string[] proxiesFromFile = File.ReadAllLines("ProxyList.txt");
-                m_proxies.AddRange(proxiesFromFile);
+                string[] proxiesFromFile = File.ReadAllLines("VpnList.txt");
+                m_vpnList.AddRange(proxiesFromFile);
             }
         }
 

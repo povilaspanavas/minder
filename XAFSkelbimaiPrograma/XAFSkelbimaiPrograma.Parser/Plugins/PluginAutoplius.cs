@@ -19,7 +19,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
             string source = new SourceHelper().GetSource(url);
             if (source.IndexOf("JÅ«s virÅijote leistinÄ") != -1)
             {
-                source = new SourceHelper().GetSourceByProxy(url);
+                source = new SourceHelper().GetSourceViaVpn(url);
                 new LogDBHelper().Log(new Exception("Viršytas autoplius.lt limitas"), null, LogType.ParserError);
             }
             List<string> parts = ParseToParts(source);
