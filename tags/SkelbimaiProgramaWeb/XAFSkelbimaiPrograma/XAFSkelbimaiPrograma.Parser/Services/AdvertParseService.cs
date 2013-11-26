@@ -95,8 +95,8 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             LoadPlugins();
 
             //.NET 4.5 multithreading
-            Parallel.ForEach<SKUserSearchSettings>(m_settingsList, obj =>
-           //foreach (SKUserSearchSettings obj in m_settingsList)
+           // Parallel.ForEach<SKUserSearchSettings>(m_settingsList, obj =>
+           foreach (SKUserSearchSettings obj in m_settingsList)
            {
                try
                {
@@ -112,10 +112,10 @@ namespace XAFSkelbimaiPrograma.Parser.Services
 
                    UserParseInfoDto info = AllowParse(userId);
                    if (info == null)
-                       return;
+                       continue;
 
                    if (string.IsNullOrEmpty(urlLink))
-                       return;
+                       continue;
 
                    info = OverideParseInfo(info, settings);
                    ParseAdverts(userId, urlLink, settingsId, pluginUniqueCode, info);
@@ -133,7 +133,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                }
 
            }
-           );
+          // );
             UnreserveSettings();
         }
 
