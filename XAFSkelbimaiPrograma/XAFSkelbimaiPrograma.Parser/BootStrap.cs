@@ -17,10 +17,12 @@ namespace XAFSkelbimaiPrograma.Parser
     {
         static void Main(string[] args)
         {
+            StaticVars.StartDate = DateTime.Now;
             for (int i = 0; i < 10; i++)
             {
                 ConsoleHelper.WriteLineWithTime("Starting parse service...");
                 DateTime startTime = DateTime.Now;
+                
                 new AdvertParseService().RunService();
                 DateTime endTime = DateTime.Now;
                 TimeSpan span = endTime - startTime;
@@ -30,5 +32,10 @@ namespace XAFSkelbimaiPrograma.Parser
             }
         }
 
+    }
+
+    public static class StaticVars
+    {
+        public static DateTime StartDate;
     }
 }
