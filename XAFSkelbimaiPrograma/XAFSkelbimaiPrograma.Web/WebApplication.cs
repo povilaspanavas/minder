@@ -126,6 +126,7 @@ namespace XAFSkelbimaiPrograma.Web
             this.Modules.Add(this.securityModule1);
             this.Modules.Add(this.validationModule1);
             this.Security = this.securityStrategyComplex1;
+            //this.securityStrategyComplex1.Authentication.Authenticate
             this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.XAFSkelbimaiProgramaAspNetApplication_DatabaseVersionMismatch);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
