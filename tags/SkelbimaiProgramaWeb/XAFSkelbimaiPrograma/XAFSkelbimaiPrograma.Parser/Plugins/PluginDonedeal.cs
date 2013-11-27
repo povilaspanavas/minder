@@ -32,7 +32,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                 advert.UrlLink = GetLink(part);
                 advert.Year = GetYear(part);
                 advert.Price = GetPrice(part);
-               // advert.Column5 = GetCountry(part);
+                // advert.Column5 = GetCountry(part);
                 advert.Image = GetImage(part);
 
                 result.Add(advert);
@@ -126,6 +126,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
                 "http://cars.donedeal.ie/find/cars/for-sale/Ireland/?filter%28max_engine%29=Max+Litres&filter%28max_mileage%29=Max+KM&filter%28max_price%29=Max+Price&filter%28max_year%29=Max+Year&filter%28min_engine%29=Min+Litres&filter%28min_mileage%29=Min+KM&filter%28min_price%29=Min+Price&filter%28min_year%29=Min+Year&multiFilter%28transmission%29=Manual&source=all"
                 
             });
+                //return new List<string>();
             }
         }
     }

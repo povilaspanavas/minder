@@ -163,15 +163,18 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="SKAdvert_ListView" Filter="" Criteria="" Caption="Perskaityti skelbimai">
+    <ListView Id="SKAdvert_ListView" Filter="" Criteria="" Caption="Perskaityti skelbimai" IsGroupPanelVisible="True">
       <Columns>
-        <ColumnInfo Id="Name" Index="0" />
-        <ColumnInfo Id="SearchSetting" Index="1" />
-        <ColumnInfo Id="FoundDate" Index="2" EditMaskType="DateTime" EditMask="g" DisplayFormat="{0:g}" />
-        <ColumnInfo Id="Price" Index="3" />
-        <ColumnInfo Id="Year" Index="4" />
-        <ColumnInfo Id="FuelType" Index="5" />
-        <ColumnInfo Id="Link" Index="6" />
+        <ColumnInfo Id="Vartotojas" PropertyName="SKUser" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Paieškos nustatymo pavadinimas" PropertyName="SearchSetting" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Name" Index="2" />
+        <ColumnInfo Id="SearchSetting" Index="3" />
+        <ColumnInfo Id="FoundDate" Index="4" EditMaskType="DateTime" EditMask="g" DisplayFormat="{0:g}" />
+        <ColumnInfo Id="Price" Index="5" />
+        <ColumnInfo Id="Year" Index="6" />
+        <ColumnInfo Id="FuelType" Index="7" />
+        <ColumnInfo Id="Link" Index="8" />
+        <ColumnInfo Id="Image" Index="9" />
         <ColumnInfo Id="Deleted" Removed="True" />
         <ColumnInfo Id="Mark" Removed="True" />
         <ColumnInfo Id="Read" Removed="True" />
