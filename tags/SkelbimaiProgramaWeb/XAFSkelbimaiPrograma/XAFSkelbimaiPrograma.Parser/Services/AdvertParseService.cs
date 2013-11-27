@@ -53,7 +53,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
         private void LoadSettingsCollection()
         {
             ConsoleHelper.WriteLineWithTime("Loading settings and reserving...");
-            string machineName = Environment.MachineName;
+            string machineName = Environment.MachineName + StaticVars.StartDate;
             int rows = LoadLinkCountLimit();
 
             string reserveQuery = string.Format("update \"SKUserSearchSettings\" a set a.\"Reserved\" = '{1}' " +
@@ -130,6 +130,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                    Console.ForegroundColor = ConsoleColor.Red;
                    Console.WriteLine(e);
                    Console.ResetColor();
+                   
                }
 
            }
@@ -137,10 +138,10 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             UnreserveSettings();
         }
 
-        private void UnreserveSettings()
+        public void UnreserveSettings()
         {
             ConsoleHelper.WriteLineWithTime("Unreserving settings...");
-            string query = string.Format("update \"SKUserSearchSettings\" set \"Reserved\" = null where \"Reserved\" = '{0}'", Environment.MachineName);
+            string query = string.Format("update \"SKUserSearchSettings\" set \"Reserved\" = null where \"Reserved\" = '{0}'", Environment.MachineName + StaticVars.StartDate);
             bool notExecuted = true;
             while (notExecuted)
             {
