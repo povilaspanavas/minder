@@ -20,7 +20,7 @@ namespace XAFSkelbimaiPrograma.Parser.Starter
             while (true)
             {
                 Process[] proc = Process.GetProcessesByName("XAFSkelbimaiPrograma.Parser");
-                if (proc.Length == 0)
+                if (proc.Length < 2) //2 procesus laikome, gal bus greičiau
                     Process.Start(@"..\..\..\XAFSkelbimaiPrograma.Parser\bin\debug\XAFSkelbimaiPrograma.Parser.exe");
                 Thread.Sleep(1000 * 5);
             }
