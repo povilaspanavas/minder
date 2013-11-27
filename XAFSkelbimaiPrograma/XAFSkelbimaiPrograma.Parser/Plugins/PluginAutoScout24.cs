@@ -73,9 +73,8 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 
         private string GetLink(string part)
         {
-            string[] parts = Regex.Split(part, "\"ei\":");
-            string[] parts2 = Regex.Split(parts[1], ",");
-            return LINK_PREFIX + parts2[0];
+            string[] parts = Regex.Split(part, ",");
+            return LINK_PREFIX + parts[0];
         }
 
         private string GetYear(string part)
