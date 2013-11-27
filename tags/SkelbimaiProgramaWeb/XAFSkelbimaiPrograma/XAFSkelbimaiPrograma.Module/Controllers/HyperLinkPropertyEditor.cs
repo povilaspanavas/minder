@@ -59,6 +59,8 @@ namespace HyperLinkPropertyEditor
             ASPxHyperLink hyperlink = (ASPxHyperLink)InplaceViewModeEditor;
             string url = Convert.ToString(value);
             hyperlink.Text = url;
+            hyperlink.Target = "_blank";
+           
             hyperlink.NavigateUrl = GetResolvedUrl(url);
         }
     }
