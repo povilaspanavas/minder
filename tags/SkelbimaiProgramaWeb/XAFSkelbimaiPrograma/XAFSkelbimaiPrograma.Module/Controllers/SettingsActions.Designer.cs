@@ -28,28 +28,10 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.simpleAction1 = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
-            // 
-            // simpleAction1
-            // 
-            this.simpleAction1.Caption = "Atidaryti";
-            this.simpleAction1.ConfirmationMessage = null;
-            this.simpleAction1.Id = "5b678c6d-fa74-4ee8-abf2-9e484e0aa282";
-            this.simpleAction1.ImageName = "Action_Open";
-            this.simpleAction1.Shortcut = null;
-            this.simpleAction1.Tag = null;
-            this.simpleAction1.TargetObjectsCriteria = null;
-            this.simpleAction1.TargetObjectType = typeof(XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKUserSearchSettings);
-            this.simpleAction1.TargetViewId = null;
-            this.simpleAction1.ToolTip = null;
-            this.simpleAction1.TypeOfView = null;
-            this.simpleAction1.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.simpleAction1_Execute);
 
         }
 
         #endregion
 
-        private DevExpress.ExpressApp.Actions.SimpleAction simpleAction1;
     }
 }
