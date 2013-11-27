@@ -120,7 +120,7 @@ namespace XAFSkelbimaiPrograma.Parser.Plugins
 
         private List<string> ParseToParts(string source)
         {
-            List<string> parts = Regex.Split(source, "{\"at\":\"").ToList();
+            List<string> parts = Regex.Split(source, "{\"ei\":").ToList();
             if (parts.Count != 0)
                 parts.RemoveAt(0);
             return parts;

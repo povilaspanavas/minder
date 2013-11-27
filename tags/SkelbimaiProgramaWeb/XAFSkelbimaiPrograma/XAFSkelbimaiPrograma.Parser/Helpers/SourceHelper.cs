@@ -23,6 +23,7 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
             return source;
         }
 
+        [Obsolete("Reikia ant normalaus proxio pakabinti")]
         public string GetSourceViaVpn(string link)
         {
             //Connect
