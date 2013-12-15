@@ -20,7 +20,13 @@ namespace XAFSkelbimaiPrograma.Module.Helpers
                 if (m_connectionString != null)
                     return m_connectionString;
 
-                string path = HttpContext.Current.Server.MapPath("/Web.config");
+                string path = string.Empty;
+
+                if (HttpContext.Current != null)
+                    path = HttpContext.Current.Server.MapPath("/Web.config");
+                else
+                    path = "../../../XAFSkelbimaiPrograma.Web/Web.config";
+
                 string allFile = File.ReadAllText(path);
                 string[] splited = Regex.Split(allFile, "<add name=\"ConnectionString\" connectionString=\"");
                 string[] splited2 = Regex.Split(splited[1], "\"");
