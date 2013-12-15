@@ -23,7 +23,7 @@ namespace XAFSkelbimaiPrograma.Module.Helpers
                 string path = string.Empty;
 
                 if (HttpContext.Current != null)
-                    path = HttpContext.Current.Server.MapPath("/Web.config");
+                    path = HttpContext.Current.Server.MapPath("~/Web.config");
                 else
                     path = "../../../XAFSkelbimaiPrograma.Web/Web.config";
 
