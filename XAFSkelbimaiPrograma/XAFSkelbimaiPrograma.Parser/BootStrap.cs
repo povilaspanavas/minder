@@ -28,7 +28,7 @@ namespace XAFSkelbimaiPrograma.Parser
                 TimeSpan span = endTime - startTime;
 
                 ConsoleHelper.WriteLineWithTime(string.Format("Parse service end work in {0} seconds", span.TotalSeconds));
-                Thread.Sleep(15 * 1000);
+                Thread.Sleep(5 * 1000);
             }
         }
 
