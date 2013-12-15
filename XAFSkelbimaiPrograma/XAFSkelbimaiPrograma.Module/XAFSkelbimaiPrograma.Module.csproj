@@ -220,6 +220,7 @@
     <Compile Include="Controllers\SoundViewController.Designer.cs">
       <DependentUpon>SoundViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ConfigHelper.cs" />
     <Compile Include="SecurityModule\DLCEmployee.cs" />
     <Compile Include="SecurityModule\DLCEmployeeRole.cs" />
     <Compile Include="SecurityModule\DLCEmployeeTask.cs" />

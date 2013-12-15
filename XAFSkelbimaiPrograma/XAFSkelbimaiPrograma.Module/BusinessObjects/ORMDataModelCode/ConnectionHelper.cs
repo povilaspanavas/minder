@@ -9,11 +9,21 @@
 using System;
 using DevExpress.Xpo;
 using DevExpress.Data.Filtering;
+using XAFSkelbimaiPrograma.Module.Helpers;
 namespace XAFSkelbimaiPrograma.Module.BusinessObjects.XAF_DB
 {
     public static class ConnectionHelper
     {
-        public const string ConnectionString = @"XpoProvider=Firebird;DataSource=localhost;User=sysdba;Password=masterkey;Database=XAF_DB;ServerType=0;Charset=UTF8";
+       // public const string ConnectionString = @"XpoProvider=Firebird;DataSource=localhost;User=sysdba;Password=masterkey;Database=XAF_DB;ServerType=0;Charset=UTF8";
+
+        public static string ConnectionString 
+        {
+            get
+            {
+                return new ConfigHelper().GetConnectionString();
+            }
+        }
+        
         public static void Connect(DevExpress.Xpo.DB.AutoCreateOption autoCreateOption)
         {
             XpoDefault.DataLayer = XpoDefault.GetDataLayer(ConnectionString, autoCreateOption);
