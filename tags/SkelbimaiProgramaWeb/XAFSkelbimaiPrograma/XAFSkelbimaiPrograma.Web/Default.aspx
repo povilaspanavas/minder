@@ -35,6 +35,9 @@
     function PlayBeep() {
         document.getElementById('beep').play();
     }
+	
+	if (document.URL.indexOf("PlayBeep=true") >= 0)
+		PlayBeep();
 </script>
 <!--<embed src="beep.wav" autostart=true width=0 height=0 name="sound1" enablejavascript="true"> -->
 </body>
