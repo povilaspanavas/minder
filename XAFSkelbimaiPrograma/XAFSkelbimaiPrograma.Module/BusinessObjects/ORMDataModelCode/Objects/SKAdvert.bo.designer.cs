@@ -20,6 +20,7 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
   [DefaultClassOptions]
   public partial class SKAdvert : DevExpress.Persistent.BaseImpl.BaseObject
   {
+    private System.Boolean _playedSound;
     private System.Drawing.Image _image;
     private System.Boolean _deleted;
     private XAFSkelbimaiPrograma.Module.SecurityModule.DLCEmployee _sKUser;
@@ -72,9 +73,9 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
         SetPropertyValue("Year", ref _year, value);
       }
     }
-    [DevExpress.Xpo.SizeAttribute(500)]
-   // [RuleRegularExpression("HyperLinkDemoObject.Url.RuleRegularExpression", DefaultContexts.Save, @"(((http|https|ftp)\://)?[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*)|([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})")]
+    // [RuleRegularExpression("HyperLinkDemoObject.Url.RuleRegularExpression", DefaultContexts.Save, @"(((http|https|ftp)\://)?[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*)|([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})")]
     //[EditorAlias("HyperLinkPropertyEditor")]
+    [DevExpress.Xpo.SizeAttribute(500)]
     public System.String Link
     {
       get
@@ -175,6 +176,17 @@ namespace XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects
       set
       {
         SetPropertyValue("Image", ref _image, value);
+      }
+    }
+    public System.Boolean PlayedSound
+    {
+      get
+      {
+        return _playedSound;
+      }
+      set
+      {
+        SetPropertyValue("PlayedSound", ref _playedSound, value);
       }
     }
   }

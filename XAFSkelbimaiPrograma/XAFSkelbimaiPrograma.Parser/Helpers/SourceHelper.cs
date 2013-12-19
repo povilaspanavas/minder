@@ -66,11 +66,20 @@ namespace XAFSkelbimaiPrograma.Parser.Helpers
 
         public Image GetImage(string link)
         {
-            WebClient wc = new WebClient();
-            byte[] bytes = wc.DownloadData(link);
-            MemoryStream ms = new MemoryStream(bytes);
-            Image img = Image.FromStream(ms);
-            return img;
+            try
+            {
+                WebClient wc = new WebClient();
+                byte[] bytes = wc.DownloadData(link);
+                MemoryStream ms = new MemoryStream(bytes);
+                Image img = Image.FromStream(ms);
+                return img;
+            }
+            catch (Exception e)
+            {
+                new LogDBHelper().Log(e, null, LogType.ParserError);
+                return null;
+            }
+           
         }
 
         //Privates ------------------------------------------------------

@@ -14,6 +14,8 @@ using DevExpress.Persistent.Validation;
 using DevExpress.ExpressApp.SystemModule;
 using DevExpress.ExpressApp.Model.NodeGenerators;
 using XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects;
+using DevExpress.Utils.OAuth.Provider;
+using DevExpress.ExpressApp.Web;
 
 namespace XAFSkelbimaiPrograma.Module.Controllers
 {
@@ -45,6 +47,8 @@ namespace XAFSkelbimaiPrograma.Module.Controllers
                        {
 
                        }));
+            if (count > 0 && this.TargetViewId.Equals("SKAdvertNew_ListView"))
+                WebApplication.Redirect("#ShortcutViewID=SKAdvertNew_ListView&ShortcutObjectClassName=XAFSkelbimaiPrograma.Module.BusinessObjects.ORMDataModelCode.Objects.SKAdvert&PlayBeep=true");
         }
         protected override void OnViewControlsCreated()
         {
