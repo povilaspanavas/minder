@@ -35,9 +35,16 @@
     function PlayBeep() {
         document.getElementById('beep').play();
     }
+
+    function RedirectToLink(newLink) {
+        window.location.replace(newLink);
+    }
 	
-	if (document.URL.indexOf("PlayBeep=true") >= 0)
-		PlayBeep();
+    if (document.URL.indexOf("PlayBeep=true") >= 0) {
+        PlayBeep();
+        var newLink = document.URL.replace("?PlayBeep=true", "");
+        var timeout = setTimeout("RedirectToLink(newLink);", 100);
+    }
 </script>
 <!--<embed src="beep.wav" autostart=true width=0 height=0 name="sound1" enablejavascript="true"> -->
 </body>
