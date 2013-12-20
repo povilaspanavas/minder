@@ -25,7 +25,7 @@ namespace XAFSkelbimaiPrograma.RuleExecutor.Rules
                 if (licence.Blocked)
                     continue;
 
-                if (licence.DateFrom > DateTime.Now || licence.DateTo < DateTime.Now)
+                if (licence.DateFrom > DateTime.Now || licence.DateTo < DateTime.Now.AddDays(1)) //Imtinai, +1 diena
                 {
                     licence.Blocked = true;
                     licence.Save();
