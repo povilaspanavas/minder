@@ -18,7 +18,7 @@ namespace XAFSkelbimaiPrograma.Parser
         static void Main(string[] args)
         {
             StaticVars.StartDate = DateTime.Now;
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 25; i++) //Iteracijos
             {
                 ConsoleHelper.WriteLineWithTime("Starting parse service...");
                 DateTime startTime = DateTime.Now;
@@ -28,7 +28,7 @@ namespace XAFSkelbimaiPrograma.Parser
                 TimeSpan span = endTime - startTime;
 
                 ConsoleHelper.WriteLineWithTime(string.Format("Parse service end work in {0} seconds", span.TotalSeconds));
-                Thread.Sleep(5 * 1000);
+                //Thread.Sleep(5 * 1000);
             }
         }
 

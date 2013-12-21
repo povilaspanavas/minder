@@ -87,6 +87,7 @@
     <Compile Include="Helpers\ConsoleHelper.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\LogDBHelper.cs" />
+    <Compile Include="Helpers\ParserStaticData.cs" />
     <Compile Include="Helpers\SaveHelper.cs" />
     <Compile Include="Helpers\SourceHelper.cs" />
     <Compile Include="Helpers\UserParseInfoDto.cs" />

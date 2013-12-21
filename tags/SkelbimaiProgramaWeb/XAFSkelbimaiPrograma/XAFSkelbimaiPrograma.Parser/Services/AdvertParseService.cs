@@ -31,6 +31,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
             {
                 using (m_session = new Session { ConnectionString = StaticData.CONNECTION_STRING })
                 {
+                    UnReserveAllSettings();
                     LoadSettingsCollection();
                     StartParsing();
                 }
@@ -48,6 +49,30 @@ namespace XAFSkelbimaiPrograma.Parser.Services
         {
             string[] lines = File.ReadAllLines("LinkLoadLimit.txt");
             return Convert.ToInt32(lines[0]);
+        }
+
+        private void UnReserveAllSettings()
+        {
+            if (ParserStaticData.ExecutedUnreserve) //One time in process
+                return;
+
+            string query = "update \"SKUserSearchSettings\" a set a.\"Reserved\" = null";
+            bool notExecuted = true;
+            while (notExecuted)
+            {
+                try
+                {
+                    m_session.ExecuteNonQuery(query);
+                    notExecuted = false;
+                }
+                catch
+                {
+                    //Dead lock
+                    ConsoleHelper.WriteLineWithTime("Deadlok in unreserve links!");
+                    Thread.Sleep(500);
+                }
+            }
+            ParserStaticData.ExecutedUnreserve = true;
         }
 
         private void LoadSettingsCollection()
@@ -130,7 +155,7 @@ namespace XAFSkelbimaiPrograma.Parser.Services
                    Console.ForegroundColor = ConsoleColor.Red;
                    Console.WriteLine(e);
                    Console.ResetColor();
-                   
+
                }
 
            }
