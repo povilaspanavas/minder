@@ -1,0 +1,2 @@
+You can read about this program in Lithuanian language here:
+http://povilas.panavas.lt/blogas/2013/07/11/musu-sukurta-priminimu-programele-minder/

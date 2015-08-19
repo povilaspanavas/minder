@@ -1,0 +1,16 @@
+### Examples when to use Minder ###
+  * Call Jack again 10m
+  * Make a break 1h
+  * Teapot must be boiled 5min.
+  * Check mail for Annie's important letter 2012.08.10 09:00
+  * Remind Susan about meeting 5h.
+
+### Supported time and date formats ###
+Below are examples from Lithuanian date formatting. Other languages just use their default time and date parsing. For example English (US) instead of 2011.12.01 accepts 12/1/2011 and so on.
+  * "Remind me 2011.12.01 10:15"
+  * "Remind me 12.06 19:20"
+  * "Remind me 08:08|8:08|8:8" means remind be about this at 08:08.
+  * "Remind me|15", "Remind me 15min|min.|m.|m" means remind me about task after 15 minutes.
+  * "Remind me 15val.|val.|v.|v|h.|h" means remind me about task after 15 hours.
+  * "Remind me tomorrow 9:25" means to remind me about task next day at 9:25.
+  * In formats like h, min. you can use comma. For example "Remind me 1,5h" means remind me about this after 1 hour 30 minutes.
