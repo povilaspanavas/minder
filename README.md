@@ -14,6 +14,6 @@ Windows 8 x64
 
 ".NET 4" and "Microsoft Visual C++ 2010 Redistributable Package (x86)" is needed
 
-**Screenshots: http://code.google.com/p/minder/wiki/Screenshots?ts=1381689491&updated=Screenshots**
+**Screenshots: https://github.com/povilaspanavas/minder/blob/wiki/Screenshots.md**
 
 Automatically exported from code.google.com/p/minder
